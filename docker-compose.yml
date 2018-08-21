@@ -1,0 +1,11 @@
+version: '2'
+
+services:
+  webserver:
+    build: ./docker/webserver
+    image: testdockerphp
+    ports:
+      - "80:80"
+      - "443:443"
+    volumes:
+      - ./www:/var/www/html
