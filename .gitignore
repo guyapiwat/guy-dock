@@ -1,3 +1,14 @@
 .idea/
 www/vendor
 *.lock
+www/public/l/logs/
+www/public/logs/
+www/public/nuget/
+www/public/upload/uploads/
+www/public/upload/file_img/
+www/public/uploads/
+www/public/member/uploads/
+www/public/member/pay_images_temp/
+www/public/branch/ExportXls/
+www/public/backoffice/ExportXls/
+www/public/backoffice/news/MyResize
