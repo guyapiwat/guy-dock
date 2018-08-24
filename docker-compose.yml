@@ -5,7 +5,6 @@ services:
     build: ./docker/webserver
     image: testdockerphp
     ports:
-      - "80:80"
-      - "443:443"
+      - "8081:80"
     volumes:
       - ./www:/var/www/html
