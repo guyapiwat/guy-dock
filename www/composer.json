@@ -1,0 +1,10 @@
+{
+  "require": {
+    "symfony/yaml": "2.*",
+    "propel/propel": "~2.0@dev"
+  },
+  "autoload": {
+    "psr-0": {"": "src/"},
+    "classmap": ["propelTest/"]
+}
+}

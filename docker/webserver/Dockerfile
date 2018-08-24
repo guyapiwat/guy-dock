@@ -7,6 +7,5 @@ RUN docker-php-ext-enable xdebug
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/php.ini \
     && echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/php.ini
 RUN echo 'xdebug.remote_connect_back=1' >> /usr/local/etc/php/php.ini
-RUN echo 'xdebug.remote_host =184.22.122.133' >> /usr/local/etc/php/php.ini
 RUN a2enmod rewrite
 RUN service apache2 restart
