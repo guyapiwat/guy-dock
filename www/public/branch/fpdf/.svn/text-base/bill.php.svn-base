@@ -1,0 +1,232 @@
+<?include("connectmysql.php");?>
+<?
+$sql1="select * from usaaba_asaleh where SANO='6107'";
+		$result1=mysql_query($sql1);
+		if (mysql_num_rows($result1) > '0') {
+			$row1= mysql_fetch_array($result1, MYSQL_ASSOC);
+			$sano1=$row1["SANO"];
+			$sadate1=$row1["SADATE"];
+			$inv_code1=$row1["INV_CODE"];
+			$mcode1=$row1["MCODE"];
+			$total1=$row1["TOTAL"];
+			$tot_pv1=$row1["TOT_PV"];
+			$tot_bv1=$row1["TOT_BV"];
+			$tax=$total1*0.07;
+			$tax=number_format($tax,2,".",",");
+			//$total1=$total1-$tax;
+		}
+		mysql_free_result($result1);
+		$sql="select * from usaaba_member where MCODE='0018791' ";
+		$result=mysql_query($sql);
+		if (mysql_num_rows($result) > '0') {
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
+			$mcode=$row["MCODE"];
+			$name_t=$row["NAME_T"];
+			$address1=$row["ADDRESS1"];
+			$address2=$row["ADDRESS2"];
+			$province=$row["PROVINCE"];
+			$zip=$row["ZIP"];
+		}
+		mysql_free_result($result);
+		$sql2="select * from usaaba_product order by PCODE ";
+		$result2=mysql_query($sql2);
+			for ($i=1;$i<=mysql_num_rows($result2);$i++){
+				$row2 = mysql_fetch_array($result2, MYSQL_ASSOC);
+				$pcode[$i]=$row2["PCODE"];
+				$pdesc[$i]=$row2["PDESC"];
+				$price[$i]=$row2["PRICE"];
+				$pv[$i]=$row2["PV"];
+				$bv[$i]=$row2["BV"];
+				$result3=mysql_query("select * from usaaba_asaled where SANO='6107' and PCODE='".$pcode[$i]."' ");
+				$tmpqty=0;
+				if (mysql_num_rows($result3)>0){
+					$row3 = mysql_fetch_array($result3, MYSQL_ASSOC);
+					$tmpqty=$row3["QTY"];
+				}
+				mysql_free_result($result3);
+				$qty[$i]=$tmpqty;
+			}
+			$max_prd = mysql_num_rows($result2);
+			mysql_free_result($result2);
+
+?>
+<?
+define('FPDF_FONTPATH','./font/'); 
+require('fpdf.php'); 
+//require('table1.php');
+//$pdf=new FPDF('P','mm','A4');
+//$pdf=new FPDF('P','mm','Letter');
+$pgsize=array(230,140);
+$pdf=new FPDF('P','mm',$pgsize);
+$pdf->AddPage(); 
+$pdf->SetTopMargin(0); 
+$pdf->SetRightMargin(0); 
+
+$pdf->AddFont('angsa','','angsa.php'); 
+$pdf->AddFont('tahoma','','tahoma.php'); 
+
+//$pdf->image("sale_form.jpg",0,0,230);
+
+$offsetx=0;
+$offsety=0;
+
+//Horizontal Rulers
+$vy= 5;
+$pdf->SetFont('tahoma','',8); 
+$pdf->Line(0, $vy, 230, $vy);
+for ($i=0;$i<24;$i++){
+	$pdf->Line($i*10, $vy, $i*10, $vy+3);
+	$pdf->Line($i*10+5, $vy, $i*10+5, $vy+1);
+	if ($i<>'0'){
+		$pdf->SetY($vy+3);
+		$pdf->SetX($i*10);
+		$pdf->Cell(10,10,$i); 
+	}
+}
+
+
+// Vertical Ruller
+$hx=5;
+$pdf->SetFont('tahoma','',8); 
+$pdf->Line($hx, 0, $hx, 140);
+for ($i=0;$i<11;$i++){
+	$pdf->Line($hx,$i*10, $hx+3,$i*10);
+	$pdf->Line($hx,$i*10+5, $hx+1,$i*10+5);
+	if ($i<>'0'){
+		$pdf->SetY($i*10-5);
+		$pdf->SetX($hx+3);
+		$pdf->Cell(10,10,$i); 
+	}
+}
+
+$pdf->SetFont('tahoma','',8); 
+
+$pdf->SetY($offsety+19);
+$pdf->SetX($offsetx+30);
+$pdf->Cell(40,10,"$name_t",0,"L"); 
+
+$pdf->SetY($offsety+19);
+$pdf->SetX($offsetx+130);
+$pdf->Cell(40,10,"$mcode",0,"L"); 
+
+$pdf->SetY($offsety+19);
+$pdf->SetX($offsetx+175);
+$pdf->Cell(40,10,"$sano1",0,"L"); 
+
+$pdf->SetY($offsety+24);
+$pdf->SetX($offsetx+30);
+$pdf->Cell(40,10,"$address1 $address2 $province   $zip",0,"L"); 
+
+$pdf->SetY($offsety+24);
+$pdf->SetX($offsetx+175);
+$pdf->Cell(40,10,"$sadate1",0,"L"); 
+
+
+$ls=5;
+for ($i=0;$i<8;$i++) {
+	$msg=$i+1;
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+10);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg=$pcode[$i];
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+35);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	$msg=$pv[$i];
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+113);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg=$price[$i];
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+140);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg=$qty[$i];
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+157);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg=number_format($qty[$i]*$price[$i],2,".",",");
+	$pdf->SetY($offsety+42+($i*$ls));
+	$pdf->SetX($offsetx+190);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+}
+
+	$suby=87;
+
+	//เงินสด
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+38);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	//เงินสด
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+50);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	//คูปอง
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+67);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	//คูปอง
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+78);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	//บัตรเครดิต
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+93);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	$msg="";
+	$pdf->SetY($offsety+$suby+1);
+	$pdf->SetX($offsetx+113);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg="รวม";
+	$pdf->SetY($offsety+$suby);
+	$pdf->SetX($offsetx+180);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	$msg=$total1;
+	$pdf->SetY($offsety+$suby);
+	$pdf->SetX($offsetx+190);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg="VAT";
+	$pdf->SetY($offsety+$suby+(4));
+	$pdf->SetX($offsetx+180);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+
+	$msg=$tax;
+	$pdf->SetY($offsety+$suby+(4));
+	$pdf->SetX($offsetx+190);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	$msg="รวมทั้งสิ้น";
+	$pdf->SetY($offsety+$suby+(2*4));
+	$pdf->SetX($offsetx+180);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+	
+	$msg=number_format($total1-$tax,2,".",",");
+	$pdf->SetY($offsety+$suby+(2*4));
+	$pdf->SetX($offsetx+190);
+	$pdf->Cell(20,10,$msg,0,0,"R"); 
+
+	//หมายเหตุ
+	$msg="";
+	$pdf->SetY($offsety+$suby+(2*4));
+	$pdf->SetX($offsetx+40);
+	$pdf->Cell(20,10,$msg,0,0,"L"); 
+	$pdf->Output(); 
+
+?>

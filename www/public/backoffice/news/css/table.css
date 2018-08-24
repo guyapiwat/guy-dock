@@ -1,0 +1,32 @@
+
+
+#box-table-a
+{
+  border: 1px #666 solid;
+  border-collapse: collapse;
+  border-spacing: 0px;
+}
+#box-table-a th
+{
+  border-bottom: 1px #666 solid;
+  font-weight: bold;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+#box-table-a td
+{
+  border-bottom: 1px #aaa dotted;
+  border-left: 1px #aaa dotted;
+  padding-top: 4px;
+  padding-bottom: 4px;
+  padding-left: 8px;
+  padding-right: 4px;
+}
+#box-table-a tr:hover td
+{
+	background: #d0dafd;
+	color: #339;
+}
+

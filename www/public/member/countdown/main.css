@@ -1,0 +1,116 @@
+ 
+
+#countdown_dashboard {
+	height: 110px;
+}
+
+.dash {
+	height: 32px;
+	float: left;
+	margin-left: 21px;
+	position: relative;
+	border: 1px solid #CCC;
+	padding: 1px 3px;
+	border-radius: 5px;
+}
+
+.dash .digit {
+	font-size: 22pt;
+	font-weight: bold;
+	float: left;
+	 
+	text-align: center;
+	font-family: Times;
+	color: #555;
+	position: relative;
+}
+
+.dash_title {
+	position: absolute;
+	display: block;
+	bottom: 0px;
+	right: -35px;
+	font-size: 12pt;
+	color: #888;
+	text-transform: uppercase;
+	letter-spacing: 2px;
+	top: 41px;
+	width: 97px;
+}
+
+.dev_comment {
+	font-size: 10pt;
+	color: #777;
+	text-align: center;
+	font-style: italic;
+	margin: 20px 8px;
+}
+
+#subscribe_form {
+	position: relative;
+} 
+
+#email_field {
+	font-size: 16pt;
+	padding: 6px 10px;
+	width: 300px;
+}
+
+#subscribe_button {
+	font-size: 14pt;
+	color: #333;
+	padding: 4px 8px;
+}
+
+.copyright {
+	font-size: 9pt;
+	color: #333;
+	margin: 40px 0px;
+}
+
+.faded {
+	color: #999;
+}
+
+.form_message {
+	width: 400px;
+	padding: 10px;
+	margin: 15px auto;
+	display: none;
+}
+
+#error_message {
+	background-color: #ffe;
+	border-left: 5px solid #bb3;
+	border-right: 5px solid #bb3;
+	color: #770;
+}
+
+#info_message {
+	background-color: #f0f9ff;
+	border: 1px solid #eef;
+}
+
+#loading {
+	text-align: center;
+	margin: 10px;
+	display: none;
+	position: absolute;
+	width: 100%;
+	top: 60px;
+}
+.seconds_dash .digit{
+	color:red !important;
+}
+.bblock {
+	border: 1px solid #808080;
+	width: 314px;
+	height: 95px;
+}
+.bblock .ttile {
+	 font-size: 12pt;
+	padding: 3px 3px 7px 3px;
+	margin-bottom: -3px;
+	text-align: center;
+	font-weight: bold;
+}

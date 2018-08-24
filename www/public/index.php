@@ -1,0 +1,8 @@
+<?
+
+?>
+<SCRIPT LANGUAGE="JavaScript">
+			
+	// window.location = "./member" ;
+			window.location = "http://cms.cciofficial.com"
+</SCRIPT>

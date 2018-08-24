@@ -1,0 +1,683 @@
+<script language="javascript">
+function checkround(){
+    if(document.getElementById("ftrcode").value==""){
+        alert("กรุณาใส่รอบการคำนวณ");
+        document.getElementById("ftrcode").focus();
+        return false;
+    }else{
+        var numCheck = document.getElementById("ftrcode").value;
+        var numVal = numCheck.split("-");
+        if(numVal.length>2){
+            alert("กรุณากรอกรูปแบบรอบการคำนวณให้ถูกต้อง");
+            return false;
+        }
+    }
+    document.rform.submit();
+}
+function chknum(key){
+    if((key>=48&&key<=57)||key==45)
+        return true;
+    else
+        return false;
+}
+</script>
+<? include("connectmysql.php");?>
+<? include("prefix.php");?>
+<? include("global.php");?>
+<? require_once ("function.log.inc.php");?>
+<?
+
+set_time_limit( 0);
+ini_set("memory_limit","1024M");
+ob_start();
+//echo 'On Process';
+//exit;
+if(!isset($_REQUEST["ftrcode"])){
+    showdialog();
+}else{ ?>
+<br />
+<table width="95%" border="0" align="center">
+  <tr>
+    <td align="center">
+    <?
+        $ftrcode = $_REQUEST["ftrcode"];
+        if (strpos($ftrcode,"-")===false){
+            //รอบเริ่มต้น == รอบสิ้นสุด
+            $ftrc[0]=$ftrcode;
+            $ftrc[1]=$ftrcode;
+        }else{
+            $ftrc = explode('-',$ftrcode);
+        }
+        if($ftrc[0]>$ftrc[1]){
+            ?><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT><?
+            showdialog();
+            exit;
+        }else{
+        $rof = $ftrc[0];
+        $rot = $ftrc[1];
+
+//================================================================================
+            $sql = "select * from ".$dbprefix."bround where rcode between '".$rof."' and '".$rot."' and calc='1'";
+            $result = mysql_query($sql);
+            for($i=0;$i<mysql_num_rows($result);$i++){
+                $data = mysql_fetch_object($result);
+                ?><font color="#ff0000">รอบ <?=$data->rcode?> คำนวณไปแล้ว <br /></font><?
+            }
+            mysql_free_result($result);
+            if($i>0){
+                ?><font color="#ff0000">ต้องลบการคำนวณคอมมิชชั่น รอบนี้ก่อน จึงจะคำนวณใหม่ได้<br /></font><?
+                showdialog();
+                exit;
+            }        
+$step="1";
+$time_start = getmicrotime();
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR>";
+$text="uid=".$_SESSION["adminuserid"]." action=Unilivel calc rcode=$ftrc[0]-$ftrc[1]";
+writelogfile($text);
+//       1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around
+//           1.1 อ่าน Ro, FSaNo, TSaNo
+//           1.2 สร้างไฟล์ BM+rcode, BC+rcode
+//           1.3 ลบข้อมูล BTOTSALE ในรอบ RO นี้ออกก่อน
+for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
+
+    ///////////////////////////////////////////////////////////////////////
+    //$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
+    //           1.1 อ่าน ro, FSaNo, TSaNo
+    //$step="1.1";
+    //echo "***ro=$ro<BR>";
+    //$bonusperpair = 500;
+    $taxrate     = (5/100);
+    $bonuslv        = 0.08;
+    $topuppv    = 250;
+    $sql="select * from ".$dbprefix."bround where  rcode='".$ro."'  ";
+    $result=mysql_query($sql);
+    if (mysql_num_rows($result)>'0') {
+        $row= mysql_fetch_array($result, MYSQL_ASSOC);
+        $fsano=$row["fsano"];
+        $tsano=$row["tsano"];
+        $tdate=$row["tdate"];
+        $fdate=$row["fdate"];
+		$rcode=$row["rcode"];
+        $rdate=$row["rdate"];
+        $fpdate=$row["fpdate"];
+        $tpdate=$row["tpdate"];
+        $paydate=$row["paydate"];
+        $pmon=explode("-",$row["tdate"]);
+        $pmonth=$pmon[0].$pmon[1];
+        $month=explode("-",$row["tdate"]);
+        $pmonth=$month[0].$month[1];
+        ///////////////////////////////////////////////////////////////////////
+        //คำนวณ แต่ละรอบ $ro
+        echo "<BR><BR>คำนวณโบนัสรอบที่ RO=$ro<BR>";
+        
+		del_cals($dbprefix,$ro,array('fc','fpv','fmbonus')); 
+		del_cals($dbprefix,$ro,array('commission_b'));   
+      
+		fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);
+        get_all_sum_insert($dbprefix,$ro,$fdate,$tdate); 
+		//exit;
+        //fnc_autoship_bonus($dbprefix,$ro,$fdate,$tdate,$fdate,$tdate); 
+        $sql="update ".$dbprefix."bround set calc='1',calc_date='".date("Y-m-d H:i:s")."' where rcode='$ro' ";
+
+        if(mysql_query($sql)){
+            mysql_query("COMMIT");
+        }else{
+            echo "error $sql<BR>";
+        }
+    }
+    //mysql_free_result($result);
+    //$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
+    ///////////////////////////////////////////////////////////////////////
+}
+  
+
+$time_end = getmicrotime();
+$time = $time_end - $time_start;
+echo "<font color=green> สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR></font> ";
+
+    } //end else 
+    ?>
+    </td>
+    </tr>
+</table>
+<br />
+<?
+}//end else
+function showdialog(){
+?>
+<table width="95%"><tr><td><br />
+<form name="rform" method="post" action="./index.php?sessiontab=4&sub=12">
+<table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
+  <tr>
+    <td colspan="2" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">กรอกรอบการคำนวณคอมมิชชั่นรายเดือน (Unilevel) ที่ต้องการคำนวนเช่น 1-12</td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
+    <td width="60%">
+      <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
+  </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr align="center">
+    <td colspan="2"><input type="button" name="Submit" value="คำนวณรายได้" onClick="checkround()"></td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+</td></tr></table>
+<?
+}  
+ 
+function fnc_unilevel_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+    $max_pos = array("B1" => 10,"B2" => 10,"B3" => 10,"B4" => 10);
+    $maxlv=10; 
+     
+    $where = "sadate >= '".$fdate."' and sadate <= '".$tdate."' and  sa_type IN ('Z','B') and cancel=0";
+    $sql = " SELECT mcode,SUM(tot_pv) as tot_pv FROM  ";
+    $sql .= " ( ";
+    $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_asaleh ";
+    $sql .= "    WHERE ".$where." GROUP BY mcode ";
+    $sql .= " UNION ALL ";
+    $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_holdhead ";
+    $sql .= "    WHERE ".$where." GROUP BY mcode ";
+    $sql .= " ) as tb ";
+    $sql .= " GROUP BY mcode ";  
+    $rs = mysql_query($sql);
+    $num =  mysql_num_rows($rs);
+    $arr = array(); 
+  
+    if(mysql_num_rows($rs) > 0)
+    {
+        for($i=0;$i<$num;$i++)
+        {
+            $row = mysql_fetch_object($rs);
+            $mcode = $row->mcode;
+            $tot_pv = $row->tot_pv;     
+            if($tot_pv > 0)
+            {
+               $arr = array(
+                        "rcode"        => $ro,
+                        "mcode"        => $mcode,
+                        "total_pv"    => $tot_pv
+                );            
+                insert('ali_mpv',$arr);    
+            }
+        }
+    }
+    
+    $sql="SELECT mcode,sp_code,upa_code,lr,pos_cur FROM ".$dbprefix."member ORDER BY id DESC";   
+    $rs = mysql_query($sql);
+    for($i=0;$i<mysql_num_rows($rs);$i++){
+        $sqlObj = mysql_fetch_object($rs);
+        $data[$sqlObj->mcode]['mcode']= $sqlObj->mcode;
+        $data[$sqlObj->mcode]['upa_code']= $sqlObj->upa_code;
+        $data[$sqlObj->mcode]['sp_code']= $sqlObj->sp_code;
+        $dataxx =  get_detail_meber($sqlObj->mcode,$tdate);
+        $status =  check_status($sqlObj->mcode,$dataxx['pos_cur'],$tdate);  
+        $data[$sqlObj->mcode]['status']= $status['status'];
+        $data[$sqlObj->mcode]['pos_cur']= $dataxx['pos_cur'];
+        $data[$sqlObj->mcode]['lr']= $sqlObj->lr;                               
+        $data[$sqlObj->mcode][1] = array('member' => 0); 
+        $data[$sqlObj->mcode][2] = array('member' => 0); 
+    }
+  
+  
+    $sql="select rcode,mcode,total_pv from ".$dbprefix."mpv where rcode = '$ro' ";  
+    $rs = mysql_query($sql);
+    for($i=0;$i<mysql_num_rows($rs);$i++){
+        $sqlObj        = mysql_fetch_object($rs);
+        $apv_rcode     = $sqlObj->rcode;
+        $apv_mcode     = $sqlObj->mcode; 
+        $apv_total_pv  = $sqlObj->total_pv;  /// 10% 
+        $bonus  = 0.10;  /// 10% 
+        $apv_total  = $apv_total_pv*$bonus;  /// 10% 
+        $path = get_part_upa($data[$apv_mcode],$data);
+        $glv = 1;
+        $level = 1;
+
+           foreach($path as $sp_code => $val){  
+               if($glv <= $maxlv){        
+                   if($glv <= $max_pos[$data[$sp_code]['pos_cur']] and $data[$sp_code]['status'] == 1 ){
+                      $flg = 1;  
+                   }else{
+                      $flg = 0;   
+                   }  
+               }
+                   
+                if($flg == '1') {  
+					//echo $apv_mcode.' : '.$sp_code.' : '.$level.' : '.$glv.'<br>';
+                    $insert = array(
+                                "rcode"        => $ro,
+                                "mcode"        => $apv_mcode,
+                                "upa_code"     => $sp_code,
+                                "pv"           => $apv_total_pv,
+                                "level"        => $glv,
+                                //"gen"          => $val['level'],  
+								"gen"          => $level,  
+                                "percer"       => $bonus,                     
+                                "total"        => $apv_total,
+                                "fdate"        => $fdate,    
+                                "tdate"        => $tdate,    
+                                "pos_cur"      => $data[$sp_code]['pos_cur'],
+                      ); 
+					//var_dump($insert);
+					//echo 's';
+                    insert('ali_mc',$insert);
+                    $glv=($glv+1); 
+                }$level++; 
+           }  
+          
+    }
+    $sql = " insert into ".$dbprefix."mmbonus  (rcode, mcode, total,tot_pv,tax,bonus,fdate,tdate,pos_cur) ";
+    $sql .= "    select '$ro', upa_code,sum(total) as totalpv,sum(pv) as pvpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."mc WHERE  rcode='$ro' and upa_code<>'' and pos_cur <> 'TN' group by upa_code ";
+    if (! mysql_query($sql)) {
+        echo "<font color='#FF0000'>error</font><br>";
+        echo  "$sql<br>";
+        echo  die(mysql_error());
+        exit;
+    }
+} 
+function auto_ship($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){   
+    
+	 $months=explode('-',$tdate);
+	 $month=$months[0].'-'.$months[1];
+    
+     $sql2  = " SELECT SUM(c.total) as eatoship ,m.name_t,m.pos_cur,c.mcode ";
+     $sql2 .= " FROM ali_eatoship c "; 
+     $sql2 .= " LEFT JOIN ali_member m ON(c.mcode=m.mcode)";
+     $sql2 .= " WHERE c.cancel='0' and c.sadate LIKE  '%".$month."%'";
+     $sql2 .= " GROUP BY c.mcode";
+     
+    $rs12 = mysql_query($sql2);
+    if(mysql_num_rows($rs12) > 0){ 
+        for($j=0;$j<mysql_num_rows($rs12);$j++){
+           $sqlObj = mysql_fetch_object($rs12);
+           $mcode =$sqlObj->mcode;        
+           $eatoship =$sqlObj->eatoship;  
+		   $name_t =$sqlObj->name_t;    
+		   $pos_cur =$sqlObj->pos_cur;    
+		   $tot_pv=500;
+         
+			if($eatoship >= 1500){
+			   func_status($dbprefix,$mcode,$tot_pv,$tdate,$pos_cur,'Z');
+			   open_bill($dbprefix,$ro,$mcode,$tdate,$name_t,$eatoship,'V');
+               fnc_insert_ewallet('voucher',$ro,$mcode,$eatoship,$tdate);
+			}else{ 			
+			   fnc_insert_ewallet('voucher',$ro,$mcode,$eatoship,$tdate);
+			}
+		}   
+	}
+}
+
+function fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+	//???????????????????? 
+
+	$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";//Mobile
+	$sql .= "	select '$ro', ref, SUM(tot_pv) AS total_pv,'S' from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type <> 'H' and tot_pv>0 and ref != '' and cancel=0  group by ref ";
+	//echo $sql.'<br>';
+	//exit;
+	mysql_query($sql) or die(mysql_error());
+
+	$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";// Mobile or Invent
+	$sql .= "	select '$ro', ref, SUM(tot_pv) AS total_pv,'E' from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate'   and cancel=0 and tot_pv>0 and ref != ''   group by ref ";
+	mysql_query($sql) or die(mysql_error());
+
+	/*$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";// Invent Sell Mobile
+	$sql .= "	select '$ro', inv_ref, SUM(tot_pv) AS total_pv,'I' from ".$dbprefix."esaleh WHERE sadate>='$fdate' AND sadate<='$tdate' and status = 1   and cancel=0  group by inv_ref ";	
+	mysql_query($sql) or die(mysql_error());   */
+	//exit;
+	$sql 	= "SELECT mcode,sum(total_pv) as pv FROM ".$dbprefix."fpv ";
+	$sql .= "WHERE rcode='$ro' group by mcode";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$nmcode= $sqlObj->mcode;
+		$ntot_pv= $sqlObj->pv;
+			//??????????????????????????????????
+			$sp_code="";
+			//$exp_per = array('2'=>0.05,'12'=>0.70,'1'=>0.12);
+			//$arr_per = array('1'=>0.10,'2'=>0.06,'3'=>0.08);
+			$arr_per = array('1'=>0.06,'2'=>0.10,'3'=>0.15,'0'=>0.0);
+			$sql1 = "SELECT mcode,mtype1,name_t from ".$dbprefix."member WHERE mcode='$nmcode' and mtype1 != 0 ";
+			//echo  "$sql1<br>";
+			$rs1=mysql_query($sql1);
+			if (mysql_num_rows($rs1)>0) {
+				$sqlObj1 = mysql_fetch_object($rs1);
+				$inv_code = $sqlObj1->mcode;
+				$inv_name_t = $sqlObj1->name_t;
+				$inv_type= $sqlObj1->mtype1;
+
+				$sql1 = "select mcode,name_t, tot_pv AS total_bv from ".$dbprefix."asaleh WHERE  sadate>='$fdate' AND sadate<='$tdate' AND ref = '$inv_code' and sa_type <> 'H'  and cancel=0  and tot_pv > 0   ";
+				//echo $sql1.'<br>';
+				$rs1=mysql_query($sql1);
+				for($ok=0;$ok<mysql_num_rows($rs1);$ok++){
+					$sqlObj1 = mysql_fetch_object($rs1);
+					$total_bv1= $sqlObj1->total_bv;
+					$total_mcode= $sqlObj1->mcode;
+					$total_name_t= $sqlObj1->name_t;
+					$per = $arr_per[$inv_type];
+					if($total_bv1>0){
+						$ntot_pv = $total_bv1;
+						$total=($ntot_pv*($per));
+						$tax=($total*0.05);
+						$totalamt=($total-$tax);
+						$sql="";
+						$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,name_t,upa_code,upa_name,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$total_mcode','$total_name_t','".$inv_code."','".$inv_name_t."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','A') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+					}
+				}
+				
+				
+				$sql3 = "select mcode,name_t, tot_pv AS total_bv from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate' and ref = '$inv_code'  and cancel=0  and tot_pv > 0 ";
+				$rs1=mysql_query($sql3);
+				for($ok=0;$ok<mysql_num_rows($rs1);$ok++){
+					$sqlObj1 = mysql_fetch_object($rs1);
+					$total_bv1= $sqlObj1->total_bv;
+					$total_mcode= $sqlObj1->mcode;
+					$total_name_t= $sqlObj1->name_t;
+					$per = $arr_per[$inv_type];
+					if($total_bv1>0){
+						$ntot_pv = $total_bv1;
+						$total=($ntot_pv*($per));
+						$tax=($total*0.05);
+						$totalamt=($total-$tax);
+						$sql="";
+						$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,name_t,upa_code,upa_name,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$total_mcode','$total_name_t','".$inv_code."','".$inv_name_t."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','H') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+					}
+				}
+			}				
+						
+				//}
+	}
+		$sql = " insert into ".$dbprefix."fmbonus  (rcode, mcode,name_t, total,tax,bonus,fdate,tdate,pos_cur) ";
+		$sql .= "	select '$ro', upa_code,upa_name,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."fc WHERE  rcode='$ro' and upa_code<>'' group by upa_code ";
+		if (! mysql_query($sql)) {
+			echo "<font color='#FF0000'>error</font><br>";
+			echo  "$sql<br>";
+			echo  die(mysql_error());
+			exit;
+		}
+}
+
+function fnc_insert_ewallet($table,$ro,$mcode,$allplan,$sadate){
+    $dbprefix = 'ali_';
+    if($allplan > 0)
+    { 
+        $sql = "SELECT MAX(id) AS id ,MAX(sano) as sano FROM ".$dbprefix.$table." ";
+        $rs = mysql_query($sql);
+        $mid = mysql_result($rs,0,'id')+1;
+        $sano = gencodesale_ewallet('CI',$table);
+        mysql_free_result($rs);
+        $sanoewallet = $sano;
+
+        $insert = array(                    
+            "rcode"                => $ro,                  
+            "sano"                 => $sano,
+            "sadate"               => $sadate,
+            "mcode"                => $mcode,
+            "sa_type"              => 'CI',   
+            "total"                => $allplan,     
+            "uid"                  => $_SESSION['adminusercode'], 
+            "chkCommission"        => 'on',  
+            "txtMoney"             => $allplan,   
+            "txtCommission"        => $allplan,   
+            "optionCommission"     => 'commission', 
+            "checkportal"          => '9',     
+            "mbase"                => '1',   
+            "echeck"               => 'B'                                                       
+        );
+        insert($dbprefix.$table,$insert); 
+        mysql_query("update ".$dbprefix."member set $table = $table+'".$allplan."' where mcode='".$mcode."' ");  
+        log_ewallet($table,$mcode,$sanoewallet,$allplan,'CI',$sadate,'');   
+        
+        mysql_query("update ".$dbprefix."member set eatoship = eatoship-'".$allplan."' where mcode='".$mcode."' ");  
+        log_ewallet('eatoship',$mcode,$sanoewallet,$allplan,'CO',$sadate,''); 
+    } 
+    
+}
+ 
+function open_bill($dbprefix,$ro,$mcode,$tdate,$name_t,$all_pv,$type){
+	$inv_code = 'BKK01';
+	$sql1 = "SELECT *  FROM ".$dbprefix."product where ATO = '1' ";     
+	    $rs1 = mysql_query($sql1);
+	    if (mysql_num_rows($rs1)>0) {
+		    $pcode  = mysql_result($rs1,0,'pcode');
+		    $price  = mysql_result($rs1,0,'price'); // 2400
+		    $bprice  = mysql_result($rs1,0,'bprice');
+		    $pdesc  = mysql_result($rs1,0,'pdesc');
+		    $pv  = mysql_result($rs1,0,'pv');  
+            
+		    if($all_pv >= $price ){/// open ////  2800
+			    $satype='Z';
+			    $qty = floor($all_pv/$price);//1 
+			    $totalprice = $qty*$price; //2400
+			    $tot_pv = $qty*$pv;
+		    //	$balance = $all_pv - $totalprice;
+                
+			    $sql = "SELECT MAX(id) AS id  FROM ".$dbprefix."asaleh";     
+			    $rs = mysql_query($sql);
+			    if(mysql_num_rows($rs)>0){
+			    $mid = mysql_result($rs,0,'id')+1;
+			    }else{
+			    $mid=1;
+			    }
+			    $sano = gencodesale('Z','asaleh');
+		    
+			    $sql  ="insert into ".$dbprefix."asaleh (id,sano,sadate,mcode,sa_type,inv_code,total,tot_pv,uid,chkInternet,txtInternet,optionInternet,name_t,checkportal,rcode,status,scheck,locationbase) values ";
+			    $sql .= "('$mid','$sano','$tdate' ,'$mcode', 'Z' ,'$inv_code' ,'$totalprice' ,'$tot_pv','".$_SESSION['adminusercode']."','$chkInternet' ,'$txtInternet' ,'$optionInternet' ,'$name_t','1','$ro','$satype','ato','1') ";
+			    //echo $sql;
+			    mysql_query($sql);
+
+			    $sql="insert into ".$dbprefix."asaled (sano,pcode,pdesc,price,bprice,pv,qty,amt,locationbase,sadate) values ('$mid','$pcode','$pdesc','$price','$bprice' ,'$pv','$qty','$totalprice','1','$fdate') ";
+				    //====================LOG===========================
+			    mysql_query($sql);                                                                                         
+	       }
+        }else{
+            echo "<center><font color = 'red'> ไม่มีสินค้า Autoship </center></font> ";
+        }
+}
+ 
+function get_all_sum_insert($dbprefix,$ro,$fdate,$tdate){   
+    
+    $whereclass = " fdate>= '$fdate' and tdate<= '$tdate' and total > 0  ";  
+    $whereclass2 = " AND fdate>= '$fpdate' and tdate<= '$tpdate' ";  
+    $thismonth = explode('-',$fdate);   
+    $set_table  = array('mmbonus','fmbonus');  ///// SET   TABLE 
+     foreach($set_table as $key => $val){ 
+		 echo count($set_table);
+        $num = count($set_table)-1  ; 
+        foreach($set_table as $keyx => $valx){ 
+             if($val == $valx)$sqlz[$key] .= ",sum(total) as $valx ";
+             else $sqlz[$key] .= ",'0' as $valx "; 
+        } 
+        if($key == '0')$sqlx = "( ";
+        $sqlx .= " SELECT mcode ".$sqlz[$key]."  FROM ali_".$val." ";
+        $sqlx .= " WHERE ".$whereclass."  GROUP BY mcode ";
+        if($key != $num )$sqlx .= " UNION ALL "; 
+        else $sqlx .= " ) as tb";
+        $sqlxx .= ",SUM(tb.$val) as $val";
+     }
+     
+    $sql2  = " SELECT tb.mcode,m.pos_cur,m.name_f,m.name_t,m.branch,m.acc_no,m.acc_name,m.cmp,m.cmp2,m.mobile,m.bankcode,m.locationbase".$sqlxx." FROM  ";  
+    $sql2 .= $sqlx;  
+    $sql2 .= " LEFT JOIN ali_member m ON(m.mcode = tb.mcode) ";
+    $sql2 .= " GROUP BY mcode "; 
+    $tranfer=30; // ค่าโอน
+
+    $rs12 = mysql_query($sql2);
+    if(mysql_num_rows($rs12) > 0){ 
+        for($j=0;$j<mysql_num_rows($rs12);$j++){
+            $sqlObj = mysql_fetch_object($rs12);   
+		
+			$total_comsn=$sqlObj->mmbonus+$sqlObj->fmbonus;
+			$tax=$total_comsn*0.05;
+			$total_net=($total_comsn-$tax)-$tranfer;
+            $insert['rcode'] =  $ro;
+            $insert['fdate'] =  $fdate;
+            $insert['tdate'] =  $tdate;
+            $insert['mcode'] =  $sqlObj->mcode;   
+            $insert['unilevel'] =  $sqlObj->mmbonus;  
+            $insert['keysale'] =  $sqlObj->fmbonus;  
+            $insert['total'] =  $total_comsn;  
+            $insert['tax'] =  $tax;  
+            $insert['tranfer'] =  $tranfer;  
+            $insert['total_net'] =  $total_net;  
+           if($insert['total'] > 0)insert('ali_commission_b',$insert); 
+         
+       }
+    }
+  
+}
+
+function return_ewallet($dbprefix,$table,$rcode,$fdate){       
+    
+    $sql = "SELECT txtCommission as totalamt,sano,mcode,sa_type,sadate from ".$dbprefix.$table."  where rcode= '$rcode' and cancel = 0 and txtCommission >0 ";
+
+    $rs = mysql_query($sql);
+    if(@mysql_num_rows($rs) > 0){
+        for($i=0;$i<mysql_num_rows($rs);$i++){
+            $sqlObj = mysql_fetch_object($rs);
+            $plana =$sqlObj->totalamt;
+            $mcode =$sqlObj->mcode;
+            $sadate =$sqlObj->sadate;
+            $sa_type =$sqlObj->sa_type; 
+            $sano =$sqlObj->sano; 
+                              
+            if($sa_type == 'CI' ){//IN
+                $op = '-';
+                $sa_typexx = 'CO';
+            }else if ($sa_type == 'CO' ){//out
+                $op = '+';
+                $sa_typexx = 'CI';
+            }  
+            
+            if($op == ''){
+                echo "function return_ewallet ERROR";
+                die;
+            }
+            
+            $sql2 = ("UPDATE ali_member SET $table = $table $op '$plana' WHERE mcode = '$mcode'"); 
+            //echo $sql2.'<br>';
+
+            if(mysql_query($sql2)){  
+                mysql_query("COMMIT");   
+                log_ewallet($table,$mcode,$sano,$plana,$sa_typexx,$sadate,'recom'); 
+                $update = array( '_option' => 'recom' );
+                update('ali_log_'.$table,$update," sano ='$sano' ");        
+                /////////////////////////////////////
+                $data =  get_detail_meber($mcode,$sadate); 
+                
+                $eatoship = $data['eatoship']+$plana;   
+                $updatexx = array( 'eatoship' => $eatoship );
+                update('ali_member',$updatexx," mcode ='$mcode' "); 
+                
+                
+                log_ewallet('eatoship',$mcode,$sano,$plana,'CI',$sadate,'recom');   
+                $update = array( '_option' => 'recom' );
+                update('ali_log_eatoship',$update," sano ='$sano' ");     
+            }else{
+                echo "error $sql<BR>";
+            }
+            
+        }                 
+    } 
+    $sql_dstatus="delete from ".$dbprefix."status where sdate= '".$fdate."' and rcode  = '$rcode' and satype='ato' ";
+    mysql_query($sql_dstatus);
+    $sql1="update ".$dbprefix."asaleh set cancel ='1' where rcode = '$rcode' and scheck = 'ato'";
+     mysql_query($sql1);
+    $update1 = array( 'cancel' => '1' );
+    update($dbprefix.$table,$update1," sadate ='$fdate' and  txtCommission >0 "); 
+ 
+}
+ 
+function del_cals($dbprefix,$ro,$name=array()) {                    
+    foreach($name as $key => $value):                
+    $sql="delete from ".$dbprefix.$value." where rcode >= '".$ro."'";
+    if($value == 'calc_poschange'  or $value == 'calc_poschange2')$sql.=" and type = '2'";
+    //echo $sql.'<br>';
+    if(mysql_query($sql)){
+        mysql_query("COMMIT");
+    }else{
+        echo "error $sql<BR>";
+    }
+    endforeach;        
+}
+
+
+function getmicrotime() { 
+    list($usec, $sec) = explode(" ", microtime()); 
+    return ((float)$usec + (float)$sec); 
+} 
+ 
+function dateDiff($startDate, $endDate) { 
+    // Parse dates for conversion 
+    $startArry = date_parse($startDate); 
+    $endArry = date_parse($endDate); 
+
+    // Convert dates to Julian Days 
+    $start_date = gregoriantojd($startArry["month"], $startArry["day"], $startArry["year"]); 
+    $end_date = gregoriantojd($endArry["month"], $endArry["day"], $endArry["year"]); 
+
+    // Return difference 
+    return round(($end_date - $start_date), 0); 
+
+} 
+  
+function backmonthpv_b($dbprefix,$mcode,$ro){
+    $sql2 = "select mcode,pvh,status from ".$dbprefix."cmbonus_b WHERE  mcode='$mcode'  order by rcode desc limit 0,1 ";
+    //echo $sql2.'<br>';
+    $rs2=mysql_query($sql2);
+    if (mysql_num_rows($rs2)>0) {
+        $sqlObj2 = mysql_fetch_object($rs2);
+        if($sqlObj2->status == '0')$pv= $sqlObj2->pvh;
+        else $pv=0;
+    }else{
+        $pv = 0;
+    }
+    return $pv;
+}
+
+ function return_pos($dbprefix,$ro,$table,$field){
+       $sql = " select pos_before,mcode from ".$dbprefix.$table." where rcode >= '$ro' and type = '2' order by id desc ";
+       $rs1 = mysql_query($sql);
+        if (mysql_num_rows($rs1)>0) {
+            for($i=0;$i<mysql_num_rows($rs1);$i++){
+                $sqlObj = mysql_fetch_object($rs1);
+                $pos_before =$sqlObj->pos_before;        
+                $mcode_vip =$sqlObj->mcode;    
+                $sql1 = " update ".$dbprefix."member set ".$field." = '$pos_before' where mcode = '$mcode_vip'  ";
+          //  echo  $sql1;
+			   mysql_query($sql1);
+            }    
+        }
+    }
+?>

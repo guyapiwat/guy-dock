@@ -1,0 +1,1 @@
+<iframe src="news/activity.php" width="100%" height="930" scrolling="auto"></iframe>

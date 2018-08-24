@@ -1,0 +1,4384 @@
+<? 
+session_start();
+require("connectmysql.php");
+$dbprefix = 'ali_' ;
+$autocal = $_GET['autocal'];
+
+$sql = "SELECT * FROM ".$dbprefix."around WHERE 1=1 order by rcode desc limit 0,1";
+$rs = mysql_query($sql);
+for($i=0;$i<mysql_num_rows($rs);$i++){
+	$sqlObj = mysql_fetch_object($rs);
+	$rcode =$sqlObj->rcode;	
+	$rcode++;
+	$fpdate =$sqlObj->fpdate;	
+	$tpdate =$sqlObj->tpdate;	
+	$fdate =$sqlObj->fdate;	
+	$fdate =strftime("%Y-%m-%d", strtotime("$fdate +1 day")); 
+	$tdate =$sqlObj->tdate;	
+	$tdate =strftime("%Y-%m-%d", strtotime("$tdate +1 day")); 
+	$split = explode('-',$fdate);
+	if($split["2"] == '01'){
+		$fpdate = strftime("%Y-%m-%d", strtotime("$fpdate +1 month")); 
+		$ffpdate = strftime("%Y-%m-%d", strtotime("$fpdate +1 month")); 
+		$tpdate = strftime("%Y-%m-%d", strtotime("$ffpdate -1 day")); 
+	}
+	$rdate = date("Y-m-d");
+	//if($rdate == $fdate)echo "<script language='JavaScript'>window.location='index.php?sessiontab=4&sub=1'</script>";
+	$calc = "";
+	//echo $fdate.' '.$tdate.' '.$nfdate.' '.$ntdate;
+
+	$sql="select * from ".$dbprefix."around where  calc =''  ";
+	$result=mysql_query($sql);
+	echo  "$sql";	
+		if (mysql_num_rows($result)<=0) {
+		$sql="insert into ".$dbprefix."around (rcode,  rdate, fdate,  tdate,paydate,  calc,remark,fpdate,  tpdate) values ('$rcode' ,'$rdate' ,'$fdate' ,'$tdate' ,'$paydate' ,'$calc' ,'$remark' ,'$fpdate' ,'$tpdate') ";
+		if (! mysql_query($sql)) {
+			echo "<font color='#FF0000'>error</font><br>";
+		//	echo  "$sql";		
+		}else {
+			//logtext(true,$_SESSION['adminuserid'],$sql);
+			mysql_query("COMMIT");
+			ob_end_clean();
+			//include "mem_main.php";
+			//echo "<script language='JavaScript'>window.location='index.php?sessiontab=4&sub=1'</script>";	
+		}
+	}
+
+
+	
+}
+
+
+	$today = date('Y-m-d');
+	$yesterday  = date("Y-m-d",strtotime("-1 days",strtotime($today)));
+//echo $yesterday;
+
+	$sql="select * from ".$dbprefix."around where  calc ='1' order by rcode desc limit 0,1 ";
+	$result=mysql_query($sql);
+	//echo  "$sql";	
+		if (mysql_num_rows($result)>'0') {
+		$row= mysql_fetch_array($result, MYSQL_ASSOC);
+		$rcode=$row["rcode"];
+	}
+	
+	$rcode = $rcode+1;
+	$sql="select * from ".$dbprefix."around where  rcode ='$rcode' order by rcode desc limit 0,1 ";
+	$result=mysql_query($sql);
+//echo  "$sql";	
+		if (mysql_num_rows($result)>'0') {
+		$row= mysql_fetch_array($result, MYSQL_ASSOC);
+		$ro=$row["rcode"];
+		$tdate=$row["tdate"];
+		$fdate=$row["fdate"];
+		$staus = true;
+		}
+		else
+		{
+		$staus = false;
+		}
+
+/*echo   $yesterday .'<br>';
+	echo	$rcode.'<br>';
+	echo	$tdate.'<br>';
+	echo	$autocal.'<br>';
+*/
+?>
+
+
+<? include("connectmysql.php");?>
+<? include("prefix.php");?>
+<? include("global.php");?>
+<? require_once ("function.log.inc.php");?>
+<?
+
+//select * from gug_ad WHERE (rcode_l >=367 and rcode_l <=367) or (rcode_r >=367 and rcode_r <=367) ORDER BY rcode_l,mcode 
+set_time_limit( 0);
+ini_set("memory_limit","1024M");
+ob_start();
+if($staus == true and $tdate<$today and $autocal==1){ ?>
+<br />
+<table width="95%" border="0" align="center">
+  <tr>
+    <td align="center">
+	<?
+		 
+$step="1";
+$time_start = getmicrotime();
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR>";
+//$text="uid=".$_SESSION["adminuserid"]." action=binary calc rcode=$ftrc[0]-$ftrc[1]";
+////writelogfile($text);
+
+ 
+	$maxlv		=15;
+	$taxrate 	= (5/100);
+	$bonuslv1 = 0.50;
+	$bonuslv2 = 0.25;
+	$bonuslv3 = 0.25;
+	$sql="select * from ".$dbprefix."around where  rcode='".$ro."'  ";
+	$result=mysql_query($sql);
+	if (mysql_num_rows($result)>'0') {
+		$row= mysql_fetch_array($result, MYSQL_ASSOC);
+		$fsano=$row["fsano"];
+		$tsano=$row["tsano"];
+		$tdate=$row["tdate"];
+		$fdate=$row["fdate"];
+		$rdate=$row["rdate"];
+		$fpdate=$row["fpdate"];
+		$tpdate=$row["tpdate"];
+		$paydate=$row["paydate"];
+		
+		echo "<BR><BR>คำนวณโบนัสรอบที่ RO=$ro<BR>";
+		//ล้างข้อมูลรอบที่ระบุ
+		$sql="delete from ".$dbprefix."apv where rcode= ".$ro." ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."ac where rcode= ".$ro." ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."calc_poschange where rcode= ".$ro."  and type <> '1'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		
+		$sql="delete from ".$dbprefix."ambonus where rcode= '".$ro."'";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."bm where rcode= ".$ro." ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."bmbonus where rcode= '".$ro."'";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		
+
+		
+
+		$sql="delete from ".$dbprefix."status where rcode= '".$ro."'";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."cnt_spcode where rcode= '".$ro."'";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+			$sql="delete from ".$dbprefix."bmpersonal where rcode= ".$ro." ";
+			if(mysql_query($sql)){
+				mysql_query("COMMIT");
+			}else{
+				echo "error $sql<BR>";
+			}
+     	$sql="delete from ".$dbprefix."upv where rcode= ".$ro." ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="delete from ".$dbprefix."fpv where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."fc where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."fm where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."fmbonus where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."sale_ewallet where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."sale_hold  where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="delete from ".$dbprefix."gmbonus   where rcode>= '$ro'  ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+
+		$sql="update ".$dbprefix."global set statusformat ='close' ";
+	mysql_query($sql);
+	$sql="update ".$dbprefix."around set  total_a = '0',total_h = '0',fast = '0',invent = '0',binary = '0',matching = '0',pool = '0',adjust_binary = '0',adjust_matching = '0',adjust_pool = '0'  where rcode>= '$ro' ";
+	mysql_query($sql);
+		//สิ้นสุดล้างข้อมูลรอบที่ระบ
+		
+		fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);
+		// เรียบร้อย
+
+		//ตรวจสอบการปรับตำแหน่งของสมาชิกทุกคน
+
+		$sqlVIP = " select * from ".$dbprefix."calc_poschange where date_change between '$fdate' and '$tdate' and type = '1' order by id asc ";
+		$rsVIP = mysql_query($sqlVIP) or die(mysql_error());
+		for($i=0;$i<mysql_num_rows($rsVIP);$i++){
+			$sqlObj = mysql_fetch_object($rsVIP);
+			$pos_after =$sqlObj->pos_after;		
+			$mcode_vip =$sqlObj->mcode;	
+			$id_vip =$sqlObj->id;	
+			
+		//	if($btotal_pv >0){
+				$sql = " update ".$dbprefix."member set pos_cur = '$pos_after' where mcode = '$mcode_vip'  ";
+				mysql_query($sql) or die(mysql_error());
+				$sql = " update ".$dbprefix."calc_poschange set rcode = '$ro' where id = '$id_vip'  ";
+				mysql_query($sql) or die(mysql_error());
+		//	}
+	
+		}
+		fnc_calc_set_position($dbprefix,$ro,$p_mcode,$p_name_t,$p_pos_cur,$p_sp_code,$p_lr,$fdate,$tdate);
+
+		//คำนวนส่วนของการค่าแนะนำ
+		fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);
+		// เรียบร้อย
+		
+		//คำนวนส่วนของค่าบริหารทีมขาย
+		fnc_calc_b_bonus($dbprefix,$ro,$b_mcode,$b_name_t,$b_upa_code,$b_pos_cur_b,$b_lr,$b_tot_pv,$b_sum_pv,$b_count,$b_old_quota,$fdate,$tdate,$fpdate,$tpdate);
+		// เหลือ ส่วนของรักษายอดเอามาคิดด้วย
+
+		fnc_calc_matching($dbprefix,$ro,$m_n_mcode,$m_n_name_t,$m_n_upa_code,$m_n_lr,$fdate,$tdate,$fpdate,$tpdate);
+		//fnc_calc_matching2($dbprefix,$ro,$m_n_mcode,$m_n_name_t,$m_n_upa_code,$m_n_lr,$fdate,$tdate,$fpdate,$tpdate);
+		// เรียบร้อย
+		//คำนวนส่วนของแมชชิ่ง
+
+		//calc_pool_bonus($dbprefix,$ro,$tdate,$fdate);
+		//fnc_autoship_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);
+		
+		fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);
+
+		$update_binary = "update ".$dbprefix."bmbonus set adjust = '1' where rcode = '$ro'";
+		$update_matching = "update ".$dbprefix."dmbonus set adjust = '1' where rcode = '$ro'";
+		//$update_pool = "update ".$dbprefix."dmbonus set adjust = '1' where rcode = '$ro'";
+
+		//echo '<br>'.$update_around;
+		mysql_query($update_binary);
+		mysql_query($update_matching);
+		//mysql_query($update_pool);
+		//fnc__position_VP($dbprefix,$ro,$p_mcode,$p_name_t,$p_pos_cur,$p_sp_code,$p_lr,$fdate,$tdate);
+
+		if($autocal==1){ 
+			$times = date("Y-m-d H:i:s");
+			$sql="INSERT INTO  ali_autocals(time,status)VALUES ('$times','1')";
+			mysql_query($sql);
+			//echo $sql;
+		}
+
+		$sql="update ".$dbprefix."around set calc='1' where rcode='$ro' ";
+		if(mysql_query($sql)){
+			mysql_query("COMMIT");
+		}else{
+			echo "error $sql<BR>";
+		}
+		$sql="update ".$dbprefix."global set statusformat ='open' ";
+		mysql_query($sql);
+		///////////////////////////////////////////////////////////////////////
+	}
+	mysql_free_result($result);
+	//$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
+	///////////////////////////////////////////////////////////////////////
+ 
+
+$time_end = getmicrotime();
+$time = $time_end - $time_start;
+echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
+
+	 
+	?>
+	</td>
+	</tr>
+</table>
+<br />
+<?
+}//end else
+function showdialog(){
+?>
+<table width="95%"><tr><td><br />
+<form name="rform" method="post" action="./index.php?sessiontab=4&sub=2">
+<table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
+  <tr>
+    <td colspan="2" align="center">&nbsp;</td>
+  </tr>
+  <tr>
+    <td colspan="2" align="center">กรอกรอบการคำนวณโบนัสที่ต้องการคำนวนเช่น 1-9</td>
+	<tr>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.ตรวจสอบการปรับตำแหน่ง</td>
+	</tr>
+	<tr>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.ตรวจสอบการรักษายอด</td>
+	</tr>
+	<tr>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.คำนวณคอมมิชชั่นผู้แนะนำ</td>
+	<tr>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.คำนวณคอมมิชชั่นบริหารทีมขาย</td>
+	</tr>
+	<tr>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.คำนวณแมชชิ่ง</td>
+	</tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
+    <td width="60%">
+      <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
+  </tr>
+  <tr align="center">
+    <td colspan="2">&nbsp;&nbsp;<input type="button" name="Submit" value="คำนวณรายได้" onClick="checkround()"></td>
+    </tr>
+  <tr>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+  </tr>
+</table>
+</form>
+</td></tr></table>
+<?
+}
+
+function fnc_calc_matching($dbprefix,$ro,$n_mcode,$n_name_t,$n_upa_code,$n_lr,$fdate,$tdate,$fpdate,$tpdate){
+//อ่านข้อมูลรายได้จาก bmbonus
+$month=explode("-",$fdate);
+//var_dump($n_mcode);
+//exit;
+//$sql = " insert into ".$dbprefix."dpv  (rcode, mcode,total_pv) ";
+//$sql .= "	select '$ro', mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE rcode='$ro' group by mcode ";
+//mysql_query($sql) or die(mysql_error());
+	$sql="select mcode, total_pv_l AS total_pvl,total_pv_r AS total_pvr from ".$dbprefix."bmbonus WHERE rcode='$ro' and total_pv_l > 0 and  total > 0 ";
+	$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$bmcode =$sqlObj->mcode;		
+			$btotal_pv1 =$sqlObj->total_pvl;	
+			$btotal_pv2 =$sqlObj->total_pvr;
+			if($btotal_pv1 > $btotal_pv2)$btotal_pv = $btotal_pv2;
+			else $btotal_pv = $btotal_pv1;
+			if($btotal_pv >0){
+				$sql = " insert into ".$dbprefix."dpv  (rcode, mcode,total_pv) VALUES ('$ro','$bmcode','$btotal_pv') ";
+				mysql_query($sql) or die(mysql_error());
+			}
+	}
+	mysql_free_result($rs);
+
+	$maxlv=5;
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+	$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$n_mcode[$i] =$sqlObj->mcode;		
+			$n_name_t[$i] =$sqlObj->name_t;		
+			$n_upa_code[$n_mcode[$i]] = $sqlObj->sp_code;
+			$n_lr[$n_mcode[$i]] = $sqlObj->lr;
+	}
+	mysql_free_result($rs);
+
+	
+		$sql="select * from ".$dbprefix."dpv where rcode = '$ro' "; 
+		//echo "$sql<BR>";
+		//exit;
+		$rs = mysql_query($sql);
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj			= mysql_fetch_object($rs);
+			$apv_rcode		= $sqlObj->rcode;
+			$apv_mcode	= $sqlObj->mcode;
+			$apv_total_pv	= $sqlObj->total_pv;	
+			//echo "dpv : $apv_total_pv = $i<BR> ";
+			for($j=0;$j<sizeof($n_mcode);$j++){
+				if($n_mcode[$j]<>$apv_mcode){
+					//ไม่มี pv
+				}else{
+					$up	= $n_mcode[$j];
+					//echo "มีบิลขาย : $up<BR>";
+					$lv	 	= 0;
+					$glv	=1;
+					//if($j == '5'){echo 'sssssssssss';exit;}
+					while($up <> "" and $up != '0000000'){
+						if($n_upa_code[$up] <>"" and $n_upa_code[$up] != '0000000' && $glv <= $maxlv){
+							$lv	= ($lv+1);
+							$flg=0;
+								
+							switch ($glv) {
+								case 1 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur = 'B' or pos_cur = 'S' or pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 1.00;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 2 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (  pos_cur = 'S' or pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD' )";
+										//echo  "$sql1<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 2 <br>";
+										}
+										
+										
+											
+											$bonus = 0.40;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 3 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD' ) ";
+										//echo  "$sql1<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 3 <br>";
+										}
+										
+										
+											
+											$bonus = 0.20;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 4 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD' ) ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+												$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 4 <br>";
+
+										}
+										
+										
+											$bonus = 0.20;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 5 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD') ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+												$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 4 <br>";
+
+										}
+										
+										
+											$bonus = 0.20;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								default:
+									$flg=0;
+									$bonus = 0;
+									$apv_total =0;
+									break;
+							}
+							//$sql3="select mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE rcode='$ro' and mcode='".$d_mcode."' group by mcode";
+							//$rs3 = mysql_query($sql3);
+							//$m_total_pv = mysql_result($rs3,0,'total_pv');
+
+							$sql2 = "SELECT * from ".$dbprefix."status WHERE mcode='".$d_mcode."' and month_pv='".$month[0].$month[1]."' and status='1' ";
+							//
+							//echo  "$sql2<br>";
+							//exit;
+							$rs2=mysql_query($sql2);
+							if(mysql_num_rows($rs1) > 0 or $d_mcode == '0000001'){
+								if (mysql_num_rows($rs2)>0 and  $flg == 1 ) {
+									$sql = " INSERT INTO ".$dbprefix."dc (rcode, mcode, upa_code,pv,level,gen, percer, total,fdate,tdate,mposi) VALUES ('$ro','".$n_mcode[$j]."','".$n_upa_code[$up]."','".$apv_total_pv."','".$glv."','".$lv."','".$bonus."','".$apv_total."','$fdate','$tdate','$d_pos_cur') ";
+									mysql_query($sql) or die(mysql_error());
+									$glv=($glv+1);
+									//echo "$sql<br>";
+								}
+							}else{
+								//$glv=($glv+1);
+								//mysql_free_result($rs1);
+							}
+							$lv = $lv+1;
+							mysql_free_result($rs2);
+						}
+						$up = $n_upa_code[$up];
+					}
+				}
+			}
+			
+		} 
+		mysql_free_result($rs);
+
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
+		$sql = " insert into ".$dbprefix."dmbonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pos_cur) ";
+		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',mposi from ".$dbprefix."dc WHERE  rcode='$ro' group by upa_code ";
+		mysql_query($sql) or die(mysql_error());
+
+}
+function fnc_calc_matching2($dbprefix,$ro,$n_mcode,$n_name_t,$n_upa_code,$n_lr,$fdate,$tdate,$fpdate,$tpdate){
+//อ่านข้อมูลรายได้จาก bmbonus
+$month=explode("-",$fdate);
+//var_dump($n_mcode);
+//exit;
+//$sql = " insert into ".$dbprefix."dpv  (rcode, mcode,total_pv) ";
+//$sql .= "	select '$ro', mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE rcode='$ro' group by mcode ";
+//mysql_query($sql) or die(mysql_error());
+	$sql="select mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE rcode='$ro' group by mcode";
+	$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$bmcode =$sqlObj->mcode;		
+			$btotal_pv =$sqlObj->total_pv;		
+			if($btotal_pv >0){
+				$sql = " insert into ".$dbprefix."dpv  (rcode, mcode,total_pv) VALUES ('$ro','$bmcode','$btotal_pv') ";
+				mysql_query($sql) or die(mysql_error());
+			}
+	}
+	mysql_free_result($rs);
+
+	$maxlv=5;
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+	$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$n_mcode[$i] =$sqlObj->mcode;		
+			$n_name_t[$i] =$sqlObj->name_t;		
+			$n_upa_code[$n_mcode[$i]] = $sqlObj->up_code;
+			$n_lr[$n_mcode[$i]] = $sqlObj->lr;
+	}
+	mysql_free_result($rs);
+
+	
+		$sql="select * from ".$dbprefix."dpv where rcode = '$ro' "; 
+		//echo "$sql<BR>";
+		//exit;
+		$rs = mysql_query($sql);
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj			= mysql_fetch_object($rs);
+			$apv_rcode		= $sqlObj->rcode;
+			$apv_mcode	= $sqlObj->mcode;
+			$apv_total_pv	= $sqlObj->total_pv;	
+			//echo "dpv : $apv_total_pv = $i<BR> ";
+			for($j=0;$j<sizeof($n_mcode);$j++){
+				if($n_mcode[$j]<>$apv_mcode){
+					//ไม่มี pv
+				}else{
+					$up	= $n_mcode[$j];
+					//echo "มีบิลขาย : $up<BR>";
+					$lv	 	= 0;
+					$glv	=1;
+					//if($j == '5'){echo 'sssssssssss';exit;}
+					while($up <> "" and $up != '0000000'){
+						if($n_upa_code[$up] <>"" and $n_upa_code[$up] != '0000000' && $glv <= $maxlv){
+							$lv	= ($lv+1);
+							$flg=0;
+								
+							switch ($glv) {
+								case 1 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 2 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 3 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 4 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 5 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 6 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 7 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 8 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 9 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 10 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and ( pos_cur <> 'M')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.02;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								default:
+									$flg=0;
+									$bonus = 0;
+									$apv_total =0;
+									break;
+							}
+
+							$sql2 = "SELECT * from ".$dbprefix."status WHERE mcode='".$d_mcode."' and month_pv='".$month[0].$month[1]."' and status='1' ";
+							//
+							//echo  "$sql2<br>";
+							//exit;
+							$rs2=mysql_query($sql2);
+							if(mysql_num_rows($rs1) > 0){
+								if (mysql_num_rows($rs2)>0 and  $flg == 1  ) {
+									$sql = " INSERT INTO ".$dbprefix."dc (rcode, mcode, upa_code,pv,level,gen, percer, total,fdate,tdate,mposi) VALUES ('$ro','".$n_mcode[$j]."','".$n_upa_code[$up]."','".$apv_total_pv."','".$glv."','".$lv."','".$bonus."','".$apv_total."','$fdate','$tdate','$d_pos_cur') ";
+									mysql_query($sql) or die(mysql_error());
+									$glv=($glv+1);
+									//echo "$sql<br>";
+								}
+							}else{
+								//$glv=($glv+1);
+								mysql_free_result($rs1);
+							}
+							$lv = $lv+1;
+							mysql_free_result($rs2);
+						}
+						$up = $n_upa_code[$up];
+					}
+				}
+			}
+			
+		} 
+		mysql_free_result($rs);
+
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
+		$sql = " insert into ".$dbprefix."dmbonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pos_cur) ";
+		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',mposi from ".$dbprefix."dc WHERE  rcode='$ro' group by upa_code ";
+		mysql_query($sql) or die(mysql_error());
+
+}
+
+
+function fnc_calc_b_bonus($dbprefix,$ro,$mcode,$name_t,$upa_code,$pos_cur,$lr,$tot_pv,$sum_pv,$count,$old_quota,$fdate,$tdate,$fpdate,$tpdate){
+
+	$month=explode("-",$fdate);
+	$thismonth = $month[0].$month[1];
+	$pos_quota = array('MB'=>0,'M'=>2000,'B'=>4000,'S'=>8000,'G'=>14000,'P'=>24000,'D'=>35000,'DD'=>35000,'TD'=>35000,'CD'=>35000);
+	$pos_quota_w = array('MB'=>0,'M'=>1333,'B'=>2667,'S'=>5333,'G'=>10000,'P'=>17143,'D'=>25000,'DD'=>25000,'TD'=>25000,'CD'=>25000);
+	$pos_quota_s = array('MB'=>0,'M'=>667,'B'=>1333,'S'=>2667,'G'=>4000,'P'=>6857,'D'=>10000,'DD'=>10000,'TD'=>10000,'CD'=>10000);
+	$max_percentw = array('MB'=>0,'M'=>0.20,'B'=>0.20,'S'=>0.20,'G'=>0.25,'P'=>0.25,'D'=>0.25,'DD'=>0.25,'TD'=>0.25,'CD'=>0.25);
+	$max_percents = array('MB'=>0,'M'=>0.10,'B'=>0.10,'S'=>0.10,'G'=>0.10,'P'=>0.10,'D'=>0.10,'DD'=>0.10,'TD'=>0.10,'CD'=>0.10);
+
+	//$pos_quota1 = array('BM'=>0,'AG'=>10000,'SM'=>25000,'MP'=>45000,'EP'=>45000,'VP'=>45000,'EVP'=>45000,'GVP'=>45000);
+	//$max_per=array(0.05,0.15,0.15);
+	$pair_bonus = 500;
+$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$mcode[$i] =$sqlObj->mcode;		
+		$name_t[$i] =$sqlObj->name_t;		
+		$upa_code[$mcode[$i]] = $sqlObj->upa_code;
+		$lr[$mcode[$i]] = $sqlObj->lr;
+		$pos_cur[$mcode[$i]] = $sqlObj->pos_cur;
+		$mdate[$i] = $sqlObj->mdate;
+		$mdate2[$i] = $sqlObj->mdate;
+		$mem_cntday[$i]=dateDiff($mdate2[$i], $fdate);
+
+		$tot_pv[$mcode[$i]] = 0; 
+		$sum_pv[$mcode[$i]][1] =0;
+		$sum_pv[$mcode[$i]][2] =0;
+		$sum_pv[$mcode[$i]][3] =0;
+		
+		$count[$mcode[$i]][1] =0;
+		$count[$mcode[$i]][2] =0;
+		$count[$mcode[$i]][3] =0;
+
+
+		$old_quota[$mcode[$i]] = 0;
+	}
+	mysql_free_result($rs);
+
+    
+	$sql 	= "SELECT mcode,sum(tot_pv) as tot_pv FROM ".$dbprefix."holdhead ";
+	$sql .= "WHERE sadate>='$fdate' AND sadate<='$tdate' AND (sa_type='A' ) AND cancel=0   group by mcode";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$tot_pv[$sqlObj->mcode] += $sqlObj->tot_pv;
+	}
+	mysql_free_result($rs);
+
+	$sql 	= "SELECT mcode,sum(tot_pv) as tot_pv FROM ".$dbprefix."asaleh ";
+	$sql .= "WHERE sadate>='$fdate' AND sadate<='$tdate' AND (sa_type='A' ) AND cancel=0   group by mcode";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$tot_pv[$sqlObj->mcode] += $sqlObj->tot_pv;
+	}
+	
+	//คำนวน bm ไม่ใช้ในส่วน bmbonus
+	for($i=0;$i<sizeof($mcode);$i++){
+		if($tot_pv[$mcode[$i]] > 0){
+			$up = $mcode[$i];
+			$lev = 0;
+			while($up <> ""){
+				if($upa_code[$up] <>""){
+					$sql = "INSERT INTO ".$dbprefix."bm (rcode,mcode,upa_code,pv,lr,fdate,tdate) VALUES";
+					$sql .= "(".$ro.",'$mcode[$i]','$upa_code[$up]','".$tot_pv[$mcode[$i]]."','$lr[$up]','$fdate','$tdate') ";
+					mysql_query($sql);
+					//echo "จากบิลขาย : $sql <br>";
+				}
+				$up = $upa_code[$up];
+			}
+		}
+	}
+
+	$sql="SELECT * FROM ".$dbprefix."bmbonus WHERE rcode=(SELECT max(rcode) FROM ".$dbprefix."bmbonus WHERE rcode<".$ro.") group by mcode ";
+	//echo " $sql <br>";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$pcarry_l[$sqlObj->mcode] = $sqlObj->carry_l;
+		$pcarry_c[$sqlObj->mcode] = $sqlObj->carry_c;
+		$pcarry_r[$sqlObj->mcode] = $sqlObj->carry_r;
+		$old_quota[$sqlObj->mcode] = $sqlObj->quota;
+		$pair_stop[$sqlObj->mcode] = $sqlObj->pair_stop;
+		//$aquota[$sqlObj->mcode] = $sqlObj->aquota;
+	}
+	mysql_free_result($rs);
+
+	for($i=0;$i<sizeof($mcode);$i++){
+		$total_pvl=0;
+		$total_pvc=0;
+		$total_pvr=0;
+		
+		//หาคะแนนด้านซ้าย
+			$sql="SELECT sum(pv) as total_pvl from ".$dbprefix."bm WHERE upa_code='".$mcode[$i]."' and lr=1 and rcode='$ro' ";
+			//echo "จาก L : $sql <br>";
+			$rs = mysql_query($sql);
+			if(mysql_num_rows($rs)>0){
+				$sqlObj = mysql_fetch_object($rs);
+				$ntotal_pvl= $sqlObj->total_pvl;
+			}
+			mysql_free_result($rs);
+			//หาคะแนนด้านกลาง
+			$sql="SELECT sum(pv) as total_pvc from ".$dbprefix."bm WHERE upa_code='".$mcode[$i]."' and lr=2 and rcode='$ro'";
+			//echo "จาก C : $sql <br>";
+			$rs = mysql_query($sql);
+			if(mysql_num_rows($rs)>0){
+				$sqlObj = mysql_fetch_object($rs);
+				$ntotal_pvc= $sqlObj->total_pvc;
+			}
+			mysql_free_result($rs);
+			//หาคะแนนด้านขวา
+			$sql="SELECT sum(pv) as total_pvr from ".$dbprefix."bm WHERE upa_code='".$mcode[$i]."' and lr=3 and rcode='$ro'";
+			//echo "จาก R : $sql <br>";
+			$rs = mysql_query($sql);
+			if(mysql_num_rows($rs)>0){
+				$sqlObj = mysql_fetch_object($rs);
+				$ntotal_pvr= $sqlObj->total_pvr;
+			}
+			mysql_free_result($rs);
+			//ตรวจสอบโควต้าคงเหลือ
+			//$endQuota=$old_quota[$mcode[$i]];
+			//if($endQuota<=0){
+				//$endQuota=$pos_quota[$pos_cur[$mcode[$i]]];
+				//$pair=$pair_stop[$mcode[$i]];
+			//}
+			/*$sql = "SELECT * from ".$dbprefix."status WHERE mcode='".$mcode[$i]."' and month_pv='".$month[0].$month[1]."' and status='1' ";
+			//echo  "$sql<br>";
+			$rs=mysql_query($sql);
+			if (mysql_num_rows($rs) > 0 ) {
+				$total_pvl=($ntotal_pvl+$pcarry_l[$mcode[$i]]);
+				$total_pvc=($ntotal_pvc+$pcarry_c[$mcode[$i]]);
+				$total_pvr=($ntotal_pvr+$pcarry_r[$mcode[$i]]);
+			}else{
+				if($pcarry_l[$mcode[$i]] > $pcarry_c[$mcode[$i]]){
+					$total_pvl=($pcarry_l[$mcode[$i]]);
+					$total_pvc=($ntotal_pvc+$pcarry_c[$mcode[$i]]);
+					$total_pvr=($ntotal_pvr+$pcarry_r[$mcode[$i]]);
+				}else{
+					$total_pvl=($ntotal_pvl+$pcarry_l[$mcode[$i]]);
+					$total_pvc=($pcarry_c[$mcode[$i]]);
+					$total_pvr=($ntotal_pvr+$pcarry_r[$mcode[$i]]);
+				}
+				if($pcarry_l[$mcode[$i]] == $pcarry_c[$mcode[$i]]){
+					$total_pvl=($ntotal_pvl+$pcarry_l[$mcode[$i]]);
+				$total_pvc=($ntotal_pvc+$pcarry_c[$mcode[$i]]);
+				$total_pvr=($ntotal_pvr+$pcarry_r[$mcode[$i]]);			}
+			//	$total_pvl=($pcarry_l[$mcode[$i]]);
+			//	$total_pvc=($pcarry_c[$mcode[$i]]);
+			//	$total_pvr=($pcarry_r[$mcode[$i]]);
+			}*/
+
+
+			$total_pvl=($ntotal_pvl+$pcarry_l[$mcode[$i]]);
+			$total_pvc=($ntotal_pvc+$pcarry_c[$mcode[$i]]);
+			$total_pvr=($ntotal_pvr+$pcarry_r[$mcode[$i]]);
+
+
+			//echo "รหัส ".$mcode[$i]." คะแนนซ้าย $total_pvl กลาง $total_pvc ขวา $total_pvr <br>";
+			
+			//echo "รหัส ".$mcode[$i]." คะแนนซ้าย  $total_pvl  กลาง  $total_pvc ขวา $total_pvr โควต้าคงเหลือ $endQuota ใช้ไป $pair_stop<br>";
+			$three=false;
+			$twolc=false;
+			$twolr=false;
+			$twocr=false;
+			$calcamt=0;
+			$calcamt1 = 0;
+			$calcamt2 = 0;
+			$carry_c=0;
+			$carry_r=0;
+			$carry_l=0;
+			$tax=0;
+			$cut=0;
+			$bonusamt=0;
+
+			$total_min=min($total_pvl,$total_pvc);
+			//if($mcode[$i] == 'H00000002')echo  $mcode[$i].' '.$total_pvl.' '.$total_pvc.' '.$total_min.'<br>';
+			$twolc = true;
+			if($twolc==true){
+				//echo "รหัส ".$mcode[$i]." คะแนนซ้าย  $total_pvl  กลาง  $total_pvc ขวา $total_pvr โควต้าคงเหลือ $endQuota ใช้ไป $pair_stop<br>";
+				$cut_pv = 0;
+				if($total_min >=1000){
+					$cut = floor($total_min/1000);
+					$cut_pv = $cut*1000;
+					$cut_pv = $total_min;
+					//$calcamt=($cut*$pair_bonus);
+					if($cut_pv == $total_pvl){
+						$calcamt1 = $cut_pv*$max_percentw[$pos_cur[$mcode[$i]]];
+						$calcamt2 = $cut_pv*$max_percents[$pos_cur[$mcode[$i]]];
+						if($calcamt1 >= $pos_quota_w[$pos_cur[$mcode[$i]]])$calcamt1 = $pos_quota_w[$pos_cur[$mcode[$i]]];
+						if($calcamt2 >= $pos_quota_s[$pos_cur[$mcode[$i]]])$calcamt2 = $pos_quota_s[$pos_cur[$mcode[$i]]];
+					}else{
+						$calcamt1 = $cut_pv*$max_percents[$pos_cur[$mcode[$i]]];
+						$calcamt2 = $cut_pv*$max_percentw[$pos_cur[$mcode[$i]]];
+						if($calcamt1 >= $pos_quota_s[$pos_cur[$mcode[$i]]])$calcamt1 = $pos_quota_s[$pos_cur[$mcode[$i]]];
+						if($calcamt2 >= $pos_quota_w[$pos_cur[$mcode[$i]]])$calcamt2 = $pos_quota_w[$pos_cur[$mcode[$i]]];
+					}
+					if($calcamt1 > $calcamt2){
+						$calcamt11 = $calcamt2;$calcamt22 = $calcamt1;
+					}
+					else {$calcamt11 = $calcamt1;$calcamt22 = $calcamt2;
+					}
+					$calcamt1 = $calcamt11;$calcamt2 = $calcamt22;
+					$calcamt = $calcamt1+$calcamt2;
+					if($calcamt > $pos_quota[$pos_cur[$mcode[$i]]])$calcamt = $pos_quota[$pos_cur[$mcode[$i]]];
+					$tax=($calcamt*0.05);
+					$bonusamt=($calcamt-$tax);
+					$carry_l = $total_pvl-$cut_pv;
+					$carry_c = $total_pvc-$cut_pv;
+					$endQuota=0;
+					$pair=0;
+				}else{
+					$carry_l = $total_pvl;
+					$carry_c = $total_pvc;
+					$carry_r=0;
+				}
+				if($pos_cur[$mcode[$i]] == 'MB'){
+					$carry_l =0;
+					$carry_c =0;
+					$carry_r=0;
+				}
+			}
+
+
+			$sql1 = "select * from ".$dbprefix."status WHERE month_pv='".$thismonth."' AND mcode='".$mcode[$i]."' ";
+			$rs1=mysql_query($sql1);
+				if (mysql_num_rows($rs1)<=0) {
+				if($pos_cur[$mcode[$i]] == 'M' or $pos_cur[$mcode[$i]] == 'B'){
+					if($carry_l > 300000)$carry_l = 300000;
+					if($carry_c > 300000)$carry_c = 300000;
+					}
+						if($pos_cur[$mcode[$i]] == 'S' or $pos_cur[$mcode[$i]] == 'G'){
+							if($carry_l > 500000)$carry_l = 500000;
+							if($carry_c > 500000)$carry_c = 500000;
+						}
+						if($pos_cur[$mcode[$i]] == 'P' or $pos_cur[$mcode[$i]] == 'D' or $pos_cur[$mcode[$i]] == 'DD'or $pos_cur[$mcode[$i]] == 'TD'or $pos_cur[$mcode[$i]] == 'CD'){
+							if($carry_l > 1000000)$carry_l = 1000000;
+							if($carry_c > 1000000)$carry_c = 1000000;
+						}
+			}
+			
+				if ( $mcode[$i] == '0000001' or $mcode[$i] == '0000002' or  $mcode[$i] == '0000003' or $mcode[$i] == '0000004' or $mcode[$i] == '0000005' or $mcode[$i] == '0000006' or $mcode[$i] == '0000007' ) {
+					$mem_cntday[$i] = 10;
+				}
+			
+			//	echo $mdate[$i]."_____".$mdate2[$i]."_____".$fdate.'<br>';
+			//	echo $mcode[$i]."_____".$mem_cntday[$i].'<br>';
+				if($mem_cntday[$i] > 365 ){				
+				//	echo '111<br>';
+						$cfdate = explode('-',$fdate);
+						$cfdate[0] = $cfdate[0]-1;
+						$cfdate1 = $cfdate[0].'-'.$cfdate[1].'-'.$cfdate[2];
+						$sql = "SELECT SUM(total) as pv from ".$dbprefix."asaleh WHERE mcode='".$mcode[$i]."' and cancel=0 and trnf = 0  and sadate between '$cfdate1' and '$fdate' and ( sa_type='A' or sa_type='Q' or sa_type='B' or sa_type='C') ";
+						$rs = mysql_query($sql);
+						$mexp = 0;
+						if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+						mysql_free_result($rs);
+
+						$sql = "SELECT SUM(total) as pv from ".$dbprefix."holdhead WHERE mcode='".$mcode[$i]."'  and sadate between '$cfdate1' and '$fdate' and ( sa_type='A' or sa_type='Q' or sa_type='B' or sa_type='C') and cancel=0 ";
+						$rs = mysql_query($sql);
+						$mexph = 0;
+						if(mysql_num_rows($rs)>0)$mexph = mysql_result($rs,0,'pv');
+						mysql_free_result($rs);
+						$mexp=($mexp+$mexph);
+							if($mexp < 1000 ){
+						//		echo '222<br>';
+								$carry_l = 0;
+								$carry_c = 0;
+							}
+						}
+												
+			
+
+				$sql ="INSERT INTO ".$dbprefix."bmbonus (rcode,mcode,total,tax,totalamt,pcrry_l,pcrry_c,pcrry_r,ro_l,ro_c,ro_r,carry_l,carry_c,carry_r,tdate,fdate,quota,pair_stop,point,mpos,total_pv_l,total_pv_r,total_pv_ll,total_pv_rr) VALUES('$ro',";
+				$sql .= " '".$mcode[$i]."','".$calcamt."','".$tax."','".$bonusamt."','".$pcarry_l[$mcode[$i]]."','".$pcarry_c[$mcode[$i]]."','".$pcarry_r[$mcode[$i]]."',";
+				$sql .= "'".$ntotal_pvl."','".$ntotal_pvc."','".$ntotal_pvr."','".$carry_l."','".$carry_c."','".$carry_r."','$tdate','$fdate','$endQuota','$pair','$cut','".$pos_cur[$mcode[$i]]."','$calcamt1','$calcamt2','$cut_pv','$cut_pv')";
+				//echo  "$sql<br>";
+			//	if($mcode[$i] == '0000001')echo $sql;
+				mysql_query($sql) or die(mysql_error());
+		//	}else{
+		/*		$calcamt = 0;
+				$tax=($calcamt*0.05);
+				$bonusamt=($calcamt-$tax);
+				$sql ="INSERT INTO ".$dbprefix."bmbonus (rcode,mcode,total,tax,totalamt,pcrry_l,pcrry_c,pcrry_r,ro_l,ro_c,ro_r,carry_l,carry_c,carry_r,tdate,fdate,quota,pair_stop,point,mpos,total_pv_l,total_pv_r) VALUES('$ro',";
+				$sql .= " '".$mcode[$i]."','".$calcamt."','".$tax."','".$bonusamt."','".$pcarry_l[$mcode[$i]]."','".$pcarry_c[$mcode[$i]]."','".$pcarry_r[$mcode[$i]]."',";
+				$sql .= "'".$ntotal_pvl."','".$ntotal_pvc."','".$ntotal_pvr."','".$carry_l."','".$carry_c."','".$carry_r."','$tdate','$fdate','".$old_quota[$mcode[$i]]."','".$pair_stop[$mcode[$i]]."','$cut','".$pos_cur[$mcode[$i]]."','$calcamt1','$calcamt2')";
+				//if()echo  "$sql<br>";
+				mysql_query($sql) or die(mysql_error());
+			}*/
+
+			mysql_free_result($rs);
+			
+	}//END sizeof($mcode)
+
+}
+function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+
+	//echo 'a :'.$fdate.' b : '.$tdate.' c : '.$fpdate.' d : '.$tpdate;
+	//exit;
+	$array_mpos = array('MB'=>0,'M'=>0,'B'=>200,'S'=>200,'G'=>300,'P'=>300,'D'=>500,'DD'=>500,'TD'=>500,'CD'=>500);
+	$month=explode("-",$fdate);
+	$thismonth = $month[0].$month[1];
+	if($month[1] >= 12){
+	  $month_1 = $month[0]+1;
+	  $month_2 = '01';
+		$nextmonth = $month_1.$month_2;
+
+	}else if($month[1] >= 9){
+	  $month_1 = $month[0];
+	  $month_2 = $month[1]+1;
+		$nextmonth = $month_1.$month_2;
+
+	}else{
+		$month_1 = $month[0];
+		$month_2 = $month[1]+1;
+		$month_2 = '0'.$month_2;
+		$nextmonth = $month_1.$month_2;
+
+	}
+	//$nextmonth = $month[0].$month[1];
+	
+	$sql="SELECT * FROM ".$dbprefix."member ";
+		$rs = mysql_query($sql);
+		for($m=0;$m<mysql_num_rows($rs);$m++){
+			$sqlObj = mysql_fetch_object($rs);
+			$mcode =$sqlObj->mcode;		
+			$pos_cur =$sqlObj->pos_cur;
+			$mdate = $sqlObj->mdate;
+			$backpv = backmonthpv($dbprefix,$mcode,$fdate,$tdate);
+			//$backpv = 0;
+			$mem_cntday=dateDiff($mdate, $fdate);
+			//echo $mcode.' '.$mem_cntday.' '.$pos_cur.'<br>';
+
+			if($mem_cntday<=75 or $mcode == '0000001' or $mcode == '0000002' or $mcode == '0000003' or $mcode == '0000004' or $mcode == '0000005' or $mcode == '0000006' or $mcode == '0000007' or $mcode == '0010466' or $mcode == '0001042'){
+				//????????????????????????????????????
+				$sql1 = "select * from ".$dbprefix."status WHERE month_pv='".$thismonth."' AND mcode='$mcode' ";
+				$rs1=mysql_query($sql1);
+				if (mysql_num_rows($rs1)<=0) {
+					$sql = "INSERT INTO ".$dbprefix."status (rcode,mcode,status,pv,pvb,mdate,month_pv,mpos) ";
+					$sql .= "VALUES('$ro','".$mcode."','1','$backpv','0','".$fdate."','".$thismonth."','".$pos_cur."')";
+					mysql_query($sql);
+				}
+				/*$sql1 = "select * from ".$dbprefix."status WHERE month_pv='".$nextmonth."' AND mcode='$mcode' ";
+				$rs1=mysql_query($sql1);
+				if (mysql_num_rows($rs1)<=0) {
+					$sql = "INSERT INTO ".$dbprefix."status (rcode,mcode,status,pv,pvb,mdate,month_pv,mpos) ";
+					$sql .= "VALUES('$ro','".$mcode."','1','$backpv','0','".$fdate."','".$nextmonth."','".$pos_cur."')";
+					mysql_query($sql);
+				}*/
+				
+			}
+			
+			///////////////////////// Process 2///////////////////////////////////////////////////////////////////////
+			$total_fvC = 0;
+			$total_fvD = 0;
+			$sqlC = "select mcode, SUM(tot_pv) AS total_fv from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='C'  and cancel=0  AND mcode='$mcode' group by mcode ";
+			$rsC=mysql_query($sqlC);
+			if (mysql_num_rows($rsC)>0) {
+				$sqlObjC = mysql_fetch_object($rsC);
+				$total_fvC = $sqlObjC->total_fv;
+				mysql_free_result($rsC);
+			}else{
+				$total_fvC=0;
+			}
+
+			$sqlD = "select mcode, SUM(tot_pv) AS total_fv from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='C'  and cancel=0  AND mcode='$mcode' group by mcode ";
+			$rsD=mysql_query($sqlD);
+			if (mysql_num_rows($rsD)>0) {
+				$sqlObjD = mysql_fetch_object($rsD);
+				$total_fvD= $sqlObjD->total_fv;
+				mysql_free_result($rsD);
+			}else{
+				$total_fvD=0;
+			}
+			if($total_fvC > 0){
+				updateStatus($dbprefix,$ro,$mcode,$fdate,$total_fvC,$backpv);
+			}
+			if($total_fvD > 0){
+				updateStatus($dbprefix,$ro,$mcode,$fdate,$total_fvD,$backpv);
+			}
+			///////////////////////// Process 2///////////////////////////////////////////////////////////////////////
+
+			///////////////////////// Process 3///////////////////////////////////////////////////////////////////////
+			$total_fv = 0;
+			$total_fv1 = 0;
+			$total_fv2 = 0;
+			$sql2 = "select mcode, SUM(tot_pv) AS total_fv from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='Q'  and cancel=0  AND mcode='$mcode' group by mcode ";
+			//if($mcode == '0000030')echo "$sql2<BR>";
+			$rs2=mysql_query($sql2);
+			if (mysql_num_rows($rs2)>0) {
+				$sqlObj2 = mysql_fetch_object($rs2);
+				$total_fv1= $sqlObj2->total_fv;
+				mysql_free_result($rs2);
+			}else{
+				$total_fv1=0;
+			}				
+			$sql2 = "select mcode, SUM(tot_pv) AS total_fv from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='Q'  and cancel=0  AND mcode='$mcode' group by mcode ";
+			//echo "$sql2<BR>";g
+			$rs2=mysql_query($sql2);
+			if (mysql_num_rows($rs2)>0) {
+				$sqlObj2 = mysql_fetch_object($rs2);
+				$total_fv2= $sqlObj2->total_fv;
+				mysql_free_result($rs2);
+			}else{
+				$total_fv2=0;
+			}				
+			$total_fv=($total_fv1+$total_fv2+$backpv);
+			$total_fvf=($total_fv1+$total_fv2);
+			$sql1 = "select * from ".$dbprefix."status WHERE month_pv='".$nextmonth."' AND mcode='$mcode' ";
+	
+			$rs1=mysql_query($sql1);
+			if (mysql_num_rows($rs1)<=0) {
+				if($total_fv >= $array_mpos[$pos_cur]){
+					$backpv1 = $total_fv-$array_mpos[$pos_cur];
+					$sql = "INSERT INTO ".$dbprefix."status (rcode,mcode,status,pv,pvb,mdate,month_pv,mpos,sdate) ";
+					$sql .= "VALUES('$ro','".$mcode."','1','".$backpv1."','".$array_mpos[$pos_cur]."','".$fdate."','".$nextmonth."','".$pos_cur."','".$fdate."')";	
+				}else{
+					$sql = "update ".$dbprefix."status set pv = pv+$total_fvf where month_pv='".$thismonth."' AND mcode='$mcode'  ";
+				}
+				mysql_query($sql);
+			}else{
+				$sql = "update ".$dbprefix."status set pv = pv+$total_fvf where month_pv='".$nextmonth."' AND mcode='$mcode'  ";
+				mysql_query($sql);
+			}
+			///////////////////////// Process 3///////////////////////////////////////////////////////////////////////
+
+			///////////////////////// Process 4///////////////////////////////////////////////////////////////////////
+			gettotalfv($dbprefix,$ro,$mcode,$fdate,$tdate,$backpv);
+			///////////////////////// Process 4///////////////////////////////////////////////////////////////////////
+
+		}
+		mysql_free_result($rs);
+}
+function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+//????????????????????
+	//?????????????????????????????
+	$sql = " insert into ".$dbprefix."apv  (rcode, mcode,total_pv) ";
+	$sql .= "	select '$ro', mcode, SUM(tot_pv) AS total_pv from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='A' and cancel=0  group by mcode ";
+	//echo $sql.'<br>';
+	//exit;
+	mysql_query($sql) or die(mysql_error());
+
+	$sql = " insert into ".$dbprefix."apv  (rcode, mcode,total_pv) ";
+	$sql .= "	select '$ro', mcode, SUM(tot_pv) AS total_pv from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate' AND sa_type='A'  and cancel=0  group by mcode ";
+	mysql_query($sql) or die(mysql_error());
+	//exit;
+	//$maxlv=3;
+//	exit;
+	
+	$maxlv=4;
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+	$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$n_mcode[$i] =$sqlObj->mcode;		
+			$n_name_t[$i] =$sqlObj->name_t;		
+			$n_upa_code[$n_mcode[$i]] = $sqlObj->sp_code;
+			$n_lr[$n_mcode[$i]] = $sqlObj->lr;
+	}
+	mysql_free_result($rs);
+
+		$sql="select * from ".$dbprefix."apv where rcode = '$ro' "; 
+		//echo "$sql<BR>";
+		$rs = mysql_query($sql);
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj			= mysql_fetch_object($rs);
+			$apv_rcode		= $sqlObj->rcode;
+			$apv_mcode	= $sqlObj->mcode;
+			$apv_total_pv	= $sqlObj->total_pv;	
+			$maxper=0.4;
+			$bonus = 0;
+			$up = "";
+			//echo "dpv : $apv_total_pv = $i<BR> ";
+			for($j=0;$j<sizeof($n_mcode);$j++){
+				if($n_mcode[$j]<>$apv_mcode){
+					//ไม่มี pv
+				}else{
+					/*if(empty($up)){
+						$up = 'A';
+				//	$n_upa_code[$up] = $n_mcode[$j];
+					}else{
+					$up	= $n_mcode[$j];
+					}*/
+					$up	= $n_mcode[$j];
+					//$up	= $n_mcode[$j];
+					//echo "มีบิลขาย : $up<BR>";
+					$lv	 	= 0;
+					$glv	=1;
+					$where = "";
+					$checknext = "";
+					while($up <> "" and $up != '0000000'){
+						if($n_upa_code[$up] <>"" and $n_upa_code[$up] != '0000000' && $glv <= $maxlv){
+							$lv	= ($lv+1);
+							$flg=0;
+								
+							switch ($glv) {
+								case 1 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'M' or pos_cur = 'B' or pos_cur = 'S' or pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD')  ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 1 <br>";
+										}
+											$bonus = 0.30;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 2 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'B' or pos_cur = 'S' or pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD')";
+										//echo  "$sql1<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+											//echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 2 <br>";
+										}				
+										
+											
+											$bonus = 0.10;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 3 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'G' or pos_cur = 'P' or pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD' ) ";
+										//echo  "$sql1<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+											$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 3 <br>";
+										}
+										
+										
+											
+											$bonus = 0.10;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								case 4 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' and (pos_cur = 'D' or pos_cur = 'DD' or pos_cur = 'TD' or pos_cur = 'CD') ";
+										//echo  "$sql<br>";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+												$flg=1;
+											//mysql_free_result($rs1);
+											
+										//	echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur  ชั้น 4 <br>";
+
+										}
+										
+										
+											$bonus = 0.10;
+											$apv_total = ($apv_total_pv*$bonus);
+									break;
+								default:
+									$flg=0;
+									$bonus = 0;
+									$apv_total =0;
+									break;
+							}
+							//
+							//echo  "$sql2<br>";
+							//exit;
+							if($flg == '1'){
+								$sql = "INSERT INTO ".$dbprefix."ac (rcode,mcode,upa_code,pv,level,gen,percer,total,fdate,tdate,pos_cur) VALUES";
+								$sql .= "(".$ro.",'".$n_mcode[$j]."','".$n_upa_code[$up]."','".$apv_total_pv."','".$glv."','".$lv."','".$bonus."','".$apv_total."','$fdate','$tdate','$d_pos_cur') ";
+								mysql_query($sql);
+							}
+							$glv=($glv+1);
+							//$lv = $lv+1;
+							//mysql_free_result($rs2);
+						}
+						$up = $n_upa_code[$up];
+					}
+				}
+			}
+			
+		} 
+		mysql_free_result($rs);
+
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
+		$sql = " insert into ".$dbprefix."ambonus  (rcode, mcode, total,tot_pv,tax,bonus,fdate,tdate,pos_cur) ";
+		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(pv) as pvpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."ac WHERE  rcode='$ro' and upa_code<>'' group by upa_code ";
+		if (! mysql_query($sql)) {
+			echo "<font color='#FF0000'>error</font><br>";
+			echo  "$sql<br>";
+			echo  die(mysql_error());
+			exit;
+		}
+}
+function fnc_autoship_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+	$month=explode("-",$fdate);
+	$thismonth1 = $month[0].'-'.$month[1].'-01';
+	$thismonth2 = $month[0].'-'.$month[1].'-31';
+						$array_mpos = array('M'=>0,'B'=>200,'S'=>200,'G'=>300,'P'=>300,'D'=>500,'DD'=>500,'TD'=>500,'CD'=>500);
+	$sql="select mcode, SUM(total) AS total_pv,pos_cur from ".$dbprefix."bmbonus WHERE fdate>='$fdate' and tdate<='$tdate' and total > 0 group by mcode";
+	$rs = mysql_query($sql);
+	//echo $sql;
+	//exit;
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$bmcode =$sqlObj->mcode;		
+			$btotal_pv =$sqlObj->total_pv;	
+			$pos_cur =$sqlObj->pos_cur;	
+			$total = $btotal_pv*0.1;
+			$autoship = 0;
+			if($btotal_pv >0){
+				$sqlSelect = "select (SELECT ifnull(sum(autoship),0) from ".$dbprefix."gmbonus gm  where gm.mcode=m.mcode and fdate >= '$thismonth1' and tdate <= '$thismonth2') as autoship from ".$dbprefix."member m where m.mcode = '$bmcode' ";
+				$rsSelect = mysql_query($sqlSelect);
+				for($j=0;$j<mysql_num_rows($rsSelect);$j++){
+					$sqlObjSelect = mysql_fetch_object($rsSelect);
+					$autoship =$sqlObjSelect->autoship;	
+				}
+				if($autoship >= $array_mpos[$pos_cur]){
+				
+				}else{
+					$checkautoship = $total+$autoship;
+					if($checkautoship >= $array_mpos[$pos_cur])$total = $array_mpos[$pos_cur]-$autoship;
+					$sql = " insert into ".$dbprefix."gmbonus  (rcode, mcode,autoship,total,fdate,tdate,pos_cur,type) VALUES ('$ro','$bmcode','$total','$btotal_pv','$fdate','$tdate','$pos_cur','bm') ";
+					mysql_query($sql) or die(mysql_error());
+				}
+				
+			}
+	}
+	mysql_free_result($rs);
+
+	$sql="select mcode, SUM(total) AS total_pv,pos_cur from ".$dbprefix."ambonus WHERE fdate>='$fdate' and tdate<='$tdate' and total > 0 group by mcode";
+	$rs = mysql_query($sql);
+	//echo $sql;
+	//exit;
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$bmcode =$sqlObj->mcode;		
+			$btotal_pv =$sqlObj->total_pv;	
+			$pos_cur =$sqlObj->pos_cur;	
+			$total = $btotal_pv*0.1;
+			$autoship= 0;
+			$sqlSelect = "select (SELECT ifnull(sum(autoship),0) from ".$dbprefix."gmbonus gm  where gm.mcode=m.mcode and fdate >= '$thismonth1' and tdate <= '$thismonth2') as autoship from ".$dbprefix."member m where m.mcode = '$bmcode' ";
+				$rsSelect = mysql_query($sqlSelect);
+				for($j=0;$j<mysql_num_rows($rsSelect);$j++){
+					$sqlObjSelect = mysql_fetch_object($rsSelect);
+					$autoship =$sqlObjSelect->autoship;	
+				}
+				//echo $sqlSelect.' : '.$bmcode.' : '.$autoship.' :  '.$array_mpos[$pos_cur].'<br>';
+				if($autoship >= $array_mpos[$pos_cur]){
+				
+				}else{
+					$checkautoship = $total+$autoship;
+					if($checkautoship >= $array_mpos[$pos_cur])$total = $array_mpos[$pos_cur]-$autoship;
+					$sql = " insert into ".$dbprefix."gmbonus  (rcode, mcode,autoship,total,fdate,tdate,pos_cur,type) VALUES ('$ro','$bmcode','$total','$btotal_pv','$fdate','$tdate','$pos_cur','am') ";
+					mysql_query($sql) or die(mysql_error());
+				}
+	}
+	mysql_free_result($rs);
+
+	$sql="select mcode, SUM(total) AS total_pv,pos_cur from ".$dbprefix."dmbonus WHERE fdate>='$fdate' and tdate<='$tdate' and total > 0 group by mcode";
+	$rs = mysql_query($sql);
+	//echo $sql;
+	//exit;
+		//echo "$sql<BR>";
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$bmcode =$sqlObj->mcode;		
+			$btotal_pv =$sqlObj->total_pv;	
+			$pos_cur =$sqlObj->pos_cur;	
+			$total = $btotal_pv*0.1;
+			$autoship= 0;
+			$sqlSelect = "select (SELECT ifnull(sum(autoship),0) from ".$dbprefix."gmbonus gm  where gm.mcode=m.mcode and fdate >= '$thismonth1' and tdate <= '$thismonth2') as autoship from ".$dbprefix."member m where m.mcode = '$bmcode' ";
+				$rsSelect = mysql_query($sqlSelect);
+				for($j=0;$j<mysql_num_rows($rsSelect);$j++){
+					$sqlObjSelect = mysql_fetch_object($rsSelect);
+					$autoship =$sqlObjSelect->autoship;	
+				}
+				//echo $sqlSelect.' : '.$bmcode.' : '.$autoship.' :  '.$array_mpos[$pos_cur].'<br>';
+				if($autoship >= $array_mpos[$pos_cur]){
+				
+				}else{
+					$checkautoship = $total+$autoship;
+					if($checkautoship >= $array_mpos[$pos_cur])$total = $array_mpos[$pos_cur]-$autoship;
+					$sql = " insert into ".$dbprefix."gmbonus  (rcode, mcode,autoship,total,fdate,tdate,pos_cur,type) VALUES ('$ro','$bmcode','$total','$btotal_pv','$fdate','$tdate','$pos_cur','dm') ";
+					mysql_query($sql) or die(mysql_error());
+				}
+	}
+	mysql_free_result($rs);
+
+	///////////////////////// Process 5 autoship///////////////////////////////////////////////////////////////////////
+	
+	$tdate1 =strftime("%Y-%m-%d", strtotime("$tdate +1 day")); 
+	$split = explode('-',$tdate1);
+	if($split["2"] == '01'){
+		//$fdate = $tdate[0].'-'.$tdate[1].'-31';
+		$fdate = $tdate[0].'-'.$tdate[1].'-01';
+		$sql="SELECT * FROM ".$dbprefix."member ";
+		$rs = mysql_query($sql);
+		
+		//echo mysql_num_rows($rs);
+		for($m=0;$m<mysql_num_rows($rs);$m++){
+			$sqlObj = mysql_fetch_object($rs);
+			$mcode =$sqlObj->mcode;		
+			$pos_cur =$sqlObj->pos_cur;
+			$mdate = $sqlObj->mdate;
+			$sqlSelect = "select (SELECT ifnull(sum(autoship),0) from ".$dbprefix."gmbonus gm  where gm.mcode=m.mcode and fdate >= '$fdate' and tdate <= '$tdate') as autoship from ".$dbprefix."member m where m.mcode = '$mcode' ";
+			//echo $sqlSelect;
+			//exit;
+			$rss = mysql_query($sqlSelect);
+			for($a=0;$a<mysql_num_rows($rss);$a++){
+				$sqlObjs = mysql_fetch_object($rss);
+				$autoship = 0;
+				$autoship =$sqlObjs->autoship;
+				//if($autoship > 0)echo $autoship.' '.$mcode.'<br>';
+				$updatemember = "update ".$dbprefix."member set autoship = autoship+$autoship where mcode = '$mcode'";
+				mysql_query($updatemember);
+				if($autoship >= $array_mpos[$pos_cur]){
+			//		$hhhhh = '1';
+			//if($hhhhh == '1'){
+					//บิลขาย
+					//$qua = 1;
+					$pcode = 'auto001';
+					$qua = $array_mpos[$pos_cur]/4;
+					$sql11 = "SELECT MAX(id) AS id ,MAX(sano) as sano FROM ".$dbprefix."asaleh ";
+					$rs11 = mysql_query($sql11);
+					$mid = mysql_result($rs11,0,'id')+1;
+					$sano = mysql_result($rs11,0,'sano')+1;
+					//echo '<br>';
+					$tsano = substr($sano, 0, 4);
+					$sano = substr($sano, 4, 9);
+					$year = date('Y');
+					$month = date('m');
+					$year = $year+543;
+					$year = substr($year,2,2);
+					$fsano = $year.$month;
+					//echo $fsano.' '.$tsano;
+					//exit;
+					if($tsano != $fsano)$sano = '0000001';
+					 $sano = $year.$month.$sano;
+
+					mysql_free_result($rs11);
+					
+					$sql1 = "SELECT *  FROM ".$dbprefix."product where pcode = '$pcode' ";
+					$rs1 = mysql_query($sql1);
+					$total  = mysql_result($rs1,0,'price');
+					$total1  = $total*$qua;
+					$pdesc  = mysql_result($rs1,0,'pdesc');
+					$tot_pv  = mysql_result($rs1,0,'pv');
+					$tot_pv1  = $tot_pv*$qua;
+					$mcode = $mcode;
+					$inv_code = $strCode;
+					//if (isset($_POST["id"])){$id=$_POST["id"];}else{$id="";}
+					//if (isset($_POST["mcode"])){$mcode=$_POST["mcode"];}else{$mcode="";}	
+					//if (isset($_POST["inv_code"])){$inv_code=$_POST["inv_code"];}else{$inv_code="";}
+					if (isset($_POST["satype"])){$satype=$_POST["satype"];}else{$satype="A";}
+					if (isset($_POST["sadate"])){$sadate=$_POST["sadate"];}else{$sadate=date("Y-m-d");}
+					//if (isset($_POST["sumtotal"])){$total=$_POST["sumtotal"];}else{$total="";}
+					//if (isset($_POST["sumpv"])){$tot_pv=$_POST["sumpv"];}else{$tot_pv="";}
+					//echo 'sssss';
+					//exit;
+					$ssssssss = 0;
+					if($ssssssss==0){
+						//$mid = ++$sano;
+						logtext(true,$_SESSION['usercode'],'เพิ่มบิล',$mid);
+						$sql="insert into ".$dbprefix."asaleh ( id, sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid,remark ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total1' ,'$tot_pv1' ,'".$mcode."','1') ";
+						echo $sql.'<br>';
+						//exit;
+						//====================LOG===========================
+					$text="uid=".$_SESSION["adminuserid"]." action=saleoperate =>$sql";
+					writelogfile($text);
+					//=================END LOG===========================
+						mysql_query($sql);
+						/*if(isset($_POST['pcode'])){
+							$pcode=$_POST['pcode'];
+							$pdesc=$_POST['pdesc'];
+							$price=$_POST['price'];
+							$pv=$_POST['pv'];
+							$qty=$_POST['qty'];
+							$totalprice=$_POST['totalprice'];
+						}*/
+						$pcode1["0"] = $pcode;
+						$price["0"] = $total;
+						$pdesc1["0"]=$pdesc;
+						$pv["0"]=$tot_pv;
+						$qty["0"]=$qua;
+						$totalprice["0"]=$total;
+						for($i=0;$i<sizeof($pcode1);$i++){
+							$sql="insert into ".$dbprefix."asaled (sano,pcode,pdesc,price,pv,qty,amt) values ('$mid','$pcode1[$i]','$pdesc1[$i]','$price[$i]' ,'$pv[$i]','$qty[$i]','$totalprice[$i]') ";
+							//====================LOG===========================
+					$text="uid=".$_SESSION["adminuserid"]." action=saleoperate =>$sql";
+					writelogfile($text);
+					//=================END LOG===========================
+							//echo $sql."<br />";
+							mysql_query($sql);
+							/// ป๋มเพิ่มเอง เรื่อง stock
+							//$sql = "update ".$dbprefix."product set qty=qty-$qty[$i] where pcode='$pcode1[$i]'";
+							//mysql_query($sql);
+							//$sql = "update tbl_stock set stock_quantity = stock_quantity-1 where product_ID = '$pcode1[$i]' and user_ID = '{$_SESSION["usercode"]}' ";
+							//mysql_query($sql);
+							/// ป๋มเพิ่มเอง เรื่อง stock
+						}					
+					}
+				}
+			}
+		}
+	}
+	//exit;
+	///////////////////////// Process 5 autoship///////////////////////////////////////////////////////////////////////
+
+}
+
+
+function dateDiff($startDate, $endDate) { 
+    // Parse dates for conversion 
+    $startArry = date_parse($startDate); 
+    $endArry = date_parse($endDate); 
+
+    // Convert dates to Julian Days 
+    $start_date = gregoriantojd($startArry["month"], $startArry["day"], $startArry["year"]); 
+    $end_date = gregoriantojd($endArry["month"], $endArry["day"], $endArry["year"]); 
+
+    // Return difference 
+    return round(($end_date - $start_date), 0); 
+
+} 
+
+function fnc_check_sp($dbprefix){
+	
+}
+
+function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$lr,$fdate,$tdate){
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr ASC";
+	$rs = mysql_query($sql);
+	//echo "$sql<BR>";
+	$mcode = "";
+	for($m=0;$m<mysql_num_rows($rs);$m++){
+		$sqlObj = mysql_fetch_object($rs);
+		$mcode[$m] =$sqlObj->mcode;		
+		$name_t[$m] =$sqlObj->name_t;
+		$pos_cur[$m] =$sqlObj->pos_cur;
+		$sp_code[$mcode[$m]] = $sqlObj->sp_code;
+		$lr[$mcode[$m]] = $sqlObj->lr;
+	}
+	mysql_free_result($rs);
+	$pos_piority = array('CD'=>9,'TD'=>8,'DD'=>7,'D'=>6,'P'=>5,'G'=>4,'S'=>3,'B'=>2,'M'=>1,'MB'=>0);
+	$pos_exp = array('B'=>1000,'M'=>500,'MB'=>0);
+	$pv_exp=array(1000,500,0);
+	//8s 15000  4s 10000   5000 2s , 20002b
+	for($p=0;$p<2;$p++){
+		$mpvmpv = 0;
+		for($j=0;$j<sizeof($mcode);$j++){
+			$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE mcode='".$mcode[$j]."' and cancel=0 and trnf = 0  and sadate<='".$tdate."' and ( sa_type='A' or sa_type='Q' or sa_type='B' or sa_type='C') ";
+			$rs = mysql_query($sql);
+			$mexp = 0;
+			if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+			mysql_free_result($rs);
+
+			$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."holdhead WHERE mcode='".$mcode[$j]."'  and sadate<='".$tdate."' and ( sa_type='A' or sa_type='Q' or sa_type='B' or sa_type='C') and cancel=0 ";
+			$rs = mysql_query($sql);
+			$mexph = 0;
+			if(mysql_num_rows($rs)>0) $mexph = mysql_result($rs,0,'pv');
+			mysql_free_result($rs);
+			$mexp=($mexp+$mexph);
+			$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]);
+
+			//-----เก็บตำแหน่งปัจจุบัน
+			$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='".$mcode[$j]."' ";
+			$rs = mysql_query($sql);
+			$pos_old = '';
+			if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
+			mysql_free_result($rs);
+			//คำนวณตำแหน่ง
+			$pos_new = $pos_old;
+			foreach(array_keys($pos_exp) as $key){
+				//echo $key;
+				if($mexp>=$pos_exp[$key]){ $pos_new = $key; break;}
+			}
+				
+			if($pos_new != $pos_old && $pos_piority[$pos_new]>$pos_piority[$pos_old]){
+				$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+				//====================LOG===========================
+				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+				//writelogfile($text);
+				//=================END LOG===========================
+				mysql_query($sql);
+				$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+				$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+				//====================LOG===========================
+				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+				$pos_cur[$j] = $pos_new;
+				//writelogfile($text);
+				//=================END LOG===========================
+				mysql_query($sql);
+			}
+			$getweak = 0;
+			switch ($pos_cur[$j]){
+				case 'B':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'B':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'P':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 2 and $mexp >= 2000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="S";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'S':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'P':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 2 and $mexp >= 5000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="G";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'G':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'P':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 4  and $mexp >= 10000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="P";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'P':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'P':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 8  and $mexp >= 15000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="D";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'D':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					$getweak = getweak($dbprefix,$mcode[$j]);
+					if($cnt_all >= 4 and $getweak >= 300000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="DD";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'DD':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					$getweak = getweak($dbprefix,$mcode[$j]);
+					if($cnt_all >= 8 and $getweak >= 500000)$flg1=true;
+
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="TD";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'TD':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'DD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'TD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'CD':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					$getweak = getweak($dbprefix,$mcode[$j]);
+					if($cnt_all >= 12 and $getweak >= 1000000)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="CD";
+						$pos_old=$pos_cur[$j];
+
+						$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				default:
+			}
+		}
+	}
+
+}
+
+function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$lr,$fdate,$tdate){
+	//var_dump($mcode);
+	//exit;
+	//echo $ro;
+	//exit;
+	//$fdate = date("Y-m-d");
+	//$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr ASC";
+	$rs = mysql_query($sql);
+	//echo "$sql<BR>";
+	$mcode = "";
+	for($m=0;$m<mysql_num_rows($rs);$m++){
+		$sqlObj = mysql_fetch_object($rs);
+		$mcode[$m] =$sqlObj->mcode;		
+		$name_t[$m] =$sqlObj->name_t;
+		$pos_cur[$m] =$sqlObj->pos_cur;
+		$sp_code[$mcode[$m]] = $sqlObj->sp_code;
+		//echo $mcode[$m].' '.$pos_cur[$m].'<br>';
+		$lr[$mcode[$m]] = $sqlObj->lr;
+	}
+	mysql_free_result($rs);
+	//echo 'sssss'.sizeof($mcode).'<br>';
+	$pos_piority = array('ED'=>6,'GD'=>5,'D'=>4,'G'=>3,'S'=>2,'B'=>1,'M'=>0);
+	$pos_exp = array('D'=>10000,'G'=>6000,'S'=>3000,'B'=>1000,'M'=>0);
+	$pv_exp=array(10000,6000,3000,1000,0);
+
+	//for($p=0;$p<5;$p++){
+	for($p=0;$p<2;$p++){
+		//echo 'sssss';
+		$mpvmpv = 0;
+		for($j=0;$j<sizeof($mcode);$j++){
+			//if($mcode[$j] == '9999999'){echo $mcode[$j].' '.$pos_cur[$j].'okokokok<br>';
+			//exit;
+			//}
+			//ตรวจสอบตำแหน่งปัจจุบัน
+			//if($pos_cur[$j] <> 'VP' or $pos_cur[$j] <> 'EVP' or $pos_cur[$j] <> 'CEO')
+			$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE mcode='".$mcode[$j]."' and cancel=0 and trnf = 0  and sadate<='".$tdate."' and sa_type='A' ";
+			$rs = mysql_query($sql);
+			$mexp = 0;
+			if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+			mysql_free_result($rs);
+
+			$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."holdhead WHERE mcode='".$mcode[$j]."'  and sadate<='".$tdate."' and sa_type='A' and cancel=0 ";
+			$rs = mysql_query($sql);
+			$mexph = 0;
+			if(mysql_num_rows($rs)>0) $mexph = mysql_result($rs,0,'pv');
+			mysql_free_result($rs);
+			$mexp=($mexp+$mexph);
+			$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]);
+
+			//-----เก็บตำแหน่งปัจจุบัน
+			$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='".$mcode[$j]."' ";
+			$rs = mysql_query($sql);
+			$pos_old = '';
+			if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
+			mysql_free_result($rs);
+			//คำนวณตำแหน่ง
+			$pos_new = $pos_old;
+			foreach(array_keys($pos_exp) as $key){
+				//echo $key;
+				if($mexp>=$pos_exp[$key]){ $pos_new = $key; break;}
+			}
+				
+			if($pos_new != $pos_old && $pos_piority[$pos_new]>$pos_piority[$pos_old]){
+				//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+				$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+				//====================LOG===========================
+				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+				//writelogfile($text);
+				//=================END LOG===========================
+				mysql_query($sql);
+				$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+				$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+				//====================LOG===========================
+				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+				$pos_cur[$j] = $pos_new;
+				//writelogfile($text);
+				//=================END LOG===========================
+				mysql_query($sql);
+			}
+			//if($mcode[$j] == '9999990')echo $pos_cur[$j].'<br>';
+		//	echo ' รหัสสมาชิก '.$mcode[$j].' คุณสมบัติ'.$pos_cur[$j].'<br>';
+		
+			switch ($pos_cur[$j]){
+				case 'B':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'B':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					//echo ' รหัสสมาชิก '.$mcode[$j].' '.$cnt_l.' '.$cnt_r.' '.$cnt_c.'<br>';
+					//if($mcode[$j] == '9999990')echo $cnt_l.' '.$cnt_r.' '.$cnt_c;
+					//if($mcode[$j] == '9999990')echo '<br>'.$cnt_l.' '.$cnt_r.' '.$cnt_c.'<br>';
+					//exit;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 2)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="S";
+						$pos_old=$pos_cur[$j];
+
+						//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+					//break;
+				case 'S':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'B':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 5)$flg1=true;
+					//if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="G";
+						$pos_old=$pos_cur[$j];
+
+						//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+					//break;
+				case 'G':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'B':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'S':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'G':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 10)$flg1=true;
+				//	if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="D";
+						$pos_old=$pos_cur[$j];
+
+						//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'D':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 10)$flg1=true;
+				//	if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="GD";
+						$pos_old=$pos_cur[$j];
+
+						//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				case 'ED':
+					$cnt_l=0;
+					$cnt_r=0;
+					$cnt_c=0;
+					$flg=false;
+					$flgpv=false;$flg1 = false;
+					
+					$sql = "TRUNCATE TABLE ".$dbprefix."cnt_spcode ";
+					mysql_query($sql);
+
+					$sql1="SELECT * FROM ".$dbprefix."member WHERE sp_code='".$mcode[$j]."' ";
+					//echo "2 : $sql1<BR>";
+					$rs1 = mysql_query($sql1);
+					for($n=0;$n<mysql_num_rows($rs1);$n++){
+						$sqlObj1 = mysql_fetch_object($rs1);
+						$n_sp_code =$sqlObj1->mcode;
+						$n_sp_pos_cur =$sqlObj1->pos_cur;
+						
+						$sql2="SELECT * FROM ".$dbprefix."member WHERE mcode='".$n_sp_code."' ";
+						//echo "3 : $sql2<BR>";
+						$rs2 = mysql_query($sql2);
+						for($i=0;$i<mysql_num_rows($rs2);$i++){
+							$sqlObj2 = mysql_fetch_object($rs2);
+							$up_mcode =$sqlObj2->upa_code;
+							$uplr=$sqlObj2->lr;
+							$up=$up_mcode;
+							while($up <> ""){
+								if($up==$mcode[$j]){
+									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
+									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
+									mysql_query($sql);
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
+									$up="";
+								}else{
+									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
+									$rs3 = mysql_query($sql3);
+									if($row3 = mysql_fetch_object($rs3)){
+										$up = $row3->upa_code;
+										$uplr=$row3->lr;
+									} else {
+										$up = "";
+									}
+									mysql_free_result($rs3);
+								}
+							}
+						}
+						mysql_free_result($rs2);
+
+					}
+					mysql_free_result($rs1);
+
+					$sql="SELECT mcode,pos_cur,lr FROM ".$dbprefix."cnt_spcode WHERE sp_code='".$mcode[$j]."' ";
+					$rs = mysql_query($sql);
+					for($n=0;$n<mysql_num_rows($rs);$n++){
+						$row = mysql_fetch_object($rs);
+						$p_mcode=$row->mcode;
+						$p_pos_cur=$row->pos_cur;
+						$p_lr=$row->lr;
+						switch ($p_pos_cur){
+							case 'D':
+									if($p_lr==1){
+										$cnt_l=($cnt_l+1);
+									}elseif($p_lr==2){
+										$cnt_c=($cnt_c+1);
+									}elseif($p_lr==3){
+										$cnt_r=($cnt_r+1);
+									}
+								break;
+							default:
+								break;
+						}
+						
+					}
+					mysql_free_result($rs);
+					if($cnt_l>=1&&$cnt_c>=1){
+						$flg=true;
+					}elseif($cnt_l>=1&&$cnt_r>=1){
+						$flg=true;
+					}elseif($cnt_c>=1&&$cnt_r>=1){
+						$flg=true;
+					}
+					$flg=true;
+					$cnt_all = $cnt_l+$cnt_r+$cnt_c;
+					if($cnt_all >= 20)$flg1=true;
+				//	if($chkCount >= 4)$flgpv = true;
+
+					if($flg1==true&&$flg==true){
+						$pos_new="ED";
+						$pos_old=$pos_cur[$j];
+
+						//$sql = "UPDATE ".$dbprefix."member SET pos_cur='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
+						$sql = "INSERT INTO ".$dbprefix."cnt_position (pos_old,pos_new,rcode,rdate,mcode) ";
+						$sql .= "VALUES('".$pos_old."','".$pos_new."','$ro','".$fdate."','".$mcode[$j]."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$sql = "INSERT INTO ".$dbprefix."calc_poschange (rcode,mcode,pos_before,pos_after,date_change) ";
+						$sql .= "VALUES('$ro','".$mcode[$j]."','".$pos_old."','".$pos_new."','".$fdate."')";
+						//====================LOG===========================
+						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
+						//writelogfile($text);
+						//=================END LOG===========================
+						mysql_query($sql);
+						$pos_cur[$j] = $pos_new;
+					}
+				//default:
+			}
+			
+			//break;
+		}
+	}
+
+}
+
+
+function get_data_sql($field,$sql){
+	//อ่านค่า จาก  select $field from $table where $field_and_value
+	$result=mysql_query($sql);
+	if($result){
+		if($row=mysql_fetch_object($result)){
+			$value=$row->$field;
+			mysql_free_result($result);
+			return $value;
+		}
+	}
+	return false;
+}
+function cal_mat_ro($dbprefix,$ro){
+	$maxlv=4;
+	$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+		$rs = mysql_query($sql);
+		//echo "$sql<BR>";
+		for($m=0;$m<mysql_num_rows($rs);$m++){
+			$sqlObj = mysql_fetch_object($rs);
+			$n_mcode[$m] =$sqlObj->mcode;		
+			$n_name_t[$m] =$sqlObj->name_t;		
+			$n_upa_code[$n_mcode[$m]] = $sqlObj->sp_code;
+			$n_lr[$n_mcode[$m]] = $sqlObj->lr;
+		}
+	mysql_free_result($rs);
+	
+	$sql="select * from ".$dbprefix."dpv where rcode = '$ro' "; 
+		$rs = mysql_query($sql);
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj			= mysql_fetch_object($rs);
+			$apv_rcode		= $sqlObj->rcode;
+			$apv_mcode	= $sqlObj->mcode;
+			$apv_total_pv	= $sqlObj->total_pv;	
+			//echo "dpv : $apv_total_pv = $i<BR> ";
+			
+			for($j=0;$j<sizeof($n_mcode);$j++){
+				//echo "รหัสสมาชิก : $n_mcode[$j] = $apv_mcode<BR>";
+				if($n_mcode[$j]<>$apv_mcode){
+					//ไม่มี pv
+				}else{
+					//echo "มีบิลขาย : $up<BR>";
+					$up	= $n_mcode[$j];
+					$lv	 	= 0;
+					$glv	=1;
+					while($up <> "" ){
+						//echo "up : $up<BR>";
+						//echo "upa : $upa_code[$up]  $lv  $maxlv<BR>";
+						if($n_upa_code[$up] <>"" && $glv <= $maxlv){
+							$lv	= ($lv+1);
+							$flg=0;
+							switch ($glv) {
+								case 1 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' ";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+										}
+										mysql_free_result($rs1);
+										//echo "ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur";
+										switch ($d_pos_cur){
+											case 'L' :
+													$flg=1;
+													$bonus = 0.10;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'M' :
+													$flg=1;
+													$bonus = 0.10;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'P' :
+													$flg=1;
+													$bonus = 0.10;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											default :
+													$flg=0;
+													$bonus = 0;
+													$apv_total =0;
+												break;
+										}
+									break;
+								case 2 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' ";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+										}
+										mysql_free_result($rs1);
+										//echo "ตรวจสอบรหัส <2> $d_mcode ตำแหน่ง $d_pos_cur";
+										switch ($d_pos_cur){
+											case 'L' :
+													$flg=1;
+													$bonus = 0.02;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'M' :
+													$flg=1;
+													$bonus = 0.02;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'P' :
+													$flg=1;
+													$bonus = 0.02;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											default :
+													$flg=0;
+													$bonus = 0;
+													$apv_total =0;
+												break;
+										}
+									break;
+								case 3 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' ";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+										}
+										mysql_free_result($rs1);
+										//echo "ตรวจสอบรหัส <3> $d_mcode ตำแหน่ง $d_pos_cur";
+										switch ($d_pos_cur){
+											case 'L' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'M' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'P' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											default :
+													$flg=0;
+													$bonus = 0;
+													$apv_total =0;
+												break;
+										}								
+									break;
+								case 4 :
+										$sql1="SELECT mcode,pos_cur FROM ".$dbprefix."member where mcode='".$n_upa_code[$up]."' ";
+										$rs1 = mysql_query($sql1);
+										if (mysql_num_rows($rs1)>0) {
+											$sqlObj1 = mysql_fetch_object($rs1);
+											$d_mcode=$sqlObj1->mcode;
+											$d_pos_cur=$sqlObj1->pos_cur;
+										}
+										mysql_free_result($rs1);
+										//echo "ตรวจสอบรหัส <4> $d_mcode ตำแหน่ง $d_pos_cur";
+										switch ($d_pos_cur){
+											case 'L' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'M' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											case 'P' :
+													$flg=1;
+													$bonus = 0.01;
+													$apv_total = ($apv_total_pv*$bonus);
+												break;
+											default :
+													$flg=0;
+													$bonus = 0;
+													$apv_total =0;
+												break;
+										}		
+									break;
+								default:
+									$flg=0;
+									$bonus = 0;
+									$apv_total =0;
+									break;
+							}
+							//echo "ตรวจสอบสถานะรหัส '".$n_mcode[$j]."' ผู้แนะนำ '".$n_upa_code[$up]."' รักษายอด $flg ตำแหน่ง $d_pos_cur <br>";
+							if($flg>=1){
+								$sql = " INSERT INTO ".$dbprefix."dc (rcode, mcode, upa_code,pv,level, percer, total) VALUES ('$ro','".$n_mcode[$j]."','".$n_upa_code[$up]."','".$apv_total_pv."',".$glv.",'".$bonus."','".$apv_total."') ";
+								mysql_query($sql) or die(mysql_error());
+								//echo "$sql<br>";
+								$glv=($glv+1);
+							}	
+						}//$upa_code[$up] <>""){
+						$up = $n_upa_code[$up];
+					} //if($n_upa_code[$up] <>"" && $lv <= $maxlv){ END
+				}//if($mcode[$j]<>$apv_mcode){END
+			}//for($j=0;$j<sizeof($n_mcode);$j++){ END
+		} //for($i=0;$i<mysql_num_rows($rs);$i++){ END
+		mysql_free_result($rs);
+
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
+		$sql = " insert into ".$dbprefix."dmbonus  (rcode, mcode, total,tax,bonus) ";
+		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus from ".$dbprefix."dc WHERE  rcode='$ro' group by upa_code ";
+		mysql_query($sql) or die(mysql_error());
+		//echo "$sql<br>";
+}
+function getpvprivate($dbprefix,$ro,$n_mcode){
+	$value=0;
+	$sql="select sum(total_pv) as pv from ".$dbprefix."apv where  rcode<='".$ro."' and mcode='".$n_mcode."'  ";
+	//echo "$sql<br>";
+	$result=mysql_query($sql);
+	if (mysql_num_rows($result)>'0') {
+		$row= mysql_fetch_array($result, MYSQL_ASSOC);
+		$value=$row["pv"];
+		return $value;
+	}
+	return $value;
+}
+
+function get_data_object($field,$sql){
+	//อ่านค่า จาก  select $field from $table where $field_and_value
+	$result=mysql_query($sql);
+	if($result){
+		if($row=mysql_fetch_object($result)){
+			$value=$row;
+			mysql_free_result($result);
+			return $value;
+		}
+	}
+	return false;
+}
+
+
+function getmicrotime() { 
+    list($usec, $sec) = explode(" ", microtime()); 
+    return ((float)$usec + (float)$sec); 
+} 
+
+function createTree($ro, $mcode){
+	//ฟังก์ชั่นสำหรับคำนวณ
+	global $dbprefix,$ro;
+	
+	$sql = "select mcode from ".$dbprefix. " where upa_code = '$mcode' ";
+	for($i= 0; $i < 2; $i++){
+				
+	}
+}
+
+function getPair($cur_r, $cur_l,$remain_r, $remain_l ){
+global $cut, $tot_l, $tot_r , $strongside, $sumright, $sumleft;
+	$sumleft = ($cur_l + $remain_l);
+	$sumright = ($cur_r + $remain_r);
+	$lsum = floor(($sumleft - fmod($sumleft,1000))/1000);
+	$rsum = floor(($sumright - fmod($sumright,1000))/1000);
+ 	
+	$cut = min($lsum, $rsum);
+	
+	if($lsum == $rsum){
+		//------ 2:1 สลับ 1:2 ---------//
+	 	$t1 = floor($lsum / 3);
+	 	$tot_l = $sumleft - ($t1 * 3)*1000;
+	 	$tot_r = $sumright - ($t1 * 3)*1000;
+	 	$cut = $t1 * 2;
+	 	if(($lsum - ($t1 * 3)) ==2)  { // left high priority
+	 	  $tot_l = 0;
+	 	  $tot_r = 1000;
+	 	  $cut += 1;
+	 	}
+		//echo "จากฝั่งซ้าย $lsum ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
+	 	$strongside = "E";
+	 	
+	}else if($lsum > $rsum){
+		 
+		$t1  = floor($lsum / 2 ) ;
+		if($t1 > $rsum)	$t1 = $rsum;
+		$tot_l = $sumleft - ($t1 * 2)*1000;
+		$tot_r = $sumright - ($t1)*1000;
+		$cut= $t1;
+		$strongside = "L";
+		//echo "จากฝั่งซ้าย $lsum ,ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
+				
+	}else { // rsum > lsum
+		$t1  = floor($rsum / 2  );
+		if($t1 > $lsum)	$t1 = $lsum;
+		$tot_r = $sumright - ($t1 * 2)*1000;
+		$tot_l = $sumleft - ($t1)*1000;
+		$cut= $t1;
+		$strongside = "R";
+	 	//echo "จากฝั่งซ้าย $lsum  , ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
+	}
+ 
+}
+function gettotalfv($dbprefix,$ro,$mcode,$fpdate,$tpdate,$backpv){
+	$sql3 = "select mcode, SUM(tot_pv) AS tot_pv from ".$dbprefix."special_point WHERE sadate>='$fpdate' AND sadate<='$tpdate' AND sa_type='VQ' AND mcode='$mcode' group by mcode ";
+				//if($mcode == '0000075')echo "$sql3<BR>";
+				$rs3=mysql_query($sql3);
+				if (mysql_num_rows($rs3)>0) {
+					$sqlObj3 = mysql_fetch_object($rs3);
+					$total_fv3= $sqlObj3->tot_pv;
+				}else{
+					$total_fv3=0;
+				}
+				mysql_free_result($rs3);
+				//if($total_fv3 > 0)echo "$total_fv3<BR>";
+				if($total_fv3 > 0)updateStatus($dbprefix,$ro,$mcode,$fpdate,$total_fv3,$backpv);
+	//return $total_fv3;
+} 
+function gettotalbv($dbprefix,$mcode,$fpdate,$tpdate){
+	$sql3 = "select mcode, SUM(tot_pv) AS tot_pv from ".$dbprefix."special_point WHERE  sadate<='$tpdate' AND sa_type='VA' AND mcode='$mcode' group by mcode ";
+				//if($mcode == '0000075')echo "$sql3<BR>";
+				$rs3=mysql_query($sql3);
+				if (mysql_num_rows($rs3)>0) {
+					$sqlObj3 = mysql_fetch_object($rs3);
+					$total_fv3= $sqlObj3->tot_pv;
+				}else{
+					$total_fv3=0;
+				}
+				mysql_free_result($rs3);
+				//if($mcode == '0000075')echo "$total_fv3<BR>";
+	return $total_fv3;
+} 
+function getpoint($dbprefix,$mcode,$mpos,$fpdate,$tpdate){
+	$checkarr = array('CEO'=>100000,'VP'=>100000,'EVP'=>100000,'EP'=>100000);
+	$getsure = false;
+	$fpdate = explode('-',$fpdate);
+	//var_dump($fpdate);
+	//exit;
+	for($i=0;$i<=12;$i++){
+		$j = $i;
+		$month1 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,1, $fpdate[0]));
+		$month11 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,31, $fpdate[0]));
+		$sql="select mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE mcode = '$mcode' and tdate between '".$month1."' and '".$month11."' group by mcode";
+		$rs = mysql_query($sql);
+			//echo "$sql<BR>";
+			//exit;
+			for($a=0;$a<mysql_num_rows($rs);$a++){
+				$sqlObj = mysql_fetch_object($rs);
+				$bmcode1 =$sqlObj->mcode;		
+				$btotal_pv1 =$sqlObj->total_pv;		
+			}
+		if($btotal_pv1 >= '100000'){
+			$j = $i-1;
+			$month1 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,1, $fpdate[0]));
+			$month11 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,31, $fpdate[0]));
+			$sql="select mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE mcode = '$mcode' and tdate between '".$month1."' and '".$month11."' group by mcode";
+			$rs = mysql_query($sql);
+				//echo "$sql<BR>";
+				for($a=0;$a<mysql_num_rows($rs);$a++){
+					$sqlObj = mysql_fetch_object($rs);
+					$bmcode1 =$sqlObj->mcode;		
+					$btotal_pv1 =$sqlObj->total_pv;		
+			}
+			if($btotal_pv1 == '100000'){
+				$j = $i-2;
+				$month1 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,1, $fpdate[0]));
+				$month11 = date("Y-m-d",mktime(0, 0, 0, $fpdate[1]-$j,31, $fpdate[0]));
+				$sql="select mcode, SUM(total) AS total_pv from ".$dbprefix."bmbonus WHERE mcode = '$mcode' and tdate between '".$month1."' and '".$month11."' group by mcode";
+				$rs = mysql_query($sql);
+					//echo "$sql<BR>";
+					for($a=0;$a<mysql_num_rows($rs);$a++){
+						$sqlObj = mysql_fetch_object($rs);
+						$bmcode1 =$sqlObj->mcode;		
+						$btotal_pv1 =$sqlObj->total_pv;		
+					}
+					if($btotal_pv1 == '100000'){
+						$getsure = true;
+					}
+			}
+			
+		}
+	}
+	//$getsure = false;
+	return $getsure;
+}
+function gettotalpv($dbprefix,$mcode){
+	$sql3 = "select mcode, SUM(tot_pv) AS tot_pv from ".$dbprefix."special_point WHERE  sa_type='VA' AND mcode='$mcode' group by mcode ";
+				//if($mcode == '0000075')echo "$sql3<BR>";
+		$rs3=mysql_query($sql3);
+		if (mysql_num_rows($rs3)>0) {
+			$sqlObj3 = mysql_fetch_object($rs3);
+			$total_fv3= $sqlObj3->tot_pv;
+		}else{
+			$total_fv3=0;
+		}
+		mysql_free_result($rs3);
+				//if($mcode == '0000075')echo "$total_fv3<BR>";
+	return $total_fv3;
+} 
+function backmonthpv($dbprefix,$mcode,$fpdate,$tpdate){
+	//if($mcode == '0000006')
+	//{ var_dump($fdate);}
+	$month=explode("-",$fpdate);
+	
+	//$sql2 = "select mcode,pv from ".$dbprefix."status WHERE month_pv = '".$month[0].$month[1]."' and status = 1 AND mcode='$mcode' ";
+	//$sql2 = "select mcode,pv from ".$dbprefix."status WHERE month_pv = '".$month[0].$month[1]."' and pv > 0 AND mcode='$mcode' order by month_pv desc limit 0,1  ";
+	$sql2 = "select mcode,pv from ".$dbprefix."status WHERE    mcode='$mcode' order by month_pv desc limit 0,1  ";
+	//echo "$sql2<BR>";
+	$rs2=mysql_query($sql2);
+	if (mysql_num_rows($rs2)>0) {
+		$sqlObj2 = mysql_fetch_object($rs2);
+		$pv= $sqlObj2->pv;
+	}else{
+		$pv = 0;
+	}
+	////if($mcode == '0000006')
+	//{ echo $sql2.' '.$pv;}
+	return $pv;
+}
+ function checkpositionback($dbprefix,$mcode,$fpdate,$tpdate){
+		$month=explode("-",$fpdate);
+	$fpdate11 = $month[0].'-'.$month[1].'-01';
+	$sql2 = "select mcode,pos_before from ".$dbprefix."calc_poschange  WHERE date_change >= '$fpdate' and date_change <= '".date("Y-m-d")."' AND mcode='$mcode' ORDER BY rcode ASC ";
+	//$sql2 = "select mcode,pos_before from ".$dbprefix."calc_poschange  WHERE  date_change <= '$tpdate' AND mcode='$mcode' and pos_after = '$pos_cur' ORDER BY id DESC";
+				//if($mcode == '0027051')echo "$sql2<BR>";
+				$rs2=mysql_query($sql2);
+				if (mysql_num_rows($rs2)>0) {
+					$sqlObj2 = mysql_fetch_object($rs2);
+					$pos_before= $sqlObj2->pos_before;
+				}else{
+					$pos_before = "";
+				}
+	return $pos_before;
+}
+ function checkpositionDate($dbprefix,$mcode,$fpdate,$tpdate){
+	$month=explode("-",$fpdate);
+	$sql2 = "select mcode,pos_before,date_change from ".$dbprefix."calc_poschange  WHERE pos_before = 'CM'  AND mcode='$mcode' ";
+				//if($mcode == '0001245')echo "$sql2<BR>";
+
+				$rs2=mysql_query($sql2);
+				if (mysql_num_rows($rs2)>0) {
+					$sqlObj2 = mysql_fetch_object($rs2);
+					$pos_before= $sqlObj2->date_change;
+				}else{
+					$pos_before = 0;
+				}
+	return $pos_before;
+}
+function updateStatus($dbprefix,$ro,$mcode,$cur_date,$tot_fv,$backpv){
+	$month = explode('-',$cur_date);
+	$select = "select pos_cur from ".$dbprefix."member where mcode = '$mcode'";
+	$rs = mysql_query($select);
+	$sqlObj = mysql_fetch_object($rs);
+	$pos_cur =$sqlObj->pos_cur;
+	mysql_free_result($rs);
+						$array_mpos = array('M'=>0,'B'=>200,'S'=>200,'G'=>300,'P'=>300,'D'=>500,'DD'=>500,'TD'=>500,'CD'=>500);
+		$month=explode("-",$cur_date);
+		if($tot_fv >= $array_mpos[$pos_cur]  and $pos_cur <> 'M'){
+			$sql1 = "select * from ".$dbprefix."status WHERE month_pv='".$month[0].$month[1]."' AND mcode='$mcode' ";
+			$rs1=mysql_query($sql1);
+			//echo $sql1.'<br>';
+			if (mysql_num_rows($rs1)<=0) {
+				$sql = "INSERT INTO ".$dbprefix."status (rcode,mcode,status,pv,pvb,mdate,month_pv,mpos) ";
+				 $sql .= "VALUES('$ro','".$mcode."','1','$backpv','0','".$cur_date."','".$month[0].$month[1]."','".$pos_cur."')";
+			//	 echo $sql.'<br>';
+				mysql_query($sql);
+			}else{
+				$sqlObjU = mysql_fetch_object($rs1);
+				$pv =$sqlObjU->pv;
+				//$sql = "update ".$dbprefix."status set status = 1,pv=$pv,pvb=0,mpos = '$pos_cur',mdate = '$cur_date' where mcode = '$mcode' and month_pv = '".$month[0].$month[1]."' ";
+				$sql = "update ".$dbprefix."status set status = 1,pvb=0,mpos = '$pos_cur',mdate = '$cur_date' where mcode = '$mcode' and month_pv = '".$month[0].$month[1]."' ";
+			//	if($mcode == '0020444') echo $sql.'<br>';
+				mysql_query($sql);
+				mysql_free_result($rs1);
+			}
+			//if($mcode == '0020444')exit;
+			//echo $sql.'<br>d';
+		}
+		//mysql_free_result($rs1);
+	}
+function calc_pool_bonus($dbprefix,$ro,$tdate,$fdate){
+
+		$month=explode("-",$fdate);
+			if($month[1] >= 12){
+			  $month_1 = $month[0]+1;
+			  $month_2 = '01';
+			  				$mdate = $month_1.$month_2;
+
+			}else if($month[1] >= 9){
+			  $month_1 = $month[0];
+			  $month_2 = $month[1]+1;
+			  				$mdate = $month_1.$month_2;
+
+			}else{
+				$month_1 = $month[0];
+				$month_2 = $month[1]+1;
+				$month_2 = '0'.$month_2;
+				$mdate = $month_1.$month_2;
+
+			}
+			$mdate = $month[0].$month[1];
+	$sql = " insert into ".$dbprefix."epv  (rcode, mcode, sano,sadate,fdate,tdate,total_pv) ";
+	$sql .= "	select '$ro', mcode,sano,sadate,'$fdate','$tdate',SUM(tot_pv) AS total from ".$dbprefix."asaleh WHERE  sadate>='$fdate' and sadate<='$tdate' and (sa_type = 'A' or sa_type = 'Q') and cancel=0 group by mcode ";
+	//echo $sql;
+	mysql_query($sql) or die(mysql_error());
+	
+	$sql = " insert into ".$dbprefix."epv  (rcode, mcode, sano,sadate,fdate,tdate,total_pv) ";
+	$sql .= "	select '$ro', mcode,sano,sadate,'$fdate','$tdate',SUM(tot_pv) AS total from ".$dbprefix."holdhead WHERE  sadate>='$fdate' and sadate<='$tdate' and (sa_type = 'A' or sa_type = 'Q') and cancel=0 group by mcode ";
+	mysql_query($sql) or die(mysql_error());
+
+	$sql = "SELECT sum(total_pv) as total_pv from ".$dbprefix."epv WHERE rcode='$ro' ";
+	$rs = mysql_query($sql);
+	if(mysql_num_rows($rs)>0){
+		$total_pv = mysql_result($rs,0,'total_pv');
+	}
+	//echo 'total_pv : '.$total_pv;
+	//echo $sql.'<br>';
+	//หาคนที่ผ่านคุณสมบัติ
+	$sql="SELECT * FROM ".$dbprefix."member where (pos_cur = 'CEO' or pos_cur = 'EVP' or  pos_cur = 'VP') ORDER BY lr DESC";
+	$rs = mysql_query($sql);
+	//echo $sql.'<br>';
+	//echo "$sql<BR>";
+	$pos_VP = 0;
+	$pos_EVP = 0;
+	$pos_CEO = 0;
+
+	if(mysql_num_rows($rs)>0){
+		for($m=0;$m<mysql_num_rows($rs);$m++){
+			$sqlObj = mysql_fetch_object($rs) or die("desad");
+			
+			$n_mcode[$m] =$sqlObj->mcode;		
+			$n_name_t[$m] =$sqlObj->name_t;		
+			$n_upa_code[$n_mcode[$m]] = $sqlObj->sp_code;
+			$n_pos_cur[$n_mcode[$m]] = $sqlObj->pos_cur;
+			$sql2 = "SELECT * from ".$dbprefix."status WHERE mcode='".$n_mcode[$m]."' and month_pv='".$mdate."' and status='1' ";
+			$rs2=mysql_query($sql2);
+			//echo $sql2.'<br> '.$n_mcode[$m].'ssss';
+			if(mysql_num_rows($rs2)>0 or $n_mcode[$m] == '0000001' or $n_mcode[$m] == '0000002' or $n_mcode[$m] == '0000003' or $n_mcode[$m] == '0000004' or $n_mcode[$m] == '0000005' or $n_mcode[$m] == '0000006'or $n_mcode[$m] == '0000007' or $n_mcode[$m] == '0000010' or $n_mcode[$m] == '0000011' or $n_mcode[$m] == '0000012' or $n_mcode[$m] == '0012999') {
+			//$sqlObj1 = mysql_fetch_object($rs2) or die("desad");
+				//echo 'ddd'.$n_pos_cur[$n_mcode[$m]].'dddd';
+				switch ($n_pos_cur[$n_mcode[$m]]){
+							case 'VP': $pos_VP = $pos_VP+1;
+								break;
+							case 'EVP':$pos_EVP = $pos_EVP+1;
+								break;
+							case 'CEO':$pos_CEO = $pos_CEO+1;
+								break;
+							default:
+									$endQuota=0;
+								break;
+						}
+			//}
+			}
+			$n_lr[$n_mcode[$m]] = $sqlObj->lr;
+			
+		}mysql_free_result($rs);
+	}
+	//var_dump($n_pos_cur);
+	//exit;
+	//ทำอยู่
+	//echo $pos_VP.' '.$pos_EVP.' '.$pos_CEO.' ';
+//echo $total_pv.'<br>';
+	$tot1 = ($total_pv*4/100);
+	//if(!empty($pos_S) and !empty($pos_G) and !empty($pos_P) and !empty($pos_DD) and !empty($pos_EDM) and !empty($pos_GDM))
+	if($pos_VP+$pos_EVP+$pos_CEO > 0)$per1 = $tot1/($pos_VP+$pos_EVP+$pos_CEO);//กองทุน VP
+	else $per1= 0;
+	$tot2 = ($total_pv*3/100);
+	//if(!empty($pos_DD) and !empty($pos_EDM) and !empty($pos_GDM))
+	if(($pos_EVP+$pos_CEO) > 0)$per2 = $tot2/($pos_EVP+$pos_CEO);//กองทุน EVP
+	else $per2 = 0;
+	$tot3 = ($total_pv*2/100);
+	//if(!empty($pos_EDM) and !empty($pos_GDM))
+	if($pos_CEO > 0)$per3 = $tot3/($pos_CEO);//กองทุน CEO
+	else $per3 = 0;
+	echo $per1.' '.$per2.' '.$per3.' <br>';
+		echo $tot1.' '.$tot2.' '.$tot3.' <br>';
+
+	for($j=0;$j<sizeof($n_mcode);$j++){
+		
+		$sql2 = "SELECT * from ".$dbprefix."status WHERE mcode='".$n_mcode[$j]."' and month_pv='".$mdate."' and status='1' ";
+		//var_dump($_mcode);
+		//echo $sql2;
+		
+		
+		// ถึงตรงนี้แล้ว
+		//echo  "$sql2<br>";
+		$rs2=mysql_query($sql2);
+		//echo mysql_num_rows($rs2);
+		
+		if(mysql_num_rows($rs2)>0 or $n_mcode[$j] == '0000001' or $n_mcode[$j] == '0000002' or $n_mcode[$j] == '0000003' or $n_mcode[$j] == '0000004' or $n_mcode[$j] == '0000005' or $n_mcode[$j] == '0000006'or $n_mcode[$j] == '0000007' or $n_mcode[$j] == '0000010' or $n_mcode[$j] == '0000011' or $n_mcode[$j] == '0000012' or $n_mcode[$j] == '0012999') {
+			//echo $j.'<br>';
+			//echo $n_pos_cur[$n_mcode[$j]].'dskdsfklsdjf<br>';
+			//exit;
+			if($n_pos_cur[$n_mcode[$j]] == 'CEO' or $n_pos_cur[$n_mcode[$j]] == 'ceo')
+			{
+				$per11 = $per1;
+				$per21 = $per2;
+				$per31 = $per3;
+				$sql1 = " insert into ".$dbprefix."em  (rcode,mcode,pershare,total1,total2,total3,total4,total5,total6,fdate,tdate,pv_world,pools,pos_cur) VALUES ";
+				$sql1 .= " ('$ro','$n_mcode[$j]','20','$per11','$per21','$per31','$per41','$per51','$per61','$fdate','$tdate','$total_pv','1','".$n_pos_cur[$n_mcode[$j]]."')";
+				mysql_query($sql1) or die(mysql_error());
+			}
+			if($n_pos_cur[$n_mcode[$j]] == 'EVP' or $n_pos_cur[$n_mcode[$j]] == 'evp')
+			{
+				$per11 = $per1;
+				$per21 = $per2;
+				$per31 = 0;
+				$sql1 = " insert into ".$dbprefix."em  (rcode,mcode,pershare,total1,total2,total3,total4,total5,total6,fdate,tdate,pv_world,pools,pos_cur) VALUES ";
+				$sql1 .= " ('$ro','$n_mcode[$j]','20','$per11','$per21','$per31','$per41','0','$per61','$fdate','$tdate','$total_pv','1','".$n_pos_cur[$n_mcode[$j]]."')";
+				mysql_query($sql1) or die(mysql_error());
+			}
+			if($n_pos_cur[$n_mcode[$j]] == 'VP' or $n_pos_cur[$n_mcode[$j]] == 'vp')
+			{
+				$per11 = $per1;
+				$per21 = 0;
+				$per31 = 0;
+				$sql1 = " insert into ".$dbprefix."em  (rcode,mcode,pershare,total1,total2,total3,total4,total5,total6,fdate,tdate,pv_world,pools,pos_cur) VALUES ";
+				$sql1 .= " ('$ro','$n_mcode[$j]','20','$per11','$per21','0','0','0','$per61','$fdate','$tdate','$total_pv','1','".$n_pos_cur[$n_mcode[$j]]."')";
+				mysql_query($sql1) or die(mysql_error());
+			}
+		}
+	}
+	$sql = " insert into ".$dbprefix."embonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pos_cur) ";
+	$sql .= "select '$ro',mcode,sum(total1+total2+total3+total4+total5+total6) as total,(sum(total1+total2+total3+total4+total5+total6)*0.03) as tax,(sum(total1+total2+total3+total4+total5+total6)-(sum(total1+total2+total3+total4+total5+total6)*0.05)) as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."em  where rcode='$ro' group by mcode";
+	//echo "$sql <br>";
+	mysql_query($sql) or die(mysql_error());		
+
+}
+
+function fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
+	//????????????????????
+	//?????????????????????????????
+	$sql = "select  inv_code,sano,'A' as status,tot_pv,total,sadate,sa_type from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND inv_code <> '' and sa_type <> 'H' and cancel=0  ";
+	$rs = mysql_query($sql);
+	if(mysql_num_rows($rs) > 0){
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$inv_code= $sqlObj->inv_code;
+			$sano= $sqlObj->sano;
+			$status= $sqlObj->status;
+			$tot_pv= $sqlObj->tot_pv;
+			$total= $sqlObj->total;
+			$sadate= $sqlObj->sadate;
+			$sa_type= $sqlObj->sa_type;
+			$sqlInsert = "insert into ".$dbprefix."fm(rcode,inv_code,sano,status,tot_pv,tot_price,mdate,sa_type) values
+			('$ro','$inv_code','$sano','$status','$tot_pv','$total','$sadate','$sa_type')";
+			mysql_query($sqlInsert) or die(mysql_error());
+		}
+		mysql_free_result($rs);
+	}
+	$sql 	= "select  inv_code,hono,'H' as status,tot_pv,total,sadate,sa_type from ".$dbprefix."holdhead  WHERE sadate>='$fdate' AND sadate<='$tdate' AND inv_code <> '' and cancel=0   ";
+	$rs = mysql_query($sql);
+	if(mysql_num_rows($rs) > 0){
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$inv_code= $sqlObj->inv_code;
+			$hono= $sqlObj->hono;
+			$status= $sqlObj->status;
+			$tot_pv= $sqlObj->tot_pv;
+			$total= $sqlObj->total;
+			$sadate= $sqlObj->sadate;
+			$sa_type= $sqlObj->sa_type;
+			$sqlInsert = "insert into ".$dbprefix."fm(rcode,inv_code,sano,status,tot_pv,tot_price,mdate,sa_type) values
+			('$ro','$inv_code','$hono','$status','$tot_pv','$total','$sadate','$sa_type')";
+			mysql_query($sqlInsert) or die(mysql_error());
+		}
+		mysql_free_result($rs);
+	}
+	$sql 	= "select  inv_code,sano,'E' as status,tot_pv,total,sadate,sa_type,inv_ref from ".$dbprefix."esaleh  WHERE sadate>='$fdate' AND sadate<='$tdate' AND inv_code <> 'I'  and status = 1 and cancel=0  ";
+	$rs = mysql_query($sql);
+	if(mysql_num_rows($rs) > 0){
+		for($i=0;$i<mysql_num_rows($rs);$i++){
+			$sqlObj = mysql_fetch_object($rs);
+			$inv_code= $sqlObj->inv_code;
+			$inv_ref= $sqlObj->inv_ref;
+			$sano= $sqlObj->sano;
+			$status= $sqlObj->status;
+			$tot_pv= $sqlObj->tot_pv;
+			$total= $sqlObj->total;
+			$sadate= $sqlObj->sadate;
+			$sa_type= $sqlObj->sa_type;
+			$sqlInsert = "insert into ".$dbprefix."fm(rcode,inv_code,inv_ref,sano,status,tot_pv,tot_price,mdate,sa_type) values
+			('$ro','$inv_code','$inv_ref','$sano','$status','$tot_pv','$total','$sadate','$sa_type')";
+			mysql_query($sqlInsert) or die(mysql_error());
+		}
+		mysql_free_result($rs);
+	}
+
+
+
+
+
+
+	$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";//Mobile
+	$sql .= "	select '$ro', inv_code, SUM(tot_pv) AS total_pv,'S' from ".$dbprefix."asaleh WHERE sadate>='$fdate' AND sadate<='$tdate' AND inv_code <> '' and sa_type <> 'H' and cancel=0  group by mcode ";
+	//echo $sql.'<br>';
+	//exit;
+	mysql_query($sql) or die(mysql_error());
+
+	$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";// Mobile or Invent
+	$sql .= "	select '$ro', inv_code, SUM(tot_pv) AS total_pv,'E' from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate'   and cancel=0 and inv_code <> ''  group by inv_code ";
+	mysql_query($sql) or die(mysql_error());
+
+	$sql = " insert into ".$dbprefix."fpv  (rcode, mcode,total_pv,mpos) ";// Invent Sell Mobile
+	$sql .= "	select '$ro', inv_ref, SUM(tot_pv) AS total_pv,'I' from ".$dbprefix."esaleh WHERE sadate>='$fdate' AND sadate<='$tdate' and status = 1   and cancel=0  group by inv_ref ";
+	mysql_query($sql) or die(mysql_error());
+	//exit;
+	$sql 	= "SELECT mcode,sum(total_pv) as pv FROM ".$dbprefix."fpv ";
+	$sql .= "WHERE rcode='$ro' group by mcode";
+	$rs = mysql_query($sql);
+	for($i=0;$i<mysql_num_rows($rs);$i++){
+		$sqlObj = mysql_fetch_object($rs);
+		$nmcode= $sqlObj->mcode;
+		$ntot_pv= $sqlObj->pv;
+			//??????????????????????????????????
+			$sp_code="";
+			//$exp_per = array('2'=>0.05,'12'=>0.70,'1'=>0.12);
+			//$arr_per = array('1'=>0.10,'2'=>0.06,'3'=>0.08);
+			$arr_per = array('1'=>0.10,'2'=>0.06,'3'=>0.17,'4'=>0.0);
+			$sql1 = "SELECT inv_code,inv_type from ".$dbprefix."invent WHERE inv_code='$nmcode' ";
+			//echo  "$sql1<br>";
+			$rs1=mysql_query($sql1);
+			if (mysql_num_rows($rs1)>0) {
+				$sqlObj1 = mysql_fetch_object($rs1);
+				$inv_code = $sqlObj1->inv_code;
+				$inv_type= $sqlObj1->inv_type;
+			}
+			mysql_free_result($rs1);
+
+				$sql1 = "select inv_code, SUM(tot_pv) AS total_bv from ".$dbprefix."asaleh WHERE  sadate>='$fdate' AND sadate<='$tdate' AND inv_code = '$inv_code' and sa_type <> 'H'  and cancel=0  group by inv_code ";
+				$rs1=mysql_query($sql1);
+				if (mysql_num_rows($rs1)>0) {
+					$sqlObj1 = mysql_fetch_object($rs1);
+					$total_bv1= $sqlObj1->total_bv;
+					mysql_free_result($rs1);
+					//if($inv_type == '1')$per = 0.12;else $per = 0.05;
+					$per = $arr_per[$inv_type];
+				}else{
+					$total_bv1=0;
+				}
+				if($total_bv1>0){
+					$ntot_pv = $total_bv1;
+					$total=($ntot_pv*($per));
+					$tax=($total*0.05);
+					$totalamt=($total-$tax);
+					$sql="";
+					$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,upa_code,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$nmcode','".$inv_code."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','A') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+				}
+				
+				
+				//$sql2 = "select inv_ref,inv_code, SUM(tot_pv) AS total_bv from ".$dbprefix."esaleh  WHERE sadate>='$fdate' AND sadate<='$tdate'  and inv_ref  = '$inv_code'  and cancel=0  and status=1  ";
+				$sql2 = "select inv_ref,inv_code, tot_pv AS total_bv from ".$dbprefix."esaleh  WHERE sadate>='$fdate' AND sadate<='$tdate'  and inv_ref  = '$inv_code'  and cancel=0  and status=1  ";
+				$rs2=mysql_query($sql2);
+				if (mysql_num_rows($rs2)>0) {
+					//for($i=0;$i<mysql_num_rows($rs);$i++){
+					for($jjj=0;$jjj<mysql_num_rows($rs2);$jjj++){
+						$sqlObj2 = mysql_fetch_object($rs2);
+						$total_bv2= $sqlObj2->total_bv;
+						$inv_ref= $sqlObj2->inv_ref;
+						$inv_ref2= $sqlObj2->inv_code;
+						
+						//$per = 0.07;
+						$per = $arr_per[searchtype($dbprefix,$inv_ref)]-$arr_per[searchtype($dbprefix,$inv_ref2)];
+						//echo $per.' '.$inv_ref.' '.$inv_ref2.'<br>';
+						$ntot_pv = $total_bv2;
+						$total=($ntot_pv*($per));
+						$tax=($total*0.05);
+						$totalamt=($total-$tax);
+						$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,upa_code,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$nmcode','".$inv_code."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','E') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+					}
+					mysql_free_result($rs2);
+					//exit;
+				}else{
+					$total_bv2=0;
+				}
+				/*if($total_bv2>0){
+					$ntot_pv = $total_bv2;
+					$total=($ntot_pv*($per));
+					$tax=($total*0.05);
+					$totalamt=($total-$tax);
+					$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,upa_code,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$nmcode','".$inv_code."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','E') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+				}*/
+				
+
+				$sql3 = "select inv_code, SUM(tot_pv) AS total_bv from ".$dbprefix."holdhead WHERE sadate>='$fdate' AND sadate<='$tdate' and inv_code = '$inv_code'  and cancel=0   group by inv_code ";
+				//echo $sql3.'<br>';
+				$rs3=mysql_query($sql3);
+				if (mysql_num_rows($rs3)>0) {
+					$sqlObj3 = mysql_fetch_object($rs3);
+					$total_bv3= $sqlObj3->total_bv;
+					mysql_free_result($rs3);
+					//if($inv_type == '1')$per = 0.12;else $per = 0.05;
+					$per = $arr_per[$inv_type];
+				}else{
+					$total_bv3=0;
+				}
+				if($total_bv3>0){
+					$ntot_pv = $total_bv3;
+					$total=($ntot_pv*($per));
+					$tax=($total*0.05);
+					$totalamt=($total-$tax);
+					$sql = "INSERT INTO ".$dbprefix."fc (rcode,mcode,upa_code,pv,level,percer,total,fdate,tdate,pos_cur) VALUES";
+						$sql .= "(".$ro.",'$nmcode','".$inv_code."','".$ntot_pv."','1','$per','".$total."','$fdate','$tdate','H') ";
+						//echo  "$sql<br>";
+						if (! mysql_query($sql)) {
+							echo "<font color='#FF0000'>error</font><br>";
+							echo  "$sql<br>";
+							echo  die(mysql_error());
+							exit;
+						}
+				}
+					
+						
+				//}
+	}
+		$sql = " insert into ".$dbprefix."fmbonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pos_cur) ";
+		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."fc WHERE  rcode='$ro' and upa_code<>'' group by upa_code ";
+		if (! mysql_query($sql)) {
+			echo "<font color='#FF0000'>error</font><br>";
+			echo  "$sql<br>";
+			echo  die(mysql_error());
+			exit;
+		}
+}
+
+
+function getweak($dbprefix,$mcode){
+	$sql3 = "select mcode, SUM(total_pv_ll) AS tot_pv from ".$dbprefix."bmbonus WHERE  mcode='$mcode' and total <> 0 group by mcode ";
+				//if($mcode == '0000075')echo "$sql3<BR>";
+		$rs3=mysql_query($sql3);
+		if (mysql_num_rows($rs3)>0) {
+			$sqlObj3 = mysql_fetch_object($rs3);
+			$total_fv3= $sqlObj3->tot_pv;
+		}else{
+			$total_fv3=0;
+		}
+		mysql_free_result($rs3);
+				//if($mcode == '0000075')echo "$total_fv3<BR>";
+	return $total_fv3;
+} 
+
+?>

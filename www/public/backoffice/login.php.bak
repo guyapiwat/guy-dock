@@ -1,0 +1,345 @@
+<?php
+session_start();
+require_once ("function.php");
+require_once ("function.log.inc.php");
+require_once("logtext.php");
+?>
+<? include("prefix.php");if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
+		if(empty($_GET["lan"]))$_SESSION["lan"] = "TH";
+		else $_SESSION["lan"] = $_GET["lan"];
+	}else{
+		if(empty($_SESSION["lan"]))$_SESSION["lan"] = "TH";
+	}
+	include_once("wording".$_SESSION["lan"].".php");?>
+<html>
+<link href="./../style.css" rel="stylesheet" type="text/css">
+<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+<body bgcolor="#FFFFFF">
+<?php
+//if the form was filled out, set the session variables
+if (isset($_POST["usercode"]) and isset ($_POST["password"]) ) {
+	//session_destroy();
+ 	$_SESSION["adminusercode"] = $_POST["usercode"];
+ 	$_SESSION["adminpassword"] = $_POST["password"];
+}
+else {
+ 	$_SESSION["adminusercode"] = "";
+ 	$_SESSION["adminpassword"] = "";
+}
+?>
+
+<?php
+// connect to database 
+require('connectmysql.php');
+
+$usercode="";
+$username="";
+$obj1="";
+$obj2="";
+$obj3="";
+$obj4="";
+$obj5="";
+$obj6="";
+$obj7="";
+$obj8="";
+$DePdw="";
+include("securimage.php");
+$img = new Securimage();
+  $valid = $img->check($_POST['code']);
+  if($valid == true) {
+		$sql = "SELECT * FROM ".$dbprefix."user WHERE usertype='1' AND usercode='".$_POST["usercode"]."' ";
+		$sql .= "AND password='".EncodePwd($_POST["password"])."' ";
+		//echo $sql;
+		$result=mysql_query($sql);
+		if (mysql_num_rows($result) > 0) {
+			$row = mysql_fetch_array($result, MYSQL_ASSOC);
+			//session_destroy();
+			$usercode = $row["usercode"];
+			logtext(true,$usercode,'เข้าระบบ : '.$usercode,'');
+			$username = $row["username"];
+			$userid= $row["uid"];
+			$obj1 = $row["object1"];
+			$obj2 = $row["object2"];
+			$obj3 = $row["object3"];
+			$obj4 = $row["object4"];
+			$obj5 = $row["object5"];
+			$obj6 = $row["object6"];
+			$obj7 = $row["object7"];
+			$obj8 = $row["object8"];
+			
+			$invent = $row["inv_code"];
+			
+			$DePdw=DecodePwd($row["password"]);
+$sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
+					mysql_query($sql);
+			////////check lr/////////////
+				$sql = "TRUNCATE TABLE ".$dbprefix."asaleh_bm ";
+				mysql_query($sql);
+										$fdate =	date("Y-m")."-01";
+										$tdate = date("Y-m")."-31";
+
+				$sql="SELECT * FROM ".$dbprefix."member ORDER BY lr DESC";
+					$rs = mysql_query($sql);
+					for($i=0;$i<mysql_num_rows($rs);$i++){
+						$sqlObj = mysql_fetch_object($rs);
+						$mcode[$i] =$sqlObj->mcode;		
+						$name_t[$i] =$sqlObj->name_t;		
+						$upa_code[$mcode[$i]] = $sqlObj->upa_code;
+						$lr1[$mcode[$i]] = $sqlObj->lr;
+						$pos_cur[$mcode[$i]] = $sqlObj->pos_cur;
+						$tot_pv[$mcode[$i]] = 0; 
+						$sum_pv[$mcode[$i]][1] =0;
+						$sum_pv[$mcode[$i]][2] =0;
+						$sum_pv[$mcode[$i]][3] =0;
+						$count[$mcode[$i]][1] =0;
+						$count[$mcode[$i]][2] =0;
+						$count[$mcode[$i]][3] =0;
+						$old_quota[$mcode[$i]] = 0;
+					}
+					mysql_free_result($rs);
+
+					$sql 	= "SELECT mcode,sum(tot_pv) as tot_pv FROM ".$dbprefix."holdhead ";
+					$sql .= "WHERE sadate between '$fdate' and '$tdate'  and (sa_type = 'C' or sa_type = 'A' or sa_type = 'Q') AND cancel=0   group by mcode";
+					$rs = mysql_query($sql);
+					for($i=0;$i<mysql_num_rows($rs);$i++){
+						$sqlObj = mysql_fetch_object($rs);
+						$tot_pv[$sqlObj->mcode] += $sqlObj->tot_pv;
+					}
+					//mysql_free_result($rs);
+
+					$sql 	= "SELECT mcode,sum(tot_pv) as tot_pv FROM ".$dbprefix."asaleh ";
+					$sql .= "WHERE sadate between '$fdate' and '$tdate'  AND (sa_type = 'C' or sa_type = 'A' or sa_type = 'Q') and  cancel=0   group by mcode";
+					$rs = mysql_query($sql);
+					for($i=0;$i<mysql_num_rows($rs);$i++){
+						$sqlObj = mysql_fetch_object($rs);
+						$tot_pv[$sqlObj->mcode] += $sqlObj->tot_pv;
+					}
+					//mysql_free_result($rs);
+					$ro = 1;
+					
+					//คำนวน bm ไม่ใช้ในส่วน bmbonus
+					for($i=0;$i<sizeof($mcode);$i++){
+						if($tot_pv[$mcode[$i]] > 0){
+							$up = $mcode[$i];
+							$lev = 0;
+							while($up <> ""){
+								if($upa_code[$up] <>""){
+									if($tot_pv[$mcode[$i]]>0){
+										$sql = "INSERT INTO ".$dbprefix."asaleh_bm (rcode,mcode,upa_code,pv,lr,fdate,tdate,mpos,satype) VALUES";
+										$sql .= "(".$ro.",'$mcode[$i]','$upa_code[$up]','".$tot_pv[$mcode[$i]]."','$lr1[$up]','$fdate','$tdate','".$pos_cur[$mcode[$i]]."','A') ";
+										mysql_query($sql);
+									}
+									//echo "จากบิลขาย : $sql <br>";
+									//exit;
+								}
+								$up = $upa_code[$up];
+							}
+						}
+					}		
+
+
+						$cdate = date("Y-m-d");
+						//$cdate = "2013-05-20";
+
+						//$sql="SELECT * FROM ".$dbprefix."asaleh where sa_type = 'H' and hdate = '".$cdate."' and (hpv >0 or htotal >0) and bmcauto <> '1' ";
+						$sql="SELECT * FROM ".$dbprefix."asaleh where sa_type = 'H' and hdate = DATE_SUB('".$cdate."',INTERVAL 1 DAY) and (hpv >0 or htotal >0) and cancel = 0";
+						$rs = mysql_query($sql);
+						//echo $sql;
+						//exit;
+						for($i=0;$i<mysql_num_rows($rs);$i++){
+						$sqlObj = mysql_fetch_object($rs);
+						$sano =$sqlObj->id;		
+						$smcode =$sqlObj->mcode;
+						$shpv =$sqlObj->hpv;
+						$shtotal =$sqlObj->htotal;
+						$cdate = $sqlObj->hdate;
+						$locationbase = $sqlObj->locationbase;
+
+						$sql = "SELECT MAX(id) AS id FROM ".$dbprefix."holdhead ";
+						$rs2 = mysql_query($sql);
+						$mid = $hono = mysql_result($rs2,0,'id');
+						$mid = ++$hono;
+						$sql="insert into ".$dbprefix."holdhead (id, hono, sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid,bmcauto ,locationbase) values ('$mid' ,'$hono' ,'".$sano."' ,'".$cdate."' ,'$smcode', 'A' ,'' ,'$shtotal' ,'$shpv' ,'system','1','$locationbase') ";
+						//echo $sql;
+						//exit;
+						mysql_query($sql);
+						//logtext(true,"system",'แจงบิล Hold Auto',$sql);
+
+						$sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.pdesc,".$dbprefix."asaled.price,";
+						$sql .= $dbprefix."asaled.pv,(".$dbprefix."asaled.qty-IFNULL(SUM(".$dbprefix."holddesc.qty),0)) AS qty FROM ".$dbprefix."asaled ";
+						$sql .= "LEFT JOIN ".$dbprefix."holdhead ON (".$dbprefix."asaled.sano=".$dbprefix."holdhead.sano and ".$dbprefix."holdhead.cancel=0 ) ";
+						$sql .= "LEFT JOIN ".$dbprefix."holddesc ";
+						$sql .= "ON (".$dbprefix."holdhead.hono=".$dbprefix."holddesc.hono AND ".$dbprefix."holddesc.pcode=".$dbprefix."asaled.pcode) ";
+						$sql .= "WHERE ".$dbprefix."asaled.sano='".$sano."'  GROUP BY pcode";
+						$rs1 = mysql_query($sql);
+						for($j=0;$j<mysql_num_rows($rs1);$j++){
+							$sqlObj1 = mysql_fetch_object($rs1);
+								$pcode =$sqlObj1->pcode;
+								$pdesc =$sqlObj1->pdesc;
+								$price =$sqlObj1->price;
+								$pv =$sqlObj1->pv;
+								$qty =$sqlObj1->qty;
+								$totalprice = $price*$qty;
+								$sql="insert into ".$dbprefix."holddesc (hono,pcode,pdesc,price,pv,qty,amt) values ('$mid','$pcode','$pdesc','$price' ,'$pv','$qty','$totalprice') ";
+							//	echo $sql;
+							//	exit;
+								mysql_query($sql);
+							//	logtext(true,"system",'แจงบิล Hold Auto',$sql);
+						}
+						//echo $smcode.' : '.$cdate.' : '.$shpv;
+						//exit;
+						//$cdate = '2013-05-21';
+						updatePos1($dbprefix,$smcode,$cdate,$shpv);
+						//exit;
+						
+						mysql_query("update ".$dbprefix."asaleh set hpv=0,htotal=0,bmcauto=1 where id = '$sano'");
+					}
+
+					//exit;
+				//	exit;
+		}
+  }else {
+	  if(!empty($_POST)){
+		  $chkcaptcha = "<center><font color='#FF0000'>".$wording_lan["w15"]."</font></center>";
+		//    echo "<center>Sorry, the code you entered was invalid.</center>";
+	  }
+  }
+
+
+
+// ตรวจสอบสิทธิ
+if	(  
+ ($_SESSION["adminusercode"]==$usercode) and ($_SESSION["adminpassword"]==$DePdw) and (!($DePdw=="")) and (!($_SESSION["adminusercode"]=="")) and (!($_SESSION["adminpassword"]==""))
+	) {
+	
+	$_SESSION["adminusername"]=$username;
+	$_SESSION["adminuserid"]=$userid;
+	
+	$_SESSION["adminobj1"]=$obj1;
+	$_SESSION["adminobj2"]=$obj2;
+	$_SESSION["adminobj3"]=$obj3;
+	$_SESSION["adminobj4"]=$obj4;
+	$_SESSION["adminobj5"]=$obj5;
+	$_SESSION["adminobj6"]=$obj6;
+	$_SESSION["adminobj7"]=$obj7;
+	$_SESSION["adminobj8"]=$obj8;
+	
+	require ("header.php");
+	$text="uid=".$_SESSION["adminuserid"]." action=login";
+	writelogfile($text);
+	?>
+	
+	<table bgcolor="#FFFFFF" border="0" width="100%" align="center" height="410">
+		<tr><td valign="top"><br /><br />
+	<blockquote>
+		<br>
+
+	<strong><?=$wording_lan["header"]["user"]?>&nbsp;</strong>&nbsp;:&nbsp;<?=$usercode?>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<strong><?=$wording_lan["header"]["name"]?></strong>&nbsp;:&nbsp;<?=$username?><br>
+	<br><?=$wording_lan["system"]["welcomeback"]?><br>
+	<br>
+	
+<a href="index.php?sessiontab=0"><?=$wording_lan["system"]["changepassword"]?></a>
+	<br><br>
+	<br><br>
+	[<a href="logout.php">Logout</a>]
+	<br>
+	<br>
+	</blockquote>
+	</td>
+	</tr></table>
+	<?php 
+}
+else {
+	//	<!-- Log in fail -->
+	$_SESSION["adminusercode"]=""; 
+	$_SESSION["adminuserid"]=""; 
+	$_SESSION["adminusername"]="";
+	$_SESSION["adminpassword"]="";
+//	$_SESSION["admininvent"]="";
+//	$_SESSION["admininventname"]="";
+	$_SESSION["adminobj1"]="";
+	$_SESSION["adminobj2"]="";
+	$_SESSION["adminobj3"]="";
+	$_SESSION["adminobj4"]="";
+	$_SESSION["adminobj5"]="";
+	$_SESSION["adminobj6"]="";
+	$_SESSION["adminobj7"]="";
+	$_SESSION["adminobj8"]="";
+	require ("header.php");
+	?>
+	<table bgcolor="#FFFFFF" border="0" width="100%" align="center" height="410">
+		<tr><td valign="top">
+		<?=$chkcaptcha?>
+		<br />
+	<form method="POST" name="Form1" autocomplete="off">
+	<center><br />
+	<table width="300" height="150" background="./images/log_banner.jpg" style="background-repeat:no-repeat">
+		<tr>
+		<td>
+				<table border="0" cellpadding="0" cellspacing="1" width="100%">
+
+		
+		<tr>
+			<td colspan="2" nowrap align="center"><?=$wording_lan["login"]["topic"] ?></td>
+		</tr>
+		
+		<tr>
+			<td width="7%" align="right"><?=$wording_lan["login"]["user"] ?>&nbsp;:&nbsp;</td>
+			<td width="93%"><input type="text" name="usercode" size="20" ></td>
+		</tr>
+		<tr>
+			<td width="7%" align="right"><?=$wording_lan["login"]["password"] ?>&nbsp;:&nbsp;</td>
+			<td width="93%"><input type="password" name="password" size="20"></td>
+		</tr>
+		<tr>
+			<td width="7%" align="right"></td>
+			<td align="left"><table><tr><td><div style="width: 150px; float: left; height: 50px">
+      
+	  <img id="siimage" align="left" style="padding-right: 5px; border: 0" src="securimage_show.php?sid=<?php echo md5(time()) ?>" />
+
+        </td><td>
+                <object classid="clsid:d27cdb6e-ae6d-11cf-96b8-444553540000" codebase="http://download.macromedia.com/pub/shockwave/cabs/flash/swflash.cab#version=9,0,0,0" width="19" height="19" id="SecurImage_as3" align="middle">
+			    <param name="allowScriptAccess" value="sameDomain" />
+			    <param name="allowFullScreen" value="false" />
+			    <param name="movie" value="securimage_play.swf?audio=securimage_play.php&bgColor1=#777&bgColor2=#fff&iconColor=#000&roundedCorner=5" />
+			    <param name="quality" value="high" />
+			
+			    <param name="bgcolor" value="#ffffff" />
+			    <embed src="securimage_play.swf?audio=securimage_play.php&bgColor1=#777&bgColor2=#fff&iconColor=#000&roundedCorner=5" quality="high" bgcolor="#ffffff" width="19" height="19" name="SecurImage_as3" align="middle" allowScriptAccess="sameDomain" allowFullScreen="false" type="application/x-shockwave-flash" pluginspage="http://www.macromedia.com/go/getflashplayer" />
+			  </object>
+
+
+        <!-- pass a session id to the query string of the script to prevent ie caching --><br>
+        <a tabindex="-1" style="border-style: none" href="#" title="Refresh Image" onclick="document.getElementById('siimage').src = 'securimage_show.php?sid=' + Math.random(); return false"><img src="images/refresh.gif" alt="Reload Image" border="0" onclick="this.blur()" align="bottom" /></a></td></tr></table>
+</div></a>
+</div>
+<div style="clear: both"></div>
+<!--Code:<br />-->
+
+<!-- NOTE: the "name" attribute is "code" so that $img->check($_POST['code']) will check the submitted form field -->
+<input type="text" name="code" size="12" /><br /><br /></td>
+		</tr>
+		<tr>
+			<td width="37%" align="right"></td>
+			<td width="63%">
+			  <input type="submit" value="<?=$wording_lan["login"]["ok"] ?>" name="B1">&nbsp;&nbsp;
+			<input type="reset" value="<?=$wording_lan["login"]["cancel"] ?>" name="B2"></td>
+		</tr>
+		<tr>
+			<td colspan="2">&nbsp;</td>
+		</tr>
+		</table>
+		
+		</td>
+		</tr>
+		</table></center>
+	</form></td></tr></table>
+	<?php 
+} 
+?>
+<? include "footer.php";?>
+</body>
+</head>
+
+
+

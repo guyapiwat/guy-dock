@@ -1,0 +1,375 @@
+<?
+if(!isset($_GET['sub'])){
+	$cmc = $_SESSION["usercode"];
+	$data = get_detail_meber($cmc);
+	$imgphoto = posimg($data["pos_cur"]);
+	$status=get_status($cmc,date('Y-m-d'),$data['pos_cur']);
+	$month_1 = $montharry[date("m", strtotime("first day of +0 month"))];
+	$month_2 = $montharry[date("m", strtotime("first day of -1 month"))];
+
+
+   ////////////// PV LR //////////////////////
+	$point = new point_member;
+	$bmbonus = $point->get_bmbonus($dbprefix,$cmc);
+	$pos_cur = $point->position($dbprefix,'calc_poschange','pos_cur',$cmc);
+	$pos_cur2 = $point->position($dbprefix,'calc_poschange1','pos_cur2',$cmc);
+	$mtype1 = $arr_mtype1[$cmc["mtype"]];
+ 
+	if($bmbonus['sum_pv'][1]>$bmbonus['sum_pv'][2]){
+		$weak_point=  $bmbonus['sum_pv'][2];
+	}else{
+		$weak_point=	$bmbonus['sum_pv'][1];
+	} 
+	if($bmbonus['pv_month'][1]>$bmbonus['pv_month'][2]){
+		$weak_month=  $bmbonus['pv_month'][2];
+	}else{
+		$weak_month=	$bmbonus['pv_month'][1];
+	} 
+
+
+   ////////////// PV LR //////////////////////
+?>
+<div class="row">
+	<div class="col-xs-12">
+		<!-- PAGE CONTENT BEGINS -->
+		<div class="clearfix">
+		<div>
+			<div id="user-profile-1" class="user-profile row">
+				<div class="col-xs-12 col-sm-3 center">
+					<div>
+
+						<!-- #section:pages/profile.picture -->
+						<span class="profile-picture">
+						<?if($_SESSION["profile_img"] != ""){?>
+							<img id="avatar" class="editable img-responsive" alt="<?=$detail["pos_cur"]?>" src="uploads/<?echo $_SESSION["profile_img"];?>" width ="300px"/>
+						<?}else{?>
+						<img id="avatar" class="editable img-responsive" src="../assets/avatars/profile-pic.jpg" width ="200px"/>
+						<?}?>
+						</span>
+
+						<!-- /section:pages/profile.picture -->
+
+						<div class="width-80 label label-info label-xlg arrowed-in arrowed-in-right">
+							<div class="inline position-relative">
+								<a href="#" class="user-title-label dropdown-toggle" data-toggle="dropdown">
+									<i class="ace-icon fa fa-circle light-green"></i>
+									&nbsp;
+									<span class="white"><?php echo $data['mcode'];?>(<?php if($data['name_b']!=""){echo $data['name_b'];}else{echo $data['name_t'];}?>)</span>
+								</a>
+
+								<ul class="align-left dropdown-menu dropdown-caret dropdown-lighter">
+									<li class="dropdown-header"> Detail Status </li>
+
+									<li>
+										<a href="#">
+											<i class="ace-icon fa fa-circle green"></i>
+&nbsp;
+											<span class="green">Actived</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<i class="ace-icon fa fa-circle red"></i>
+&nbsp;
+											<span class="red">Suspend</span>
+										</a>
+									</li>
+
+									<li>
+										<a href="#">
+											<i class="ace-icon fa fa-circle black"></i>
+&nbsp;
+											<span class="grey">Terminated</span>
+										</a>
+									</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+
+
+					<div class="space-6"></div>
+
+					
+
+						<div class="profile-user-info profile-user-info-striped">
+							<div class="profile-info-row">
+								<div class="profile-info-name1">ตำแหน่งธุรกิจ</div>
+
+								<div class="profile-info-value">
+									<span class="editable" id="username"><?php echo $pos_cur['pos_cur']; ?>&nbsp;<?  if($pos_cur['date'] != '')echo '('.$pos_cur['date'].')' ;?></span>
+								</div>
+							</div>
+							<div class="profile-info-row">
+								<div class="profile-info-name1">ตำแหน่งเกรียติยศ</div>
+
+								<div class="profile-info-value">
+									<span class="editable" id="username"><?php echo $pos_cur2['pos_cur'];?>&nbsp;<?  if($pos_cur2['date'] != '')echo '('.$pos_cur2['date'].')' ;?></span>
+								</div>
+							</div>
+						</div>
+
+					<!-- /section:custom/extra.grid -->
+					<div class="hr hr16 dotted"></div>
+				</div>
+
+				<div class="col-xs-12 col-sm-9">
+					<!--<div class="center">
+						<span class="btn btn-app btn-sm btn-light no-hover">
+							<span class="line-height-1 blue"> <?=$_SESSION["ewallet"]?> </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Wallet </span>
+						</span>
+
+						<span class="btn btn-app btn-sm btn-yellow no-hover">
+							<span class="line-height-1 "> 32 </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Autoship </span>
+						</span>
+
+						<span class="btn btn-app btn-sm btn-pink no-hover">
+							<span class="line-height-1 "> 4 </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Voucher </span>
+						</span>
+
+						<span class="btn btn-app btn-sm btn-grey no-hover">
+							<span class="line-height-1 "> 23 </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Travel </span>
+						</span>
+
+						<span class="btn btn-app btn-sm btn-success no-hover">
+							<span class="line-height-1 "> 7 </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Car </span>
+						</span>
+
+						<span class="btn btn-app btn-sm btn-primary no-hover">
+							<span class="line-height-1 "> 55 </span>
+
+							<br />
+							<span class="line-height-1 smaller-90"> E-Home </span>
+						</span>
+					</div>
+
+					<div class="space-12"></div>
+					 -->
+					<!-- #section:pages/profile.info -->
+					<div class="profile-user-info profile-user-info-striped">
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["mcode"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="username"><?php echo $data['mcode'];?>(<?php if($data['name_b']!=""){echo $data['name_b'];}else{echo $data['name_t'];}?>)</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab3_4"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo $data['mdate'];?></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["wording8"];?>&nbsp;(<?=$month_2;?>) </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><!--?=$status['ch_status']?-->0</span>
+							</div>
+						</div>
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["wording8"];?>&nbsp;(<?=$month_1;?>) </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><!--?=$status['ch_status']?-->0</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> PV สะสมส่วนตัว </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="username"><a href='./index.php?sessiontab=4&sub=38&cmc=<?php echo $cmc;?>' target = '_bank' ><?php echo number_format($point->get_allPoint($dbprefix,$cmc),0,'',',')?></a></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab3_6"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo  $data['sp_code'];?>(<?php echo  $data['sp_name'];?>)</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab3_5"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo  $data['upa_code'];?>(<?php echo  $data['upa_name'];?>)</span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab2_1_13"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo $data['cmp3']==""?"<font color='#FF0000' class='blink' >".$incomplete."</font>":"<font color='#66FF00'>".$completely."</font>  ( ".$data["bmdate3"]." )"?></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab2_1_14"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo $data['cmp']==""?"<font color='#FF0000' class='blink' >".$incomplete."</font>":"<font color='#66FF00'>".$completely."</font> ( ".$data["bmdate1"]." )"?></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name"> <?=$wording_lan["tab2_1_15"];?> </div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"><?php echo $data['cmp2']==""?"<font color='#FF0000' class='blink' >".$incomplete."</font>":"<font color='#66FF00'>".$completely."</font> ( ".$data["bmdate2"]." )"?></span>
+							</div>
+						</div>
+
+					</div>
+
+					<div class="space-12"></div>
+
+					<!-- #section:pages/profile.info -->
+					<div class="profile-user-info profile-user-info-striped">
+						
+
+						<div class="profile-info-row">
+							<div class="profile-info-name1"> PV ซ้าย (ยกมา) :	 <?php echo number_format($bmbonus['pcarry'][1],0,'.',',');?></div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age">PV ขวา (ยกมา) : <?php echo number_format($bmbonus['pcarry'][2],0,'.',',');?></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name1"> PV ซ้าย (ใหม่) : <?echo number_format($point->get_newPoint($dbprefix,$cmc,1),0,'.',',');?></div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"> PV ขวา (ใหม่) :  <?echo number_format($point->get_newPoint($dbprefix,$cmc,2),0,'.',',');?></span>
+							</div>
+						</div>
+
+						<div class="profile-info-row">
+							<div class="profile-info-name1"> PV ซ้าย (รวม) :  <?php echo number_format($bmbonus['pcarry'][1]+$point->get_newPoint($dbprefix,$cmc,1),0,'.',',');?></div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="age"> PV ขวา (รวม) : <?php echo number_format($bmbonus['pcarry'][2]+$point->get_newPoint($dbprefix,$cmc,2),0,'.',',');?></span>
+							</div>
+						</div>
+
+					</div>
+
+<?
+$sqlall = "SELECT *,CASE WHEN status = 'Y'  THEN 'Yes' ELSE 'No' END as status FROM ".$dbprefix."news where status ='Y' order by id desc ";
+$rs12 = mysql_query($sqlall);      
+
+?>
+					<!-- /section:pages/profile.info -->
+					<div class="space-10"></div>
+
+					<div class="widget-box transparent">
+						<div class="widget-header widget-header-small">
+							<h4 class="widget-title blue smaller">
+								<i class="ace-icon fa fa-rss orange"></i>
+								<?=$wording_lan["news"];?>
+							</h4>
+						</div>
+
+						<div class="widget-body">
+							<div class="widget-main padding-8">
+								<!-- #section:pages/profile.feed -->
+								<div id="profile-feed-1" class="profile-feed">
+									<? 
+									if (mysql_num_rows($rs12)>0) {
+										for($x=0;$x<mysql_num_rows($rs12);$x++){
+											$sqlObj = mysql_fetch_object($rs12);
+											$id =$sqlObj->id;  
+											$head =$sqlObj->head;  
+											$dates =$sqlObj->dates;  
+									?>
+									<div class="profile-activity clearfix">
+										<div>
+											<i class="pull-left thumbicon fa fa-check btn-success no-hover"></i>
+											<a href="./index.php?sessiontab=1&sub=10&ids=<?=$id?>"><?=$head?></a>
+											<div class="time">
+												<i class="ace-icon fa fa-clock-o bigger-110"></i>
+												<?=$dates?>
+											</div>
+										</div>
+									</div>
+									<?
+										}
+									}
+									?>
+								</div>
+								<!-- /section:pages/profile.feed -->
+							</div>
+						</div>
+					</div>
+					<div class="space-6"></div>
+					<div class="space-6"></div>
+					<div class="space-6"></div>
+					<div class="space-6"></div>
+				</div>
+			</div>
+		</div>
+		<!-- PAGE CONTENT ENDS -->
+	</div><!-- /.col -->
+</div><!-- /.row -->
+
+
+		</div><!-- /.page-content -->
+	</div>
+</div><!-- /.main-content -->
+<?
+}else{
+	switch($_GET['sub']){
+
+			case 1:
+				?><legend><strong><font color="#666666">User Infomation&nbsp;&nbsp;</font></strong></legend><?
+				include("user_detail.php");
+				break;
+			case 2:
+				?><legend><strong><font color="#666666"><?=$wording_lan["tab1_2"]?>&nbsp;&nbsp;</font></strong></legend><?
+				include("change_pass.php");
+				break;
+		    case 3:
+				?><legend><strong><font color="#666666"><?=$wording_lan["tab1_4"]?>&nbsp;&nbsp;</font></strong></legend><?
+				include("member_editadd.php");
+				break;
+			case 7:
+				?><legend><strong><font color="#666666"><?=$wording_lan["tab1_6"]?>&nbsp;&nbsp;</font></strong></legend><?
+				include("member_editadd1.php");
+				break;
+			case 8:
+				?><legend><strong><font color="#666666"><?=$wording_lan["tab1_7"]?>&nbsp;&nbsp;</font></strong></legend><?
+				include("member_success.php");
+				break;
+			case 10:
+				?><legend><strong><font color="#666666"><?=$wording_lan["news"];?></font></strong></legend><?
+				include("news_show.php");
+				break;
+			default :
+				echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$sesstab."'</script>";
+			break;
+		}
+}
+?>

@@ -1,0 +1,30 @@
+body{background:url("../images/bg.jpg") no-repeat center top;-webkit-background-size:cover;background-size:cover}.login-container{background-color:#fff;width:90%;padding:25px;margin:0 auto;margin-top:20px;-webkit-transition:-webkit-box-shadow .3s;transition:box-shadow .3s}.login-container:hover{-webkit-box-shadow:0px 50px 80px rgba(0,0,0,0.15);box-shadow:0px 50px 80px rgba(0,0,0,0.15)}.logo{display:block;margin:0 auto}.welcome-container{padding-top:20px;font-family:'PSLKanda';line-height:.9em;text-align:center}.welcome-container strong{font-family:'PSLKandaBold';line-height:.9em;font-size:1.1em}.welcome-container .welcome{font-size:36px}.welcome-container .welcome strong{color:#ec1c24;font-size:1.2em}.welcome-container .login{font-size:18px}form{padding-top:15px}.form-gp{margin-bottom:20px}.form-gp label{font-family:'PSLKanda';line-height:.9em;font-size:23px;display:block}.form-gp .form-control{font-family:'PSLKandaBold';line-height:.9em;font-size:30px;color:#9b9da0;display:block;width:100%;padding:5px 20px;border-radius:10px;border:1px solid #58595b;outline:none}.form-gp .form-control:focus{-webkit-box-shadow:0 0 5px #67b2dc;box-shadow:0 0 5px #67b2dc;border:1px solid #4d87a0}.confirm-num{display:table;width:100%}.confirm-num div:nth-child(1),.confirm-num div:nth-child(2){display:table-cell;vertical-align:middle}.confirm-num div:nth-child(1){padding-right:5px}.confirm-num div:nth-child(2){font-size:25px;background-color:#ededee;padding:5px 20px;color:#58595b}.register{font-family:'PSLKandaBold';line-height:.9em;display:block;text-decoration:none;font-size:22px;color:#ec1c24;text-align:center}.register:hover{text-decoration:underline}.register .arrow{width:10px;vertical-align:middle;position:relative;top:-2px;left:10px}.product{max-width:90%;display:block;margin:25px auto 20px}@media (min-width: 400px){.welcome-container .welcome{font-size:40px}.welcome-container .login{font-size:22px}.form-gp label{font-size:28px}.register{font-size:30px}.register .arrow{width:10px;top:-2px}}@media (min-width: 600px){.login-container{width:485px;padding:25px 52px}.welcome-container .welcome{font-size:50px}.welcome-container .login{font-size:28px}.form-gp label{font-size:30px}.form-gp .form-control{border-radius:13px}.confirm-num div:nth-child(1){padding-right:5px}.confirm-num div:nth-child(2){font-size:27px;padding:5px 30px}.register{font-size:37px}.register .arrow{width:auto;top:-3px}.product{max-width:100%}}
+.btn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 7;
+  -moz-border-radius: 7;
+  border-radius: 7px;
+  font-family: Arial;
+  color: #ffffff;
+  border: 0px;
+  margin: 0px 0px 0px 138px;
+  font-size: 20px;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+}
+
+.btn:hover {
+  cursor: pointer;
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
