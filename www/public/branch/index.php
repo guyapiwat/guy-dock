@@ -1,5 +1,5 @@
 <? 
-//exit;
+// exit;
 session_start();
 //var_dump($_SESSION["bill_ref"]);
 //$star = '0000001';
@@ -30,6 +30,7 @@ ini_set("memory_limit","100M");
 ?>
 
 <? require("adminchecklogin.php");
+
 if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
 		if(empty($_GET["lan"]))$_SESSION["lan"] = "TH";
 		else $_SESSION["lan"] = $_GET["lan"];
@@ -38,18 +39,26 @@ if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
 	}
 	include_once("wording".$_SESSION["lan"].".php");
 	?>
-<? include("logtext.php")?>
-<? include("function.log.inc.php")?>
-<? require("./cls/repGenerator.php");?>
+<? include("logtext.php")
+
+?>
+<? include("function.log.inc.php");
+
+?>
+<? require("./cls/repGenerator.php");
+
+?>
 <? require("./cls/piority.php");
+
   include("rpdialog.php"); 
+//   exit;
 //var_dump($_SESSION);
 //session_destroy();
 ?>
 <html>
 <head>
 <meta http-equiv="Content-Language" content="th">
-<meta http-equiv="Content-Type" content="text/html; charset=tis-620">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <title>Welcome To MLM SYSTEM</title>
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 <meta name="robots" content="noindex,nofollow">
@@ -93,8 +102,8 @@ if(lan == 'EN'){
 var months = new Array("January","Febuary","March","April","May","June","July","August","September","October","November","December")
 var thday = new Array ("Sunday","Monday","Tuesday","Wednesday","Thurday","Friday","Satuday");
 }else{
-var months = new Array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฏาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม")
-var thday = new Array ("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์");
+var months = new Array("ÿÿÿ?ÿ","ÿÿÿÿ??ÿÿ","ÿ??ÿ","ÿÿÿÿ?","ÿÿÿÿ?ÿ","ÿ??ÿ?","ÿ?ÿ?ÿ","ÿ?ÿ?ÿ","ÿ?ÿÿ?","ÿÿÿ?ÿ","ÿÿ??ÿ?","ÿ?ÿ?ÿ")
+var thday = new Array ("ÿ??ÿÿ","ÿ?ÿÿÿ","ÿ?ÿÿÿ","ÿ?","ÿÿÿÿ?ÿÿ","ÿ?ÿÿ","ÿÿÿÿÿ");
 
 }
 
@@ -124,7 +133,11 @@ setTimeout("clock('"+lan+"')", 1000)
 </head><!--bgcolor="#FFCC66"-->
 <body onLoad="clock('<?=$_SESSION["lan"]?>')"  bgcolor="#FFFFFF" bgproperties="fixed" leftMargin="0" topMargin="0" marginheight="0" marginwidth="0">
 
-<? include("header.php");?>
+<?
+
+include("header.php");
+
+ ?>
 <? include("prefix.php");?>
 <? $acc = new piority();?>
 
@@ -144,6 +157,7 @@ setTimeout("clock('"+lan+"')", 1000)
 				break;
 			case 1 :
 				include("mem_mainmenu.php");
+				 
 				break;
 			case 3 :
 				include("sales_mainmenu.php");

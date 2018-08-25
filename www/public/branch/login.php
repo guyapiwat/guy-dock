@@ -1,6 +1,6 @@
 <?session_start();?><head>
-<meta http-equiv="Content-Language" content="th">
-<meta http-equiv="Content-Type" content="text/html; charset=tis-620">
+
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 </head>
 <? 
 ?>
@@ -15,7 +15,7 @@ require_once("logtext.php");
 <? include("prefix.php");?>
 <html>
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <body bgcolor="#FFFFFF">
 <?php
 //if the form was filled out, set the session variables
@@ -55,9 +55,16 @@ $img = new Securimage();
 				$sql .= "AND a.password='".EncodePwd($_POST["password"])."' ";
 				// echo $sql;
 				// exit;
+				$charset = "SET NAMES 'UTF8'"; 
+    			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+
 				$result=mysql_query($sql);
+
+				
+
 				if (mysql_num_rows($result) > 0) {
 					$row = mysql_fetch_array($result, MYSQL_ASSOC);
+					//var_dump($row);
 					//session_destroy();
 					$usercode = $row["usercode"];
 					$inv_ref = $row["inv_ref"];
@@ -67,6 +74,10 @@ $img = new Securimage();
 					$discount = $row["discount"];
 					if($ewallet == 0)$ewallet = 0;
 					$inv_desc = $row["inv_desc"];
+
+					//echo $inv_desc;
+					//exit;
+
 					$inv_code = $row["inv_code"];
 					$inv_type = $row["inv_type"];
 					$inv_locationbase = $row["locationbase"];
@@ -176,7 +187,7 @@ if	(
  ($_SESSION["inv_usercode"]==$usercode) and ($_SESSION["inv_password"]==$DePdw) and (!($DePdw=="")) and (!($_SESSION["inv_usercode"]=="")) and (!($_SESSION["inv_password"]==""))
 	) {
 	$_SESSION["inv_ref"]=$inv_ref;
-$_SESSION["bill_ref"]=$bill_ref;
+	$_SESSION["bill_ref"]=$bill_ref;
 	$_SESSION["inv_ewallet"]=$ewallet;
 	$_SESSION["inv_username"]=$username;
 	$_SESSION["inv_userid"]=$userid;

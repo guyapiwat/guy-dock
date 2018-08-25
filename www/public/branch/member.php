@@ -13,7 +13,7 @@ function view(code){
 </script>
 <script language="javascript" type="text/javascript">
 function sale_status(id){
-	if(confirm("µÈÕß°“√ Reset Password")){
+	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ Reset Password")){
 		window.location='index.php?sessiontab=1&sub=2&state=3&bid='+id;
 	}
 }
@@ -72,7 +72,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT pos_cur2,mtype1,hpv,voucher,id,mcode,name_t,bunit,mobile,sv_code,id_card,mdate,pos_cur,pos_cur2,sp_code2 as upa_code,sp_code,ewallet,eatoship,ecom,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ";
 $sql .= ",CASE mtype1 WHEN '0' THEN 'Member' WHEN '1' THEN 'Franchise'  WHEN '2' THEN 'Agency'  END AS mtype ";
 $sql .= ",CASE status_doc WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_doc ";
-$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  WHEN '3' THEN '¢«“'  END AS statur_lr ";
+$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  WHEN '3' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 $sql .= $sqlmtype;
 /*
 $sql .= ",CASE status_terminate WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_terminate1 ";
@@ -183,13 +183,13 @@ if($mtype1!=""  ){
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mcode,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		$rec->setShowField("mcode,name_t,mobile,id_card,mdate,pos_cur,pos_cur2,sp_code,status_doc,status_suspend,status_terminate1,ewallet,eatoship,voucher,hpv,mtype");
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,‡∫Õ√Ï‚∑√,√À— ª√–™“™π,«—π∑’Ë ¡—§√,µ”·ÀπËß,µ”·ÀπËß‡°’¬√µ‘¬»,√À— ºŸÈ·π–π”,‡Õ° “√,Suspend,Terminate,EW,EA,EV,HPV,ª√–‡¿∑");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,Suspend,Terminate,EW,EA,EV,HPV,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,right,right,right,right");
 		//$rec->setFieldSpace("7%,11%,8%,7%,10%,7%,5%,5%,7%,5%,5%,5%,8%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,,,,,");
@@ -200,24 +200,24 @@ if($mtype1!=""  ){
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		}
 		//$rec->setSearch($dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,exp_date,".$dbprefix."member.pos_cur,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code,".$dbprefix."member.id_card,status_doc,status_suspend,status_blacklist,status_ato,cshort");
-		//$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,√À— ª√–™“™π,‡Õ° “√,suspend,blacklist,Autoship,LB");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,suspend,blacklist,Autoship,LB");
 		if($acc->isAccess(2))
 			$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 			$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","Reset Password");
 	
 		$rec->setSpace($str);
@@ -231,19 +231,19 @@ if($mtype1!=""  ){
 	<form style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; text-align: center;" name="searh" id="searh" action="index.php?sessiontab=1&sub=2" method="post">
 	  <table width="100%%" border="0">
 	    <tr>
-	      <td width="12%" align="right" scope="row">√À—  ¡“™‘°</td>
+	      <td width="12%" align="right" scope="row">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
 	      <td width="15%" align="left"><input type="text" name="s_mcode" id="s_mcode" value="<?=$s_mcode?>"></td>
 	      <td align="right">&#3619;&#3627;&#3633;&#3626;&#3612;&#3641;&#3657;&#3649;&#3609;&#3632;&#3609;&#3635;</td>
 	      <td align="left"><input type="text" name="s_sp_code" id="s_sp_code" value="<?=$s_sp_code?>"></td>
-	      <td width="9%" align="right">«—π∑’Ë ¡—§√</td>
-	      <td width="37%"><span style="float: left;">µ—Èß·µË
+	      <td width="9%" align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£</td>
+	      <td width="37%"><span style="float: left;">‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà
 	        <input value="<?=$smdate2?>" type="text" name="smdate2" id="dateInput1" placeholder="2014-06-01">
-	        ∂÷ß
+	        ‡∏ñ‡∏∂‡∏á
   <input value="<?=$emdate2?>"  type="text" name="emdate2" id="dateInput2" placeholder="2014-06-05">
 	        </span>&nbsp;</td>
         </tr>
 	    <tr>
-	      <td align="right">™◊ËÕ</td>
+	      <td align="right">‡∏ä‡∏∑‡πà‡∏≠</td>
 	      <td align="left"><input type="text" name="s_namef" id="s_namef" value="<?=$s_namef?>"></td>
 	      <td align="right"><select name="v_ewallet">
            <option value="E" <?if($v_ewallet=='E')echo 'selected' ?>>Ewallet</option>
@@ -254,7 +254,7 @@ if($mtype1!=""  ){
 		   
           </select></td>
 	      <td><input type="text" name="s_ewallet" id="s_ewallet" placeholder="&#3648;&#3594;&#3656;&#3609; 0-100" value="<?=$s_ewallet?>"></td>
-	      <td align="right">®”π«π√“¬°“√</td>
+	      <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="50" <? if($s_list=='50'){echo 'selected';}?> >50</option>
 	        <option value="100" <? if($s_list=='100'){echo 'selected';}?>>100</option>
@@ -262,21 +262,21 @@ if($mtype1!=""  ){
 	        <option value="300" <? if($s_list=='300'){echo 'selected';}?>>300</option>
 	        <option value="400" <? if($s_list=='400'){echo 'selected';}?>>400</option>
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?>>500</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
         </tr>
 	    <tr>
-	      <td align="right">√À— ∫—µ√ª√–™“™π</td>
+	      <td align="right">‡∏£‡∏´‡∏±‡∏™‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô</td>
 	      <td><input type="text" name="s_id_card" id="s_id_card" value="<?=$s_id_card?>"></td>
 	      <td align="right">Terminate</td>
 	      <td align="left"><select name="s_terminate" id="s_terminate">
               <option value="0">&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;</option>
               <option value="1" <? if($terminate==1){echo "selected";} ?>>terminate</option>
           </select></td>
-	      <td align="right">ª√–‡¿∑ ¡“™‘°</td>
+	      <td align="right">‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
 			<td>&nbsp;
 			  <select name="mtype1">
-			  <option value="" selected>∑—ÈßÀ¡¥</option>
+			  <option value="" selected>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 					<?php
 					if($mtype1<'0'){
 							$mtype1=99;
@@ -290,10 +290,10 @@ if($mtype1!=""  ){
 				</select></td>
         </tr>
 	    <tr>
-	      <td align="right">µ”·ÀπËß</td>
+	      <td align="right">‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 	      <td>
 				<select name="s_poscur" id="s_poscur" >
-					<option value=''>‡≈◊Õ°µ”·ÀπËß</option> 
+					<option value=''>‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</option> 
 				<?
 					$sqlx = "SELECT * FROM ali_position WHERE posid > 0 and posid < 10 ORDER BY posid ASC";
 					$rsx = mysql_query($sqlx);
@@ -313,10 +313,10 @@ if($mtype1!=""  ){
 				
 				?>
 				</select>
-		  <td align="right">‡°’¬√µ‘¬»</td>
+		  <td align="right">‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®</td>
 	      <td align="left">
 			<select name="s_poscur1" id="s_poscur1" >
-				<option value=''>‡≈◊Õ°‡°’¬√µ‘¬»</option> 
+				<option value=''>‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®</option> 
 			<?
 				$sqlx = "SELECT * FROM ali_position WHERE posid > 10 and posid < 57 ORDER BY posid ASC";
 				$rsx = mysql_query($sqlx);
@@ -356,7 +356,7 @@ if($mtype1!=""  ){
 	      <td>&nbsp;</td>
         </tr>
 	    <tr>
-	      <td colspan="6" align="center" scope="row"><input type="submit" value="   §ÈπÀ“   ">   &nbsp;&nbsp;  <input type="reset" value="   ¬°‡≈‘°   "></td>
+	      <td colspan="6" align="center" scope="row"><input type="submit" value="   ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤   ">   &nbsp;&nbsp;  <input type="reset" value="   ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å   "></td>
         </tr>
       </table>
  

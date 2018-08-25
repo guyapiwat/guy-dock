@@ -11,5 +11,5 @@
     <td height="25" align="right"></td>
     <td width="16%" height="25" align="center"></td>
   </tr>
-   <?if($_SESSION["inv_usercode"]<>""){?><div  class="manual"><a class="myButton" href="doc/doc_branch.pdf" style="text-decoration: none;"  target="_blank ">คู่มือการใช้งาน Branch</a></div><? } ?>
+   <?if($_SESSION["inv_usercode"]<>""){?><div  class="manual"><a class="myButton" href="doc/doc_branch.pdf" style="text-decoration: none;"  target="_blank ">เธเธนเนเธกเธทเธญเธเธฒเธฃเนเธเนเธเธฒเธ Branch</a></div><? } ?>
 </table>
