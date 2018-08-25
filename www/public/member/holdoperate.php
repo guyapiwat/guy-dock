@@ -63,7 +63,7 @@ if (isset($_GET['state'])) {
     if (isset($_POST["memberfreeid"])) {
     $memberfreeid=$_POST['memberfreeid'];
     $mcode=$memberfreeid;
-    $satype = "A";
+    $satype = "B";
     $remark = "·®ß ¡—§√";
     }else{
     $memberfreeid="";
