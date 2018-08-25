@@ -112,7 +112,7 @@ if($_SESSION["usercode"]) {
 		<meta name="googlebot" content="noindex,noarchieve">
 		<meta name="description" content="overview &amp; stats" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+		<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 		<!-- bootstrap & fontawesome -->
 		<link rel="stylesheet" href="../assets/css/bootstrap.css" />
 		<link rel="stylesheet" href="../assets/css/font-awesome.css" />
@@ -522,7 +522,7 @@ if($_SESSION["usercode"]) {
 											<!---<li <?=$ewallet_main_["88"]?>>
 												<a href="./index.php?sessiontab=3&sub=88">
 													<i class="menu-icon fa fa-plus"></i>
-													àµÔÁà§Ô¹ Eautoship
+													ï¿½ï¿½ï¿½ï¿½Ô¹ Eautoship
 												</a>
 
 												<b class="arrow"></b>
@@ -756,19 +756,19 @@ if($_SESSION["usercode"]) {
 function firstName($name_f){
 	$language = $_SESSION["wording"];
 	if($language == "EN"){
-		if($name_f == "¹ÒÂ"){
+		if($name_f == "ï¿½ï¿½ï¿½"){
 			$name_f = "Mr.";
 		}
-		else if($name_f == "¹Ò§"){
+		else if($name_f == "ï¿½Ò§"){
 			$name_f = "Mrs.";
 		}
-		else if($name_f == "¹Ò§ÊÒÇ"){
+		else if($name_f == "ï¿½Ò§ï¿½ï¿½ï¿½"){
 			$name_f = "Miss";
 		}
-		else if($name_f == "ºÃÔÉÑ·¨Ó¡Ñ´"){
+		else if($name_f == "ï¿½ï¿½ï¿½ï¿½Ñ·ï¿½Ó¡Ñ´"){
 			$name_f = "Co.";
 		}
-		else if($name_f == "ËéÒ§ËØé¹ÊèÇ¹¨Ó¡Ñ´"){
+		else if($name_f == "ï¿½ï¿½Ò§ï¿½ï¿½ï¿½ï¿½ï¿½Ç¹ï¿½Ó¡Ñ´"){
 			$name_f = "limited partnership";
 		}
 		else{
