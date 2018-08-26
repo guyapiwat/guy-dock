@@ -66,7 +66,10 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
 
 		<td align="right">สาขา</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
-			 <?					
+             <?		
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                          
 				$result1=mysql_query("select * from ali_invent where inv_code = '".$_SESSION["admininvent"]."' ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
 					$row1 = mysql_fetch_object($result1);
@@ -171,7 +174,10 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
          <td align="right">สาขา</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
                   <option value="" <? if($inv=='')echo "selected"; ?> >กรุณาเลือก</option>
-             <?                    
+             <?   
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                               
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -184,7 +190,7 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
          </select>
          </td>
  <td>ประเภทบิล
-	 <select size="1" name="type" id="type" tabindex="63">
+	                    <select size="1" name="type" id="type" tabindex="63">
                         <option value="" <? if($type=='')echo "selected"; ?> >ทั้งหมด</option>
                         <?php foreach($arr_satype as $key=> $val){?>
                            <option value="<?=$key?>" <? if($type==$key)echo "selected"; ?> ><?=$val?></option> 
@@ -229,7 +235,9 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
          <td align="right">สาขา</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
                   <option value="" <? if($inv=='')echo "selected"; ?> 
-             <?                    
+             <?       
+                $charset = "SET NAMES 'UTF8'"; 
+                mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
                 $result1=mysql_query("select * from ali_invent where inv_code = '$xinv_code' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -354,7 +362,10 @@ global $inv,$bills;
          <td align="right">สาขา</td>
          <td><select size="1" name="inv_code" id="inv_code" tabindex="63">
                   <option value="" <? if($inv=='')echo "selected"; ?> >กรุณาเลือก</option>
-             <?                    
+             <?     
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -405,7 +416,10 @@ global $inv,$bills;
  
          <td align="right">สาขา</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
-             <?                    
+             <?      
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                            
                 $result1=mysql_query("select * from ali_invent where inv_code= '$xinv_code' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -532,8 +546,11 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 				<th align="left" >
 					<select size="1" style="width:150px" name="inv" id="inv" tabindex="63">
 						<option value="" <? if($inv=='')echo "selected"; ?> >ทั้งหมด</option>
-						<?                    
-							$result1=mysql_query("select * from ali_invent ");
+                        <?     
+                            $charset = "SET NAMES 'UTF8'"; 
+                            mysql_query($charset) or die('Invalid query: ' . mysql_error());               
+                            
+                            $result1=mysql_query("select * from ali_invent ");
 							for ($i=1;$i<=mysql_num_rows($result1);$i++){
 								$row1 = mysql_fetch_object($result1);
 								//echo "<option value=\"\" ";
@@ -672,7 +689,10 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                     ?>
               </select> &#3626;&#3634;&#3586;&#3634; <select size="1" name="inv" id="inv" tabindex="63">
               <option value="" <? if($inv=='')echo "selected"; ?> >&#3585;&#3619;&#3640;&#3603;&#3634;&#3648;&#3621;&#3639;&#3629;&#3585;</option>
-              <?                    
+              <?      
+                $charset = "SET NAMES 'UTF8'"; 
+                mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -784,7 +804,10 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
         </select>
         &#3626;&#3634;&#3586;&#3634;
         <select name="inv_code" id="inv_code"  >
-          <?                 
+          <?  
+              $charset = "SET NAMES 'UTF8'"; 
+              mysql_query($charset) or die('Invalid query: ' . mysql_error());               
+                          
             $result1=mysql_query("select * from ".$dbprefix."invent where inv_code = '$inv_code' order by inv_code");
 
             for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -838,7 +861,10 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
             </th>
             <th class="tg-v7c1">สาขา
             <select size="1" name="inv" id="inv" tabindex="63"> 
-             <?                    
+             <?     
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent WHERE inv_code = '{$_SESSION['admininvent']}' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);

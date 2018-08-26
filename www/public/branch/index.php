@@ -30,7 +30,7 @@ ini_set("memory_limit","100M");
 ?>
 
 <? require("adminchecklogin.php");
-
+ 
 if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
 		if(empty($_GET["lan"]))$_SESSION["lan"] = "TH";
 		else $_SESSION["lan"] = $_GET["lan"];
@@ -50,8 +50,9 @@ if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
 ?>
 <? require("./cls/piority.php");
 
+ 
   include("rpdialog.php"); 
-//   exit;
+  
 //var_dump($_SESSION);
 //session_destroy();
 ?>
@@ -102,8 +103,8 @@ if(lan == 'EN'){
 var months = new Array("January","Febuary","March","April","May","June","July","August","September","October","November","December")
 var thday = new Array ("Sunday","Monday","Tuesday","Wednesday","Thurday","Friday","Satuday");
 }else{
-var months = new Array("   ? ","    ??  "," ?? ","    ?","    ? "," ?? ?"," ? ? "," ? ? "," ?  ?","   ? ","  ?? ?"," ? ? ")
-var thday = new Array (" ??  "," ?   "," ?   "," ?","    ?  "," ?  ","     ");
+var months = new Array("р╕бр╕Бр╕гр╕▓р╕Др╕б","р╕Бр╕╕р╕бр╕ар╕▓р╕Юр╕▒р╕Щр╕Шр╣М","р╕бр╕╡р╕Щр╕▓р╕Др╕б","р╣Ар╕бр╕йр╕▓р╕вр╕Щ","р╕Юр╕др╕йр╕ар╕▓р╕Др╕б","р╕бр╕┤р╕Цр╕╕р╕Щр╕▓р╕вр╕Щ","р╕Бр╕гр╕Бр╕Ор╕▓р╕Др╕б","р╕кр╕┤р╕Зр╕лр╕▓р╕Др╕б","р╕Бр╕▒р╕Щр╕вр╕▓р╕вр╕Щ","р╕Хр╕╕р╕ер╕▓р╕Др╕б","р╕Юр╕др╕ир╕Ир╕┤р╕Бр╕▓р╕вр╕Щ","р╕Шр╕▒р╕Щр╕зр╕▓р╕Др╕б")
+var thday = new Array ("р╕нр╕▓р╕Чр╕┤р╕Хр╕вр╣М","р╕Ир╕▒р╕Щр╕Чр╕гр╣М","р╕нр╕▒р╕Зр╕Др╕▓р╕г","р╕Юр╕╕р╕Ш","р╕Юр╕др╕лр╕▒р╕к","р╕ир╕╕р╕Бр╕гр╣М","р╣Ар╕кр╕▓р╕гр╣М");
 
 }
 

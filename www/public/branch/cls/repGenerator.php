@@ -162,6 +162,7 @@ class repGenerator{
 		$this->fieldLink = $fieldLinkList;
 	}
 	public function setQuery($str){
+		
 		$this->qry = $str;
 	}
 	public function setResult($rs){
@@ -231,6 +232,9 @@ class repGenerator{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -256,6 +260,9 @@ class repGenerator{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -276,7 +283,7 @@ class repGenerator{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
-			$charset = "SET NAMES 'UTF8'"; 
+			    $charset = "SET NAMES 'UTF8'"; 
     			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
@@ -379,6 +386,7 @@ class repGenerator{
 						$this->pageShow();
 						echo "</td></tr>";
 					}
+					 
 					echo "<form name='".$this->delFormAttr[0]."' id='".$this->delFormAttr[0]."' action='".$this->delFormAttr[1]."' method='".$this->delFormAttr[2]."'>";
 
 					echo "<tr bgcolor='#999999' align='center'>";
@@ -402,6 +410,8 @@ class repGenerator{
 						echo $wording_lan["word"]["edit"];
 						echo "</td>";
 					}
+					// var_dump($showList);
+					// exit;
 					for($i=0;$i<sizeof($showList);$i++){
 						echo "<td ".($showSpace[$i]==""?"":"width='$showSpace[$i]'")."' style='".$style_l.$style_t.$style_b."'>";
 						echo "<a style='color:#FFFFFF' href='".$this->alink."?";
@@ -410,10 +420,11 @@ class repGenerator{
 						echo "&srt=".($this->dsort==" ASC "?"UP":"DOWN");
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
-						echo "&lp=".$this->lPage."'>".($showDesc[$i]==""?$showList[$i]:$showDesc[$i])."</a>";
+						echo "&lp=".$this->lPage."'>".($showDesc[$i]==""?$showList[$i]:$showDesc[$i]).$showDesc[$i]."</a>";
 						echo "</td>";
 					}
 					echo "</tr>";
+				 
 					//ข้อมูลที่แสดง
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
@@ -631,6 +642,9 @@ class repGenerator{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1003,6 +1017,9 @@ class repGenerator_ss{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -1028,6 +1045,9 @@ class repGenerator_ss{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -1048,6 +1068,9 @@ class repGenerator_ss{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1400,6 +1423,9 @@ class repGenerator_ss{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1773,6 +1799,9 @@ class repGenerator_qty_stock{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -1798,6 +1827,9 @@ class repGenerator_qty_stock{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -1818,6 +1850,9 @@ class repGenerator_qty_stock{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -2170,6 +2205,9 @@ class repGenerator_qty_stock{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -2548,6 +2586,9 @@ class repGenerator_b{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -2573,6 +2614,9 @@ class repGenerator_b{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -2592,6 +2636,9 @@ class repGenerator_b{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -2985,6 +3032,9 @@ class repGenerator_b{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
