@@ -1,18 +1,18 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("dateInput1").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}
 	if(document.getElementById("dateInput2").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput2").focus();
 		return false;
 	}
 
 	if(document.getElementById("dateInput1").value > document.getElementById("dateInput2").value){
-		alert("«—π‡√◊Ë¡µÈπ¡“°°«Ë“«—π ‘Èπ ÿ¥");
+		alert("‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏∑‡πà‡∏°‡∏ï‡πâ‡∏ô‡∏°‡∏≤‡∏Å‡∏Å‡∏ß‡πà‡∏≤‡∏ß‡∏±‡∏ô‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}
@@ -22,24 +22,24 @@ function checkround(){
 
 function checkround_inv(){
 	if(document.getElementById("dateInput1").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}
 	if(document.getElementById("dateInput2").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput2").focus();
 		return false;
 	}
 
 	if(document.getElementById("dateInput1").value > document.getElementById("dateInput2").value){
-		alert("«—π‡√◊Ë¡µÈπ¡“°°«Ë“«—π ‘Èπ ÿ¥");
+		alert("‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏∑‡πà‡∏°‡∏ï‡πâ‡∏ô‡∏°‡∏≤‡∏Å‡∏Å‡∏ß‡πà‡∏≤‡∏ß‡∏±‡∏ô‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}
 
 	if(document.getElementById("inv").value==""){
-		alert("‡≈◊Õ° “¢“");
+		alert("‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏™‡∏≤‡∏Ç‡∏≤");
 		document.getElementById("inv").focus();
 		return false;
 	}
@@ -68,13 +68,13 @@ function rpdialog_m($sub){ ?>
 	 <table width="50%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=$_REQUEST['strfdate']?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=$_REQUEST['strtdate']?>" placeholder="2014-01-31"/>		 
-		&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -92,26 +92,26 @@ function rpdialog_m($sub){ ?>
 	 <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>		 
  
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
 	   </select>	
-	   <input type="submit" name="Submit" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	  <tr <?if($_GET['sessiontab'] == 3 and $_GET['sub'] == 23){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -127,24 +127,24 @@ function rpdialog_m($sub){ ?>
 	 <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>		 
  
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
 	   </select>	
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -159,13 +159,13 @@ function rpdialog_m($sub){ ?>
 		 </select>
 		 </td>
 		 <td>
-			<input type="submit" name="Submit" value="§ÈπÀ“">
+			<input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
 		 </td>
 	  </tr>
 	  <tr <?if($_GET['sessiontab'] == 3 and $_GET['sub'] == 23){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -181,17 +181,17 @@ global $inv,$arr_satype_show_bill,$type,$bills;
 	 <table width="95%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>		 
 		 
 		 </td>
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -205,36 +205,36 @@ global $inv,$arr_satype_show_bill,$type,$bills;
 				?>
 		 </select>
 		 </td>
-		  <td>ª√–‡¿∑∫‘≈ 
+		  <td>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏• 
  <select name="type" id="type">
-            <option value="" >∑—ÈßÀ¡¥</option>    
+            <option value="" >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>    
             <?php foreach($arr_satype_show_bill as $key => $val){ ?>
                  <option value="<?=$key?>" <?if($type==$key)echo "selected"; ?>><?=$val?></option>
             <?}?> 
        </select>    
  </td>
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($sale=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-			<option value="1" <?if($sale=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($sale=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+			<option value="1" <?if($sale=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
 	   </select>	
-	   <input type="submit" name="Submit" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 		
 	  </tr>
 	 <tr <?if(($_GET['sessiontab'] == 3) and $_GET['sub'] != 6 and $_GET['sub'] != 10){echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
 	<tr><td colspan="6" align="center">&nbsp;</td></tr> 
@@ -250,15 +250,15 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="95%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	</td>
-		<td style="display:none" align="right"> “¢“</td>
+		<td style="display:none" align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td style="display:none"><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -272,19 +272,19 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 				?>
 		 </select>
 		 </td>
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 
-		  <td align="right">™π‘¥∫‘≈</td>
+		  <td align="right">‡∏ä‡∏ô‡∏¥‡∏î‡∏ö‡∏¥‡∏•</td>
 	      <td align="left">
 		  <select size="1"  name="sa_type" id="sa_type" tabindex="63">
-			  <option value="" <? if($sa_type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+			  <option value="" <? if($sa_type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 			  <?php foreach($arr_satypeh1 as $key=> $val){?>
 			  <option value="<?=$key?>" <? if($sa_type==$key)echo "selected"; ?> >
 				<?=$val?>
@@ -294,18 +294,18 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 			</td>
 	   <td align="left"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($sale=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-			<option value="1" <?if($sale=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($sale=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+			<option value="1" <?if($sale=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
 	   </select>	
-	   <input type="submit" name="Submit" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 		
 	  </tr>
 	 <tr <?if(($_GET['sessiontab'] == 3) and $_GET['sub'] != 6 and $_GET['sub'] != 10){echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
 	<tr><td colspan="10" align="center">&nbsp;</td></tr> 
@@ -319,17 +319,17 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=$_REQUEST['strfdate']?>"  placeholder="2015-10-01" />
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=$_REQUEST['strtdate']?>" placeholder="2015-10-10" />		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$_REQUEST['fmcode']?>" maxlength='9'/></td>
 		
-		<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -340,28 +340,28 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=$date = !empty($_REQUEST['strfdate']) ? $_REQUEST['strfdate'] : date('Y-m-d');?>"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=$date = !empty($_REQUEST['strtdate']) ? $_REQUEST['strtdate'] : date('Y-m-d');?>"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$_REQUEST['fmcode']?>" maxlength='9'/></td>
 		
 		<td>&nbsp;
-		 <td  align="right">°“√¢÷Èπµ”·ÀπËß</td>
+		 <td  align="right">‡∏Å‡∏≤‡∏£‡∏Ç‡∏∂‡πâ‡∏ô‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 			<td>&nbsp;<select name="type_report1"  id="type_report1" style="width:150px">
-				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >∑—ÈßÀ¡¥</option>
-				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >√–∫∫</option>
-				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >·µËßµ—Èß</option>
+				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‡∏£‡∏∞‡∏ö‡∏ö</option>
+				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >‡πÅ‡∏ï‡πà‡∏á‡∏ï‡∏±‡πâ‡∏á</option>
 				 
 			</td>
 
-		 <td  align="right">µ”·ÀπËß</td>
+		 <td  align="right">‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 			<td><input type="text" name="posi" id="posi" value="<?=$_REQUEST['posi']?>" />	</td>
-		<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -373,29 +373,29 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=$date = !empty($_REQUEST['strfdate']) ? $_REQUEST['strfdate'] : date('Y-m-d');?>"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=$date = !empty($_REQUEST['strtdate']) ? $_REQUEST['strtdate'] : date('Y-m-d');?>"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$_REQUEST['fmcode']?>" maxlength='9'/></td>
 		
 		<td>&nbsp;
-		 <td  align="right">°“√¢÷Èπµ”·ÀπËß</td>
+		 <td  align="right">‡∏Å‡∏≤‡∏£‡∏Ç‡∏∂‡πâ‡∏ô‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 			<td>&nbsp;<select name="type_report1"  id="type_report1" style="width:150px">
-				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >∑—ÈßÀ¡¥</option>
-				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >√–∫∫</option>
-				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >·µËßµ—Èß</option>
+				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‡∏£‡∏∞‡∏ö‡∏ö</option>
+				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >‡πÅ‡∏ï‡πà‡∏á‡∏ï‡∏±‡πâ‡∏á</option>
 				 
 			</td>
 
-		 <td  align="right">µ”·ÀπËß</td>
+		 <td  align="right">‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 			<td><!--<input type="text" name="posi" id="posi" value="<?=$_REQUEST['posi']?>" />	
 			--><select name="posi"  id="posi" style="width:150px">
-				   <option value="" <? if($_REQUEST['posi']=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+				   <option value="" <? if($_REQUEST['posi']=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 				   <option value="4S" <? if($_REQUEST['posi']=="4S")echo "selected"; ?> >FOUR STAR</option>
 				   <option value="5S" <? if($_REQUEST['posi']=="5S")echo "selected"; ?> >FIVE STAR</option>
 				   <option value="SS" <? if($_REQUEST['posi']=="SS")echo "selected"; ?> >SILVER STAR </option>
@@ -404,14 +404,14 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 				   <option value="PL" <? if($_REQUEST['posi']=="PL")echo "selected"; ?> >PEARL</option>
 				   <option value="SP" <? if($_REQUEST['posi']=="SP")echo "selected"; ?> >Sapphire</option>
 				   <option value="RB" <? if($_REQUEST['posi']=="RB")echo "selected"; ?> >RUBY EXCUTIVE</option>
-				   <option value="EM" <? if($_REQUEST['posi']=="EM")echo "selected"; ?> >EMERALD †EXCUTIVE</option>
-				   <option value="D" <? if($_REQUEST['posi']=="D")echo "selected"; ?> >DIAMOND †EXCUTIVE</option>
-				   <option value="DD" <? if($_REQUEST['posi']=="DD")echo "selected"; ?> >DOUBLE DIAMOND †EXCUTIVE</option>
-				   <option value="TD" <? if($_REQUEST['posi']=="TD")echo "selected"; ?> >TRIPLE DIAMOND †EXCUTIVE</option>
+				   <option value="EM" <? if($_REQUEST['posi']=="EM")echo "selected"; ?> >EMERALD ¬†EXCUTIVE</option>
+				   <option value="D" <? if($_REQUEST['posi']=="D")echo "selected"; ?> >DIAMOND ¬†EXCUTIVE</option>
+				   <option value="DD" <? if($_REQUEST['posi']=="DD")echo "selected"; ?> >DOUBLE DIAMOND ¬†EXCUTIVE</option>
+				   <option value="TD" <? if($_REQUEST['posi']=="TD")echo "selected"; ?> >TRIPLE DIAMOND ¬†EXCUTIVE</option>
 				 
 			
 			</td>
-		<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -422,27 +422,27 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$date = !empty($fdate) ? $fdate : date('Y-m-d');?>"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$date = !empty($tdate) ? $tdate : date('Y-m-d');?>"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$_REQUEST['fmcode']?>" maxlength='9'/></td>
 	
-		<td align="right">™Ë«ß√“¬‰¥È</td>
+		<td align="right">‡∏ä‡πà‡∏ß‡∏á‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ</td>
 		 <td><input type="text" name="bonus" id="bonus" value="<?=$_REQUEST['bonus']?>" placeholder="0-200" /></td>
-	 <td  align="right">°“√®Ë“¬</td>
+	 <td  align="right">‡∏Å‡∏≤‡∏£‡∏à‡πà‡∏≤‡∏¢</td>
 			<td>&nbsp;<select name="type_report1"  id="type_report1" style="width:150px">
-				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >∑—ÈßÀ¡¥</option>
-				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >®Ë“¬</option>
-				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‰¡Ë®Ë“¬</option>
+				   <option value="" <? if($_REQUEST['type_report1']==0)echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >‡∏à‡πà‡∏≤‡∏¢</option>
+				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‡πÑ‡∏°‡πà‡∏à‡πà‡∏≤‡∏¢</option>
 				 
 			</td>
 			
-			<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+			<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -458,19 +458,19 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$date = !empty($fdate) ? $fdate : date('Y-m-d');?>"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$date = !empty($tdate) ? $tdate : date('Y-m-d');?>"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$_REQUEST['fmcode']?>" maxlength='9'/></td>
 		
-	<td align="right">∏π“§“√</td>
+	<td align="right">‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£</td>
      <td><select size="1" name="bankcode" id="bankcode" tabindex="63">
-		 <option value="" <? if($bankcode=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+		 <option value="" <? if($bankcode=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
          <?					
 			$result1=mysql_query("select * from ali_bank order by bankname");
 			for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -483,16 +483,16 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 			?>
      </select>
 	 </td>
-		<!--td align="right">™Ë«ß√“¬‰¥È</td>
+		<!--td align="right">‡∏ä‡πà‡∏ß‡∏á‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ</td>
 		 <td><input type="text" name="bonus" id="bonus" value="<?=$_REQUEST['bonus']?>" placeholder="0-200" /></td-->
-	 <td  align="right">°“√®Ë“¬</td>
+	 <td  align="right">‡∏Å‡∏≤‡∏£‡∏à‡πà‡∏≤‡∏¢</td>
 			<td>&nbsp;<select name="type_report1"  id="type_report1" style="width:150px">				   
-				   <option value="" <? if($_REQUEST['type_report1']=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
-				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >®Ë“¬</option>
-				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‰¡Ë®Ë“¬</option>
+				   <option value="" <? if($_REQUEST['type_report1']=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+				   <option value="1" <? if($_REQUEST['type_report1']==1)echo "selected"; ?> >‡∏à‡πà‡∏≤‡∏¢</option>
+				   <option value="2" <? if($_REQUEST['type_report1']==2)echo "selected"; ?> >‡πÑ‡∏°‡πà‡∏à‡πà‡∏≤‡∏¢</option>
 				 
 			</td>			
-			<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+			<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -504,19 +504,19 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$_REQUEST['fdate']?>" placeholder="2015-10-01"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$_REQUEST['tdate']?>" placeholder="2015-10-31"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$mcode?>" maxlength='9'/></td>
 		
-		<td align="right" style="display:none">™Ë«ß√“¬‰¥È</td>
+		<td align="right" style="display:none">‡∏ä‡πà‡∏ß‡∏á‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ</td>
 		 <td style="display:none"><input type="text" name="bonus" id="bonus" value="" placeholder="0-200" /></td>
-		<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -528,40 +528,40 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 	 <table width="100%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$_REQUEST['fdate']?>" placeholder="2015-10-01"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$_REQUEST['tdate']?>" placeholder="2015-10-31"/>		
 		</td>
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$mcode?>" maxlength='9'/></td>
 		
-		<td align="right" >™Ë«ß√“¬‰¥È &nbsp;</td>
+		<td align="right" >‡∏ä‡πà‡∏ß‡∏á‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ &nbsp;</td>
 		 <td ><input type="text" name="bonus" id="bonus" value="<?=$bonus?>" placeholder="0-200" /></td>
 		 
-		 <td align="right" > ∂“π– &nbsp;</td>
+		 <td align="right" >‡∏™‡∏ñ‡∏≤‡∏ô‡∏∞ &nbsp;</td>
 		 <td >
 			<select name="status" id="status">
-				<option value="" <? if($status==''){echo 'selected';}?> >∑—ÈßÀ¡¥</option>
-				<option value="1" <? if($status=='1'){echo 'selected';}?> >ª°µ‘</option>
+				<option value="" <? if($status==''){echo 'selected';}?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+				<option value="1" <? if($status=='1'){echo 'selected';}?> >‡∏õ‡∏Å‡∏ï‡∏¥</option>
 				<option value="SP" <? if($status=='SP'){echo 'selected';}?> >SP</option>
 				<option value="TN" <? if($status=='TN'){echo 'selected';}?> >TN</option>
 				<option value="ST" <? if($status=='ST'){echo 'selected';}?> >SP+TN</option>
 			</select>
 		 </td>
 		 
-	 <td align="right">®”π«π√“¬°“√</td>
+	 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	  <td align="left"><select name="s_list" id="s_list">
 		<option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 		<option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 		<option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 		<option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-		<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+		<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 	  </select></td>
 	  
-		<td>&nbsp;<input type="button" name="Submit" value="§ÈπÀ“" onclick="checkround()" /></td>
+		<td>&nbsp;<input type="button" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" onclick="checkround()" /></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -575,16 +575,16 @@ global $inv;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -600,28 +600,28 @@ global $inv;
 		 </td>
 
 
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($sale=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-			<option value="1" <?if($sale=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($sale=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+			<option value="1" <?if($sale=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
 	   </select>	
-	   <input type="submit" name="Submit" onclick="checkround_inv()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround_inv()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
 </form>
 		<?if($inv!=''){?>
-			<h3>√“¬ß“π “¢“  <?php echo $inv;?> </h3> 
+			<h3>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏≤‡∏Ç‡∏≤  <?php echo $inv;?> </h3> 
 		<?}?>
 
 <?}?>
@@ -634,16 +634,16 @@ global $inv,$arr_sspv,$sspv;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -671,23 +671,23 @@ global $inv,$arr_sspv,$sspv;
 
 		</td>
 
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
-	   <input type="submit" name="Submit" onclick="checkround()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
 </form>
 		<?if($inv!=''){?>
-			<h3>√“¬ß“π “¢“  <?php echo $inv;?> </h3> 
+			<h3>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏≤‡∏Ç‡∏≤  <?php echo $inv;?> </h3> 
 		<?}?>
 
 <?}?>
@@ -704,16 +704,16 @@ global $inv;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -729,28 +729,28 @@ global $inv;
 		 </td>
 
 
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-			<option value="A" <?if($sale=='A')echo "selected"; ?>>¡’PV</option>
-			<option value="1" <?if($sale=='1')echo "selected"; ?>>‰¡Ë¡’PV</option>
+			<option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+			<option value="A" <?if($sale=='A')echo "selected"; ?>>‡∏°‡∏µPV</option>
+			<option value="1" <?if($sale=='1')echo "selected"; ?>>‡πÑ‡∏°‡πà‡∏°‡∏µPV</option>
 	   </select>	
-	   <input type="submit" name="Submit" onclick="checkround_inv()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround_inv()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
 </form>
 		<?if($inv!=''){?>
-			<h3>√“¬ß“π “¢“  <?php echo $inv;?> </h3> 
+			<h3>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏≤‡∏Ç‡∏≤  <?php echo $inv;?> </h3> 
 		<?}?>
 
 <?}?>
@@ -760,19 +760,19 @@ global $inv;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		
-		<td align="right">√À—  ‘π§È“</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</td>
 		<td><input type="text" size="10" maxlength="10" name="pcode" value="<?=$_REQUEST['pcode']?>" ></td>
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 			<option value="" >∑—ÈßÀ¡¥</option>
+ 			<option value="" >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
  			<option value="HQ" >HeadOffice(HQ)</option>
 			<?					
 				$result1=mysql_query("select * from ali_invent ");
@@ -788,17 +788,17 @@ global $inv;
 		 </td>
 
 
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center" > 
-	   <input type="submit" name="Submit" onclick="checkround_inv()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround_inv()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -812,16 +812,16 @@ global $inv,$pcode;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
- 				 <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
+ 				 <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
 			 <?					
 				$result1=mysql_query("select * from ali_invent ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -835,26 +835,26 @@ global $inv,$pcode;
 				?>
 		 </select>
 		 </td>
-		<td align="right">√À— ·æ§‡°Á®&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡πÅ‡∏û‡∏Ñ‡πÄ‡∏Å‡πá‡∏à&nbsp;</td>
         <td><input type="text" name="pcode" id="pcode" placeholder="" value="<?=$pcode?>" /></td>
 
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 	        <option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 	        <option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 	        <option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
-	   <input type="submit" name="Submit" onclick="checkround()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
 </form>
 		<?if($inv!=''){?>
-			<h3>√“¬ß“π “¢“  <?php echo $inv;?> </h3> 
+			<h3>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏≤‡∏Ç‡∏≤  <?php echo $inv;?> </h3> 
 		<?}?>
 
 <?}?>
@@ -869,16 +869,16 @@ global $inv,$pcode;
 <br/>
 		<table class="tg" style="border-color:#bebebe;" width="60%" align="center" > 
 			<tr>
-				<th align="right" nowrap>«—π∑’Ë µ—Èß·µË</th>
+				<th align="right" nowrap>‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà</th>
 				<th align="left"><input type="text" id="dateInput1" onKeyPress="return chknum(window.event.keyCode)" style="width:120px" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/></th>
 				<th align="right" >&#3606;&#3638;&#3591;</th>
 				<th align="left" ><input style="width:120px" type="text" id="dateInput2" onKeyPress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/></th>
-				<th align="right" nowrap >√À—  ¡“™‘°</th>
+				<th align="right" nowrap >‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</th>
 				<th align="left" ><input type="text" name="mpcode" id="mpcode" placeholder="TH0000001" value="<?=$mpcode?>" maxlength='9'/></th>
-				<th align="right" nowrap>ª√–‡¿∑∫‘≈</th>
+				<th align="right" nowrap>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•</th>
 				<th align="left" >
 					<select size="1" style="width:150px" name="sa_type" id="sa_type" tabindex="63">
-					  <option value="" <? if($sa_type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+					  <option value="" <? if($sa_type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 					  <?php foreach($arr_satype as $key=> $val){?>
 					  <option value="<?=$key?>" <? if($sa_type==$key)echo "selected"; ?> >
 						<?=$val?>
@@ -904,7 +904,7 @@ global $inv,$pcode;
 				<th align="right" >&#3626;&#3634;&#3586;&#3634;</th>
 				<th align="left" >
 					<select size="1" style="width:150px" name="inv" id="inv" tabindex="63">
-						<option value="" <? if($inv=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+						<option value="" <? if($inv=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 						<?                    
 							$result1=mysql_query("select * from ali_invent ");
 							for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -919,7 +919,7 @@ global $inv,$pcode;
 					 <!--option value="online" <? if($inv=='online')echo "selected"; ?> >Online</option--> 
 					</select> 
 				</th>
-				<th align="right" nowrap >ª√–‡¿∑</th>
+				<th align="right" nowrap >‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó</th>
 				<th align="left" >
 					<select name="sregister" style="width:150px">
 						<option   value="" <?=($sregister==""?"selected":"")?>>&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;</option>
@@ -953,7 +953,7 @@ global $inv,$pcode;
 			</tr>
 			<tr>
 			<?if(($_GET['sessiontab'] == 3) and $_GET['sub'] == 8 ){?> 
-					<th align="right" nowrap >¬Õ¥¢“¬</th>
+					<th align="right" nowrap >‡∏¢‡∏≠‡∏î‡∏Ç‡∏≤‡∏¢</th>
 					<th align="left" ><input type='text' id='total_x' name='total_x' value='<?=$total_x?>' placeholder="0-100" ></th>
 					<th align="right" >PV</th>
 					<th align="left" ><input type='text' id='pv' name='pv' value='<?=$pv?>' placeholder="0-100" ></th>
@@ -965,8 +965,8 @@ global $inv,$pcode;
 					<th></th>
 			<?}?> 
 				<?if(($_GET['sessiontab'] == 3) and $_GET['sub'] == 8 ){?> 
-					<th align="right" nowrap>‡≈¢∑’Ë∫‘≈</th>
-					<th colspan='1' align="left"><input type="text" style="width:150px"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+					<th align="right" nowrap>‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏•</th>
+					<th colspan='1' align="left"><input type="text" style="width:150px"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 					</th>
 				<?}
 				else{?>
@@ -974,18 +974,18 @@ global $inv,$pcode;
 					<th></th>
 					<th></th>
 				<?}?>
-			 <th align="right">®”π«π√“¬°“√</th>
+			 <th align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</th>
 			  <th align="left"><select name="s_list" id="s_list" size="1" style="width:150px" >
 				<option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 				<option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 				<option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 				<option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-				<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+				<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 			  </select></th>
 			</tr>
 			<tr>
 			<th > </th>
-				<th colspan='7' align=center ><input type="Submit" name="Submit" value="§ÈπÀ“"  onClick="checkround()" /></th>
+				<th colspan='7' align=center ><input type="Submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤"  onClick="checkround()" /></th>
 			</tr>
 		</table>
 
@@ -1008,7 +1008,7 @@ global $inv,$pcode;
         &#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;
          <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>   
 			   
@@ -1067,7 +1067,7 @@ global $inv,$pcode;
 						}
 						?>
       </select>
-        <input name="submit" type="submit" value="§ÈπÀ“" />
+        <input name="submit" type="submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" />
       </fieldset></td>
     </tr>
   </table>

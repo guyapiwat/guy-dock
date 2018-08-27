@@ -22,9 +22,9 @@ require("../backoffice/date_picker.php");
 <form style="margin-bottom:0;" action="index.php?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>" method="post">
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
-  ∂÷ß
+  ‡∏ñ‡∏∂‡∏á
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-20"/>
-    <input type="submit" value="§Èπ" />
+    <input type="submit" value="‡∏Ñ‡πâ‡∏ô" />
 </form>
 </fieldset></td></tr></table>
 
@@ -85,7 +85,7 @@ if($fdate!=""){
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,unit,BLKK,LA01,LA02,LA03,total");
 		$rec->setFieldFloatFormat(",,,0,2");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,ÀπË«¬, ”π—°ß“π„À≠Ë,ÀπÈ“√È“π,™≈∫ÿ√’,¢Õπ·°Ëπ,√«¡∑—Èß ‘Èπ");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏´‡∏ô‡πà‡∏ß‡∏¢,‡∏™‡∏≥‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô‡πÉ‡∏´‡∏ç‡πà,‡∏´‡∏ô‡πâ‡∏≤‡∏£‡πâ‡∏≤‡∏ô,‡∏ä‡∏•‡∏ö‡∏∏‡∏£‡∏µ,‡∏Ç‡∏≠‡∏ô‡πÅ‡∏Å‡πà‡∏ô,‡∏£‡∏ß‡∏°‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô");
 		$rec->setFieldAlign("center,left,center,right,right,right,right,right");
 		$rec->setFieldSpace("10%,20%,10%,10%,10%,10%,10%,10%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -93,22 +93,22 @@ if($fdate!=""){
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		//$rec->setSum(true,true,true,true,true,true,"true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 
 		$rec->showRec(1,'SH_QUERY');

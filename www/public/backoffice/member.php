@@ -13,7 +13,7 @@ win = window.open(url,'','' );
 </script>
 <script language="javascript" type="text/javascript">
 function sale_status(id){
-if(confirm("µÈÕß°“√ Reset Password")){
+if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ Reset Password")){
 	window.location='index.php?sessiontab=1&sub=2&state=3&bid='+id;
 }
 }
@@ -64,7 +64,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT pos_cur2,hpv,mtype1,voucher,id,mcode,name_t,bunit,mobile,sv_code,id_card,mdate,pos_cur,pos_cur2,upa_code as upa_code,sp_code,ewallet,eatoship,ecom,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ";
 $sql .= ",CASE status_doc WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_doc ";
 $sql .= ",CASE mtype1 WHEN '0' THEN 'Member' WHEN '1' THEN 'Franchise'  WHEN '2' THEN 'Agency'  END AS mtype ";
-$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  WHEN '3' THEN '¢«“'  END AS statur_lr ";
+$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  WHEN '3' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 $sql .= $sqlmtype;
 $sql .= ",CASE status_terminate WHEN '0' THEN CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=7&aid=',id,'&mcode=',mcode,'&id=1\"><img src=\"./images/false.gif\"></a>') ";
 
@@ -146,6 +146,10 @@ if($_GET['state']==1){
 	
 	box_member_search($s_mcode,$s_upa_code,$smdate2,$emdate2,$s_namef,$s_sp_code,$s_id_card,$s_ewallet,$s_poscur,$s_list,$mtype1,$s_status_terminate,$v_ewallet);
 	$rec = new repGenerator();
+	
+	$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+	
 	$rec->setQuery($sql);
 	$rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);
 	$rec->setOrder($_GET['ord']==""?" id ":$_GET['ord']);
@@ -165,7 +169,7 @@ if($_GET['state']==1){
 	$rec->setShowField("mcode,name_t,mobile,id_card,mdate,pos_cur,pos_cur2,sp_code,upa_code,statur_lr,status_doc,status_suspend,status_terminate1,ewallet,eatoship,voucher,hpv,mtype");
 	$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 
-	$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,‡∫Õ√Ï‚∑√,√À— ª√–™“™π,«—π∑’Ë ¡—§√,µ”·ÀπËß,µ”·ÀπËß‡°’¬√µ‘¬»,√À— ºŸÈ·π–π”,√À— Õ—æ‰≈πÏ,¥È“π,‡Õ° “√,Suspend,Terminate,EW,EA,EV,HPV,ª√–‡¿∑");
+	$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏î‡πâ‡∏≤‡∏ô,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,Suspend,Terminate,EW,EA,EV,HPV,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó");
 	$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,center,center,right,right,right,right");
 	//$rec->setFieldSpace("7%,11%,8%,7%,10%,7%,5%,5%,7%,5%,5%,5%,8%");
 	$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,,,,,,");
@@ -179,19 +183,19 @@ if($_GET['state']==1){
 		$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		
 	if($_GET['excel']==1){
-		logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+		logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 		$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 		writelogfile($text);
 
 		$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 		//$rec->getParam();
 		$rec->setSpace($str);
 	}
-	$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+	$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 	$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","Reset Password");
 
 	$rec->setSpace($str);
@@ -204,19 +208,19 @@ global $arr_mtype1,$s_suspend,$s_poscur1;
 <form style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; text-align: center;" name="searh" id="searh" action="index.php?sessiontab=1&sub=2" method="post">
   <table width="100%%" border="0">
 	<tr>
-	  <td width="12%" align="right" scope="row">√À—  ¡“™‘°</td>
+	  <td width="12%" align="right" scope="row">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
 	  <td width="15%" align="left"><input type="text" name="s_mcode" id="s_mcode" value="<?=$s_mcode?>"></td>
 	  <td align="right">&#3619;&#3627;&#3633;&#3626;&#3612;&#3641;&#3657;&#3649;&#3609;&#3632;&#3609;&#3635;</td>
 	  <td align="left"><input type="text" name="s_sp_code" id="s_sp_code" value="<?=$s_sp_code?>"></td>
-	  <td width="9%" align="right">«—π∑’Ë ¡—§√</td>
-	  <td width="37%"><span style="float: left;">µ—Èß·µË
+	  <td width="9%" align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£</td>
+	  <td width="37%"><span style="float: left;">‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà
 		<input value="<?=$smdate2?>" type="text" name="smdate2" id="dateInput1" placeholder="2014-06-01">
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 <input value="<?=$emdate2?>"  type="text" name="emdate2" id="dateInput2" placeholder="2014-06-05">
 		</span>&nbsp;</td>
 	</tr>
 	<tr>
-	  <td align="right">™◊ËÕ</td>
+	  <td align="right">‡∏ä‡∏∑‡πà‡∏≠</td>
 	  <td align="left"><input type="text" name="s_namef" id="s_namef" value="<?=$s_namef?>"></td>
 	  <td align="right"><select name="v_ewallet">
 	   <option value="E" <?if($v_ewallet=='E')echo 'selected' ?>>Ewallet</option>
@@ -227,27 +231,27 @@ global $arr_mtype1,$s_suspend,$s_poscur1;
 	   
 	  </select></td>
 	  <td><input type="text" name="s_ewallet" id="s_ewallet" placeholder="&#3648;&#3594;&#3656;&#3609; 0-100" value="<?=$s_ewallet?>"></td>
-	  <td align="right">®”π«π√“¬°“√</td>
+	  <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	  <td align="left"><select name="s_list" id="s_list">
 		<option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 		<option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 		<option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 		<option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-		<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+		<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 	  </select></td>
 	</tr>
 	<tr>
-	  <td align="right">√À— ∫—µ√ª√–™“™π</td>
+	  <td align="right">‡∏£‡∏´‡∏±‡∏™‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô</td>
 	  <td><input type="text" name="s_id_card" id="s_id_card" value="<?=$s_id_card?>"></td>
 	  <td align="right">Terminate</td>
 	  <td align="left"><select name="s_terminate" id="s_terminate">
 		  <option value="0">&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;</option>
 		  <option value="1" <? if($terminate==1){echo "selected";} ?>>terminate</option>
 	  </select></td>
-	  <td align="right">ª√–‡¿∑ ¡“™‘°</td>
+	  <td align="right">‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
 		<td>&nbsp;
 		  <select name="mtype1">
-		  <option value="" selected>∑—ÈßÀ¡¥</option>
+		  <option value="" selected>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 				<?php
 				if($mtype1<'0'){
 						$mtype1=99;
@@ -261,10 +265,10 @@ global $arr_mtype1,$s_suspend,$s_poscur1;
 			</select></td>
 	</tr>
 	<tr>
-	  <td align="right">µ”·ÀπËß</td>
+	  <td align="right">‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</td>
 	  <td>
 			<select name="s_poscur" id="s_poscur" >
-				<option value=''>‡≈◊Õ°µ”·ÀπËß</option> 
+				<option value=''>‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á</option> 
 			<?
 				$sqlx = "SELECT * FROM ali_position WHERE posid > 0 and posid < 10 ORDER BY posid ASC";
 				$rsx = mysql_query($sqlx);
@@ -284,10 +288,10 @@ global $arr_mtype1,$s_suspend,$s_poscur1;
 			
 			?>
 			</select>
-	  <td align="right">‡°’¬√µ‘¬»</td>
+	  <td align="right">‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®</td>
 	  <td align="left">
 		<select name="s_poscur1" id="s_poscur1" >
-			<option value=''>‡≈◊Õ°‡°’¬√µ‘¬»</option> 
+			<option value=''>‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®</option> 
 		<?
 			$sqlx = "SELECT * FROM ali_position WHERE posid > 10 and posid < 57 ORDER BY posid ASC";
 			$rsx = mysql_query($sqlx);
@@ -327,7 +331,7 @@ global $arr_mtype1,$s_suspend,$s_poscur1;
 	  <td>&nbsp;</td>
 	</tr>
 	<tr>
-	  <td colspan="6" align="center" scope="row"><input type="submit" value="   §ÈπÀ“   ">   &nbsp;&nbsp;  <input type="reset" value="   ¬°‡≈‘°   "></td>
+	  <td colspan="6" align="center" scope="row"><input type="submit" value="   ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤   ">   &nbsp;&nbsp;  <input type="reset" value="   ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å   "></td>
 	</tr>
   </table>
 

@@ -11,7 +11,7 @@
 	
 	function sale_cancel(id){
 		
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 					
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		
@@ -22,7 +22,7 @@
 		
 	function sale_status(id){
 		
-	if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+	if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			
 		window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
 		}
@@ -64,7 +64,7 @@ if($isline == false){
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
 
-$sql="SELECT sano,mcode,name_t,sadate,CASE sa_type WHEN 'A' THEN '��Ż���'  WHEN 'B' THEN '�ѡ���ʹ' WHEN 'VA' THEN 'special point' END AS ability,tot_pv,total,uid FROM
+$sql="SELECT sano,mcode,name_t,sadate,CASE sa_type WHEN 'A' THEN 'บิลปกติ'  WHEN 'B' THEN 'รักษายอด' WHEN 'VA' THEN 'special point' END AS ability,tot_pv,total,uid FROM
 (SELECT ah.sano as sano,ah.mcode as mcode,m.name_t as name_t,ah.sadate as sadate,ah.sa_type as sa_type,ah.tot_pv as tot_pv,ah.total as total,ah.uid as uid FROM ali_asaleh ah LEFT JOIN ali_member m ON(ah.mcode=m.mcode) WHERE (ah.sa_type='A' OR ah.sa_type='B') AND ah.cancel=0";
 if($mcode!="") $sql.=" AND ah.mcode='$mcode'";
 $sql.="
@@ -79,6 +79,7 @@ $sql.=") as a ";
 
 
 
+// echo $sql;
 
 		
 	$rec = new repGenerator();

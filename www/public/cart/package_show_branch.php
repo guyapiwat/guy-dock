@@ -92,7 +92,7 @@ $rec->setFieldAlign("center,left,right,right,left");
 $rec->setFieldLink(",");
   $rec->setSpecial("../branch/images/add_pic.gif","","cartAction","action,pcode,''","IMAGE","");
 $rec->setSearch("".$dbprefix."product_package.pcode,".$dbprefix."product_package.pdesc,".$dbprefix."product_package.price,".$dbprefix."product_package.pv");
-$rec->setSearchDesc("ÃËÑÊ,ÃÒÂÅÐàÍÕÂ´,ÃÒ¤Ò,¤Ðá¹¹");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ª,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸£à¸²à¸„à¸²,à¸„à¸°à¹à¸™à¸™");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

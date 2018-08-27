@@ -123,12 +123,12 @@ global $wording_lan;
 	<? }
 		if(($_SESSION["adminusercode"]<>"") and  ($_SESSION["adminobj7"]!=0)){ ?>
 		<td width="125" style="display:none"  align="center"  background="<? echo $bgtab7;?>"> 
-      	<? echo "<a href='index.php?sessiontab=7'><div><font color='#000000'><b>�ѭ��</b></font></div></a>";?>
+      	<? echo "<a href='index.php?sessiontab=7'><div><font color='#000000'><b>บัญชี</b></font></div></a>";?>
     	</td>
 	<? }
 		if(($_SESSION["adminusercode"]<>"") and  ($_SESSION["adminobj8"]!=0)){ ?>
 		<td width="125" style="display:none"  align="center"  background="<? echo $bgtab8;?>"> 
-      	<? echo "<a href='index.php?sessiontab=8'><div><font color='#000000'><b>Ἱ���õ�Ҵ</b></font></div></a>";?>
+      	<? echo "<a href='index.php?sessiontab=8'><div><font color='#000000'><b>แผนกการตลาด</b></font></div></a>";?>
     	</td>
 	<? }
 		if(($_SESSION["adminusercode"]<>"") and  ($_SESSION["adminobj9"]!=0)){ ?>
@@ -138,7 +138,7 @@ global $wording_lan;
 	<? }
 		if(($_SESSION["adminusercode"]<>"") and  ($_SESSION["adminobj10"]!=0)){ ?>
 		<td width="125" style="display:none"  align="center"  background="<? echo $bgtab10;?>"> 
-      	<? echo "<a href='index.php?sessiontab=10'><div><font color='#000000'><b>����Թ</b></font></div></a>";?>
+      	<? echo "<a href='index.php?sessiontab=10'><div><font color='#000000'><b>การเงิน</b></font></div></a>";?>
     	</td>
 	<? } ?>
 
@@ -151,7 +151,7 @@ global $wording_lan;
 
 <td width="500" align="right" >&nbsp;</td>
 
- <td width="350"  nowrap align="center" ><? if(!empty($_SESSION["adminusername"])){ ?><b><span class="LinkD"><a href="index.php?sessiontab=0">������ʼ�ҹ</a>&nbsp;&nbsp;&nbsp;<a href="logout.php?sessiontab=8">Logout</a></b><? }?></span></td></tr>
+ <td width="350"  nowrap align="center" ><? if(!empty($_SESSION["adminusername"])){ ?><b><span class="LinkD"><a href="index.php?sessiontab=0">แก้ไขรหัสผ่าน</a>&nbsp;&nbsp;&nbsp;<a href="logout.php?sessiontab=8">Logout</a></b><? }?></span></td></tr>
 </table>
 
 <table width="100%" height="5" cellspacing="0" cellpadding="0" border="0">

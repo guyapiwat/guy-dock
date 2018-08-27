@@ -33,7 +33,7 @@ if($_GET['print_all']==true){
 	 echo "<script type='application/javascript'>window.onload=function(){printDiv('divprint');}</script>";
 	exit;
 } 
-echo '<center><font size=4>รายงานยอดขายสินค้า</font></center>';
+echo '<center><font size=4>เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -75,7 +75,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -83,11 +83,11 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
@@ -97,7 +97,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
-echo '<center><font size=4>รายงานยอดขาย Package</font></center>';
+echo '<center><font size=4>เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธฒเธข Package</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -141,7 +141,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -149,7 +149,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
@@ -163,7 +163,7 @@ for($i=0;$i<mysql_num_rows($result);$i++){
 	$lid = $data->inv_code;
 	$inv_desc = $data->inv_desc;
 
-echo '<center><font size=4>รายงานยอดขายสินค้าใน Package</font></center>';
+echo '<center><font size=4>เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒเนเธ Package</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT p.pdesc,p.pcode,SUM(p.qty*d.qty),SUM(p.qty*d.qty) as qty FROM ".$dbprefix."asaled d
 left JOIN ".$dbprefix."asaleh h on (h.id= d.sano )
@@ -199,7 +199,7 @@ $sql .= "	GROUP by p.pcode  DESC";
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,qty");
 		$rec->setFieldFloatFormat(",,2,0,2");
-$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน");
+$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธเธณเธเธงเธ");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,80%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -207,7 +207,7 @@ $rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
 	//}
@@ -225,7 +225,7 @@ for($i=0;$i<mysql_num_rows($result);$i++){
 	$lid = $data->inv_code;
 	$inv_desc = $data->inv_desc;
 
-echo '<center><font size=4>รายงานยอดขายสินค้า และ สินค้าใน Package</font></center>';
+echo '<center><font size=4>เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ เนเธฅเธฐ เธชเธดเธเธเนเธฒเนเธ Package</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
 $sql = "select pcode,pdesc,sum(qty) as qty from ( ";
@@ -276,7 +276,7 @@ $sql .= " ) as ppp where 1=1 group by ppp.pcode ";
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,qty");
 		$rec->setFieldFloatFormat(",,2,0,2");
-$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน");
+$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธเธณเธเธงเธ");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,80%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -284,7 +284,7 @@ $rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
 	//}

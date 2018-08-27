@@ -96,16 +96,16 @@ $tdate = $_POST['tdate']==""?$_GET['tdate']:$_POST['tdate'];
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-         <td align="right"> “¢“</td>
+         <td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
          <td><select size="1" name="inv_code" id="inv_code" tabindex="63">
-                  <option value="" <? if($inv=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+                  <option value="" <? if($inv=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
              <?                    
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -123,17 +123,17 @@ $tdate = $_POST['tdate']==""?$_GET['tdate']:$_POST['tdate'];
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 3 and $_GET['sub'] == 17) or ($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148 or $_GET['sub'] == 202))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>

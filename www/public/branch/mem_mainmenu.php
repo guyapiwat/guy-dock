@@ -222,6 +222,7 @@ function chk_view(){
 				break;
 			case 101:
 				?><legend><strong><font color="#666666">รายงานเอกสารการสมัคร</font></strong></legend><?
+				 
 				include("member_doc.php");
 				break;
 			default :

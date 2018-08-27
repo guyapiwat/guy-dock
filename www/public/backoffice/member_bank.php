@@ -17,6 +17,9 @@ $sql .= "FROM ".$dbprefix."member LEFT JOIN ".$dbprefix."bank ON ".$dbprefix."me
 		include("member_editadd.php");
 	}else{*/
 		$rec = new repGenerator();
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']);
 		$rec->setOrder($_GET['ord']);
@@ -34,22 +37,22 @@ $sql .= "FROM ".$dbprefix."member LEFT JOIN ".$dbprefix."bank ON ".$dbprefix."me
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,mobile,acc_no,acc_name,acc_type,branch,bankname");
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,‡∫Õ√Ï‚∑√,‡≈¢∫—≠™’,™◊ËÕ∫—≠™’,™π‘¥∫—≠™’, “¢“,∏π“§“√");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£,‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏ä‡∏∑‡πà‡∏≠‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏ä‡∏ô‡∏¥‡∏î‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£");
 		$rec->setFieldAlign("center,left,center,center,left,center,left,left");
 		$rec->setFieldSpace("10%,15%,10%,20%,10%,15%,10%,15%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSearch("mcode,name_t,mobile,acc_no,acc_name,acc_type,branch,bankname");
-		$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,‡∫Õ√Ï‚∑√,‡≈¢∫—≠™’,™◊ËÕ∫—≠™’,™π‘¥∫—≠™’, “¢“,∏π“§“√");
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£,‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏ä‡∏∑‡πà‡∏≠‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏ä‡∏ô‡∏¥‡∏î‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","member_bank".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member_bank".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 	 
 			$rec->setSpace($str);
 		}
 			$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		
 		

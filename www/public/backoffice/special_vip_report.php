@@ -12,6 +12,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 	}else if($_GET['state']==2){
 		include("memberVIP_edit.php");
 	}else{
+		 
 		$rec = new repGenerator();
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']==""?"DOWN":$_GET['srt']);
@@ -30,9 +31,9 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,sadate,ability,tot_pv,uid");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÇÑ¹·Õè,¤Ø³ÊÁºÑµÔ,PV,¼ÙéºÑ¹·Ö¡");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸„à¸¸à¸“à¸ªà¸¡à¸šà¸±à¸•à¸´,PV,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setFieldAlign("center,left,center,center,right,center");
 		$rec->setFieldSpace("10%,45%,10%,5%,15%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,,,,,");
@@ -42,7 +43,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=2&sub=3&state=1","post","delfield");
 		}
 		$rec->setSearch(" ".$dbprefix."special_point.mcode,name_t,tot_pv");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,pv");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,pv");
 
 		//$rec->setEdit("index.php","id","vip_id","sessiontab=2&sub=3");
 		$rec->showRec(1,'SH_QUERY');

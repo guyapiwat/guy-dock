@@ -3,11 +3,11 @@
 	 <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-		<td align="right">ÃËÑÊÊÁÒªÔ¡&nbsp;</td>
+		<td align="right">à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸&nbsp;</td>
 		<td><input type="text" name="cmc" id="cmc" placeholder="TH0000001" value="<?=$fmcode?>" maxlength='9'/>
 
-	   <input type="submit" name="okok" value="¤é¹ËÒ">
-		&nbsp;<!--input type="button" name="Submit" value="´ÙÃÒÂ§Ò¹" onclick="checkround()" /--></td>
+	   <input type="submit" name="okok" value="à¸„à¹‰à¸™à¸«à¸²">
+		&nbsp;<!--input type="button" name="Submit" value="à¸”à¸¹à¸£à¸²à¸¢à¸‡à¸²à¸™" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -22,15 +22,15 @@ if (isset($_GET["lr"])){$lr=$_GET["lr"];} else {$lr="";}
 ?>
 <table width=60% align=center><tr><td align=center>
 
- <a href="?sessiontab=1&sub=26&lr=1&cmc=<?=$cmc?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>«éÒÂ</a>
+ <a href="?sessiontab=1&sub=26&lr=1&cmc=<?=$cmc?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>à¸‹à¹‰à¸²à¸¢</a>
 </td>
 <td align=center>
 
-<a href="?sessiontab=1&sub=26&cmc=<?=$cmc?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>·Ñé§ËÁ´</a>
+<a href="?sessiontab=1&sub=26&cmc=<?=$cmc?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a>
 </td>
 <td align=center>
 
-<a href="?sessiontab=1&sub=26&lr=2&cmc=<?=$cmc?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>¢ÇÒ</a>
+<a href="?sessiontab=1&sub=26&lr=2&cmc=<?=$cmc?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>à¸‚à¸§à¸²</a>
 </td>
 
 </tr></table>
@@ -50,7 +50,7 @@ if(mysql_num_rows($rs)>0){
 if(empty($mcode_index) or $lr > 2)exit;
 
 $sql="select * from (select mcode,name_t,pos_cur,mdate,pos_cur2,tot_pv,sp_code,sp_name,level-'".$_SESSION["mcode_level"]."' as level";
-$sql .= ",CASE lr WHEN '1' THEN '«éÒÂ' WHEN '2' THEN '¢ÇÒ'  END AS lr1 ";
+$sql .= ",CASE lr WHEN '1' THEN 'à¸‹à¹‰à¸²à¸¢' WHEN '2' THEN 'à¸‚à¸§à¸²'  END AS lr1 ";
 $sql .= "from ".$dbprefix."member left join ".$dbprefix."structure_binary as mi on (mcode = mi.mcode_ref) where mcode_index like '".$mcode_index."".$_GET["lr"]."%' and mcode_ref != '".$cmc."') as a where 1=1  ";
 ?>
 <?
@@ -73,11 +73,11 @@ $rec->setBackLink($PHP_SELF,"sessiontab=1");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,mdate,lr1,pos_cur,tot_pv,sp_code,sp_name,level");
-$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÇÑ¹ÊÁÑ¤Ã,´éÒ¹,µÓáË¹è§,¤Ğá¹¹ÊĞÊÁ,ÃËÑÊ¼Ùéá¹Ğ¹Ó,ª×èÍ¼Ùéá¹Ğ¹Ó,ªÑé¹");
+$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸§à¸±à¸™à¸ªà¸¡à¸±à¸„à¸£,à¸”à¹‰à¸²à¸™,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸„à¸°à¹à¸™à¸™à¸ªà¸°à¸ªà¸¡,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸±à¹‰à¸™");
 $rec->setFieldAlign("center,left,center,center,center,center,center,left,center");
 $rec->setFieldFloatFormat(",,,,,0,,,0");
 $rec->setSearch("mcode,name_t,mdate,lr1,pos_cur,tot_pv,sp_code,sp_name,level");
-$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÇÑ¹ÊÁÑ¤Ã,´éÒ¹,µÓáË¹è§,¤Ğá¹¹ÊĞÊÁ,ÃËÑÊ¼Ùéá¹Ğ¹Ó,ª×èÍ¼Ùéá¹Ğ¹Ó,ªÑé¹");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸§à¸±à¸™à¸ªà¸¡à¸±à¸„à¸£,à¸”à¹‰à¸²à¸™,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸„à¸°à¹à¸™à¸™à¸ªà¸°à¸ªà¸¡,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸±à¹‰à¸™");
 $rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 $rec->showRec(1,'SH_QUERY');
 ?>

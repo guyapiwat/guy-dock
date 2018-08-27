@@ -3,11 +3,11 @@
 	 <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-		<td align="right">รหัสสมาชิก&nbsp;</td>
+		<td align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;</td>
 		<td><input type="text" name="cmc" id="cmc" placeholder="TH0000001" value="<?=$fmcode?>" maxlength='9'/>
 
-	   <input type="submit" name="okok" value="ค้นหา">
-		&nbsp;<!--input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /--></td>
+	   <input type="submit" name="okok" value="เธเนเธเธซเธฒ">
+		&nbsp;<!--input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -34,7 +34,7 @@ if(mysql_num_rows($rs)>0){
 if(empty($mcode_index) or $lr > 2)exit;
 
 $sql="select * from (select mcode,name_t,pos_cur,mdate,pos_cur2,tot_pv,sp_code,sp_name,level-'".$_SESSION["mcode_level"]."' as level";
-$sql .= ",CASE lr WHEN '1' THEN 'ซ้าย' WHEN '2' THEN 'ขวา'  END AS lr1 ";
+$sql .= ",CASE lr WHEN '1' THEN 'เธเนเธฒเธข' WHEN '2' THEN 'เธเธงเธฒ'  END AS lr1 ";
 $sql .= "from ".$dbprefix."member left join ".$dbprefix."structure_sponsor as mi on (mcode = mi.mcode_ref) where mcode_index like '".$mcode_index."".$_GET["lr"]."%' and mcode_ref != '".$cmc."') as a where 1=1  ";
 ?>
 <?
@@ -57,11 +57,11 @@ $rec->setBackLink($PHP_SELF,"sessiontab=1");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,mdate,lr1,pos_cur,tot_pv,sp_code,sp_name,level");
-$rec->setFieldDesc("รหัสสมาชิก,ชื่อสมาชิก,วันสมัคร,ด้าน,ตำแหน่ง,คะแนนสะสม,รหัสผู้แนะนำ,ชื่อผู้แนะนำ,ชั้น");
+$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธงเธฑเธเธชเธกเธฑเธเธฃ,เธ”เนเธฒเธ,เธ•เธณเนเธซเธเนเธ,เธเธฐเนเธเธเธชเธฐเธชเธก,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ,เธเธฑเนเธ");
 $rec->setFieldAlign("center,left,center,center,center,center,center,left,center");
 $rec->setFieldFloatFormat(",,,,,0,,,0");
 $rec->setSearch("mcode,name_t,mdate,lr1,pos_cur,tot_pv,sp_code,sp_name,level");
-$rec->setSearchDesc("รหัสสมาชิก,ชื่อสมาชิก,วันสมัคร,ด้าน,ตำแหน่ง,คะแนนสะสม,รหัสผู้แนะนำ,ชื่อผู้แนะนำ,ชั้น");
+$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธงเธฑเธเธชเธกเธฑเธเธฃ,เธ”เนเธฒเธ,เธ•เธณเนเธซเธเนเธ,เธเธฐเนเธเธเธชเธฐเธชเธก,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ,เธเธฑเนเธ");
 $rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 
 $rec->showRec(1,'SH_QUERY');

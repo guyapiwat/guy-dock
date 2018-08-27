@@ -67,8 +67,8 @@ if($fdate){
 		$sql = "SELECT *,@num := @num + 1 row FROM (";/// start num row
         $sql .= "SELECT ash.id,ash.sano,ash.total,mb.sp_code,mb.id_card,ash.mcode as smcode,concat(ash.name_f,' ',ash.name_t) as name_t,ash.sadate,ash.tot_pv,ash.total_vat,ash.total_net";
         $sql .= $sqlx;  
-		$sql .= ",CASE ash.scheck WHEN 'register' THEN 'ÊÁÑ¤Ã' ELSE '«×éÍ¢Í§' END AS scheck ";
-        $sql .= ",CASE ash.send WHEN '1' THEN 'Êè§' ELSE 'ÃÑºàÍ§' END AS send ";
+		$sql .= ",CASE ash.scheck WHEN 'register' THEN 'à¸ªà¸¡à¸±à¸„à¸£' ELSE 'à¸‹à¸·à¹‰à¸­à¸‚à¸­à¸‡' END AS scheck ";
+        $sql .= ",CASE ash.send WHEN '1' THEN 'à¸ªà¹ˆà¸‡' ELSE 'à¸£à¸±à¸šà¹€à¸­à¸‡' END AS send ";
         $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist'  END AS checkportal1";
         $sql .= $sqlWhere_satype;
         $sql .= ",ash.uid,us.inv_ref,lb.cshort";
@@ -126,30 +126,30 @@ if($fdate){
         $rec->setLink($PHP_SELF,"sessiontab=3&sub=8&fdate=$fdate&tdate=$tdate&satype=$satype&logistic=$logistic&strpv=$strpv&strtotal=$strtotal&struid=$struid&sspv=$sspv&inv=$inv&strSearch=$strSearch&strtype=$strtype&sregister=$sregister&sa_type=$sa_type&location_base=$location_base&currency=$currency&sano=$sano&uid=$uid&bills=$bills");
         $rec->setBackLink($PHP_SELF,"sessiontab=3");
        $rec->setShowField("row,sano,smcode,name_t,ability,sadate,tot_pv,total,total_net,total_vat".$colome.",uid,inv_ref,checkportal1,send,scheck");
-        $rec->setFieldDesc("ÅÓ´Ñº,àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,»ÃÐàÀ·ºÔÅ,ÇÑ¹·Õè«×éÍ,PV,ÂÍ´¢ÒÂ,ÂÍ´¢ÒÂ¡èÍ¹&nbsp;Vat,Vat".$colome_text.",¼ÙéºÑ¹·Ö¡,ÊÒ¢Ò,ªèÍ§·Ò§,¨Ñ´Êè§,»ÃÐàÀ·");
+        $rec->setFieldDesc("à¸¥à¸³à¸”à¸±à¸š,à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸›à¸£à¸°à¹€à¸ à¸—à¸šà¸´à¸¥,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,PV,à¸¢à¸­à¸”à¸‚à¸²à¸¢,à¸¢à¸­à¸”à¸‚à¸²à¸¢à¸à¹ˆà¸­à¸™&nbsp;Vat,Vat".$colome_text.",à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸,à¸ªà¸²à¸‚à¸²,à¸Šà¹ˆà¸­à¸‡à¸—à¸²à¸‡,à¸ˆà¸±à¸”à¸ªà¹ˆà¸‡,à¸›à¸£à¸°à¹€à¸ à¸—");
         $rec->setFieldFloatFormat(",,,,,,2,2,2,2".$Format.",");
         $rec->setFieldAlign("center,center,center,left,center,right,right,right,right,right,right,right,right,right,right,right,center,center,center,center,center");
         $rec->setFieldSpace("6%,6%,6%,10%,6%%,6%,3%,3%,4%,4%,4%,4%,4%,4%,4%,4%,4%,5%,5%");
         $rec->setFieldLink(",");
         //$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-        //$rec->setSearchDesc("àÅ¢ºÔÅ,àÅ¢ºÔÅá¨§,ÇÑ¹·Õè,ÃËÑÊ¼Ùé«×éÍ,¼ÙéºÑ¹·Ö¡,¨Ó¹Ç¹ PV");
+        //$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¹€à¸¥à¸‚à¸šà¸´à¸¥à¹à¸ˆà¸‡,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸,à¸ˆà¸³à¸™à¸§à¸™ PV");
         $rec->setSum(true,false,",,,,,,true,true,true,true".$Format.",");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         if($_GET['excel']==1){
             $rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
             $str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-            $str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+            $str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
             //$rec->getParam();
             $rec->setSpace($str);
         }
 		
-        $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","¾ÔÁ¾ì");
-		$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","´Ù");
+        $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
+		$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","à¸”à¸¹");
         $str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-        $str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+        $str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
         $rec->setSpace($str);
         $str2 = "<fieldset ><a href='".$actual_link."invoice/aprint_sale_backoffice.php?bid=$bills&fdate=$fdate&tdate=$tdate&sale=$sale&inv=$inv&type=$type' target='_blank'>"; 
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		$rec->setSpace($str2);
         $rec->showRec(1,'SH_QUERY');
  }

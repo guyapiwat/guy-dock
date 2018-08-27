@@ -228,6 +228,11 @@ class repGenerator_qty_stock{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
+
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -253,6 +258,11 @@ class repGenerator_qty_stock{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -273,6 +283,10 @@ class repGenerator_qty_stock{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -324,7 +338,7 @@ class repGenerator_qty_stock{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -347,7 +361,7 @@ class repGenerator_qty_stock{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -387,7 +401,7 @@ class repGenerator_qty_stock{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
@@ -408,7 +422,7 @@ class repGenerator_qty_stock{
 						echo "</td>";
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -435,7 +449,7 @@ class repGenerator_qty_stock{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -470,7 +484,7 @@ class repGenerator_qty_stock{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -527,7 +541,7 @@ class repGenerator_qty_stock{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -557,8 +571,8 @@ class repGenerator_qty_stock{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -630,6 +644,9 @@ class repGenerator_qty_stock{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -655,12 +672,12 @@ class repGenerator_qty_stock{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -720,8 +737,8 @@ class repGenerator_qty_stock{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -1010,6 +1027,9 @@ class repGenerator{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -1035,6 +1055,9 @@ class repGenerator{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -1054,6 +1077,9 @@ class repGenerator{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1098,7 +1124,7 @@ class repGenerator{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -1110,7 +1136,7 @@ class repGenerator{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -1118,7 +1144,7 @@ class repGenerator{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -1128,11 +1154,11 @@ class repGenerator{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -1150,13 +1176,13 @@ class repGenerator{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -1177,7 +1203,7 @@ class repGenerator{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -1199,7 +1225,7 @@ class repGenerator{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -1234,7 +1260,7 @@ class repGenerator{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -1273,7 +1299,7 @@ class repGenerator{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -1308,7 +1334,7 @@ class repGenerator{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -1317,7 +1343,7 @@ class repGenerator{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -1335,7 +1361,7 @@ class repGenerator{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -1365,8 +1391,8 @@ class repGenerator{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -1425,9 +1451,9 @@ class repGenerator{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -1438,6 +1464,9 @@ class repGenerator{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1463,12 +1492,12 @@ class repGenerator{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -1528,8 +1557,8 @@ class repGenerator{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -1843,6 +1872,10 @@ class repGenerator_b{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -1868,6 +1901,10 @@ class repGenerator_b{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -1887,6 +1924,9 @@ class repGenerator_b{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -1931,7 +1971,7 @@ class repGenerator_b{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(@mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -1943,7 +1983,7 @@ class repGenerator_b{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -1951,7 +1991,7 @@ class repGenerator_b{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -1961,11 +2001,11 @@ class repGenerator_b{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -1983,13 +2023,13 @@ class repGenerator_b{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -2010,7 +2050,7 @@ class repGenerator_b{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -2036,7 +2076,7 @@ class repGenerator_b{
 						//$a=$a+1;
 						//echo "<td style=>".$a."</td>";	
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -2081,7 +2121,7 @@ class repGenerator_b{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -2115,7 +2155,7 @@ class repGenerator_b{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -2150,7 +2190,7 @@ class repGenerator_b{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -2159,7 +2199,7 @@ class repGenerator_b{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -2177,7 +2217,7 @@ class repGenerator_b{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -2207,8 +2247,8 @@ class repGenerator_b{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -2267,9 +2307,9 @@ class repGenerator_b{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -2280,6 +2320,9 @@ class repGenerator_b{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -2305,12 +2348,12 @@ class repGenerator_b{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -2370,8 +2413,8 @@ class repGenerator_b{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -2685,6 +2728,9 @@ class repGenerator_sp{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -2710,6 +2756,11 @@ class repGenerator_sp{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -2729,6 +2780,9 @@ class repGenerator_sp{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -2773,7 +2827,7 @@ class repGenerator_sp{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -2785,7 +2839,7 @@ class repGenerator_sp{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -2793,7 +2847,7 @@ class repGenerator_sp{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -2803,11 +2857,11 @@ class repGenerator_sp{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -2825,13 +2879,13 @@ class repGenerator_sp{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -2852,7 +2906,7 @@ class repGenerator_sp{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -2874,7 +2928,7 @@ class repGenerator_sp{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -2909,7 +2963,7 @@ class repGenerator_sp{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -2944,7 +2998,7 @@ class repGenerator_sp{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -2979,7 +3033,7 @@ class repGenerator_sp{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -2988,7 +3042,7 @@ class repGenerator_sp{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -3006,7 +3060,7 @@ class repGenerator_sp{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -3036,8 +3090,8 @@ class repGenerator_sp{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -3096,9 +3150,9 @@ class repGenerator_sp{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -3109,6 +3163,10 @@ class repGenerator_sp{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -3134,12 +3192,12 @@ class repGenerator_sp{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -3199,8 +3257,8 @@ class repGenerator_sp{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -3515,6 +3573,9 @@ class repGenerator_held{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -3540,6 +3601,11 @@ class repGenerator_held{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+			
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -3559,6 +3625,9 @@ class repGenerator_held{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -3603,7 +3672,7 @@ class repGenerator_held{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -3615,7 +3684,7 @@ class repGenerator_held{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -3623,7 +3692,7 @@ class repGenerator_held{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -3633,11 +3702,11 @@ class repGenerator_held{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -3655,13 +3724,13 @@ class repGenerator_held{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÃÇÁ¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">ÃÇÁ</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">ï¿½ï¿½ï¿½</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -3682,7 +3751,7 @@ class repGenerator_held{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -3704,7 +3773,7 @@ class repGenerator_held{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -3739,7 +3808,7 @@ class repGenerator_held{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -3773,7 +3842,7 @@ class repGenerator_held{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -3808,7 +3877,7 @@ class repGenerator_held{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -3817,7 +3886,7 @@ class repGenerator_held{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -3835,7 +3904,7 @@ class repGenerator_held{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -3865,8 +3934,8 @@ class repGenerator_held{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -3925,9 +3994,9 @@ class repGenerator_held{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -3938,6 +4007,10 @@ class repGenerator_held{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -3963,12 +4036,12 @@ class repGenerator_held{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -4028,8 +4101,8 @@ class repGenerator_held{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -4345,6 +4418,9 @@ class repGenerator_bb{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -4370,6 +4446,11 @@ class repGenerator_bb{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -4389,6 +4470,10 @@ class repGenerator_bb{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -4433,7 +4518,7 @@ class repGenerator_bb{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -4445,7 +4530,7 @@ class repGenerator_bb{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -4453,7 +4538,7 @@ class repGenerator_bb{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -4463,11 +4548,11 @@ class repGenerator_bb{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -4485,13 +4570,13 @@ class repGenerator_bb{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -4512,7 +4597,7 @@ class repGenerator_bb{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -4534,7 +4619,7 @@ class repGenerator_bb{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -4569,7 +4654,7 @@ class repGenerator_bb{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -4603,7 +4688,7 @@ class repGenerator_bb{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -4638,7 +4723,7 @@ class repGenerator_bb{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -4647,7 +4732,7 @@ class repGenerator_bb{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -4665,7 +4750,7 @@ class repGenerator_bb{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -4695,8 +4780,8 @@ class repGenerator_bb{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -4755,9 +4840,9 @@ class repGenerator_bb{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -4768,6 +4853,10 @@ class repGenerator_bb{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -4793,12 +4882,12 @@ class repGenerator_bb{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -4858,8 +4947,8 @@ class repGenerator_bb{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -5150,6 +5239,9 @@ class repGenerator_sms{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -5175,6 +5267,10 @@ class repGenerator_sms{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -5195,6 +5291,10 @@ class repGenerator_sms{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -5251,7 +5351,7 @@ class repGenerator_sms{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -5273,7 +5373,7 @@ class repGenerator_sms{
 						echo " ".$wording_lan["word"]["list"]." ".$wording_lan["word"]["from"]." ".$this->nInfo." ".$wording_lan["word"]["life"]." ".$wording_lan["word"]["amount"]." ".$this->nPage." ".$wording_lan["word"]["page"]." ".$wording_lan["word"]["page"]."".$wording_lan["word"]["each"]." ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ".$wording_lan["word"]["data"]."</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ".$wording_lan["word"]["data"]."</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -5318,7 +5418,7 @@ class repGenerator_sms{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -5340,7 +5440,7 @@ class repGenerator_sms{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -5375,7 +5475,7 @@ class repGenerator_sms{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -5409,7 +5509,7 @@ class repGenerator_sms{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -5444,7 +5544,7 @@ class repGenerator_sms{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -5471,7 +5571,7 @@ class repGenerator_sms{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -5501,8 +5601,8 @@ class repGenerator_sms{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -5564,7 +5664,7 @@ class repGenerator_sms{
 		
 		echo "<font color='#999999'> | ".$wording_lan["word"]["gotopage"]." <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -5575,6 +5675,10 @@ class repGenerator_sms{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -5600,12 +5704,12 @@ class repGenerator_sms{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -5665,8 +5769,8 @@ class repGenerator_sms{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
@@ -5981,6 +6085,10 @@ class repGenerator_cm{
 		var $row;
 		var $showFieldList;
 		var $sumList;*/
+
+		$charset = "SET NAMES 'UTF8'"; 
+		mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query("SELECT FOUND_ROWS() AS clsrows"); 
 		if(mysql_num_rows($rs)>0){
 			$row = mysql_result($rs,0,'clsrows');
@@ -6006,6 +6114,11 @@ class repGenerator_cm{
 					$lmpos = strpos($this->getSQL("NCAL"),"LIMIT")==false?strlen($this->getSQL("NCAL")):strpos($this->getSQL("NCAL"),"LIMIT");
 					$sql = substr($this->getSQL("NCAL"),0,$lmpos);
 					$sql = "SELECT SUM(".$showFieldList[$i].") AS ".$showFieldList[$i]." FROM (".$sql.") AS tab";
+					
+					$charset = "SET NAMES 'UTF8'"; 
+					mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+
 					$rs = mysql_query($sql);
 					$this->allSumVal[$showFieldList[$i]] = mysql_result($rs,0,$showFieldList[$i]);
 					mysql_free_result($rs);
@@ -6025,6 +6138,10 @@ class repGenerator_cm{
 		$this->checkScript();
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -6069,7 +6186,7 @@ class repGenerator_cm{
 				$col += $this->special1==true?sizeof($this->specialType1):0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>äÁè¾º¢éÍÁÙÅ</font></td></tr>";
+					echo "<tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ï¿½ï¿½è¾ºï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><table><tr><td>";
@@ -6081,7 +6198,7 @@ class repGenerator_cm{
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
 						echo "&lp=".$this->lPage."' method='post'>";
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 						//echo "<br />";
 						echo "<input type='text' name='scause'>";
 						echo "<select name='skey'>";
@@ -6089,7 +6206,7 @@ class repGenerator_cm{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='¤é¹'>";
+						echo "<input type='submit' value='ï¿½ï¿½'>";
 					echo "</form></fieldset>";
 					}
 					echo "</td>";
@@ -6099,11 +6216,11 @@ class repGenerator_cm{
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "áÊ´§ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
-						echo " ÃÒÂ¡ÒÃ ¨Ò¡ ".$this->nInfo." ÃÒÂ¡ÒÃ ¨Ó¹Ç¹ ".$this->nPage." Ë¹éÒ Ë¹éÒÅÐ ";
+						echo "ï¿½Ê´ï¿½ ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage);
+						echo " ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ò¡ ".$this->nInfo." ï¿½ï¿½Â¡ï¿½ï¿½ ï¿½Ó¹Ç¹ ".$this->nPage." Ë¹ï¿½ï¿½ Ë¹ï¿½ï¿½ï¿½ï¿½ ";
 						echo "<input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: ";
 						echo "#CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode,\"lp\",\"lp\" )' ";
-						echo "title='Enter à¾×èÍ»ÃÑºáµè§¡ÒÃáÊ´§¼Å \n(ALL=áÊ´§·Ñé§ËÁ´)' value='".$this->lPage."'> ¢éÍÁÙÅ</font></div>";
+						echo "title='Enter ï¿½ï¿½ï¿½Í»ï¿½Ñºï¿½è§¡ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ \n(ALL=ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½)' value='".$this->lPage."'> ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -6121,13 +6238,13 @@ class repGenerator_cm{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('¡ÃØ³ÒÂ×¹ÂÑ¹¡ÒÃÅº¢éÍÁÙÅ´Ñ§¡ÅèÒÇ')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
+						echo "<a href=\"javascript:if(confirm('ï¿½ï¿½Ø³ï¿½ï¿½×¹ï¿½Ñ¹ï¿½ï¿½ï¿½Åºï¿½ï¿½ï¿½ï¿½ï¿½Å´Ñ§ï¿½ï¿½ï¿½ï¿½ï¿½')) document.".$this->delFormAttr[0].".submit();\">Åº</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "á¡éä¢";
+						echo "ï¿½ï¿½ï¿½";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -6148,7 +6265,7 @@ class repGenerator_cm{
 						}
 					}
 					echo "</tr>";
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -6170,7 +6287,7 @@ class repGenerator_cm{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->special){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -6205,7 +6322,7 @@ class repGenerator_cm{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -6244,7 +6361,7 @@ class repGenerator_cm{
 								echo "</td>";
 							}
 							if($this->special1){
-								// àÃÔèÁ loop $this->specialType à¾×èÍáÊ´§¢éÍÁÙÅã¹¤ÍÅÑÁ¹ì¾ÔàÈÉµÒÁ·Õèà¾ÔèÁÁÒ
+								// ï¿½ï¿½ï¿½ï¿½ï¿½ loop $this->specialType ï¿½ï¿½ï¿½ï¿½ï¿½Ê´ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ã¹¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Éµï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 								for($j=0;$j<sizeof($this->specialType1);$j++){
 									echo "<td id='tdtab[]' align='center' style='".$style_l."'>";
 									switch($this->specialType1[$j]){
@@ -6279,7 +6396,7 @@ class repGenerator_cm{
 									}
 	
 									echo "</td>";
-								}// ¨º loop for ¢Í§ special
+								}// ï¿½ï¿½ loop for ï¿½Í§ special
 							}
 							echo "</tr>";
 						}else break;
@@ -6288,7 +6405,7 @@ class repGenerator_cm{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ÃÇÁ</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½ï¿½ï¿½</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -6306,7 +6423,7 @@ class repGenerator_cm{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>¨Ò¡</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>ï¿½Ò¡</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -6336,8 +6453,8 @@ class repGenerator_cm{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -6396,9 +6513,9 @@ class repGenerator_cm{
 			echo "&lp=".$this->lPage."'>[>>]</a>";
 		}else{ echo "<font color='#999999'>[>][>>]</font>";}
 		
-		echo "<font color='#999999'> | ä»ÂÑ§Ë¹éÒ <input type='text' name='pg' id='pg'  size='1' ";
+		echo "<font color='#999999'> | ï¿½ï¿½Ñ§Ë¹ï¿½ï¿½ <input type='text' name='pg' id='pg'  size='1' ";
 		echo "style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' ";
-		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter à¾×èÍä»ÂÑ§Ë¹éÒ·ÕèµéÍ§¡ÒÃ'/></font>";
+		echo "onKeyUp='pageset(window.event.keyCode,\"pg\",\"pg\")' title='Enter ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ñ§Ë¹ï¿½Ò·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½'/></font>";
 	}
 	//row_flag will be 'CALC' or 'NCALC'
 	//CALC refer to calculate number of record
@@ -6409,6 +6526,11 @@ class repGenerator_cm{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+
+			$charset = "SET NAMES 'UTF8'"; 
+			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
+			
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -6434,12 +6556,12 @@ class repGenerator_cm{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//ËÑÇ¢éÍ·ÕèµéÍ§¡ÒÃáÊ´§
+					//ï¿½ï¿½Ç¢ï¿½Í·ï¿½ï¿½ï¿½Í§ï¿½ï¿½ï¿½ï¿½Ê´ï¿½
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢éÍÁÙÅ·ÕèáÊ´§
+					//ï¿½ï¿½ï¿½ï¿½ï¿½Å·ï¿½ï¿½ï¿½Ê´ï¿½
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -6499,8 +6621,8 @@ class repGenerator_cm{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "ãªéàÇÅÒ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){
