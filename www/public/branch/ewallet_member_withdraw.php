@@ -3,6 +3,7 @@ $sale = $_POST['sale']==""?$_GET['sale']:$_POST['sale'];
 $fdate = $_POST['strfdate']==""?$_GET['strfdate']:$_POST['strfdate'];
 $tdate = $_POST['strtdate']==""?$_GET['strtdate']:$_POST['strtdate'];
 rpdialog_m($_GET['sub']);
+ 
 ?>
 
 <script language="javascript" type="text/javascript">
@@ -26,7 +27,7 @@ rpdialog_m($_GET['sub']);
 </script>
 <?
 require("connectmysql.php");
-
+ 
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT t.sano,t.sadate,t.mcode,t.uid,m.name_t,m1.name_t as name_t1,t.total ";
 $sql .= ",CASE t.checkportal WHEN '3' THEN 'ONLINE' ELSE '' END as checkportal1 ";
@@ -43,6 +44,7 @@ $sql .= " and t.sadate >= '$fdate'  and t.sadate <= '$tdate'  ";
     if($_GET['state']==1){
         include("ewallet_del.php");
     }else if($_GET['state']==2){
+      
         include("ewallet_editadd.php");
     }else if($_GET['state']==3){
         include("ewallet_cancel.php");
@@ -68,10 +70,10 @@ $sql .= " and t.sadate >= '$fdate'  and t.sadate <= '$tdate'  ";
         $rec->setShowField("sadate,sano,mcode,name_t1,total");
         //$rec->setFieldSpace("5%,10%,5%,30%,10%,10%,10%,20%");    
         $rec->setFieldFloatFormat(",,,,2");
-        $rec->setFieldDesc("�ѹ���,�Ţ�����,���ʼ��͹,���ͼ��͹,�ӹǹ�Թ");
+        $rec->setFieldDesc("วันที่,เลขที่บิล,รหัสผู้ถอน,ชื่อผู้ถอน,จำนวนเงิน");
         $rec->setFieldAlign("center,left,center,left,right,center");
         $rec->setSearch("sano,mcode,name_t1,total");
-        $rec->setSearchDesc("�Ţ�����,���ʼ��͹,���ͼ��͹,�ӹǹ�Թ");
+        $rec->setSearchDesc("เลขที่บิล,รหัสผู้ถอน,ชื่อผู้ถอน,จำนวนเงิน");
 		$rec->setSum(true,false,",,,,true,");
       
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");

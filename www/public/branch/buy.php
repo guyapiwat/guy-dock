@@ -5,7 +5,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=5&sub=16&state=3&bid='+id;
 		}
 	}
@@ -19,14 +19,14 @@ require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT h.cancel,h.id,h.inv_code,h.total+h.tot_pv/100 as alltotal,h.sano,h.sadate,h.tot_pv,h.tot_bv,h.tot_fv,h.total,m.inv_desc as name_t,h.mcode AS smcode,h.txtoption ";
 
-//$sql .= ",CASE sender WHEN '0' THEN '�ͨѴ��'  WHEN '1' THEN '���Ѻ�ͧ' END as  receive ";
-//$sql .= ",IF(h.sender=0 and h.receive = 0,'�ͨѴ��','���Ѻ�ͧ') AS receive  ";
+//$sql .= ",CASE sender WHEN '0' THEN 'รอจัดส่ง'  WHEN '1' THEN 'รอรับของ' END as  receive ";
+//$sql .= ",IF(h.sender=0 and h.receive = 0,'รอจัดส่ง','รอรับของ') AS receive  ";
 $sql .= ",CASE 
- WHEN h.sender = 0 and h.receive = 0 and h.send = 1 THEN concat('<font color = red >','���觢ͧ','</font>')
- WHEN h.sender = 1 and h.receive = 0 THEN concat('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&status=receive&sender=',h.id,'\">','���Ѻ�ͧ','</a>')
-  WHEN h.send = 2 and h.receive = 0 THEN concat('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&status=receive&sender=',h.id,'\">','���Ѻ�ͧ','</a>')
- WHEN h.sender = 1 and h.receive = 1 THEN '�Ѻ�ͧ����'
- WHEN h.sender = 0 and h.receive = 1 THEN '�Ѻ�ͧ����'
+ WHEN h.sender = 0 and h.receive = 0 and h.send = 1 THEN concat('<font color = red >','รอส่งของ','</font>')
+ WHEN h.sender = 1 and h.receive = 0 THEN concat('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&status=receive&sender=',h.id,'\">','รอรับของ','</a>')
+  WHEN h.send = 2 and h.receive = 0 THEN concat('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&status=receive&sender=',h.id,'\">','รอรับของ','</a>')
+ WHEN h.sender = 1 and h.receive = 1 THEN 'รับของแล้ว'
+ WHEN h.sender = 0 and h.receive = 1 THEN 'รับของแล้ว'
 
  ELSE ''
  END as receive ";
@@ -83,16 +83,16 @@ if($send == 'r')$sql .= " and h.receive = '0' and h.sender = '1' ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,receive,sano,inv_code,name_t,tot_pv,alltotal,total,txtoption");
 		$rec->setFieldFloatFormat(",,,,,2,2,2");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("".$wording_lan["Date"].",�Ѻ�ͧ,".$wording_lan["sano"].",".$wording_lan["inv_code"].",".$wording_lan["inv_name"].",".$wording_lan["totalpv"].",".$wording_lan["totalmoney"].",".$wording_lan["Amount"].",�����˵�");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("".$wording_lan["Date"].",รับของ,".$wording_lan["sano"].",".$wording_lan["inv_code"].",".$wording_lan["inv_name"].",".$wording_lan["totalpv"].",".$wording_lan["totalmoney"].",".$wording_lan["Amount"].",หมายเหตุ");
 		$rec->setFieldAlign("center,center,left,center,left,right,right,right,left,right");
 		$rec->setFieldSpace("10%,5%,15%,5%,10%,10%,10%,10%,40%");
 		//$rec->setFieldLink(",index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,sadate,tot_pv,total");
 		$rec->setSearchDesc("".$wording_lan["sano"].",".$wording_lan["Date"].",".$wording_lan["totalpv"].",".$wording_lan["totalmoney"]."");
 		$rec->setSum(true,false,",,,,,true,true,true");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//if($acc->isAccess(4)){
 		//	$rec->setDel("index.php","id","id","sessiontab=5&sub=16");
@@ -100,7 +100,7 @@ if($send == 'r')$sql .= " and h.receive = '0' and h.sender = '1' ";
 		//}
 		//if($acc->isAccess(2))
 		//	$rec->setEdit("index.php","id","id","sessiontab=5&sub=16");
-	  //	$rec->setSpecial("./images/true.gif","","sale_receive","id","IMAGE","�Ѻ�ͧ");
+	  //	$rec->setSpecial("./images/true.gif","","sale_receive","id","IMAGE","รับของ");
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."isaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."isaleh.mcode AS smcode";
 $sql .= ",CASE sa_type WHEN 'Q' THEN '1' ELSE '' END AS preserve ";

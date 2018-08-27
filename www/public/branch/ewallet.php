@@ -20,9 +20,9 @@ rpdialog_sale_ewallet($_GET['sub'],$fdate,$tdate,$sale,$xinv_code);
 	}
 	function sale_cancel(id){
 		if(confirm("<?=$wording_lan['Bill_21']?>")){
-			var remark = prompt("��سҡ�͡�����˵� ���","");
+			var remark = prompt("กรุณากรอกหมายเหตุ ค่ะ","");
 			if(remark == ""){
-				alert("�س������͡�����˵� ���");
+				alert("คุณไม่ได้กรอกหมายเหตุ ค่ะ");
 			}
 			else{
 				window.location='index.php?sessiontab=3&sub=148&state=3&bid='+id+'&remark='+remark;
@@ -40,6 +40,9 @@ rpdialog_sale_ewallet($_GET['sub'],$fdate,$tdate,$sale,$xinv_code);
 </script>
 <?
 require("connectmysql.php");
+
+$charset = "SET NAMES 'UTF8'"; 
+mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 
 
  $set_payment = query("*",'ali_payment pm '," 1=1 and pm.shows_ewallet = 1 ORDER BY pm.id"); 
@@ -108,14 +111,14 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		$rec->setShowField("sadate,sano,smcode,name_t,txtMoney".$colome.",uid,lid,remark");
 		$rec->setFieldFloatFormat(",,,,2".$Format.",,,");
         $rec->setSum(true,false,",,,,true".$Sum.",");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		//$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,�Ң� ���� ��ѡ�ҹ");
-		$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Bill_25"].",".$wording_lan["inv_code"].",�����˵�");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		//$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,สาขา หรือ พนักงาน");
+		$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Bill_25"].",".$wording_lan["inv_code"].",หมายเหตุ");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,right,center");
 		//$rec->setFieldSpace("10%,12%,10%,26%,8%,8%,8%,8%,8%,8%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 		$rec->setSearch("sano,ewa.mcode,name_t,txtMoney,uid");
-	//	$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+	//	$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
 		$rec->setSearchDesc($wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"].",".$wording_lan["Bill_25"]);
 		
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE",$wording_lan["Bill_print"]);
@@ -130,7 +133,7 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=148&state=1","post","delfield");
 		}*/
 		if($acc->isAccess(4) and $_SESSION["inventobj6"] == '7'){
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");		
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");		
 		}
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//var_dump($acc->isAccess(2));
@@ -146,7 +149,7 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		$str .= "<img border='0' src='./images/excel.gif'>".$wording_lan["Billjang_cre"]." Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='./invoice_aprintw.php?bid=$bills&inv=".$_SESSION['admininvent']."' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."asaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."asaleh.mcode AS smcode";

@@ -16,9 +16,9 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale,$inv_code);
     }
 	function sale_cancel(id){
 		if(confirm("<?=$wording_lan['Bill_21']?>")){
-			var remark = prompt("��سҡ�͡�����˵� ���","");
+			var remark = prompt("กรุณากรอกหมายเหตุ ค่ะ","");
 			if(remark == ""){
-				alert("�س������͡�����˵� ���");
+				alert("คุณไม่ได้กรอกหมายเหตุ ค่ะ");
 			}
 			else{
 				window.location='index.php?sessiontab=6&sub=147&state=3&bid='+id+'&remark='+remark;
@@ -90,21 +90,21 @@ $sql .= " and ".$dbprefix."eatoship.lid = '$inv'  ";
         //$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtCash,txtTransfer,txtCredit,uid");
         $rec->setFieldFloatFormat(",,,,2,2,2,2,,2,");
-        //$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-        //$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,�Ң� ���� ��ѡ�ҹ");
+        //$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+        //$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,สาขา หรือ พนักงาน");
         $rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_11"].",".$wording_lan["Billjang_12"].",".$wording_lan["Billjang_13"].",".$wording_lan["Billjang_17"]);
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,right,center");
         $rec->setFieldSpace("10%,12%,10%,26%,8%,8%,8%,8%,8%,8%");
         //$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 
        /* $rec->setSearch("sadate,sano,".$dbprefix."eatoship.mcode,name_t,txtMoney,txtCash,txtTransfer,uid");
-    //    $rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+    //    $rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
         $rec->setSearchDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_11"].",".$wording_lan["Billjang_12"].",".$wording_lan["Billjang_17"]);*/
 
 		/*edit seach*/
 
 		$rec->setSearch("sadate,sano,".$dbprefix."eatoship.mcode,name_t,txtMoney,uid");
-    //    $rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+    //    $rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
         $rec->setSearchDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_17"]);
 		/*---------------------------------------------*/
 
@@ -119,7 +119,7 @@ $sql .= " and ".$dbprefix."eatoship.lid = '$inv'  ";
             $rec->setDel("index.php","id","id","sessiontab=3&sub=148");
             $rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=148&state=1","post","delfield");
         }*/
-       // $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+       // $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         //var_dump($acc->isAccess(2));
         //exit;

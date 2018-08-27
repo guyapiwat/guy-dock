@@ -420,7 +420,7 @@ class repGenerator{
 						echo "&srt=".($this->dsort==" ASC "?"UP":"DOWN");
 						if(isset($this->cause) && sizeof($this->cause)>=2)
 							echo ($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0]);
-						echo "&lp=".$this->lPage."'>".($showDesc[$i]==""?$showList[$i]:$showDesc[$i]).$showDesc[$i]."</a>";
+						echo "&lp=".$this->lPage."'>".($showDesc[$i]==""?$showList[$i]:$showDesc[$i]).''."</a>";
 						echo "</td>";
 					}
 					echo "</tr>";
