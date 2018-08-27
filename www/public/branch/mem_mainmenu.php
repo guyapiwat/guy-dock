@@ -141,6 +141,7 @@ function chk_view(){
 				break;
 			case 4:
 				?><legend><strong><font color="#666666"><?=$wording_lan["mem_mainmenu_20"]?></font></strong></legend><?
+			 
 				include("./mem_chart_f3c.php");
 				break;
 			case 5:

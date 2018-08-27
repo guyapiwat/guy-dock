@@ -41,6 +41,9 @@ ini_set("memory_limit","1000M");
 			exit;
 		}
 	}
+	$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+
 	$rs = mysql_query("SELECT * FROM ".$dbprefix."position ");
 	for($i=0;$i<mysql_num_rows($rs);$i++){
 		$imgPosDef[mysql_result($rs,$i,'posshort')] = "../backoffice/images/".mysql_result($rs,$i,'posimg');

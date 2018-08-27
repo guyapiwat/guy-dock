@@ -2,7 +2,7 @@
 $pos_piority = array('VIP'=>3,'PRO'=>2,'DIS'=>1,'MB'=>0);
 $pos_exp = array('VIP'=>2800,'PRO'=>800,'DIS'=>400,'MB'=>0);
 $array_mpos_cls = array('VIP'=>300,'PRO'=>300,'DIS'=>300,'MB'=>0);
-$montharry = array('01'=>'�.�.','02'=> '�.�.','03' => '�.�', '04' => '��.�', '05' => '�.�.', '06' => '��.�.', '07' => '�.�.', '08' => '�.�.', '09' => '�.�.', '10' => '�.�.', '11' => '�.�.', '12' => '�.�.' );
+$montharry = array('01'=>'ม.ค.','02'=> 'ก.พ.','03' => 'ม.ค', '04' => 'เม.ย', '05' => 'พ.ค.', '06' => 'มิ.ย.', '07' => 'ก.ค.', '08' => 'ส.ค.', '09' => 'ก.ย.', '10' => 'ต.ค.', '11' => 'พ.ย.', '12' => 'ธ.ค.' );
 $montharry_EN = array('01'=>'January','02'=> 'February','03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December' );
 $member_qualify = array('TH0000001');
 /*$host = explode('www.',$_SERVER['SERVER_NAME']);
@@ -304,14 +304,14 @@ function searchForId($pcode,$array) {
 
 function send_email_register2($strTo,$name_f,$name_t,$mcode){	
 	
-	$subject = "�Թ�յ�͹�Ѻ��� Champ of Champ Innovation �ӡѴ";
+	$subject = "ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
 	$strHeader = "From: info@cci2016.net";
 
-	$body = " �Թ�յ�͹�Ѻ��� Champ of Champ Innovation �ӡѴ";
-	$body .= "<br><br> ������Ҫԡ�ͧ�س��� : $mcode ";
-	$body .= "<br> ���ͼ����Ѥ���ѡ : $name_f $name_t";
-	$body .= "<br> ���ʼ�ҹ����Ѻ����к� Online : ��� 4 ��Ƿ��¢ͧ�����Ţ�ѵû�ЪҪ��ͧ�����Ѥ���ѡ  ";
-	$body .= "<br><br> ��ҹ����ö�������к� Champ of Champ Innovation Online Member Service ������觫����Թ���,��Ѥ���Ҫԡ����,��⺹�� ���ʹ���ͧ��âͧ��ҹ���� ";
+	$body = " ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
+	$body .= "<br><br> รหัสสมาชิกของคุณคือ : $mcode ";
+	$body .= "<br> ชื่อผู้สมัครหลัก : $name_f $name_t";
+	$body .= "<br> รหัสผ่านสำหรับเข้าระบบ Online : คือ 4 ตัวท้ายของหมายเลขบัตรประชาชนของผู้สมัครหลัก  ";
+	$body .= "<br><br> ท่านสามารถเข้าสู่ระบบ Champ of Champ Innovation Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่ ";
 	$body .= "<br> <a href='http://203.146.170.60/~cci/member'>Champ of Champ Innovation System</a>";
 
 	$from='info@cci2016.net';      
@@ -340,11 +340,11 @@ function send_email_register($strTo,$name_f,$name_t,$mcode){
 
 	$mail = new PHPMailer();
 
-	$body = " �Թ�յ�͹�Ѻ��� Champ of Champ Innovation �ӡѴ";
-	$body .= "<br><br> ������Ҫԡ�ͧ�س��� : $mcode ";
-	$body .= "<br> ���ͼ����Ѥ���ѡ : $name_f $name_t";
-	$body .= "<br> ���ʼ�ҹ����Ѻ����к� Online : ��� 4 ��Ƿ��¢ͧ�����Ţ�ѵû�ЪҪ��ͧ�����Ѥ���ѡ  ";
-	$body .= "<br><br> ��ҹ����ö�������к� Champ of Champ Innovation Online Member Service ������觫����Թ���,��Ѥ���Ҫԡ����,��⺹�� ���ʹ���ͧ��âͧ��ҹ���� ";
+	$body = " ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
+	$body .= "<br><br> รหัสสมาชิกของคุณคือ : $mcode ";
+	$body .= "<br> ชื่อผู้สมัครหลัก : $name_f $name_t";
+	$body .= "<br> รหัสผ่านสำหรับเข้าระบบ Online : คือ 4 ตัวท้ายของหมายเลขบัตรประชาชนของผู้สมัครหลัก  ";
+	$body .= "<br><br> ท่านสามารถเข้าสู่ระบบ Champ of Champ Innovation Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่ ";
 	$body .= "<br> <a href='http://203.146.170.60/~cci/member'>Champ of Champ Innovation System</a>";
 
 	$mail->CharSet = "tis-620";
@@ -402,13 +402,13 @@ function func_check_sale($dbprefix,$mcode,$tot_pv,$satype,$pos_cur,$sadate,$mtyp
 	//$q_bill = array('L'=>200000000,'M'=>200000000,'S'=>200000000);
 	if (($satype == 'Q' or $satype == 'B') and $tot_pv < 500){
 
-			echo "<script language='JavaScript'>alert('��سҫ����ѡ���ʹ��鹵�� 500 pv'); window.history.back()</script>";	
+			echo "<script language='JavaScript'>alert('กรุณาซื้อรักษายอดขั้นต่ำ 500 pv'); window.history.back()</script>";	
 			exit;
 		} 
 	
 	 if ($satype == 'H' and $mtype1 == '0')
 	 {
-		echo "<script language='JavaScript'>alert('��Ҫԡ����  ".$mcode." ��觫��� Hold �����');history.back();</script>";    
+		echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold ไม่ได้');history.back();</script>";    
 		exit;
 	 }    
 		 //echo $satype.' : '.$mtype;
@@ -419,14 +419,14 @@ function func_check_sale($dbprefix,$mcode,$tot_pv,$satype,$pos_cur,$sadate,$mtyp
 function fun_check_hold($dbprefix,$mcode,$satype,$mtype,$tot_pv){
 	$max = 1500;
 	if($mtype == 0){
-	//	echo "<script language='JavaScript'>alert('��Ҫԡ����  ".$mcode." ��觫��� Hold �����');history.back();</script>";	
+	//	echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold ไม่ได้');history.back();</script>";	
 	//	exit;
 	}else{
 	//$sql = "SELECT sano from ".$dbprefix."asaleh WHERE mcode='$mcode' and sa_type='H'";
 	//$rs = mysql_query($sql);
 	//if(mysql_num_rows($rs)<1 and $tot_pv < $max) {
 		if($tot_pv < $max) {
-	//	echo "<script language='JavaScript'>alert('��Ҫԡ����  ".$mcode." ��觫��� Hold �е�ͧ�� ".$max."PV ������ҹ��');history.back();</script>";	
+	//	echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold จะต้องมี ".$max."PV ขึ้นไปเท่านั้น');history.back();</script>";	
 	//	exit;
 		}
 	}
@@ -481,7 +481,7 @@ function fun_check_sale($dbprefix,$mcode,$tot_pv,$satype,$pos_cur,$sadate,$mdate
 	  /*if ($satype == 'Q'){
 			$max = 1200;
 			if($tot_pv > $max){
-			//echo "<script language='JavaScript'>alert('�ѡ���ʹ��ǧ˹����  6 ��͹��ҹ��  (".$max."PV)'); window.history.back()</script>";	
+			//echo "<script language='JavaScript'>alert('รักษายอดล่วงหน้าได้  6 เดือนเท่านั้น  (".$max."PV)'); window.history.back()</script>";	
 			//exit;
 			}
 			$mdate = explode("-",$sadate);
@@ -489,7 +489,7 @@ function fun_check_sale($dbprefix,$mcode,$tot_pv,$satype,$pos_cur,$sadate,$mdate
 			$rs = mysql_query($sql);
 			 
 			if(mysql_num_rows($rs) >= 6 ) {
-			//	echo "<script language='JavaScript'>alert('�ѡ���ʹ��ǧ˹����  6 ��͹��ҹ��'); window.history.back()</script>";	
+			//	echo "<script language='JavaScript'>alert('รักษายอดล่วงหน้าได้  6 เดือนเท่านั้น'); window.history.back()</script>";	
 			//	exit;
 			}
 			//////// UPDATE status //////////////////
@@ -509,7 +509,7 @@ function func_status($dbprefix,$mcode,$tot_pv,$sadate,$pos_cur,$sano_x =""){ // 
     /// setting ///
     $useRecursive = true; /// true or false
     $usePvb = false; /// true or false 
-    $remain = check_count_status($mdate,$mcode,3) ;//// check �ѡ���ʹ�٧�ٴ 6 ��͹  return �������
+    $remain = check_count_status($mdate,$mcode,3) ;//// check รักษายอดสูงสูด 6 เดือน  return คงเหลือ
     /// setting ///
     $mdate = $sadate; // day of sale 
     $nextmonth = nextmonth($sadate);   
@@ -1560,7 +1560,7 @@ class point_member {
 				$table .= "<tr><td></td><td></td><td>".number_format($this->get_newPoint($dbprefix,$cmc,$lr),0,'.',',')."</td><tr>";		
 				$table .= "</table> ";			
 			}else{	
-				$table = '��辺������';
+				$table = 'ไม่พบข้อมูล';
 			}	
 		//	echo $table;
 	    return $table;
@@ -1660,12 +1660,12 @@ class point_member {
 if($_GET['lan'] == 'TH')
 {
     $arr_ewallet_type=array(
-        'I'=>"���",  //   Cash IN
-        'O'=>"�͹",  //  Withdrow OUT
-        'TI'=>"�͹���",  //  Withdrow OUT
-        'TO'=>"�͹�͡",  //  Withdrow OUT
-        'CI'=>"����Ԫ������", //  Commision IN
-        'CO'=>"����Ԫ����͡" // Commision OUT  
+        'I'=>"เตืม",  //   Cash IN
+        'O'=>"ถอน",  //  Withdrow OUT
+        'TI'=>"โอนเข้า",  //  Withdrow OUT
+        'TO'=>"โอนออก",  //  Withdrow OUT
+        'CI'=>"คอมมิชชั่นเข้า", //  Commision IN
+        'CO'=>"คอมมิชชั่นออก" // Commision OUT  
     );
 }
 else
@@ -1951,7 +1951,7 @@ function Status_all($mcd,$pos_cur,$month){
                 $pv = $row->pv;
                 $first_regis = $row->first_regis;
              $status = 1; 
-			 if($first_regis == 1)$status1['tot_pv'] = "�����͹��Ѥ�"; 
+			 if($first_regis == 1)$status1['tot_pv'] = "ฟรีเดือนสมัคร"; 
 			 else $status1['tot_pv'] = $pv; 
         }else{          
             $where = "sadate LIKE '%".$lastMonth."%'  and sa_type = 'Q' and cancel = 0 and tot_pv > 0  and mcode = '".$mcd."' ";
@@ -1986,10 +1986,10 @@ function Status_all($mcd,$pos_cur,$month){
             }
         }
         
-		if($status1['tot_pv'] != '�����͹��Ѥ�')$status1['tot_pv'] = number_format($status1['tot_pv'],0,'.',',');
+		if($status1['tot_pv'] != 'ฟรีเดือนสมัคร')$status1['tot_pv'] = number_format($status1['tot_pv'],0,'.',',');
         $status1['status'] = $status;     
-        if($status == '0')$status1['text'] = '<font color=#c00000><b>(�ѧ����ѡ���ʹ)</b></font>';
-        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(�ѡ���ʹ����ó�����)</b></font>';
+        if($status == '0')$status1['text'] = '<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>';
+        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)</b></font>';
         
 		//var_dump($status1);
         return $status1;
@@ -2023,16 +2023,16 @@ function getStatus($mcd,$pos_cur,$sadate){
 			$tot_pv = $row->tot_pv; 
 			
 			if($tot_pv >=$array_mpos_cls[$pos_cur]){
-				 $data['text']="<font color=#0000FF><b>(�ѡ���ʹ����ó�����)($tot_pv)</b></font>"; 
+				 $data['text']="<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)($tot_pv)</b></font>"; 
 				 $data['status']=true;
 			}else{
-				$data['text']="<font color=#c00000><b>(�ѧ����ѡ���ʹ)(".$tot_pv." )</b></font>";  
+				$data['text']="<font color=#c00000><b>(ยังไม่รักษายอด)(".$tot_pv." )</b></font>";  
 				$data['status']=false;
 			}  
 
 		}else{
 			$tot_pv=0;
-			 $data['text']="<font color=#c00000><b>(�ѧ����ѡ���ʹ)(".$tot_pv." )</b></font>"; 
+			 $data['text']="<font color=#c00000><b>(ยังไม่รักษายอด)(".$tot_pv." )</b></font>"; 
 			 $data['status']=false;
 		}
 
@@ -2054,10 +2054,10 @@ function get_status($mcode,$sadate,$pos_cur){
         
 	if($status == 1){
 		$data['status']="1";
-		$data['ch_status']="<font color=#0000FF><b>(�ѡ���ʹ����)</b></font>";
+		$data['ch_status']="<font color=#0000FF><b>(รักษายอดแล้ว)</b></font>";
 	}else{
 		$data['status']="0";
-		$data['ch_status']="<font color=#c00000><b>(�ѧ����ѡ���ʹ)</b></font>";
+		$data['ch_status']="<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>";
 	}
 
 	return $data;
@@ -2087,7 +2087,7 @@ function check_status($mcd,$pos_cur,$fdate){
        
         if(mysql_num_rows($rs)>0) { 
              $status = 1; 
-             $status1['tot_pv'] = '�����͹��Ѥ�'; 
+             $status1['tot_pv'] = 'ฟรีเดือนสมัคร'; 
         }
 		
 		if($status == '0'){
@@ -2151,8 +2151,8 @@ function check_status($mcd,$pos_cur,$fdate){
 		}
 
         $status1['status'] = $status;
-        if($status == '0')$status1['text'] = '<font color=#c00000><b>(�ѧ����ѡ���ʹ)</b></font>';
-        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(�ѡ���ʹ����ó�����)</b></font>';
+        if($status == '0')$status1['text'] = '<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>';
+        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)</b></font>';
     return $status1;
 }  
   
@@ -2301,16 +2301,16 @@ function gencodexx($source,$num){
 
 class stocks {
 /* Set_data
-1.id �ͧ��� 
-2.��Ţ�����ͺ���ԡ[asale, isale, tsale]
-3.ʶҹ� [sender, receive, cancel]
-	- �Ѵ��
-	- �Ѻ�ͧ
-	- ¡��ԡ 
-4.��ͧ�ҧ checkportal[1, 2, 3]
-	- 1 ��ҡѺ Backoffice
-	- 2 ��ҡѺ Branch
-	- 3 ��ҡѺ Memeber
+1.id ของบิล 
+2.บิลขายหรือบิลเบิก[asale, isale, tsale]
+3.สถานะ [sender, receive, cancel]
+	- จัดส่ง
+	- รับของ
+	- ยกเลิก 
+4.ช่องทาง checkportal[1, 2, 3]
+	- 1 เท่ากับ Backoffice
+	- 2 เท่ากับ Branch
+	- 3 เท่ากับ Memeber
 */
 	var $date		 = "";
 	var $table_stock = "";
@@ -2429,18 +2429,18 @@ class stocks {
 			if($billb == "isale" or $billb == "tsale"){
 				if($this->status == "sender"){
 					if($this->receive == '0'){
-						if($this->send == '1'){			// �ó��Դ��Ũҡ backoffice ���� branch Ẻ�Ѵ��
+						if($this->send == '1'){			// กรณีเปิดบิลจาก backoffice หรือ branch แบบจัดส่ง
 							if($this->sender == '1'){
-								// function �׹�ͧ���ǻ�Ѻʶҹ� sender = 0
+								// function คืนของแล้วปรับสถานะ sender = 0
 								$this->cal_stocks_sale(1,"0");
 							}
 							else if($this->sender == '0'){
-								// function �觢ͧ���ǻ�Ѻʶҹ� sender = 1
+								// function ส่งของแล้วปรับสถานะ sender = 1
 								$this->cal_stocks_sale(-1,"1");
 							}
 						}
-						else if($this->send == '2'){	// �ó��Դ��Ũҡ backoffice ���� branch Ẻ���Ѵ�����Ѵʵ�͡���
-							// function �觢ͧ��������Ѻʶҹ�  
+						else if($this->send == '2'){	// กรณีเปิดบิลจาก backoffice หรือ branch แบบไม่จัดส่งให้ตัดสต๊อกเลย
+							// function ส่งของแล้วไม่ปรับสถานะ  
 							$this->cal_stocks_sale(-1,"0");
 						}
 					}
@@ -2448,22 +2448,22 @@ class stocks {
 				if($this->status == "receive"){
 					if($this->send == '2'){
 						if($this->receive == '1'){
-							// function �׹�ͧ���ǻ�Ѻʶҹ� receive = 0
+							// function คืนของแล้วปรับสถานะ receive = 0
 							$this->cal_stocks_sale(-1,"0");
 						}
 						else if($this->receive == '0'){
-							// function �Ѻ�ͧ���ǻ�Ѻʶҹ� receive = 1
+							// function รับของแล้วปรับสถานะ receive = 1
 							$this->cal_stocks_sale(1,"1");
 						}
 					}
 					else if($this->send == '1'){
 						if($this->sender == '1'){
 							if($this->receive == '1'){
-								// function �׹�ͧ���ǻ�Ѻʶҹ� receive = 0
+								// function คืนของแล้วปรับสถานะ receive = 0
 								$this->cal_stocks_sale(-1,"0");
 							}
 							else if($this->receive == '0'){
-								// function �Ѻ�ͧ���ǻ�Ѻʶҹ� receive = 1
+								// function รับของแล้วปรับสถานะ receive = 1
 								$this->cal_stocks_sale(1,"1");
 							}
 						}
@@ -2611,10 +2611,10 @@ class stocks {
 					if(mysql_num_rows($rs_pp) > 0){
 						for($m=0;$m<mysql_num_rows($rs_pp);$m++){
 							$obj_pp   = mysql_fetch_object($rs_pp);
-							$pp_pcode = $obj_pp->pcode;	//�����Թ����  package
-							$pp_pdesc = $obj_pp->pdesc;	//�����Թ����  package
-							$pp_qty   = $obj_pp->qty;	//�ӹǹ�Թ����  package
-							$pp_qty	  = $pp_qty*$qty;	//���Թ����  package �ٳ �ӹǹ  package ��������
+							$pp_pcode = $obj_pp->pcode;	//รหัสสินค้าใน  package
+							$pp_pdesc = $obj_pp->pdesc;	//รหัสสินค้าใน  package
+							$pp_qty   = $obj_pp->qty;	//จำนวนสินค้าใน  package
+							$pp_qty	  = $pp_qty*$qty;	//จำสินค้าใน  package คูณ จำนวน  package ที่ซื้อมา
 							
 							$sql_qty  = "SELECT qty, ifnull(qtyr,0) as qtyr FROM ".$this->table_stock ." ";
 							$sql_qty .= "WHERE pcode = '".$pp_pcode."' ";
@@ -2622,11 +2622,11 @@ class stocks {
 							$rs_qty   = mysql_query($sql_qty);
 							$qty_before = 0;
 							if(@mysql_num_rows($rs_qty) > 0){
-								$qty_before = mysql_result($rs_qty,0,'qty');	//�ӹǹ���
-								$qty_before_r = mysql_result($rs_qty,0,'qtyr');	//�ӹǹ���
+								$qty_before = mysql_result($rs_qty,0,'qty');	//จำนวนเก่า
+								$qty_before_r = mysql_result($rs_qty,0,'qtyr');	//จำนวนเก่า
 							}
-							$qty_after  = $qty_before+$pp_qty;					//�ӹǹ��� �ǡ ���� ź �ӹǹ����
-							$qty_after_r  = $qty_before_r+$pp_qty;					//�ӹǹ��� �ǡ ���� ź �ӹǹ����
+							$qty_after  = $qty_before+$pp_qty;					//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+							$qty_after_r  = $qty_before_r+$pp_qty;					//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
 							
 							$sql_chr  = "SELECT * FROM ".$this->table_stock ." ";
 							$sql_chr .= "WHERE pcode = '".$pp_pcode."' ";
@@ -2656,11 +2656,11 @@ class stocks {
 						$rs_p   = mysql_query($sql_p);
 						$qty_before = 0;
 						if(@mysql_num_rows($rs_p) > 0){
-							$qty_before = mysql_result($rs_p,0,'qty');			//�ӹǹ���			
-							$qty_before_r = mysql_result($rs_p,0,'qtyr');			//�ӹǹ���			
+							$qty_before = mysql_result($rs_p,0,'qty');			//จำนวนเก่า			
+							$qty_before_r = mysql_result($rs_p,0,'qtyr');			//จำนวนเก่า			
 						}
-						$qty_after = $qty_before+$qty;							//�ӹǹ��� �ǡ ���� ź �ӹǹ����
-						$qty_after_r = $qty_before_r+$qty;							//�ӹǹ��� �ǡ ���� ź �ӹǹ����
+						$qty_after = $qty_before+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+						$qty_after_r = $qty_before_r+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
 
 						$sql_chr  = "SELECT * FROM ".$this->table_stock ."  ";
 						$sql_chr .= "WHERE pcode = '".$pcode."' ";
@@ -2716,9 +2716,9 @@ class stocks {
 					if(mysql_num_rows($rs_pp) > 0){
 						for($m=0;$m<mysql_num_rows($rs_pp);$m++){
 							$obj_pp   = mysql_fetch_object($rs_pp);
-							$pp_pcode = $obj_pp->pcode;	//�����Թ����  package
-							$pp_qty   = $obj_pp->qty;	//�ӹǹ�Թ����  package
-							$pp_qty	  = $pp_qty*$qty;	//���Թ����  package �ٳ �ӹǹ  package ��������
+							$pp_pcode = $obj_pp->pcode;	//รหัสสินค้าใน  package
+							$pp_qty   = $obj_pp->qty;	//จำนวนสินค้าใน  package
+							$pp_qty	  = $pp_qty*$qty;	//จำสินค้าใน  package คูณ จำนวน  package ที่ซื้อมา
 							
 							$sql_qty  = "SELECT qtyr as qty FROM ".$this->table_stock ." ";
 							$sql_qty .= "WHERE pcode = '".$pp_pcode."' ";
@@ -2726,7 +2726,7 @@ class stocks {
 							$rs_qty   = mysql_query($sql_qty);
 							$qty_before = 0;
 							if(@mysql_num_rows($rs_qty) > 0){
-								$qty_before = mysql_result($rs_qty,0,'qty');	//�ӹǹ���
+								$qty_before = mysql_result($rs_qty,0,'qty');	//จำนวนเก่า
 							}
 							$qty_after  = $qty_before+$pp_qty;	
 							
@@ -2756,9 +2756,9 @@ class stocks {
 						$rs_p   = mysql_query($sql_p);
 						$qty_before = 0;
 						if(@mysql_num_rows($rs_p) > 0){
-							$qty_before = mysql_result($rs_p,0,'qty');			//�ӹǹ���			
+							$qty_before = mysql_result($rs_p,0,'qty');			//จำนวนเก่า			
 						}
-						$qty_after = $qty_before+$qty;							//�ӹǹ��� �ǡ ���� ź �ӹǹ����
+						$qty_after = $qty_before+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
 						
 						$sql_chr  = "SELECT * FROM ".$this->table_stock ."  ";
 						$sql_chr .= "WHERE pcode = '".$pcode."' ";

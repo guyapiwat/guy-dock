@@ -2,7 +2,7 @@
 		<div class="panel-heading" role="tab" id="headingPlanA" style="background-color:#3399ff;padding:4px;">
 			<h4 class="panel-title">
 				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#planb" aria-expanded="false" aria-controls="planb">
-					<font size='3' style='font-weight:bold' >�ͤ͹���˹�</font>
+					<font size='3' style='font-weight:bold' >ไอคอนตำแหน่ง</font>
 				</a>
 			</h4>
 		</div>
@@ -24,7 +24,7 @@
             $imgPosDef[$posid[$i]] = "./images/balls_11.gif";
             $tabUPosDef[$posid[$i]] = "#EEEEEE";
             //$tabDPosDef[$posid[$i]] = mysql_result($rs,$i,'posdtab');
-            $namePosDef[$posid[$i]] = "�������Ҫԡ";
+            $namePosDef[$posid[$i]] = "ไม่มีสมาชิก";
             mysql_free_result($rs);
    
             for($i=0;$i<sizeof($posid)/2;$i++){
