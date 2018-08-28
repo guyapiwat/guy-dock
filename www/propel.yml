@@ -1,0 +1,10 @@
+propel:
+    database:
+        connections:
+            default:
+                adapter: mysql
+                dsn: mysql:host=p-enterprise.com;port=9100;dbname=cci_db
+                user: dev
+                password: dev@cci
+                settings:
+                    charset: tis620
