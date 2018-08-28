@@ -9,10 +9,10 @@
 propel:
     paths:
         # The directory where Propel expects to find your `schema.xml` file.
-        schemaDir: /Users/saintent/Documents/Git/cci-legacy-docker/www/orm
+        schemaDir: ./orm
 
         # The directory where Propel should output generated object model classes.
-        phpDir: /Users/saintent/Documents/Git/cci-legacy-docker/orm
+        phpDir: ./orm
 
 #   database:
 #       connections:
