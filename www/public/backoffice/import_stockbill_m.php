@@ -5,17 +5,17 @@
 		window.open(wlink);
 	}
 	function inv_mobile(id){
-		if(confirm("�׹�ѹ�����觫���")){
+		if(confirm("ยืนยันการสั่งซื้อ")){
 			window.location='index.php?sessiontab=6&sub=141&state=3&sender='+id;
 		}
 	}
 	function sale_status(id){
-		if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+		if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab=6&sub=141&state=4&status=sender&sender='+id;
 		}
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ�Թ���")){
+		if(confirm("ต้องการยกเลิกสินค้า")){
 			window.location='index.php?sessiontab=6&sub=141&state=1&bid='+id;
 		}
 	}
@@ -65,21 +65,21 @@ $sql .= " where  ".$dbprefix."esaleh.sa_type = 'I' ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,inv_code,inv_ref,tot_pv,alltotal,total,status");
 		$rec->setFieldFloatFormat(",,,,2,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("�ѹ������,�Ţ���,�����ٹ���Ѻ,�����ٹ����,�ӹǹ���  PV ,�ӹǹ�Թ���,�ط��,ʶҹ�");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสศูนย์รับ,รหัสศูนย์ส่ง,จำนวนรวม  PV ,จำนวนเงินรวม,สุทธิ,สถานะ");
 		//$rec->setFieldLink(",,,,,,,index.php?sessiontab=6&sub=138&state=4&sender=");
 		$rec->setFieldAlign("center,center,center,center,right,right,right,center,center,right");
 		$rec->setFieldSpace("10%,5%,10%,10%,20%,20%,20%,10%");
 		//$rec->setFieldLink(",index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."esaleh.mcode,name_t,sadate,tot_pv,total");
-		$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
+		$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
 		$rec->setSum(true,false,",,,,true,true,true,,,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
-	//	$rec->setSpecial("./images/9_28_s.gif","","inv_mobile","id","IMAGE","�׹��չ");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
+	//	$rec->setSpecial("./images/9_28_s.gif","","inv_mobile","id","IMAGE","ยืนยัีน");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
 		
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		/*if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=6&sub=138");
@@ -87,8 +87,8 @@ $sql .= " where  ".$dbprefix."esaleh.sa_type = 'I' ";
 		}
 		if($acc->isAccess(2)){
 			$rec->setEdit("index.php","id","id","sessiontab=6&sub=138");
-			$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","�Ѵ��");
-		$rec->setSpecial("./images/true.gif","","sale_receive","id","IMAGE","�Ѻ�ͧ");
+			$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","จัดส่ง");
+		$rec->setSpecial("./images/true.gif","","sale_receive","id","IMAGE","รับของ");
 		}*/
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."esaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."esaleh.mcode AS smcode";

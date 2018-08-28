@@ -38,7 +38,7 @@ function chknum(key){
         }*/
         tag = window.parent.document.frm.getElementsByTagName('input');
         
-        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
         //alert(tag.length);
         place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
         place += "<tr align='center' bgcolor='#999999'>";

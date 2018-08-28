@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -35,7 +35,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -49,8 +49,8 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate,$fmcode);
 		$whereclass = ($fdate[0]=="" ? " a.rcode between '".$ftrc[0]."' and '".$ftrc[1]."' " : " and fdate >= '".$fdate."' and tdate <= '".$tdate."' ");
 
 		$sql = "select *,kk.total*0.05 as tax,kk.total*0.95 as totalamt from (SELECT m.mcode,m.name_t,m.mobile,bk.bankcode,bk.bankname,m.branch,m.acc_type,m.acc_no,m.acc_name,m.id_card,";
-		$sql .= "ifnull(CONCAT(address,' ต.',districtName,' อ.',amphurName,' จ.',provinceName,' ',zip),
-		CONCAT(address,' ต.',m.districtId,' อ.',m.amphurId,' จ.',m.provinceId,' ',zip)) AS address ,";
+		$sql .= "ifnull(CONCAT(address,' เธ•.',districtName,' เธญ.',amphurName,' เธ.',provinceName,' ',zip),
+		CONCAT(address,' เธ•.',m.districtId,' เธญ.',m.amphurId,' เธ.',m.provinceId,' ',zip)) AS address ,";
 		$sql .="
 		(SELECT ifnull(sum(total),0) from ".$dbprefix."commission a where a.mcode=m.mcode  ".$whereclass." ) as total 
 		from ".$dbprefix."member m 
@@ -78,7 +78,7 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate,$fmcode);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("mcode,name_t,id_card,address,total,tax,totalamt");
 		$rec->setFieldFloatFormat(",,,,2,2,2,2,2,2,2,2");
-		$rec->setFieldDesc("รหัส,ชื่อ,บัตรประชาชน,ที่อยู่,รายได้,ภาษี(5%),สุทธิ");
+		$rec->setFieldDesc("เธฃเธซเธฑเธช,เธเธทเนเธญ,เธเธฑเธ•เธฃเธเธฃเธฐเธเธฒเธเธ,เธ—เธตเนเธญเธขเธนเน,เธฃเธฒเธขเนเธ”เน,เธ เธฒเธฉเธต(5%),เธชเธธเธ—เธเธด");
 		$rec->setFieldAlign("center,left,center,left,right,right,right,left,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("5%,15%,10%,50%,10%,10%,10%");
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,true,true");
@@ -86,12 +86,12 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate,$fmcode);
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","allbonusteam142".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","allbonusteam142".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

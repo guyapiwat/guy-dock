@@ -8,8 +8,8 @@
 set_time_limit (0);
 ini_set("memory_limit","100M");
 $time_start = getmicrotime();
-echo "‡√‘Ë¡°“√§”π«≥ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR><BR>";
+echo "‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÅ‡∏ï‡πà‡∏•‡∏∞‡∏£‡∏≠‡∏ö Ro ‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á Frcode-Trcode ‡πÉ‡∏ô around<BR><BR>";
 
 	mysql_query("TRUNCATE TABLE ali_structure_binary");
 
@@ -26,8 +26,8 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR><BR>";
 
 $time_end = getmicrotime();
 $time = $time_end - $time_start;
-echo " ‘Èπ ÿ¥°“√§”π«≥ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "°“√§”π«≥„™È‡«≈“∑—Èß ‘Èπ $time «‘π“∑’<BR><BR>";
+echo "‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô $time ‡∏ß‡∏¥‡∏ô‡∏≤‡∏ó‡∏µ<BR><BR>";
 
 function isLine($dbprefix,$mcode_ref,$mcode_index){
 	$sql = "SELECT mcode,lr FROM ".$dbprefix."member WHERE sp_code2='$mcode_ref'  ";

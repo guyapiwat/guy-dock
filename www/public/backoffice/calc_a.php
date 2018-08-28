@@ -109,8 +109,8 @@ if($status == true and $tdate<$today and $autocal==1){ ?>
          
 $step="1";
 $time_start = getmicrotime();
-echo "‡√‘Ë¡°“√§”π«≥ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
+echo "‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÅ‡∏ï‡πà‡∏•‡∏∞‡∏£‡∏≠‡∏ö Ro ‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á Frcode-Trcode ‡πÉ‡∏ô around<BR>";
 //$text="uid=".$_SESSION["adminuserid"]." action=binary calc rcode=$ftrc[0]-$ftrc[1]";
 ////writelogfile($text);
 
@@ -126,7 +126,7 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
         $fpdate=$row["fpdate"];
         $tpdate=$row["tpdate"];
         $paydate=$row["paydate"];        
-        echo "<BR><BR>§”π«≥‚∫π— √Õ∫∑’Ë RO=$ro<BR>";
+        echo "<BR><BR>‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÇ‡∏ö‡∏ô‡∏±‡∏™‡∏£‡∏≠‡∏ö‡∏ó‡∏µ‡πà RO=$ro<BR>";
 
         /////////// delete ////////////////////
 
@@ -146,10 +146,10 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
         /////////// delete ////////////////////
      
         /////////////////////// Function ////////////////////////////////////
-        fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //§Ë“·π–π”
-        fnc_calc_fast_bonus2($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate); // §Ë“≈‘¢ ‘∑∏‘Ï
-        fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //®—∫§ŸË
-        //fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//§Ë“§’¬Ï
+        fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥
+        fnc_calc_fast_bonus2($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate); // ‡∏Ñ‡πà‡∏≤‡∏•‡∏¥‡∏Ç‡∏™‡∏¥‡∏ó‡∏ò‡∏¥‡πå
+        fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //‡∏à‡∏±‡∏ö‡∏Ñ‡∏π‡πà
+        //fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå
         fnc_autoship_bonus($dbprefix,$ro,$fdate,$tdate,$fdate,$tdate);    
         position($dbprefix,$ro,$fdate,$tdate);	 */
 
@@ -201,7 +201,7 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
                 del_cals($dbprefix,$xrcode,array('apv','ac','ambonus'));      /// FAST
 				del_cals($dbprefix,$xrcode,array('apv2','ac2','ambonus2'));     /// UNI LEVEL
                 del_cals($dbprefix,$xrcode,array('bm','bmbonus'));           /// W/S
-                //del_cals($dbprefix,$xrcode,array('fc','fmbonus'));           /// §Ë“§’¬Ï
+                //del_cals($dbprefix,$xrcode,array('fc','fmbonus'));           /// ‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå
                 del_cals($dbprefix,$xrcode,array('commission'));  
                 return_ewallet($dbprefix,'eatoship',$xrcode,$xtdate,'A');       
   		 
@@ -211,10 +211,10 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
                 update('ali_around',$xaround," rcode='$xrcode' "); 
             } 
         }     
-        fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //§Ë“·π–π”   
-        fnc_calc_fast_bonus2($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate); // §Ë“≈‘¢ ‘∑∏‘Ï
-        fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //®—∫§ŸË 
-     //   fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//§Ë“§’¬Ï
+        fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥   
+        fnc_calc_fast_bonus2($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate); // ‡∏Ñ‡πà‡∏≤‡∏•‡∏¥‡∏Ç‡∏™‡∏¥‡∏ó‡∏ò‡∏¥‡πå
+        fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);      //‡∏à‡∏±‡∏ö‡∏Ñ‡∏π‡πà 
+     //   fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå
         fnc_autoship_bonus($dbprefix,$ro,$fdate,$tdate,$fdate,$tdate);    
 
 
@@ -243,8 +243,8 @@ echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
     mysql_free_result($result);
 
 
-echo " ‘Èπ ÿ¥°“√§”π«≥ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "°“√§”π«≥„™È‡«≈“∑—Èß ‘Èπ $time «‘π“∑’<BR>";
+echo "‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô $time ‡∏ß‡∏¥‡∏ô‡∏≤‡∏ó‡∏µ<BR>";
     ?>
 </td>
 </tr>

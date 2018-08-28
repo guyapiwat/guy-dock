@@ -8,14 +8,14 @@ require_once ("function.log.inc.php");
 
 	$result = mysql_query($sql);
 	if(mysql_num_rows($result)>0){
-		echo "<script language='JavaScript'>alert('�������ö�Ѻ�Թ��Ҩҡ��ŷ��¡��ԡ������');window.location='index.php?sessiontab=6&sub=2323'</script>";
+		echo "<script language='JavaScript'>alert('ไม่สามารถรับสินค้าจากบิลที่ยกเลิกแล้วได้');window.location='index.php?sessiontab=6&sub=2323'</script>";
 		exit;
 	}
 
 	$sql = "select * from ".$dbprefix."tsaleh where id='$bid' and receive=1";
 	$result = mysql_query($sql);
 	if(mysql_num_rows($result)>0){
-		echo "<script language='JavaScript'>alert('�������ö�Ѻ�ͧ�� ...��Ź���Ѻ�ͧ����º��������');window.location='index.php?sessiontab=6&sub=2323'</script>";
+		echo "<script language='JavaScript'>alert('ไม่สามารถรับของได้ ...บิลนี้รับของไปเรียบร้อยแล้ว');window.location='index.php?sessiontab=6&sub=2323'</script>";
 		exit;
 	}
  
@@ -25,7 +25,7 @@ require_once ("function.log.inc.php");
 	//====================LOG===========================
 	$text="uid=".$_SESSION["adminusercode"]." action=tsale_change=>$sql";
 	writelogfile($text);
-	logtext(true,$_SESSION['adminuserid'],'ʹ��.�Ѻ�ͧ�ҡ�Ң�',$bid);
+	logtext(true,$_SESSION['adminuserid'],'สนงญ.รับของจากสาขา',$bid);
 
 	
 	

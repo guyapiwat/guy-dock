@@ -123,16 +123,16 @@ if(empty($tdate))$tdate = date("Y-m-d", mktime(date("H"), date("i"), date("s"), 
   <tr valign="top"><td width="855" align="left" ><fieldset>
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 	<input size="14" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a><!--  ถึง
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a><!--  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>
    --><!-- <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเน€เธฅเธเธเธดเธฅ</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธดเธเธเนเธฒ</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธกเธฒเธเธดเธ</option>
     </select>-->&#3626;&#3634;&#3586;&#3634; 
 <select name="inv_code" id="inv_code"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
        <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by inv_code");
 
@@ -145,9 +145,9 @@ if(empty($tdate))$tdate = date("Y-m-d", mktime(date("H"), date("i"), date("s"), 
 						}
 						?>
     </select>
-	ระหว่าง
+	เธฃเธฐเธซเธงเนเธฒเธ
 	<select name="inv_code1" id="inv_code1"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by inv_code");
 
@@ -165,14 +165,14 @@ if(empty($tdate))$tdate = date("Y-m-d", mktime(date("H"), date("i"), date("s"), 
     <input name="button2"  tabindex="4" type="button" onClick="get_mem_listpicker_fpcode()" value="&#3648;&#3621;&#3639;&#3629;&#3585;" />
     <input tabindex="2" style="background-color:#FFFFFF" readonly type="text" name="tpcode" id="tpcode" size="20"  maxlength="20" value="<?=$tpcode?>" />
     <input name="button22"  tabindex="4" type="button" onClick="get_mem_listpicker_tpcode()" value="&#3648;&#3621;&#3639;&#3629;&#3585;" />
-    --><input type="submit" value="ค้น" />
+    --><input type="submit" value="เธเนเธ" />
 </fieldset></td>
 <td align="left" style="display:none" width="235" ><fieldset>
 			       <a href="report_stock1.php" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์รายงาน Stock </a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธฃเธฒเธขเธเธฒเธ Stock </a>
 		 <br>
 		        <a href="report_stock.php" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์รายงานตรวจสอบ Stock </a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธฃเธฒเธขเธเธฒเธเธ•เธฃเธงเธเธชเธญเธ Stock </a>
 	
 		<br>
       </fieldset></td>

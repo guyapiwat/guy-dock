@@ -39,18 +39,18 @@ CASE '".$sspv."' WHEN '' THEN '*'  WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHE
 from 
 (select number1,mcode,cid, total,typee,txtCash,txtCredit,txtEwallet,txtFuture,txtTransfer,txtDiscount,'0' as txtUser,'0' as txtd,CASE inv_ref WHEN '' THEN '*' ELSE inv_ref END AS code_ref1,IFNULL(txtOther, 0) as txtOther from 
 (
-select '2' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'∫‘≈¢“¬'  as typee, '0' as txtOther  from ali_asaleh where (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
+select '2' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢'  as typee, '0' as txtOther  from ali_asaleh where (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
 
-union select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'∫‘≈ ¡—§√'  as typee, '0' as txtOther  from ali_asaleh where scheck='register'  $sqlwhere
+union select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'‡∏ö‡∏¥‡∏•‡∏™‡∏°‡∏±‡∏Ñ‡∏£'  as typee, '0' as txtOther  from ali_asaleh where scheck='register'  $sqlwhere
 
-union select '4' as number1,mcode,count(id) as cid, sum(txtMoney) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'∫‘≈‡µ‘¡‡ß‘π Ewallet' as typee, '0' as txtOther  from ali_ewallet where 1=1 $sqlwhere and txtTransfer_out = 0 and txtTransfer_in = 0
+union select '4' as number1,mcode,count(id) as cid, sum(txtMoney) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'‡∏ö‡∏¥‡∏•‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏á‡∏¥‡∏ô Ewallet' as typee, '0' as txtOther  from ali_ewallet where 1=1 $sqlwhere and txtTransfer_out = 0 and txtTransfer_in = 0
 
 
-union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'∫‘≈‡µ‘¡‡ß‘π Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
+union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'‡∏ö‡∏¥‡∏•‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏á‡∏¥‡∏ô Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
 
 
 ) as a LEFT JOIN ".$dbprefix."user ON (".$dbprefix."user.usercode like '%$struid%') where 1=1 group by a.typee) as a  " ;
-//union select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'∫‘≈·≈°¢Õß'  as typee ,'0' as txtOther  from ali_asaleh where sa_type = 'L'  $sqlwhere
+//union select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'‡∏ö‡∏¥‡∏•‡πÅ‡∏•‡∏Å‡∏Ç‡∏≠‡∏á'  as typee ,'0' as txtOther  from ali_asaleh where sa_type = 'L'  $sqlwhere
 //echo $sql;
 //echo $sql;
 	if($_GET['state']==1){
@@ -94,19 +94,19 @@ union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtC
 		//$rec->setFieldSpace("7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,6%,6%,6%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°,®”π«π PV");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV");
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,true,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

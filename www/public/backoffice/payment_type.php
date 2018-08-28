@@ -77,7 +77,7 @@ $(document).ready(function(){
         var get = $(document.createElement('div')).attr("id", 'parentbox' + i);        
         get.after().html($("#parentbox2").clone().html()).appendTo("#root");    
         i++;
-        $('#ok2').val("�ѹ�֡");
+        $('#ok2').val("บันทึก");
         $("#ok2").prop('disabled', false);
      });
      
@@ -86,7 +86,7 @@ $(document).ready(function(){
             var get = $(document.createElement('div')).attr("id", 'parentbox' + k);        
             get.after().html($("#parentbox2").clone().html()).appendTo("#root");    
             k++;
-            $('#ok2').val("�ѹ�֡");
+            $('#ok2').val("บันทึก");
             $("#ok2").prop('disabled', false);
      });
 
@@ -131,7 +131,7 @@ function edit(payment_id,inv_code){
 }
 
 function edit_payment(){ 
-   $('#ok2').val("�ѹ�֡");
+   $('#ok2').val("บันทึก");
    $("#ok2").prop('disabled', false);
 }
 
@@ -160,8 +160,8 @@ function removex(id){
   <caption><?=$pd[0]['payment_name']?><font color="green">&nbsp;&nbsp;<a id="add"><img src="../images/font-awesome/add-square-button.png" alt="add" width="20px"></a> </font> &nbsp;&nbsp;<font color="red"><a id="remove"><img src="../images/font-awesome/minus-button.png" alt="remove" width="20px"></a> </font> </caption>
   <thead>
     <tr>  
-      <th width="5px"><strong>ź</strong></th> 
-      <th ><strong>�ٻẺ</strong></th>
+      <th width="5px"><strong>ลบ</strong></th> 
+      <th ><strong>รูปแบบ</strong></th>
       <!--th width="5px"><strong>Show<input type="checkbox" onClick="togglex(this)" /></th-->   
       <th width="5px"><strong>Show</th>   
     </tr> 
@@ -191,7 +191,7 @@ function removex(id){
   <tfoot>
      <tr class="submit">  
        <th colspan="3">
-         <input type="submit" value="�ѹ�֡" name="ok2" id="ok2"  disabled="disabled" />  
+         <input type="submit" value="บันทึก" name="ok2" id="ok2"  disabled="disabled" />  
        </th>
      </tr>
     
@@ -212,7 +212,7 @@ function removex(id){
  </div>
 
 <?}else{ ?>
-    <div class='error'  id="add1" >����������</div>
+    <div class='error'  id="add1" >เพิ่มข้อมูล</div>
     <form method="post" id="update_payment">
             
             <table>
@@ -239,7 +239,7 @@ function removex(id){
              <tr >
                  <td align=center></td>
                  <td align='center'><input type='text' value="" size="100" name="payment_desc[]" id="payment_desc[]"></td>
-                 <td ><input type="submit" value="�ѹ�֡" name="ok2" id="ok2"  disabled="disabled" />  
+                 <td ><input type="submit" value="บันทึก" name="ok2" id="ok2"  disabled="disabled" />  
                  </td >
               </tr> 
              </table>                  

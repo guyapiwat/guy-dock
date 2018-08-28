@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //������Ҩҡ cache
+  //ไม่ไปเอาจาก cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //��˹� header �͹�Ѻ
+  //กำหนด header ตอนรับ
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -18,7 +18,7 @@ if(!empty($value)){
   $sql = "SELECT name_t,cname,name_f,mcode,caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId,rv_point ";
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member left join ".$dbprefix."location_base on (".$dbprefix."member.locationbase = ".$dbprefix."location_base.cid)  where mcode like '%$value%' limit 0,1";
-		$result = mysql_query($sql) or die("�к��������ö������") ;
+		$result = mysql_query($sql) or die("ระบบไม่สามารถค้นหาได้") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
@@ -59,7 +59,7 @@ if(!empty($value)){
 		$csoi = $data->csoi;
 		$cstreet = $data->cstreet;
 
-		$chkshow .= 'PV �ѡ���ʹ : '.$all_pvQ.' <br>';
+		$chkshow .= 'PV รักษายอด : '.$all_pvQ.' <br>';
 		*/echo $chkshow;
 		}else{
 			echo "1234";

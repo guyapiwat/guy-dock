@@ -6,27 +6,27 @@ function iproductcheck(){
 	var val = document.getElementById('pcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "�����Թ���";
+	var errDesc = "รหัสสินค้า";
 	
 	val = val + ","+document.getElementById('pdesc').value;
 	field = field +",pdesc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",��������´�Թ���";
+	errDesc = errDesc + ",รายละเอียดสินค้า";
 	
 	val = val + ","+document.getElementById('price').value;
 	field = field +",price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ����Ҫԡ";
+	errDesc = errDesc + ",ราคาขายสมาชิก";
 
 	val = val + ","+document.getElementById('customer_price').value;
 	field = field +",customer_price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ�»�ա";
+	errDesc = errDesc + ",ราคาขายปลีก";
 
 	val = val + ","+document.getElementById('bprice').value;
 	field = field +",bprice";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ��ʡ���Թ�ҷ";
+	errDesc = errDesc + ",ราคาขายสกุลเงินบาท";
 
 	val = val + ","+document.getElementById('vat').value;
 	field = field +",vat";
@@ -42,7 +42,7 @@ function iproductcheck(){
 	val = val + ","+document.getElementById('weight').value;
 	field = field +",weight";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",���˹ѡ";
+	errDesc = errDesc + ",น้ำหนัก";
 
     
    
@@ -51,7 +51,7 @@ function iproductcheck(){
 /*	val = val + ","+document.getElementById('qty').value;
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ʹ�������";*/
+	errDesc = errDesc + ",ยอดคงเหลือ";*/
 	
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -64,29 +64,29 @@ function eproductcheck(){
 	var skipval = document.getElementById('opcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "���� package";
+	var errDesc = "รหัส package";
 	
 	val = val + ","+document.getElementById('pdesc').value;
 	skipval = skipval+",";
 	field = field +",pdesc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",��������´ package";
+	errDesc = errDesc + ",รายละเอียด package";
 	
 	
 	val = val + ","+document.getElementById('price').value;
 	field = field +",price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ����Ҫԡ";
+	errDesc = errDesc + ",ราคาขายสมาชิก";
 
 	val = val + ","+document.getElementById('customer_price').value;
 	field = field +",customer_price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ�»�ա";
+	errDesc = errDesc + ",ราคาขายปลีก";
 	
 	val = val + ","+document.getElementById('bprice').value;
 	field = field +",bprice";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ҤҢ��ʡ���Թ�ҷ";
+	errDesc = errDesc + ",ราคาขายสกุลเงินบาท";
 
 	val = val + ","+document.getElementById('vat').value;
 	field = field +",vat";
@@ -106,13 +106,13 @@ function eproductcheck(){
 	skipval = skipval+",";
 	field = field +",weight";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",���˹ѡ";
+	errDesc = errDesc + ",น้ำหนัก";
 
 	val = val + ","+document.getElementById('qty').value;
 	skipval = skipval+",";
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ʹ�������";
+	errDesc = errDesc + ",ยอดคงเหลือ";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -125,8 +125,8 @@ function eproductcheck(){
 		$sql = "SELECT * FROM ".$dbprefix."product_package WHERE pcode='".$_GET['pcode']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">��辺�����ŵ�����͹�</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=6';">�˹���Թ���</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=6';">ไปหน้าสินค้า</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -161,43 +161,43 @@ function eproductcheck(){
        <table border="0" cellpadding="0" cellspacing="0" width="100%">
          <tr>
            <td width="43%" valign="top" align="right" ></td>
-           <td width="57%"><font color="#808080"><u>�����˵�</u></font> <font color="#ff0000">*</font><font color="#808080">=���繵�ͧ��͡������</font><br />
+           <td width="57%"><font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font><br />
                <input type="hidden" name="oid2" value="<?=$oid?>" />
                <br /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >���� package <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >รหัส package <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="pcode" id="pcode" size="20" maxlength="20" value="<?=$pcode?>" /><input type="hidden" name="opcode" id="opcode" value="<?=$pcode?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >��������´ package <font color="ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >รายละเอียด package <font color="ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="pdesc" id="pdesc" size="40" maxlength="40" value="<?=$pdesc?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >˹��� </font></td>
+           <td width="43%" valign="top" align="right" >หน่วย </font></td>
            <td width="57%">&nbsp;
                <input type="text" name="unit" size="40" maxlength="40" value="<?=$unit?>" /></td>
          </tr>
 		  <tr>
-           <td width="43%" valign="top" align="right" >�ҤҢ�»�ա <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >ราคาขายปลีก <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="customer_price" id="customer_price" size="40" maxlength="40" value="<?=$customer_price?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >�ҤҢ����Ҫԡ <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >ราคาขายสมาชิก <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="price" id="price" size="40" maxlength="40" value="<?=$price?>" /></td>
          </tr>
 		
 		<tr>
-           <td width="43%" valign="top" align="right" >�ҤҢ��ʡ���Թ�ҷ<font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >ราคาขายสกุลเงินบาท<font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="bprice" id="bprice" size="40" maxlength="40" value="<?=$bprice?>" /></td>
          </tr>
 		 <tr>
-		   <td valign="top" align="right"  nowrap>��鹤�� vat<font color="#ff0000">*</font></td>
+		   <td valign="top" align="right"  nowrap>สิ้นค้า vat<font color="#ff0000">*</font></td>
 		   <td>&nbsp;
 		     <input type="number" name="vat" id="vat" min="0" value="<?=$vat?>" step="1"  />
 	      </tr>
@@ -207,18 +207,18 @@ function eproductcheck(){
                <input type="text" name="pv" id="pv" size="20" maxlength="20" value="<?=$pv?>" /></td>
          </tr>
 		 <tr style="display:none">
-           <td width="43%" valign="top" align="right" >����йӾ���� <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >ค่าแนะนำพิเศษ <font color="#ff0000">*</font></td>
            <td width="61%">&nbsp;
                <input type="text" name="special_pv" id="special_pv" size="20" maxlength="20" value="<?=$special_pv?>" /></td>
          </tr>
          <tr >
-           <td valign="top" align="right" >&#3609;&#3657;&#3635;&#3627;&#3609;&#3633;&#3585;(����)<font color="#ff0000">*</font> </font></td>
+           <td valign="top" align="right" >&#3609;&#3657;&#3635;&#3627;&#3609;&#3633;&#3585;(กรัม)<font color="#ff0000">*</font> </font></td>
            <td>&nbsp;
                <input type="text" name="weight" id="weight" size="20" maxlength="20" value="<?=$weight?>" /></td>
          </tr>
 
          <tr style="display:none">
-           <td width="43%" valign="top" align="right"  >�ʹ������� <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right"  >ยอดคงเหลือ <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="qty" id="qty" size="20" maxlength="20" value="<?=$qty?>" /></td>
          </tr>
@@ -229,17 +229,17 @@ function eproductcheck(){
          </tr>
          
          <!-- <tr  >
-           <td width="43%" valign="top" align="right"  >�������Թ��� </td>
+           <td width="43%" valign="top" align="right"  >ประเภทสินค้า </td>
            <td width="57%">&nbsp;
                 <select name="sa_type" id="sa_type">
-                    <option value="" >��س����͡</option>     
+                    <option value="" >กรุณาเลือก</option>     
                     <option value="A" <?if($sa_type =='A')echo "selected"; ?>>  Upgrade</option>
                     <option value="Q" <?if($sa_type =='Q')echo "selected"; ?>> Maintain</option>
                </select>    
        </td>
          </tr> -->
          <!--tr> 
-    <td width="23%" valign="top" align="right" >�����Ŷ١��ͧ <font color="#ff0000">*</font></td>
+    <td width="23%" valign="top" align="right" >ข้อมูลถูกต้อง <font color="#ff0000">*</font></td>
     <td width="77%">&nbsp; <input type="checkbox" name="C1" value="ok"></td>
   </tr--><tr>
   		   <td valign="top" align="right" >Location Base </td>
@@ -263,7 +263,7 @@ function eproductcheck(){
              <input type="checkbox" name="bf" value="1" <?=$bf=="0"?"":"checked"?> /> 
             Branch/Backoffice
              <input type="checkbox" name="sst" value="1" <?=$sst=="0"?"":"checked"?> /> 
-            �š�Թ���
+            แลกสินค้า
 			</td>
          </tr>
          <tr>
@@ -272,16 +272,16 @@ function eproductcheck(){
          </tr>
          <tr>
            <td width="43%" valign="top" align="right" >&nbsp;</td>
-           <td width="57%"><input name="button" id="button" type="button" onClick="<?=(isset($_GET['pcode'])?"eproductcheck()":"iproductcheck()")?>" value="��Ǩ�ͺ" />
+           <td width="57%"><input name="button" id="button" type="button" onClick="<?=(isset($_GET['pcode'])?"eproductcheck()":"iproductcheck()")?>" value="ตรวจสอบ" />
              &nbsp;
-             <input type="submit" value="�ѹ�֡" name="ok" id="ok"  disabled="disabled" />
+             <input type="submit" value="บันทึก" name="ok" id="ok"  disabled="disabled" />
              &nbsp;
-            <input name="reset" id="reset" type="reset"  onclick="window.location='index.php?sessiontab=6&sub=1'" value="¡��ԡ" /></td>
+            <input name="reset" id="reset" type="reset"  onclick="window.location='index.php?sessiontab=6&sub=1'" value="ยกเลิก" /></td>
          </tr>
        </table>
      </form></td>
      <td width="40%">
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font></div></td>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font></div></td>
    </tr>
  </table>
 

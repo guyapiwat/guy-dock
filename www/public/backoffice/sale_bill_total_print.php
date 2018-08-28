@@ -82,8 +82,8 @@ if(empty($tdate))$tdate = date("Y-m-d");
 		$tdate = $fdate;
 	} 
 ?>
-<table align="center"><tr>	<td align="center"><b>�����ź�������ҧ�ѹ��� <?=$fdate?> �֧ <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">������ѹ��� <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>ข้อมูลบิลระหว่างวันที่ <?=$fdate?> ถึง <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">พิมพ์วันที่ <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -116,12 +116,12 @@ CASE '".$sspv."' WHEN '' THEN '*'  WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHE
 from 
 (select number1,mcode,cid, total,tot_pv,typee,txtCash,txtCredit,txtEwallet,txtFuture,txtTransfer,txtDiscount,'0' as txtUser,'0' as txtd,CASE inv_ref WHEN '' THEN '*' ELSE inv_ref END AS code_ref1,IFNULL(txtOther, 0) as txtOther from 
 (
-select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(tot_pv) as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'��Ţ��'  as typee ,'0' as txtOther  from ali_asaleh where  (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
+select '3' as number1,mcode,count(id) as cid,sum(total) as total,sum(tot_pv) as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'บิลขาย'  as typee ,'0' as txtOther  from ali_asaleh where  (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
 
 
-union select '5' as number1,mcode,count(id) as cid, sum(txtMoney) as total,'0' as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer)+sum(txtFuture) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'�������Թ Ewallet' as typee,'0' as txtOther  from ali_ewallet where 1=1 $sqlwhere
+union select '5' as number1,mcode,count(id) as cid, sum(txtMoney) as total,'0' as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer)+sum(txtFuture) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'บิลเติมเงิน Ewallet' as typee,'0' as txtOther  from ali_ewallet where 1=1 $sqlwhere
 
-union select '6' as number1,mcode,count(id) as cid, sum(total) as total,'0' as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'�������Թ Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
+union select '6' as number1,mcode,count(id) as cid, sum(total) as total,'0' as tot_pv,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'บิลเติมเงิน Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
 
 
 
@@ -149,13 +149,13 @@ union select '6' as number1,mcode,count(id) as cid, sum(total) as total,'0' as t
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("typee,fdate,tdate,cid,total,tot_pv,txtCash,txtCredit,txtEwallet,txtTransfer,txtFuture,txtDiscount,txtUser,txtInvcode,txtcheckPortal");
-		$rec->setFieldDesc("��Դ,�ҡ�ѹ���,�֧�ѹ���,�ӹǹ���,�ӹǹ�Թ���,PV,�Թʴ,�ôԵ,Ewallet,�Թ�͹,Voucher,��ǹŴ,User,�Ң�,��ͧ�ҧ");
+		$rec->setFieldDesc("ชนิด,จากวันที่,ถึงวันที่,จำนวนบิล,จำนวนเงินรวม,PV,เงินสด,เครดิต,Ewallet,เงินโอน,Voucher,ส่วนลด,User,สาขา,ช่องทาง");
 		$rec->setFieldFloatFormat(",,,,2,2,2,2,2,2,2,2");
 		$rec->setFieldAlign("left,center,center,right,right,right,right,right,right,right,right,right,center,center,center,center,center");
 		//$rec->setFieldSpace("5%,7%,7%,5%,6%,6%,6%,6%,6%,6%,6%,6%,6%,6%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

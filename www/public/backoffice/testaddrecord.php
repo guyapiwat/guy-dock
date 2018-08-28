@@ -35,6 +35,6 @@ $(document).ready(function(){
     <td>cat</td>
   </tr>
 </table>
-<p><input type="button" name="add-row" id="add-row" value="à¾ÔèÁá¶Ç" /></p>
+<p><input type="button" name="add-row" id="add-row" value="à¹€à¸žà¸´à¹ˆà¸¡à¹à¸–à¸§" /></p>
 </body>
 </html>

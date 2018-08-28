@@ -30,15 +30,15 @@ where  a.pcode = b.pcode   ) as a where 1=1 ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,pcode,pdesc,qty,price,pv,tot_price,tot_pv");
-		$rec->setFieldDesc("ÃËÑÊÊÒ¢Ò,ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´,¨Ó¹Ç¹,ÃÒ¤Ò,pv,ÃÇÁÃÒ¤Ò,ÃÇÁ PV");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸ˆà¸³à¸™à¸§à¸™,à¸£à¸²à¸„à¸²,pv,à¸£à¸§à¸¡à¸£à¸²à¸„à¸²,à¸£à¸§à¸¡ PV");
 		$rec->setFieldAlign("center,center,left,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("10%,10%,30%,10%,10%,10%,10%,10%,10%,10%");
 		$rec->setSearch("pcode,pdesc");
-		$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²");
 		$rec->setSum(true,false,",,,,,,true,true");
 		$rec->setFieldFloatFormat(",,,0,0,0,0,0");
 		$rec->setSearch("a.inv_code,pcode,pdesc");
-		$rec->setSearchDesc("ÊÒ¢Ò,ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸ªà¸²à¸‚à¸²,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²");
 		$rec->setFieldLink(",");
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

@@ -41,13 +41,13 @@ class sms{
 							}
 						}
 						if($count_pass > 0){
-							$msg_string = "����ö���͡��ӹǹ $count_pass �����Ţ, ���ôԵ������ $used_credit �ôԵ";
+							$msg_string = "สามารถส่งออกได้จำนวน $count_pass หมายเลข, ใช้เครดิตทั้งหมด $used_credit เครดิต";
 						} 				
 						if($count_fail > 0){
-							$msg_string = "�������ö���͡��ӹǹ $count_fail �����Ţ";
+							$msg_string = "ไม่สามารถส่งออกได้จำนวน $count_fail หมายเลข";
 						}
 					}else{
-						$msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ, (".$sms->Detail.")";
+						$msg_string = "เกิดข้อผิดพลาดในการทำงาน, (".$sms->Detail.")";
 					}
 					
 				}else if(function_exists('xml_parse')){
@@ -67,21 +67,21 @@ class sms{
 								}
 							}
 						if($count_pass > 0){
-							$msg_string = "����ö���͡��ӹǹ $count_pass �����Ţ, ���ôԵ������ $used_credit �ôԵ";
+							$msg_string = "สามารถส่งออกได้จำนวน $count_pass หมายเลข, ใช้เครดิตทั้งหมด $used_credit เครดิต";
 						} 				
 						if($count_fail > 0){
-							$msg_string = "�������ö���͡��ӹǹ $count_fail �����Ţ";
+							$msg_string = "ไม่สามารถส่งออกได้จำนวน $count_fail หมายเลข";
 						}
 					}else{
-						$msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ, (".$xml['SMS']['Detail'].")";
+						$msg_string = "เกิดข้อผิดพลาดในการทำงาน, (".$xml['SMS']['Detail'].")";
 					}
 				}else{
-					$msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ: <br /> �к�����ͧ�Ѻ�ѧ���� XML";
+					$msg_string = "เกิดข้อผิดพลาดในการทำงาน: <br /> ระบบไม่รองรับฟังก์ชั่น XML";
 				}
 			}else{
 				//$http_codes = parse_ini_file("http_code.ini");
-		        //$msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ: <br />" . $code['http_code'] . " " . $http_codes[$code['http_code']];
-		        $msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ: <br />" . $code['http_code'];
+		        //$msg_string = "เกิดข้อผิดพลาดในการทำงาน: <br />" . $code['http_code'] . " " . $http_codes[$code['http_code']];
+		        $msg_string = "เกิดข้อผิดพลาดในการทำงาน: <br />" . $code['http_code'];
 			}
 		
 		}else{
@@ -112,20 +112,20 @@ class sms{
 			
 			if($info['http_code'] == 200){
 				if(is_numeric($result)){
-					$msg_string = "�ӹǹ�ôԵ������� ".$result." �ôԵ";
+					$msg_string = "จำนวนเครดิตคงเหลือ ".$result." เครดิต";
 				}else{
 					$msg_string = $result;
 				}
 			}else{
 				//$http_codes = parse_ini_file("http_code.ini");
-		        //$msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ: <br />" . $info['http_code'] . " " . $http_codes[$code['http_code']];
-		        $msg_string = "�Դ��ͼԴ��Ҵ㹡�÷ӧҹ: <br />" . $info['http_code'];
+		        //$msg_string = "เกิดข้อผิดพลาดในการทำงาน: <br />" . $info['http_code'] . " " . $http_codes[$code['http_code']];
+		        $msg_string = "เกิดข้อผิดพลาดในการทำงาน: <br />" . $info['http_code'];
 			}
 			
 		}else if(function_exists('fsockopen')) {
 			$result = $this->check_credit_fsock($username,$password,$credit_type);
 			if(is_numeric($result)){
-				$msg_string = "�ӹǹ�ôԵ������� ".$result." �ôԵ";
+				$msg_string = "จำนวนเครดิตคงเหลือ ".$result." เครดิต";
 			}else{
 				$msg_string = $result;
 			}

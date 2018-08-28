@@ -8,22 +8,22 @@ function check(){
 	//alert(val);
 	var field = "sendby";
 	var flag = "1-0-0-0-0";
-	var errDesc = "ส่งสินค้าโดย";
+	var errDesc = "เธชเนเธเธชเธดเธเธเนเธฒเนเธ”เธข";
 	
 	val = val + ","+document.getElementById('senddate').value;
 	field = field +",senddate";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",วันที่ส่งสินค้า";
+	errDesc = errDesc + ",เธงเธฑเธเธ—เธตเนเธชเนเธเธชเธดเธเธเนเธฒ";
 
 	val = val + ","+document.getElementById('sendcode').value;
 	field = field +",sendcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",รหัสที่ส่งสินค้า";
+	errDesc = errDesc + ",เธฃเธซเธฑเธชเธ—เธตเนเธชเนเธเธชเธดเธเธเนเธฒ";
 
 	val = val + ","+document.getElementById('sendname').value;
 	field = field +",sendname";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",ชื่อผู้ส่งสินค้า";	
+	errDesc = errDesc + ",เธเธทเนเธญเธเธนเนเธชเนเธเธชเธดเธเธเนเธฒ";	
 	//alert(val);
 //loop check
 	document.getElementById('errormsg').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -56,34 +56,34 @@ if($_GET['id']){
        <br />
          <table align="center" width="80%">
          <tr>
-            <td bgcolor="#EDEDED" align="right" width="120">ส่งสินค้าโดย<font color="#ff0000">*</font></td>
+            <td bgcolor="#EDEDED" align="right" width="120">เธชเนเธเธชเธดเธเธเนเธฒเนเธ”เธข<font color="#ff0000">*</font></td>
             <td align="left">
             <select name="sendby" id="sendby">
-            <option value="" <?=(($sendby=="")?"selected":"")?> >ส่งสินค้าโดย</option>
-            <option value="ไม่ระบุ" <?=(($sendby=="ไม่ระบุ")?"selected":"")?> >ไม่ระบุ</option>
+            <option value="" <?=(($sendby=="")?"selected":"")?> >เธชเนเธเธชเธดเธเธเนเธฒเนเธ”เธข</option>
+            <option value="เนเธกเนเธฃเธฐเธเธธ" <?=(($sendby=="เนเธกเนเธฃเธฐเธเธธ")?"selected":"")?> >เนเธกเนเธฃเธฐเธเธธ</option>
             <option value="SMS" <?=(($sendby=="SMS")?"selected":"")?> >SMS</option>
-            <option value="รถทัวร์" <?=(($sendby=="รถทัวร์")?"selected":"")?> >รถทัวร์</option>
-             <option value="มอเตอร์ไซต์" <?=(($sendby=="มอเตอร์ไซต์")?"selected":"")?> >มอเตอร์ไซต์</option>
+            <option value="เธฃเธ–เธ—เธฑเธงเธฃเน" <?=(($sendby=="เธฃเธ–เธ—เธฑเธงเธฃเน")?"selected":"")?> >เธฃเธ–เธ—เธฑเธงเธฃเน</option>
+             <option value="เธกเธญเน€เธ•เธญเธฃเนเนเธเธ•เน" <?=(($sendby=="เธกเธญเน€เธ•เธญเธฃเนเนเธเธ•เน")?"selected":"")?> >เธกเธญเน€เธ•เธญเธฃเนเนเธเธ•เน</option>
             </select>
             </td>
           </tr>
          <tr>
-            <td bgcolor="#EDEDED" align="right" >วันที่ส่งสินค้า<font color="#ff0000">*</font></td>
-            <td align="left"><input type="text" name="senddate" id="senddate" value="<?=$senddate?>" />&nbsp;<a href="javascript:NewCal('senddate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a> <font color="#808080">(ปปปป-ดด-วว)</font></td>
+            <td bgcolor="#EDEDED" align="right" >เธงเธฑเธเธ—เธตเนเธชเนเธเธชเธดเธเธเนเธฒ<font color="#ff0000">*</font></td>
+            <td align="left"><input type="text" name="senddate" id="senddate" value="<?=$senddate?>" />&nbsp;<a href="javascript:NewCal('senddate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a> <font color="#808080">(เธเธเธเธ-เธ”เธ”-เธงเธง)</font></td>
           </tr>
           <tr>
-            <td bgcolor="#EDEDED" align="right">&nbsp;รหัสที่ส่งสินค้า<font color="#ff0000">*</font></td>
+            <td bgcolor="#EDEDED" align="right">&nbsp;เธฃเธซเธฑเธชเธ—เธตเนเธชเนเธเธชเธดเธเธเนเธฒ<font color="#ff0000">*</font></td>
             <td align="left">
               <input type="text" name="sendcode" id="sendcode" value="<?=$sendcode?>" />
             </td>
           </tr>
           <tr>
-            <td bgcolor="#EDEDED" align="right">ชื่อผู้ส่งสินค้า<font color="#ff0000">*</font></td>
+            <td bgcolor="#EDEDED" align="right">เธเธทเนเธญเธเธนเนเธชเนเธเธชเธดเธเธเนเธฒ<font color="#ff0000">*</font></td>
             <td align="left"><input type="text" name="sendname" id="sendname" value="<?=$sendname?>" /></td>
           </tr>
         </table>
         <hr width="50%" />
-        <font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font>
+        <font color="#808080"><u>เธซเธกเธฒเธขเน€เธซเธ•เธธ</u></font> <font color="#ff0000">*</font><font color="#808080">=เธเธณเน€เธเนเธเธ•เนเธญเธเธเธฃเธญเธเธเนเธญเธกเธนเธฅ</font>
         </td>
     </tr>
     <tr>
@@ -91,11 +91,11 @@ if($_GET['id']){
     </tr>
     <tr>
       <td align="center">&nbsp;
-        <input type="button" name="b1" id="b1" value="ตรวจสอบ" onclick="check()"  />
+        <input type="button" name="b1" id="b1" value="เธ•เธฃเธงเธเธชเธญเธ" onclick="check()"  />
       	&nbsp;
-         <input type="submit" name="ok" id="ok" value="บันทึก" disabled="disabled" />
+         <input type="submit" name="ok" id="ok" value="เธเธฑเธเธ—เธถเธ" disabled="disabled" />
         &nbsp;
-        <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>'" value="ยกเลิก" /></td>
+        <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>'" value="เธขเธเน€เธฅเธดเธ" /></td>
     </tr>
   </table>
 </form>

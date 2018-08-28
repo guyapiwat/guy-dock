@@ -27,11 +27,11 @@ $sql = "SELECT ".$dbprefix."asaled.id,".$dbprefix."asaled.sano,".$dbprefix."asal
 ?>
 <fieldset style="background-color:#FFFFEE">
 <table border="1" width="60%" cellpadding="0" cellspacing="0"><tr bgcolor="#999999">
-    <td width="15%"><strong>รหัสสินค้า</strong> </td><td><?=mysql_result($rs,$i,'pcode')?></td>
-    <td width="15%"><strong>ชื่อสินค้า</strong> </td><td><?=mysql_result($rs,$i,'pdesc')?></td>
+    <td width="15%"><strong>เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ</strong> </td><td><?=mysql_result($rs,$i,'pcode')?></td>
+    <td width="15%"><strong>เธเธทเนเธญเธชเธดเธเธเนเธฒ</strong> </td><td><?=mysql_result($rs,$i,'pdesc')?></td>
 </tr><tr bgcolor="#FFFFFF">
-    <td><strong>ราคา/หน่วย</strong> </td><td><?=mysql_result($rs,$i,'price')?></td>
-    <td><strong>pv/หน่วย</strong> </td><td><?=mysql_result($rs,$i,'pv')?></td>
+    <td><strong>เธฃเธฒเธเธฒ/เธซเธเนเธงเธข</strong> </td><td><?=mysql_result($rs,$i,'price')?></td>
+    <td><strong>pv/เธซเธเนเธงเธข</strong> </td><td><?=mysql_result($rs,$i,'pv')?></td>
 </tr></table>
 <?
 //$sql = "SELECT pcode,pdesc,price,SUM(qty) AS qty,SUM(amt) AS amt FROM ".$dbprefix."asaled "; 
@@ -85,7 +85,7 @@ $sql = "SELECT ".$dbprefix."asaled.id,".$dbprefix."asaled.sano,".$dbprefix."asal
 
 			$rec->setShowField("sadate,sano,mcode,name_t,qty,amt,pv");
 			$rec->setFieldFloatFormat(",,,,2");
-			$rec->setFieldDesc("วันที่,เลขบิล,รหัสสมาชิก,ชื่อสมาชิก,จำนวน,จำนวนเงินรวม,pv");
+			$rec->setFieldDesc("เธงเธฑเธเธ—เธตเน,เน€เธฅเธเธเธดเธฅ,เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธเธณเธเธงเธ,เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก,pv");
 			$rec->setFieldAlign("center,center,center,left,right,right,right,right,right");
 			$rec->setFieldSpace("10%,7%,10%,45%,5%,10%");
 			//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -94,7 +94,7 @@ $sql = "SELECT ".$dbprefix."asaled.id,".$dbprefix."asaled.sano,".$dbprefix."asal
 			//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 			$rec->setSum(true,false,",,,,true,true,true,true,true");
 			//$rec->setSearch("pcode,pdesc,price,qty,amt");
-			//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+			//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 			//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			$rec->showRec(1,'SH_QUERY');
 			//---------------------------------

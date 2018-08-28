@@ -26,12 +26,12 @@ $sql = "SELECT * FROM ".$dbprefix."bank";
 			$rec->setCurPage($page);
 		$rec->setShowField("bankname,code");
 		//$rec->setFieldFloatFormat(",,,,,,0,2");
-		$rec->setFieldDesc("™◊ËÕ∏π“§“√,code");
+		$rec->setFieldDesc("‡∏ä‡∏∑‡πà‡∏≠‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£,code");
 		$rec->setFieldAlign("center");
 		$rec->setFieldSpace("90%,10%");
 		//$rec->setFieldLink(",index.php?sessiontab=5&sub=3&cmc=,");
 		$rec->setSearch("bankname");
-		$rec->setSearchDesc("™◊ËÕ");
+		$rec->setSearchDesc("‡∏ä‡∏∑‡πà‡∏≠");
 		//$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		if($acc->isAccess(4)){
@@ -45,12 +45,12 @@ $sql = "SELECT * FROM ".$dbprefix."bank";
 	
 			$rec->exportXls("ExportXls","bank".date("Ymd").$_SESSION["inv_usercode"].".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","bank".date("Ymd").$_SESSION["inv_usercode"].".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 	
 		$rec->setSpace($str);
 

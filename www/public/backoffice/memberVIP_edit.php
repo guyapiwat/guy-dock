@@ -45,11 +45,11 @@ writelogfile($text);
 		error = false;
 		
 		if(submitted == true){
-		   alert("°”≈—ß¥”‡π‘π°“√");
+		   alert("‡∏Å‡∏≥‡∏•‡∏±‡∏á‡∏î‡∏≥‡πÄ‡∏ô‡∏¥‡∏ô‡∏Å‡∏≤‡∏£");
 		   return false;
 	    }
 		
-		check_point("newpoint","§–·ππ∑’Ë°√Õ°µÈÕß‡ªÁπµ—«‡≈¢ 0-9 ‡∑Ë“π—Èπ");
+		check_point("newpoint","‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏ó‡∏µ‡πà‡∏Å‡∏£‡∏≠‡∏Å‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡πá‡∏ô‡∏ï‡∏±‡∏ß‡πÄ‡∏•‡∏Ç 0-9 ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô");
 		
 		if(error == true){
 			alert(error_message);
@@ -87,20 +87,20 @@ writelogfile($text);
 <form action="./index.php?state=2&sessiontab=2&sub=3&id=<?=$id?>" method="post" name="vipedit" onSubmit='return check_form(vipedit)' ENCTYPE="multipart/form-data">
   <table align="left" width="500" border="0">
   <tr>
-		<td height="20" width="20%" align="right">√À—  : </td>
+		<td height="20" width="20%" align="right">‡∏£‡∏´‡∏±‡∏™ : </td>
 		<td width="60%">
 				  <input type="text" id="mdate" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" />
-			&nbsp;<a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a><font color="#808080">(ªªªª-¥¥-««)</font></td>
+			&nbsp;<a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a><font color="#808080">(‡∏õ‡∏õ‡∏õ‡∏õ-‡∏î‡∏î-‡∏ß‡∏ß)</font></td>
 				</tr>
     <tr>
-	  <td height="20" width="20%" align="right">√À—  : </td>
-	  <td width="60%"><?=$mcode?>&nbsp;&nbsp;™◊ËÕ : <?=$mname?>	      
+	  <td height="20" width="20%" align="right">‡∏£‡∏´‡∏±‡∏™ : </td>
+	  <td width="60%"><?=$mcode?>&nbsp;&nbsp;‡∏ä‡∏∑‡πà‡∏≠ : <?=$mname?>	      
 	  </td>
 	  <td width="20%"></td>
 	</tr>
 	
 	<tr>
-	  <td height="20" width="20%" align="right">§–·ππ : </td>
+	  <td height="20" width="20%" align="right">‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô : </td>
 	  <td width="60%"><input type="text" name="newpoint" value="<?=$mpv[0]?>"/>
 	  </td>
 	  <td width="20%"></td>
@@ -115,8 +115,8 @@ writelogfile($text);
 	<tr>
 	  <td height="20" ></td>
 	  <td>
-	    <input type="submit" name="submit" value="·°È‰¢" />&nbsp;&nbsp;
-		<input type="button" name="reset" value="¬°‡≈‘°" onclick="redirect('./index.php?sessiontab=2&sub=3')" />
+	    <input type="submit" name="submit" value="‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç" />&nbsp;&nbsp;
+		<input type="button" name="reset" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" onclick="redirect('./index.php?sessiontab=2&sub=3')" />
 	  </td>
 	  <td></td>
 	</tr>

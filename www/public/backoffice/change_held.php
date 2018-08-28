@@ -19,7 +19,7 @@ if(isset($_GET['state'])){
 
 		//mysql_free_result($rs);
 		if($asend == '1'){
-	//	echo "<script language='JavaScript'>alert('�������ö��䢡���Ѻ�ͧ��');window.location='index.php?sessiontab=3&sub=6'</script>";	
+	//	echo "<script language='JavaScript'>alert('ไม่สามารถแก้ไขการรับของได้');window.location='index.php?sessiontab=3&sub=6'</script>";	
 	//	exit;
 		}
 

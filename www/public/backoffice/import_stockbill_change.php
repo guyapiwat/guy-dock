@@ -61,7 +61,7 @@ if(isset($_GET['state'])){
 					//exit;
 					if($tsano != $fsano)$sano = '0000001';
 					$sano = $year.$month.$sano;
-					logtext(true,$_SESSION['adminusercode'],'‡æ‘Ë¡∫‘≈',$mid);
+					logtext(true,$_SESSION['adminusercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
 					mysql_free_result($rs);
 					if(empty($chkInternet))$txtInternet = 0;
 					$sql="insert into ".$dbprefix."asaleh (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_bv,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
@@ -132,7 +132,7 @@ function plusProduct2($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','√—∫ ‘π§È“‚Œ≈¥Ï','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÇ‡∏Æ‡∏•‡∏î‡πå','$uid')";
 				mysql_query($sql);
 
 				
@@ -153,7 +153,7 @@ function plusProduct2($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','√—∫ ‘π§È“‚Œ≈¥Ï','$uid')";
+				  values('$sano','$invent','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÇ‡∏Æ‡∏•‡∏î‡πå','$uid')";
 				mysql_query($sql);
 
 
@@ -189,7 +189,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‚Õπ ‘π§È“‚Œ≈¥Ï','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡πÇ‡∏≠‡∏ô‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÇ‡∏Æ‡∏•‡∏î‡πå','$uid')";
 				mysql_query($sql);
 
 
@@ -203,7 +203,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‚Õπ ‘π§È“‚Œ≈¥Ï','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡πÇ‡∏≠‡∏ô‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÇ‡∏Æ‡∏•‡∏î‡πå','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";

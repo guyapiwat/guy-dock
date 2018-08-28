@@ -9,7 +9,7 @@ function view(code){
 	win = window.open(url,'','fullscreen=yes scrollbars=yes' );
 }
 function confirm_approve(id){
-	if(confirm("ÂÕ¹ÂÑ¹¡ÒÃà»ÅÕèÂ¹á»Å§")){
+	if(confirm("à¸¢à¸µà¸™à¸¢à¸±à¸™à¸à¸²à¸£à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¹à¸›à¸¥à¸‡")){
 		window.location='index.php?sessiontab=1&sub=2&state=3&cmc='+id;
 	}
 }
@@ -19,7 +19,7 @@ function confirm_approve(id){
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN àÁ×èÍµéÍ§¡ÒÃ¢éÍÁÙÅÇÑ¹ËÁ´ÍÒÂØã¹â»Ãá¡ÃÁ
+// JOIN à¹€à¸¡à¸·à¹ˆà¸­à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸±à¸™à¸«à¸¡à¸”à¸­à¸²à¸¢à¸¸à¹ƒà¸™à¹‚à¸›à¸£à¹à¸à¸£à¸¡
 $sql = "SELECT mobile,mobile_desc,DATE_FORMAT(mobile_date, '%d-%m-%Y %H:%I:%S') as mobile_date ,mobile_status from ".$dbprefix."sms  ";
 //echo $sql;
 //echo $sql;
@@ -50,21 +50,21 @@ $sql = "SELECT mobile,mobile_desc,DATE_FORMAT(mobile_date, '%d-%m-%Y %H:%I:%S') 
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,ÇÑ¹ËÁ´ÍÒÂØ,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó,¡ÃÐà»ëÒà§Ô¹,¤Ðá¹¹ÊèÇ¹µÑÇ");
+		//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸§à¸±à¸™à¸«à¸¡à¸”à¸­à¸²à¸¢à¸¸,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸à¸£à¸°à¹€à¸›à¹‹à¸²à¹€à¸‡à¸´à¸™,à¸„à¸°à¹à¸™à¸™à¸ªà¹ˆà¸§à¸™à¸•à¸±à¸§");
 		$rec->setShowField("mobile,mobile_desc,mobile_date,mobile_status");
-		$rec->setFieldDesc("àºÍÃìâ·ÃÈÑ¾·ì,ÃÒÂÅÐàÍÕÂ´,ÇÑ¹·ÕèÊè§SMS,Ê¶Ò¹Ð");
+		$rec->setFieldDesc("à¹€à¸šà¸­à¸£à¹Œà¹‚à¸—à¸£à¸¨à¸±à¸žà¸—à¹Œ,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¹ˆà¸‡SMS,à¸ªà¸–à¸²à¸™à¸°");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center");
 		$rec->setFieldSpace("10%,60%,20%,10%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setFieldFloatFormat(",,,,,,,,,");
 		$rec->setSearch("mobile,status");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,Ê¶Ò¹Ð¡ÒÃÊè§sms");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸ªà¸–à¸²à¸™à¸°à¸à¸²à¸£à¸ªà¹ˆà¸‡sms");
 		$rec->setHLight("mobile_status",Fail,array("#FF7777","#FF9999"),"HIDE");
 		$rec->setHLight("mobile_status",Fail,array("#FF0000","#FF9999"),"HIDE");
 
-		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","´Ù");
+		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","à¸”à¸¹");
 		
 		
 		//$rec->setSpace($str);

@@ -19,10 +19,10 @@
 <br /><center>
 <table style="margin-left:20;" width="580" border="0" ><tr><td align="center"><fieldset>
 <form style="margin-bottom:0;" action="index.php?sessiontab=<?=$sesstab?>&sub=<?=$_GET["sub"]?>" method="post">
-	������ѹ��� <input size="15" type="text" name="fdate" id="dateInput1" value="<?=$fdate?>" />
-	  �֧
+	ตั้งแต่วันที่ <input size="15" type="text" name="fdate" id="dateInput1" value="<?=$fdate?>" />
+	  ถึง
 	<input size="15" type="text" name="tdate" id="dateInput2" value="<?=$tdate?>" />
-    <input type="submit" value="��" />
+    <input type="submit" value="ค้น" />
 </form>
 </fieldset></td></tr></table><br/><br/>
 </center>
@@ -32,7 +32,7 @@ require("connectmysql.php");
 //require("./cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
-echo '<center><font size=4>��§ҹ�ʹ����Թ���</font></center>';
+echo '<center><font size=4>รายงานยอดขายสินค้า</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,".$dbprefix."product.cost_price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -71,7 +71,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,cost_price,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,2,2,2");
-		$rec->setFieldDesc("�����Թ���,��������´�Թ���,�Ҥҵ鹷ع,�Ҥ�,�ӹǹ,���Թ");
+		$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคาต้นทุน,ราคา,จำนวน,เป็นเงิน");
 		$rec->setFieldAlign("center,left,right,right,right,right");
 		$rec->setFieldSpace("10%,50%,10%,10%,10%,10%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -79,21 +79,21 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,true,true,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ��������Ҫԡ','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ข้อมูลสมาชิก','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
   		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');		//---------------------------------
 	//}
@@ -102,7 +102,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
-echo '<center><font size=4>��§ҹ�ʹ��� Package</font></center>';
+echo '<center><font size=4>รายงานยอดขาย Package</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -142,7 +142,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec_2->setCurPage($page);
 		$rec_2->setShowField("pcode,pdesc,price,qty,amt");
 		$rec_2->setFieldFloatFormat(",,2,0,2");
-		$rec_2->setFieldDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		$rec_2->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		$rec_2->setFieldAlign("center,left,right,right,right");
 		$rec_2->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec_2->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -150,21 +150,21 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec_2->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec_2->setSum(true,true,",,,true,true");
 		//$rec_2->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec_2->setSearchDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		//$rec_2->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		//$rec_2->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		if($_GET['excel_2']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ��§ҹ�ʹ��� Package','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : รายงานยอดขาย Package','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
-			$rec_2->exportXls("ExportXls","��§ҹ�ʹ��� Package".date("Ymd").".xls","SH_QUERY");
-			$str = "<fieldset><a href='".$rec_2->download("ExportXls","��§ҹ�ʹ��� Package".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$rec_2->exportXls("ExportXls","รายงานยอดขาย Package".date("Ymd").".xls","SH_QUERY");
+			$str = "<fieldset><a href='".$rec_2->download("ExportXls","รายงานยอดขาย Package".date("Ymd").".xls")."' >";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec_2->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel_2=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec_2->setSpace($str);
 		$rec_2->showRec(1,'SH_QUERY');
 		//---------------------------------
@@ -178,7 +178,7 @@ for($i=0;$i<mysql_num_rows($result);$i++){
 	$lid = $data->inv_code;
 	$inv_desc = $data->inv_desc;
 
-echo '<center><font size=4>��§ҹ�ʹ����Թ���� Package</font></center>';
+echo '<center><font size=4>รายงานยอดขายสินค้าใน Package</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT p.pdesc,p.pcode,SUM(p.qty*d.qty),SUM(p.qty*d.qty) as qty FROM ".$dbprefix."asaled d
 			left JOIN ".$dbprefix."asaleh h on (h.id= d.sano )
@@ -213,7 +213,7 @@ $sql .= "	GROUP by p.pcode
 			$rec_3->setCurPage($page);
 		$rec_3->setShowField("pcode,pdesc,qty");
 		$rec_3->setFieldFloatFormat(",,2,0,2");
-		$rec_3->setFieldDesc("�����Թ���,��������´�Թ���,�ӹǹ");
+		$rec_3->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน");
 		$rec_3->setFieldAlign("center,left,right,right,right");
 		$rec_3->setFieldSpace("10%,80%,15%,10%,15%");
 		//$rec_3->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -221,22 +221,22 @@ $sql .= "	GROUP by p.pcode
 		//$rec_3->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec_3->setSum(true,true,",,,true,true");
 		//$rec_3->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec_3->setSearchDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		//$rec_3->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		//$rec_3->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		if($_GET['excel_3']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ��§ҹ�ʹ����Թ���� Package','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : รายงานยอดขายสินค้าใน Package','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
-			$rec_3->exportXls("ExportXls","��§ҹ�ʹ����Թ���� Package".date("Ymd").".xls","SH_QUERY");
-			$str = "<fieldset><a href='".$rec_3->download("ExportXls","��§ҹ�ʹ����Թ���� Package".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$rec_3->exportXls("ExportXls","รายงานยอดขายสินค้าใน Package".date("Ymd").".xls","SH_QUERY");
+			$str = "<fieldset><a href='".$rec_3->download("ExportXls","รายงานยอดขายสินค้าใน Package".date("Ymd").".xls")."' >";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec_3->setSpace($str);
 		}
 
 		$str = "<fieldset><a href='".$rec->getParam()."&excel_3=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec_3->setSpace($str);
 		$rec_3->showRec(1,'SH_QUERY');
 		//---------------------------------

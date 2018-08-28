@@ -69,8 +69,8 @@ if($fdate!=""){
 if(mysql_num_rows($rs) > 0){
 ?>
 <table border="0" width="60%" cellpadding="0" cellspacing="0"><tr bgcolor="#999999">
-    <td width="15%"><strong>รหัสสมาชิก</strong> </td><td><?=mysql_result($rs,$i,'inv_code')?></td>
-    <td width="15%"><strong>ชื่อสมาชิก</strong> </td><td><?=mysql_result($rs,$i,'inv_desc')?></td>
+    <td width="15%"><strong>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</strong> </td><td><?=mysql_result($rs,$i,'inv_code')?></td>
+    <td width="15%"><strong>เธเธทเนเธญเธชเธกเธฒเธเธดเธ</strong> </td><td><?=mysql_result($rs,$i,'inv_desc')?></td>
 </tr></table>
 
 <br>
@@ -78,7 +78,7 @@ if(mysql_num_rows($rs) > 0){
 //$sql = "SELECT pcode,pdesc,price,SUM(qty) AS qty,SUM(amt) AS amt FROM ".$dbprefix."asaled "; 
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT inv_code,bill,mdate ,
-CASE other WHEN '1' THEN 'บิลออนไลน์' WHEN '2' THEN 'บิลซือสินค้า' WHEN '3' THEN 'บิลโอนถ่าย' WHEN '4' THEN 'บิลโอนถ่าย' WHEN '5' THEN 'บิลเติมเงิน'  END AS other
+CASE other WHEN '1' THEN 'เธเธดเธฅเธญเธญเธเนเธฅเธเน' WHEN '2' THEN 'เธเธดเธฅเธเธทเธญเธชเธดเธเธเนเธฒ' WHEN '3' THEN 'เธเธดเธฅเนเธญเธเธ–เนเธฒเธข' WHEN '4' THEN 'เธเธดเธฅเนเธญเธเธ–เนเธฒเธข' WHEN '5' THEN 'เธเธดเธฅเน€เธ•เธดเธกเน€เธเธดเธ'  END AS other
 ,pv1,pv2,pv3,balance,uid,other1 ";
 $sql .= "FROM ".$dbprefix."cnt_ewallet where 1=1 ";
 if($fdate!=""){
@@ -109,7 +109,7 @@ if($fdate!=""){
 		if(isset($page))$rec->setCurPage($page);
 		$rec->setShowField("mdate,bill,pv1,pv2,pv3,balance,uid,other");
 		$rec->setFieldFloatFormat(",,2,2,2,2,,,,,,,");
-		$rec->setFieldDesc("วันที่ซื้อ,บิล,ยอดยกมา,เงินเข้า,ใช้ไป,คงเหลือ,ผู้ดำเนินการ,ดำเนินการ,");
+		$rec->setFieldDesc("เธงเธฑเธเธ—เธตเนเธเธทเนเธญ,เธเธดเธฅ,เธขเธญเธ”เธขเธเธกเธฒ,เน€เธเธดเธเน€เธเนเธฒ,เนเธเนเนเธ,เธเธเน€เธซเธฅเธทเธญ,เธเธนเนเธ”เธณเน€เธเธดเธเธเธฒเธฃ,เธ”เธณเน€เธเธดเธเธเธฒเธฃ,");
 		$rec->setFieldAlign("center,center,right,right,center,right,center,right,left,right,right,right,center");
 		$rec->setFieldSpace("11%,11%,11%,11%,11%,11%,11%,11%,11%,10%,10%,10%,7%,7%,10%,15%,15%,8%");
 		//$rec->setSum(true,false,",,,,,,,,,,,");
@@ -125,10 +125,10 @@ if($fdate!=""){
 <table style="margin-left:20;" width="562" border="0">
   <tr valign="top"><td width="600" align="center" ><fieldset>
 	<input size="15" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a>  ถึง
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>  เธ–เธถเธ
 	<input size="15" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a> รหัสสาขา : <input type="text" name="inv_code" value="<?=$_POST["inv_code"];?>">
-    <input type="submit" value="ค้น" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a> เธฃเธซเธฑเธชเธชเธฒเธเธฒ : <input type="text" name="inv_code" value="<?=$_POST["inv_code"];?>">
+    <input type="submit" value="เธเนเธ" />
 </td>
 </tr></table>
 </form>

@@ -87,7 +87,7 @@ if(isset($_GET['state'])){
 }
 if($_GET['state']==0){
 	//$mid = ++$sano;
-	logtext(true,$_SESSION['usercode'],'‡æ‘Ë¡∫‘≈',$mid);
+	logtext(true,$_SESSION['usercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
 	$sql = "SELECT pos_cur,name_t,caddress,czip,cdistrictId,camphurId,cprovinceId from ".$dbprefix."member WHERE mcode='$mcode' ";
 	$rs = mysql_query($sql);
 	$pos_old = '';
@@ -160,7 +160,7 @@ if($radsend == '1'){
 
 if($_GET['state']==0){
 		//$mid = ++$sano;
-		logtext(true,$_SESSION['usercode'],'‡æ‘Ë¡∫‘≈',$mid);
+		logtext(true,$_SESSION['usercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
 		 $sql="insert into ".$dbprefix."atoasaleh (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_weight,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 		optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther,trnf,name_t,caddress,cdistrictId,camphurId,cprovinceId,czip,online,checkportal,hpv,htotal,selectdate ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv','$tot_weight','$tot_fv' ,'".$_SESSION['usercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',
 		'$txtTransfer','$txtCredit1','$txtCredit2','$txtCredit3','$txtInternet','$txtDiscount','$txtOther','$optionCash','$optionFuture','$optionTransfer','$optionCredit1','$optionCredit2','$optionCredit3','$optionInternet','$optionDiscount','$optionOther','$trnf','$name_t','$caddress','$cdistrictId','$camphurId','$cprovinceId','$czip','1','3','$tot_pv','$total','$selectdate') ";

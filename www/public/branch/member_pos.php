@@ -2,8 +2,8 @@
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN àÁ×èÍµéÍ§¡ÒÃ¢éÍÁÙÅÇÑ¹ËÁ´ÍÒÂØã¹â»Ãá¡ÃÁ
-$sql = "SELECT ".$dbprefix."member.*,CASE IFNULL(posname,'') WHEN '' THEN 'äÁèÁÕµÓáË¹è§' ELSE posname END AS rposname FROM ".$dbprefix."member ";
+// JOIN à¹€à¸¡à¸·à¹ˆà¸­à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸±à¸™à¸«à¸¡à¸”à¸­à¸²à¸¢à¸¸à¹ƒà¸™à¹‚à¸›à¸£à¹à¸à¸£à¸¡
+$sql = "SELECT ".$dbprefix."member.*,CASE IFNULL(posname,'') WHEN '' THEN 'à¹„à¸¡à¹ˆà¸¡à¸µà¸•à¸³à¹à¸«à¸™à¹ˆà¸‡' ELSE posname END AS rposname FROM ".$dbprefix."member ";
 $sql .= "LEFT JOIN ".$dbprefix."position ON (".$dbprefix."member.pos_cur=".$dbprefix."position.posshort)";
 //echo $sql;
 //$wherecause = " WHERE ";
@@ -34,16 +34,16 @@ $sql .= "LEFT JOIN ".$dbprefix."position ON (".$dbprefix."member.pos_cur=".$dbpr
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,pos_cur,rposname");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,µÓáË¹è§,ª×èÍµÓáË¹è§");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸Šà¸·à¹ˆà¸­à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setFieldAlign("center,left,center,left");
 		$rec->setFieldSpace("10%,40%,10%,40%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 	//	$rec->setDel("index.php","id","id","sessiontab=2&sub=1");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSearch("mcode,name_t,pos_cur,posname");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,ÇÑ¹ËÁ´ÍÒÂØ,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸§à¸±à¸™à¸«à¸¡à¸”à¸­à¸²à¸¢à¸¸,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setEdit("index.php","id","id","sessiontab=2&sub=1");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

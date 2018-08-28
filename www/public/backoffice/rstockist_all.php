@@ -8,7 +8,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id,chktype,send,sanox,sub,sessiontab){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
 		//	window.location='index.php?sessiontab=5&sub=24&state=3&bid='+id;
 			window.location='index.php?state=3&sessiontab='+sessiontab+'&sub='+sub+'&bid='+id+'&chktype='+chktype+'&send='+send+'&sano='+sanox;
 		}
@@ -64,15 +64,15 @@ $sql .= "FROM ".$dbprefix."risaleh    ";
 			$rec->setCurPage($page);
 		$rec->setShowField("hono,smcode,name_t,sadate,tot_pv,total");
 		$rec->setFieldFloatFormat(",,,,,,,2,2");
-		$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setFieldAlign("center,center,left,center,right,right,right");
 		$rec->setFieldSpace("5%,10%,45%,7%,10%,10%,10%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("hono,sano,".$dbprefix."risaleh.mcode,name_t,sadate,tot_pv,total");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ºÔÅâÎÅì´,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸šà¸´à¸¥à¹‚à¸®à¸¥à¹Œà¸”,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setSum(true,false,",,,,,,,true,true");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id,chktype,sendx,sanox,sub,sessiontab","IMAGE","Â¡àÅÔ¡");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id,chktype,sendx,sanox,sub,sessiontab","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->setFromDelAttr("maindel","./index.php?sessiontab=".$_GET["sessiontab"]."&sub=23&state=1","post","delfield");
 		if($acc->isAccess(2)){

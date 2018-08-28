@@ -3,9 +3,9 @@
 	            	<table width="100%"  border="0" cellpadding="0" cellspacing="0">
       <tr>
         <td width="56" background="images/cap_002_bg.gif" >&nbsp;</td>
-        <td  background="images/cap_002_bg.gif"  class="style3">&nbsp;&nbsp;·∫∫øÕ√Ï¡µ—Èß‡«≈“ Ëß¢ÈÕ§«“¡</td>
+        <td  background="images/cap_002_bg.gif"  class="style3">&nbsp;&nbsp;‡πÅ‡∏ö‡∏ö‡∏ü‡∏≠‡∏£‡πå‡∏°‡∏ï‡∏±‡πâ‡∏á‡πÄ‡∏ß‡∏•‡∏≤‡∏™‡πà‡∏á‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°</td>
         <td width="5"><img src="images/cap_003.gif" width="5" height="65" /></td>
-        <!--<td width="92" align="right"  class="style6 style8"><nobr>&nbsp;·∫∫øÕ√Ï¡µ—Èß‡«≈“ Ëß¢ÈÕ§«“¡&nbsp;</nobr></td>-->
+        <!--<td width="92" align="right"  class="style6 style8"><nobr>&nbsp;‡πÅ‡∏ö‡∏ö‡∏ü‡∏≠‡∏£‡πå‡∏°‡∏ï‡∏±‡πâ‡∏á‡πÄ‡∏ß‡∏•‡∏≤‡∏™‡πà‡∏á‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°&nbsp;</nobr></td>-->
         <td width="46" align="right" background="images/cap_002_bg.gif">&nbsp;</td>
       </tr>
   </table>
@@ -29,17 +29,17 @@
         <td>Type :</td>
         <td>
             <select id='datacoding' name='datacoding' onChange="set_lang(this.value)">
-                <option value='iso88591'>Õ—ß°ƒ… ‡∑Ë“π—Èπ</option>
-                <option value='isoiec10646' >‰∑¬+Õ—ß°ƒ… </option>
+                <option value='iso88591'>‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏© ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô</option>
+                <option value='isoiec10646' >‡πÑ‡∏ó‡∏¢+‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏© </option>
             </select>
         </td>
     </tr>         <tr valign="top"> 
             <td colspan="2">
                 <div   style="width:650px;" >
-                <strong> Ëß¢ÈÕ§«“¡ SMS ‰ª¬—ß‚∑√»—æ∑Ï¡◊Õ∂◊Õ.</strong><br>
+                <strong>‡∏™‡πà‡∏á‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏° SMS ‡πÑ‡∏õ‡∏¢‡∏±‡∏á‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠.</strong><br>
                 <span class="style5" style="text-align:center;">
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- À“°®”π«πµ—«Õ—°…√‡°‘π°«Ë“°”Àπ¥√–∫∫®–µ—¥‡§√¥‘µ¢Õß∑Ë“πµ“¡¢ÈÕ§«“¡∑’Ë„™È À“°·µËºŸÈ√—∫®–‰¥È√—∫‡ªÁπ¢ÈÕ§«“¡‡¥’¬«<br>
-                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‡™Ëπ À“°¢ÈÕ§«“¡¢Õß∑Ë“π‡ªÁπ¿“…“‰∑¬‡°‘π 70 µ—«Õ—°…√ √–∫∫®–§‘¥‡ªÁπ 2 ¢ÈÕ§«“¡·µËºŸÈ√—∫®–‰¥È√—∫‡æ’¬ß¢ÈÕ§«“¡‡¥’¬«§√∫∂È«π<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‡∏´‡∏≤‡∏Å‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡∏≠‡∏±‡∏Å‡∏©‡∏£‡πÄ‡∏Å‡∏¥‡∏ô‡∏Å‡∏ß‡πà‡∏≤‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡∏£‡∏∞‡∏ö‡∏ö‡∏à‡∏∞‡∏ï‡∏±‡∏î‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï‡∏Ç‡∏≠‡∏á‡∏ó‡πà‡∏≤‡∏ô‡∏ï‡∏≤‡∏°‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡∏ó‡∏µ‡πà‡πÉ‡∏ä‡πâ ‡∏´‡∏≤‡∏Å‡πÅ‡∏ï‡πà‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡∏à‡∏∞‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡πá‡∏ô‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡πÄ‡∏î‡∏µ‡∏¢‡∏ß<br>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;- ‡πÄ‡∏ä‡πà‡∏ô ‡∏´‡∏≤‡∏Å‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡∏Ç‡∏≠‡∏á‡∏ó‡πà‡∏≤‡∏ô‡πÄ‡∏õ‡πá‡∏ô‡∏†‡∏≤‡∏©‡∏≤‡πÑ‡∏ó‡∏¢‡πÄ‡∏Å‡∏¥‡∏ô 70 ‡∏ï‡∏±‡∏ß‡∏≠‡∏±‡∏Å‡∏©‡∏£ ‡∏£‡∏∞‡∏ö‡∏ö‡∏à‡∏∞‡∏Ñ‡∏¥‡∏î‡πÄ‡∏õ‡πá‡∏ô 2 ‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡πÅ‡∏ï‡πà‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡∏à‡∏∞‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°‡πÄ‡∏î‡∏µ‡∏¢‡∏ß‡∏Ñ‡∏£‡∏ö‡∏ñ‡πâ‡∏ß‡∏ô<br>
                 </span>
                 </div>
                 <hr>
@@ -51,7 +51,7 @@
             <td></td>
             <td><input type="hidden" name="customer_id" id="customer_id" value="67"></td>
         </tr>        <tr>
-            <td align="right"><span class="fontlabel">·ºπ°   : </span></td>
+            <td align="right"><span class="fontlabel">‡πÅ‡∏ú‡∏ô‡∏Å   : </span></td>
             <td>
               <input type="text" name="department_name" id="department_name"  value="Management" size="60" style="background:#eeeeee;border:#333333 solid 1px;" readonly>
               <input type="hidden" name="department_id" id="department_id"  value="118" size="10">   
@@ -60,93 +60,93 @@
         <tr id='smsMobileType'>
             <td width="20%" align="right"  ><strong></strong>&nbsp;</td>
             <td align="left">
-                <input type="radio" id="type1" name="type" value="1"  onclick="if(this.checked==true) {document.getElementById('tpyelabel').innerHTML='À¡“¬‡≈¢‚∑√»—æ∑Ï¡◊Õ∂◊Õ';document.getElementById('inputMobile').style.display='';document.getElementById('UploadMobile').style.display='none';document.getElementById('ByPhoneBook').style.display='none';document.getElementById('group_id').value='';document.getElementById('group_id').onchange();}" checked> <strong>√–∫ÿ‡∫Õ√Ï‚∑√»—æ∑Ï </strong>
+                <input type="radio" id="type1" name="type" value="1"  onclick="if(this.checked==true) {document.getElementById('tpyelabel').innerHTML='‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠';document.getElementById('inputMobile').style.display='';document.getElementById('UploadMobile').style.display='none';document.getElementById('ByPhoneBook').style.display='none';document.getElementById('group_id').value='';document.getElementById('group_id').onchange();}" checked> <strong>‡∏£‡∏∞‡∏ö‡∏∏‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå </strong>
                 <input type="radio" id="type2" name="type" value="2" onClick="if(this.checked==true) {document.getElementById('tpyelabel').innerHTML='File upload';document.getElementById('inputMobile').style.display='none';document.getElementById('UploadMobile').style.display='';document.getElementById('phoneNO').value='';document.getElementById('ByPhoneBook').style.display='none';document.getElementById('group_id').value='';document.getElementById('group_id').onchange();}" > <strong>Upload file </strong>
-                <input type="radio" id="type3" name="type" value="3" onClick="if(this.checked==true) {document.getElementById('tpyelabel').innerHTML='‡≈◊Õ° ¡ÿ¥‚∑√»—æ∑Ï';document.getElementById('inputMobile').style.display='none';document.getElementById('UploadMobile').style.display='none';document.getElementById('phoneNO').value='';document.getElementById('ByPhoneBook').style.display='';document.getElementById('group_id').value='';document.getElementById('group_id').onchange();}" > <strong> Ëßµ“¡ ¡ÿ¥‚∑√»—æ∑Ï </strong>
+                <input type="radio" id="type3" name="type" value="3" onClick="if(this.checked==true) {document.getElementById('tpyelabel').innerHTML='‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏™‡∏°‡∏∏‡∏î‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå';document.getElementById('inputMobile').style.display='none';document.getElementById('UploadMobile').style.display='none';document.getElementById('phoneNO').value='';document.getElementById('ByPhoneBook').style.display='';document.getElementById('group_id').value='';document.getElementById('group_id').onchange();}" > <strong>‡∏™‡πà‡∏á‡∏ï‡∏≤‡∏°‡∏™‡∏°‡∏∏‡∏î‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå </strong>
             </td>
         </tr>        
                                         
         <tr id='smsMobile'>
-            <td width="20%" align="right"  valign="top"><span id="tpyelabel">À¡“¬‡≈¢‚∑√»—æ∑Ï¡◊Õ∂◊Õ</span>:&nbsp;</td>
+            <td width="20%" align="right"  valign="top"><span id="tpyelabel">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠</span>:&nbsp;</td>
             <td align="left">
             <span id="inputMobile" >
                 <textarea  id="phoneNO" name="phoneNO" cols="80" rows="5" onKeyPress="chkNumPhone(event);" onKeyUp="countPhoneNumber();" onBlur="checkPhoneNumber();countPhoneNumber();"></textarea> 
                  <span class="fontredbold">*</span>
-                <br />    À¡“¬‡≈¢ 10 À≈—° ·≈–„™È‡§√◊ËÕßÀ¡“¬ , §—Ëπ ‡™Ëπ 0812345678,0812345679
+                <br />    ‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç 10 ‡∏´‡∏•‡∏±‡∏Å ‡πÅ‡∏•‡∏∞‡πÉ‡∏ä‡πâ‡πÄ‡∏Ñ‡∏£‡∏∑‡πà‡∏≠‡∏á‡∏´‡∏°‡∏≤‡∏¢ , ‡∏Ñ‡∏±‡πà‡∏ô ‡πÄ‡∏ä‡πà‡∏ô 0812345678,0812345679
             </span>
             <span id="UploadMobile" style="display:none;"> 
                 <iframe  src="ajax_upload/fileupload.php" id="frmFileUpload" name="frmFileUpload" frameborder="0" width="560" height="140" scrolling="no" style="left:0px;top0px;posiotion:absolute;" noresize></iframe>
                 <br /> 
-                <a href="mobileformat.txt">¥ŸøÕ√Ï·¡µ‰ø≈Ï</a> („™È‰ø≈Ïπ“¡ °ÿ≈ .txt ·≈– .csv ·≈–‰¡Ë‡°‘π 2 MB)
+                <a href="mobileformat.txt">‡∏î‡∏π‡∏ü‡∏≠‡∏£‡πå‡πÅ‡∏°‡∏ï‡πÑ‡∏ü‡∏•‡πå</a> (‡πÉ‡∏ä‡πâ‡πÑ‡∏ü‡∏•‡πå‡∏ô‡∏≤‡∏°‡∏™‡∏Å‡∏∏‡∏• .txt ‡πÅ‡∏•‡∏∞ .csv ‡πÅ‡∏•‡∏∞‡πÑ‡∏°‡πà‡πÄ‡∏Å‡∏¥‡∏ô 2 MB)
             </span>
             <span id="ByPhoneBook" style="display:none;">
                 <select name="group_id" id="group_id" onChange="ajax_getphonetotal(this.value,'','new');">
-                 <option value=""><---------------°√ÿ≥“‡≈◊Õ° ¡ÿ¥‚∑√»—æ∑Ï---------------></option><option value="372" >List All News All Change</option><option value="373" >Together SMS</option>   
+                 <option value=""><---------------‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏™‡∏°‡∏∏‡∏î‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå---------------></option><option value="372" >List All News All Change</option><option value="373" >Together SMS</option>   
                 </select>
             </span>
             </td>
         </tr>
         <tr><td colspan="2"><input type="hidden" name="textType" id="smsText"  value="" size="3"   readonly></td></tr>    
         <tr id="tr1" >
-            <td align="right" valign="top"><span class="fontlabel">¢ÈÕ§«“¡:</span></td>
+            <td align="right" valign="top"><span class="fontlabel">‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°:</span></td>
             <td valign="center">
             <textarea name="scdg_message" id="scdg_message" cols="80" rows="5"  onkeyup="updateTextBoxCounter();"  ></textarea>
             <span class="fontredbold">*</span>
             </td>
         </tr>    
         <tr>
-            <td width="20%" align="right">®”π«πµ—«Õ—°…√:&nbsp;</td>
+            <td width="20%" align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡∏≠‡∏±‡∏Å‡∏©‡∏£:&nbsp;</td>
             <td><input type="text" name="length_mss" id="length_mss" value="" size="3"  style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
-            µ—«Õ—°…√ µËÕ 
+            ‡∏ï‡∏±‡∏ß‡∏≠‡∏±‡∏Å‡∏©‡∏£ ‡∏ï‡πà‡∏≠ 
             <input type="text"  name="checkinput" id="checkinput"  value="1" size="2"  style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
-            ¢ÈÕ§«“¡ „™È‰ª 
+            ‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏° ‡πÉ‡∏ä‡πâ‡πÑ‡∏õ 
             <input type="text" name="length_use"  id="length_use" value="" size="3"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
-            µ—«Õ—°…√ §‘¥‡ªÁπ 
+            ‡∏ï‡∏±‡∏ß‡∏≠‡∏±‡∏Å‡∏©‡∏£ ‡∏Ñ‡∏¥‡∏î‡πÄ‡∏õ‡πá‡∏ô 
             <input type="text" name="totaluse"  id="totaluse"  value="" size="2"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly>
-            ¢ÈÕ§«“¡
+            ‡∏Ç‡πâ‡∏≠‡∏Ñ‡∏ß‡∏≤‡∏°
             </td>
         </tr>
        
              <tr >
-            <td align="right">®”π«π‡∫Õ√Ï‚∑√»—æ∑Ï:</td>
+            <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå:</td>
             <td>
             <input type="text" name="useCreditOld"  id="useCreditOld" value="" size="10"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
-            ‡§√¥‘µ∑’Ë„™È§√—Èßπ’È: 
+            ‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï‡∏ó‡∏µ‡πà‡πÉ‡∏ä‡πâ‡∏Ñ‡∏£‡∏±‡πâ‡∏á‡∏ô‡∏µ‡πâ: 
             <input type="text" name="useCredit"  id="useCredit" value="" size="10"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
            </td> 
         </tr>
         <tr >
-            <td align="right">‡§√¥‘µ·ºπ°∑—ÈßÀ¡¥:</td>
+            <td align="right">‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï‡πÅ‡∏ú‡∏ô‡∏Å‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î:</td>
             <td>
            
             <input type="text" name="CreditTotal"  id="CreditTotal" value="50000" size="10"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
-            §ß‡À≈◊Õ:  
+            ‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠:  
             <input type="text" name="quota"  id="quota" value="20741" size="10"   style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
             <input type="hidden" id="quota_old"  name="quota_old" value="20741">
             <input type="hidden" id="totaluser_old"  name="totaluser_old" value="29259">
             </td> 
         </tr>
         <tr>
-            <td align="right"><span class="fontlabel">™◊ËÕºŸÈ Ëß   : </span></td>
+            <td align="right"><span class="fontlabel">‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏™‡πà‡∏á   : </span></td>
             <td>
             <select name="scdg_sender" id="scdg_sender"> 
-            <option value=""><-----------------°√ÿ≥“‡≈◊Õ°™◊ËÕºŸÈ Ëß-----------------></option>            <option value="Together">Together</option>           </select>
+            <option value=""><-----------------‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏™‡πà‡∏á-----------------></option>            <option value="Together">Together</option>           </select>
             <span class="fontredbold">*</span>
             </td>
         </tr>
          <tr>
-            <td align="right"><strong>µ—Èß‡«≈“ Ëß: </strong></td>
+            <td align="right"><strong>‡∏ï‡∏±‡πâ‡∏á‡πÄ‡∏ß‡∏•‡∏≤‡∏™‡πà‡∏á: </strong></td>
             <td>
-             <input type="radio" id="timetype1" name="timetype" value="1"  onclick="if(this.checked==true){document.getElementById('tr_senddate').style.display='none';}" /> <strong>  Ëß∑—π∑’ </strong>
-             <input type="radio" id="timetype1" name="timetype" value="2" checked  onclick="if(this.checked==true){document.getElementById('tr_senddate').style.display='';}" />  <strong>√–∫ÿ«—π∑’Ë Ëß </strong>
+             <input type="radio" id="timetype1" name="timetype" value="1"  onclick="if(this.checked==true){document.getElementById('tr_senddate').style.display='none';}" /> <strong> ‡∏™‡πà‡∏á‡∏ó‡∏±‡∏ô‡∏ó‡∏µ </strong>
+             <input type="radio" id="timetype1" name="timetype" value="2" checked  onclick="if(this.checked==true){document.getElementById('tr_senddate').style.display='';}" />  <strong>‡∏£‡∏∞‡∏ö‡∏∏‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡πà‡∏á </strong>
             </td> 
         </tr>
         <tr id="tr_senddate" >
-            <td align="right"><strong>µ—Èß Ëß«—π∑’Ë: </strong></td>
+            <td align="right"><strong>‡∏ï‡∏±‡πâ‡∏á‡∏™‡πà‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà: </strong></td>
             <td>
                 <input type="text" name="sentdate"  id="sentdate" size="13"  value="2011-03-22" style="text-align:center;border:#333333 solid 1px;background:#eeeeee;" readonly> 
                 <img src="images/cal.gif" border="0"   alt='Click here to pick up the date'  height='18' width='18'  style="cursor:pointer;" onClick="return showCalendar('sentdate', 'y-mm-dd');" >
-                <strong>‡«≈“ : </strong>
+                <strong>‡πÄ‡∏ß‡∏•‡∏≤ : </strong>
                 <select name="senttimeH" id="senttimeH">                <option value="01" >01</option>                <option value="02" >02</option>                <option value="03" >03</option>                <option value="04" >04</option>                <option value="05" >05</option>                <option value="06" >06</option>                <option value="07" >07</option>                <option value="08" >08</option>                <option value="09" selected>09</option>                <option value="10" >10</option>                <option value="11" >11</option>                <option value="12" >12</option>                <option value="13" >13</option>                <option value="14" >14</option>                <option value="15" >15</option>                <option value="16" >16</option>                <option value="17" >17</option>                <option value="18" >18</option>                <option value="19" >19</option>                <option value="20" >20</option>                <option value="21" >21</option>                <option value="22" >22</option>                <option value="23" >23</option>                <option value="00" >24</option>                </select>
                 : 
                 <select name="senttimeI" name="senttimeI">                <option value="00" >00</option>                <option value="05" >05</option>                <option value="10" >10</option>                <option value="15" >15</option>                <option value="20" selected>20</option>                <option value="25" >25</option>                <option value="30" >30</option>                <option value="35" >35</option>                <option value="40" >40</option>                <option value="45" >45</option>                <option value="50" >50</option>                <option value="55" >55</option>                </select>

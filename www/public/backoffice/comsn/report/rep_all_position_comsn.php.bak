@@ -19,10 +19,10 @@
 <table style="margin-left:20;" width="350" border="0"><tr><td align="center"><fieldset>
 <form style="margin-bottom:0;" action="index.php?sessiontab=4&sub=103" method="post">
 	<input size="15" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>  ∂÷ß
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>  ‡∏ñ‡∏∂‡∏á
 	<input size="15" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>
-    <input type="submit" value="§Èπ" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>
+    <input type="submit" value="‡∏Ñ‡πâ‡∏ô" />
 </form>
 </fieldset></td></tr></table>
 
@@ -68,19 +68,19 @@ if($fdate!=""){
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,bankcode,bankname,branch,acc_type,acc_no,acc_name,total,banktransfer,totalamt");
 		$rec->setFieldFloatFormat(",,,,,,,,2,2,2");
-		$rec->setFieldDesc("√À— ,™◊ËÕ,√À— ∏π“§“√,∏π“§“√, “¢“,ª√–‡¿∑,‡≈¢∑’Ë∫—≠™’,™◊ËÕ∫—≠™’,√“¬‰¥È,§Ë“‚Õπ, ÿ∑∏‘");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£,‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó,‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏ä‡∏∑‡πà‡∏≠‡∏ö‡∏±‡∏ç‡∏ä‡∏µ,‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ,‡∏Ñ‡πà‡∏≤‡πÇ‡∏≠‡∏ô,‡∏™‡∏∏‡∏ó‡∏ò‡∏¥");
 		$rec->setFieldAlign("center,left,center,left,left,left,left,left,right,right,right");
 		$rec->setFieldSpace("7%,12%,7%,12%,12%,12%,7%,10%,7%,7%,7%");
 		$rec->setSum(true,false,",,,,,,,,true,true,true");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","reportmatching".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","reportmatching".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

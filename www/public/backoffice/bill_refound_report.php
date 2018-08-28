@@ -162,15 +162,15 @@ $monthmonth = explode("-",$fdate);
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,sano1,smcode,name_t,total,uid");
 		$rec->setFieldFloatFormat(",,,,,,2,,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-	//	$rec->setFieldDesc("P,�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,��Դ, PV,�ӹǹ�Թ,������,�Ѵ��,�ѹ�Ѵ��,�ѹ�Ѻ�ͧ,��ҧ�ԧ,�Ѻ�ͧ�Ң�");
-		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",��ҧ�ԧ,".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"]."");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+	//	$rec->setFieldDesc("P,วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,ชนิด, PV,จำนวนเงิน,ผู้คีย์,จัดส่ง,วันจัดส่ง,วันรับของ,อ้างอิง,รับของสาขา");
+		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",อ้างอิง,".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"]."");
 		$rec->setFieldAlign("center,center,center,center,center,left,right,right,center,center,center,center,center");
 		//$rec->setFieldSpace("1%,6%,13%,5%,19%,3%,6%,6%,6%,5%,7%,8%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."asaleh_refund.mcode,".$dbprefix."asaleh_refund.name_t,sadate,sano1,total,".$dbprefix."asaleh_refund.sano1");
-	//	$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�Ң�,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,��ѡ�ҹ");
-		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_1"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_24"].",�����ҧ�ԧ,".$wording_lan["Bill_19"].",".$wording_lan["Bill_20"]);
+	//	$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,สาขา,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,พนักงาน");
+		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_1"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_24"].",บิลอ้างอิง,".$wording_lan["Bill_19"].",".$wording_lan["Bill_20"]);
 		
 		
 

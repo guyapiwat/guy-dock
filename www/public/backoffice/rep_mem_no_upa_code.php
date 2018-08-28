@@ -24,7 +24,7 @@ $sql = "SELECT * FROM ".$dbprefix."member WHERE upa_code<=>NULL OR upa_code='' "
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ");
 		$rec->setFieldAlign("center,left,center,center,center");
 		$rec->setFieldSpace("10%,55%,10%,10%,10%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");

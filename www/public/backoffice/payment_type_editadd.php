@@ -18,8 +18,8 @@
 		
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">��辺�����ŵ�����͹�</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=5&sub=4';">�˹�Ң����ż�����к�</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=5&sub=4';">ไปหน้าข้อมูลผู้ใช้ระบบ</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -49,14 +49,14 @@
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="50%">
       <tr>
         <td colspan="2" align="center"><fieldset>
-        <legend><b>�����š�ê����Թ�����Ң�</b></legend>
+        <legend><b>ข้อมูลการชำะรเงินแต่ละสาขา</b></legend>
         <table align="center"><tr>
-              <td width="34%" align="right" valign="top" >���͡�ê����Թ <font color="#ff0000">*</font></td>
+              <td width="34%" align="right" valign="top" >ชื่อการชำระเงิน <font color="#ff0000">*</font></td>
               <td colspan="2" nowrap>&nbsp;<input type="text" name="pay_name" id="pay_name" size="30" value="<?=$pay_name?>" />  </td>
           </tr><tr>
-              <td width="34%" align="right" valign="top" >��Դ��ê����Թ <font color="#ff0000">*</font></td>
+              <td width="34%" align="right" valign="top" >ชนิดการชำระเงิน <font color="#ff0000">*</font></td>
               <td colspan="2">&nbsp;<select name="pay_type" id="pay_type">
-                <option  value="" >���͡�ٻẺ��ê����Թ  </option>     
+                <option  value="" >เลือกรูปแบบการชำระเงิน  </option>     
 				<?php		
 					foreach($arr_payment_type as $key => $value):			
 					echo '<option value="'.$key.'"';
@@ -66,14 +66,14 @@
 				?>
               </select></td>
           </tr><tr>
-              <td  nowrap width="34%" align="right" valign="top" >��������´��ê����Թ <font color="#ff0000">*</font></td>
+              <td  nowrap width="34%" align="right" valign="top" >รายละเอียดการชำระเงิน <font color="#ff0000">*</font></td>
               <td colspan="2">&nbsp;<input type="text" name="pay_desc" nidame="pay_desc" size="30"  value="<?=$pay_desc?>" /> </td>
         </tr><tr>
-              <td width="34%" align="right" valign="top" >�Ң���ҧ�ԧ <font color="#ff0000">*</font></td>
+              <td width="34%" align="right" valign="top" >สาขาอ้างอิง <font color="#ff0000">*</font></td>
               <td colspan="2">&nbsp;<input style="background-color:#FFFF99" readonly type="text" name="inv_ref" size="10" maxlength="8" value="<?=$inv_ref?>" /> 
-              <input type="button" onClick="get_mem_listpicker_invcode()" value="���͡"> </td>
+              <input type="button" onClick="get_mem_listpicker_invcode()" value="เลือก"> </td>
         </tr><tr>
-              <td width="34%" align="right" valign="top" >������ҧ�ԧ<font color="#ff0000">* </font></td>
+              <td width="34%" align="right" valign="top" >รหัสอ้างอิง<font color="#ff0000">* </font></td>
               <td colspan="2">&nbsp;<input size="20" type="text" id="mapping_code" name="mapping_code" value="<?=$mapping_code?>"></td>
         </tr>
 		 <tr>
@@ -82,7 +82,7 @@
            
          </tr>
 		</table>
-        	<hr width="50%" /><font color="#808080"><u>�����˵�</u></font> <font color="#ff0000">*</font><font color="#808080">=���繵�ͧ��͡������</font> 
+        	<hr width="50%" /><font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font> 
         </fieldset></td>
       </tr>
       <tr>
@@ -92,9 +92,9 @@
       <tr>
         <td width="34%" align="right" valign="top" >&nbsp;</td>
         <td colspan="2">&nbsp;
-            <input type="submit" value="�ѹ�֡" name="B1" />
+            <input type="submit" value="บันทึก" name="B1" />
           &nbsp;
-            <input type="reset" value="¡��ԡ" name="B2" /></td>
+            <input type="reset" value="ยกเลิก" name="B2" /></td>
       </tr>
     </table>
 </form>

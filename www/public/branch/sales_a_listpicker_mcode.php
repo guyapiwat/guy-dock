@@ -20,9 +20,9 @@ function selectitem(sid,sname){
 }
 </script>
 
-<CENTER>���͡��Ҫԡ</CENTER>
+<CENTER>เลือกสมาชิก</CENTER>
 <form name="listform" method="post" action="<?=$_SERVER['PHP_SELF']?>">
-<input type="text" name="name" value='<?=$name?>'><INPUT name="B1" TYPE="submit" value="���Ҫ���">
+<input type="text" name="name" value='<?=$name?>'><INPUT name="B1" TYPE="submit" value="ค้นหาชื่อ">
 </form>
 <form name="listform1" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 	<table width="100%" border="0" cellspacing="1" cellpadding="1">

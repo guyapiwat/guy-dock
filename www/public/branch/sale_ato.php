@@ -7,7 +7,7 @@
 		//window.location='index.php?sessiontab=3&sub=6&sanoo='+id;
 	}
 	function sale_cancel(id){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
 			window.location='index.php?sessiontab=3&sub=144&state=3&bid='+id;
 		}
 	}
@@ -102,27 +102,27 @@ $sql .= " and sadate like '%$fdate%'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÃÑ¡ÉÒÂÍ´,·Ó¤Ø³ÊÁºÑµÔ,holdÂÍ´,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
-		$rec->setFieldDesc("print,ÇÑ¹·Õè«×éÍ,àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,".$wording_lan["word"]["sale_editadd"]["typea"].", PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,ÊÒ¢Ò ËÃ×Í ¾¹Ñ¡§Ò¹");
+		//$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”,à¸—à¸³à¸„à¸¸à¸“à¸ªà¸¡à¸šà¸±à¸•à¸´,holdà¸¢à¸­à¸”,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
+		$rec->setFieldDesc("print,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,".$wording_lan["word"]["sale_editadd"]["typea"].", PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸ªà¸²à¸‚à¸² à¸«à¸£à¸·à¸­ à¸žà¸™à¸±à¸à¸‡à¸²à¸™");
 		$rec->setFieldAlign("center,center,center,center,left,center,right,right,center,center,right,center,center,center,center");
 		$rec->setFieldSpace("1%,7%,7%,7%,44%,7%,7%,7%,11%,7%,7%,7%,7%,7%,15%,8%,4%,4%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."atoasaleh.mcode,name_t,".$dbprefix."atoasaleh.inv_code,sadate,tot_pv,total,".$dbprefix."atoasaleh.uid");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÊÒ¢Ò,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¾¹Ñ¡§Ò¹");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸ªà¸²à¸‚à¸²,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸žà¸™à¸±à¸à¸‡à¸²à¸™");
 		$rec->setSum(true,false,",,,,,,true,true,");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
 		
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		 
 		//}
 		if($acc->isAccess(4)){
-			//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","Â¡àÅÔ¡");
+			//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		}
 		//var_dump($acc->isAccess(2));
 		//exit;
 		if($acc->isAccess(2))
 		//	$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
-		//$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","ÃÑº¢Í§");
+		//$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","à¸£à¸±à¸šà¸‚à¸­à¸‡");
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."atoasaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."atoasaleh.mcode AS smcode";
 $sql .= ",CASE sa_type WHEN 'Q' THEN '1' ELSE '' END AS preserve ";

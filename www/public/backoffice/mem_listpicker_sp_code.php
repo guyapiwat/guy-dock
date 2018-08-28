@@ -2,7 +2,7 @@
 <SCRIPT LANGUAGE="JavaScript">
 function selectitem(sid,sname,terminate){
 		if(terminate == '1'){
-			alert('������Ҫԡ '+sid+' �Դʶҹ� Terminate');
+			alert('รหัสสมาชิก '+sid+' ติดสถานะ Terminate');
 		}else{
 			doc= window.opener.document;
 			doc.frm.sp_code.value = sid;
@@ -15,9 +15,9 @@ function selectitem(sid,sname,terminate){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>���͡��Ҫԡ</title>
+<title>เลือกสมาชิก</title>
 <table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset>
-<legend><strong><font color="#666666">���͡��Ҫԡ</font></strong></legend>
+<legend><strong><font color="#666666">เลือกสมาชิก</font></strong></legend>
 <?
 require("connectmysql.php");
 require("prefix.php");
@@ -55,12 +55,12 @@ $sql = "SELECT * FROM ".$dbprefix."member ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t");
-		$rec->setFieldDesc("������Ҫԡ,����");
+		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ");
 		$rec->setFieldAlign("center,left");
 		$rec->setFieldSpace("40%,60%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("name_t,mcode");
-		$rec->setSearchDesc("����,������Ҫԡ");
+		$rec->setSearchDesc("ชื่อ,รหัสสมาชิก");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");

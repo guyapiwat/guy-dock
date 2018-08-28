@@ -104,7 +104,7 @@ function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$paydate,$fmcode,$cpaytype)
                 if($totalamt1[$j] > 0)
                 {         
 					
-                    if($cmp[$j] == '�ú' and $cmp2[$j] == '�ú' and !empty($acc_no[$j])) //// YES
+                    if($cmp[$j] == 'ครบ' and $cmp2[$j] == 'ครบ' and !empty($acc_no[$j])) //// YES
                     {
                         if($totalamt1[$j] >= 300)
                         {
@@ -133,8 +133,8 @@ function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$paydate,$fmcode,$cpaytype)
                          }
                          else
                          {
-                            if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-                            if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
+                            if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+                            if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
                             if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";                        
                                 
                             $commission = array(
@@ -162,8 +162,8 @@ function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$paydate,$fmcode,$cpaytype)
                     }
                     else /////  NO
                     {
-                        if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-                        if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
+                        if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+                        if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
                         if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
                             $commission = array(
                                 "rcode"        => $ro,

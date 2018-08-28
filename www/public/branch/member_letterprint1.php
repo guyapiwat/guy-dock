@@ -18,8 +18,8 @@ $sql .= "LEFT JOIN (SELECT provinceId AS sprovinceId,provinceName FROM province)
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">��辺�����Ţͧ����Ţ��� <?=$mcode?>
-	<br /><input type="button" value="�Դ˹�ҹ��" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">ไม่พบข้อมูลของบิลเลขที่ <?=$mcode?>
+	<br /><input type="button" value="ปิดหน้านี้" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 
@@ -38,9 +38,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++) {
 
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtName')==""?"":"�.".mysql_result($rs2,0,'districtName');
-	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":"  �.".mysql_result($rs2,0,'amphurName');
-	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceName')==""?"":"�.".mysql_result($rs2,0,'provinceName');
+	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtName')==""?"":"ต.".mysql_result($rs2,0,'districtName');
+	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":"  อ.".mysql_result($rs2,0,'amphurName');
+	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceName')==""?"":"จ.".mysql_result($rs2,0,'provinceName');
 	$add2[$mcode[$i]] .= mysql_result($rs2,0,'zip')==""?"":"   ".mysql_result($rs2,0,'zip');
 	//echo "<br>".$name[$mcode[$i]]."<br>".$add[$mcode[$i]]."<br>".$add1[$mcode[$i]]."<br>".$zip[$mcode[$i]];
 	mysql_free_result($rs2);

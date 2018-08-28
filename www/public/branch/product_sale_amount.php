@@ -19,10 +19,10 @@
 <table style="margin-left:20;" width="350" border="0"><tr><td align="center"><fieldset>
 <form style="margin-bottom:0;" action="index.php?sessiontab=3&sub=7" method="post">
 	<input size="15" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="àÅ×Í¡ÇÑ¹·Õè" /></a>  ¶Ö§
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆ" /></a>  à¸–à¸¶à¸‡
 	<input size="15" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="àÅ×Í¡ÇÑ¹·Õè" /></a>
-    <input type="submit" value="¤é¹" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆ" /></a>
+    <input type="submit" value="à¸„à¹‰à¸™" />
 </form>
 </fieldset></td></tr></table>
 
@@ -74,7 +74,7 @@ $sql .= "GROUP BY ".$dbprefix."holddesc.pcode";// LEFT JOIN ".$dbprefix."bank ON
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -82,7 +82,7 @@ $sql .= "GROUP BY ".$dbprefix."holddesc.pcode";// LEFT JOIN ".$dbprefix."bank ON
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		//$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

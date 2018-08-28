@@ -5,7 +5,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
 		}
 	}
@@ -64,26 +64,26 @@ $sql .= " LEFT JOIN ".$dbprefix."member on (".$dbprefix."eatoship.mcode=".$dbpre
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,smcode,name_t,txtMoney,uid,checkportal");
 		$rec->setFieldFloatFormat(",,,,2,,,,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ,�Ң� ���� ��ѡ�ҹ,��ͧ�ҧ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวน,สาขา หรือ พนักงาน,ช่องทาง");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,center,center,right,right,center");
 		$rec->setFieldSpace("7%,13%,7%,48%,8%,8%,8%,8%,8%,8%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 		$rec->setSearch("".$dbprefix."eatoship.mcode");
-		$rec->setSearchDesc("������Ҫԡ");
+		$rec->setSearchDesc("รหัสสมาชิก");
 		$rec->setSum(true,false,",,,,true,true,true,true,");
-	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		/*if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=23");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=23&state=1","post","delfield");
 		}*/
-		//$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","��");
+		//$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","ดู");
 		;
 	//	if($acc->isAccess(2)){
 	//	$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-	//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+	//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 	//	}
 		//var_dump($acc->isAccess(2));
 		//exit;

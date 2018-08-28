@@ -14,12 +14,12 @@ function isupentcheck(){
 	var val = document.getElementById('sup_code').value;
 	var field = "sup_code";
 	var flag = "1-0-0-1-0";
-	var errDesc = "รหัสผู้จำหน่ายสินค้า";
+	var errDesc = "เธฃเธซเธฑเธชเธเธนเนเธเธณเธซเธเนเธฒเธขเธชเธดเธเธเนเธฒ";
 	
 	val = val + ","+document.getElementById('sup_desc').value;
 	field = field +",sup_desc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",ชื่อผู้จำหน่ายสินค้า";
+	errDesc = errDesc + ",เธเธทเนเธญเธเธนเนเธเธณเธซเธเนเธฒเธขเธชเธดเธเธเนเธฒ";
 		
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -32,13 +32,13 @@ function esupentcheck(){
 	var skipval = document.getElementById('osup_code').value;
 	var field = "sup_code";
 	var flag = "1-0-0-1-0";
-	var errDesc = "รหัสผู้จำหน่ายสินค้า";
+	var errDesc = "เธฃเธซเธฑเธชเธเธนเนเธเธณเธซเธเนเธฒเธขเธชเธดเธเธเนเธฒ";
 	
 	val = val + ","+document.getElementById('sup_desc').value;
 	skipval = skipval+",";
 	field = field +",sup_desc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",ชื่อผู้จำหน่ายสินค้า";
+	errDesc = errDesc + ",เธเธทเนเธญเธเธนเนเธเธณเธซเธเนเธฒเธขเธชเธดเธเธเนเธฒ";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -51,8 +51,8 @@ function esupentcheck(){
 		$sql = "SELECT * FROM ".$dbprefix."supplier WHERE sup_code='".$_GET['sup_code']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3&sub=2';">ไปหน้าข้อมูลสาขา</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3&sub=2';">เนเธเธซเธเนเธฒเธเนเธญเธกเธนเธฅเธชเธฒเธเธฒ</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -78,25 +78,25 @@ function esupentcheck(){
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr> 
       <td width="23%" valign="top" align="right" ></td>
-      <td width="77%"><font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font><br> 
+      <td width="77%"><font color="#808080"><u>เธซเธกเธฒเธขเน€เธซเธ•เธธ</u></font> <font color="#ff0000">*</font><font color="#808080">=เธเธณเน€เธเนเธเธ•เนเธญเธเธเธฃเธญเธเธเนเธญเธกเธนเธฅ</font><br> 
         <br></td>
     </tr>
     <tr> 
-      <td width="23%" valign="top" align="right" >รหัส<font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >เธฃเธซเธฑเธช<font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="text" name="sup_code" id="sup_code" size="20" maxlength="7" value="<?=$sup_code?>">
 	  <input type="hidden" name="osup_code" id="osup_code"o value="<?=$sup_code?>">
 	  </td>
     </tr>
     <tr> 
-      <td width="23%" valign="top" align="right" >ชื่อ <font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >เธเธทเนเธญ <font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="text" name="sup_desc" id="sup_desc"  maxlength="100" value="<?=$sup_desc?>"></td>
     </tr>
     <!--tr> 
-      <td width="23%" valign="top" align="right" >ข้อมูลถูกต้อง <font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >เธเนเธญเธกเธนเธฅเธ–เธนเธเธ•เนเธญเธ <font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="checkbox" name="C1" value="ok"></td>
     </tr-->
     <tr> 
-        <td width="23%" align="right">ที่อยู่ปัจจุบัน&nbsp;</td>
+        <td width="23%" align="right">เธ—เธตเนเธญเธขเธนเนเธเธฑเธเธเธธเธเธฑเธ&nbsp;</td>
         <td width="77%">&nbsp; <textarea name="address" cols="50" rows="3"><?=$address?></textarea></td>
     </tr>
     <tr> 
@@ -106,18 +106,18 @@ function esupentcheck(){
     <tr> 
       <td width="23%" valign="top" align="right" >&nbsp;</td>
       <td width="77%">
-	  <input name="button" type="button" onclick="<?=(isset($_GET['sup_code'])?"esupentcheck()":"isupentcheck()")?>" value="ตรวจสอบ" />
+	  <input name="button" type="button" onclick="<?=(isset($_GET['sup_code'])?"esupentcheck()":"isupentcheck()")?>" value="เธ•เธฃเธงเธเธชเธญเธ" />
              &nbsp;
-             <input type="submit" value="บันทึก" name="ok"  disabled="disabled" />
+             <input type="submit" value="เธเธฑเธเธ—เธถเธ" name="ok"  disabled="disabled" />
              &nbsp;
-            <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=2'" value="ยกเลิก" />
+            <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=2'" value="เธขเธเน€เธฅเธดเธ" />
     </tr>
   </table>
 
 </form>
 </td>
      <td width="40%">
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font></div></td>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;เธเธฅเธดเธเธ•เธฃเธงเธเธชเธญเธเน€เธเธทเนเธญเธ—เธณเธเธฒเธฃเธ•เธฃเธงเธเธชเธญเธเธเนเธญเธกเธนเธฅ&nbsp; </font></div></td>
    </tr>
  </table>
      

@@ -8,9 +8,9 @@
 
 			<table border="0" cellspacing="0" cellpadding="0" width="1260">
 				<tr>
-					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>����Թ Finance</B></FONT><br /><br />
+					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>การเงิน Finance</B></FONT><br /><br />
 				<tr >
-					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>���ʼ���� :</strong> ".$_SESSION["adminusercode"]." <strong>���ͼ���� :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 				</tr>
 				<tr>
 				  <td width="368">
@@ -25,30 +25,30 @@
 					
 					  	 <tr>
 						<td width="16%" align="right"><img src="images/9_37s.gif" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=28">��§ҹ��ػ�ͺ��è���</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=28">รายงานสรุปรอบการจ่าย</a></td>
 					  </tr>	
                        
                       <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=34">��§ҹ��ػ�ͺ���������</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=34">รายงานสรุปรอบการไม่จ่าย</a></td>
                       </tr>
 					   <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=36">��Ҥ���¡ vip� �¡ ��Ҥ��</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=36">ค่าคอมแยก vip  แยก ธนาคาร</a></td>
                       </tr>
 					    <tr>
 						<td width="16%" align="right"><img src="./images/exec.gif" width="24" height="24">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./sell_print_uidp.php" target="_blank">��§ҹ����Ѻ�����Թ��Ш��ѹ  (�¡����ҹ�������л�������ê��� �¡�Ң�)</a></td>
+						<td width="84%"><a href="./sell_print_uidp.php" target="_blank">รายงานการรับชำระเงินประจำวัน  (แยกตามเคาน์เตอร์และประเภทการชำระ แยกสาขา)</a></td>
 					  </tr>
                       
 					  <tr>
 						<td width="16%" align="right"><img src="./images/6_11.gif" width="25" height="25" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">��§ҹ��è����Թ (�ѵ��ôԵ��Թ�͹)</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">รายงานการจ่ายเงิน (บัตรเครดิตรเงินโอน)</a></td>
 					  </tr>
 
 					  <tr>
                         <td width="16%" align="right"><img src="images/inv_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2828">���. 3</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2828">ภงด. 3</a></td>
                       </tr>
 					
 					</table>
@@ -65,7 +65,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="���ٺ������к�" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เมนูบริหารระบบ" /></a>
 
 </td>
 <td width="100%">
@@ -76,9 +76,9 @@
 			 case 2:
 				?>
 				<legend>
-		           	<strong><font color="#666666">�ѹ�֡�鹷ع�Թ���&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">บันทึกต้นทุนสินค้า&nbsp;&nbsp;</font></strong>
                    <!--	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="�����������Թ���" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>�����Թ���</a>
+               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้า</a>
                    <? }?>    -->          
 				</legend>
 				<?
@@ -87,7 +87,7 @@
 			 case 28:
 				?>
 				<legend>
-		           <strong><font color="#666666">��§ҹ��ػ�ͺ��è���</font></strong></legend>
+		           <strong><font color="#666666">รายงานสรุปรอบการจ่าย</font></strong></legend>
 				<?
 				include("./comsn/com_c/rep_cmbonus_comsn.php");
 				break;
@@ -95,16 +95,16 @@
 				?>
 
 				<legend>
-		           <strong><font color="#666666">��§ҹ��ػ�ͺ���������</font></strong></legend>
+		           <strong><font color="#666666">รายงานสรุปรอบการไม่จ่าย</font></strong></legend>
 				<?
 				include("./comsn/com_c/rep_cc_comsn.php");
 				break;
 			 case 1:
 				?>
 				<legend>
-		           	<strong><font color="#666666">�ѹ�֡�鹷ع�Թ���&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">บันทึกต้นทุนสินค้า&nbsp;&nbsp;</font></strong>
                    <!--	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="�����������Թ���" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>�����Թ���</a>
+               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้า</a>
                    <? }?>    -->          
 				</legend>
 				<?
@@ -113,7 +113,7 @@
 			 case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">�ʹ��������ٹ��</font></strong>
+       			    <strong><font color="#666666">ยอดขายแต่ละศูนย์</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -121,9 +121,9 @@
 
 			 case 60:
 				?>
-				<legend> <strong><font color="#666666">���Թ�������к�</font></strong>
+				<legend> <strong><font color="#666666">นำสินค้าเข้าระบบ</font></strong>
 				<? if($acc->isAccess(1)){?>
-				<img border="0" src="./images/add.gif" alt="��������Ѻ�Թ������ [Ẻ�Դ���]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>��������Ѻ�Թ������ [Ẻ�Դ���]</a>
+				<img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]</a>
 				<? }?>
 				</legend>
 				<?
@@ -132,21 +132,21 @@
 			 case 2828:
 				?>
 				<legend>
-		           <strong><font color="#666666">��§ҹ��ػ�ͺ��è��� ���. 3</font></strong></legend>
+		           <strong><font color="#666666">รายงานสรุปรอบการจ่าย ภงด. 3</font></strong></legend>
 				<?
 				include("./comsn/com_c/rep_cmbonus_comsn_3.php");
 				break;
 			case 36:
 				?>
 				<legend>
-		           <strong><font color="#666666">��Ҥ���¡ vip� �¡ ��Ҥ��</font></strong></legend>
+		           <strong><font color="#666666">ค่าคอมแยก vip  แยก ธนาคาร</font></strong></legend>
 				<?
 				include("./comsn/com_c/packfile.php");
 				break;
 			case 18:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ��è����Թ (�ѵ��ôԵ��Թ�͹)</font></strong>
+       			    <strong><font color="#666666">รายงานการจ่ายเงิน (บัตรเครดิตรเงินโอน)</font></strong>
                 </legend>
 				<?
 				include("sale_bill_total.php");

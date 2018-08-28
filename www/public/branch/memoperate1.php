@@ -219,7 +219,7 @@ $province = getprovince($province);
 
 $chk_id_card = chk_id_card($mcode,$id_card);
 if($chk_id_card){
-	echo "<script language='JavaScript'>alert('�Ţ�ѵû�ЪҪ����������');window.location='index.php?sessiontab=1&sub=2'</script>";	
+	echo "<script language='JavaScript'>alert('เลขบัตรประชาชนใช้ไม่ได้ค่ะ');window.location='index.php?sessiontab=1&sub=2'</script>";	
 	exit;	
 }
 //$id_card1 = explode('-',$id_card);
@@ -343,7 +343,7 @@ if($chk_id_card){
 		}
 	
 	
-		logtext1(true,$_SESSION['inv_username'],'�����Ҫԡ ���� : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
+		logtext1(true,$_SESSION['inv_username'],'แก้ไขสมาชิก รหัส : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
 		//$acc_no = $acc_no_1.$acc_no_2.$acc_no_3.$acc_no_4.$acc_no_5.$acc_no_6.$acc_no_7.$acc_no_8.$acc_no_9.$acc_no_10;
 		//echo $zip;
 	//	echo $_SESSION["inv_username"];
@@ -396,7 +396,7 @@ mysql_query($sql);
 
 
 		if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -406,7 +406,7 @@ mysql_query($sql);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -445,7 +445,7 @@ writelogfile($text);
 				} else {
 					move_uploaded_file($_FILES["myfile"]["tmp_name"], "../uploads/profile_img/".$mcode.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='�ú' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='ครบ' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}*/

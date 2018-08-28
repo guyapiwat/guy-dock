@@ -20,7 +20,7 @@ if(isset($_GET['state'])){
 
 }
 	if($_GET['state']==0){
-		logtext(true,$_SESSION['adminusercode'],'‡æ‘Ë¡ºŸÈ®”ÀπË“¬ ‘π§È“',$sup_code);
+		logtext(true,$_SESSION['adminusercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ú‡∏π‡πâ‡∏à‡∏≥‡∏´‡∏ô‡πà‡∏≤‡∏¢‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$sup_code);
 		$sql = "insert into ".$dbprefix."supplier (sup_code,  sup_desc ,sup_type ,address ,districtId ,amphurId ,provinceId,zip,uid) ";
 		$sql .= "values ('$sup_code' ,'$sup_desc', '$sup_type','$address','$district','$amphur','$province','$zip',";
 		$sql .= "'".$_SESSION['adminusercode']."') ";
@@ -40,7 +40,7 @@ writelogfile($text);
 		}
 
 	}else if($_GET['state']==1){
-		logtext(true,$_SESSION['adminusercode'],'·°È‰¢ºŸÈ®”ÀπË“¬ ‘π§È“','$sup_code');
+		logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏ú‡∏π‡πâ‡∏à‡∏≥‡∏´‡∏ô‡πà‡∏≤‡∏¢‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤','$sup_code');
 		$sql = "update ".$dbprefix."supplier set  sup_desc='$sup_desc',";
 		$sql .= "sup_code='$sup_code',sup_type='$sup_type',";
 		$sql .= "address='$address',provinceId='$province',";

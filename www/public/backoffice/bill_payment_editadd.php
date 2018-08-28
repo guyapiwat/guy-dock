@@ -106,7 +106,7 @@ function gen_code($source){
   <input name="btnSubmit" type="submit" id="btnSubmit" value="Submit">
 </form>
 
-<h2>รายการที่นำเข้าสำเร็จ  <?=$true_c?>  รายการ</h2>
+<h2>เธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธเธณเน€เธเนเธฒเธชเธณเน€เธฃเนเธ  <?=$true_c?>  เธฃเธฒเธขเธเธฒเธฃ</h2>
 <div class="datagrid">
 <table >
 <thead>
@@ -133,7 +133,7 @@ function gen_code($source){
 </div>
 <hr/>
 
-<h2>รายการที่ไม่สามารถนำเข้าได้   <?=$false_c?>  รายการ</h2>
+<h2>เธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธเธณเน€เธเนเธฒเนเธ”เน   <?=$false_c?>  เธฃเธฒเธขเธเธฒเธฃ</h2>
 <div class="datagrid">
 <table>
 <thead>

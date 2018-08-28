@@ -62,10 +62,10 @@ function dateDiff1($startDate, $endDate) {
 
 } 
 function expdate1($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 function updatePos1($dbprefix,$mcode,$cur_date,$tot_pv){
 
@@ -104,7 +104,7 @@ function updatePos1($dbprefix,$mcode,$cur_date,$tot_pv){
 //	exit;
 	//if($chkmonth == $thismonth or $chkmonth == $nextmonth ){
 	if($expmdte > $cur_date ){
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		//$sql = "SELECT MAX(tot_pv) as pv from ".$dbprefix."asaleh WHERE mcode='$mcode' ";
 		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE sa_type='A' and mcode='$mcode' and (sadate <= '$cur_date') and cancel=0 ";
 		//echo $sql.'<br>';
@@ -139,9 +139,9 @@ function updatePos1($dbprefix,$mcode,$cur_date,$tot_pv){
 		//$mexp = $tot_pv;
 	}
 //exit;
-	//-----�纵��˹觻Ѩ�غѹ
+	//-----เก็บตำแหน่งปัจจุบัน
 	//mysql_free_result($rs);
-	//�ӹǳ���˹�
+	//คำนวณตำแหน่ง
 	$pos_new = $pos_old;
 	foreach(array_keys($pos_exp) as $key){
 		//echo $key;

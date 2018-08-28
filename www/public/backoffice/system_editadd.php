@@ -70,7 +70,7 @@ div.border{
 					<div class="widget-main" style="padding-top:5px"> 
 						<div class="form-group grey" >
 								<div class="col-md-6">
-								<span class="lbl">&nbsp &nbsp �к�</span>
+								<span class="lbl">&nbsp &nbsp ระบบ</span>
 									<input id="status_member_old" name="status_member_old" type="hidden" value="<?=$status_member;?>" class="ace ace-switch ace-switch-4" >
 								</div>
 								<div class="col-md-6">
@@ -80,7 +80,7 @@ div.border{
 						</div>
 						<div class="form-group grey" >
 								<div class="col-md-6">
-									<span class="lbl middle">&nbsp&nbsp ��Ѥ���Ҫԡ</span>
+									<span class="lbl middle">&nbsp&nbsp สมัครสมาชิก</span>
 									<input id="status_regis_mb_old" name="status_regis_mb_old" type="hidden" value="<?=$status_regis_mb;?>" class="ace ace-switch ace-switch-4" >
 								</div>
 								<div class="col-md-6">
@@ -90,7 +90,7 @@ div.border{
 						</div>
 						<div class="form-group grey">
 								<div class="col-md-6">
-									<span class="lbl middle">&nbsp&nbsp ��觫����Թ���</span>
+									<span class="lbl middle">&nbsp&nbsp สั่งซื้อสินค้า</span>
 									<input id="status_sale_mb_old" name="status_sale_mb_old" type="text" value="<?=$status_sale_mb;?>" class="ace ace-switch ace-switch-4" hidden>
 								</div>
 								<div class="col-md-6">
@@ -100,7 +100,7 @@ div.border{
 						</div>
 						<div class="form-group grey" >
 								<div class="col-md-6">
-									<span class="lbl middle">&nbsp&nbsp  �š�ͧ</span>
+									<span class="lbl middle">&nbsp&nbsp  แลกของ</span>
 									<input id="status_swap_mb_old" name="status_swap_mb_old" type="hidden" value="<?=$status_swap_mb;?>" class="ace ace-switch ace-switch-4" >
 								</div>
 								<div class="col-md-6">
@@ -110,7 +110,7 @@ div.border{
 						</div>
 						<div class="form-group grey" >
 								<div class="col-md-6">
-									<span class="lbl middle">&nbsp&nbsp  ᨧ�ʹ Hold</span>
+									<span class="lbl middle">&nbsp&nbsp  แจงยอด Hold</span>
 									<input id="status_hold_mb_old" name="status_hold_mb_old" type="hidden" value="<?=$status_hold_mb;?>" class="ace ace-switch ace-switch-4" >
 								</div>
 								<div class="col-md-6">
@@ -128,7 +128,7 @@ div.border{
 		<div class='col-md-6'> 
 			<div id="" class="col-md-12 text-center">
 				<div class="widget-header">
-					<h4 class="widget-title">��ͤ���</h4>
+					<h4 class="widget-title">ข้อความ</h4>
 				</div>
 				<div class="widget-body" style="display: block;">
 					<div  style="padding-top:5px"> 
@@ -147,10 +147,10 @@ div.border{
 	<div class="form-group text-center">
 		<div class="col-sm-12 col-md-12 ">
 			<button type="submit" class="btn btn-white btn-md btn-success btn-round no-border">
-				�ѹ�֡
+				บันทึก
 			</button>
 			<button type="reset" class="btn btn-white btn-md btn-default btn-round no-border">
-				¡��ԡ
+				ยกเลิก
 			</button>
 		</div>
 	</div>

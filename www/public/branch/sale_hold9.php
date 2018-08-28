@@ -69,27 +69,27 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		$rec->setShowField("sano,pcode,pdesc,price,pv,qty,sadate,hdate");
 		$rec->setFieldFloatFormat(",,,2,2,2");
 		//$rec->setSum(true,false,",,,true,true,true");
-		$rec->setFieldDesc("‡≈¢∑’Ë,√À—  ¡“™‘°/ ‘π§È“,™◊ËÕ ¡“™‘°/ ‘π§È“, √“§“§ß‡À≈◊Õ,PV§ß‡À≈◊Õ,®”π«π§ß‡À≈◊Õ,«—π´◊ÈÕ,«—π ‘Èπ ÿ¥°“√·®ß");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å/‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å/‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤, ‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,PV‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏ß‡∏±‡∏ô‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡πÅ‡∏à‡∏á");
 		$rec->setFieldAlign("center,center,left,right,right,right,center,center"); 
 		//$rec->setFieldLink("index.php?sessiontab=3&sub=999&&fmcode=");
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ¬Õ¥§È“ß·®ß','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏¢‡∏≠‡∏î‡∏Ñ‡πâ‡∏≤‡∏á‡πÅ‡∏à‡∏á','');
 			$text="uid=".$_SESSION["adminusercode"]." action=sale_hold_excel =>$sql";
 			writelogfile($text);
 
 			$rec->exportXls("ExportXls","sale_hold".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_hold".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 	
 		$rec->setSpace($str);
 
 		$str = "<fieldset><a href='sale_hold_print_all.php' target='_blank'>";
-		$str .= "<img border='0' src='./images/Amber-Printer.gif'>æ‘¡æÏ∑—ÈßÀ¡¥</a></fieldset>";
+		$str .= "<img border='0' src='./images/Amber-Printer.gif'>‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a></fieldset>";
 	
 		//$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
@@ -106,14 +106,14 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 	 <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>
-	  <td align="right">‡≈¢∫‘≈ &nbsp;</td>
+	  <td align="right">‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏• &nbsp;</td>
 		<td><input type="text" name="sano" id="sano"  value="<?=$sano?>" /></td>
 	  
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$fmcode?>" /></td>
 		  
 		
-		<td>&nbsp; <input type="submit" name="Submit" value="§ÈπÀ“"/></td>
+		<td>&nbsp; <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤"/></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>

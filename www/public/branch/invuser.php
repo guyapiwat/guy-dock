@@ -36,7 +36,7 @@ $sql .= "FROM ".$dbprefix."user WHERE usertype='2'";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("usercode,username,object3r,inv_ref");//uid,
-		$rec->setFieldDesc("ÃËÑÊ¼Ùéãªé,ª×èÍ¼Ùéãªé,àÁ¹Ù¢ÒÂ,ÊÒ¢Ò");//ÃËÑÊ¾¹Ñ¡§Ò¹,
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹ƒà¸Šà¹‰,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰,à¹€à¸¡à¸™à¸¹à¸‚à¸²à¸¢,à¸ªà¸²à¸‚à¸²");//à¸£à¸«à¸±à¸ªà¸žà¸™à¸±à¸à¸‡à¸²à¸™,
 		$rec->setFieldAlign("center,center,center,center");//center,
 		$rec->setFieldSpace("15%,35%,10%,40%");//10%,
 		$rec->setFieldLink(",");

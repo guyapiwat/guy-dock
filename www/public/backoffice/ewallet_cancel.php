@@ -2,8 +2,8 @@
 require_once("logtext.php");
 require_once ("function.log.inc.php");
 
-	// ·®Èß«Ë“¡’√“¬°“√ ≈∫¢ÈÕ¡Ÿ≈ ¡“™‘°„À¡Ë
-	echo "<br>·°È‰¢¢ÈÕ¡Ÿ≈√“¬°“√´◊ÈÕ¢“¬ :";
+	// ‡πÅ‡∏à‡πâ‡∏á‡∏ß‡πà‡∏≤‡∏°‡∏µ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÉ‡∏´‡∏°‡πà
+	echo "<br>‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠‡∏Ç‡∏≤‡∏¢ :";
 	$bid = $_GET['bid'];
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -12,12 +12,12 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">‡≈¢∫‘≈</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">√À— </td>
-            <td style="<?=$style_l.$style_t.$style_b?>">®”π«π‡ß‘π√«¡</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏´‡∏±‡∏™</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°</td>
         </tr>
 	<?
-		// ÕË“π¢ÈÕ¡Ÿ≈‡¥‘¡®“° member
+		// ‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏î‡∏¥‡∏°‡∏à‡∏≤‡∏Å member
 		//echo "SELECT * FROM ".$dbprefix."ewallet WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."ewallet WHERE id='$bid' and cancel = 0 LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
@@ -29,7 +29,7 @@ require_once ("function.log.inc.php");
 
 			$rs1=mysql_query("SELECT * FROM ".$dbprefix."member WHERE ewallet>=$ewallet and mcode = '$mcode' ");
 			if (mysql_num_rows($rs1)<=0){
-				echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È');window.location='index.php?sessiontab=6&sub=23'</script>";	
+				echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=6&sub=23'</script>";	
 				exit;
 			}
 			?>
@@ -66,10 +66,10 @@ writelogfile($text);
 //=================END LOG===========================
 			mysql_query("update ".$dbprefix."ewallet set cancel=1 where  id='$bid' ");
 		}else{
-			echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È');window.location='index.php?sessiontab=6&sub=23'</script>";	
+			echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=6&sub=23'</script>";	
 			exit;
 		}
-		logtext(true,$_SESSION['adminuserid'],'≈∫∫‘≈ ewallet id : '.$row->sano,$row->sano);
+		logtext(true,$_SESSION['adminuserid'],'‡∏•‡∏ö‡∏ö‡∏¥‡∏• ewallet id : '.$row->sano,$row->sano);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 ?>

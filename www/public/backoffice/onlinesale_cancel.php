@@ -19,7 +19,7 @@ require_once ("function.log.inc.php");
 //	echo $sqlC;
 //	exit;
 	if(mysql_num_rows($sqlSS) > 0 ){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź����');window.location='index.php?sessiontab=3&sub=42'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้');window.location='index.php?sessiontab=3&sub=42'</script>";	
 			exit;
 	}		
 	$sql = "UPDATE ".$dbprefix."transfersale_h SET cancel='1' WHERE id='$bid' ";
@@ -30,7 +30,7 @@ writelogfile($text);
 //=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION['adminusercode'],'¡��ԡ��ū���͹�Ź� ���� : '.$id.' ������Ҫԡ : '.$mcode,$bid);
+	logtext(true,$_SESSION['adminusercode'],'ยกเลิกบิลซื้ออนไลน์ รหัส : '.$id.' รหัสสมาชิก : '.$mcode,$bid);
 
 	echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=42'</script>";	
 

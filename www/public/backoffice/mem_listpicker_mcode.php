@@ -6,10 +6,10 @@ function selectitem(mid,mname,sumtotal,pos_cur,mdate1){
 		//doc.frm.mname.value = sname;
 		if(pos_cur == 'MB' || pos_cur == 'SU'){
 			if(mdate1 > 30){
-			doc.getElementById('mname').innerHTML=mname+'���ͤس���ѵ� 3000 PV'; 
+			doc.getElementById('mname').innerHTML=mname+'ซื้อคุณสมชัติ 3000 PV'; 
 			}else{
 				sumtotal = 3000-sumtotal;
-				doc.getElementById('mname').innerHTML=mname+'���ͤس���ѵ� : '+sumtotal;
+				doc.getElementById('mname').innerHTML=mname+'ซื้อคุณสมบัติ : '+sumtotal;
 
 			}
 		}else{
@@ -21,8 +21,8 @@ function selectitem(mid,mname,sumtotal,pos_cur,mdate1){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>���͡��Ҫԡ</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">����͡��Ҫԡ</font></strong></legend>
+<title>เลือกสมาชิก</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">เเลือกสมาชิก</font></strong></legend>
 <?
 require("prefix.php");
 require("./cls/repGenerator.php");
@@ -62,12 +62,12 @@ $sql = "SELECT DATEDIFF(NOW(),tab.mdate) as mdate1,tab.mcode,tab.pos_cur,tab.pos
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,");
-		$rec->setFieldDesc("������Ҫԡ,����");
+		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ");
 		$rec->setFieldAlign("center,left");
 		$rec->setFieldSpace("40%,60%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("mcode,name_t");
-		$rec->setSearchDesc("������Ҫԡ,����");
+		$rec->setSearchDesc("รหัสสมาชิก,ชื่อ");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");

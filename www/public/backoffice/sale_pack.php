@@ -34,20 +34,20 @@
 <table style="margin-left:20;" width="562" border="0">
   <tr valign="top"><td width="442" align="center" ><fieldset>
 	<input size="15" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="àÅ×Í¡ÇÑ¹·Õè" /></a>  ¶Ö§
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆ" /></a>  à¸–à¸¶à¸‡
 	<input size="15" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="àÅ×Í¡ÇÑ¹·Õè" /></a>
-    <input type="submit" value="¤é¹" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆ" /></a>
+    <input type="submit" value="à¸„à¹‰à¸™" />
 </fieldset></td>
 <td align="center" width="110"><fieldset>
 	<? if($stype == 1){?>
         <a href="sell_print.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">¾ÔÁ¾ì·Ñé§ËÁ´</a>
+        <img border="0" src="./images/Amber-Printer.gif">à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a>
     <? }else if($stype == 2){?>
          <a href="sale_print_product.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
     <? }else if($stype == 3){?>
          <a href="sale_bill_member_print.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">¾ÔÁ¾ì·Ñé§ËÁ´</a>     
+        <img border="0" src="./images/Amber-Printer.gif">à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a>     
    
     <? }?>
 </fieldset></td>

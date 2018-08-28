@@ -23,8 +23,8 @@ if(isset($_GET['state'])){
 }
 if($_GET['state']==0){
 	$mid = $ppcode;
-	logtext(true,$_SESSION['adminusercode'],'à¾ÔèÁÊÔ¹¤éÒã¹ package : '.$mid,$mid);
-	/*logtext(true,$_SESSION['adminuserid'],'à¾ÔèÁÊÔ¹¤éÒ package',$mid);
+	logtext(true,$_SESSION['adminusercode'],'à¹€à¸žà¸´à¹ˆà¸¡à¸ªà¸´à¸™à¸„à¹‰à¸²à¹ƒà¸™ package : '.$mid,$mid);
+	/*logtext(true,$_SESSION['adminuserid'],'à¹€à¸žà¸´à¹ˆà¸¡à¸ªà¸´à¸™à¸„à¹‰à¸² package',$mid);
 	$sql="insert into ".$dbprefix."product_package1 (package, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_bv,tot_fv, uid ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv','$tot_bv','$tot_fv' ,'".$_SESSION['adminusercode']."') ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminusercode"]." action=package product =>$sql";
@@ -60,7 +60,7 @@ writelogfile($text);
 	}
 	//updatePos($dbprefix,$mcode,$sadate);
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'á¡éä¢ÊÔ¹¤éÒã¹ package : '.$id,$id);
+	logtext(true,$_SESSION['adminusercode'],'à¹à¸à¹‰à¹„à¸‚à¸ªà¸´à¸™à¸„à¹‰à¸²à¹ƒà¸™ package : '.$id,$id);
 
 	mysql_query("DELETE FROM ".$dbprefix."product_package1 WHERE package='$id'");
 	if(isset($_POST['pcode'])){
@@ -103,6 +103,6 @@ function plusProduct($dbprefix,$pcode,$invent,$qty){
 	$rs = mysql_query($sql);
 }
 
-//update µÓáË¹è§ áººäÁèÊÐÊÁ¤Ðá¹¹
+//update à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡ à¹à¸šà¸šà¹„à¸¡à¹ˆà¸ªà¸°à¸ªà¸¡à¸„à¸°à¹à¸™à¸™
 	
 ?>

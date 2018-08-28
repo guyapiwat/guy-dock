@@ -1,7 +1,7 @@
 <SCRIPT language=Javascript1.2>
 function Validate(form) {
 	 	if (form.groupname.value == "")
-		{ alert("กรุณาใส่ข้อมูลกลุ่มสินค้า!"); form.groupname.focus(); return; }
+		{ alert("เธเธฃเธธเธ“เธฒเนเธชเนเธเนเธญเธกเธนเธฅเธเธฅเธธเนเธกเธชเธดเธเธเนเธฒ!"); form.groupname.focus(); return; }
 	form.submit()
 } 
 </SCRIPT>
@@ -11,7 +11,7 @@ function Validate(form) {
 		$sql = "SELECT * FROM ".$dbprefix."productgroup WHERE id='".$_GET['id']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr>
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ</font></td></tr><tr>
 		</tr></table><?
 			exit;
 		}else{
@@ -29,12 +29,12 @@ function Validate(form) {
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="50%">
       <tr>
         <td colspan="2" align="center"><fieldset>
-        <legend><b>ข้อมูลหมวดหมู่สินค้า</b></legend>
+        <legend><b>เธเนเธญเธกเธนเธฅเธซเธกเธงเธ”เธซเธกเธนเนเธชเธดเธเธเนเธฒ</b></legend>
         <table align="center"><tr>
-              <td width="34%" align="right" valign="top" >กลุ่มสินค้า <font color="#ff0000">*</font></td>
+              <td width="34%" align="right" valign="top" >เธเธฅเธธเนเธกเธชเธดเธเธเนเธฒ <font color="#ff0000">*</font></td>
               <td colspan="2">&nbsp;<input type="text" name="groupname" id="groupname" value="<?=$groupname?>" /></td>
           </tr></table>
-        	<hr width="50%" /><font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font> 
+        	<hr width="50%" /><font color="#808080"><u>เธซเธกเธฒเธขเน€เธซเธ•เธธ</u></font> <font color="#ff0000">*</font><font color="#808080">=เธเธณเน€เธเนเธเธ•เนเธญเธเธเธฃเธญเธเธเนเธญเธกเธนเธฅ</font> 
         </fieldset></td>
       </tr>
       <tr><td>&nbsp;</td></tr>
@@ -45,9 +45,9 @@ function Validate(form) {
       <tr>
         <td width="34%" align="right" valign="top" >&nbsp;</td>
         <td colspan="2">&nbsp;
-            <input onclick=Validate(form) type=button value="บันทึก" name="B1" />
+            <input onclick=Validate(form) type=button value="เธเธฑเธเธ—เธถเธ" name="B1" />
           &nbsp;
-            <input type="reset" value="ยกเลิก" name="B2" /></td>
+            <input type="reset" value="เธขเธเน€เธฅเธดเธ" name="B2" /></td>
       </tr>
     </table>
 </form>

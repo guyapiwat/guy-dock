@@ -15,7 +15,7 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
@@ -76,24 +76,24 @@ if(!empty($inv))$sql .= " and inv_code like '%$inv%'  ";
 			$rec->setCurPage($page);
 		$rec->setShowField("hono,preserve,smcode,name_t,sadate,tot_pv,total,ssano,smcode1,sname_t,uid");
 		$rec->setFieldFloatFormat(",,,,,2,2");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,‡≈¢∑’Ë∫‘≈ BMC,√À— ºŸÈ´◊ÈÕ BMC,™◊ËÕºŸÈ´◊ÈÕ BMC,ºŸÈ∫—π∑÷°");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏• BMC,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠ BMC,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠ BMC,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
 
-		$rec->setFieldDesc($wording_lan["Billjang_1"].",ª√–‡¿∑∫‘≈,".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_41"].",".$wording_lan["Billjang_5"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_7"].",".$wording_lan["Billjang_8"].",".$wording_lan["Billjang_9"].",".$wording_lan["Billjang_10"]);
+		$rec->setFieldDesc($wording_lan["Billjang_1"].",‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•,".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_41"].",".$wording_lan["Billjang_5"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_7"].",".$wording_lan["Billjang_8"].",".$wording_lan["Billjang_9"].",".$wording_lan["Billjang_10"]);
 		
 		
 		$rec->setFieldAlign("left,center,center,left,center,right,right,center,center,left,right");
 		$rec->setFieldSpace("5%,8%,8%,20%,7%,7%,7%,10%,10%,20%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("hono,".$dbprefix."asaleh.sano,".$dbprefix."holdhead.mcode,".$dbprefix."holdhead.name_t,".$dbprefix."asaleh.mcode,".$dbprefix."holdhead.sadate,".$dbprefix."holdhead.tot_pv,".$dbprefix."holdhead.total");
-	//	$rec->setSearchDesc("‡≈¢∫‘≈,∫‘≈ BMC,√À— ºŸÈ∂Ÿ°·®ß,™◊ËÕ∂Ÿ°ºŸÈ·®ß,√À— ºŸÈ´◊ÈÕ BMC,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+	//	$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏ö‡∏¥‡∏• BMC,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ñ‡∏π‡∏Å‡πÅ‡∏à‡∏á,‡∏ä‡∏∑‡πà‡∏≠‡∏ñ‡∏π‡∏Å‡∏ú‡∏π‡πâ‡πÅ‡∏à‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠ BMC,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		
 		$rec->setSearchDesc($wording_lan["Billjang_1"].",".$wording_lan["Billjang_7"].",".$wording_lan["Billjang_2"].",".$wording_lan["Billjang_3"].",".$wording_lan["Billjang_8"].",".$wording_lan["Billjang_41"].",".$wording_lan["Billjang_5"].",".$wording_lan["Billjang_6"]);
 		$rec->setSum(true,false,",,,,,true,true");
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["Bill_print"]);
 		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE",$wording_lan["Bill_view"]);
-//		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¬°‡≈‘°");
+//		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","æ‘¡æÏ");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		if($acc->isAccess(4) and $_SESSION["inventobj6"] >= '7'){
 		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE",$wording_lan["Bill_cancle"]);				}//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//if($acc->isAccess(4)){
@@ -104,12 +104,12 @@ if(!empty($inv))$sql .= " and inv_code like '%$inv%'  ";
 
 			$rec->exportXls("ExportXls","hold".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","hold".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		//if($acc->isAccess(2))
 		//	$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");

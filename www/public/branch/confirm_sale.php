@@ -7,7 +7,7 @@
 var wi=null;
 function get_sales_listpicker_mcode(){
 		if (wi) wi.close();
-		wi=window.open("sales_a_listpicker_mcode.php?name=" + "°z" + "","list_picker_window","menubar=no,width=500,height=600,toolbar=no,scrollbars=1");
+		wi=window.open("sales_a_listpicker_mcode.php?name=" + "‡∏Åz" + "","list_picker_window","menubar=no,width=500,height=600,toolbar=no,scrollbars=1");
 }
 function get_sales_listpicker_pcode(idx){
 		if (wi) wi.close();
@@ -61,65 +61,65 @@ if (isset($_GET["page"])){$page=$_GET["page"];}else{$page="";}
 require 'connectmysql.php';
 if($_GET['dosave']==1){
 	$oktosave=true;
-	// µ√«® Õ∫
+	// ‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö
 	if($C1=='') {
 		$oktosave=false;
-		echo "<font color='#FF0000'>‰¡Ë‰¥È¬◊π¬—π ¢ÈÕ¡Ÿ≈∂Ÿ°µÈÕß</font><br>";
+		echo "<font color='#FF0000'>‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏¢‡∏∑‡∏ô‡∏¢‡∏±‡∏ô ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á</font><br>";
 	}
 	if($mcode=='') {
 		$oktosave=false;
-		echo "<font color='#FF0000'>√À—  ¡“™‘° ‰¡Ë‰¥ÈªÈÕπ</font><br>";
+		echo "<font color='#FF0000'>‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å ‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏õ‡πâ‡∏≠‡∏ô</font><br>";
 	}else{
 		//for ($i=strlen($mcode);$i<7;$i++) {$mcode="0".$mcode;}
-		// µ√«® Õ∫«Ë“¡’ member «Ë“Õ¬ŸË∞“π¢ÈÕ¡Ÿ≈À√◊Õ‰¡Ë
+		// ‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏ß‡πà‡∏≤‡∏°‡∏µ member ‡∏ß‡πà‡∏≤‡∏≠‡∏¢‡∏π‡πà‡∏ê‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏´‡∏£‡∏∑‡∏≠‡πÑ‡∏°‡πà
 		$result1=mysql_query("select * from ".$dbprefix."member where mcode='$mcode'");
 		if (mysql_num_rows($result1) == 0) {
 				$oktosave=false;
-				echo "<font color='#FF0000'>√À—  ¡“™‘° $mcode ‰¡Ë¡’Õ¬ŸË„π∞“π¢ÈÕ¡Ÿ≈</font><br>";
+				echo "<font color='#FF0000'>‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å $mcode ‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏ê‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</font><br>";
 		}
 		mysql_free_result($result1);
 	}
 	if($sadate=='') {
 		$oktosave=false;
-		echo "<font color='#FF0000'>«—π∑’Ë∫‘≈ ‰¡Ë‰¥ÈªÈÕπ</font><br>";
+		echo "<font color='#FF0000'>‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏• ‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏õ‡πâ‡∏≠‡∏ô</font><br>";
 	}
 	else{
 		if (! isvaliddate($sadate)) {
 			$oktosave=false;
-			echo "<font color='#FF0000'>«—π∑’Ë∫‘≈ ‰¡Ë∂Ÿ°µÈÕß</font><br>";
+			echo "<font color='#FF0000'>‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏• ‡πÑ‡∏°‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á</font><br>";
 		}
 	}
 	for ($i=0;$i<$max_item;$i++) {
 		if( $pcode[$i]<>""){
 			if (get_data("pdesc","product","pcode='".$pcode[$i]."' ")===false){
 				$oktosave=false;
-				echo "<font color='#FF0000'>‰¡Ëæ∫  ‘π§È“ ".$pcode[$i]."</font><br>";
+				echo "<font color='#FF0000'>‡πÑ‡∏°‡πà‡∏û‡∏ö ‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ".$pcode[$i]."</font><br>";
 			}
 			if( $price[$i] <>""){
 				if (! is_numeric($price[$i])){
 					$oktosave=false;
-					echo "<font color='#FF0000'> ‘π§È“ ".$pcode[$i]." √“§“ ‰¡Ë∂Ÿ°µÈÕß</font><br>";
+					echo "<font color='#FF0000'>‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ".$pcode[$i]." ‡∏£‡∏≤‡∏Ñ‡∏≤ ‡πÑ‡∏°‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á</font><br>";
 				}
 			}
 			if( $pv[$i] <>""){
 				if (! is_numeric($pv[$i])){
 					$oktosave=false;
-					echo "<font color='#FF0000'> ‘π§È“ ".$pcode[$i]." pv ‰¡Ë∂Ÿ°µÈÕß</font><br>";
+					echo "<font color='#FF0000'>‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ".$pcode[$i]." pv ‡πÑ‡∏°‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á</font><br>";
 				}
 			}
 			if( $qty[$i] <>""){
 				if (! is_numeric($qty[$i])){
 					$oktosave=false;
-					echo "<font color='#FF0000'> ‘π§È“ ".$pcode[$i]." ®”π«π ‰¡Ë∂Ÿ°µÈÕß</font><br>";
+					echo "<font color='#FF0000'>‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ".$pcode[$i]." ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô ‡πÑ‡∏°‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á</font><br>";
 				}
 			}
 		}
 	}
 
-	// ∫—π∑÷°√“¬°“√‡æ‘Ë¡
+	// ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡πÄ‡∏û‡∏¥‡πà‡∏°
 	if ($oktosave){
-		// À—«∫‘≈
-		//§”π«≥ total, tot_pv
+		// ‡∏´‡∏±‡∏ß‡∏ö‡∏¥‡∏•
+		//‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì total, tot_pv
 		$total=0;
 		$tot_pv=0;
 		for ($i=0;$i<$max_item;$i++) {
@@ -137,13 +137,13 @@ if($_GET['dosave']==1){
 		//=================END LOG===========================
 		if (! mysql_query($sql)) {
 			echo "<font color='#FF0000'>Error sql=$sql</font><br>";
-			echo "<font color='#FF0000'>¡’¢ÈÕº‘¥æ≈“¥ „π§” —Ëß SQL ∫—π∑÷°‰¡Ë‰¥È</font><br>";
+			echo "<font color='#FF0000'>‡∏°‡∏µ‡∏Ç‡πâ‡∏≠‡∏ú‡∏¥‡∏î‡∏û‡∏•‡∏≤‡∏î ‡πÉ‡∏ô‡∏Ñ‡∏≥‡∏™‡∏±‡πà‡∏á SQL ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ</font><br>";
 		}
 		else {
 			$preoid = $oid;
 			$oid=mysql_insert_id();
 			mysql_query("COMMIT");
-			// √“¬≈–‡Õ’¬¥„π∫‘≈
+			// ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡πÉ‡∏ô‡∏ö‡∏¥‡∏•
 			$sql="delete from ".$dbprefix."asaled where sano='$oid' ";
 			//====================LOG===========================
 		$text="uid=".$_SESSION["adminuserid"]." action=confirm_sale =>$sql";
@@ -172,15 +172,15 @@ if($_GET['dosave']==1){
 		//=================END LOG===========================
 			mysql_query("DELETE FROM ".$dbprefix."preasaled WHERE sano='$preoid' ");
 
-			echo "<br /><br /><br /><br /><br /><br /><p align='center'><font color='#339900'>∫—π∑÷°¢ÈÕ¡Ÿ≈°“√ —Ëß´◊ÈÕ¢Õß ¡“™‘° $mcode ™◊ËÕ $name_t ·≈È« ... </font><img src='images/correctsign.gif' width='16' height='16'></p><br>";
+			echo "<br /><br /><br /><br /><br /><br /><p align='center'><font color='#339900'>‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏≤‡∏£‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠‡∏Ç‡∏≠‡∏á‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å $mcode ‡∏ä‡∏∑‡πà‡∏≠ $name_t ‡πÅ‡∏•‡πâ‡∏ß ... </font><img src='images/correctsign.gif' width='16' height='16'></p><br>";
 			echo "<script language='JavaScript'>opener.location.reload()</script>";
 			$rs = mysql_query("SELECT id FROM ".$dbprefix."preasaleh WHERE id>'$preoid' AND sadate='".$_GET['dt']."' ORDER BY sadate LIMIT 1");//
 			//echo "SELECT id FROM ".$dbprefix."premember WHERE mdate='".$_GET['dt']."' ORDER BY mdate LIMIT 1";
 			if(mysql_num_rows($rs)>0)
-				echo "<p align='center'>[<a href=\"./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."\">∂—¥‰ª</a>]</p>";
+				echo "<p align='center'>[<a href=\"./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."\">‡∏ñ‡∏±‡∏î‡πÑ‡∏õ</a>]</p>";
 			else
-				echo "<p align='center'>[<a href=\"javascript:window.close();\">ª‘¥ÀπÈ“π’È</a>]</p>";
-			// · ¥ß„∫ —Ëß´◊ÈÕ ‘π§È“ ‡æ◊ËÕæ‘¡æÏ
+				echo "<p align='center'>[<a href=\"javascript:window.close();\">‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ</a>]</p>";
+			// ‡πÅ‡∏™‡∏î‡∏á‡πÉ‡∏ö‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏û‡∏¥‡∏°‡∏û‡πå
 			exit;
 
 			// reset all fields
@@ -205,7 +205,7 @@ if($_GET['dosave']==1){
 		}
 	}
 	else {
-		echo "<font color='#FF0000'>¢ÈÕ¡Ÿ≈¬—ß‰¡Ë∂Ÿ°µÈÕß °√ÿ≥“·°È‰¢</font><br>";
+		echo "<font color='#FF0000'>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç</font><br>";
 	}
 }	
 
@@ -224,7 +224,7 @@ if (mysql_num_rows($result) > 0) {
 	$remark=$row->remark;
 	$dl=$row->dl;
 	
-	// ÕË“π√“¬≈–‡Õ’¬¥
+	// ‡∏≠‡πà‡∏≤‡∏ô‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î
 	$result1=mysql_query("select * from ".$dbprefix."preasaled where sano='$sid' order by id");
 	for ($i=0;$i<=mysql_num_rows($result1);$i++){
 		$row1 = mysql_fetch_object($result1);
@@ -238,47 +238,47 @@ if (mysql_num_rows($result) > 0) {
 	}
 	mysql_free_result($result1);
 }
-//µ√«® Õ∫«Ë“ $cmc Õ¬ŸË„π INV_CODE π’ÈÀ√◊Õ‰¡Ë
+//‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏ß‡πà‡∏≤ $cmc ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô INV_CODE ‡∏ô‡∏µ‡πâ‡∏´‡∏£‡∏∑‡∏≠‡πÑ‡∏°‡πà
 
 ?>
 <form name="frm" method="post" action="<? $_SERVER["PHP_SELF"]?>?dt=<?=$_GET['dt']?>&dosave=1">
   <table border="0" cellpadding="0" cellspacing="0" width="100%" >
     <tr>
-      <td width="11%" align="right">‡≈¢∑’Ë∫‘≈ &nbsp;</td>
+      <td width="11%" align="right">‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏• &nbsp;</td>
       <td width="16%" align="left"><input type="text" name="sano" size="10" value="<?=$sano?>"><input type="hidden" name="oid" value="<?=$sid?>"></td>
-      <td width="7%" align="right">«—π∑’Ë &nbsp;</td>
-      <td width="41%" align="left"><input type="text" name="sadate" size="10" maxlength=10 value="<?=$sadate?>">&nbsp;<a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë"></a> <font color="808080">(ªªªª-¥¥-««)</font></td>
+      <td width="7%" align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà &nbsp;</td>
+      <td width="41%" align="left"><input type="text" name="sadate" size="10" maxlength=10 value="<?=$sadate?>">&nbsp;<a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà"></a> <font color="808080">(‡∏õ‡∏õ‡∏õ‡∏õ-‡∏î‡∏î-‡∏ß‡∏ß)</font></td>
       <td width="25%">&nbsp;</td>
     </tr>
     <tr>
-      <td width="11%" align="right">√À—  ¡“™‘° &nbsp;</td>
-	  <td valign="top" align="left" colspan="3"><input type="text" name="mcode" size="20" maxlength="20" value="<?=$mcode?>"> <input type="button" value="‡≈◊Õ°" onClick="get_sales_listpicker_mcode()"> &nbsp;<div id="name_t"><?=$name_t?></div></td>
+      <td width="11%" align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å &nbsp;</td>
+	  <td valign="top" align="left" colspan="3"><input type="text" name="mcode" size="20" maxlength="20" value="<?=$mcode?>"> <input type="button" value="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å" onClick="get_sales_listpicker_mcode()"> &nbsp;<div id="name_t"><?=$name_t?></div></td>
 	  <td width="25%">&nbsp;	  </td>
 	</tr> 	
     <tr>
       <td width="11%" align="right">&nbsp;</td>
       <td align="left" colspan="4">
-		<input type="radio" name="sa_type" value="T" <? if($sa_type=='T' or $sa_type=='' ){echo " checked";}?>> ‰µ√π“√’Ë &nbsp;&nbsp;
-		<input type="radio" name="sa_type" value="QM" <? if($sa_type=='QM'){echo " checked";}?>> √—°…“¬Õ¥ Matching &nbsp;&nbsp;
-		<input type="radio" name="sa_type" value="U" <? if($sa_type=='U'){echo " checked";}?>> ´◊ÈÕ Unilevel &nbsp;&nbsp;
+		<input type="radio" name="sa_type" value="T" <? if($sa_type=='T' or $sa_type=='' ){echo " checked";}?>> ‡πÑ‡∏ï‡∏£‡∏ô‡∏≤‡∏£‡∏µ‡πà &nbsp;&nbsp;
+		<input type="radio" name="sa_type" value="QM" <? if($sa_type=='QM'){echo " checked";}?>> ‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î Matching &nbsp;&nbsp;
+		<input type="radio" name="sa_type" value="U" <? if($sa_type=='U'){echo " checked";}?>> ‡∏ã‡∏∑‡πâ‡∏≠ Unilevel &nbsp;&nbsp;
 	  </td>
     </tr>
     <tr>
-      <td width="11%" align="right">À¡“¬‡Àµÿ &nbsp;</td>
+      <td width="11%" align="right">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ &nbsp;</td>
       <td align="left" colspan="4"><input type="text" name="remark" size="80" value="<?=$remark?>"><BR><BR></td>
     </tr>
   </table>
 
-<?/////////////////////////// √“¬°“√ ///////////////////////////?>
+<?/////////////////////////// ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ///////////////////////////?>
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr bgcolor="#80c0ff">
-      <td width="5%" align="center">≈”¥—∫</td>
-      <td width="30%" align="center">√À—  ‘π§È“</td>
-      <td width="10%" align="center">√“¬≈–‡Õ’¬¥ ‘π§È“</td>
-      <td width="5%" align="center">√“§“</td>
+      <td width="5%" align="center">‡∏•‡∏≥‡∏î‡∏±‡∏ö</td>
+      <td width="30%" align="center">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</td>
+      <td width="10%" align="center">‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</td>
+      <td width="5%" align="center">‡∏£‡∏≤‡∏Ñ‡∏≤</td>
       <td width="5%" align="center">PV</td>
-      <td width="5%" align="center">®”π«π</td>
-      <td width="10%" align="left">®”π«π‡ß‘π</td>
+      <td width="5%" align="center">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô</td>
+      <td width="10%" align="left">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô</td>
     </tr>
 	<?
     $max_item = 10;
@@ -286,7 +286,7 @@ if (mysql_num_rows($result) > 0) {
 		?>
 		<tr <? if (($i % 2)<>1) {echo "bgcolor=d0e0ff";}?>>
 		  <td width="5%" align="center"><?=$i+1?></td>
-		  <td width="30%" align="center"><input type="text" name="pcode[]" size="20" maxlength=20 value="<?=$pcode[$i]?>"> <input type="button" value="‡≈◊Õ°" onClick="get_sales_listpicker_pcode(<?=$i?>)"> </td>
+		  <td width="30%" align="center"><input type="text" name="pcode[]" size="20" maxlength=20 value="<?=$pcode[$i]?>"> <input type="button" value="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å" onClick="get_sales_listpicker_pcode(<?=$i?>)"> </td>
 		  <td width="10%" align="center"><input type="text" name="pdesc[]" size="40" value="<?=$pdesc[$i]?>"></td>
 		  <td width="5%" align="center"><input style="text-align:right" type="text" name="price[]" size="7" value="<?=$price[$i]?>"></td>
 		  <td width="5%" align="center"><input style="text-align:right" onChange="check(<?=$i?>)" type="text" name="pv[]" size="7" value="<?=$pv[$i]?>"></td>
@@ -297,7 +297,7 @@ if (mysql_num_rows($result) > 0) {
 	}
 	?>
     <tr bgcolor="#d0e0ff">
-      <td width="50%" align="right" colspan="4">√«¡</td>
+      <td width="50%" align="right" colspan="4">‡∏£‡∏ß‡∏°</td>
       <td width="5%" align="center"><input style="text-align:right " type="text" name="tot_pv" size="7" value="<?=$tot_pv?>"></td>
       <td width="5%" align="center">&nbsp;</td>
       <td width="10%" align="left" colspan="2"><input style="text-align:right " type="text" name="total" size="8" value="<?=$total?>"></td>
@@ -306,19 +306,19 @@ if (mysql_num_rows($result) > 0) {
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
       <td width="370" align="right" valign="top" ><input type="checkbox" name="C1" value="ok" onClick="calc_total('1')">
-      ¢ÈÕ¡Ÿ≈∂Ÿ°µÈÕß&nbsp;</td>
+      ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á&nbsp;</td>
       <td width="588">&nbsp;
-          <input type="submit" value="∫—π∑÷°" name="B1" onClick="calc_total('1')>
+          <input type="submit" value="‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å" name="B1" onClick="calc_total('1')>
         &nbsp;
-          <input type="button" value="≈∫" name="del" onClick="window.open('./delpremem.php?dt=<?=$_GET['dt']?>&did=<?=$oid?>','del','width=200 height=100')" >
+          <input type="button" value="‡∏•‡∏ö" name="del" onClick="window.open('./delpremem.php?dt=<?=$_GET['dt']?>&did=<?=$oid?>','del','width=200 height=100')" >
         &nbsp;
-          <input type="reset" value="¬°‡≈‘°" name="B2">
+          <input type="reset" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" name="B2">
         &nbsp;
           <? 
 					//echo "SELECT id FROM ".$dbprefix."premember WHERE mdate='".$_GET['dt']."' ORDER BY mdate LIMIT 1";
 					$rs = mysql_query("SELECT id FROM ".$dbprefix."preasaleh WHERE id>'$sid' AND sadate='".$_GET['dt']."' ORDER BY id LIMIT 1");
 					if(mysql_num_rows($rs)>0)
-						echo "<input type='button' value='∂—¥‰ª' onclick=\"window.location='./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."'\" >";
+						echo "<input type='button' value='‡∏ñ‡∏±‡∏î‡πÑ‡∏õ' onclick=\"window.location='./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."'\" >";
 						//echo "window.location='./confirm.php?dt=".$_GET['dt']."&mid=".mysql_result($rs,0,'id');
 						mysql_free_result($rs);
 					?>
@@ -326,7 +326,7 @@ if (mysql_num_rows($result) > 0) {
 					$rs = mysql_query("SELECT id FROM ".$dbprefix."preasaleh WHERE id<'$sid' AND sadate='".$_GET['dt']."' ORDER BY id DESC LIMIT 1");
 					//echo "SELECT id FROM ".$dbprefix."premember WHERE id<'$oid' AND mdate='".$_GET['dt']."' ORDER BY id,mdate DESC LIMIT 1";
 					if(mysql_num_rows($rs)>0)
-						echo "<input type='button' value='°ËÕπÀπÈ“' onclick=\"window.location='./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."'\" >";
+						echo "<input type='button' value='‡∏Å‡πà‡∏≠‡∏ô‡∏´‡∏ô‡πâ‡∏≤' onclick=\"window.location='./confirm_sale.php?dt=".$_GET['dt']."&sid=".mysql_result($rs,0,'id')."'\" >";
 						//echo "window.location='./confirm.php?dt=".$_GET['dt']."&mid=".mysql_result($rs,0,'id');
 						mysql_free_result($rs);
 					?>      </td>
@@ -339,9 +339,9 @@ if (mysql_num_rows($result) > 0) {
 
 <?
 function get_data($field,$table,$field_and_value){
-	//ÕË“π§Ë“ ®“°  select $field from $table where $field_and_value
+	//‡∏≠‡πà‡∏≤‡∏ô‡∏Ñ‡πà‡∏≤ ‡∏à‡∏≤‡∏Å  select $field from $table where $field_and_value
 	// $field=field name to get data
-	// table=scm_xxxxxx ‰¡ËµÈÕß„ Ë scm
+	// table=scm_xxxxxx ‡πÑ‡∏°‡πà‡∏ï‡πâ‡∏≠‡∏á‡πÉ‡∏™‡πà scm
 	// $field_and_value="fieldname='value' "
 	global $dbprefix;
 	$sql="select * from ".$dbprefix."$table where $field_and_value ";

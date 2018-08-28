@@ -127,18 +127,18 @@ if(empty($strpv))$strpv = ' >= 2000';
   <tr valign="top"><td width="100%" align="left" ><fieldset>
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 	<input size="14" type="text" name="fdate" id="dateInput1" value="<?=$fdate?>" />
-	  ถึง
+	  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="dateInput2" value="<?=$tdate?>" />
 	<input type='hidden' id='stype' name = 'stype' value= '<?=$stype?>'>
    <!-- <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเน€เธฅเธเธเธดเธฅ</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธดเธเธเนเธฒ</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธกเธฒเธเธดเธ</option>
     </select>-->
 	
 
 	<select name="satype" >		
-		<option  value="" <?=($satype==""?"selected":"")?>> ซื้อแบบทั้งหมด</option>
+		<option  value="" <?=($satype==""?"selected":"")?>> เธเธทเนเธญเนเธเธเธ—เธฑเนเธเธซเธกเธ”</option>
 		<?php		
 		foreach($arr_satype as $key => $value):			
 		echo '<option value="'.$key.'"';
@@ -148,13 +148,13 @@ if(empty($strpv))$strpv = ' >= 2000';
 		?>
 	</select>
 	<!--select name="satype">
-				 <option  value="" <?=($satype==""?"selected":"")?>>ทั้งหมด</option>
+				 <option  value="" <?=($satype==""?"selected":"")?>>เธ—เธฑเนเธเธซเธกเธ”</option>
                 <option  value="A" <?=($satype=="A"?"selected":"")?>><?=$wording_lan["word"]["sale_editadd"]["typea"]?></option>
                 <option value="H" <?=($satype=="H"?"selected":"")?>><?=$wording_lan["word"]["sale_editadd"]["typeb"]?></option>
         </select-->
 
   <select name="logistic">
-      <option  value="" <?=($logistic==""?"selected":"")?>>การจัดส่งทั้งหมด</option>
+      <option  value="" <?=($logistic==""?"selected":"")?>>เธเธฒเธฃเธเธฑเธ”เธชเนเธเธ—เธฑเนเธเธซเธกเธ”</option>
 	   <?php		
 		foreach($arr_logistic as $key => $value):			
 		echo '<option value="'.$key.'"';
@@ -164,10 +164,10 @@ if(empty($strpv))$strpv = ' >= 2000';
 		?>
        </select>
 
-	<input type="text" name="strtotal" value="<?=$strtotal?>" placeholder="จำนวนเงินรวม"  style="width:100px">
+	<input type="text" name="strtotal" value="<?=$strtotal?>" placeholder="เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก"  style="width:100px">
 	<input type="text" name="strpv" value="<?=$strpv?>" placeholder="PV" style="width:100px">
 
-	<input type="text" name="struid" value="<?=$struid?>"  placeholder="ผู้บันทึก" style="width:100px">
+	<input type="text" name="struid" value="<?=$struid?>"  placeholder="เธเธนเนเธเธฑเธเธ—เธถเธ" style="width:100px">
 
 
 	<br> 
@@ -182,7 +182,7 @@ if(empty($strpv))$strpv = ' >= 2000';
         </select>
 
 <select name="inv_code" id="inv_code"  >
-			  <option value="">สาขาทั้งหมด</option>
+			  <option value="">เธชเธฒเธเธฒเธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent order by inv_code");
 
@@ -197,7 +197,7 @@ if(empty($strpv))$strpv = ' >= 2000';
     </select>
 
 <select name="locationbase" id="locationbase"  >
-			  <option value="">Locationbase ทั้งหมด</option>
+			  <option value="">Locationbase เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."location_base order by cid");
 
@@ -213,16 +213,16 @@ if(empty($strpv))$strpv = ' >= 2000';
 
 <input type="text" name="strSearch" value="<?=$strSearch?>" style="width:100px">
 	<select name="strtype">
-				 <option  value="sano" <?=($strtype=="sano"?"selected":"")?>>เลขบิล</option>
-				  <option value="strinvent" <?=($strtype=="strinvent"?"selected":"")?>>สาขา</option>
-                <option value="sadate" <?=($strtype=="sadate"?"selected":"")?>>วันที่</option>
-				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>รหัสผู้ซื้อ</option>
-	<!--			<option value="sp_code" <?=($strtype=="sp_code"?"selected":"")?>>รหัสผู้สปอนเซอร์</option>
-		-->		<option value="uid" <?=($strtype=="uid"?"selected":"")?>>ผู้บันทึก</option>
+				 <option  value="sano" <?=($strtype=="sano"?"selected":"")?>>เน€เธฅเธเธเธดเธฅ</option>
+				  <option value="strinvent" <?=($strtype=="strinvent"?"selected":"")?>>เธชเธฒเธเธฒ</option>
+                <option value="sadate" <?=($strtype=="sadate"?"selected":"")?>>เธงเธฑเธเธ—เธตเน</option>
+				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>เธฃเธซเธฑเธชเธเธนเนเธเธทเนเธญ</option>
+	<!--			<option value="sp_code" <?=($strtype=="sp_code"?"selected":"")?>>เธฃเธซเธฑเธชเธเธนเนเธชเธเธญเธเน€เธเธญเธฃเน</option>
+		-->		<option value="uid" <?=($strtype=="uid"?"selected":"")?>>เธเธนเนเธเธฑเธเธ—เธถเธ</option>
         </select>
-เกรียติยศ
+เน€เธเธฃเธตเธขเธ•เธดเธขเธจ
 	<select name="sp_pos">
-				 <option  value="" <?=($sp_pos==""?"selected":"")?>>ทั้งหมด</option>
+				 <option  value="" <?=($sp_pos==""?"selected":"")?>>เธ—เธฑเนเธเธซเธกเธ”</option>
 				<?					
 						$result1=mysql_query("select * from ".$dbprefix."position1 order by posid");
 
@@ -235,7 +235,7 @@ if(empty($strpv))$strpv = ' >= 2000';
 						}
 						?>
 					</select>
-    <input type="submit" value="  ค้น  " />
+    <input type="submit" value="  เธเนเธ  " />
 
 </fieldset></td>
 </tr></table>

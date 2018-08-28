@@ -68,8 +68,8 @@
 		$tdate = $fdate;
 	}
 ?>
-<table align="center"><tr>	<td align="center"><b>�����ź�������ҧ�ѹ��� <?=$fdate?> �֧ <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">������ѹ��� <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>ข้อมูลบิลระหว่างวันที่ <?=$fdate?> ถึง <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">พิมพ์วันที่ <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -160,13 +160,13 @@ switch ($strtype) {
 		$rec->setLink($PHP_SELF,"sessiontab=3&sub=10&fdate=$fdate&tdate=$tdate&satype=$satype&logistic=$logistic&strpv=$strpv&strtotal=$strtotal&struid=$struid&sspv=$sspv&inv_code=$inv_code&strSearch=$strSearch&strtype=$strtype");
 		$rec->setBackLink($PHP_SELF,"sessiontab=3");
 		$rec->setShowField("b,sano,smcode,name_t,sadate,txtMoney,txtCash,txtCredit,txtTransfer,uid,lid,checkportal1");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ�Թ���,�Թʴ,�ôԵ,�Թ�͹,���ѹ�֡,�Ң�,��ͧ�ҧ");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนเงินรวม,เงินสด,เครดิต,เงินโอน,ผู้บันทึก,สาขา,ช่องทาง");
 		$rec->setFieldFloatFormat(",,,,,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,center,right,right,right,right,center,center,center");
 		$rec->setFieldSpace("3%,7%,6%,25%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,true,",,,,,true,true,true,true,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

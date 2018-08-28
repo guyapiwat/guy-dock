@@ -272,7 +272,7 @@ for($i=0;$i<mysql_num_rows($rsx);$i++){
 	$mcode[$i] =$sqlObjx->mcode;		
 	$pos_cur[$mcode[$i]] =$sqlObjx->pos_cur;		
 }//for($i=0;$i<mysql_num_rows($rs);$i++){
-//========================¨ºà¡çºÅÒÂÃÐàÍÕÂ´ÊÁÒªÔ¡·Ø¡¤¹====================================
+//========================à¸ˆà¸šà¹€à¸à¹‡à¸šà¸¥à¸²à¸¢à¸£à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸¡à¸²à¸Šà¸´à¸à¸—à¸¸à¸à¸„à¸™====================================
 for($j=0;$j<mysql_num_rows($rsx);$j++){
 	//if($pos_cur[$mcode[$j]] != 'MB'){
 		//echo "insert into ali_calc_poschange(mcode,pos_before,pos_after,date_change,date_update,up_down,uid) values('".$mcode[$j]."','MB','".$pos_cur[$mcode[$j]]."','2015-12-01','2015-12-01','1','cron')<br>";

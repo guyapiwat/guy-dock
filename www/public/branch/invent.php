@@ -2,8 +2,8 @@
 require("connectmysql.php");
 //require("./cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
-$sql = "SELECT inv_code,inv_desc,CASE inv_type WHEN '1' THEN 'ÈÙ¹Âì' WHEN '2' THEN 'âÁºÒÂ' END AS inv_type, ";
-$sql .= "CONCAT(address,' µ.',districtName,' Í.',amphurName,' ¨.',provinceName,' ',zip) AS address ";
+$sql = "SELECT inv_code,inv_desc,CASE inv_type WHEN '1' THEN 'à¸¨à¸¹à¸™à¸¢à¹Œ' WHEN '2' THEN 'à¹‚à¸¡à¸šà¸²à¸¢' END AS inv_type, ";
+$sql .= "CONCAT(address,' à¸•.',districtName,' à¸­.',amphurName,' à¸ˆ.',provinceName,' ',zip) AS address ";
 $sql .= "FROM ".$dbprefix."invent ";
 $sql .= "LEFT JOIN district ON (".$dbprefix."invent.districtId=district.districtId) ";
 $sql .= "LEFT JOIN amphur ON (".$dbprefix."invent.amphurId=amphur.amphurId) ";
@@ -35,7 +35,7 @@ $sql .= "LEFT JOIN province ON (".$dbprefix."invent.provinceId=province.province
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,inv_desc,inv_type,address");
-		$rec->setFieldDesc("ÃËÑÊ,ª×èÍ,»ÃÐàÀ·,·ÕèµÑé§");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª,à¸Šà¸·à¹ˆà¸­,à¸›à¸£à¸°à¹€à¸ à¸—,à¸—à¸µà¹ˆà¸•à¸±à¹‰à¸‡");
 		$rec->setFieldAlign("center,left,left,left");
 		$rec->setFieldSpace("10%,15%,10%,");
 		$rec->setFieldLink("");

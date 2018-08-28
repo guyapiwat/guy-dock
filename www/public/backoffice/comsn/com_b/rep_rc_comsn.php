@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("กรุณาเลือกวันที่เริ่มต้น");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("กรุณาเลือกวันที่สิ้นสุด");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ”");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -44,7 +44,7 @@ if($strfdate=="" || $strtdate==""){
 	if($strfdate>$strtdate){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">วันที่เริ่มต้น ต้องน้อยกว่าหรือเท่ากับ วันที่สิ้นสุด กรุณาระุบุวันที่ใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเธฃเธฐเธธเธเธธเธงเธฑเธเธ—เธตเนเนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -52,7 +52,7 @@ if($strfdate=="" || $strtdate==""){
 		exit;
 	}else{
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a-->
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -86,9 +86,9 @@ if($strfdate=="" || $strtdate==""){
 		$rec->setBackLink($PHP_SELF,"sessiontab=".$_GET['sessiontab']);
 		if(isset($page))
 			$rec->setCurPage($page);
-		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","ดู");
+		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","เธ”เธน");
 		$rec->setShowField("rcode,mcode,name_t,level,gen,pv,percer,total");
-		$rec->setFieldDesc("รหัสรอบ,รหัสสมาชิก,ชื่อสมาชิก,ชั้นที่,Gen,คะแนน,%โบนัส,ได้โบนัส");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธฃเธญเธ,เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธเธฑเนเธเธ—เธตเน,Gen,เธเธฐเนเธเธ,%เนเธเธเธฑเธช,เนเธ”เนเนเธเธเธฑเธช");
 		$rec->setFieldAlign("center,center,left,center,center,right,center,right");
 		$rec->setFieldSpace("5%,8%,39%,5%,5%,15%,8%,15%");//10
 		$rec->setFieldFloatFormat(",,,,,,2,2");
@@ -99,7 +99,7 @@ if($strfdate=="" || $strtdate==""){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		//$rec->setSearch("a.mcode");
-		//$rec->setSearchDesc("รหัส");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธช");
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);
 

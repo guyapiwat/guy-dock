@@ -27,12 +27,12 @@ $sql = "SELECT * FROM ".$dbprefix."productgroup ";
 			$rec->setCurPage($page);
 		$rec->setShowField("groupname");
 		//$rec->setFieldFloatFormat(",,,,,,0,2");
-		$rec->setFieldDesc("ËÁÇ´ËÁÙèÊÔ¹¤éÒ");
+		$rec->setFieldDesc("à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆà¸ªà¸´à¸™à¸„à¹‰à¸²");
 		$rec->setFieldAlign("center");
 		$rec->setFieldSpace("100%");
 		$rec->setFieldLink(",index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&cmc=,");
 		$rec->setSearch("groupname");
-		$rec->setSearchDesc("ËÁÇ´ËÁÙèÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸«à¸¡à¸§à¸”à¸«à¸¡à¸¹à¹ˆà¸ªà¸´à¸™à¸„à¹‰à¸²");
 		//$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		if($acc->isAccess(4)){

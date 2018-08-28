@@ -26,12 +26,12 @@ $sql = "SELECT *,CASE WHEN status = 'Y'  THEN 'Yes' ELSE 'No' END as status,CASE
 			$rec->setCurPage($page);
 		$rec->setShowField("head,dates,status,popup");
 		//$rec->setFieldFloatFormat(",,,,,,0,2");
-		$rec->setFieldDesc("ª×èÍàÃ×èÍ§,ÇÑ¹·Õè»ÃÐ¡ÒÈ,show,popup");
+		$rec->setFieldDesc("à¸Šà¸·à¹ˆà¸­à¹€à¸£à¸·à¹ˆà¸­à¸‡,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸›à¸£à¸°à¸à¸²à¸¨,show,popup");
 		$rec->setFieldAlign("left,center,center,center,");
 		//$rec->setFieldSpace("85%,10%,5%");
 		//$rec->setFieldLink(",index.php?sessiontab=5&sub=20&cmc=,");
-		//$rec->setSearch("ª×èÍàÃ×èÍ§");
-		//$rec->setSearchDesc("ª×èÍ");
+		//$rec->setSearch("à¸Šà¸·à¹ˆà¸­à¹€à¸£à¸·à¹ˆà¸­à¸‡");
+		//$rec->setSearchDesc("à¸Šà¸·à¹ˆà¸­");
 		//$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		if($acc->isAccess(4)){

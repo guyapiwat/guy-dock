@@ -22,7 +22,7 @@ $sql = "SELECT *,REPLACE(calc,'1','<img src=./images/true.gif>') AS cal FROM ".$
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,rdate,fdate,tdate,fpdate,tpdate,paydate,cal,remark");
-		$rec->setFieldDesc("ÃËÑÊÃÍº,ÇÑ¹·Õèà¾ÔèÁÃÍº,ÇÑ¹·Õè¤Ó¹Ç¹àÃÔèÁµé¹,ÇÑ¹·Õè¤Ó¹Ç³ÊÔé¹ÊØ´,àÃÔèÁÃÑ¡ÉÒÂÍ´,ÊÔé¹ÊØ´ÃÑ¡ÉÒÂÍ´,ÇÑ¹·Õè¨èÒÂà§Ô¹,¤Ó¹Ç³áÅéÇ,ËÁÒÂàËµØ");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸£à¸­à¸š,à¸§à¸±à¸™à¸—à¸µà¹ˆà¹€à¸žà¸´à¹ˆà¸¡à¸£à¸­à¸š,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸„à¸³à¸™à¸§à¸™à¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸„à¸³à¸™à¸§à¸“à¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”,à¹€à¸£à¸´à¹ˆà¸¡à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”,à¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ˆà¹ˆà¸²à¸¢à¹€à¸‡à¸´à¸™,à¸„à¸³à¸™à¸§à¸“à¹à¸¥à¹‰à¸§,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 		$rec->setFieldAlign("center,center,center,center,center,center,center,center,left");
 		$rec->setFieldSpace("10%,10%,10%,10%,10%,10%,10%,10%,20%");
 		$rec->setFieldLink("index.php?sessiontab=4&sub=6&cmc=,");

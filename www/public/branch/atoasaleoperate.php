@@ -149,7 +149,7 @@ if($radsend == '1'){
 
 if($_GET['state']==0){
 
-	logtext(true,$_SESSION['adminusercode'],'�������',$mid);
+	logtext(true,$_SESSION['adminusercode'],'เพิ่มบิล',$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	 $sql="insert into ".$dbprefix."atoasaleh (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_weight,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 	optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther,trnf,name_t,caddress,cdistrictId,camphurId,cprovinceId,czip ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'".$_SESSION["admininvent"]."' ,'$total' ,'$tot_pv','$tot_weight','$tot_fv' ,'".$_SESSION['inv_usercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',
@@ -382,7 +382,7 @@ function keysend($dbprefix,$mid,$pcode,$inv_code,$qty,$weight,$totalprice){
 
 }
 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 ?>
 
 <?
@@ -390,7 +390,7 @@ function updatePos($dbprefix,$mcode,$cur_date){
 
 	$pos_piority = array('EX'=>2,'SU'=>1,'MB'=>0);
 	$pos_exp = array('EX'=>3000,'SU'=>750,'MB'=>0);
-	//-----�纤�ṹ�٧�ش����ա�ë���
+	//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 	//$sql = "SELECT MAX(tot_pv) as pv from ".$dbprefix."atoasaleh WHERE mcode='$mcode' ";
 	$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."atoasaleh WHERE sa_type='A' and mcode='$mcode' and cancel=0 ";
 	$rs = mysql_query($sql);
@@ -407,13 +407,13 @@ function updatePos($dbprefix,$mcode,$cur_date){
 //	$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]);
 
 
-	//-----�纵��˹觻Ѩ�غѹ
+	//-----เก็บตำแหน่งปัจจุบัน
 	$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 	$rs = mysql_query($sql);
 	$pos_old = '';
 	if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 	//mysql_free_result($rs);
-	//�ӹǳ���˹�
+	//คำนวณตำแหน่ง
 	$pos_new = $pos_old;
 	foreach(array_keys($pos_exp) as $key){
 		//echo $key;

@@ -49,14 +49,14 @@ if(empty($fv))$fv=0;
 	}*/
 	
 if($_GET['state']==0){
-logtext(true,$_SESSION['adminusercode'],'à¾ÔèÁÊÔ¹¤éÒ :  '.$pcode,$pcode);
+logtext(true,$_SESSION['adminusercode'],'à¹€à¸žà¸´à¹ˆà¸¡à¸ªà¸´à¸™à¸„à¹‰à¸² :  '.$pcode,$pcode);
 	
 		
 	$result1=mysql_query("select * from ".$dbprefix."product where pcode = '$pcode' ");
 	//echo $pcode.' : '."select * from ".$dbprefix."product where pcode = '$pcode'";
 	
 	if(mysql_num_rows($result1) > 0 or empty($pcode) or $pcode == '0'){
-			echo "<script language='JavaScript'>alert('ÃËÑÊÊÔ¹¤éÒ«éÓ'); window.history.back()</script>";	
+			echo "<script language='JavaScript'>alert('à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²à¸‹à¹‰à¸³'); window.history.back()</script>";	
 			exit;
 	}
 	//exit;
@@ -81,7 +81,7 @@ writelogfile($text);
 				} else {
 					//move_uploaded_file($_FILES["myfile"]["tmp_name"], "uploads/product_img/".$pathImg.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='¤Ãº' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='à¸„à¸£à¸š' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}
@@ -93,7 +93,7 @@ writelogfile($text);
 	}
 }else if($_GET['state']==1){
 	 
-logtext(true,$_SESSION['adminusercode'],'á¡éä¢ÊÔ¹¤éÒ :  '.$pcode,$pcode);
+logtext(true,$_SESSION['adminusercode'],'à¹à¸à¹‰à¹„à¸‚à¸ªà¸´à¸™à¸„à¹‰à¸² :  '.$pcode,$pcode);
 	$sql="update ".$dbprefix."product set group_id='$product_group',pcode='$pcode', pdesc='$pdesc',st = '$st',sh = '$sh',locationbase = '$locationbase',barcode = '$barcode', unit='$unit', weight='$weight', price='$price',personel_price='$personel_price' ,customer_price='$customer_price' , bprice='$bprice', product_img='$pathImg',vat='$vat' where pcode= '$oid'";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=productoperate =>$sql";
@@ -122,7 +122,7 @@ writelogfile($text);
 					//@unlink("uploads/product_img/".$pathImgOld.".jpg");
 					//move_uploaded_file($_FILES["myfile"]["tmp_name"], "uploads/product_img/".$pathImg.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='¤Ãº' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='à¸„à¸£à¸š' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}

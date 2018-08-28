@@ -7,7 +7,7 @@ require_once ("function.log.inc.php");
 	$remark = $_GET['remark'];
 	
 	if(empty($bid) or empty($remark)){
-		echo "<script language='JavaScript'>alert('�Դ��ͼԴ��Ҵ���');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+		echo "<script language='JavaScript'>alert('เกิดข้อผิดพลาดค่ะ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 		exit;
 	}	
 	
@@ -38,7 +38,7 @@ require_once ("function.log.inc.php");
 	 $sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and receive='1' ";
 	 $sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�Ѻ�ͧ�����');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากรับของไปแล้ว');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 			exit;
 	}	
 }*/
@@ -46,7 +46,7 @@ require_once ("function.log.inc.php");
 	 $sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and receive='1' ";
 	 $sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�Ѻ�ͧ�����');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากรับของไปแล้ว');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 			exit;
 	}	
 	
@@ -54,7 +54,7 @@ require_once ("function.log.inc.php");
 	$sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and scheck='register' ";
 	$sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�繺����Ѥ���Ҫԡ���');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากเป็นบิลสมัครสมาชิกค่ะ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 			exit;
 	}	
 */
@@ -62,7 +62,7 @@ require_once ("function.log.inc.php");
 	$sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and sa_type = 'H' and hpv <> tot_pv ";
 	$sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			//echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�ա��ᨧ�ʹ�����');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			//echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากมีการแจงยอดไปแล้ว');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 			//exit;
 	}	
 
@@ -73,7 +73,7 @@ require_once ("function.log.inc.php");
 		$sqlSC = mysql_query($sqlC);
 		if(mysql_num_rows($sqlSS) > 0 or mysql_num_rows($sqlSC) > 0){
 			if( $_SESSION["inv_usercode"] != 'nutt'){
-				echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź����');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+				echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 				exit;
 			}
 		}	
@@ -147,15 +147,15 @@ require_once ("function.log.inc.php");
 	//=================END LOG===========================
 	//echo $sql;
 	if($sa_type == 'H'){
-		$sa_type2 = '��� Hold';
+		$sa_type2 = 'บิล Hold';
 	}else if($sa_type == 'Z'){
-		$sa_type2 = '��� Autoship';
+		$sa_type2 = 'บิล Autoship';
 	}else if($sa_type == 'L'){
-		$sa_type2 = '����š�ͧ';
+		$sa_type2 = 'บิลแลกของ';
 	}else{
-		$sa_type2 = '��Ż���';
+		$sa_type2 = 'บิลปกติ';
 	}
-	logtext(true,$_SESSION['inv_usercode'],'¡��ԡ'.$sa_type2.' �Ţ��� :'.$sano,$bid);
+	logtext(true,$_SESSION['inv_usercode'],'ยกเลิก'.$sa_type2.' เลขบิล :'.$sano,$bid);
 	
 	forget_point($dbprefix,$sano);
 	if($sa_type == 'A')downdatePos($dbprefix,$mcode,$sadate,$tot_pv);
@@ -183,7 +183,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 				//echo $sql;
 
@@ -205,7 +205,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -234,7 +234,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 	//$ewallet_after = $ewallet_before-$total;
 	
 	$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$uid')";
+	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$uid')";
 	$rs = mysql_query($sql);
 
 		 $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode'";
@@ -276,7 +276,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 				mysql_query($sql);
 
 
@@ -290,7 +290,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty+$qty WHERE pcode='$pcode' ";
@@ -315,10 +315,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 
 ?>

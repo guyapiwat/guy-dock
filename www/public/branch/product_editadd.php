@@ -6,17 +6,17 @@ function iproductcheck(){
 	var val = document.getElementById('pcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  ‘π§È“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 	
 	val = val + ","+document.getElementById('pdesc').value;
 	field = field +",pdesc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",√“¬≈–‡Õ’¬¥ ‘π§È“";
+	errDesc = errDesc + ",‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 	
 	val = val + ","+document.getElementById('price').value;
 	field = field +",price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",√“§“¢“¬";
+	errDesc = errDesc + ",‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Ç‡∏≤‡∏¢";
 	
 	val = val + ","+document.getElementById('pv').value;
 	field = field +",pv";
@@ -26,7 +26,7 @@ function iproductcheck(){
 	val = val + ","+document.getElementById('qty').value;
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",¬Õ¥§ß‡À≈◊Õ";
+	errDesc = errDesc + ",‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠";
 	
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -39,19 +39,19 @@ function eproductcheck(){
 	var skipval = document.getElementById('opcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  ‘π§È“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 	
 	val = val + ","+document.getElementById('pdesc').value;
 	skipval = skipval+",";
 	field = field +",pdesc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",√“¬≈–‡Õ’¬¥ ‘π§È“";
+	errDesc = errDesc + ",‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 	
 	val = val + ","+document.getElementById('price').value;
 	skipval = skipval+",";
 	field = field +",price";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",√“§“¢“¬";
+	errDesc = errDesc + ",‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Ç‡∏≤‡∏¢";
 	
 	val = val + ","+document.getElementById('pv').value;
 	skipval = skipval+",";
@@ -63,7 +63,7 @@ function eproductcheck(){
 	skipval = skipval+",";
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",¬Õ¥§ß‡À≈◊Õ";
+	errDesc = errDesc + ",‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -76,8 +76,8 @@ function eproductcheck(){
 		$sql = "SELECT * FROM ".$dbprefix."product WHERE pcode='".$_GET['pcode']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‰¡Ëæ∫¢ÈÕ¡Ÿ≈µ“¡‡ß◊ËÕπ‰¢</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‰ªÀπÈ“ ‘π§È“</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≤‡∏°‡πÄ‡∏á‡∏∑‡πà‡∏≠‡∏ô‡πÑ‡∏Ç</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‡πÑ‡∏õ‡∏´‡∏ô‡πâ‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -100,27 +100,27 @@ function eproductcheck(){
        <table border="0" cellpadding="0" cellspacing="0" width="100%">
          <tr>
            <td width="43%" valign="top" align="right" ></td>
-           <td width="57%"><font color="#808080"><u>À¡“¬‡Àµÿ</u></font> <font color="#ff0000">*</font><font color="#808080">=®”‡ªÁπµÈÕß°√Õ°¢ÈÕ¡Ÿ≈</font><br />
+           <td width="57%"><font color="#808080"><u>‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</u></font> <font color="#ff0000">*</font><font color="#808080">=‡∏à‡∏≥‡πÄ‡∏õ‡πá‡∏ô‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</font><br />
                <input type="hidden" name="oid2" value="<?=$oid?>" />
                <br /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >√À—  ‘π§È“ <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="pcode" id="pcode" size="20" maxlength="20" value="<?=$pcode?>" /><input type="hidden" name="opcode" id="opcode" value="<?=$pcode?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >√“¬≈–‡Õ’¬¥ ‘π§È“ <font color="ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ <font color="ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="pdesc" id="pdesc" size="40" maxlength="40" value="<?=$pdesc?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >ÀπË«¬ </font></td>
+           <td width="43%" valign="top" align="right" >‡∏´‡∏ô‡πà‡∏ß‡∏¢ </font></td>
            <td width="57%">&nbsp;
                <input type="text" name="unit" size="40" maxlength="40" value="<?=$unit?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >√“§“¢“¬ <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Ç‡∏≤‡∏¢ <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="price" id="price" size="40" maxlength="40" value="<?=$price?>" /></td>
          </tr>
@@ -139,12 +139,12 @@ function eproductcheck(){
            <td>&nbsp;&nbsp;<input type="text" name="fv" size="20" maxlength="20" value="<?=$fv?>" /></td>
          </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >¬Õ¥§ß‡À≈◊Õ <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
            <input type="text" name="qty" id="qty" size="20" maxlength="20" value="<?=$qty?>" /></td>
          </tr>
          <!--tr> 
-    <td width="23%" valign="top" align="right" >¢ÈÕ¡Ÿ≈∂Ÿ°µÈÕß <font color="#ff0000">*</font></td>
+    <td width="23%" valign="top" align="right" >‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á <font color="#ff0000">*</font></td>
     <td width="77%">&nbsp; <input type="checkbox" name="C1" value="ok"></td>
   </tr-->
          <tr>
@@ -153,16 +153,16 @@ function eproductcheck(){
          </tr>
          <tr>
            <td width="43%" valign="top" align="right" >&nbsp;</td>
-           <td width="57%"><input name="button" id="button" type="button" onclick="<?=(isset($_GET['pcode'])?"eproductcheck()":"iproductcheck()")?>" value="µ√«® Õ∫" />
+           <td width="57%"><input name="button" id="button" type="button" onclick="<?=(isset($_GET['pcode'])?"eproductcheck()":"iproductcheck()")?>" value="‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö" />
              &nbsp;
-             <input type="submit" value="∫—π∑÷°" name="ok" id="ok"  disabled="disabled" />
+             <input type="submit" value="‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å" name="ok" id="ok"  disabled="disabled" />
              &nbsp;
-            <input name="reset"  id="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=1'" value="¬°‡≈‘°" /></td>
+            <input name="reset"  id="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=1'" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" /></td>
          </tr>
        </table>
      </form></td>
      <td width="40%">
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font></div></td>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font></div></td>
    </tr>
  </table>
 

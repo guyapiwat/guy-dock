@@ -44,7 +44,7 @@ if($_GET["status"] == 'approved'){
 		) ";
 		
 		//====================LOG===========================
-		logtext(true,$_SESSION['inv_usercode'],'���  Ewallet ���� : '.$mid.' �ӹǹ : '.$txtTransfer.' �ʹ��� :'.$ewallet_before.' ������� : '.$ewallet_after,$mid);
+		logtext(true,$_SESSION['inv_usercode'],'เติม  Ewallet รหัส : '.$mid.' จำนวน : '.$txtTransfer.' ยอดเดิม :'.$ewallet_before.' คงเหลือ : '.$ewallet_after,$mid);
 		$text="uid=".$_SESSION["inv_usercode"]." action=ewalletoperate =>$sql";
 		writelogfile($text);
 		if (! mysql_query($sql)) {	
@@ -67,10 +67,10 @@ if($_GET["status"] == 'approved'){
 		writelogfile($text);
 		
 		mysql_query("update ali_transfer_ewallet_confirm set approved_status='1', approved_uid='".$_SESSION['inv_usercode']."', approved_sctime='".$sctime."', sano_ref='".$sano."'  where mcode='".$mcode."' and id='".$_GET["bid"]."' ");
-		echo "<script language='JavaScript'>alert('�ӡ��͹��ѵ����º���¤��');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
+		echo "<script language='JavaScript'>alert('ทำการอนุมัติเรียบร้อยค่ะ');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
 		exit;
 	}
-	echo "<script language='JavaScript'>alert('�Դ��ͼԴ��Ҵ');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
+	echo "<script language='JavaScript'>alert('เกิดข้อผิดพลาด');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
 	exit;
 }
 
@@ -89,14 +89,14 @@ if($_GET["status"] == 'cancel'){
 				mysql_query("update ali_transfer_ewallet_confirm set cancel_status='1', cancel_uid='".$_SESSION['inv_usercode']."', cancel_sctime='".$sctime."'  where mcode='".$mcode."' and id='".$_GET["bid"]."' ");
 			}
 			else{
-				echo "<script language='JavaScript'>alert('�������ö¡��ԡ����');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";
+				echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกได้ค่ะ');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";
 				exit;
 			}
 		}
-		echo "<script language='JavaScript'>alert('�ӡ��¡��ԡ���º���¤��');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
+		echo "<script language='JavaScript'>alert('ทำการยกเลิกเรียบร้อยค่ะ');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
 		exit;		
 	}
-	echo "<script language='JavaScript'>alert('�Դ��ͼԴ��Ҵ');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
+	echo "<script language='JavaScript'>alert('เกิดข้อผิดพลาด');window.location='index.php?sessiontab=$sesstiontab&sub=$sub';</script>";    
 	exit;		
 }
 

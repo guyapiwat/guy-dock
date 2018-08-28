@@ -49,7 +49,7 @@ if(isset($_GET['state']))
 
 $detail_member = get_detail_meber($data['mcode'],date("Y-m-d"));
 if(count($detail_member) == 0){
-    echo "<script language='JavaScript'>alert('��辺������Ҫԡ');history.back();</script>";        
+    echo "<script language='JavaScript'>alert('ไม่พบรหัสสมาชิก');history.back();</script>";        
     exit; 
 }
  
@@ -108,7 +108,7 @@ foreach($set_payment as $key => $val):
    // }
 endforeach;
 if($chk_sum != $data['total']){
-    echo "<script language='JavaScript'>alert('�Դ��ͼԴ��Ҵ');history.back();</script>";        
+    echo "<script language='JavaScript'>alert('เกิดข้อผิดพลาด');history.back();</script>";        
     exit;
 }
 

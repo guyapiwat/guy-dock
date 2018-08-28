@@ -13,7 +13,7 @@
 <form action="memposoperate1.php?state=1" method="post" name="posedit">
 <table align="center" width="70%" border="0">
 	<tr>
-	  <td colspan="6">ÃËÑÊ <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;ª×èÍ <?=mysql_result($rs,0,'name_t')?>
+	  <td colspan="6">à¸£à¸«à¸±à¸ª <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;à¸Šà¸·à¹ˆà¸­ <?=mysql_result($rs,0,'name_t')?>
       <input type='hidden' name='id' id='id' value='<?=$id?>'>
       <input type='hidden' name='opos' id='opos' value='<?=$pos_cur?>'>
       </td>
@@ -34,7 +34,7 @@
 	//$imgPosDef[$posid[$i]] = "./images/balls_11.gif";
 	//$tabUPosDef[$posid[$i]] = "#EEEEEE";
 	//$tabDPosDef[$posid[$i]] = mysql_result($rs,$i,'posdtab');
-	//$namePosDef[$posid[$i]] = "äÁèÁÕÊÁÒªÔ¡";
+	//$namePosDef[$posid[$i]] = "à¹„à¸¡à¹ˆà¸¡à¸µà¸ªà¸¡à¸²à¸Šà¸´à¸";
 	//mysql_free_result($rs);
 	?>
     <?
@@ -68,16 +68,16 @@
 	?>
 	<tr><td colspan="6" align="center" width="38%">&nbsp;</td></tr>
 <!--   <tr>
-      <td colspan="6" align="center">«éÒÂ
+      <td colspan="6" align="center">à¸‹à¹‰à¸²à¸¢
         <input type="text" size="15" id="carry_l" name="carry_l"  value="<?=$carry_l?>">
-      ¢ÇÒ
+      à¸‚à¸§à¸²
       <input type="text" size="15" id="carry_c" name="carry_c" value="<?=$carry_c?>" ></td>
     </tr>-->
     <tr>
       <td colspan="6" align="center" width="100%"> <input type="text" size="15" id="posdate" name="posdate" value="<?=date("Y-m-d")?>">
               <a href="javascript:NewCal('posdate','yyyymmdd',false,24)">
-              <img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="àÅ×Í¡ÇÑ¹·Õè"></a>
+              <img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆ"></a>
     </td></tr>
-    <tr><td align="center" colspan="6"><input type="submit" value="µ¡Å§"></td></tr>
+    <tr><td align="center" colspan="6"><input type="submit" value="à¸•à¸à¸¥à¸‡"></td></tr>
 </table>
 </form>

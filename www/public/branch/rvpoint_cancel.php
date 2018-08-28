@@ -2,8 +2,8 @@
 require_once("logtext.php");
 require_once ("function.log.inc.php");
 
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>แก้ไขข้อมูลรายการซื้อขาย :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เนเธเนเนเธเธเนเธญเธกเธนเธฅเธฃเธฒเธขเธเธฒเธฃเธเธทเนเธญเธเธฒเธข :";
 	$bid = $_GET['bid'];
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -12,12 +12,12 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">เลขบิล</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รวม</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เน€เธฅเธเธเธดเธฅ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธงเธก</td>
         </tr>
 	<?
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		//echo "SELECT * FROM ".$dbprefix."rvpoint WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."rvpoint WHERE id='$bid' and cancel = 0 LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
@@ -55,9 +55,9 @@ writelogfile($text);
 			mysql_query("update ".$dbprefix."member set rv_point = rv_point+".$txtMoney." where mcode='".$mcode."' ");
 			mysql_query("update ".$dbprefix."rvpoint set cancel=1 where sano='$id' ");
 		}else{
-			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้');window.location='index.php?sessiontab=3&sub=88'</script>";	
+			echo "<script language='JavaScript'>alert('เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธขเธเน€เธฅเธดเธเธเธดเธฅเธเธตเนเนเธ”เน');window.location='index.php?sessiontab=3&sub=88'</script>";	
 		}
-		logtext(true,$_SESSION['adminuserid'],'ลบบิล RV POINT id : '.$row->sano,$row->sano);
+		logtext(true,$_SESSION['adminuserid'],'เธฅเธเธเธดเธฅ RV POINT id : '.$row->sano,$row->sano);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 ?>

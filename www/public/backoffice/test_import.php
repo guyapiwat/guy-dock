@@ -66,7 +66,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$lr = $sqlObj->lr;
 	if(empty($mdate))$mdate = '2016-01-01';
 	$chkdate = $mdate;
-	$cmp = "�ú";
+	$cmp = "ครบ";
 	
 	$sqlinsert = "insert into ali_member(mcode,name_f,name_t,name_b,mdate,email,beneficiaries,relation
 	,cnational,id_tax,cid_card,id_card,caddress,address,cdistrictId,districtId,camphurId,amphurId,cprovinceId

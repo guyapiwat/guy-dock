@@ -27,24 +27,24 @@ $sql = "SELECT * FROM ".$dbprefix."log_ewallet ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,inv_code,sadate,satime,sano,yokma,moneyin,moneyout,total,uid,type");
-		$rec->setFieldDesc("√À—  ¡“™‘°,√À—  “¢“,«—π∑’Ë,‡«≈“,√À— ∫‘≈,¬°¡“,‡ß‘π‡¢È“,‡ß‘πÕÕ°,§ß‡À≈◊Õ,ºŸÈ„™È,™π‘¥");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡πÄ‡∏ß‡∏•‡∏≤,‡∏£‡∏´‡∏±‡∏™‡∏ö‡∏¥‡∏•,‡∏¢‡∏Å‡∏°‡∏≤,‡πÄ‡∏á‡∏¥‡∏ô‡πÄ‡∏Ç‡πâ‡∏≤,‡πÄ‡∏á‡∏¥‡∏ô‡∏≠‡∏≠‡∏Å,‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ,‡∏ä‡∏ô‡∏¥‡∏î");
 		$rec->setFieldAlign("center,center,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("8%,8%,8%,8%,8%,8%,8%,8%,8%,8%,8%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSearch("mcode,inv_code,sadate,satime,sano,yokma,moneyin,moneyout,total,uid,type");
-		$rec->setSearchDesc("√À—  ¡“™‘°,√À—  “¢“,«—π∑’Ë,‡«≈“,√À— ∫‘≈,¬°¡“,‡ß‘π‡¢È“,‡ß‘πÕÕ°,§ß‡À≈◊Õ,ºŸÈ„™È,™π‘¥");
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡πÄ‡∏ß‡∏•‡∏≤,‡∏£‡∏´‡∏±‡∏™‡∏ö‡∏¥‡∏•,‡∏¢‡∏Å‡∏°‡∏≤,‡πÄ‡∏á‡∏¥‡∏ô‡πÄ‡∏Ç‡πâ‡∏≤,‡πÄ‡∏á‡∏¥‡∏ô‡∏≠‡∏≠‡∏Å,‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ,‡∏ä‡∏ô‡∏¥‡∏î");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","log_ewallet".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","log_ewallet".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

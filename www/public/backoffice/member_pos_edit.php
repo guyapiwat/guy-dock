@@ -15,7 +15,7 @@
 <form action="memposoperate.php?state=1" method="post" name="posedit">
 <table align="center" width="70%" border="0">
     <tr>
-      <td colspan="6">รหัส <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ <?=mysql_result($rs,0,'name_t')?>
+      <td colspan="6">เธฃเธซเธฑเธช <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;เธเธทเนเธญ <?=mysql_result($rs,0,'name_t')?>
       <input type='hidden' name='id' id='id' value='<?=$id?>'>
       <input type='hidden' name='opos' id='opos' value='<?=$pos_cur?>'>
        <input type='hidden' name='opos1' id='opos1' value='<?=$pos_cur2?>'>
@@ -24,7 +24,7 @@
     
 <tr bgcolor="#FFCC33" >
  <td colspan="6">
-ตำแหน่ง
+เธ•เธณเนเธซเธเนเธ
 </td>
 <tr>    <?
     mysql_free_result($rs);
@@ -71,7 +71,7 @@
 
 <tr bgcolor="#FFCC33" >
  <td colspan="6" >
-เกียรติยศ
+เน€เธเธตเธขเธฃเธ•เธดเธขเธจ
 </td>
 <tr>
 
@@ -120,6 +120,6 @@
     ?>
  
 
-    <tr><td align="center" colspan="6"><input type="submit" value="ตกลง"></td></tr>
+    <tr><td align="center" colspan="6"><input type="submit" value="เธ•เธเธฅเธ"></td></tr>
 </table>
 </form>

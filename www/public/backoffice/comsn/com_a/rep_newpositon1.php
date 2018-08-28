@@ -14,7 +14,7 @@ if($strfdate=="" || $strtdate==""){
 }else{
 //	rpdialog();
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">¾ÔÁ¾ì·Ñé§ËÁ´</a-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a-->
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -23,8 +23,8 @@ if($strfdate=="" || $strtdate==""){
 
 		if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		$sql = "SELECT a.id,DATE_FORMAT(a.date_change, '%Y-%m-%d') as date_change,DATE_FORMAT(a.date_update, '%Y-%m-%d') as date_update,a.rcode,a.mcode,m.name_t,a.pos_before,a.pos_after
-		,CASE a.type WHEN '1' THEN 'áµè§µÑé§µÓáË¹è§' ELSE '»¡µÔ' END AS vip
-		,CASE a.uid WHEN '' THEN 'ÃÐºº' ELSE a.uid END AS uid		
+		,CASE a.type WHEN '1' THEN 'à¹à¸•à¹ˆà¸‡à¸•à¸±à¹‰à¸‡à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡' ELSE 'à¸›à¸à¸•à¸´' END AS vip
+		,CASE a.uid WHEN '' THEN 'à¸£à¸°à¸šà¸š' ELSE a.uid END AS uid		
 		FROM ".$dbprefix."calc_poschange2 a  ";
 		$sql .= "LEFT JOIN ".$dbprefix."member m ON (a.mcode=m.mcode) ";
 
@@ -62,9 +62,9 @@ if($strfdate=="" || $strtdate==""){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowIndex(true);
-		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","´Ù");
+		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","à¸”à¸¹");
 		$rec->setShowField("date_change,mcode,name_t,pos_before,pos_after,vip,date_change,uid");
-		$rec->setFieldDesc("ÇÑ¹·Õè»ÃÑºµÓáË¹è§,ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,µÓáË¹è§à´ÔÁ,µÓáË¹è§ãËÁè,»ÃÐàÀ·,ÇÑ¹·Õè·ÓÃÒÂ¡ÒÃ,¼ÙéºÑ¹·Ö¡");
+		$rec->setFieldDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆà¸›à¸£à¸±à¸šà¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¹€à¸”à¸´à¸¡,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¹ƒà¸«à¸¡à¹ˆ,à¸›à¸£à¸°à¹€à¸ à¸—,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸—à¸³à¸£à¸²à¸¢à¸à¸²à¸£,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		$rec->setFieldAlign("center,center,left,center,center,center,center,center,center,center");
 		//$rec->setFieldSpace("8%,8%,25%,9%,9%,8%,8%,8%");//10
 		$rec->setFieldFloatFormat("");
@@ -73,7 +73,7 @@ if($strfdate=="" || $strtdate==""){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","newposition".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","newposition".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -82,9 +82,9 @@ if($strfdate=="" || $strtdate==""){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		//$rec->setSearch("a.mcode");
-		//$rec->setSearchDesc("ÃËÑÊ");
+		//$rec->setSearchDesc("à¸£à¸«à¸±à¸ª");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

@@ -60,13 +60,13 @@ $rec->setBackLink($PHP_SELF,"sessiontab=3");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("pcode,pdesc,qty,price,pv");
-$rec->setFieldDesc("ÃËÑÊ,ÃÒÂÅÐàÍÕÂ´,¤§àËÅ×Í,ÃÒ¤Ò,¤Ðá¹¹");
+$rec->setFieldDesc("à¸£à¸«à¸±à¸ª,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸£à¸²à¸„à¸²,à¸„à¸°à¹à¸™à¸™");
 $rec->setFieldAlign("center,left,center,right,right");
 $rec->setFieldSpace("15%,35%,15%,15%,15%");
 $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,qty","IMAGE","");
 $rec->setSearch("pcode,pdesc,price,pv");
-$rec->setSearchDesc("ÃËÑÊ,ÃÒÂÅÐàÍÕÂ´,¤§àËÅ×Í,ÃÒ¤Ò,¤Ðá¹¹");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ª,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸£à¸²à¸„à¸²,à¸„à¸°à¹à¸™à¸™");
 $rec->setFieldFloatFormat(",,2,0");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');

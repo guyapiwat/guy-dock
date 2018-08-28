@@ -13,7 +13,7 @@ function view(code){
 </script>
 <script language="javascript" type="text/javascript">
 function sale_status(id){
-	if(confirm("µÈÕß°“√ Reset Password")){
+	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ Reset Password")){
 		window.location='index.php?sessiontab=1&sub=2&state=3&bid='+id;
 	}
 }
@@ -111,13 +111,13 @@ if(!empty($_REQUEST['s_mcode']) || !empty($_GET['s_mcode'])){
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mcode,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		$rec->setShowField("mcode,name_t,date,ewallet");
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë,ewallet");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,ewallet");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,center,center,center,center,right,right,center");
 		$rec->setFieldSpace("6%,20%,10%,8%,8%,6%,6%,6%,6%,6%,6%,6%,6%,6%,6%,6%,6%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=5&cmc=,,,,,index.php?sessiontab=1&sub=2&state=6&rr,");
@@ -127,24 +127,24 @@ if(!empty($_REQUEST['s_mcode']) || !empty($_GET['s_mcode'])){
 			//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		}
 		//$rec->setSearch($dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,exp_date,".$dbprefix."member.pos_cur,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code,".$dbprefix."member.id_card,status_doc,status_suspend,status_blacklist,status_ato,cshort");
-		//$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,√À— ª√–™“™π,‡Õ° “√,suspend,blacklist,Autoship,LB");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,suspend,blacklist,Autoship,LB");
 		if($acc->isAccess(2))
 			//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 			//$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","Reset Password");
 	
 		$rec->setSpace($str);
@@ -158,9 +158,9 @@ if(!empty($_REQUEST['s_mcode']) || !empty($_GET['s_mcode'])){
 	<form style="margin: 0px 0px 0px 0px; padding: 0px 0px 0px 0px; text-align: center;" name="searh" id="searh" action="index.php?sessiontab=3&sub=1313" method="post">
 	  <table width="56%" border="0">
 	    <tr>
-	      <td width="11%" align="right" scope="row">√À—  ¡“™‘°</td>
+	      <td width="11%" align="right" scope="row">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
 	      <td width="21%" align="left"><input type="text" name="s_mcode" id="s_mcode" value="<?=$s_mcode?>"></td>
-	      <td width="18%" align="right">®”π«π√“¬°“√</td>
+	      <td width="18%" align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td width="15%" align="left"><select name="s_list" id="s_list">
 	        <option value="50" <? if($s_list=='50'){echo 'selected';}?> >50</option>
 	        <option value="100" <? if($s_list=='100'){echo 'selected';}?>>100</option>
@@ -168,11 +168,11 @@ if(!empty($_REQUEST['s_mcode']) || !empty($_GET['s_mcode'])){
 	        <option value="300" <? if($s_list=='300'){echo 'selected';}?>>300</option>
 	        <option value="400" <? if($s_list=='400'){echo 'selected';}?>>400</option>
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?>>500</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 	        </select></td>
-	      <td width="35%" align="right"><input type="submit" value="   §ÈπÀ“   ">
+	      <td width="35%" align="right"><input type="submit" value="   ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤   ">
   &nbsp;&nbsp;
-  <input type="reset" value="   ¬°‡≈‘°   "></td>
+  <input type="reset" value="   ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å   "></td>
         </tr>
       </table>
  

@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //äÁèä»àÍÒ¨Ò¡ cache
+  //à¹„à¸¡à¹ˆà¹„à¸›à¹€à¸­à¸²à¸ˆà¸²à¸ cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //¡ÓË¹´ header µÍ¹ÃÑº
+  //à¸à¸³à¸«à¸™à¸” header à¸•à¸­à¸™à¸£à¸±à¸š
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -18,9 +18,9 @@ if(!empty($value)){
  // $sql = "SELECT name_t";
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 	//	$sql .= " FROM ".$dbprefix."invent  where mcode like '%$value%' limit 0,1";
-		$sql = "SELECT inv_code,inv_desc,ewallet,CASE inv_type WHEN '1' THEN 'ÈÙ¹Âì' WHEN '2' THEN 'âÁºÒÂ' END AS inv_type FROM ".$dbprefix."invent where inv_code like '$value' and inv_code <> '".$_SESSION["admininvent"]."' ";
+		$sql = "SELECT inv_code,inv_desc,ewallet,CASE inv_type WHEN '1' THEN 'à¸¨à¸¹à¸™à¸¢à¹Œ' WHEN '2' THEN 'à¹‚à¸¡à¸šà¸²à¸¢' END AS inv_type FROM ".$dbprefix."invent where inv_code like '$value' and inv_code <> '".$_SESSION["admininvent"]."' ";
 
-		$result = mysql_query($sql) or die("ÃÐººäÁèÊÒÁÒÃ¶¤é¹ËÒä´é") ;
+		$result = mysql_query($sql) or die("à¸£à¸°à¸šà¸šà¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¸„à¹‰à¸™à¸«à¸²à¹„à¸”à¹‰") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		echo $data->inv_desc.' ';

@@ -30,28 +30,28 @@ input = pad_string + input;
 return input; 
 } 
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_ewallet.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_ewallet.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcode').value="";
 					document.getElementById("mname").innerHTML='<?=$wording_lan["ewallet_1"]?>';
 					}else{
 					document.getElementById('mcode').value=value;
-                    document.getElementById("mname").innerHTML=data; //�ʴ���
+                    document.getElementById("mname").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
   </script>
 <script language="javascript">
@@ -83,7 +83,7 @@ function ibillcheck(){
 	val = val + ","+document.getElementById('inv_code').value;
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
  
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	startRQ(field,val,"",flag,errDesc,"asaleh","checkstate");*/
@@ -141,7 +141,7 @@ function ebillcheck(){
 	skipval = skipval+",";
 	field = field +",mcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������Ҫԡ";
+	errDesc = errDesc + ",รหัสสมาชิก";
  
 	val = val + ","+document.getElementById('inv_code').value;
 	skipval = skipval+",";
@@ -182,8 +182,8 @@ if(isset($_GET['id'])){
 		$sql = "SELECT * FROM ".$dbprefix."cost_branch WHERE id='".$_GET['id']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-			dialogbox("50%","#990000","��辺�����ŵ�����͹�",$redirect);
+			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+			dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$redirect);
 			exit;
 		}else{
 			$sadate = mysql_result($rs,0,'sadate');
@@ -215,40 +215,40 @@ if(isset($_GET['id'])){
       <tr valign="top">
         <td><table border="0" width="100%">
                 <tr valign="top">
-                  <td align="right">�����Ң�</td>
+                  <td align="right">รหัสสาขา</td>
                   <td><input name="inv_code" id="inv_code" type="text" value="<?=$_SESSION["admininvent"]?>"   readonly style="background-color: #F6FFB8;padding: 2px 3px;border: 1px solid #B8B8B8;"></td>
                 </tr>
 				<tr valign="top">
-                  <td align="right">�ѹ������¡��</td>
+                  <td align="right">วันที่ทำรายการ</td>
                   <td><input type="text" id="date" name="date" value="<? echo date("Y-m-d");?>" readonly style="background-color: #F6FFB8;padding: 2px 3px;border: 1px solid #B8B8B8;"></td>
                 </tr>
                 <tr valign="top">
-                  <td align="right">������¡��</td>
+                  <td align="right">ชื่อรายการ</td>
                   <td>
-                    <input name="title" type="text" id="title" value="" size="100" maxlength="255" placeholder="�ѹ�ա��¡�ä������»�Ш���͹ �Զع�¹"></td>
+                    <input name="title" type="text" id="title" value="" size="100" maxlength="255" placeholder="บันทีกรายการค่าใช้จ่ายประจำเดือน มิถุนายน"></td>
                 </tr>
                 <tr valign="top">
-                  <td align="right">������</td>
+                  <td align="right">ค่าเช่า</td>
                   <td><input name="cost_1" type="text" value="" size="20" style="text-align: right;" placeholder="0.00">
-                    �ҷ</td>
+                    บาท</td>
                 </tr>
                 <tr   valign="top">
-                  <td align="right">��ҹ��</td>
+                  <td align="right">ค่าน้ำ</td>
                   <td><input name="cost_2" type="text" value="" size="20"  style="text-align: right;" placeholder="0.00">
-�ҷ</td>
+บาท</td>
                 </tr>
                 <tr valign="top" >
-                  <td align="right">����</td>
+                  <td align="right">ค่าไฟ</td>
                   <td><input name="cost_3" type="text" value="" size="20"  style="text-align: right;" placeholder="0.00">
-�ҷ</td>
+บาท</td>
                 </tr>
                 <tr valign="top">
-                  <td align="right">����Թ��������</td>
+                  <td align="right">ค่าสินค้าเบ็ดเตล็ด</td>
                   <td><input name="cost_4" type="text" value="" size="20"  style="text-align: right;" placeholder="0.00">
-�ҷ</td>
+บาท</td>
                 </tr>
                 <tr valign="top">
-                  <td align="right">��������´�������</td>
+                  <td align="right">รายละเอียดเพิ่มเติม</td>
                   <td><textarea name="remark" cols="100" rows="5"> 
                   </textarea></td>
                 </tr>
@@ -271,7 +271,7 @@ if(isset($_GET['id'])){
 			}else
 				dialogbox("100%","#990000",$wording_lan['w19'].$_GET['id'],"");
         }else{
-			//dialogbox("100%","#009900","���͡�����Ũҡ��¡���Թ��� �����䢨ӹǹ�����ͧ���","");
+			//dialogbox("100%","#009900","เลือกข้อมูลจากรายการสินค้า และแก้ไขจำนวนตามต้องการ","");
 			?><input type='submit' value='<?=$wording_lan["insert"]?>' name='ok'  id='ok'  />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=3&sub=6'" value='<?=$wording_lan["cancel"]?>' /><?
 		}
 		?>

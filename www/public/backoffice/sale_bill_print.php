@@ -20,8 +20,8 @@
 		$tdate = $fdate;
 	}
 ?>
-<table align="center"><tr>	<td align="center"><b>�����ź�������ҧ�ѹ��� <?=$fdate?> �֧ <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">������ѹ��� <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>ข้อมูลบิลระหว่างวันที่ <?=$fdate?> ถึง <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">พิมพ์วันที่ <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -82,16 +82,16 @@ if($satype !=""){
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,txtAll,txtCash,txtFuture,AllCredit,txtTransfer,txtInternet,txtDiscount,txtOther,optionAll");
 		$rec->setFieldFloatFormat(",0,0,0,0,0,0,0,0");
-		$rec->setFieldDesc("�Ţ���,�ӹǹ���,�Թʴ,�Ѻ��ǧ˹��,�ѵ��ôԵ,�Թ�͹,Ewallet,��ǹŴ,����,�����˵�");
+		$rec->setFieldDesc("เลขบิล,จำนวนรวม,เงินสด,รับล่วงหน้า,บัตรเครดิต,เงินโอน,Ewallet,ส่วนลด,อื่นๆ,หมายเหตุ");
 		$rec->setFieldAlign("center,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("5%,8%,8%,8%,8%,8%,8%,8%,8%,50%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
 		$rec->setSum(true,false,",true,true,true,true,true,true,true,true,");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		//$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
@@ -138,13 +138,13 @@ $result = mysql_query($sql);
 <!--<td width="10">&nbsp;</td>-->
 <table width="100%"><tr><td width="50"></td><td>
 <table cellpadding="0" cellspacing="0" border="1" width="150" align="left">
-<tr><td width="72">&nbsp;�Թʴ&nbsp;</td><td width="33">&nbsp;<?=$sumCash?>&nbsp;</td><td width="37">&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;�ѵ��ôԵ&nbsp;</td><td>&nbsp;<?=$sumCredit?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;�Թ�͹&nbsp;</td><td>&nbsp;<?=$sumTransfer?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;Ewallet&nbsp;</td><td>&nbsp;<?=$sumInternet?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;�Ѻ��ǧ˹��&nbsp;</td><td>&nbsp;<?=$sumFuture?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;��ǹŴ&nbsp;</td><td>&nbsp;<?=$sumDiscount?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;OV&nbsp;</td><td>&nbsp;<?=$sumOther?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr>
-<tr><td nowrap>&nbsp;�ӹǹ���&nbsp;</td><td>&nbsp;<? echo $toto;?>&nbsp;</td><td>&nbsp;�ҷ&nbsp;</td></tr></table>
+<tr><td width="72">&nbsp;เงินสด&nbsp;</td><td width="33">&nbsp;<?=$sumCash?>&nbsp;</td><td width="37">&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;บัตรเครดิต&nbsp;</td><td>&nbsp;<?=$sumCredit?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;เงินโอน&nbsp;</td><td>&nbsp;<?=$sumTransfer?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;Ewallet&nbsp;</td><td>&nbsp;<?=$sumInternet?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;รับล่วงหน้า&nbsp;</td><td>&nbsp;<?=$sumFuture?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;ส่วนลด&nbsp;</td><td>&nbsp;<?=$sumDiscount?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;OV&nbsp;</td><td>&nbsp;<?=$sumOther?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr>
+<tr><td nowrap>&nbsp;จำนวนรวม&nbsp;</td><td>&nbsp;<? echo $toto;?>&nbsp;</td><td>&nbsp;บาท&nbsp;</td></tr></table>
 </td></tr></table>
 <br><br><br>

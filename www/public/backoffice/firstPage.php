@@ -13,13 +13,13 @@ if (mysql_num_rows($result)>0) {
 	<blockquote>
 	
 		<br>
-	รหัส&nbsp;<?=$usercode?>&nbsp;ชื่อ&nbsp;<?=$username?><br>
+	เธฃเธซเธฑเธช&nbsp;<?=$usercode?>&nbsp;เธเธทเนเธญ&nbsp;<?=$username?><br>
 	<br>
 	Last Login  :  <?=$logdatetime?>
 	<br>
 	<br>
 	
-<a href="index.php?sessiontab=0&sub=1">เปลี่ยนรหัสผ่านผู้ใช้งานระบบ</a>
+<a href="index.php?sessiontab=0&sub=1">เน€เธเธฅเธตเนเธขเธเธฃเธซเธฑเธชเธเนเธฒเธเธเธนเนเนเธเนเธเธฒเธเธฃเธฐเธเธ</a>
 	<br><br>
 	<br><br>
 	[<a href="logout.php">Logout</a>]

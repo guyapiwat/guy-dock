@@ -142,42 +142,42 @@ if($_GET["txtKeyword"] == "")
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
-			<td align="center" width="60%"><b><font size='2'>��§ҹ��â�»�Ш��ѹ  ��ػ��ê����Թ  ����Ң� </b></font></td>
-			<td align="right" width="20%">˹�� <?php echo $page;?></td>
+			<td align="center" width="60%"><b><font size='2'>รายงานการขายประจำวัน  สรุปการชำระเงิน  รายสาขา </b></font></td>
+			<td align="right" width="20%">หน้า <?php echo $page;?></td>
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
-			<td align="center" width="60%"><b><font size='2'>����Ѻ�Ң� <?=mysql_result($objQuery,0,'lid');?></b></font></td>
-			<td align="right" width="20%">�ѹ������� <?php echo date("d/m/Y");?></td>
+			<td align="center" width="60%"><b><font size='2'>สำหรับสาขา <?=mysql_result($objQuery,0,'lid');?></b></font></td>
+			<td align="right" width="20%">วันที่พิมพ์ <?php echo date("d/m/Y");?></td>
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
 
 			<?php if($_GET['fdate'] == ''){ ?>
-			<td align="center" width="60%"><b><font size='2'>��Ш��ѹ��� ������</b></font></td>
+			<td align="center" width="60%"><b><font size='2'>ประจำวันที่ ทั้งหมด</b></font></td>
 			<?}else{ ?>
-			<td align="center" width="60%"><b><font size='2'>��Ш��ѹ��� <?php echo $_GET['fdate']?> �֧ <?php echo $_GET['tdate']?> </b></font></td>
+			<td align="center" width="60%"><b><font size='2'>ประจำวันที่ <?php echo $_GET['fdate']?> ถึง <?php echo $_GET['tdate']?> </b></font></td>
 			<?}?>
 			
-			<td align="right" width="20%">���ҷ������ <?php echo date("H:i:s");?></td>
+			<td align="right" width="20%">เวลาที่พิมพ์ <?php echo date("H:i:s");?></td>
 		</tr>
 	</table>
 	 
 	<div class="CSSTableGenerator" >
 		<table style=' margin:0 auto;' border="1">
 		   <tr>	
-			<th><div align="center" >�ӴѺ </div></th>	
-			<th><div align="center" >�Ţ��� </div></th>	
-			<th ><div align="center" style="width:190px;">���ͼ�����</div></th>		
-			<th><div align="center">������Ҫԡ </div></th>
-			<th><div align="center">�ʹ���</div></th>
-			<th><div align="right">�Թʴ</div></th>
- 			<th><div align="right">�ѵ��ôԵ</div></th>
-			<th><div align="right">�Թ�͹</div></th>
-			<th><div align="right">�͹��Ҥ��</div></th>
+			<th><div align="center" >ลำดับ </div></th>	
+			<th><div align="center" >เลขบิล </div></th>	
+			<th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
+			<th><div align="center">รหัสสมาชิก </div></th>
+			<th><div align="center">ยอดขาย</div></th>
+			<th><div align="right">เงินสด</div></th>
+ 			<th><div align="right">บัตรเครดิต</div></th>
+			<th><div align="right">เงินโอน</div></th>
+			<th><div align="right">โอนธนาคาร</div></th>
 			<th><div align="right">Ewallet</div></th>
 			<th><div align="right">Voucher</div></th>
-			<th><div align="right">�����˵�</div></th>
+			<th><div align="right">หมายเหตุ</div></th>
 		  </tr>
 		<?
 		$rr = 0;
@@ -200,41 +200,41 @@ if($_GET["txtKeyword"] == "")
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
-			<td align="center" width="60%"><b><font size='2'>��§ҹ��â�»�Ш��ѹ  ��ػ��ê����Թ  ����Ң� </b></font></td>
-			<td align="right" width="20%">˹�� <?php echo $page;?></td>
+			<td align="center" width="60%"><b><font size='2'>รายงานการขายประจำวัน  สรุปการชำระเงิน  รายสาขา </b></font></td>
+			<td align="right" width="20%">หน้า <?php echo $page;?></td>
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
-			<td align="center" width="60%"><b><font size='2'>����Ѻ�Ң� <?=$objResult["lid"];?></b></font></td>
-			<td align="right" width="20%">�ѹ������� <?php echo date("d/m/Y");?></td>
+			<td align="center" width="60%"><b><font size='2'>สำหรับสาขา <?=$objResult["lid"];?></b></font></td>
+			<td align="right" width="20%">วันที่พิมพ์ <?php echo date("d/m/Y");?></td>
 		</tr>
 		<tr>
 			<td align="left" width="20%"></td>
 			<?php if($_GET['fdate'] == ''){ ?>
-			<td align="center" width="60%"><b><font size='2'>��Ш��ѹ��� ������</b></font></td>
+			<td align="center" width="60%"><b><font size='2'>ประจำวันที่ ทั้งหมด</b></font></td>
 			<?}else{ ?>
-			<td align="center" width="60%"><b><font size='2'>��Ш��ѹ��� <?php echo $_GET['fdate']?> �֧ <?php echo $_GET['tdate']?> </b></font></td>
+			<td align="center" width="60%"><b><font size='2'>ประจำวันที่ <?php echo $_GET['fdate']?> ถึง <?php echo $_GET['tdate']?> </b></font></td>
 			<?}?>
 			
-			<td align="right" width="20%">���ҷ������ <?php echo date("H:i:s");?></td>
+			<td align="right" width="20%">เวลาที่พิมพ์ <?php echo date("H:i:s");?></td>
 		</tr>
 
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-			<th><div align="center" >�ӴѺ </div></th>	
-			<th><div align="center" >�Ţ��� </div></th>	
-			<th ><div align="center" style="width:190px;">���ͼ�����</div></th>		
-			<th><div align="center">������Ҫԡ </div></th>
-			<th><div align="center">�ʹ���</div></th>
-			<th><div align="right">�Թʴ</div></th>
- 			<th><div align="right">�ѵ��ôԵ</div></th>
-			<th><div align="right">�Թ�͹</div></th>
-			<th><div align="right">�͹��Ҥ��</div></th>
+			<th><div align="center" >ลำดับ </div></th>	
+			<th><div align="center" >เลขบิล </div></th>	
+			<th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
+			<th><div align="center">รหัสสมาชิก </div></th>
+			<th><div align="center">ยอดขาย</div></th>
+			<th><div align="right">เงินสด</div></th>
+ 			<th><div align="right">บัตรเครดิต</div></th>
+			<th><div align="right">เงินโอน</div></th>
+			<th><div align="right">โอนธนาคาร</div></th>
 			<th><div align="right">Ewallet</div></th>
 			<th><div align="right">Voucher</div></th>
-			<th><div align="right">�����˵�</div></th>
+			<th><div align="right">หมายเหตุ</div></th>
 	
 		  </tr>
 	<?	
@@ -286,7 +286,7 @@ if($_GET["txtKeyword"] == "")
 		<td bgcolor='#ccc'><div align="center"> </div></td>
  		<td bgcolor='#ccc'><div align="center"> </div></td>
 		<td bgcolor='#ccc' align="left"><div align="left"></div></td>
-		<td bgcolor='#ccc' align="right"><div align="center">���</div></td>
+		<td bgcolor='#ccc' align="right"><div align="center">รวม</div></td>
 		<td bgcolor='#ccc' align="right"><div align="right"><?=number_format($objrs["total"],2,'.',',');?></div></td>
 		<td bgcolor='#ccc' align="right"><div align="right"><?=number_format($objrs["txtCash"],2,'.',',');?></div></td>
 		<td bgcolor='#ccc' align="right"><div align="right"><?=number_format($objrs["txtCredit"],2,'.',',');?></div></td>
@@ -306,7 +306,7 @@ if($_GET["txtKeyword"] == "")
 				<td ><div align="center"> </div></td>
 				<td align="left"><div align="left"></div></td>
 				<td align="right"><div align="center"></div></td>
-				<td  align="right"><div align="right"></div>��ػ�Թ�͹ :</td>
+				<td  align="right"><div align="right"></div>สรุปเงินโอน :</td>
 				<td  align="right"><div align="right"></div></td>
 				<td  align="right"><div align="right"></div></td>
 				<td align="right"><div align="right"> </div></td>
@@ -316,7 +316,7 @@ if($_GET["txtKeyword"] == "")
 				<td align="right"><div align="right"></div></td>
 	</tr>
 	<?php
-		$sql2 .= "SELECT pm.inv_ref,pm.pay_type,pm.pay_desc,pm.mapping_code,ifnull((SELECT sum(a.txtTransfer) as pva FROM ali_asaleh a WHERE a.lid = '".$inv_code."' and a.sadate >='".$_GET['fdate']."' and a.sadate <='".$_GET['tdate']."' and a.optionTransfer=pm.mapping_code and a.cancel = 0 and a.sano <> '' GROUP BY a.optionTransfer),0) as total FROM ali_payment_type pm WHERE inv_ref='".$inv_code."' and pay_type ='�Թ�͹' 
+		$sql2 .= "SELECT pm.inv_ref,pm.pay_type,pm.pay_desc,pm.mapping_code,ifnull((SELECT sum(a.txtTransfer) as pva FROM ali_asaleh a WHERE a.lid = '".$inv_code."' and a.sadate >='".$_GET['fdate']."' and a.sadate <='".$_GET['tdate']."' and a.optionTransfer=pm.mapping_code and a.cancel = 0 and a.sano <> '' GROUP BY a.optionTransfer),0) as total FROM ali_payment_type pm WHERE inv_ref='".$inv_code."' and pay_type ='เงินโอน' 
 		";
 //echo $sql;
  		$rs2 = mysql_query($sql2) or die ("Error Query [".$sql2."]");

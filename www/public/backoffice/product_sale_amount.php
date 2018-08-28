@@ -59,9 +59,9 @@ for($i=0;$i<mysql_num_rows($result);$i++){
 	$lid = $data->inv_code;
 	$inv_desc = $data->inv_desc;
 
-echo '<center><font size=4>ºÔÅ Branch '.$inv_desc.'</font></center>';
-if(!empty($fdate)&&!empty($tdate)){echo '<center><font size=4>ÇÑ¹·Õè '.$fdate.' ¶Ö§ '.$tdate.'</font></center>';}
-else{ echo '<center><font size=4>·Ñé§ËÁ´</font></center>';}
+echo '<center><font size=4>à¸šà¸´à¸¥ Branch '.$inv_desc.'</font></center>';
+if(!empty($fdate)&&!empty($tdate)){echo '<center><font size=4>à¸§à¸±à¸™à¸—à¸µà¹ˆ '.$fdate.' à¸–à¸¶à¸‡ '.$tdate.'</font></center>';}
+else{ echo '<center><font size=4>à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</font></center>';}
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,(SUM(amt))-(SUM(amt)*7/107) AS tax,".$dbprefix."product.unit,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -103,7 +103,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,unit,qty,tax,amt");
 		$rec->setFieldFloatFormat(",,,0,2,2");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,Ë¹èÇÂ¹Ñº,¨Ó¹Ç¹,ÃÒ¤Ò¡èÍ¹ \nvat,à»ç¹à§Ô¹");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸«à¸™à¹ˆà¸§à¸¢à¸™à¸±à¸š,à¸ˆà¸³à¸™à¸§à¸™,à¸£à¸²à¸„à¸²à¸à¹ˆà¸­à¸™ \nvat,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		$rec->setFieldAlign("center,left,center,right,right,right");
 		$rec->setFieldSpace("10%,40%,10%,10%,15%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -111,20 +111,20 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		//$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		if($_GET['excel']==1){
 
 			$rec->exportXls("ExportXls","product_sale_amount".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","product_sale_amount".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
@@ -138,9 +138,9 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 
 
 
-	echo '<center><font size=4>ºÔÅ Online</font></center>';
-if(!empty($fdate)&&!empty($tdate)){echo '<center><font size=4>ÇÑ¹·Õè '.$fdate.' ¶Ö§ '.$tdate.'</font></center>';}
-else{ echo '<center><font size=4>·Ñé§ËÁ´</font></center>';}
+	echo '<center><font size=4>à¸šà¸´à¸¥ Online</font></center>';
+if(!empty($fdate)&&!empty($tdate)){echo '<center><font size=4>à¸§à¸±à¸™à¸—à¸µà¹ˆ '.$fdate.' à¸–à¸¶à¸‡ '.$tdate.'</font></center>';}
+else{ echo '<center><font size=4>à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</font></center>';}
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,(SUM(amt))-(SUM(amt)*7/107) AS tax,".$dbprefix."product.unit,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, "; 
@@ -182,7 +182,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,unit,qty,amt");
 		$rec->setFieldFloatFormat(",,,,2");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,Ë¹èÇÂ¹Ñº,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸«à¸™à¹ˆà¸§à¸¢à¸™à¸±à¸š,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		$rec->setFieldAlign("center,left,center,right,right,right");
 		$rec->setFieldSpace("10%,55%,10%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -190,19 +190,19 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		//$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		//$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		if($_GET['excel']==2){
 
 			$rec->exportXls("ExportXls","product_sale_amount".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","product_sale_amount".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=2' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		
 		$rec->setSpace($str2);

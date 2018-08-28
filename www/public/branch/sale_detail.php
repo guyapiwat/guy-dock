@@ -30,7 +30,7 @@ $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END A
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '∫‘≈ÕÕπ‰≈πÏ' ELSE '∫‘≈¢“¬ª°µ‘' END AS type,".$dbprefix."asaleh.inv_code as strinvent ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '‡∏ö‡∏¥‡∏•‡∏≠‡∏≠‡∏ô‡πÑ‡∏•‡∏ô‡πå' ELSE '‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥' END AS type,".$dbprefix."asaleh.inv_code as strinvent ";
 $sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."member.pos_cur as por_cur,".$dbprefix."member.sp_code as sp_code ";
 
 
@@ -46,7 +46,7 @@ $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END A
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code1,'∫‘≈·®ß¬Õ¥' as type,".$dbprefix."holdhead.inv_code as strinvent";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code1,'‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type,".$dbprefix."holdhead.inv_code as strinvent";
 $sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur,".$dbprefix."member.sp_code as sp_code ";
 
 $sql .= "FROM ".$dbprefix."holdhead ";
@@ -97,13 +97,13 @@ if($cmc !=""){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,sadate,tot_pv,type");
-		$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,™π‘¥");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏ä‡∏ô‡∏¥‡∏î");
 		$rec->setFieldFloatFormat(",,,,,,,");
 		$rec->setFieldAlign("center,center,left,center,right,right,center,center");
 		$rec->setFieldSpace("7%,7%,60%,8%,8%,10%");
 		//$rec->setFieldLink("index.php?sessiontab=3&sub=6&sano=,index.php?sessiontab=3&sub=10&sano=");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°,®”π«π PV");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV");
 		$rec->setSum(true,true,",,,,true,,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

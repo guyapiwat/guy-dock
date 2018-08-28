@@ -20,8 +20,8 @@
 		$tdate = $fdate;
 	}
 ?>
-<table align="center"><tr>	<td align="center"><b>ข้อมูลบิลระหว่างวันที่ <?=$fdate?> ถึง <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">พิมพ์วันที่ <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>เธเนเธญเธกเธนเธฅเธเธดเธฅเธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน <?=$fdate?> เธ–เธถเธ <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -39,11 +39,11 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 ?>
 <fieldset style="background-color:#FFFFCC">
 <table width="60%" cellpadding="0" cellspacing="0"><tr bgcolor="#CCCCCC">
-    <td>รหัสสินค้า <?=mysql_result($rs,$i,'pcode')?></td>
-    <td>ชื่อสินค้า <?=mysql_result($rs,$i,'pdesc')?></td>
+    <td>เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ <?=mysql_result($rs,$i,'pcode')?></td>
+    <td>เธเธทเนเธญเธชเธดเธเธเนเธฒ <?=mysql_result($rs,$i,'pdesc')?></td>
 </tr><tr>
-    <td>ราคา ต่อหน่วย <?=mysql_result($rs,$i,'price')?></td>
-    <td>pv ต่อหน่วย <?=mysql_result($rs,$i,'pv')?></td>
+    <td>เธฃเธฒเธเธฒ เธ•เนเธญเธซเธเนเธงเธข <?=mysql_result($rs,$i,'price')?></td>
+    <td>pv เธ•เนเธญเธซเธเนเธงเธข <?=mysql_result($rs,$i,'pv')?></td>
 </tr></table>
 <?
 //$sql = "SELECT pcode,pdesc,price,SUM(qty) AS qty,SUM(amt) AS amt FROM ".$dbprefix."asaled "; 
@@ -90,7 +90,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 			if(isset($page))
 				$rec->setCurPage($page);
 			$rec->setShowField("sano,mcode,name_t,qty,amt");
-			$rec->setFieldDesc("เลขบิล,รหัสสมาชิก,ชื่อสมาชิก,จำนวน,จำนวนเงินรวม");
+			$rec->setFieldDesc("เน€เธฅเธเธเธดเธฅ,เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธเธณเธเธงเธ,เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก");
 			$rec->setFieldAlign("center,center,left,right,center,right,right,right");
 			$rec->setFieldSpace("10%,15%,45%,5%,10%");
 			//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -99,7 +99,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 			//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 			$rec->setSum(true,false,",,,true,true");
 			//$rec->setSearch("pcode,pdesc,price,qty,amt");
-			//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+			//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 			//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			$rec->showRec(1,'SH_QUERY');
 			//---------------------------------

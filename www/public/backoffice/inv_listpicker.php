@@ -17,8 +17,8 @@ function selectitem(inv_code,inv_desc,ewallet,voucher,inv_type,cname){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>àÅ×Í¡ÊÒ¢Ò</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">àÅ×Í¡ÊÒ¢Ò</font></strong></legend>
+<title>à¹€à¸¥à¸·à¸­à¸à¸ªà¸²à¸‚à¸²</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">à¹€à¸¥à¸·à¸­à¸à¸ªà¸²à¸‚à¸²</font></strong></legend>
 <?
 require("connectmysql.php");
 require("./cls/repGenerator.php");
@@ -56,12 +56,12 @@ $sql = "SELECT inv_code,inv_desc,".$dbprefix."location_base.cname,inv_type as in
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,inv_desc,inv_type,cname");
-		$rec->setFieldDesc("ÃËÑÊ,ª×èÍ,»ÃĞàÀ·,LB");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª,à¸Šà¸·à¹ˆà¸­,à¸›à¸£à¸°à¹€à¸ à¸—,LB");
 		$rec->setFieldAlign("center,left,left,left");
 		$rec->setFieldSpace("20%,40%,20%,20%");
 		$rec->setFieldLink("");
 		$rec->setSearch("inv_code,inv_desc");
-		$rec->setSearchDesc("ÃËÑÊÊÒ¢Ò,ª×èÍÊÒ¢Ò");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²,à¸Šà¸·à¹ˆà¸­à¸ªà¸²à¸‚à¸²");
 		//$rec->setDel("index.php","inv_code","inv_code","sessiontab=6&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=6&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","inv_code","inv_code","sessiontab=6&sub=2");

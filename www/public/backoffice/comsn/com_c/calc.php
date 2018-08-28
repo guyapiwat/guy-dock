@@ -31,7 +31,7 @@
 				
 
  			
-//---------------------„ ËºŸÈ·π–π” --------------------------------------
+//---------------------‡πÉ‡∏™‡πà‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥ --------------------------------------
 				$sql  = "INSERT INTO ".$dbprefix."cm (rcode,sano, mcode,bcode,mpos, pv  ) ";
 				$sql .= "SELECT  '$ro', h.sano, m.sp_code,  m.mcode, m.pos_cur, tot_pv " ; 
 				$sql .= " FROM ".$dbprefix."asaleh  h ";
@@ -39,14 +39,14 @@
 				$sql .= "WHERE (sadate BETWEEN sadate>='$fdate' and sadate<='$tdate')  and sp_code <> '' "; // use bills of B plan to calculate
 				
 				$rs = mysql_query($sql);
-				echo "1. „ ËºŸÈ·π–π” $sql <br>";
+				echo "1. ‡πÉ‡∏™‡πà‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥ $sql <br>";
  				$text="uid=".$_SESSION["adminuserid"]." action=comsn_c_calc =>$sql";
 				writelogfile($text);
 				
  				unset($rs);
-//---------------------„ÀÈ‚∫π—  µ“¡µ”·ÀπËß --------------------------------------
+//---------------------‡πÉ‡∏´‡πâ‡πÇ‡∏ö‡∏ô‡∏±‡∏™ ‡∏ï‡∏≤‡∏°‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á --------------------------------------
  				$sql = " SELECT mcode, bcode, (select pos_cur from ".$dbprefix."member m where m.mcode = c.mcode) as mpos, pv, sano from ".$dbprefix."cm c WHERE rcode = '$ro' order by sano ";
- 				echo "2. „ÀÈ‚∫π—  µ“¡µ”·ÀπËß  $sql. <br>";
+ 				echo "2. ‡πÉ‡∏´‡πâ‡πÇ‡∏ö‡∏ô‡∏±‡∏™ ‡∏ï‡∏≤‡∏°‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á  $sql. <br>";
  				$rs = mysql_query($sql);
  				while ($row1 = mysql_fetch_object($rs)){
  					$bcode = $row1->bcode;
@@ -58,7 +58,7 @@
  					//echo "$mcode , $mpos";
  					
 				 	$sql = " SELECT sano from ".$dbprefix."asaleh WHERE mcode = '$bcode'  and sano < '$sano' ";
-				 	echo " 2.1 À“∫‘≈«Ë“„∫·√°À√◊Õ‡ª≈Ë“ $sql <br>";
+				 	echo " 2.1 ‡∏´‡∏≤‡∏ö‡∏¥‡∏•‡∏ß‡πà‡∏≤‡πÉ‡∏ö‡πÅ‡∏£‡∏Å‡∏´‡∏£‡∏∑‡∏≠‡πÄ‡∏õ‡∏•‡πà‡∏≤ $sql <br>";
  					$rs1 = mysql_query($sql);
  					$nrows = mysql_num_rows($rs1);
  					
@@ -132,7 +132,7 @@
  				// Summarize bonus to CMBONUS
 				$sql = " INSERT INTO ".$dbprefix."cmbonus (rcode, mcode, bcode, total, bonus, topup)  ";
 				$sql .= " SELECT rcode, mcode, bcode, sum(bmbonus + topup), sum(bmbonus), sum(topup)  FROM  ".$dbprefix."cm WHERE rcode = '$ro'  group by mcode ";
-				echo " 3. ‡°Á∫‡¢È“ AMBONUS $sql <br>";
+				echo " 3. ‡πÄ‡∏Å‡πá‡∏ö‡πÄ‡∏Ç‡πâ‡∏≤ AMBONUS $sql <br>";
  				mysql_query($sql);
  				
 				$text="uid=".$_SESSION["adminuserid"]." action=comsn_c_calc =>$sql";

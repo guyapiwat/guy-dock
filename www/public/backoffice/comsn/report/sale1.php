@@ -11,7 +11,7 @@
 	
 	function sale_cancel(id){
 		
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 					
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		
@@ -22,7 +22,7 @@
 		
 	function sale_status(id){
 		
-	if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß®—¥ Ëß")){
+	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏à‡∏±‡∏î‡∏™‡πà‡∏á")){
 			
 		window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
 		}
@@ -57,7 +57,7 @@ $sql = "SELECT cancel,".$dbprefix."holdhead.id,".$dbprefix."holdhead.uid as uid,
 
 $sql .= ",'<img src=./images/false.gif>' AS sendsend ";
 
-$sql .= ",CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'∫‘≈¢“¬·®ß¬Õ¥' as type 
+$sql .= ",CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type 
 ";
 $sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 $sql .= "FROM ".$dbprefix."holdhead ";
@@ -99,7 +99,7 @@ if(!empty($strfdate))$sql .= " and ".$dbprefix."holdhead.sadate >= '".$strfdate.
 		
 	if(isset($page))$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode1,name_t,sadate,type,tot_pv,total,uid");
-	$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,™π‘¥,PV,®”π«π‡ß‘π√«¡,ºŸÈ∫—π∑÷°");
+	$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏ô‡∏¥‡∏î,PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
 		
 	$rec->setFieldFloatFormat(",,,,,2,2,");
 		$rec->setFieldAlign("center,center,left,center,center,right,right,right");
@@ -108,7 +108,7 @@ if(!empty($strfdate))$sql .= " and ".$dbprefix."holdhead.sadate >= '".$strfdate.
  		
 	$rec->setSearch("sano,sadate,".$dbprefix."holdhead.mcode");
 		
-	$rec->setSearchDesc("‡≈¢∫‘≈,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ");
+	$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠");
 		
 	$rec->setSum(true,false,",,,,,true,true,");
 		

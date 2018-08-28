@@ -50,12 +50,12 @@ $sql = "SELECT inv_code,inv_desc,'Stockist' AS inv_type,ewallet FROM ".$dbprefix
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,inv_desc,inv_type");
-		$rec->setFieldDesc("ÃËÑÊ,ª×èÍ,»ÃÐàÀ·");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª,à¸Šà¸·à¹ˆà¸­,à¸›à¸£à¸°à¹€à¸ à¸—");
 		$rec->setFieldAlign("center,left,left");
 		$rec->setFieldSpace("30%,40%,30%");
 		$rec->setFieldLink("");
 		$rec->setSearch("inv_code,inv_desc");
-		$rec->setSearchDesc("ÃËÑÊStockist,ª×èÍ Stockist");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªStockist,à¸Šà¸·à¹ˆà¸­ Stockist");
 		//$rec->setDel("index.php","inv_code","inv_code","sessiontab=3&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","inv_code","inv_code","sessiontab=3&sub=2");

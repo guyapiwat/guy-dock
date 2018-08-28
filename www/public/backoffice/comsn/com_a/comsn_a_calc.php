@@ -1,14 +1,14 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("ftrcode").value==""){
-		alert("��س�����ͺ��äӹǳ");
+		alert("กรุณาใส่รอบการคำนวณ");
 		document.getElementById("ftrcode").focus();
 		return false;
 	}else{
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ��äӹǳ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบการคำนวณให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -21,7 +21,10 @@ function chknum(key){
 		return false;
 }
 </script>
-<? include("connectmysql.php");?>
+<? include("connectmysql.php");
+
+ 
+?>
 <? include("prefix.php");?>
 <? include("global.php");?>
 <? require_once ("function.log.inc.php");?>
@@ -42,14 +45,14 @@ if(!isset($_REQUEST["ftrcode"])){
 	<?
 		$ftrcode = $_REQUEST["ftrcode"];
 		if (strpos($ftrcode,"-")===false){
-			//�ͺ������� == �ͺ����ش
+			//รอบเริ่มต้น == รอบสิ้นสุด
 			$ftrc[0]=$ftrcode;
 			$ftrc[1]=$ftrcode;
 		}else{
 			$ftrc = explode('-',$ftrcode);
 		}
 		if($ftrc[0]>$ftrc[1]){
-			?><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT><?
+			?><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT><?
 			showdialog();
 			exit;
 		}else{
@@ -62,18 +65,18 @@ $sql = "select * from ".$dbprefix."around where rcode between '".$rof."' and '".
 $result = mysql_query($sql);
 for($i=0;$i<mysql_num_rows($result);$i++){
 	$data = mysql_fetch_object($result);
-	?><font color="#ff0000">�ͺ <?=$data->rcode?> �ӹǳ����� <br /></font><?
+	?><font color="#ff0000">รอบ <?=$data->rcode?> คำนวณไปแล้ว <br /></font><?
 }
 mysql_free_result($result);
 if($i>0){
-	?><font color="#ff0000">��ͧź��äӹǳ����Ԫ��� �ͺ����͹ �֧�Фӹǳ������<br /></font><?
+	?><font color="#ff0000">ต้องลบการคำนวณคอมมิชชั่น รอบนี้ก่อน จึงจะคำนวณใหม่ได้<br /></font><?
 	showdialog();
 	exit;
 }		
 $step="1";
 $time_start = getmicrotime();
-echo "�������äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around<BR>";
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR>";
 for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 	$sql="select * from ".$dbprefix."around where  rcode='".$ro."'  ";
 	$result=mysql_query($sql);
@@ -88,7 +91,7 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 		$tpdate=$row["tpdate"];
 		$paydate=$row["paydate"];
 
-		//----------------------------------------����ᨧ-----------------------------------//
+		//----------------------------------------ออโต้แจง-----------------------------------//
 		$sql="SELECT id,mcode,hpv,htotal,hdate,locationbase,name_f,name_t,crate FROM ".$dbprefix."asaleh where sa_type = 'H' and hdate <= '$tdate' and hdate <> '0000-00-00' and (hpv >0 or htotal >0) and cancel = 0  ";
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
@@ -106,7 +109,7 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 			$sql = "SELECT MAX(id) AS id FROM ".$dbprefix."holdhead ";
 			$rs2 = mysql_query($sql);
 			$mid = $hono = mysql_result($rs2,0,'id');
-			$mid = ++$hono;   //-----------�Ţ���+1
+			$mid = ++$hono;   //-----------เลขบิล+1
 			$sql="insert into ".$dbprefix."holdhead (id, hono, sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid,bmcauto ,locationbase,bprice,crate,name_f,name_t) values ('$mid' ,'$hono' ,'".$sano."' ,'".$cdate."' ,'$smcode', 'A' ,'' ,'$shtotal' ,'$shpv' ,'system','1','$locationbase','$bprice','$crate','$name_f','$name_t') ";
 			mysql_query($sql);
 
@@ -148,12 +151,12 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 					$sql="insert into ".$dbprefix."holddesc (hono,pcode,pdesc,price,pv,qty,amt,locationbase,crate,bprice) values ('$mid','$pcode','$pdesc','$price' ,'$pv','$qty','$totalprice','$locationbase','$crate','$bpriced') ";
 					if($qty>0)mysql_query($sql);
 			}
-            updatePos($dbprefix,$smcode,$cdate,$shpv,'A');   //-----------�ѿഴ���˹�-----------//
-			mysql_query("update ".$dbprefix."asaleh set hpv=0,htotal=0,bmcauto=1 where id = '$sano'"); //----�ѿ����ŷ��١ᨧ������ 0
+            updatePos($dbprefix,$smcode,$cdate,$shpv,'A');   //-----------อัฟเดดตำแหน่ง-----------//
+			mysql_query("update ".$dbprefix."asaleh set hpv=0,htotal=0,bmcauto=1 where id = '$sano'"); //----อัฟให้บิลที่ถูกแจงกลายเป็น 0
 		}
-		//-----�� ����ᨧ -----//
+		//-----จบ ออโต้แจง -----//
 
-		echo "<BR><BR>�ӹǳ⺹���ͺ��� RO=$ro<BR>";
+		echo "<BR><BR>คำนวณโบนัสรอบที่ RO=$ro<BR>";
 		$sql2 = " select * from ".$dbprefix."around where rcode >= '$ro' order by rid desc ";
         $rs12 = mysql_query($sql2);
         if (mysql_num_rows($rs12)>0) {
@@ -163,7 +166,7 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
                 $xcalc =$sqlObj->calc;        
                 $xfdate =$sqlObj->fdate;    
                 $xtdate =$sqlObj->tdate;       
-				//-----------�¡��ԡ��� ��ҧ � -------------------//
+				//-----------ไปยกเลิกบิล ต่าง ๆ -------------------//
 				return_ewallet($dbprefix,'ewallet',$xrcode,$xtdate,'A');
 				return_ewallet($dbprefix,'eatoship',$xrcode,$xtdate,'A');
                 mysql_query("update ".$dbprefix."asaleh set cancel ='1' where rcode = '".$xrcode."' and scheck = 'ato'");
@@ -175,29 +178,29 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 		del_cals($dbprefix,$ro,array('bm','bm1','bmbonus'));				
 		del_cals($dbprefix,$ro,array('eatoship','commission','log_wallet','ewallet_commission'));
 		
-		$sql="update ".$dbprefix."global set statusformat ='close' "; //-----�ѿഴʶҹС����ҹ�������Ѻ member (�Դ�����ҹ�ǻ)-------//
+		$sql="update ".$dbprefix."global set statusformat ='close' "; //-----อัฟเดดสถานะการใช้งานเว็บสำหรับ member (ปิดการใช้งานเวป)-------//
 		mysql_query($sql);
-		//-----���¡��ѧ��蹤ӹǹ ����Ԫ���----------//
+		//-----เรียกใช้ฟังชั่นคำนวน คอมมิชชั่น----------//
 		fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//fast start
 		fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//w/s	
 		fnc_summary_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//commission/Autoship
 		fnc_calc_stamp_wallet($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);//stamp wallet
-		//------��������㹡�äӹǹ------------//
+		//------ระยะเวลาในการคำนวน------------//
 		$time_end = getmicrotime();
 		$time = $time_end - $time_start;
 		$sql="update ".$dbprefix."around set calc='1',calc_date = '".date("Y-m-d H:i:s")."',timequery = '".$time."',uid='".$_SESSION['adminusercode']."' where rcode='$ro' ";
 		if(mysql_query($sql))mysql_query("COMMIT");
-		$sql="update ".$dbprefix."global set statusformat ='open'"; //-----�ѿഴʶҹС����ҹ�������Ѻ member (�Դ�����ҹ�ǻ)-------//
+		$sql="update ".$dbprefix."global set statusformat ='open'"; //-----อัฟเดดสถานะการใช้งานเว็บสำหรับ member (เปิดการใช้งานเวป)-------//
 		mysql_query($sql);
 	}
 	mysql_free_result($result);
-	//$ro �����ҧ Frcode-Trcode/////////////////////////////////////////
+	//$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
 	///////////////////////////////////////////////////////////////////////
 }
 
 echo "<b><font color=green>";
-echo "����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";
+echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
 echo "</b></font>";
 
 	} //end else 
@@ -217,32 +220,32 @@ function showdialog(){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center">��͡�ͺ��äӹǳ⺹�ʷ���ͧ��äӹǹ�� 1-9</td>
+    <td colspan="2" align="center">กรอกรอบการคำนวณโบนัสที่ต้องการคำนวนเช่น 1-9</td>
 	<tr>
-	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.��Ǩ�ͺ��û�Ѻ���˹�</td>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;1.ตรวจสอบการปรับตำแหน่ง</td>
 	</tr>
 	<tr>
-	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.��Ǩ�ͺ����ѡ���ʹ</td>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;2.ตรวจสอบการรักษายอด</td>
 	</tr>
 	<tr>
-	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.�ӹǳ����Ԫ��蹼���й�</td>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;3.คำนวณคอมมิชชั่นผู้แนะนำ</td>
 	<tr>
-	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.�ӹǳ����Ԫ��蹺����÷�����</td>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;4.คำนวณคอมมิชชั่นบริหารทีมขาย</td>
 	</tr>
 	<tr>
-	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.�ӹǳ������</td>
+	<td colspan="2" align="left">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;5.คำนวณแมชชิ่ง</td>
 	</tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td width="40%" align="right">�ͺ&nbsp;&nbsp;</td>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
     <td width="60%">
       <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
   </tr>
   <tr align="center">
-    <td colspan="2">&nbsp;&nbsp;<input type="button" name="Submit" value="�ӹǳ�����" onClick="checkround()"></td>
+    <td colspan="2">&nbsp;&nbsp;<input type="button" name="Submit" value="คำนวณรายได้" onClick="checkround()"></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

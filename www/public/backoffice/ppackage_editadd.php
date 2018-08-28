@@ -6,17 +6,17 @@ function ibillcheck(){
 	var val = document.getElementById('sadate').value;
 	var field = "sadate";
 	var flag = "1-0-0-0-0";
-	var errDesc = "�ѹ���";
+	var errDesc = "วันที่";
 	
 	val = val + ","+document.getElementById('ppcode').value;
 	field = field +",ppcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",���� package";
+	errDesc = errDesc + ",รหัส package";
 /*	
 	val = val + ","+document.getElementById('inv_code').value;
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */		
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -29,19 +29,19 @@ function ebillcheck(){
 	var skipval = "";
 	var field = "sadate";
 	var flag = "1-0-0-0-0";
-	var errDesc = "�ѹ���";
+	var errDesc = "วันที่";
 	
 	val = val + ","+document.getElementById('ppcode').value;
 	skipval = skipval+",";
 	field = field +",ppcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",���� package";
+	errDesc = errDesc + ",รหัส package";
 /*	
 	val = val + ","+document.getElementById('inv_code').value;
 	skipval = skipval+",";
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -99,7 +99,7 @@ var wi=null;
 		}
 		document.getElementById('sumtotal').value=sumtotal;
 		document.getElementById('sumpv').value=sumpv;
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
 		//alert(window.parent.document.mainsale.getElementsByTagName('input').length);
 		//alert(sumtotal);
 	}
@@ -127,19 +127,19 @@ var wi=null;
 			window.parent.document.getElementById('sale').innerHTML = "";
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
 		place += "<td bgcolor='#99CCCC' style='"+style_l+style_t+style_b+"'>&nbsp;</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�ӴѺ</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>����</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>��������´</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�Ҥ�</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>ลำดับ</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รหัส</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รายละเอียด</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>ราคา</td>";
 		place += "<td style='"+style_l+style_t+style_b+"'>PV</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�ӹǹ</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>����Ҥ�</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>���PV</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>จำนวน</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รวมราคา</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รวมPV</td>";
 		place += "</tr>";
 		for(i=0;i<(tag.length-skip)/8;i++,l++){
 			step = i*8+bgskip;
@@ -150,7 +150,7 @@ var wi=null;
 			}
 			
 			place += "<tr>";
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (l+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly style='"+hidden+ "text-align:center;' type='text' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly style='"+hidden+ "' type='text' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -172,18 +172,18 @@ var wi=null;
 		//alert(window.parent.document.mainsale.getElementsByTagName('input').length);
 		//alert(sumtotal);
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>���</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>รวม</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumtotal' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumpv' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		//place += "<tr><td colspan='9' align='right'><input type='submit' value='�ѹ�֡'></td></tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=6&sub=6'\" value='¡��ԡ' /></td></tr>";
+		//place += "<tr><td colspan='9' align='right'><input type='submit' value='บันทึก'></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=6&sub=6'\" value='ยกเลิก' /></td></tr>";
 		place += "</table>";
 		//alert(place);
 		window.parent.document.getElementById('sale').innerHTML = place;
 		tag = window.parent.document.frm.getElementsByTagName('input');
 		if(tag.length-skip<8){
-			window.parent.document.getElementById('sale').innerHTML = "<table width='500' bgcolor='#009900'><tr><td align='center'><font color='#FFFFFF'>���͡�������͹��Ҩҡ���ҧ������ ������䢨ӹǹ�����ͧ���</font></td></tr></table>";
+			window.parent.document.getElementById('sale').innerHTML = "<table width='500' bgcolor='#009900'><tr><td align='center'><font color='#FFFFFF'>เลือกข้อมูลสอนค้าจากตารางขวามือ แล้วแก้ไขจำนวนตามต้องการ</font></td></tr></table>";
 		}
 	}
 </script> 
@@ -195,8 +195,8 @@ if(isset($_GET['id'])){
 		$sql = "SELECT * FROM ".$dbprefix."asaleh WHERE id='".$_GET['id']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-			dialogbox("50%","#990000","��辺�����ŵ�����͹�",$redirect);
+			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+			dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$redirect);
 			exit;
 		}else{
 			$sadate = mysql_result($rs,0,'sadate');
@@ -218,7 +218,7 @@ if(isset($_GET['id'])){
         <td>
             <table border="1" width="100%" align="center">
             <tr>
-              <td width="16%" align="right" style="display:none">�Ţ���</td>
+              <td width="16%" align="right" style="display:none">เลขบิล</td>
             <td width="38%" style="display:none">
 			<? 
 				$sql = "SELECT MAX(id) AS id FROM ".$dbprefix."asaleh ";
@@ -226,31 +226,31 @@ if(isset($_GET['id'])){
 				echo ($_GET['id']==""?mysql_result($rs,0,'id')+1:$_GET['id']);
 				mysql_free_result($rs);
 			?> <input type="hidden" value="<?=$_GET['id']?>" name="id"/></td>
-            <td width="6%" align="right">�ѹ���</td>
-            <td width="40%"><input type="text" id="sadate" name="sadate" value="<?=$sadate==""?date("Y-m-d"):$sadate?>">              <a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="���͡�ѹ���"></a>            </td>
+            <td width="6%" align="right">วันที่</td>
+            <td width="40%"><input type="text" id="sadate" name="sadate" value="<?=$sadate==""?date("Y-m-d"):$sadate?>">              <a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่"></a>            </td>
             </tr>
             <tr valign="top">
-              <td width="16%" align="right">���� package</td>
+              <td width="16%" align="right">รหัส package</td>
               <td><input style="background-color:#FFFF99" readonly size="15" type="text" id="ppcode" name="ppcode" value="<?=$ppcode?>">
-                <input type="button" onClick="get_package_listpicker_mcode()" value="���͡"><div id="ppdesc"></div> </td>
-              <td align="right" style="display:none">�Ң�</td>
+                <input type="button" onClick="get_package_listpicker_mcode()" value="เลือก"><div id="ppdesc"></div> </td>
+              <td align="right" style="display:none">สาขา</td>
               <td style="display:none"><input style="background-color:#FFFF99" readonly size="15" type="text" id="inv_code" name="inv_code" value="<?=$inv_code?>">
-                <input type="button" onClick="get_mem_listpicker_invcode()" value="���͡"><div id="inv_desc"></div></td>
+                <input type="button" onClick="get_mem_listpicker_invcode()" value="เลือก"><div id="inv_desc"></div></td>
             </tr>  
             <tr style="display:none">
-            <td align="right">Ἱ&nbsp;</td>
+            <td align="right">แผน&nbsp;</td>
               <td><select name="satype">
-                <option  value="A" <?=($satype=="A"?"selected":"")?>>Ἱ A</option>
-                <!--option value="B" <?=($satype=="B"?"selected":"")?>>Ἱ B</option>
-                <option value="C" <?=($satype=="C"?"selected":"")?>>Ἱ C</option-->
-                <option value="Q" <?=($satype=="Q"?"selected":"")?>>�ѡ���ʹ</option>
-                <option value="W" <?=($satype=="W"?"selected":"")?>>��Ţ����</option>
-              <!-- <option value="H" <?=($satype=="H"?"selected":"")?>>Hold �ʹ</option>
-              <option value="I" <?=($satype=="I"?"selected":"")?>>���ٹ��</option>-->
+                <option  value="A" <?=($satype=="A"?"selected":"")?>>แผน A</option>
+                <!--option value="B" <?=($satype=="B"?"selected":"")?>>แผน B</option>
+                <option value="C" <?=($satype=="C"?"selected":"")?>>แผน C</option-->
+                <option value="Q" <?=($satype=="Q"?"selected":"")?>>รักษายอด</option>
+                <option value="W" <?=($satype=="W"?"selected":"")?>>บิลขายส่ง</option>
+              <!-- <option value="H" <?=($satype=="H"?"selected":"")?>>Hold ยอด</option>
+              <option value="I" <?=($satype=="I"?"selected":"")?>>ส่งศูนย์</option>-->
               </select></td>
               <td colspan="2">
-              <input type="radio" name="radsend" value="1" <?=($radsend=="1"?"checked":"")?>>�Ѵ��
-              <input type="radio" name="radsend" value="2" <?=($radsend=="2"?"checked":"")?> >���Ѵ��
+              <input type="radio" name="radsend" value="1" <?=($radsend=="1"?"checked":"")?>>จัดส่ง
+              <input type="radio" name="radsend" value="2" <?=($radsend=="2"?"checked":"")?> >ไม่จัดส่ง
               </td></tr>          
             <!--tr>
               <td colspan="4" align="right">&nbsp;</td>
@@ -273,18 +273,18 @@ if(isset($_GET['id'])){
 				?><table  border="0" width="500" cellpadding="0" cellspacing="0">
 					<tr align="center" bgcolor="#999999">
                     	<td bgcolor="#99CCCC" style="<?=$style_l.$style_t.$style_b?>">&nbsp;</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�ӴѺ</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">����</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">��������´</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�Ҥ�</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">ลำดับ</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รายละเอียด</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">ราคา</td>
                         <td style="<?=$style_l.$style_t.$style_b?>">PV</td>
 						 <td style="<?=$style_l.$style_t.$style_b?>">BV</td>
 						  <td style="<?=$style_l.$style_t.$style_b?>">FV</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�ӹǹ</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">����Ҥ�</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">���PV</td>
-						 <td style="<?=$style_l.$style_t.$style_b?>">���BV</td>
-						  <td style="<?=$style_l.$style_t.$style_b?>">���FV</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">จำนวน</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รวมราคา</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รามPV</td>
+						 <td style="<?=$style_l.$style_t.$style_b?>">รามBV</td>
+						  <td style="<?=$style_l.$style_t.$style_b?>">รามFV</td>
                     </tr>
   				<?
 				$sumtotal = 0;
@@ -293,7 +293,7 @@ if(isset($_GET['id'])){
 					$proobj = mysql_fetch_object($rs);
 					?>
 					<tr>
-                        <td style="<?=$style_l.$style_bd?>"><input type="button" value="ź" onClick="saledel('<?=$proobj->pcode?>','<?=$proobj->pdesc ?>','<?=$proobj->price?>','<?=$proobj->pv?>','<?=$proobj->bv?>','<?=$proobj->fv?>')"></td>
+                        <td style="<?=$style_l.$style_bd?>"><input type="button" value="ลบ" onClick="saledel('<?=$proobj->pcode?>','<?=$proobj->pdesc ?>','<?=$proobj->price?>','<?=$proobj->pv?>','<?=$proobj->bv?>','<?=$proobj->fv?>')"></td>
                     	<td style="<?=$style_l.$style_bd?>"><?=($i+1)?></td>
                         <td style="<?=$style_l.$style_bd?>" align="center"><input readonly style="text-align:center;<?=$hidden?>" size="7" type="text" name="pcode[]" value="<?=$proobj->pcode?>"></td>
                         <td style="<?=$style_l.$style_bd?>"><input size="13" readonly style="<?=$hidden?>" type="text" name="pdesc[]" value="<?=$proobj->pdesc?>"></td>
@@ -315,19 +315,19 @@ if(isset($_GET['id'])){
 				}
 				?>
 					<tr bgcolor='#999999'>
-					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='9'>���</td>
+					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='9'>รวม</td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumtotal' value="<?=$sumtotal?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumpv' value="<?=$sumpv?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumbv' value="<?=$sumbv?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumfv' value="<?=$sumfv?>"></td>
 					</tr>
-					<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=6&sub=6'" value='¡��ԡ' /></td></tr>
+					<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=6&sub=6'" value='ยกเลิก' /></td></tr>
                 </table>
 				<?
 			}else
-				dialogbox("100%","#990000","��辺��¡���Թ��Ңͧ����Ţ��� ".$_GET['id'],"");
+				dialogbox("100%","#990000","ไม่พบรายการสินค้าของบิลเลขที่ ".$_GET['id'],"");
         }else{
-			dialogbox("100%","#009900","���͡�����Ũҡ��¡���Թ��� �����䢨ӹǹ�����ͧ���","");
+			dialogbox("100%","#009900","เลือกข้อมูลจากรายการสินค้า และแก้ไขจำนวนตามต้องการ","");
 		}
 		?>
     	</td>

@@ -14,7 +14,7 @@
 
 
 	$sql = "SELECT mcode,name_t, ";
-	$sql .= "CONCAT(address,' µ.',districtName,' Í.',amphurName,' ¨.',provinceName,' ',zip) AS address ";
+	$sql .= "CONCAT(address,' à¸•.',districtName,' à¸­.',amphurName,' à¸ˆ.',provinceName,' ',zip) AS address ";
 	$sql .= "FROM ".$dbprefix."member ";
 	$sql .= "LEFT JOIN district ON (".$dbprefix."member.districtId=district.districtId) ";
 	$sql .= "LEFT JOIN amphur ON (".$dbprefix."member.amphurId=amphur.amphurId) ";
@@ -42,29 +42,29 @@
         $rec->setCurPage($page);
     $rec->setShowField("mcode,name_t,address");
     //$rec->setFieldFloatFormat(",,,,,,0,2");
-    $rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,·ÕèÍÂÙè");
+    $rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸—à¸µà¹ˆà¸­à¸¢à¸¹à¹ˆ");
     $rec->setFieldAlign("center,left,left");
     $rec->setFieldSpace("10%,30%,60%");
     //$rec->setFieldLink(",index.php?sessiontab=1&sub=4&cmc=,");
     $rec->setSearch("mcode,name_t");
-    $rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ");
+    $rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­");
     $str = "<fieldset><a href='member_letterprint1.php?sessiontab=1&sub=11' target='_blank'>";
-    $str .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+    $str .= "<img border='0' src='./images/Amber-Printer.gif'>à¸à¸´à¸¡à¸à¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 	$rec->setSpace($str);
 	
 	/*if($_GET['excel']==1){
 		$rec->exportXls("ExportXls","memaddress".date("Ymd").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","memaddress".date("Ymd").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 		//$rec->getParam();
 		$rec->setSpace($str);
 	}
 	$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 	$rec->setSpace($str);*/
     //$rec->setSum(true,false,",,,,,,true,true");
     //$rec->setDel("index.php","id","id","sessiontab=3&sub=6");
-    $rec->setSpecial("./images/Amber-Printer.gif","","letter_print","mcode","IMAGE","¾ÔÁ¾ì");
+    $rec->setSpecial("./images/Amber-Printer.gif","","letter_print","mcode","IMAGE","à¸à¸´à¸¡à¸à¹Œ");
     //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=6&state=1","post","delfield");
     //$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
 

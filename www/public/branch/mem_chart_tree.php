@@ -64,7 +64,7 @@ function show(value) {
 if(empty($fmcode))$fmcode = $_SESSION["code_ref"];
 
 if(isLinex($dbprefix,$fmcode,$_SESSION["code_ref"]) == false){
-   echo '‰¡Ë “¡“√∂¥Ÿ‰¥È °√ÿ≥“µ√«® Õ∫√À— Õ’°§√—Èß';
+   echo '‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏î‡∏π‡πÑ‡∏î‡πâ ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏µ‡∏Å‡∏Ñ‡∏£‡∏±‡πâ‡∏á';
    exit;
 }
 ?>
@@ -73,10 +73,10 @@ if(isLinex($dbprefix,$fmcode,$_SESSION["code_ref"]) == false){
 	 <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-		<td align="right">√À—  ¡“™‘°&nbsp;</td>
+		<td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="0000001" value="<?=$fmcode?>" />
 
-	   <input type="submit" name="Submit" value="µ°≈ß"></td>
+	   <input type="submit" name="Submit" value="‡∏ï‡∏Å‡∏•‡∏á"></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -95,7 +95,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 
 }
 
-echo ' <b>º≈°“√§ÈπÀ“  : '.$fmcode.'</b>';
+echo ' <b>‡∏ú‡∏•‡∏Å‡∏≤‡∏£‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤  : '.$fmcode.'</b>';
    
 
 //	echo(gentree($arr,$_SESSION["code_ref"],0,$_SESSION["code_ref"]));
@@ -119,7 +119,7 @@ function gentree($datas, $parent, $limit=0,$mainparent){
 			$tree .= ' <b>'.$datas[$i]['mcode'].'</b>';
 			$tree .= ' </button>';       
 			$tree .= ' ('.$datas[$i]['name_t'].') ';
-			$tree .= ' ( <img src="./images/Animp.gif" width="13px"> : '.count_mem($datas[$i]['mcode']).' √À—  ) ';
+			$tree .= ' ( <img src="./images/Animp.gif" width="13px"> : '.count_mem($datas[$i]['mcode']).' ‡∏£‡∏´‡∏±‡∏™ ) ';
 			$tree .= '</li>';
 			$tree .= '<div  id='.$datas[$i]['mcode'].'></div>';
 		}

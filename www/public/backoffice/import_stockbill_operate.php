@@ -58,7 +58,7 @@ if(isset($_GET['state'])){
 }
 if($_GET['state']==0){
 	$mid = ++$sano;
-	logtext(true,$_SESSION['adminuserid'],'‡æ‘Ë¡∫‘≈ ID '.$mid.'  “¢“ : '.$inv_code,$mid);
+	logtext(true,$_SESSION['adminuserid'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏• ID '.$mid.' ‡∏™‡∏≤‡∏Ç‡∏≤ : '.$inv_code,$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	 $sql="insert into ".$dbprefix."import_stock_h (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_bv,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 	optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'HQ' ,'$total' ,'$tot_pv','$tot_bv','$tot_fv' ,'".$_SESSION['adminusercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',

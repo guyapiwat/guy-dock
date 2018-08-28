@@ -22,17 +22,17 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 		//window.location='index.php?sessiontab=3&sub=6&sanooo='+id;
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id,page){
-	//	if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß°“√√—∫¢Õß")){
+	//	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id+'&page='+page;
 	//	}
 	}
 		function sale_status1(id,page){
-	//	if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß®—¥ Ëß")){
+	//	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏à‡∏±‡∏î‡∏™‡πà‡∏á")){
 			window.location='index.php?sessiontab=3&sub=6&state=7&sender='+id+'&page='+page;
 	//	}
 	}
@@ -167,11 +167,11 @@ $rs = mysql_query($sql);
 for($i=0;$i<mysql_num_rows($rs);$i++){
 
 	 $sqlObj = mysql_fetch_object($rs);
-		if(!empty($data->caddress))$caddress = '∫È“π‡≈¢∑’Ë  '.$data->caddress.' , ';
-		if(!empty($data->cbuilding))$cbuilding = 'Õ“§“√ '.$data->cbuilding.' , ';
-		if(!empty($data->cvillage))$cvillage = 'À¡ŸË∫È“π/§Õπ‚¥ '.$data->cvillage.' , ';
-		if(!empty($data->csoi))$csoi = 'µ√Õ°/´Õ¬ '.$data->csoi.' , ';
-		if(!empty($data->cstreet))$cstreet = '∂ππ '.$data->cstreet;
+		if(!empty($data->caddress))$caddress = '‡∏ö‡πâ‡∏≤‡∏ô‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà  '.$data->caddress.' , ';
+		if(!empty($data->cbuilding))$cbuilding = '‡∏≠‡∏≤‡∏Ñ‡∏≤‡∏£ '.$data->cbuilding.' , ';
+		if(!empty($data->cvillage))$cvillage = '‡∏´‡∏°‡∏π‡πà‡∏ö‡πâ‡∏≤‡∏ô/‡∏Ñ‡∏≠‡∏ô‡πÇ‡∏î '.$data->cvillage.' , ';
+		if(!empty($data->csoi))$csoi = '‡∏ï‡∏£‡∏≠‡∏Å/‡∏ã‡∏≠‡∏¢ '.$data->csoi.' , ';
+		if(!empty($data->cstreet))$cstreet = '‡∏ñ‡∏ô‡∏ô '.$data->cstreet;
 		$caddress = $caddress.''.$cbuilding.''.$cvillage.''.$csoi.''.$cstreet;
 
 		$cprovinceId = $data->cprovinceId;
@@ -293,22 +293,22 @@ $sql .= " and sadate like '%$fdate%'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,lid,checkportal");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
-		$rec->setFieldDesc("print,«—π∑’Ë´◊ÈÕ,‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,´◊ÈÕ·∫∫, PV,®”π«π‡ß‘π,ºŸÈ§’¬Ï, “¢“,™ËÕß∑“ß");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
+		$rec->setFieldDesc("print,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ã‡∏∑‡πâ‡∏≠‡πÅ‡∏ö‡∏ö, PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô,‡∏ú‡∏π‡πâ‡∏Ñ‡∏µ‡∏¢‡πå,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ä‡πà‡∏≠‡∏á‡∏ó‡∏≤‡∏á");
 		$rec->setFieldAlign("center,center,center,center,left,center,right,right,center,center,center,center");
 		//$rec->setFieldSpace("1%,7%,13%,5%,20%,4%,6%,6%,8%,5%,5%,5%,5%,4%,4%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."asaleh.mcode,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.inv_code,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ, “¢“,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,æπ—°ß“π");
+		$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
 		$rec->setSum(true,false,",,,,,,true,true,,");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","æ‘¡æÏ");
-		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","¥Ÿ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
+		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","‡∏î‡∏π");
 		
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		 
 		//}
 		if($acc->isAccess(4)){
-		//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¬°‡≈‘°");
+		//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å");
 		}
 		//var_dump($acc->isAccess(2));
 		//exit;

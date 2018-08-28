@@ -1,7 +1,7 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("ftrcode").value==""){
-		alert("��س�����ͺ��äӹǳ");
+		alert("กรุณาใส่รอบการคำนวณ");
 		document.getElementById("ftrcode").focus();
 		return false;
 	}
@@ -30,12 +30,12 @@ if(!isset($_POST["ftrcode"])){
 			$cnt = mysql_result($rs,0,"cnt");
 		}
 		if($cnt<1){
-			echo "<FONT COLOR=\"ff0000\">��辺 �ͺ $ro ����ͧ���ź ��س�����ͺ����ͧ���ź����</FONT><BR>";
+			echo "<FONT COLOR=\"ff0000\">ไม่พบ รอบ $ro ที่ต้องการลบ กรุณาใส่รอบที่ต้องการลบใหม่</FONT><BR>";
 			showdialog();
 			exit;
 		}
 		//bc
-		//ź������� bc ���������ͺ >=$ro
+		//ลบข้อมูลใน bc ที่อยู่ในรอบ >=$ro
 		$sql="delete from ".$dbprefix."mc where rcode>= '$ro'  ";
 		if(mysql_query($sql)){
 			mysql_query("COMMIT");
@@ -50,7 +50,7 @@ if(!isset($_POST["ftrcode"])){
 			echo "error $sql<BR>";
 		}
 		//bmbonus
-		//ź������� bmbonus ���������ͺ >=$ro
+		//ลบข้อมูลใน bmbonus ที่อยู่ในรอบ >=$ro
 		$sql="delete from ".$dbprefix."mmbonus where rcode>= '$ro'  ";
 		if(mysql_query($sql)){
 			mysql_query("COMMIT");
@@ -155,7 +155,7 @@ if(!isset($_POST["ftrcode"])){
 		}
 
 	
-		//��Ѻ CALC ����� ''
+		//ปรับ CALC ให้เป็น ''
 		$sql="update ".$dbprefix."bround set calc='' where rcode>= '$ro'   ";
 		if(mysql_query($sql)){
 			mysql_query("COMMIT");
@@ -250,7 +250,7 @@ if(!isset($_POST["ftrcode"])){
 
 
 
-						/////////////////////�ѡ���ʹ��ǧ˹�� ����ѹ////////////////////////////////////////////////////////////////////////////////////
+						/////////////////////รักษายอดล่วงหน้า รายวัน////////////////////////////////////////////////////////////////////////////////////
 			$sqlC = "select mcode, SUM(tot_pv) AS total_fv from ".$dbprefix."asaleh WHERE sadate between '$fdate' and '$tdate' AND sa_type='Q'  and cancel=0  group by mcode ";
 			//exit;
 				//	if($mcode == '0019157')echo $sqlC.'<br>';
@@ -294,7 +294,7 @@ if(!isset($_POST["ftrcode"])){
 			mysql_free_result($rsC);
 
 
-		echo "ź��äӹǳ ������ͺ��� $ro ���º��������<BR><BR>";
+		echo "ลบการคำนวณ ตั้งแต่รอบที่ $ro เรียบร้อยแล้ว<BR><BR>";
 
 	?>
 	</td>
@@ -312,14 +312,14 @@ function showdialog(){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center">��͡�ͺ��äӹǳ�����觷���ͧ���ź�� 1</td>
+    <td colspan="2" align="center">กรอกรอบการคำนวณแมทชิ่งที่ต้องการลบเช่น 1</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td width="40%" align="right">�ͺ&nbsp;&nbsp;</td>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
     <td width="60%">
       <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
   </tr>
@@ -328,7 +328,7 @@ function showdialog(){
     <td>&nbsp;</td>
   </tr>
   <tr align="center">
-    <td colspan="2"><input type="button" name="Submit" value="ź��äӹǳ" onClick="checkround()"></td>
+    <td colspan="2"><input type="button" name="Submit" value="ลบการคำนวณ" onClick="checkround()"></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

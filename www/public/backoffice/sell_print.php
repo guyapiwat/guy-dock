@@ -81,8 +81,8 @@ $inv_code = $_SESSION["admininvent"];
 		$tdate = $fdate;
 	}
 ?>
-<table align="center"><tr>	<td align="center"><b>¢ÈÕ¡Ÿ≈∫‘≈√–À«Ë“ß«—π∑’Ë <?=$fdate?> ∂÷ß <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">æ‘¡æÏ«—π∑’Ë <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ö‡∏¥‡∏•‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=$fdate?> ‡∏ñ‡∏∂‡∏á <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -99,8 +99,8 @@ $sql = "SELECT *,@num := @num + 1 b FROM (SELECT ".$dbprefix."asaleh.online,canc
 ,tot_pv,total,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.mcode AS smcode";
 $sql .= ",checkportal,CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist' END AS checkportal1,sa_type";
 $sql .= ",CASE sa_type WHEN 'A' THEN '".$wording_lan['satype']['A']."' WHEN 'B' THEN '".$wording_lan['satype']['B']."' WHEN 'C' THEN '".$wording_lan['satype']['C']."' WHEN 'Q' THEN '".$wording_lan['satype']['Q']."' WHEN 'H' THEN '".$wording_lan['satype']['H']."'    END AS ability";
-$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN ' Ëß' ELSE '√—∫‡Õß' END AS send ";
-$sql .= ", ".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '∫‘≈ÕÕπ‰≈πÏ' ELSE '∫‘≈¢“¬ª°µ‘' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
+$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN '‡∏™‡πà‡∏á' ELSE '‡∏£‡∏±‡∏ö‡πÄ‡∏≠‡∏á' END AS send ";
+$sql .= ", ".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '‡∏ö‡∏¥‡∏•‡∏≠‡∏≠‡∏ô‡πÑ‡∏•‡∏ô‡πå' ELSE '‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
 $sql .= ",
 txtCredit1+txtCredit2+txtCredit3 as AllCredit,txtCash as txtCash,txtFuture as txtFuture,txtInternet+0 as txtInternet,txtTransfer,txtDiscount+0 as txtDiscount,txtOther+0 as txtOther,
 ' '+optionCash+optionFuture+optionCredit1+optionCredit2+optionCredit3+optionInternet+optionDiscount+optionOther as optionAll,txtCredit1,txtCredit2,txtCredit3";
@@ -207,19 +207,19 @@ switch ($strtype) {
 		$rec->setFieldSpace("3%,6%,6%,3%,14%,4%,7%,4%,7%,3%,3%,4%,4%,4%,4%,4%,5%,5%,5%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°,®”π«π PV");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 

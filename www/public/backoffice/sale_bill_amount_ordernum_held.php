@@ -4,7 +4,7 @@
 		window.open(wlink);
 	}
 	function sale_status(id){
-		if(confirm("µéÍ§¡ÒÃà»ÅÕèÂ¹á»Å§¨Ñ´Êè§")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¹à¸›à¸¥à¸‡à¸ˆà¸±à¸”à¸ªà¹ˆà¸‡")){
 			window.location='index.php?sessiontab=3&sub=36&state=2&status=sender&sender='+id;
 		}
 	}
@@ -55,7 +55,7 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=36&state=1","post","delfield");
 		}
 		$rec->setFieldFloatFormat(",,,,0,0,0,2");
-		$rec->setFieldDesc("ÇÑ¹·Õè«×éÍ,àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setFieldDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right");
 		$rec->setFieldSpace("8%,8%,8%,50%,10%,10%,10%,15%");
 		$rec->setSum(true,false,",,,,true,true,true,true,true");

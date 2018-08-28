@@ -35,7 +35,7 @@ $sql .= "LEFT JOIN province ON (".$dbprefix."supplier.provinceId=province.provin
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sup_code,sup_desc,address");
-		$rec->setFieldDesc("√À— ,™◊ËÕ,∑’Ëµ—Èß");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡∏ó‡∏µ‡πà‡∏ï‡∏±‡πâ‡∏á");
 		$rec->setFieldAlign("center,left,left,center");
 		$rec->setFieldSpace("5%,45%,50%");
 		$rec->setFieldLink("");
@@ -48,12 +48,12 @@ $sql .= "LEFT JOIN province ON (".$dbprefix."supplier.provinceId=province.provin
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","supplier".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","supplier".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

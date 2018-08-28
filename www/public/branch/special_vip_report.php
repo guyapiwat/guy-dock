@@ -27,16 +27,16 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,sadate,tot_pv");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÇÑ¹·Õè,ÃÇÁ PV");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸£à¸§à¸¡ PV");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setFieldAlign("center,left,center,right");
 		$rec->setFieldSpace("10%,45%,20%,20%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setDel("index.php","id","vip_id","sessiontab=2&sub=3");
 		$rec->setFromDelAttr("maindel","./index.php?sessiontab=2&sub=3&state=1","post","delfield");
 		$rec->setSearch("mcode,name_t");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­");
 		$rec->setEdit("index.php","id","vip_id","sessiontab=2&sub=3");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

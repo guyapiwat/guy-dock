@@ -78,7 +78,7 @@ if($_GET['state']==0){
 	//$mid = ++$sano;
 	//echo $sano;
 	//exit;
-	logtext(true,$_SESSION['adminusercode'],'������Ť׹',$mid);
+	logtext(true,$_SESSION['adminusercode'],'เพิ่มบิลคืน',$mid);
 	$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 	$rs = mysql_query($sql);
 	$pos_old = '';
@@ -131,7 +131,7 @@ writelogfile($text);
 	updateEwallet($dbprefix,$mcode,$txtInternet);
 	//updatePos($dbprefix,$mcode,$sadate);
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'��䢺�Ť׹',$id);
+	logtext(true,$_SESSION['adminusercode'],'แก้ไขบิลคืน',$id);
 	if(empty($chkInternet))$txtInternet = 0;
 	updateEwallet1($dbprefix,$mcode,$txtInternet,$id);
 	$sql="update ".$dbprefix."rsaleh set  id='$id', ";
@@ -282,5 +282,5 @@ function updateEwallet1($dbprefix,$mcode,$oldInternet,$id){
 	}
 	$rs3=mysql_query($sql3);
 } 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 ?>

@@ -16,11 +16,11 @@ include("global.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// ���������¡�� ź��������Ҫԡ����
+	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
 	
 	///var_dump($postval);
 	//exit;
-	echo "<br>�觢����� SMS ���Ѻ�ҧ��Ҫԡ :";
+	echo "<br>ส่งข้อมูล SMS ให้กับทางสมาชิก :";
 	$numpost = sizeof($postkey);
 	//var_dump($numpost);
 	//exit;
@@ -31,14 +31,14 @@ include("global.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">����</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">����</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">ชื่อ</td>
         </tr>
 	<?
 	//var_dump($numpost);
 	//exit;
 	for ($i=0;$i<$numpost;$i++) {
-		// ��ҹ����������ҡ member
+		// อ่านข้อมูลเดิมจาก member
 		//var_dump($numpost);
 		//exit;
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."member m LEFT JOIN ".$dbprefix."cmbonus c ON m.mcode=c.mcode  WHERE m.mcode='".$postval[$postkey[$i]]."' and c.rcode = '".$_GET["ftrcode"]."' LIMIT 1");
@@ -60,7 +60,7 @@ include("global.php");
 				if($GLOBALS["sms_credits"] > 0 ){
 					if(!empty($mobile)){
 						$msisdn = $mobile;
-						$message = "��Ҥ���Ԫ��蹨ҡ �վԹ������ �繨ӹǹ ".$total." �ҷ";
+						$message = "ค่าคอมมิชชั่นจาก จีพินนาเคิ้ล เป็นจำนวน ".$total." บาท";
 						//echo $message.'<br>';
 						sendsms($dbprefix,$msisdn,$message,$ScheduledDelivery="",$postval[$postkey[$i]]);
 						$rs=mysql_query("update ".$dbprefix."cmbonus set sms_credits = sms_credits+1 WHERE mcode='".$postval[$postkey[$i]]."' and rcode = '".$_GET["ftrcode"]."' LIMIT 1");
@@ -69,7 +69,7 @@ include("global.php");
 			}
 		}
 		//echo 'sssssssssssssssss';
-		logtext(true,$_SESSION['adminuserid'],'�� SMS',$row->id);
+		logtext(true,$_SESSION['adminuserid'],'ส่ง SMS',$row->id);
 		//====================LOG===========================
 		$text="uid=".$_SESSION["adminuserid"]." action=member_sms => id='$id' ";
 		writelogfile($text);
@@ -78,7 +78,7 @@ include("global.php");
 		//mysql_query("COMMIT");
 	}
 	//$_SESSION["texttext"] = "";
-	// �ʴ���¡�÷��ź
+	// แสดงรายการที่ลบ
 //echo 'sssssssssssssssss';
 echo "<script language='JavaScript'>window.location='index.php?sessiontab=1&sub=36&ftrcode=".$_GET["ftrcode"]."'</script>";	
 exit;

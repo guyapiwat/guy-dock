@@ -25,19 +25,19 @@ function iproductcheck(){
 	var val = document.getElementById('pcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  ‘π§È“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 	
 	
 	
 	val = val + ","+document.getElementById('bQty').value;
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",¬Õ¥§ß‡À≈◊Õ";
+	errDesc = errDesc + ",‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠";
 	
 	val = val + ","+document.getElementById('txtoption').value;
 	field = field +",txtoption";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",À¡“¬‡Àµÿ";
+	errDesc = errDesc + ",‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏";
 	
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -50,19 +50,19 @@ function eproductcheck(){
 	var skipval = document.getElementById('opcode').value;
 	var field = "pcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  ‘π§È“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤";
 
 	
 	val = val + ","+document.getElementById('bQty').value;
 	skipval = skipval+",";
 	field = field +",qty";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",¬Õ¥§ß‡À≈◊Õ";
+	errDesc = errDesc + ",‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠";
 
 	val = val + ","+document.getElementById('txtoption').value;
 	field = field +",txtoption";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",À¡“¬‡Àµÿ";
+	errDesc = errDesc + ",‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏";
 	
 	
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -76,8 +76,8 @@ function eproductcheck(){
 		$sql = "SELECT * FROM ".$dbprefix."product WHERE pcode='".$_GET['pcode']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‰¡Ëæ∫¢ÈÕ¡Ÿ≈µ“¡‡ß◊ËÕπ‰¢</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‰ªÀπÈ“ ‘π§È“</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≤‡∏°‡πÄ‡∏á‡∏∑‡πà‡∏≠‡∏ô‡πÑ‡∏Ç</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‡πÑ‡∏õ‡∏´‡∏ô‡πâ‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -100,7 +100,7 @@ function eproductcheck(){
        <table border="0" cellpadding="0" cellspacing="0" width="100%">
          <tr>
            <td width="43%" valign="top" align="right" ></td>
-           <td width="57%"><font color="#808080"><u>À¡“¬‡Àµÿ</u></font> <font color="#ff0000">*</font><font color="#808080">=®”‡ªÁπµÈÕß°√Õ°¢ÈÕ¡Ÿ≈</font><br />
+           <td width="57%"><font color="#808080"><u>‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</u></font> <font color="#ff0000">*</font><font color="#808080">=‡∏à‡∏≥‡πÄ‡∏õ‡πá‡∏ô‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</font><br />
                <input type="hidden" name="oid2" value="<?=$oid?>" />
                <br /></td>
          </tr>
@@ -108,21 +108,21 @@ function eproductcheck(){
     <td width="43%" align="right">&#3619;&#3627;&#3633;&#3626;&#3626;&#3636;&#3609;&#3588;&#3657;&#3634; <font color="#ff0000">*</font> </td>
     <td width="57%">&nbsp;
       <input style="background-color:#FFFF99" readonly type="text" name="p_code" id="p_code" size="20"  maxlength="20" value="<?=$p_code?>" />
-          <input name="button2" type="button" onclick="get_mem_listpicker_sp_code()" value="‡≈◊Õ°" />
-          <input name="button2" type="button" onclick="document.getElementById('sp_code').value='';document.getElementById('sp_name').value='';" value="≈∫" />      &nbsp;&nbsp;<input style="background-color:#FFFF99" readonly type="text" name="p_desc" id="p_desc" size="20"  maxlength="20" value="<?=$pdesc?>" />    </td>
+          <input name="button2" type="button" onclick="get_mem_listpicker_sp_code()" value="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å" />
+          <input name="button2" type="button" onclick="document.getElementById('sp_code').value='';document.getElementById('sp_name').value='';" value="‡∏•‡∏ö" />      &nbsp;&nbsp;<input style="background-color:#FFFF99" readonly type="text" name="p_desc" id="p_desc" size="20"  maxlength="20" value="<?=$pdesc?>" />    </td>
     </tr>
   <tr>
-    <td align="right">¬Õ¥§ß‡À≈◊Õ <font color="#ff0000">*</font> </td>
+    <td align="right">‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ <font color="#ff0000">*</font> </td>
     <td>&nbsp;
       <input style="background-color:#FFFF99" readonly type="text" name="p_qty" id="p_qty" size="40"  maxlength="40" value="<?=$p_qty?>" /></td>
   </tr>
          <tr>
-           <td width="43%" valign="top" align="right" >&#3592;&#3635;&#3609;&#3623;&#3609;&#3585;&#3634;&#3619;&#3595;&#3639;&#3657;&#3629;/π”ÕÕ° <font color="#ff0000">*</font></td>
+           <td width="43%" valign="top" align="right" >&#3592;&#3635;&#3609;&#3623;&#3609;&#3585;&#3634;&#3619;&#3595;&#3639;&#3657;&#3629;/‡∏ô‡∏≥‡∏≠‡∏≠‡∏Å <font color="#ff0000">*</font></td>
            <td width="57%">&nbsp;
                <input type="text" name="txtBuy" id="txtBuy" size="40" maxlength="40" value="<?=$price?>" /></td>
          </tr>
          <!--tr> 
-    <td width="23%" valign="top" align="right" >¢ÈÕ¡Ÿ≈∂Ÿ°µÈÕß <font color="#ff0000">*</font></td>
+    <td width="23%" valign="top" align="right" >‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á <font color="#ff0000">*</font></td>
     <td width="77%">&nbsp; <input type="checkbox" name="C1" value="ok"></td>
   </tr-->
          <tr>
@@ -131,21 +131,21 @@ function eproductcheck(){
 &nbsp;<a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="&#3648;&#3621;&#3639;&#3629;&#3585;&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;" /></a><font color="#808080">(&#3611;&#3611;&#3611;&#3611;-&#3604;&#3604;-&#3623;&#3623;)</font></td>
          </tr>
          <tr>
-           <td align="right">À¡“¬‡Àµÿ <font color="#ff0000">*</font> </td>
+           <td align="right">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ <font color="#ff0000">*</font> </td>
            <td>&nbsp;
                <textarea name="txtoption" cols="40" rows="5" id="txtoption" ><?=$txtoption?></textarea></td>
          </tr>
          <tr>
            <td width="43%" valign="top" align="right" >&nbsp;</td>
            <td width="57%">&nbsp;
-             <input type="submit" value="∫—π∑÷°" name="ok" id="ok" />
+             <input type="submit" value="‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å" name="ok" id="ok" />
              &nbsp;
-            <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=1'" value="¬°‡≈‘°" /></td>
+            <input name="reset" type="reset"  onclick="window.location='index.php?sessiontab=3&sub=1'" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" /></td>
          </tr>
        </table>
      </form></td>
      <td width="40%">
-    <!--  <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font></div>--></td>
+    <!--  <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font></div>--></td>
    </tr>
  </table>
 

@@ -135,39 +135,39 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2>รายงานภาษีขาย</h2>	
+				<h2>เธฃเธฒเธขเธเธฒเธเธ เธฒเธฉเธตเธเธฒเธข</h2>	
 			</td>
 		</tr>
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
 			<?php if($_GET['fdate'] == ''){ ?>
-			ประจำวันที่ ทั้งหมด
+			เธเธฃเธฐเธเธณเธงเธฑเธเธ—เธตเน เธ—เธฑเนเธเธซเธกเธ”
 			<?}else{ ?>
-				 ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?> 
+				 เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน   <?=$fdate?> เธ–เธถเธ <?=$tdate?> 
 				 <? }	 ?>
 			</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>ชื่อผู้ประกอบการ  </b> บริษัท ลาชูเล่  (เอเชีย) จำกัด  </td>
-			<td align="left" width="60%"><b>เลขที่ประจำผู้เสียภาษีอากร  </b>0105541041740</td>
+			<td align="left" width="50%"><b>เธเธทเนเธญเธเธนเนเธเธฃเธฐเธเธญเธเธเธฒเธฃ  </b> เธเธฃเธดเธฉเธฑเธ— เธฅเธฒเธเธนเน€เธฅเน  (เน€เธญเน€เธเธตเธข) เธเธณเธเธฑเธ”  </td>
+			<td align="left" width="60%"><b>เน€เธฅเธเธ—เธตเนเธเธฃเธฐเธเธณเธเธนเนเน€เธชเธตเธขเธ เธฒเธฉเธตเธญเธฒเธเธฃ  </b>0105541041740</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>ชื่อสถานประกอบการ </b> บริษัท ลาชูเล่  (เอเชีย) จำกัด  </td>
-			<td align="left" width="40%"><b>สาขา</b> <?=$_SESSION["admininventname"];?></td>
+			<td align="left" width="50%"><b>เธเธทเนเธญเธชเธ–เธฒเธเธเธฃเธฐเธเธญเธเธเธฒเธฃ </b> เธเธฃเธดเธฉเธฑเธ— เธฅเธฒเธเธนเน€เธฅเน  (เน€เธญเน€เธเธตเธข) เธเธณเธเธฑเธ”  </td>
+			<td align="left" width="40%"><b>เธชเธฒเธเธฒ</b> <?=$_SESSION["admininventname"];?></td>
 		</tr>
 	</table>
 	 
 	<div class="CSSTableGenerator" >
 		<table style=' margin:0 auto;' border="1">
 		  <tr>	
-			<th><div align="center" style="width:100px;">วันที่ซื้อ </div></th>		
-			<th><div align="center" >เลขบิล </div></th>	
-			<th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
-			<th><div align="center">เลขประจำตัว </div></th>
-			<th><div align="center">สถานประกอบการ</div></th>
-			<th><div align="right">จำนวนเงิน</div></th>
-			<th><div align="right">ภาษี</div></th>
-			<th><div align="center">หมายเหตุ</div></th>
+			<th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธเธทเนเธญ </div></th>		
+			<th><div align="center" >เน€เธฅเธเธเธดเธฅ </div></th>	
+			<th ><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ</div></th>		
+			<th><div align="center">เน€เธฅเธเธเธฃเธฐเธเธณเธ•เธฑเธง </div></th>
+			<th><div align="center">เธชเธ–เธฒเธเธเธฃเธฐเธเธญเธเธเธฒเธฃ</div></th>
+			<th><div align="right">เธเธณเธเธงเธเน€เธเธดเธ</div></th>
+			<th><div align="right">เธ เธฒเธฉเธต</div></th>
+			<th><div align="center">เธซเธกเธฒเธขเน€เธซเธ•เธธ</div></th>
 		  </tr>
 		<?
 		$rr = 0;
@@ -191,38 +191,38 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2>รายงานภาษีขาย</h2>	
+				<h2>เธฃเธฒเธขเธเธฒเธเธ เธฒเธฉเธตเธเธฒเธข</h2>	
 			</td>
 		</tr>
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
 				<?php if($_GET['fdate'] == ''){ ?>
-			ประจำวันที่ ทั้งหมด
+			เธเธฃเธฐเธเธณเธงเธฑเธเธ—เธตเน เธ—เธฑเนเธเธซเธกเธ”
 			<?}else{ ?>
-				 ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?> 
+				 เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน   <?=$fdate?> เธ–เธถเธ <?=$tdate?> 
 				 <? }	 ?>
 			</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>ชื่อผู้ประกอบการ  </b> บริษัท ลาชูเล่  (เอเชีย) จำกัด  </td>
-			<td align="left" width="50%"><b>เลขที่ประจำผู้เสียภาษีอากร  </b>0105541041740</td>
+			<td align="left" width="50%"><b>เธเธทเนเธญเธเธนเนเธเธฃเธฐเธเธญเธเธเธฒเธฃ  </b> เธเธฃเธดเธฉเธฑเธ— เธฅเธฒเธเธนเน€เธฅเน  (เน€เธญเน€เธเธตเธข) เธเธณเธเธฑเธ”  </td>
+			<td align="left" width="50%"><b>เน€เธฅเธเธ—เธตเนเธเธฃเธฐเธเธณเธเธนเนเน€เธชเธตเธขเธ เธฒเธฉเธตเธญเธฒเธเธฃ  </b>0105541041740</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>ชื่อสถานประกอบการ </b> บริษัท ลาชูเล่  (เอเชีย) จำกัด  </td>
-			<td align="left" width="50%"><b>สาขา</b> <?=$_SESSION["admininventname"];?></td>
+			<td align="left" width="50%"><b>เธเธทเนเธญเธชเธ–เธฒเธเธเธฃเธฐเธเธญเธเธเธฒเธฃ </b> เธเธฃเธดเธฉเธฑเธ— เธฅเธฒเธเธนเน€เธฅเน  (เน€เธญเน€เธเธตเธข) เธเธณเธเธฑเธ”  </td>
+			<td align="left" width="50%"><b>เธชเธฒเธเธฒ</b> <?=$_SESSION["admininventname"];?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-	    <th><div align="center" style="width:100px;">วันที่ซื้อ </div></th>		
-	    <th><div align="center" >เลขบิล </div></th>	
-	    <th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
-		<th><div align="center">เลขประจำตัว </div></th>
-		<th><div align="center">สถานประกอบการ</div></th>
-		<th><div align="center">จำนวนเงิน</div></th>
-		<th><div align="center">ภาษี</div></th>
-		<th><div align="center">หมายเหตุ</div></th>
+	    <th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธเธทเนเธญ </div></th>		
+	    <th><div align="center" >เน€เธฅเธเธเธดเธฅ </div></th>	
+	    <th ><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ</div></th>		
+		<th><div align="center">เน€เธฅเธเธเธฃเธฐเธเธณเธ•เธฑเธง </div></th>
+		<th><div align="center">เธชเธ–เธฒเธเธเธฃเธฐเธเธญเธเธเธฒเธฃ</div></th>
+		<th><div align="center">เธเธณเธเธงเธเน€เธเธดเธ</div></th>
+		<th><div align="center">เธ เธฒเธฉเธต</div></th>
+		<th><div align="center">เธซเธกเธฒเธขเน€เธซเธ•เธธ</div></th>
 	  </tr>
 	<?	
 		  }
@@ -264,7 +264,7 @@ if($_GET["txtKeyword"] == "")
  		<td bgcolor='#ccc'><div align="center"> </div></td>
 		<td bgcolor='#ccc'><div align="center"> </div></td>
 		<td bgcolor='#ccc' align="left"><div align="left"></div></td>
-		<td bgcolor='#ccc' align="right"><div align="center">รวม</div></td>
+		<td bgcolor='#ccc' align="right"><div align="center">เธฃเธงเธก</div></td>
 		<td bgcolor='#ccc' align="right"><div align="right"><?=number_format($objrs["total"],2,'.',',');?></div></td>
 		<td bgcolor='#ccc' align="right"><div align="right"><?=number_format($objrs["total_tax"],2,'.',',');?></div></td>
  		<td bgcolor='#ccc' align="right"><div align="right"></div></td>

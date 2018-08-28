@@ -7,14 +7,14 @@ require_once ("function.log.inc.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>รายการสั่งซื้อสินค้า ของเลขบิล :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธฃเธฒเธขเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒ เธเธญเธเน€เธฅเธเธเธดเธฅ :";
 	$numpost = sizeof($postkey);
 	//echo $numpost;
 		for ($i=0;$i<$numpost;$i++) {
 		//$sql1 .= " or ".$dbprefix."asaleh.id = '".$postval[$postkey[$i]]."'";
 	
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		echo $idd = $postval[$postkey[$i]].',';
 		/*$sql = "SELECT ".$dbprefix."asaled.sano from ".$dbprefix."asaled where id = '$idd'";
 		$rs=mysql_query($sql);
@@ -34,18 +34,18 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัสสินค้า</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รายละเอียดสินค้า</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ราคา</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">จำนวน</td>
-			 <td style="<?=$style_l.$style_t.$style_b?>">เป็นเงิน</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธฒเธเธฒ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธณเธเธงเธ</td>
+			 <td style="<?=$style_l.$style_t.$style_b?>">เน€เธเนเธเน€เธเธดเธ</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
 		//$sql1 .= " or ".$dbprefix."asaleh.id = '".$postval[$postkey[$i]]."'";
 	
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		$idd = $postval[$postkey[$i]];
 		//$rs=mysql_query("SELECT * FROM ".$dbprefix."asaleh WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
 		$sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."product.pdesc,".$dbprefix."asaled.price,";
@@ -62,7 +62,7 @@ require_once ("function.log.inc.php");
 		if (mysql_num_rows($rs)>0){
 			$row = mysql_fetch_object($rs);
 			$id=$row->id;
-			//$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+			//$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 			//$rec->setShowField("pcode,pdesc,price,qty,amt");
 			?>
             <tr bgcolor="<?=$trcolor[$i%2]?>">
@@ -137,7 +137,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -145,7 +145,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

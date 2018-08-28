@@ -33,7 +33,7 @@ $sql = "SELECT *,REPLACE(calc,'1','<img src=./images/true.gif>') AS cal FROM ".$
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,rdate,fdate,tdate,paydate,cal,calc_date,timequery");
-		$rec->setFieldDesc("�����ͺ,�ѹ��������ͺ,�ѹ���ӹǹ�������,�ѹ���ӹǳ����ش,�ѹ������,�ӹǳ����,���ҷ�衴�ӹǹ,���ҷ����<br>�Թҷ�");
+		$rec->setFieldDesc("รหัสรอบ,วันที่เพิ่มรอบ,วันที่คำนวนเริ่มต้น,วันที่คำนวณสิ้นสุด,วันที่จ่าย,คำนวณแล้ว,เวลาที่กดคำนวน,เวลาที่ใช้<br>วินาที");
 		$rec->setFieldAlign("center,center,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("5%,10%,10%,10%,15%,20%,20%");
 //		$rec->setFieldLink("index.php?sessiontab=4&sub=6&cmc=,");
@@ -42,7 +42,7 @@ $sql = "SELECT *,REPLACE(calc,'1','<img src=./images/true.gif>') AS cal FROM ".$
 			//$rec->setFromDelAttr("maindel","./index.php?sessiontab=4&sub=25&state=1","post","delfield");
 		}
 		$rec->setSpecial("Calculate","","sale_status","rcode","","Calculate");
-		//$rec->setSpecial("��§ҹ","","sale_status1","rcode","","��§ҹ");
+		//$rec->setSpecial("รายงาน","","sale_status1","rcode","","รายงาน");
 		if($acc->isAccess(2))
 			$rec->setEdit("index.php","rid","rid","sessiontab=4&sub=25");
 		$rec->showRec(1,'SH_QUERY');

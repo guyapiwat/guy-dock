@@ -70,7 +70,7 @@ if(isset($_GET['state'])){
 	$rsch = mysql_query($selectch);
 	$name_f = mysql_result($rsch,0,'name_f');
 
-/*	if($name_f == '��ҧ�����ǹ�ӡѴ' or $name_f == '����ѷ�ӡѴ' )$sano_f = 'IV1';
+/*	if($name_f == 'ห้างหุ้นส่วนจำกัด' or $name_f == 'บริษัทจำกัด' )$sano_f = 'IV1';
 	else $sano_f = 'IV2';
 	$pcode=$_POST['pcode'];
 	for($i=0;$i<sizeof($pcode);$i++){
@@ -173,7 +173,7 @@ if($chkDiscount == 'on')$tot_pv = 0;
 	$hdate = $chdate[0].'-'.$chdate[1].'-20';
 		$hdate = date('Y-m-t');
 	//$chdate = explode('-',$sadate);
-	logtext(true,$_SESSION['adminusercode'],'�������',$mid);
+	logtext(true,$_SESSION['adminusercode'],'เพิ่มบิล',$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	 $sql="insert into ".$dbprefix."asaleh (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_weight,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 	optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther,trnf,name_t,caddress,cdistrictId,camphurId,cprovinceId,czip,hpv,htotal,hdate,checkportal) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv','$tot_weight','$tot_fv' ,'".$_SESSION['adminusercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',
@@ -249,7 +249,7 @@ writelogfile($text);
 	updateEwallet($dbprefix,$mcode,$txtInternet);
 	if($satype != 'H')updatePos($dbprefix,$mcode,$sadate,$tot_pv);
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'��䢺��',$id);
+	logtext(true,$_SESSION['adminusercode'],'แก้ไขบิล',$id);
 	if(empty($chkInternet))$txtInternet = 0;
 	updateEwallet1($dbprefix,$mcode,$txtInternet,$id);
 
@@ -329,7 +329,7 @@ writelogfile($text);
 	if($radsend == '1'){
 		if($tot_pv < 1500){//Send-Fee
 			if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4'){
-				/// ��ا෾ ������� �����ҹ� ��طû�ҡ��
+				/// กรุงเทพ นนทบุรี ปทุมธานี สมุทรปราการ
 
 				$totalprice = 100;
 				$pcode = "0004";
@@ -403,7 +403,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -424,7 +424,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -464,7 +464,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$invent')";
+				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$invent')";
 				mysql_query($sql);
 
 
@@ -478,7 +478,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$invent')";
+			  values('$sano','Head Office','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$invent')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";
@@ -576,7 +576,7 @@ function keysend($dbprefix,$mid,$pcode,$inv_code,$qty,$weight,$totalprice){
 
 }
 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 ?>
 <?
 function updatePos($dbprefix,$mcode,$cur_date,$tot_pv){
@@ -616,7 +616,7 @@ function updatePos($dbprefix,$mcode,$cur_date,$tot_pv){
 //	exit;
 	//if($chkmonth == $thismonth or $chkmonth == $nextmonth ){
 	if($expmdte > $cur_date ){
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		//$sql = "SELECT MAX(tot_pv) as pv from ".$dbprefix."asaleh WHERE mcode='$mcode' ";
 		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE sa_type='A' and mcode='$mcode' and (sadate <= '$cur_date') and cancel=0 ";
 		//echo $sql.'<br>';
@@ -650,9 +650,9 @@ function updatePos($dbprefix,$mcode,$cur_date,$tot_pv){
 		//$mexp = $tot_pv;
 	}
 //exit;
-	//-----�纵��˹觻Ѩ�غѹ
+	//-----เก็บตำแหน่งปัจจุบัน
 	//mysql_free_result($rs);
-	//�ӹǳ���˹�
+	//คำนวณตำแหน่ง
 	$pos_new = $pos_old;
 	foreach(array_keys($pos_exp) as $key){
 		//echo $key;
@@ -691,10 +691,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 function fnc_check_sp($dbprefix){
 	

@@ -56,12 +56,12 @@ if($_GET['state']==0){
 
  
 	if(mysql_query($sql)){
-		echo "<script language='JavaScript'>alert('∫—π∑÷°¢ÈÕ¡Ÿ≈‡√’¬∫√ÈÕ¬·≈È«');</script>";
+		echo "<script language='JavaScript'>alert('‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß');</script>";
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=6&sub=9'</script>";
 	}
 
 	//====================LOG===========================
-	/*logtext(true,$_SESSION['adminuserid'],'  Ewallet √À—  : '.$mid.' ®”π«π : '.$txtMoney.' ¬Õ¥‡¥‘¡ :'.$ewallet_before.' §ß‡À≈◊Õ : '.$ewallet_after,$mid);
+	/*logtext(true,$_SESSION['adminuserid'],'  Ewallet ‡∏£‡∏´‡∏±‡∏™ : '.$mid.' ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô : '.$txtMoney.' ‡∏¢‡∏≠‡∏î‡πÄ‡∏î‡∏¥‡∏° :'.$ewallet_before.' ‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ : '.$ewallet_after,$mid);
 	$text="uid=".$_SESSION["inv_usercode"]." action=ewalletoperate =>$sql";
 	writelogfile($text);
 	 */

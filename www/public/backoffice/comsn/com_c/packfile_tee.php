@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>��سҡ�͡��ǧ���������١ �� 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -93,7 +93,7 @@ $wwhere1 = " a.total between '".$arr_bonus[0]."' and '".$arr_bonus[1]."' ";
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("b,fdate,mcode,name_t,fast,weekstrong,matching,total,tax,amt,amt1,cmp,cmp2,bankname,acc_name,acc_no,branch,mobile");
-		$rec->setFieldDesc("�ӴѺ,�ѹ���,�����Ҫԡ,����,����й�,Balance <br>Team,������,���⺹��,��������,⺹����ѧ����,⺹�ʨ��¨�ԧ,���Һѵû�ЪҪ�,���Һѭ�ո�Ҥ��,��Ҥ��,����-�ѭ��,�Ţ�ѭ��,�Ң�,����Դ���");
+		$rec->setFieldDesc("ลำดับ,วันที่,รหัสมาชิก,ชื่อ,ค่าแนะนำ,Balance <br>Team,แมชชิ่ง,รวมโบนัส,จ่ายภาษี,โบนัสหลังภาษี,โบนัสจ่ายจริง,สำเนาบัตรประชาชน,สำเนาบัญชีธนาคาร,ธนาคาร,ชื่อ-บัญชี,เลขบัญชี,สาขา,เบอร์ติดต่อ");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,center,center");
 	//	$rec->setFieldSpace("10%,10%,10%,30%,5%,7%,7%,7%,7%,10%");//10
 		//$rec->setSum(true,false,",,,,,,,,,true,true,true");
@@ -102,18 +102,18 @@ $wwhere1 = " a.total between '".$arr_bonus[0]."' and '".$arr_bonus[1]."' ";
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ambonus".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","ambonus".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		if(isset($_POST['skey']))
 			$rec->setCause($_POST['skey'],$_POST['scause']);
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		//$rec->setSearch("a.mcode,lb.cshort");
-		//$rec->setSearchDesc("����,LB");
+		//$rec->setSearchDesc("รหัส,LB");
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

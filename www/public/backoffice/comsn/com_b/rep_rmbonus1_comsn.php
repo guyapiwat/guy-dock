@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>��سҡ�͡��ǧ���������١ �� 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -35,7 +35,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -81,7 +81,7 @@ if($fdate != ''){
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("rcode,fdate,smcode,name_t,tot_pv,total");
-		$rec->setFieldDesc("�ͺ,�ѹ���,�����Ҫԡ,����,��ṹ���(PV),⺹�� Rebate(20%)");
+		$rec->setFieldDesc("รอบ,วันที่,รหัสมาชิก,ชื่อ,คะแนนรวม(PV),โบนัส Rebate(20%)");
 		$rec->setFieldAlign("center,center,center,left,right,right,right");
 		$rec->setFieldSpace("5%,8%,8%,44%,10%,20%");//10
 		$rec->setSum(true,false,",,,,,true");
@@ -90,20 +90,20 @@ if($fdate != ''){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","rmbonus1".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","rmbonus1".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			$rec->getParam();
 			$rec->setSpace($str);
 		}
-				$rec->setSpecial("","","","","NUMROW","�ӴѺ");
+				$rec->setSpecial("","","","","NUMROW","ลำดับ");
 
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		if(isset($_POST['skey']))
 			$rec->setCause($_POST['skey'],$_POST['scause']);
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		//$rec->setSearch("a.mcode,lb.cshort");
-		//$rec->setSearchDesc("����,LB");
+		//$rec->setSearchDesc("รหัส,LB");
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

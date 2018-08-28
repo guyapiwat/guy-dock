@@ -20,7 +20,7 @@ if(isset($_GET['state'])){
 		$inv_code =$sqlObj->inv_code;		
 		$sano = $_GET["sender"];	
 	/*	if($asend == '1'){
-			echo "<script	language='JavaScript'>alert('�������ö��䢡���Ѻ�ͧ��');window.location='index.php?sessiontab=3&sub=145'</script>";	
+			echo "<script	language='JavaScript'>alert('ไม่สามารถแก้ไขการรับของได้');window.location='index.php?sessiontab=3&sub=145'</script>";	
 			exit;
 		}*/
 

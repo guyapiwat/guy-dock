@@ -55,7 +55,7 @@ $img = new Securimage();
 			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 			//session_destroy();
 			$usercode = $row["usercode"];
-			logtext(true,$usercode,'����к� : '.$usercode,'');
+			logtext(true,$usercode,'เข้าระบบ : '.$usercode,'');
 			$username = $row["username"];
 			$userid= $row["uid"];
 			$obj1 = $row["object1"];
@@ -117,7 +117,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 					//mysql_free_result($rs);
 					$ro = 1;
 					
-					//�ӹǹ bm ��������ǹ bmbonus
+					//คำนวน bm ไม่ใช้ในส่วน bmbonus
 					for($i=0;$i<sizeof($mcode);$i++){
 						if($tot_pv[$mcode[$i]] > 0){
 							$up = $mcode[$i];
@@ -129,7 +129,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 										$sql .= "(".$ro.",'$mcode[$i]','$upa_code[$up]','".$tot_pv[$mcode[$i]]."','$lr1[$up]','$fdate','$tdate','".$pos_cur[$mcode[$i]]."','A') ";
 										mysql_query($sql);
 									}
-									//echo "�ҡ��Ţ�� : $sql <br>";
+									//echo "จากบิลขาย : $sql <br>";
 									//exit;
 								}
 								$up = $upa_code[$up];
@@ -163,7 +163,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 						//echo $sql;
 						//exit;
 						mysql_query($sql);
-						//logtext(true,"system",'ᨧ��� Hold Auto',$sql);
+						//logtext(true,"system",'แจงบิล Hold Auto',$sql);
 
 						$sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.pdesc,".$dbprefix."asaled.price,";
 						$sql .= $dbprefix."asaled.pv,(".$dbprefix."asaled.qty-IFNULL(SUM(".$dbprefix."holddesc.qty),0)) AS qty FROM ".$dbprefix."asaled ";
@@ -184,7 +184,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 							//	echo $sql;
 							//	exit;
 								mysql_query($sql);
-							//	logtext(true,"system",'ᨧ��� Hold Auto',$sql);
+							//	logtext(true,"system",'แจงบิล Hold Auto',$sql);
 						}
 						//echo $smcode.' : '.$cdate.' : '.$shpv;
 						//exit;
@@ -207,7 +207,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 
 
 
-// ��Ǩ�ͺ�Է��
+// ตรวจสอบสิทธิ
 if	(  
  ($_SESSION["adminusercode"]==$usercode) and ($_SESSION["adminpassword"]==$DePdw) and (!($DePdw=="")) and (!($_SESSION["adminusercode"]=="")) and (!($_SESSION["adminpassword"]==""))
 	) {

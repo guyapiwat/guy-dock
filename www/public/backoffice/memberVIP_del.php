@@ -6,8 +6,8 @@ require_once ("function.log.inc.php");
 		$postkey=array_keys($_POST['delfield']);
 	}
 
-	// แจ้งว่ามีรายการ ลบข้อมูลการเพิ่มคะแนนพิเศษสำหรับสมาชิก
-	echo "<br>ลบข้อมูลการเพิ่มคะแนนพิเศษสำหรับสมาชิก :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธเธฒเธฃเน€เธเธดเนเธกเธเธฐเนเธเธเธเธดเน€เธจเธฉเธชเธณเธซเธฃเธฑเธเธชเธกเธฒเธเธดเธ
+	echo "<br>เธฅเธเธเนเธญเธกเธนเธฅเธเธฒเธฃเน€เธเธดเนเธกเธเธฐเนเธเธเธเธดเน€เธจเธฉเธชเธณเธซเธฃเธฑเธเธชเธกเธฒเธเธดเธ :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -16,12 +16,12 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."special_point WHERE vip_id='".$postval[$postkey[$i]]."' LIMIT 1 ");
 		
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
@@ -35,7 +35,7 @@ require_once ("function.log.inc.php");
             <?
 		}
 		//echo $_SESSION['usercode'];
-		logtext(true,$_SESSION['adminusercode'],'ลบสมาชิก',$row->mcode);
+		logtext(true,$_SESSION['adminusercode'],'เธฅเธเธชเธกเธฒเธเธดเธ',$row->mcode);
 		mysql_free_result($rs);
 		//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=memberVIP_del =>delete from ".$dbprefix."special_point where vip_id='$id'";
@@ -45,6 +45,6 @@ writelogfile($text);
 		mysql_query("delete from ".$dbprefix."special_point where vip_id='$id' ");
 		//mysql_query("COMMIT");
 	}
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 ?>
 	</table>

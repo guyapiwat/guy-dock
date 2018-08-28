@@ -18,7 +18,7 @@ if(isset($_GET['state'])){
 	if (isset($_POST["C1"])){$C1=$_POST["C1"];}else{$C1="";}
 }
 if($_GET['state']==0){
-	logtext(true,$_SESSION['adminusercode'],'à¾ÔèÁÊÔ¹¤éÒ',$pcode);
+	logtext(true,$_SESSION['adminusercode'],'à¹€à¸žà¸´à¹ˆà¸¡à¸ªà¸´à¸™à¸„à¹‰à¸²',$pcode);
 	$sql="insert into ".$dbprefix."product (pcode,  pdesc, unit,  price,   pv,  bv,fv, qty,st ) values ('$pcode' ,'$pdesc' ,'$unit' ,'$price' ,'$pv' ,'$bv' ,'$fv' ,'$qty',1) ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=productoperate =>$sql";
@@ -34,7 +34,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=1'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'á¡éä¢ÊÔ¹¤éÒ',$pcode);
+	logtext(true,$_SESSION['adminusercode'],'à¹à¸à¹‰à¹„à¸‚à¸ªà¸´à¸™à¸„à¹‰à¸²',$pcode);
 	$sql="update ".$dbprefix."product set pcode='$pcode', pdesc='$pdesc', unit='$unit', price='$price' where pcode= '$oid' ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=productoperate =>$sql";

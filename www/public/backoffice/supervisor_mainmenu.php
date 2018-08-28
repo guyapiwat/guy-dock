@@ -11,7 +11,7 @@
 					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>Supervisor</B></FONT><br />
 					  <br />
 			  <tr >
-					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>ÃËÑÊ¼Ùéãªé :</strong> ".$_SESSION["adminusercode"]." <strong>ª×èÍ¼Ùéãªé :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹ƒà¸Šà¹‰ :</strong> ".$_SESSION["adminusercode"]." <strong>à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 				</tr>
 				<tr>
 				  <td width="368">
@@ -25,7 +25,7 @@
 					  </tr>
                         <tr  >
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=138">âÍ¹ÊÔ¹¤éÒä»ÊÒ¢Ò</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=138">à¹‚à¸­à¸™à¸ªà¸´à¸™à¸„à¹‰à¸²à¹„à¸›à¸ªà¸²à¸‚à¸²</a></td>
                       </tr>
 					</table>
 				</td>
@@ -41,7 +41,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="àÁ¹ÙºÃÔËÒÃÃÐºº" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="à¹€à¸¡à¸™à¸¹à¸šà¸£à¸´à¸«à¸²à¸£à¸£à¸°à¸šà¸š" /></a>
 
 </td>
 <td width="100%">
@@ -51,9 +51,9 @@
 			case 138:
 			?>
 			<legend>
-				<strong><font color="#666666">    ºÔÅÊè§ ÊÒ¢Ò &nbsp;&nbsp;</font></strong>
+				<strong><font color="#666666">    à¸šà¸´à¸¥à¸ªà¹ˆà¸‡ à¸ªà¸²à¸‚à¸² &nbsp;&nbsp;</font></strong>
 			   <? if($acc->isAccess(1)){?>
-			   <img border="0" src="./images/add.gif" alt="à¾ÔèÁºÔÅÊè§ ÊÒ¢Ò / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=138&state=2'>à¾ÔèÁºÔÅÊè§ ÊÒ¢Ò </a>
+			   <img border="0" src="./images/add.gif" alt="à¹€à¸žà¸´à¹ˆà¸¡à¸šà¸´à¸¥à¸ªà¹ˆà¸‡ à¸ªà¸²à¸‚à¸² / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=138&state=2'>à¹€à¸žà¸´à¹ˆà¸¡à¸šà¸´à¸¥à¸ªà¹ˆà¸‡ à¸ªà¸²à¸‚à¸² </a>
 			   <? }?>              
 			</legend>
 			<?

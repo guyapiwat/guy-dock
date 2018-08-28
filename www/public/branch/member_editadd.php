@@ -90,7 +90,7 @@ font-weight: 900;
 <script type="text/javascript"> 
 
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 $("input[name^='zip_']").keyup(function(event){<? include("global.php");?>
 <?
 $_SESSION["perbuy"] = 1;
@@ -98,7 +98,7 @@ $_SESSION["perbuy"] = 1;
 </script>
 <script type="text/javascript"> 
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 $("input[name^='zip_']").keyup(function(event){
 	if(event.keyCode==5){
 		if($(this).val().length==0){
@@ -112,7 +112,7 @@ $("input[name^='zip_']").keyup(function(event){
 });	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 $("input[name^='czip_']").keyup(function(event){
 	if(event.keyCode==5){
 		if($(this).val().length==0){
@@ -126,7 +126,7 @@ $("input[name^='czip_']").keyup(function(event){
 });	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 $("input[name^='acc_no_']").keyup(function(event){
 	if(event.keyCode==10){
 		if($(this).val().length==0){
@@ -153,15 +153,15 @@ frm.ok.disabled = true;
 return true;
 }
 function autoTab(obj){
-/* ��˹��ٻẺ��ͤ�������� _ ᷹������á��� ���ǵ����������ͧ����
-�����ѭ�ѡɳ������� �蹡�˹���  �ٻẺ�Ţ���ѵû�ЪҪ�
-4-2215-54125-6-12 ������ö��˹���  _-____-_____-_-__
-�ٻẺ�������Ѿ�� 08-4521-6521 ��˹��� __-____-____
-���͡�˹������� 12:45:30 ��˹��� __:__:__
-������ҧ��ҧ��ҧ�繡�á�˹��ٻẺ�Ţ�ѵû�ЪҪ�
+/* กำหนดรูปแบบข้อความโดยให้ _ แทนค่าอะไรก็ได้ แล้วตามด้วยเครื่องหมาย
+หรือสัญลักษณ์ที่ใช้แบ่ง เช่นกำหนดเป็น  รูปแบบเลขที่บัตรประชาชน
+4-2215-54125-6-12 ก็สามารถกำหนดเป็น  _-____-_____-_-__
+รูปแบบเบอร์โทรศัพท์ 08-4521-6521 กำหนดเป็น __-____-____
+หรือกำหนดเวลาเช่น 12:45:30 กำหนดเป็น __:__:__
+ตัวอย่างข้างล่างเป็นการกำหนดรูปแบบเลขบัตรประชาชน
 */
-	var pattern=new String("_-____-_____-__-_"); // ��˹��ٻẺ㹹��
-	var pattern_ex=new String("-"); // ��˹��ѭ�ѡɳ���������ͧ���·������㹹��
+	var pattern=new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
+	var pattern_ex=new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
 	var returnText=new String("");
 	var obj_l=obj.value.length;
 	var obj_l2=obj_l-1;
@@ -250,100 +250,100 @@ if(document.forms[0].chkcmem.checked == true){
 }
 
 function check_zipcode(value,value1,value2) {
- var req = Inint_AJAX(); //���ҧ Object
+ var req = Inint_AJAX(); //สร้าง Object
 // alert(value)
 //value = str_pad(value,7,0,false);
 //alert(value);
 //alert(value);alert(value1);alert(value2);
- req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
- req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+ req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+ req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-				var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+				var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 			//	alert(req.responseText);
 				//alert(data);
 				if(data == 1234){
-					 document.getElementById("zip_1").value=''; //�ʴ���
+					 document.getElementById("zip_1").value=''; //แสดงผล
 				}else{
 				//	alert(data);
-					 document.getElementById("zip_1").value=data.trim(); //�ʴ���
+					 document.getElementById("zip_1").value=data.trim(); //แสดงผล
 				}
 		   }
 	  }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 }
 function check_zipcode1(value,value1,value2) {
- var req = Inint_AJAX(); //���ҧ Object
+ var req = Inint_AJAX(); //สร้าง Object
 // alert(value)
 //value = str_pad(value,7,0,false);
 //alert(value);
 //alert(value);alert(value1);alert(value2);
- req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
- req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+ req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+ req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-				var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+				var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 			//	alert(req.responseText);
 				//alert(data);
 				if(data == 1234){
-					 document.getElementById("czip_1").value=''; //�ʴ���
+					 document.getElementById("czip_1").value=''; //แสดงผล
 				}else{
 					//alert(data);
-					 document.getElementById("czip_1").value=data.trim(); //�ʴ���
+					 document.getElementById("czip_1").value=data.trim(); //แสดงผล
 				}
 		   }
 	  }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 }
 function checkaddress(value,value1,value2) {
- var req = Inint_AJAX(); //���ҧ Object
+ var req = Inint_AJAX(); //สร้าง Object
 // alert(value)
 //value = str_pad(value,7,0,false);
 //alert(value);
- req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
- req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+ req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+ req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-				var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+				var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 			//	alert(req.responseText);
 				if(data == 1234){
-				//document.getElementById("mname").innerHTML="������������§ҹ";
+				//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 				}else{
 				//	alert(data);
-				document.getElementById("idchksaddress").innerHTML=data.trim(); //�ʴ���
+				document.getElementById("idchksaddress").innerHTML=data.trim(); //แสดงผล
 				}
 		   }
 	  }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
- var req = Inint_AJAX(); //���ҧ Object
+ var req = Inint_AJAX(); //สร้าง Object
  //alert(value)
 value = str_pad(value,7,0,false);
 value = value.toUpperCase();
 //alert(value)
 //alert(test);
- req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
- req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+ req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+ req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
 				var data=req.responseText.trim(); 
 				var myarr = data.split("|");
 	
-				 //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+				 //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//alert(req.responseText);
 				if(data.trim() == 1234){
 				document.getElementById('sp_code').value="";
-				document.getElementById("sp_name").value="������������§ҹ";
+				document.getElementById("sp_name").value="ไม่ได้อยู่ในสายงาน";
 				//document.getElementById('upa_code').value="";
-				//document.getElementById("sp_name").value="������������§ҹ";
-				document.getElementById("l1").innerHTML="";//�ʴ���
+				//document.getElementById("sp_name").value="ไม่ได้อยู่ในสายงาน";
+				document.getElementById("l1").innerHTML="";//แสดงผล
 				document.getElementById("l2").innerHTML="";
 				//document.getElementById("l3").innerHTML="";
 
@@ -352,9 +352,9 @@ value = value.toUpperCase();
 				document.getElementById("sp_name").value=myarr[0].trim();
 				//document.getElementById('upa_code').value=value;
 				//document.getElementById("upa_name").value=myarr[0].trim();
-				document.getElementById("l1").innerHTML="���� "+myarr[1];//�ʴ���
-				document.getElementById("l2").innerHTML="���� "+myarr[2];
-				//document.getElementById("l3").innerHTML="���� "+myarr[3];
+				document.getElementById("l1").innerHTML="รหัส "+myarr[1];//แสดงผล
+				document.getElementById("l2").innerHTML="รหัส "+myarr[2];
+				//document.getElementById("l3").innerHTML="รหัส "+myarr[3];
 
 				}
 				//alert(data);
@@ -365,8 +365,8 @@ value = value.toUpperCase();
 		   }
 	  }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 };
 function sendget_sponsor1(value,value1) {
 if(value1 == ''){
@@ -374,22 +374,22 @@ if(value1 == ''){
 	document.getElementById('upa_code').value="";
 	exit;
 }
- var req = Inint_AJAX(); //���ҧ Object
+ var req = Inint_AJAX(); //สร้าง Object
 // alert(value)
 value = str_pad(value,7,0,false);
 value1 = str_pad(value1,7,0,false);
 //alert(value);
 //alert(value1);
 
- req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
- req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+ req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+ req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-				var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+				var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//alert(req.responseText);
 				if(data == 1234){
 				document.getElementById('upa_code').value="";
-				document.getElementById("upa_name").value="������������§ҹ";
+				document.getElementById("upa_name").value="ไม่ได้อยู่ในสายงาน";
 				}else{
 					var myArray = data.split(':');
 					var left = myArray[0];
@@ -398,11 +398,11 @@ value1 = str_pad(value1,7,0,false);
 					var left = left.trim();
 
 					document.getElementById('upa_code').value=value;
-					document.getElementById("upa_name").value=name; //�ʴ���
+					document.getElementById("upa_name").value=name; //แสดงผล
 					
 					 if(document.getElementById('oid').value == ''){
 						 if(left == '1' && right == '1'){
-							alert('�Ѿ�Ź��բ� 2 ��ҹ����');
+							alert('อัพไลน์มีขา 2 ด้านแล้ว');
 
 							document.getElementById('upa_code').value="";
 							document.forms[0].lr[0].disabled = true;
@@ -414,7 +414,7 @@ value1 = str_pad(value1,7,0,false);
 							var r_alert = document.forms[0].lr[1].checked;
 							
 							if(left == '1'){
-								if(l_alert == true)alert('�Ѿ�Ź��մ�ҹ���� ������');
+								if(l_alert == true)alert('อัพไลน์มีด้านซ้าย มีแล้ว');
 								document.forms[0].lr[0].disabled = true;
 								document.forms[0].lr[0].checked = false;
 							}
@@ -423,7 +423,7 @@ value1 = str_pad(value1,7,0,false);
 							}
 
 							if(right == '1'){
-								if(r_alert == true)alert('�Ѿ�Ź��մ�ҹ��� ������');
+								if(r_alert == true)alert('อัพไลน์มีด้านขวา มีแล้ว');
 								document.forms[0].lr[1].disabled = true;
 								document.forms[0].lr[1].checked = false;
 							}
@@ -431,11 +431,11 @@ value1 = str_pad(value1,7,0,false);
 								document.forms[0].lr[1].disabled = false;
 							}
 							document.getElementById('upa_code').value=value;
-							document.getElementById("upa_name").value=name; //�ʴ���
+							document.getElementById("upa_name").value=name; //แสดงผล
 						 }
 					 }else{
 							document.getElementById('upa_code').value=value;
-							document.getElementById("upa_name").value=name; //�ʴ���
+							document.getElementById("upa_name").value=name; //แสดงผล
 					 }
 					
 
@@ -450,8 +450,8 @@ value1 = str_pad(value1,7,0,false);
 		   }
 	  }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 };
 </script>
 
@@ -473,14 +473,14 @@ wi=window.open("mem_listpicker_mcode_acc.php?name=?","list_picker_window","menub
 //wi=window.open("mem_listpicker_mcode_acc.php?name="+this.getElementById('mcode_acc_name').innerHTML+"","list_picker_window","menubar=no,width=500,height=600,toolbar=no,scrollbars=1");
 }
 function getRadioValueByName(name){
-	if(name == '���')document.forms[0].sex[0].checked = true;
-	if(name == '�ҧ���')document.forms[0].sex[1].checked = true;
-	if(name == '�ҧ')document.forms[0].sex[1].checked = true;
+	if(name == 'นาย')document.forms[0].sex[0].checked = true;
+	if(name == 'นางสาว')document.forms[0].sex[1].checked = true;
+	if(name == 'นาง')document.forms[0].sex[1].checked = true;
 }
 function getRadioValueByName1(name){
-	if(name == '���')document.forms[0].csex[0].checked = true;
-	if(name == '�ҧ���')document.forms[0].csex[1].checked = true;
-	if(name == '�ҧ')document.forms[0].csex[1].checked = true;
+	if(name == 'นาย')document.forms[0].csex[0].checked = true;
+	if(name == 'นางสาว')document.forms[0].csex[1].checked = true;
+	if(name == 'นาง')document.forms[0].csex[1].checked = true;
 }
 function checkMemberExit(){
 var mcode = $('input[name=mcode]').val();
@@ -505,116 +505,116 @@ var errDesc = '';
 var val = document.getElementById('mcode').value;
 var field = "mcode";
 var flag = "1-7-0-0-0";
-var errDesc = '������Ҫԡ';
+var errDesc = 'รหัสสมาชิก';
 
 /*
 var val = document.getElementById('upa_name').value;
 var field = "upa_name";
 var flag = "1-0-0-0-0";
-var errDesc = '�����Ѿ�Ź�';
+var errDesc = 'ชื่ออัพไลน์';
 
 
 val = val + ","+document.getElementById('upa_code').value;
 field = field +",upa_code";
 flag = flag+",1-7-0-0-0-0";
-errDesc = errDesc + ",�����Ѿ�Ź�";
+errDesc = errDesc + ",รหัสอัพไลน์";
 */
 val = val + ","+document.getElementById('sp_code').value;
 field = field +",sp_code";
 flag = flag+",1-9-0-0-0-0";
-errDesc = errDesc + ",���ʼ���й�";
+errDesc = errDesc + ",รหัสผู้แนะนำ";
 
 val = val + ","+document.getElementById('sp_name').value;
 field = field +",sp_name";
 flag = flag+",1-0-0-0-0-0";
-errDesc = errDesc + ",���ͼ���й�";
+errDesc = errDesc + ",ชื่อผู้แนะนำ";
 
 val = val + ","+document.getElementById('name_f').value;
 field = field +",name_f";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",�ӹ�˹�Ҫ���";
+errDesc = errDesc + ",คำนำหน้าชื่อ";
 
 val = val + ","+document.getElementById('name_t').value;
 field = field +",name_t";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",����-���ʡ��";
+errDesc = errDesc + ",ชื่อ-นามสกุล";
 
 val = val + ","+document.getElementById('birthday1').value;
 field = field +",birthday1";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",�ѹ�Դ";
+errDesc = errDesc + ",วันเกิด";
 
  val = val + ","+document.getElementById('birthday2').value;
 field = field +",birthday2";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",��͹�Դ";
+errDesc = errDesc + ",เดือนเกิด";
 
  val = val + ","+document.getElementById('birthday3').value;
 field = field +",birthday3";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",���Դ";
+errDesc = errDesc + ",ปีเกิด";
 
 
 val = val + ","+document.getElementById('id_card').value;
 field = field +",id_card";
 flag = flag+",1-0-0-1-0";
-errDesc = errDesc + ",�Ţ��Шӵ�ǻ�ЪҪ�";
+errDesc = errDesc + ",เลขประจำตัวประชาชน";
 
 val = val + ","+document.getElementById('mobile').value;
 field = field +",mobile";
 flag = flag+",1-0-0-0-0";
-errDesc = errDesc + ",������";
+errDesc = errDesc + ",เบอร์โทร";
 
 if(document.getElementById('national').value == 'Thailand'){
 	val = val + ","+document.getElementById('address').value;
 	field = field +",address";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ţ���/��ͧ";
+	errDesc = errDesc + ",เลขที่/ห้อง";
 
 	val = val + ","+document.getElementById('province').value;
 	field = field +",province";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ѧ��Ѵ";
+	errDesc = errDesc + ",จังหวัด";
 
 	val = val + ","+document.getElementById('amphur').value;
 	field = field +",amphur";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����";
+	errDesc = errDesc + ",อำเภอ";
 
 	val = val + ","+document.getElementById('district').value;
 	field = field +",district";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ӻ�";
+	errDesc = errDesc + ",ตำบล";
 
 	val = val + ","+document.getElementById('zip_1').value;
 	field = field +",zip_1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������ɳ���";
+	errDesc = errDesc + ",รหัสไปรษณีย์";
 
 	val = val + ","+document.getElementById('caddress').value;
 	field = field +",caddress";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ţ���/��ͧ �Ѵ��";
+	errDesc = errDesc + ",เลขที่/ห้อง จัดส่ง";
 
 	val = val + ","+document.getElementById('cprovince').value;
 	field = field +",cprovince";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ѧ��Ѵ �Ѵ��";
+	errDesc = errDesc + ",จังหวัด จัดส่ง";
 
 	val = val + ","+document.getElementById('camphur').value;
 	field = field +",camphur";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",����� �Ѵ��";
+	errDesc = errDesc + ",อำเภอ จัดส่ง";
 
 	val = val + ","+document.getElementById('cdistrict').value;
 	field = field +",cdistrict";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ӻ� �Ѵ��";
+	errDesc = errDesc + ",ตำบล จัดส่ง";
 
 	val = val + ","+document.getElementById('czip_1').value;
 	field = field +",czip_1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������ɳ��� �Ѵ��";
+	errDesc = errDesc + ",รหัสไปรษณีย์ จัดส่ง";
 
 }
 
@@ -622,7 +622,7 @@ if(document.getElementById('national').value == 'Thailand'){
 if(document.getElementById('email').value != ''){
 	var Email=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 	if(!document.getElementById('email').value.match(Email)){
-	alert('�ٻẺ����������١��ͧ');
+	alert('รูปแบบอีเมลล์ไม่ถูกต้อง');
 	document.getElementById('email').focus();
 	exit;
 	}
@@ -633,7 +633,7 @@ var pay = 0;
 for (var i = 0, length = radios.length; i < length; i++) {
 	if (radios[i].checked) {
 		 if(radios[i].value == 'chkTransfer' && document.getElementById('selectTransfer').value == ''){
-		   alert('�ٻẺ��ê���');
+		   alert('รูปแบบการชำระ');
 		   document.getElementById('selectTransfer').focus();
 		   exit;
 		 } 
@@ -641,7 +641,7 @@ for (var i = 0, length = radios.length; i < length; i++) {
 	}
 }
 if(pay == 0){
-	 alert('���͡��ê���');
+	 alert('เลือกการชำระ');
 	 document.getElementById('chk_pay').focus();
 	 exit;
 } 
@@ -654,13 +654,13 @@ if(document.getElementById('chk_pay').value == 'chkTransfer'){
 if(document.getElementById('national').value == 'Thailand'){
 	var a = document.getElementById('id_card').value;
 	var id_card = "";
-	var t = a.split("-");  //�������äᵡ��ŧ array t
+	var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 	for(var i=0; i<t.length ; i++){
 		id_card = id_card+ t[i];
 	}
 	var id = document.getElementById('id_card').value;
 	
-		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("�Ţ�ѵû�ЪҪ����������"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
+		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
 		for(i=0,sum=0;i<12;i++){
 			sum += parseInt(id.charAt(i))*(13-i);
 		}
@@ -669,14 +669,14 @@ if(document.getElementById('national').value == 'Thailand'){
 			sum = 1-sum;
 		else
 			sum = 11-sum;
-		if(sum != parseInt(id.charAt(12))){alert("�Ţ�ѵû�ЪҪ����������");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
+		if(sum != parseInt(id.charAt(12))){alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
 		exit;}
 
 /*
 	val = val + ","+document.getElementById('id_card').value;
 	field = field +",id_card";
 	flag = flag+",1-13-0-1-0";
-	errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+	errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
 */
 	
 }
@@ -704,14 +704,14 @@ for(i=0;i<object.length;i++){
 }
  if(lrval == ''){
 	document.getElementById('lr').focus();
-	alert("��س����͡���¢��");
+	alert("กรุณาเลือกซ้ายขวา");
 	exit;
 }
 if(document.getElementById('upa_code').value!=""){
 	val = val + ","+lrval+"#"+document.getElementById('upa_code').value;
 	field = field +",lr#upa_code";
 	flag = flag+",1-0-0-1-0";
-	errDesc = errDesc + ",��ҹ";
+	errDesc = errDesc + ",ด้าน";
 }
 */
 
@@ -753,7 +753,7 @@ val = val + ","+document.getElementById('id_card').value;
 skipval = skipval+","+document.getElementById('oid_card').value;
 field = field +",id_card";
 flag = flag+",1-0-0-1-0";
-errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
 
 val = val + ","+document.getElementById('name_t').value;
 field = field +",name_t";
@@ -771,75 +771,75 @@ if(document.getElementById('national').value == 'Thailand'){
 	val = val + ","+document.getElementById('id_card').value;
 	field = field +",id_card";
 	flag = flag+",1-13-0-0-0";
-	errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+	errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
 	
 	val = val + ","+document.getElementById('address').value;
 	field = field +",address";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ţ���/��ͧ";
+	errDesc = errDesc + ",เลขที่/ห้อง";
 
 	val = val + ","+document.getElementById('province').value;
 	field = field +",province";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ѧ��Ѵ";
+	errDesc = errDesc + ",จังหวัด";
 
 	val = val + ","+document.getElementById('amphur').value;
 	field = field +",amphur";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����";
+	errDesc = errDesc + ",อำเภอ";
 
 	val = val + ","+document.getElementById('district').value;
 	field = field +",district";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ӻ�";
+	errDesc = errDesc + ",ตำบล";
 
 	val = val + ","+document.getElementById('zip_1').value;
 	field = field +",zip_1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������ɳ���";
+	errDesc = errDesc + ",รหัสไปรษณีย์";
 
 	val = val + ","+document.getElementById('caddress').value;
 	field = field +",caddress";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ţ���/��ͧ �Ѵ��";
+	errDesc = errDesc + ",เลขที่/ห้อง จัดส่ง";
 
 	val = val + ","+document.getElementById('cprovince').value;
 	field = field +",cprovince";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�ѧ��Ѵ �Ѵ��";
+	errDesc = errDesc + ",จังหวัด จัดส่ง";
 
 	val = val + ","+document.getElementById('camphur').value;
 	field = field +",camphur";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",����� �Ѵ��";
+	errDesc = errDesc + ",อำเภอ จัดส่ง";
 
 	val = val + ","+document.getElementById('cdistrict').value;
 	field = field +",cdistrict";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�Ӻ� �Ѵ��";
+	errDesc = errDesc + ",ตำบล จัดส่ง";
 
 	val = val + ","+document.getElementById('czip_1').value;
 	field = field +",czip_1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������ɳ��� �Ѵ��";
+	errDesc = errDesc + ",รหัสไปรษณีย์ จัดส่ง";
 }
 
 /*
 val = val + ","+document.getElementById('id_card').value;
 field = field +",id_card";
 flag = flag+",1-13-0-0-0";
-errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
 */
 if(document.getElementById('national').value == 'Thailand'){
 	var a = document.getElementById('id_card').value;
 	var id_card = "";
-	var t = a.split("-");  //�������äᵡ��ŧ array t
+	var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 	for(var i=0; i<t.length ; i++){
 		id_card = id_card+ t[i];
 	}
 	var id = document.getElementById('id_card').value;
 	
-		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("�Ţ�ѵû�ЪҪ����������"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
+		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
 		for(i=0,sum=0;i<12;i++){
 			sum += parseInt(id.charAt(i))*(13-i);
 		}
@@ -848,7 +848,7 @@ if(document.getElementById('national').value == 'Thailand'){
 			sum = 1-sum;
 		else
 			sum = 11-sum;
-		if(sum != parseInt(id.charAt(12))){alert("�Ţ�ѵû�ЪҪ����������");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
+		if(sum != parseInt(id.charAt(12))){alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
 		exit;}
 
 
@@ -907,8 +907,8 @@ if($_GET['id']){
 	$sql = "SELECT * FROM ".$dbprefix."member WHERE id='".$_GET['id']."' LIMIT 1";
 	$rs = mysql_query($sql);
 	if(mysql_num_rows($rs)<=0){
-		$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-		dialogbox("50%","#990000","��辺�����ŵ�����͹�",$notfound);
+		$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+		dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$notfound);
 		exit;
 	}else{
 		$row = mysql_fetch_object($rs);
@@ -1117,13 +1117,13 @@ if(empty($national))$national = 'Thailand';
 					<td colspan="2" >
 					<!--input type="hidden" id="omcode" name="omcode" value="<?=$mcode?>" /-->
 					<input type="hidden" name="id" readonly size="10" value="<?=$id;?>" />
-					&nbsp;&nbsp;&nbsp;�ѹ�����Ѥ�:
+					&nbsp;&nbsp;&nbsp;วันที่สมัคร:
 					<input type="text" id="mdate" tabindex="1" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" />
-					<?if($mcode != ''){?><BR>������Ҫԡ : <?echo $mcode;?>
+					<?if($mcode != ''){?><BR>รหัสสมาชิก : <?echo $mcode;?>
 					<input type="hidden"  id="mcode" name="mcode" size="10" readonly maxlength="7" value="<?=$mcode?>"  />
 					<input type="hidden" id="omcode" name="omcode" value="<?=$mcode?>" />
 					<input type="hidden" name="id" readonly size="10" value="<?=$id;?>" /><?}else{?>
-					<BR>&nbsp;������Ҫԡ: 
+					<BR>&nbsp;รหัสสมาชิก: 
 					<select name="fmcode" id="fmcode">
 						<option value="TH">TH</option>
 						<option value="AC">AC</option>
@@ -1165,7 +1165,7 @@ if(empty($national))$national = 'Thailand';
 						<div  style="clear:both">
 							<div class="lr" style=" width: 70px;   float: left;">
 							<input tabindex="6" onClick="document.getElementById('ok').disabled=true;" type="radio" name="lr" <?=$lr==mysql_result($rs,$i,'lr_id')?"checked":""?> value="<?=	mysql_result($rs,$i,'lr_id')?>"  />
-								<?=mysql_result($rs,$i,'lr_name')."�ش"?>
+								<?=mysql_result($rs,$i,'lr_name')."สุด"?>
 							</div>
 							<div id="l<?=mysql_result($rs,$i,'lr_id')?>"></div>
 						</div>
@@ -1185,7 +1185,7 @@ if(empty($national))$national = 'Thailand';
 					</td>
 				</tr>
 				<tr>
-<td align="right">������</td>
+<td align="right">ประเภท</td>
 <td><? //if(!empty($_GET['id'])){?>
  
 <select name="mtype1">
@@ -1220,18 +1220,18 @@ if(empty($national))$national = 'Thailand';
 				<table width="100%" border="0">
 					<tr bgcolor="#FFCC33" >
 						<td colspan="2" align="center">
-							<b>�����ż����Ѥ�</b>
+							<b>ข้อมูลผู้สมัคร</b>
 						</td>
 						<td colspan="2" align="center" >
-							<b>�����ż����Ѥ����� </b>
+							<b>ข้อมูลผู้สมัครร่วม </b>
 							<input type="checkbox" name="chkcmem" id="chkcmem" value="1"  tabindex="53"   onClick="onclickcmems(this.value);" />
 						</td>
 					</tr>
 					<tr style="display:none">
-						<td align="right">��ͧ�ҧ����Թ</td>
+						<td align="right">ช่องทางการเงิน</td>
 						<td>&nbsp;
 							<select size="1"  name="type_com" id="type_com" tabindex="10">
-								<option value="" <?if($type_com=="")echo 'selected';?>>��� Ewallet</option>
+								<option value="" <?if($type_com=="")echo 'selected';?>>เข้า Ewallet</option>
 							</select>
 						</td>
 					</tr>
@@ -1271,8 +1271,8 @@ if(empty($national))$national = 'Thailand';
 					<tr>
 						<td align="right">Member Type</td>
 						<td>
-							<input type="radio"  name="mtype" id="mtype" value="0" tabindex="10"  <? if($mtype=="0" or empty($mtype)) echo "checked=\"checked\""; ?>>�ؤ�Ÿ�����
-							<input type="radio" name="mtype" id="mtype"  value="1" tabindex="10"  <? if($mtype=="1") echo "checked=\"checked\""; ?>>�ԵԺؤ��
+							<input type="radio"  name="mtype" id="mtype" value="0" tabindex="10"  <? if($mtype=="0" or empty($mtype)) echo "checked=\"checked\""; ?>>บุคคลธรรมดา
+							<input type="radio" name="mtype" id="mtype"  value="1" tabindex="10"  <? if($mtype=="1") echo "checked=\"checked\""; ?>>นิติบุคคล
 							</td>
 						<td align="right">&nbsp;</td>
 						<td>&nbsp;</td>
@@ -1301,13 +1301,13 @@ if(empty($national))$national = 'Thailand';
 									else {
 										document.getElementById('name_ff').style.display  = 'none';
 							}">
-								<option  value="" <?=($name_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-								<option  value="���" <?=($name_f=="���"?"selected":"")?>>���</option>
-								<option value="�ҧ���" <?=($name_f=="�ҧ���"?"selected":"")?>>�ҧ���</option>
-								<option value="�ҧ" <?=($name_f=="�ҧ"?"selected":"")?>>�ҧ</option>
-								<option value="����ѷ�ӡѴ" <?=($name_f=="����ѷ�ӡѴ"?"selected":"")?>>����ѷ�ӡѴ</option>
-								<option value="��ҧ�����ǹ�ӡѴ" <?=($name_f=="��ҧ�����ǹ�ӡѴ"?"selected":"")?>>��ҧ�����ǹ�ӡѴ</option>
-								<option value="123" <?=($name_f=="����"?"selected":"")?>>����</option>
+								<option  value="" <?=($name_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+								<option  value="นาย" <?=($name_f=="นาย"?"selected":"")?>>นาย</option>
+								<option value="นางสาว" <?=($name_f=="นางสาว"?"selected":"")?>>นางสาว</option>
+								<option value="นาง" <?=($name_f=="นาง"?"selected":"")?>>นาง</option>
+								<option value="บริษัทจำกัด" <?=($name_f=="บริษัทจำกัด"?"selected":"")?>>บริษัทจำกัด</option>
+								<option value="ห้างหุ้นส่วนจำกัด" <?=($name_f=="ห้างหุ้นส่วนจำกัด"?"selected":"")?>>ห้างหุ้นส่วนจำกัด</option>
+								<option value="123" <?=($name_f=="อื่นๆ"?"selected":"")?>>อื่นๆ</option>
 							</select>
 							<input type="text" name="name_ff" style="display:none;"  id="name_ff" value="<?=$name_ff?>" tabindex="13"  />
 						</td>
@@ -1325,13 +1325,13 @@ if(empty($national))$national = 'Thailand';
 								document.getElementById('cname_ff').style.display  = 'none';
 								document.getElementById('cname_ff').readOnly  = true;
 							}">
-								<option  value="" <?=($cname_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-								<option  value="���" <?=($cname_f=="���"?"selected":"")?>>���</option>
-								<option value="�ҧ���" <?=($cname_f=="�ҧ���"?"selected":"")?>>�ҧ���</option>
-								<option value="�ҧ" <?=($cname_f=="�ҧ"?"selected":"")?>>�ҧ</option>
-								<option value="����ѷ�ӡѴ" <?=($cname_f=="����ѷ�ӡѴ"?"selected":"")?>>����ѷ�ӡѴ</option>
-								<option value="��ҧ�����ǹ�ӡѴ" <?=($cname_f=="��ҧ�����ǹ�ӡѴ"?"selected":"")?>>��ҧ�����ǹ�ӡѴ</option>
-								<option value="123" <?=($cname_f=="����"?"selected":"")?>>����</option>
+								<option  value="" <?=($cname_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+								<option  value="นาย" <?=($cname_f=="นาย"?"selected":"")?>>นาย</option>
+								<option value="นางสาว" <?=($cname_f=="นางสาว"?"selected":"")?>>นางสาว</option>
+								<option value="นาง" <?=($cname_f=="นาง"?"selected":"")?>>นาง</option>
+								<option value="บริษัทจำกัด" <?=($cname_f=="บริษัทจำกัด"?"selected":"")?>>บริษัทจำกัด</option>
+								<option value="ห้างหุ้นส่วนจำกัด" <?=($cname_f=="ห้างหุ้นส่วนจำกัด"?"selected":"")?>>ห้างหุ้นส่วนจำกัด</option>
+								<option value="123" <?=($cname_f=="อื่นๆ"?"selected":"")?>>อื่นๆ</option>
 							</select>
 							<input type="text" name="cname_ff" style="display:none;" id="cname_ff" value="<?=$cname_ff?>" tabindex="28" readonly />
 						</td>
@@ -1363,7 +1363,7 @@ if(empty($national))$national = 'Thailand';
 						</td>
 					</tr>
 					<tr>
-						<td align="right">���ͷҧ��áԨ</td>
+						<td align="right">ชื่อทางธุรกิจ</td>
 						<td>
 							<input type="text" id="name_b" name="name_b" size="40" maxlength="40" value="<?=$name_b?>" tabindex="16"/>
 						</td>
@@ -1375,17 +1375,17 @@ if(empty($national))$national = 'Thailand';
 					<tr>
 						<td align="right">&#3648;&#3614;&#3624;<font color="#ff0000">*</font>&nbsp;</td>
 						<td>
-							<input type="radio" name="sex" id="sex" value="���" tabindex="17" <? if($sex=="���") echo "checked=\"checked\""; ?>>
-							���
-							<input type="radio" name="sex" id="sex" value="˭ԧ" tabindex="18" <? if($sex=="˭ԧ") echo "checked=\"checked\""; ?>>
-							˭ԧ     
+							<input type="radio" name="sex" id="sex" value="ชาย" tabindex="17" <? if($sex=="ชาย") echo "checked=\"checked\""; ?>>
+							ชาย
+							<input type="radio" name="sex" id="sex" value="หญิง" tabindex="18" <? if($sex=="หญิง") echo "checked=\"checked\""; ?>>
+							หญิง     
 						</td>
 						<td align="right">&#3648;&#3614;&#3624;&nbsp;</td>
 						<td>
-							<input type="radio" name="csex" id="csex" value="���" disabled    tabindex="32" <? if($csex=="���") echo "checked=\"checked\""; ?>>
-							���
-							<input type="radio" name="csex" id="csex" value="˭ԧ" disabled    tabindex="33" <? if($csex=="˭ԧ") echo "checked=\"checked\""; ?>>
-							˭ԧ     
+							<input type="radio" name="csex" id="csex" value="ชาย" disabled    tabindex="32" <? if($csex=="ชาย") echo "checked=\"checked\""; ?>>
+							ชาย
+							<input type="radio" name="csex" id="csex" value="หญิง" disabled    tabindex="33" <? if($csex=="หญิง") echo "checked=\"checked\""; ?>>
+							หญิง     
 						</td>
 					</tr>
 					<tr>
@@ -1460,14 +1460,14 @@ if(empty($national))$national = 'Thailand';
 					</tr>
 					<tr>
 						<td align="right">
-							�ѭ�ҵ�<font color="#ff0000">*</font>&nbsp;
+							สัญชาติ<font color="#ff0000">*</font>&nbsp;
 						</td>
 						<td>
 							<select name="national" id="national" onchange="maxleng()"  tabindex="20">
 							<?				
 								
 								$result1=mysql_query("select * from ".$dbprefix."nation order by nation");
-								echo "<option value='' selected>-���͡�ѭ�ҵ� -</option>";
+								echo "<option value='' selected>-เลือกสัญชาติ -</option>";
 								for ($i=1;$i<=mysql_num_rows($result1);$i++){
 									$row1 = mysql_fetch_object($result1);
 									//echo "<option value=\"\" ";
@@ -1475,7 +1475,7 @@ if(empty($national))$national = 'Thailand';
 									echo "<option value=\"".$row1->nation."\" >";
 									
 									if($row1->nation == 'Thailand'){
-										echo '��' ;
+										echo 'ไทย' ;
 									}else{
 										echo $row1->nation;
 									}
@@ -1484,7 +1484,7 @@ if(empty($national))$national = 'Thailand';
 							?>     
 							</select>
 						</td>
-						<td align="right">�ѭ�ҵ�</td>
+						<td align="right">สัญชาติ</td>
 						<td>
 							<select name="cnational" disabled id="cnational"  tabindex="35">
 							<?					
@@ -1497,7 +1497,7 @@ if(empty($national))$national = 'Thailand';
 									if ($cnational==$row1->nation) {echo "selected";}
 									echo ">";
 									if($row1->nation == 'Thailand'){
-										echo '��' ;
+										echo 'ไทย' ;
 									}else{
 										echo $row1->nation;
 									}
@@ -1509,7 +1509,7 @@ if(empty($national))$national = 'Thailand';
 					</tr>
 					<tr>
 					<td align="right">	
-						�Ţ��Шӵ�ǻ�ЪҪ�/��ʻ���<font color="#ff0000">*</font>&nbsp;
+						เลขประจำตัวประชาชน/พาสปอร์ต<font color="#ff0000">*</font>&nbsp;
 					</td>
 					<td>
 
@@ -1520,7 +1520,7 @@ if(empty($national))$national = 'Thailand';
 
 					</td>
 					<td align="right">
-						�Ţ��Шӵ�ǻ�ЪҪ�/��ʻ���
+						เลขประจำตัวประชาชน/พาสปอร์ต
 					</td>
 					<td>
 						<input  name="cid_card" id="cid_card" disabled tabindex="36"  maxlength="17" type="text" value="<?=$cid_card?>" onKeyPress="return chknum(window.event.keyCode)"   />
@@ -1563,32 +1563,32 @@ if(empty($national))$national = 'Thailand';
 					</tr>
 					<tr>
 						<td align="right">
-							���Ѿ����Ͷ��<font color="#ff0000">*</font>&nbsp;
+							โทรศัพท์มือถือ<font color="#ff0000">*</font>&nbsp;
 						</td>
 						<td>
 							<input type="text" name="mobile" id="mobile"  maxlength="10" value="<?=$mobile?>"  onKeyPress="return chknum(window.event.keyCode)" tabindex="24"/>
 						</td>
 						<td align="right">
-							���Ѿ����Ͷ��
+							โทรศัพท์มือถือ
 						</td>
 						<td>
 							<input type="text" name="cmobile" id="cmobile" disabled  maxlength="10" value="<?=$cmobile?>" tabindex="39"  onKeyPress="return chknum(window.event.keyCode)"/>
 						</td>
 					</tr>
 					<tr>
-						<td align="right">����� </td>
+						<td align="right">โทรสาร </td>
 						<td>
 							<input type="text" name="fax" id="fax" value="<?=$fax?>"  onKeyPress="return chknum(window.event.keyCode)" tabindex="25"/>
 						</td>
-						<td align="right">����� </td>
+						<td align="right">โทรสาร </td>
 						<td>
 							<input type="text" name="cfax" id="cfax" disabled value="<?=$cfax?>" tabindex="40"  onKeyPress="return chknum(window.event.keyCode)"/>
 						</td>
 					</tr>
 					<tr>
-						<td align="right">����� </td>
+						<td align="right">อีเมล </td>
 						<td><input type="text" name="email" id="email" value="<?=$email?>" tabindex="26"/></td>
-						<td align="right">����� </td>
+						<td align="right">อีเมล </td>
 						<td><input type="text" name="cemail" id="cemail" disabled value="<?=$cemail?>" tabindex="41"/></td>
 					</tr>
 					<tr>
@@ -1612,11 +1612,11 @@ if(empty($national))$national = 'Thailand';
 				</table>
 				<table width="100%" border="0">
 					<tr bgcolor="#FFCC33">
-						<td colspan="2" align="center"><b>�������Ѩ�غѹ</b></td>
+						<td colspan="2" align="center"><b>ที่อยู่ปัจจุบัน</b></td>
 						<td colspan="2" align="center">
-							<b>�����������Ѻ�Ѵ�� / ���͡���
+							<b>ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร
 							<input type="checkbox" name="chkaddress" id="chkaddress" value="1"  tabindex="53"   onClick="onclickaddress(this.value);" />
-							������ǡѺ����������ѵû�ЪҪ�</b>
+							ที่เดียวกับที่อยู่ตามบัตรประชาชน</b>
 						</td>
 					</tr>
 					<tr>
@@ -1670,7 +1670,7 @@ if(empty($national))$national = 'Thailand';
 								<tr>
 									<td align="right">&#3619;&#3627;&#3633;&#3626;&#3652;&#3611;&#3619;&#3625;&#3603;&#3637;&#3618;&#3660;&nbsp;</td>
 									<td align="left">
-										<input name="zip_1" tabindex="52" type="text" id="zip_1" value="<?=$zip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button3"  tabindex="49" type="button" onClick="check_zipcode(document.getElementById('province').value,document.getElementById('amphur').value,document.getElementById('district').value)" value="����" />
+										<input name="zip_1" tabindex="52" type="text" id="zip_1" value="<?=$zip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button3"  tabindex="49" type="button" onClick="check_zipcode(document.getElementById('province').value,document.getElementById('amphur').value,document.getElementById('district').value)" value="ค้นหา" />
 									</td>
 								</tr>
 							</table>
@@ -1679,32 +1679,32 @@ if(empty($national))$national = 'Thailand';
 							<table width="100%" border="0">
 								<tr>
 									<td align="right">
-										�Ţ���/��ͧ<font color="#ff0000">*</font>
+										เลขที่/ห้อง<font color="#ff0000">*</font>
 									</td>
 									<td align="left"><input type="text" name="caddress" id="caddress" value="<?=$caddress?>" tabindex="54"/></td>
 								</tr>
 								<tr>
-									<td align="right">�Ҥ��</td>
+									<td align="right">อาคาร</td>
 									<td align="left">
 										<input type="text" name="cbuilding" id="cbuilding" value="<?=$cbuilding?>" tabindex="55"/>
 									</td>
 								</tr>
 								<tr>
 									<td align="right">
-										�����ҹ/�͹�
+										หมู่บ้าน/คอนโด
 									</td>
 									<td align="left">
 										<input type="text" name="cvillage" id="cvillage" value="<?=$cvillage?>" tabindex="56"/>
 									</td>
 								</tr>
 								<tr>
-									<td align="right">��͡/���</td>
+									<td align="right">ตรอก/ซอย</td>
 									<td align="left">
 										<input type="text" name="csoi" id="csoi" value="<?=$csoi?>" tabindex="57"/>
 									</td>
 								</tr>
 								<tr>
-									<td align="right">��� </td>
+									<td align="right">ถนน </td>
 									<td align="left">
 										<input type="text" name="cstreet" id="cstreet" value="<?=$cstreet?>" tabindex="58"/>
 									</td>
@@ -1724,9 +1724,9 @@ if(empty($national))$national = 'Thailand';
 									</td>
 								</tr>
 								<tr>
-									<td align="right">������ɳ���</td>
+									<td align="right">รหัสไปรษณีย์</td>
 									<td align="left">
-										<input name="czip_1" tabindex="62" type="text" id="czip_1" value="<?=$czip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button4"  tabindex="49" type="button" onClick="check_zipcode1(document.getElementById('cprovince').value,document.getElementById('camphur').value,document.getElementById('cdistrict').value)" value="����" />
+										<input name="czip_1" tabindex="62" type="text" id="czip_1" value="<?=$czip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button4"  tabindex="49" type="button" onClick="check_zipcode1(document.getElementById('cprovince').value,document.getElementById('camphur').value,document.getElementById('cdistrict').value)" value="ค้นหา" />
 									</td>
 								</tr>
 							</table>
@@ -1734,14 +1734,14 @@ if(empty($national))$national = 'Thailand';
 					</tr>
 					<tr bgcolor="#FFCC33">
 						<td colspan="2" align="center">
-							<b>�����š���Ѻ�Ż���ª��</b>
+							<b>ข้อมูลการรับผลประโยชน์</b>
 						</td>
 						<td colspan="2" align="center">
-							<b>����Ѻ�ô�</b>
+							<b>ผู้รับมรดก</b>
 						</td>
 					</tr>
 					<tr>
-						<td width="11%" align="right">��Ҥ��</td>
+						<td width="11%" align="right">ธนาคาร</td>
 						<td width="34%">
 							<select size="1" name="bankcode" id="bankcode" tabindex="63">
 							<?					
@@ -1758,63 +1758,63 @@ if(empty($national))$national = 'Thailand';
 							</select>
 						</td>
 						<td width="14%" align="right">
-							�ӹ�˹�Ҫ���
+							คำนำหน้าชื่อ
 						</td>
 						<td width="41%">
 							<select tabindex="69" name="iname_f" id="iname_f" onChange="document.getElementById('iname_ff').value=this.value;if(this.value == '123'){document.getElementById('iname_ff').value = ''; document.getElementById('iname_ff').readOnly  = false;document.getElementById('iname_ff').focus();}else {document.getElementById('iname_ff').readOnly  = true;}">
-								<option  value="" <?=($iname_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-								<option  value="&#3609;&#3634;&#3618;" <?=($iname_f=="&#3609;&#3634;&#3618;"?"selected":"")?>>���</option>
-								<option value="&#3609;&#3634;&#3591;&#3626;&#3634;&#3623;" <?=($iname_f=="&#3609;&#3634;&#3591;&#3626;&#3634;&#3623;"?"selected":"")?>>�ҧ���</option>
-								<option value="&#3609;&#3634;&#3591;" <?=($iname_f=="&#3609;&#3634;&#3591;"?"selected":"")?>>�ҧ</option>
-								<option value="123" <?=($iname_f=="&#3629;&#3639;&#3656;&#3609;&#3654;"?"selected":"")?>>��� �</option>
+								<option  value="" <?=($iname_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+								<option  value="&#3609;&#3634;&#3618;" <?=($iname_f=="&#3609;&#3634;&#3618;"?"selected":"")?>>นาย</option>
+								<option value="&#3609;&#3634;&#3591;&#3626;&#3634;&#3623;" <?=($iname_f=="&#3609;&#3634;&#3591;&#3626;&#3634;&#3623;"?"selected":"")?>>นางสาว</option>
+								<option value="&#3609;&#3634;&#3591;" <?=($iname_f=="&#3609;&#3634;&#3591;"?"selected":"")?>>นาง</option>
+								<option value="123" <?=($iname_f=="&#3629;&#3639;&#3656;&#3609;&#3654;"?"selected":"")?>>อื่น ๆ</option>
 							</select>
 							<input type="text" name="iname_ff"  id="iname_ff" value="<?=$iname_ff?>" tabindex="69" readonly />
 						</td>
 					</tr>
 					<tr>
-						<td align="right">�Ң�</td>
+						<td align="right">สาขา</td>
 						<td>
 							<input type="text" name="branch" id="branch" size="20" maxlength="64" value="<?=$branch?>" tabindex="64">
 						</td>
-						<td align="right">����-ʡ�� : </td>
+						<td align="right">ชื่อ-สกุล : </td>
 						<td>
 							<input type="text" name="iname_t" id="iname_t" value="<?=$iname_t?>" tabindex="69" size="43"  />
 						</td>
 					</tr>
 					<tr>
-						<td align="right">�������ѭ��</td>
+						<td align="right">ประเภทบัญชี</td>
 						<td>
-							<input name="acc_type"  tabindex="65" id="acc_type" type="radio" <? if($acc_type=="&#3629;&#3629;&#3617;&#3607;&#3619;&#3633;&#3614;&#3618;&#3660;") echo "checked=\"checked\""; ?> value="&#3629;&#3629;&#3617;&#3607;&#3619;&#3633;&#3614;&#3618;&#3660;" checked /> ��Ҥ�� (�����Ѿ��/������Ѿ��)
+							<input name="acc_type"  tabindex="65" id="acc_type" type="radio" <? if($acc_type=="&#3629;&#3629;&#3617;&#3607;&#3619;&#3633;&#3614;&#3618;&#3660;") echo "checked=\"checked\""; ?> value="&#3629;&#3629;&#3617;&#3607;&#3619;&#3633;&#3614;&#3618;&#3660;" checked /> ธนาคาร (ออมทรัพย์/สะสมทรัพย์)
 						</td>
-						<td align="right">��������ѹ�� : </td>
+						<td align="right">ความสัมพันธ์ : </td>
 						<td>
 							<input type="text" name="irelation" id="irelation" value="<?=$irelation?>" tabindex="70"/>
 						</td>
 					</tr>
 					<tr>
-						<td align="right">�Ţ���ѭ��</td>
+						<td align="right">เลขที่บัญชี</td>
 						<td>
 							<input type="text" name="acc_no" id="acc_no"  size="13"  value="<?=$acc_no?>" tabindex="66" onKeyPress="return chknum(window.event.keyCode)" >
 						</td>
-						<td align="right">���Ѿ�� : </td>
+						<td align="right">โทรศัพท์ : </td>
 						<td>
 							<input type="text" name="iphone" id="iphone" value="<?=$iphone?>" tabindex="71"/>
 						</td>
 					</tr>
 					<tr>
-						<td align="right">���ͺѭ��</td>
+						<td align="right">ชื่อบัญชี</td>
 						<td>
 							<input type="text" name="acc_name" id="acc_name" size="40"  maxlength="40" tabindex="67" value="<?=$acc_name?>" <? if(empty($_GET["id"]))echo 'readonly'?> >
 						</td>
 						<td align="right">
-							�Ţ���ѵû�ЪҪ� : 
+							เลขที่บัตรประชาชน : 
 						</td>
 						<td>
 							<input type="text" name="iid_card" id="iid_card" value="<?=$iid_card?>" tabindex="71"  onKeyPress="return chknum(window.event.keyCode)" />
 						</td>
 					</tr>
 					<tr>
-						<td align="right">�����˵�</td>
+						<td align="right">หมายเหตุ</td>
 						<td>
 							<input type="text" name="memdesc" id="memdesc" size="40" value="<?=$memdesc?>" tabindex="68" />
 						</td>
@@ -1838,9 +1838,9 @@ if(empty($national))$national = 'Thailand';
 										<caption>Payment</caption>
 										<thead>
 											<tr>
-												<th width="5%" align="center"><strong>���͡</strong></th>
-												<th width="15%"><strong>������</strong></th>
-												<th width="40%"><strong>�ٻẺ </strong></th>  
+												<th width="5%" align="center"><strong>เลือก</strong></th>
+												<th width="15%"><strong>ประเภท</strong></th>
+												<th width="40%"><strong>รูปแบบ </strong></th>  
 											</tr>
 										</thead> 
 										<tbody>
@@ -1861,7 +1861,7 @@ if(empty($national))$national = 'Thailand';
 														if(count($paymem_option)){ 
 													?>
 															<select size="1" name="select<?=$payment[0]['payment_column']?>" id="select<?=$payment[0]['payment_column']?>" tabindex="63" style="width: 100%;"   >
-																<option value="">��س����͡�ٻẺ��ê���</option> 
+																<option value="">กรุณาเลือกรูปแบบการชำระ</option> 
 															<?php 
 																foreach($paymem_option as $keyx => $valx){
 															?>
@@ -1915,7 +1915,7 @@ if(empty($national))$national = 'Thailand';
 										<input type="checkbox" name="cmp" id="cmp" onClick="if(this.checked == true)document.getElementById('dateInput3').value='<?=date("Y-m-d")?>'; else document.getElementById('dateInput3').value = '';"  value="&#3588;&#3619;&#3610;" <?=$cmp==""?"":"checked"?> tabindex="74" />
 									</td>
 									<td valign=top>
-										���Һѵû�ЪҪ������Ѥ���ѡ
+										สำเนาบัตรประชาชนผู้สมัครหลัก
 										<input type="text" id="dateInput3" name="bmdate1" size="10" maxlength="10" 
 										tabindex="75" value="<?=$bmdate1?>" />    
 <!------------------------------->
@@ -1925,12 +1925,12 @@ if(empty($national))$national = 'Thailand';
 						<img id='pic' style="display:none"  name='pic' src='<?='../uploads/member/'.$myfile1;?>'  ><input type='text' readonly name='xpic' id='xpic' value="<?=$myfile1?>" > </td>
 						<td valign=middle><a  href="<?='../uploads/member/'.$myfile1;?>" download>Load</a></td>
 						<td valign=middle>
-						<input type="button" name="reset" id="reset" value='��ҧ' onclick="resetpic()" >
+						<input type="button" name="reset" id="reset" value='ล้าง' onclick="resetpic()" >
 						</td>
 						<? } ?>
 						<td valign=middle>
 						<input type="file" name="myfile01" id="myfile01" accept="image/png,image/jpeg,image/gif" >
-						<input name="button2"  tabindex="9" type="button"  <? if(!empty($_GET["id"]))echo ' style="display:none"'; ?>  onClick="document.getElementById('myfile01').value='';" value="ź" />
+						<input name="button2"  tabindex="9" type="button"  <? if(!empty($_GET["id"]))echo ' style="display:none"'; ?>  onClick="document.getElementById('myfile01').value='';" value="ลบ" />
 						</td></tr></table>
 <!------------------------------->
 
@@ -1941,7 +1941,7 @@ if(empty($national))$national = 'Thailand';
 										<input type="checkbox" name="cmp2" id="cmp2" onClick="if(this.checked == true)document.getElementById('dateInput4').value='<?=date("Y-m-d")?>'; else document.getElementById('dateInput4').value = '';"  value="&#3588;&#3619;&#3610;" <?=$cmp2==""?"":"checked"?> tabindex="76" />
 							</td>
 							<td valign=top>
-										���Һѭ�ո�Ҥ��
+										สำเนาบัญชีธนาคาร
 										<input type="text" id="dateInput4" name="bmdate2" size="10" maxlength="10"  tabindex="77" value="<?=$bmdate2?>" /> 
 <!---------------------------------------->
 							<table border=0><tr valign=top>
@@ -1950,12 +1950,12 @@ if(empty($national))$national = 'Thailand';
 							<img style="display:none"  id='pic2' name='pic2' src='<?='../uploads/member/'.$myfile2;?>' ><input type='text' readonly name='xpic2' id='xpic2' value="<?=$myfile2?>" ></td>
 							<td valign=middle><a href="<?='../uploads/member/'.$myfile2;?>" download>Load</a></td>
 							<td valign=middle>
-							<input type="button" name="reset" id="reset" value='��ҧ' onclick="resetpic2()" >
+							<input type="button" name="reset" id="reset" value='ล้าง' onclick="resetpic2()" >
 							</td>
 							<? } ?>
 							<td valign=middle>
 							<input type="file" name="myfile02" id="myfile02" accept="image/png,image/jpeg,image/gif" >
-							<input name="button2"  tabindex="9" type="button"  <? if(!empty($_GET["id"]))echo ' style="display:none"'; ?>  onClick="document.getElementById('myfile02').value='';" value="ź" />
+							<input name="button2"  tabindex="9" type="button"  <? if(!empty($_GET["id"]))echo ' style="display:none"'; ?>  onClick="document.getElementById('myfile02').value='';" value="ลบ" />
 
 							</td></tr></table>
 <!---------------------------------------->
@@ -1981,7 +1981,7 @@ if(empty($national))$national = 'Thailand';
 					<tr>
 						<td colspan="4" align="center">							
 		  <!--input type="checkbox" name="chkpayment" id="chkpayment" value="checkbox" onChange="if(this.checked == true){document.getElementById('button').disabled = false;document.getElementById('ok').disabled = true;}else{document.getElementById('button').disabled = true;document.getElementById('ok').disabled = true;}" /> 
-		  <a href="#">���͹䢡����Ѥ�</a-->
+		  <a href="#">เงื่อนไขการสมัคร</a-->
 						</td>
 					</tr>
 					<tr>
@@ -1991,11 +1991,11 @@ if(empty($national))$national = 'Thailand';
 					</tr>
 					<tr>
 					<?=$_POST['id']?>
-						<td colspan="4" align="center"><input name='button'  id='button' type='button'  value="��Ǩ�ͺ" onClick="<?=(isset($_GET['id'])?"emembercheck()":"imembercheck()")?>;sendget_sponsor(document.getElementById('sp_code').value)" tabindex="80" > 
+						<td colspan="4" align="center"><input name='button'  id='button' type='button'  value="ตรวจสอบ" onClick="<?=(isset($_GET['id'])?"emembercheck()":"imembercheck()")?>;sendget_sponsor(document.getElementById('sp_code').value)" tabindex="80" > 
 							&nbsp;
-							<input type="submit" value="�ѹ�֡" name="ok"  id="ok" disabled tabindex="81" > 
+							<input type="submit" value="บันทึก" name="ok"  id="ok" disabled tabindex="81" > 
 							&nbsp;
-							<input type="reset" value="¡��ԡ"  onclick="window.location='index.php?sessiontab=1&sub=2'" tabindex="82" >
+							<input type="reset" value="ยกเลิก"  onclick="window.location='index.php?sessiontab=1&sub=2'" tabindex="82" >
 						</td>
 					</tr>
 				</table>      
@@ -2004,7 +2004,7 @@ if(empty($national))$national = 'Thailand';
 </table>
 <br />
 <div id="checkstate" align="center">
-	<font color="#FFFFFF" style="background:#990000"> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>
+	<font color="#FFFFFF" style="background:#990000"> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>
 </div>
 </form>
 

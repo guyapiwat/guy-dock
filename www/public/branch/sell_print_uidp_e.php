@@ -55,18 +55,18 @@ border-bottom: 3px double;
 <center><form action="" method="_POST">
     <input type="text" name="fdate" id="dateInput1" value="<?=$fdate?>"> - <input type="text" name="tdate" id="dateInput2" value="<?=$tdate?>">
     
-     “¢“
+    ‡∏™‡∏≤‡∏Ç‡∏≤
     <select name="inv" id="inv" > 
-    <option value="">∑—ÈßÀ¡¥</option>
+    <option value="">‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
         <? 
          $inventy = query("*","ali_invent","1=1 and inv_code ='{$_SESSION["admininvent"]}' "," "); 
          foreach($inventy as $keyx => $valx): 
         ?>
           <option value="<?=$valx['inv_code']?>" <?if($_GET['inv'] == $valx['inv_code'])echo "selected"?> ><?=$valx['inv_desc']?></option>  
         <?endforeach;?>
-    </select>    ™◊ËÕºŸÈ„™È
+    </select>    ‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ
     <select name="uid" id="uid" >
-    <option value="">∑—ÈßÀ¡¥</option>
+    <option value="">‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
         <? 
          $inventx = query("*","ali_user user","inv_ref <> '' and user.inv_ref ='{$_SESSION["admininvent"]}' ","LEFT JOIN ali_invent inv ON(inv.inv_code = user.inv_ref)"); 
          foreach($inventx as $keyx => $valx): 
@@ -74,7 +74,7 @@ border-bottom: 3px double;
           <option value="<?=$valx['usercode']?>" <?if($_GET['uid'] == $valx['usercode'])echo "selected"?> ><?=$valx['usercode']?></option>  
         <?endforeach;?>
     </select>
-    <input type="submit" name="submit" value="µ°≈ß">
+    <input type="submit" name="submit" value="‡∏ï‡∏Å‡∏•‡∏á">
 </form>
 </center>
 <?
@@ -112,13 +112,13 @@ foreach($inv as $keyx => $valx):
   {
       
     echo "<div class='header'>";
-    echo "√“¬ß“π°“√√—∫™”√–‡ß‘πª√–®”«—π ·¬°µ“¡‡§“πÏ‡µÕ√Ï·≈–ª√–‡¿∑°“√™”√–(‡µ‘¡‡ß‘π)";
-    echo "<br>ºŸÈ„™È  <b>".$valx['usercode'];
-    echo "</b> :  “¢“  <b>".$valx['inv_code'];
+    echo "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏ä‡∏≥‡∏£‡∏∞‡πÄ‡∏á‡∏¥‡∏ô‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ß‡∏±‡∏ô ‡πÅ‡∏¢‡∏Å‡∏ï‡∏≤‡∏°‡πÄ‡∏Ñ‡∏≤‡∏ô‡πå‡πÄ‡∏ï‡∏≠‡∏£‡πå‡πÅ‡∏•‡∏∞‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏Å‡∏≤‡∏£‡∏ä‡∏≥‡∏£‡∏∞(‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏á‡∏¥‡∏ô)";
+    echo "<br>‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ  <b>".$valx['usercode'];
+    echo "</b> : ‡∏™‡∏≤‡∏Ç‡∏≤  <b>".$valx['inv_code'];
     echo "</b></div>";
     echo '<br>';
     echo "<div class='main'>"; 
-    echo "<div class='right'>«—π∑’Ëæ‘¡æÏ ".date("Y-m-d H:i:s")."</div>"; 
+    echo "<div class='right'>‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏û‡∏¥‡∏°‡∏û‡πå ".date("Y-m-d H:i:s")."</div>"; 
     echo '<br>';    
     foreach($arr as $key => $val): 
        echo "<div class='left'>".$val['column'],'</div>';
@@ -126,7 +126,7 @@ foreach($inv as $keyx => $valx):
        echo "<div class='right'>".number_format($sum[0][$key],2,'.',',')."</div>";
        $all[$keyx] += $sum[0][$key];
     endforeach;    
-    echo "<div class='left'>√«¡</div>";
+    echo "<div class='left'>‡∏£‡∏ß‡∏°</div>";
     echo "<div class='right border'>".number_format($all[$keyx],2,'.',',')."</div>";  
     echo '</div>';
     echo '<br><br>';
@@ -155,7 +155,7 @@ foreach($inv as $keyx => $valx):
                $allex[$keyx] += $sumx[0][$valxx['payment_column']];
             endforeach;   
             $sumo = query("IFNULL(SUM({$t}),0) as {$valxx['payment_column']} ",'ali_ewallet ash'," lid = '{$valx['inv_code']}' and uid = '{$valx['usercode']}' and {$s} NOT IN (".substr($c,0,-1).") $where ");   
-            echo "<div class='left'><li>Õ◊ËπÊ</li></div>"; 
+            echo "<div class='left'><li>‡∏≠‡∏∑‡πà‡∏ô‡πÜ</li></div>"; 
             echo "<div class='right'>".$sumo[0][$valxx['payment_column']]."</div>";
             $allex[$keyx] += $sumo[0][$valxx['payment_column']];
         }else{
@@ -165,13 +165,13 @@ foreach($inv as $keyx => $valx):
             $s = "select".$valxx['payment_column']; 
             $t = "txt".$valxx['payment_column'];
             $sumo = query("IFNULL(SUM({$t}),0) as {$valxx['payment_column']} ",'ali_ewallet ash'," lid = '{$valx['inv_code']}' and uid = '{$valx['usercode']}' and {$s} NOT IN (".substr($c,0,-1).") $where ");   
-            echo "<div class='left'><li>Õ◊ËπÊ</li></div>"; 
+            echo "<div class='left'><li>‡∏≠‡∏∑‡πà‡∏ô‡πÜ</li></div>"; 
             echo "<div class='right'>".$sumo[0][$valxx['payment_column']]."</div>";
             $allex[$keyx] += $sumo[0][$valxx['payment_column']];
         }
       }  
     endforeach;   
-    echo "<div class='left'>√«¡</div>";
+    echo "<div class='left'>‡∏£‡∏ß‡∏°</div>";
     echo "<div class='right border'>".number_format($all[$keyx],2,'.',',')."</div>";
     echo "</div>";  
     echo "<div class='clear'></div>"; 

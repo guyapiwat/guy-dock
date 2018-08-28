@@ -4,7 +4,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -26,7 +26,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -36,7 +36,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT></td>
+    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
   </tr>
 </table>
 <?
@@ -70,7 +70,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,mcode,total,weak,strong,ro_l,ro_r,pcarry_l,pcarry_r,counted,carry_l,carry_r");
-		$rec->setFieldDesc("�����ͺ,�����Ҫԡ,����Ԫ�ѹ,����Ԫ��蹷����ǹ���,����Ԫ��蹷����ѡ,�ͺ�Ѩ�غѹ ����,���,�ͺ��͹ ����,���,��ṹ�����͹,��ṹ�� ����,���");
+		$rec->setFieldDesc("รหัสรอบ,รหัสมาชิก,คอมมิชชัน,คอมมิชชั่นทีมส่วนตัว,คอมมิชชั่นทีมหลัก,รอบปัจจุบัน ซ้าย,ขวา,รอบก่อน ซ้าย,ขวา,คะแนนทีมอ่อน,คะแนนเก็บ ซ้าย,ขวา");
 		$rec->setFieldAlign("center,center,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("5%,5%,10%,10%,10%,10%,10%,10%,10%,10%,10%,10%");
 		$rec->setFieldLink("");
@@ -86,18 +86,18 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>��͡�ͺ ���������Ҫԡ����ͧ��ô���§ҹ</strong></td>
+    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">�ͺ&nbsp;&nbsp;</td>
+    <td align="right">รอบ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( ��͡�������� 1-9 )</td>
+      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
   </tr>
   <tr>
-    <td width="24%" align="right">������Ҫԡ&nbsp;&nbsp;</td>
+    <td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -105,7 +105,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="����§ҹ" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
     </tr>
   
   <tr>

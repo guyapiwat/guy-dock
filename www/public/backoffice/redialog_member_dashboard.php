@@ -17,11 +17,11 @@
 		$month_1 = $montharry[date("m", strtotime("first day of +0 month"))];
 		$month_2 = $montharry[date("m", strtotime("first day of +1 month"))];
 		$month_3 = $montharry[date("m", strtotime("first day of +2 month"))];
-		$maintain_1 = "รักษายอดแล้ว";
+		$maintain_1 = "เธฃเธฑเธเธฉเธฒเธขเธญเธ”เนเธฅเนเธง";
 		$maintain_2 = getStatus($cmc,$data['pos_cur'],0);
-		$autoship_1 = "Autoship เดือน";
-		$completely = "ครบถ้วน";
-		$incomplete = "ค้างส่งเอกสาร";
+		$autoship_1 = "Autoship เน€เธ”เธทเธญเธ";
+		$completely = "เธเธฃเธเธ–เนเธงเธ";
+		$incomplete = "เธเนเธฒเธเธชเนเธเน€เธญเธเธชเธฒเธฃ";
 	}
      
 	$status=Status_all($cmc,$data['pos_cur'],'0');
@@ -35,14 +35,14 @@
 	}
 	
 //	$m90days = m90_dash_board($cmc,$sevenDay);
-	$success_x = 'สำเร็จ';
-	$none_success_x = 'ไม่สำเร็จ';
-	$time_out_x = 'หมดเวลา';
+	$success_x = 'เธชเธณเน€เธฃเนเธ';
+	$none_success_x = 'เนเธกเนเธชเธณเน€เธฃเนเธ';
+	$time_out_x = 'เธซเธกเธ”เน€เธงเธฅเธฒ';
 
 ?>
 <table width="100%" height="" style="border:1px solid;">
 	<tr style="background-color:#92D050" >
-		<td colspan = '3' ><B>ข้อมูลส่วนตัว</B></td>
+		<td colspan = '3' ><B>เธเนเธญเธกเธนเธฅเธชเนเธงเธเธ•เธฑเธง</B></td>
 	</tr>
 	<tr>
 		<td width="45%"><?=$wording_lan["mcode"];?></td>
@@ -65,33 +65,33 @@
         <td><?echo $data['mdate'];?></td>
     </tr>
 	<tr>
-		<td><font color='red'>วันหมดอายุสะสมอัพเกรด 30 วัน</font></td>
+		<td><font color='red'>เธงเธฑเธเธซเธกเธ”เธญเธฒเธขเธธเธชเธฐเธชเธกเธญเธฑเธเน€เธเธฃเธ” 30 เธงเธฑเธ</font></td>
         <td><? if($data['exp_pos'] != '0000-00-00'){echo $data['exp_pos'];}else{} ?></td>
     </tr>
 	<tr>
-		<td>ระดับการสมัคร</td>
+		<td>เธฃเธฐเธ”เธฑเธเธเธฒเธฃเธชเธกเธฑเธเธฃ</td>
         <td>Member (
             <?=$data['mdate'];?>
           )</td>
     </tr>
 	<tr>
-		<td>ตำแหน่งสูงสุด (Higest Pin)</td>
+		<td>เธ•เธณเนเธซเธเนเธเธชเธนเธเธชเธธเธ” (Higest Pin)</td>
         <td><? if(!empty($data['pos_cur3'])){echo getNameHorno($data['pos_cur3']);echo " (".$data['pos_cur3_date'].")";} ?></td>
     </tr>
 	<tr>
-		<td>ตำแหน่งเดือนนี้ (Paid as Pin)</td>
+		<td>เธ•เธณเนเธซเธเนเธเน€เธ”เธทเธญเธเธเธตเน (Paid as Pin)</td>
         <td></td>
     </tr>
 	<tr>
-		<td>ตำแหน่งรับโบนัส (เดือนที่แล้ว)</td>
+		<td>เธ•เธณเนเธซเธเนเธเธฃเธฑเธเนเธเธเธฑเธช (เน€เธ”เธทเธญเธเธ—เธตเนเนเธฅเนเธง)</td>
         <td></td>
     </tr>
 	<tr>
-		<td>PV ส่วนตัวเดือนนี้</td>
+		<td>PV เธชเนเธงเธเธ•เธฑเธงเน€เธ”เธทเธญเธเธเธตเน</td>
         <td><? echo $point->get_allPointThisMonth($dbprefix,$cmc,'0')." PV"; ?></td>
     </tr>
 	<tr>
-		<td>PV ส่วนตัวเดือนที่แล้ว</td>
+		<td>PV เธชเนเธงเธเธ•เธฑเธงเน€เธ”เธทเธญเธเธ—เธตเนเนเธฅเนเธง</td>
         <td><? echo $point->get_allPointThisMonth($dbprefix,$cmc,'-1')." PV"; ?></td>
     </tr>
 	<tr>

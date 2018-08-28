@@ -14,12 +14,12 @@ $(document).ready(function() {
 				var iSize = ($("#myfile")[0].files[0].size / 1024); 
 				 if (iSize / 1024 > 1) 
 				 {  
-					alert('��Ҵ��� �ٻ��ǹ����˭��Թ 200kb');
+					alert('ขนาดไฟล์ รูปส่วนตัวใหญ่เกิน 200kb');
 					this.value = '';
 				 } 
 				break;
 			default:
-				alert('�ٻ ��ǹ��� ��ͧ�չ���ء���� �� .jpg ��ҹ��');
+				alert('รูป ส่วนตัว ต้องมีนามสุกลไฟล์ เป็น .jpg เท่านั้น');
 				this.value = '';
 		}
      
@@ -30,7 +30,7 @@ $(document).ready(function() {
 
 <script type="text/javascript"> 
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='zip_']").keyup(function(event){<? include("global.php");?>
 <?
 $_SESSION["perbuy"] = 1;
@@ -39,7 +39,7 @@ $_SESSION["perbuy"] = 1;
 
 <script type="text/javascript"> 
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='zip_']").keyup(function(event){
 		if(event.keyCode==5){
 			if($(this).val().length==0){
@@ -53,7 +53,7 @@ $(function(){
 	});	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='czip_']").keyup(function(event){
 		if(event.keyCode==5){
 			if($(this).val().length==0){
@@ -67,7 +67,7 @@ $(function(){
 	});	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='acc_no_']").keyup(function(event){
 		if(event.keyCode==10){
 			if($(this).val().length==0){
@@ -94,15 +94,15 @@ $(function(){
     return true;
   }
 function autoTab(obj){
-	/* ��˹��ٻẺ��ͤ�������� _ ᷹������á��� ���ǵ����������ͧ����
-	�����ѭ�ѡɳ������� �蹡�˹���  �ٻẺ�Ţ���ѵû�ЪҪ�
-	4-2215-54125-6-12 ������ö��˹���  _-____-_____-_-__
-	�ٻẺ�������Ѿ�� 08-4521-6521 ��˹��� __-____-____
-	���͡�˹������� 12:45:30 ��˹��� __:__:__
-	������ҧ��ҧ��ҧ�繡�á�˹��ٻẺ�Ţ�ѵû�ЪҪ�
+	/* กำหนดรูปแบบข้อความโดยให้ _ แทนค่าอะไรก็ได้ แล้วตามด้วยเครื่องหมาย
+	หรือสัญลักษณ์ที่ใช้แบ่ง เช่นกำหนดเป็น  รูปแบบเลขที่บัตรประชาชน
+	4-2215-54125-6-12 ก็สามารถกำหนดเป็น  _-____-_____-_-__
+	รูปแบบเบอร์โทรศัพท์ 08-4521-6521 กำหนดเป็น __-____-____
+	หรือกำหนดเวลาเช่น 12:45:30 กำหนดเป็น __:__:__
+	ตัวอย่างข้างล่างเป็นการกำหนดรูปแบบเลขบัตรประชาชน
 	*/
-		var pattern=new String("_-____-_____-__-_"); // ��˹��ٻẺ㹹��
-		var pattern_ex=new String("-"); // ��˹��ѭ�ѡɳ���������ͧ���·������㹹��
+		var pattern=new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
+		var pattern_ex=new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
 		var returnText=new String("");
 		var obj_l=obj.value.length;
 		var obj_l2=obj_l-1;
@@ -166,96 +166,96 @@ function onclickaddress(){
 }
 
 function check_zipcode(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("zip_1").value=''; //�ʴ���
+						 document.getElementById("zip_1").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("zip_1").value=data.trim(); //�ʴ���
+						 document.getElementById("zip_1").value=data.trim(); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("czip_1").value=''; //�ʴ���
+						 document.getElementById("czip_1").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("czip_1").value=data.trim(); //�ʴ���
+						 document.getElementById("czip_1").value=data.trim(); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
-     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					if(data == 1234){
-					//document.getElementById("mname").innerHTML="������������§ҹ";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					//	alert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	value = value.toUpperCase();
 	//alert(test);
-     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('sp_code').value="";
-					document.getElementById("sp_name").value="������������§ҹ";
+					document.getElementById("sp_name").value="ไม่ได้อยู่ในสายงาน";
 					}else{
 					document.getElementById('sp_code').value=value;
-                    document.getElementById("sp_name").value=data; //�ʴ���
+                    document.getElementById("sp_name").value=data; //แสดงผล
 					}
 					//alert(data);
 					//if(data == "No Data"){
@@ -265,8 +265,8 @@ function sendget_sponsor(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_sponsor1(value,value1) {
 	if(value1 == ''){
@@ -274,21 +274,21 @@ function sendget_sponsor1(value,value1) {
 		document.getElementById('upa_code').value="";
 		exit;
 	}
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	value = value.toUpperCase();
 	value1 = str_pad(value1,7,0,false);
 	value2 = document.getElementById("mcode").value;
 	
-     req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1234){
 					document.getElementById('upa_code').value="";
-					document.getElementById("upa_name").value="������������§ҹ";
+					document.getElementById("upa_name").value="ไม่ได้อยู่ในสายงาน";
 					}else{
 						var myArray = data.split(':');
 						var left = myArray[0];
@@ -296,11 +296,11 @@ function sendget_sponsor1(value,value1) {
 						var name = myArray[2];
 						var left = left.trim();
 						document.getElementById('upa_code').value=value;
-						document.getElementById("upa_name").value=name; //�ʴ���
+						document.getElementById("upa_name").value=name; //แสดงผล
 
 						
 							if(left == '1' && right == '1'){
-								alert('�Ѿ�Ź��բ� 2 ��ҹ����');
+								alert('อัพไลน์มีขา 2 ด้านแล้ว');
 								document.getElementById('upa_code').value="";
 								document.forms[0].lr[0].disabled = true;
 								document.forms[0].lr[0].checked = false;
@@ -311,7 +311,7 @@ function sendget_sponsor1(value,value1) {
 								var r_alert = document.forms[0].lr[1].checked;
 								
 								if(left == '1'){
-									if(l_alert == true)alert('�Ѿ�Ź��մ�ҹ���� ������');
+									if(l_alert == true)alert('อัพไลน์มีด้านซ้าย มีแล้ว');
 									document.forms[0].lr[0].disabled = true;
 									document.forms[0].lr[0].checked = false;
 								}
@@ -320,7 +320,7 @@ function sendget_sponsor1(value,value1) {
 								}
 
 								if(right == '1'){
-									if(r_alert == true)alert('�Ѿ�Ź��մ�ҹ��� ������');
+									if(r_alert == true)alert('อัพไลน์มีด้านขวา มีแล้ว');
 									document.forms[0].lr[1].disabled = true;
 									document.forms[0].lr[1].checked = false;
 								}
@@ -328,7 +328,7 @@ function sendget_sponsor1(value,value1) {
 									document.forms[0].lr[1].disabled = false;
 								}
 								document.getElementById('upa_code').value=value;
-								document.getElementById("upa_name").value=name; //�ʴ���
+								document.getElementById("upa_name").value=name; //แสดงผล
 							}
 						
 					}
@@ -336,8 +336,8 @@ function sendget_sponsor1(value,value1) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 
@@ -360,32 +360,32 @@ function get_mem_listpicker_mcode_acc(){
 	//wi=window.open("mem_listpicker_mcode_acc.php?name="+this.getElementById('mcode_acc_name').innerHTML+"","list_picker_window","menubar=no,width=500,height=600,toolbar=no,scrollbars=1");
 }
 function getRadioValueByName(name){
-		if(name == '���')document.forms[0].sex[0].checked = true;
-		if(name == '�ҧ���')document.forms[0].sex[1].checked = true;
-		if(name == '�ҧ')document.forms[0].sex[1].checked = true;
+		if(name == 'นาย')document.forms[0].sex[0].checked = true;
+		if(name == 'นางสาว')document.forms[0].sex[1].checked = true;
+		if(name == 'นาง')document.forms[0].sex[1].checked = true;
 	}
 function getRadioValueByName1(name){
-		if(name == '���')document.forms[0].csex[0].checked = true;
-		if(name == '�ҧ���')document.forms[0].csex[1].checked = true;
-		if(name == '�ҧ')document.forms[0].csex[1].checked = true;
+		if(name == 'นาย')document.forms[0].csex[0].checked = true;
+		if(name == 'นางสาว')document.forms[0].csex[1].checked = true;
+		if(name == 'นาง')document.forms[0].csex[1].checked = true;
 	}
 function imembercheck(){
 	if(document.getElementById('upa_code').value==''){
 		value = document.getElementById('upa_code').value
 		value1 = document.getElementById('sp_code').value
 		
-		 var req = Inint_AJAX(); //���ҧ Object
+		 var req = Inint_AJAX(); //สร้าง Object
 		// alert(value)
 		value = str_pad(value,7,0,false);
 		value1 = str_pad(value1,7,0,false);
 		//alert(value);
 		//alert(value1);
 
-		 req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-		 req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+		 req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+		 req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 			  if (req.readyState==4) {
-				   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-						var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+				   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+						var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 						//alert(req.responseText);
 						if(data == 1234){
 							var i =0;
@@ -395,19 +395,19 @@ function imembercheck(){
 							val = val + ","+document.getElementById('birthday1').value;
 							field = field +",birthday";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�ѹ����Դ";
+							errDesc = errDesc + ",วันที่เกิด";
 
 							var myString = document.getElementById('birthday1').value;
 							val = val + ","+document.getElementById('birthday1').value;
 							field = field +",birthday";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",��͹����Դ";
+							errDesc = errDesc + ",เดือนที่เกิด";
 
 							var myString = document.getElementById('birthday1').value;
 							val = val + ","+document.getElementById('birthday1').value;
 							field = field +",birthday";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�շ���Դ";
+							errDesc = errDesc + ",ปีที่เกิด";
 
 
 							//var myArray = myString.split('-');
@@ -421,25 +421,25 @@ function imembercheck(){
 							var checkmdate =0;
 							checkmdate = ny-cyear;
 							if(document.forms[0].payment[0].checked == false && document.forms[0].payment[1].checked == false){
-								 alert('��سҡ�͡�����Ū�����');
+								 alert('กรุณากรอกข้อมูลชำระโดย');
 								exit;
 							}
 							/*if(myString.match(/^[0-9]{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])/))
 							{
 
 							}else{
-								 alert('��سҡ�͡��� �ٻẺ������ҧ 2502-10-12');
+								 alert('กรุณากรอกตาม รูปแบบตัวอย่าง 2502-10-12');
 								document.getElementById('birthday').focus();
 								exit;
 							}*/
 							if(checkmdate < 18){
-								alert('�������֧ 18 ��');
+								alert('อายุไม่ถึง 18 ปี');
 								document.getElementById('birthday').focus();
 								exit;
 							}
 							//alert(myArray[1]);alert(myArray[2]);alert(myArray[3]);
 							/*if(myArray[1] == '' || myArray[2] == ''){
-								alert('��سҡ�͡��� �ٻẺ������ҧ 2502-10-12');
+								alert('กรุณากรอกตาม รูปแบบตัวอย่าง 2502-10-12');
 								document.getElementById('birthday').focus();
 								exit;
 							}*/
@@ -451,7 +451,7 @@ function imembercheck(){
 								{
 
 								}else{
-									 alert('��سҡ�͡��� �ٻẺ������ҧ 2502-10-12');
+									 alert('กรุณากรอกตาม รูปแบบตัวอย่าง 2502-10-12');
 									document.getElementById('cbirthday').focus();
 									exit;
 								}	*/
@@ -467,12 +467,12 @@ function imembercheck(){
 								var checkmdate1 =0;
 								checkmdate1 = ny-ccyear;
 								if(checkmdate1 < 18){
-									alert('�������֧ 18 ��');
+									alert('อายุไม่ถึง 18 ปี');
 									document.getElementById('cbirthday').focus();
 									exit;
 								}
 								/*if(myArray1[1] == '' || myArray1[2] == ''){
-									alert('��سҡ�͡��� �ٻẺ������ҧ 2502-10-12');
+									alert('กรุณากรอกตาม รูปแบบตัวอย่าง 2502-10-12');
 									document.getElementById('cbirthday').focus();
 									exit;
 								}*/
@@ -483,78 +483,78 @@ function imembercheck(){
 								val = val + ","+document.getElementById('iname_ff').value;
 								field = field +",iname_ff";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",�ӹ�˹�Ҫ��� ����Ѻ��������";
+								errDesc = errDesc + ",คำนำหน้าชื่อ ผู้รับกรมธรรม์";
 
 								val = val + ","+document.getElementById('irelation').value;
 								field = field +",irelation";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",��������ѹ�� ����Ѻ��������";
+								errDesc = errDesc + ",ความสัมพันธ์ ผู้รับกรมธรรม์";
 
 								val = val + ","+document.getElementById('iphone').value;
 								field = field +",iphone";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",���Ѿ�� ����Ѻ��������";
+								errDesc = errDesc + ",โทรศัพท์ ผู้รับกรมธรรม์";
 
 								val = val + ","+document.getElementById('iid_card').value;
 								field = field +",iid_card";
 								flag = flag+",1-13-0-0-0";
-								errDesc = errDesc + ",�Ţ���ѵû�ЪҪ� ����Ѻ��������";
+								errDesc = errDesc + ",เลขที่บัตรประชาชน ผู้รับกรมธรรม์";
 
 							}
 
 							val = val + ","+document.getElementById('name_f').value;
 							field = field +",name_f";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�ӹ�˹�Ҫ���";
+							errDesc = errDesc + ",คำนำหน้าชื่อ";
 
 							val = val + ","+document.getElementById('name_t').value;
 							field = field +",name_f";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",��ͼ����Ѥ�";
+							errDesc = errDesc + ",ชือผู้สมัคร";
 
 							/*val = val + ","+document.getElementById('mdate').value;
 							field = field +",mdate";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�ѹ�Դ";
+							errDesc = errDesc + ",วันเกิด";
 							*/
 							val = val + ","+document.getElementById('sex').value;
 							field = field +",sex";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",��";
+							errDesc = errDesc + ",เพศ";
 
 							val = val + ","+document.getElementById('dateInput5').value;
 							field = field +",dateInput5";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�ѹ�Դ";
+							errDesc = errDesc + ",วันเกิด";
 							
 							/*val = val + ","+document.getElementById('sp_name').value;
 
 							field = field +",sp_name";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",���ʼ���йӼԴ��Ҵ��سҡ���";
+							errDesc = errDesc + ",รหัสผู้แนะนำผิดพลาดกรุณากดค้น";
 							
 							val = val + ","+document.getElementById('upa_code').value;
 							field = field +",upa_code";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",��س���������Ѿ�Ź�";
+							errDesc = errDesc + ",กรุณาใส่รหัสอัพไลน์";
 
 							
 							
 							val = val + ","+document.getElementById('upa_name').value;
 							field = field +",upa_name";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�����Ѿ�Ź�Դ��Ҵ��سҡ���";
+							errDesc = errDesc + ",รหัสอัพไลน์ผิดพลาดกรุณากดค้น";
 							
 							*/
 
 							//val = val + ","+document.getElementById('email').value;
 							//field = field +",email";
 							//flag = flag+",1-0-0-0-0";
-							//errDesc = errDesc + ", �����";
+							//errDesc = errDesc + ", อีเมล";
 							if(document.getElementById('email').value != ''){
 								var Email=/^([\w-]+(?:\.[\w-]+)*)@((?:[\w-]+\.)*\w[\w-]{0,66})\.([a-z]{2,6}(?:\.[a-z]{2})?)$/i;
 								if(!document.getElementById('email').value.match(Email)){
-								alert('�ٻẺ Email ���١��ͧ');
+								alert('รูปแบบ Email ไม่ถูกต้อง');
 								document.getElementById('email').focus();
 								exit;
 								}
@@ -563,24 +563,24 @@ function imembercheck(){
 							val = val + ","+document.getElementById('dateInput5').value;
 							field = field +",dateInput5";
 							flag = flag+",1-0-0-0-0";
-							errDesc = errDesc + ",�ѹ�����Ѥ�";
+							errDesc = errDesc + ",วันที่สมัคร";
 
 							val = val + ","+document.getElementById('mobile').value;
 							var mobile = document.getElementById('mobile').value;
 							field = field +",mobile";
 							flag = flag+",1-10-0-0-0";
-							errDesc = errDesc + ",��Ͷ��";
+							errDesc = errDesc + ",มือถือ";
 
 							if(document.getElementById('cmobile').value != ''){
 								val = val + ","+document.getElementById('cmobile').value;
 								field = field +",mobile";
 								flag = flag+",1-10-0-0-0";
-								errDesc = errDesc + ",��Ͷ�ͧ͢�����Ѥ�����";
+								errDesc = errDesc + ",มือถือของผู้สมัครร่วม";
 							}
 
 						/*	if(mobile != ''){
 								if(mobile.charAt(0) != '0'){
-									alert('������Ͷ�͵�ͧ��鹵鹴��� �ٹ��');
+									alert('เบอร์มือถือต้องขึ้นต้นด้วย ศูนย์');
 									exit;
 								}
 							}*/
@@ -588,28 +588,28 @@ function imembercheck(){
 								val = val + ","+document.getElementById('cname_f').value;
 								field = field +",cname_f";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",��͡�ӹ�˹�� �����Ѥ�����";	
+								errDesc = errDesc + ",กรอกคำนำหน้า ผู้สมัครร่วม";	
 
 								val = val + ","+document.getElementById('csex').value;
 								field = field +",csex";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",��͡�� �����Ѥ�����";	
+								errDesc = errDesc + ",กรอกเพศ ผู้สมัครร่วม";	
 
 								val = val + ","+document.getElementById('cbirthday').value;
 								field = field +",cbirthday";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",��͡�ѹ�Դ �����Ѥ�����";	
+								errDesc = errDesc + ",กรอกวันเกิด ผู้สมัครร่วม";	
 
 								val = val + ","+document.getElementById('cid_card').value;
 								field = field +",cid_card";
 								flag = flag+",1-0-0-0-0";
-								errDesc = errDesc + ",��͡�Ţ�ѵû�ЪҪ� �����Ѥ�����";	
+								errDesc = errDesc + ",กรอกเลขบัตรประชาชน ผู้สมัครร่วม";	
 							}
 
-							if(document.getElementById('national').value == '��'){
+							if(document.getElementById('national').value == 'ไทย'){
 									var a = document.getElementById('id_card').value;
 									var id_card = "";
-									var t = a.split("-");  //�������äᵡ��ŧ array t
+									var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 									for(var i=0; i<t.length ; i++){
 										id_card = id_card+ t[i];
 									}
@@ -617,18 +617,18 @@ function imembercheck(){
 									val = val + ","+document.getElementById('id_card').value;
 									field = field +",id_card";
 									flag = flag+",1-13-0-1-0";
-									errDesc = errDesc + ",�Ţ�ѵû�ЪҪ� ";
+									errDesc = errDesc + ",เลขบัตรประชาชน ";
 
 									if(document.getElementById('cid_card').value != ''){
 										val = val + ","+document.getElementById('cid_card').value;
 										field = field +",id_card";
 										flag = flag+",1-13-0-1-0";
-										errDesc = errDesc + ",�Ţ�ѵû�ЪҪ��ͧ�����Ѥ�����";
+										errDesc = errDesc + ",เลขบัตรประชาชนของผู้สมัครร่วม";
 
 									}
 
 								id = document.getElementById('id_card').value;	
-									if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("�Ţ�ѵû�ЪҪ����١���ͧ");document.getElementById('id_card').focus();exit;}
+									if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("เลขบัตรประชาชนไม่ถูกต้่อง");document.getElementById('id_card').focus();exit;}
 									for(i=0,sum=0;i<12;i++){
 										sum += parseInt(id.charAt(i))*(13-i);
 									}
@@ -637,31 +637,31 @@ function imembercheck(){
 										sum = 1-sum;
 									else
 										sum = 11-sum;
-									if(sum != parseInt(id.charAt(12))){alert("�Ţ�ѵû�ЪҪ����١���ͧ");document.getElementById('id_card').focus();
+									if(sum != parseInt(id.charAt(12))){alert("เลขบัตรประชาชนไม่ถูกต้่อง");document.getElementById('id_card').focus();
 						exit;}
 									}
 											
 											val = val + ","+document.getElementById('id_card').value;
 											field = field +",cid_card";
 											flag = flag+",0-0-0-1-0";
-											errDesc = errDesc + ",�Ţ�ѵû�ЪҪ� ";
+											errDesc = errDesc + ",เลขบัตรประชาชน ";
 
 											val = val + ","+document.getElementById('cid_card').value;
 											field = field +",id_card";
 											flag = flag+",0-0-0-1-0";
-											errDesc = errDesc + ",�Ţ�ѵû�ЪҪ�������� ";
+											errDesc = errDesc + ",เลขบัตรประชาชนคู่สมรส ";
 
 
 
 									/*val = val + ","+document.getElementById('upa_code').value;
 									field = field +",upa_code";
 									flag = flag+",0-11-0-0-1-1";
-									errDesc = errDesc + ",�����Ѿ�Ź�";
+									errDesc = errDesc + ",รหัสอัพไลน์";
 									
 									val = val + ","+document.getElementById('sp_code').value;
 									field = field +",sp_code";
 									flag = flag+",0-11-0-0-1-1";
-									errDesc = errDesc + ",���ʼ���й�";
+									errDesc = errDesc + ",รหัสผู้แนะนำ";
 									 
 									var lrval="";
 									var object = eval(document.frm.lr);
@@ -671,24 +671,24 @@ function imembercheck(){
 									}
 									 if(lrval == ''){
 										document.getElementById('lr').focus();
-										alert("��س����͡���¢��");
+										alert("กรุณาเลือกซ้ายขวา");
 										exit;
 									}
 									if(document.getElementById('upa_code').value!=""){
 										val = val + ","+lrval+"#"+document.getElementById('upa_code').value;
 										field = field +",lr#upa_code";
 										flag = flag+",1-0-0-1-0";
-										errDesc = errDesc + ",��ҹ";
+										errDesc = errDesc + ",ด้าน";
 									}*/
 									val = val + ","+document.getElementById('acc_no').value;
 									field = field +",acc_no";
 									flag = flag+",0-0-10-0-0";
-									errDesc = errDesc + ",�Ţ���ѭ��";
+									errDesc = errDesc + ",เลขที่บัญชี";
 
 									val = val + ","+document.getElementById('payment').value;
 									field = field +",payment";
 									flag = flag+",1-0-0-0-0";
-									errDesc = errDesc + ",������";
+									errDesc = errDesc + ",ชำระโดย";
 
 									//alert(val);
 								//loop check
@@ -717,7 +717,7 @@ function imembercheck(){
 							var val = document.getElementById('mcode').value;
 							var field = "mcode";
 							var flag = "1-11-0-0-0";
-							var errDesc = "������Ҫԡ";
+							var errDesc = "รหัสสมาชิก";
 							var id = document.getElementById('id_card').value;
 							//alert(id);
 							
@@ -725,8 +725,8 @@ function imembercheck(){
 				   }
 			  }
 		 };
-		 req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-		 req.send(null); //�ӡ����
+		 req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+		 req.send(null); //ทำการส่ง
 	}
 }
 function emembercheck(){
@@ -736,7 +736,7 @@ function emembercheck(){
 	var id = document.getElementById('id_card').value;
 	var field = "mcode";
 	var flag = "1-9-0-1-0";
-	var errDesc = "������Ҫԡ";
+	var errDesc = "รหัสสมาชิก";
 	var i =0;
 	var j =0;
 	var sum =0;
@@ -745,30 +745,30 @@ function emembercheck(){
 	skipval = skipval+","+document.getElementById('oid_name_t').value;
 	field = field +",name_t";
 	flag = flag+",1-0-0-1-0";
-	errDesc = errDesc + ",������Ҫԡ";*/
+	errDesc = errDesc + ",ชื่อสมาชิก";*/
 	
 	val = val + ","+id_card; 
 	skipval = skipval+","+document.getElementById('oid_card').value;
 	field = field +",id_card";
 	flag = flag+",1-0-0-1-0";
-	errDesc = errDesc + ",�Ţ�ѵû�ЪҪ� ";
+	errDesc = errDesc + ",เลขบัตรประชาชน ";
 	
 	
 if(document.getElementById('national').value == 'Thailand'){	
 	val = val + ","+document.getElementById('id_card').value;
 	field = field +",id_card";
 	flag = flag+",1-13-0-0-0";
-	errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+	errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
 	
 	var a = document.getElementById('id_card').value;
 	var id_card = "";
-	var t = a.split("-");  //�������äᵡ��ŧ array t
+	var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 	for(var i=0; i<t.length ; i++){
 		id_card = id_card+ t[i];
 	}
 	var id = document.getElementById('id_card').value;
 	
-		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("�Ţ�ѵû�ЪҪ����������"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
+		if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
 		for(i=0,sum=0;i<12;i++){
 			sum += parseInt(id.charAt(i))*(13-i);
 		}
@@ -777,7 +777,7 @@ if(document.getElementById('national').value == 'Thailand'){
 			sum = 1-sum;
 		else
 			sum = 11-sum;
-		if(sum != parseInt(id.charAt(12))){alert("�Ţ�ѵû�ЪҪ����������");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
+		if(sum != parseInt(id.charAt(12))){alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
 		exit;}
 
 }
@@ -786,14 +786,14 @@ if(document.getElementById('national').value == 'Thailand'){
 	val = val + ","+document.getElementById('name_t').value;
 	field = field +",name_t";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������Ҫԡ";
+	errDesc = errDesc + ",ชื่อสมาชิก";
 	
 
 	
 
 	var a = document.getElementById('id_card').value;
 	var id_card = "";
-	var t = a.split("-");  //�������äᵡ��ŧ array t
+	var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 	for(var i=0; i<t.length ; i++){
 		id_card = id_card+ t[i];
 	}
@@ -802,7 +802,7 @@ if(document.getElementById('national').value == 'Thailand'){
 	val = val + ","+document.getElementById('acc_no').value;
 	field = field +",acc_no";
 	flag = flag+",0-0-10-0-0";
-	errDesc = errDesc + ",�Ţ���ѭ��";
+	errDesc = errDesc + ",เลขที่บัญชี";
 
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -837,8 +837,8 @@ mysql_free_result($rs);
 		$sql = "SELECT * FROM ".$dbprefix."member WHERE id='".$_GET['id']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-        	dialogbox("50%","#990000","��辺�����ŵ�����͹�",$notfound);
+			$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+        	dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$notfound);
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -1046,37 +1046,37 @@ mysql_free_result($rs);
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr <? //if(empty($_GET["id"])){echo'style="display:none';}?>>
-	 <td colspan="2">�ѹ�����Ѥ�
+	 <td colspan="2">วันที่สมัคร
 
       <input type="text" id="dateInput5" tabindex="1" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" />
-	<font color="#808080">(����-��-��)</font><?if($mcode != ''){?><BR>������Ҫԡ : <?echo $mcode;}?></td>
-    <td colspan="2"><? //if(!empty($_GET["id"]))echo '������Ҫԡ'?><input type="hidden" <? //if(empty($_GET["id"]))echo 'style="display:none"'?> id="mcode" name="mcode" size="10" readonly maxlength="7" value="<?=$mcode?>"  />
+	<font color="#808080">(ปปปป-ดด-วว)</font><?if($mcode != ''){?><BR>รหัสสมาชิก : <?echo $mcode;}?></td>
+    <td colspan="2"><? //if(!empty($_GET["id"]))echo 'รหัสสมาชิก'?><input type="hidden" <? //if(empty($_GET["id"]))echo 'style="display:none"'?> id="mcode" name="mcode" size="10" readonly maxlength="7" value="<?=$mcode?>"  />
       <input type="hidden" id="omcode" name="omcode" value="<?=$mcode?>" />
       <input type="hidden" name="id" readonly size="10" value="<?=$id;?>" />
   &nbsp;&nbsp;&nbsp;</td>
   </tr>
   
   <tr>
-    <td width="12%" align="right">���ʼ���й�<font color="#ff0000">*</font></td>
+    <td width="12%" align="right">รหัสผู้แนะนำ<font color="#ff0000">*</font></td>
     <td width="34%"><input tabindex="2" style="background-color:#FFFFFF" type="text" name="sp_code" id="sp_code" size="20"  maxlength="20" value="<?=$sp_code?>" />
-          <input name="button2"  id="upa_code_check" tabindex="3" type="button" onClick="sendget_sponsor(document.getElementById('sp_code').value)" value="��Ǩ" />
-          <input name="button2"  tabindex="4" type="button" onClick="document.getElementById('ok').disabled=true;get_mem_listpicker_sp_code()" value="���͡" />
-          <input name="button2"  tabindex="5" type="button" onClick="document.getElementById('sp_code').value='';document.getElementById('sp_name').value='';" value="ź" />          </td>
-    <td width="14%" align="right">�����Ѿ�Ź�<font color="#ff0000">*</font></td>
+          <input name="button2"  id="upa_code_check" tabindex="3" type="button" onClick="sendget_sponsor(document.getElementById('sp_code').value)" value="ตรวจ" />
+          <input name="button2"  tabindex="4" type="button" onClick="document.getElementById('ok').disabled=true;get_mem_listpicker_sp_code()" value="เลือก" />
+          <input name="button2"  tabindex="5" type="button" onClick="document.getElementById('sp_code').value='';document.getElementById('sp_name').value='';" value="ลบ" />          </td>
+    <td width="14%" align="right">รหัสอัพไลน์<font color="#ff0000">*</font></td>
     <td width="40%"><input style="background-color:#FFFFFF"  tabindex="6"  type="text" name="upa_code"  id="upa_code" size="20"  maxlength="20" value="<?=$upa_code?>" />
-    <input name="button2"  tabindex="7" type="button" onClick="sendget_sponsor1(document.getElementById('upa_code').value,document.getElementById('sp_code').value)" value="��Ǩ" />
-      <input name="button3"  tabindex="8" type="button" onClick="document.getElementById('ok').disabled=true;get_mem_listpicker_upa_code()" value="���͡" />
-      <input name="button2"  tabindex="9" type="button" onClick="document.getElementById('upa_code').value='';document.getElementById('upa_name').value='';" value="ź" />      </td>
+    <input name="button2"  tabindex="7" type="button" onClick="sendget_sponsor1(document.getElementById('upa_code').value,document.getElementById('sp_code').value)" value="ตรวจ" />
+      <input name="button3"  tabindex="8" type="button" onClick="document.getElementById('ok').disabled=true;get_mem_listpicker_upa_code()" value="เลือก" />
+      <input name="button2"  tabindex="9" type="button" onClick="document.getElementById('upa_code').value='';document.getElementById('upa_name').value='';" value="ลบ" />      </td>
   </tr>
   <tr  >
-    <td align="right">���ͼ���й�<font color="#ff0000">*</font></td>
+    <td align="right">ชื่อผู้แนะนำ<font color="#ff0000">*</font></td>
     <td><input style="background-color:#CCCCCC" readonly type="text" name="sp_name" id="sp_name" size="40"  maxlength="40" value="<?=$sp_name?>" /></td>
-    <td align="right">�����Ѿ�Ź�<font color="#ff0000">*</font></td>
+    <td align="right">ชื่ออัพไลน์<font color="#ff0000">*</font></td>
     <td><input style="background-color:#CCCCCC" readonly type="text" name="upa_name" id="upa_name" size="40"  maxlength="40" value="<?=$upa_name?>" /></td>
   </tr>
   <tr  >
  
-    <td align="right">������</td>
+    <td align="right">ประเภท</td>
     <td><? //if(!empty($_GET['id'])){?>
 	 
 	<select name="mtype1">
@@ -1104,7 +1104,7 @@ mysql_free_result($rs);
 
 
 
-    <td align="right">��ҹ<font color="#ff0000">*</font></td>
+    <td align="right">ด้าน<font color="#ff0000">*</font></td>
     <td><?
                 	$rs = mysql_query("SELECT * FROM ".$dbprefix."lr_def order by lr_id asc");
 					for($i=0;$i<mysql_num_rows($rs);$i++){
@@ -1129,10 +1129,10 @@ mysql_free_result($rs);
     <td colspan="2" align="center"><b>&#3586;&#3657;&#3629;&#3617;&#3641;&#3621;&#3612;&#3641;&#3657;&#3626;&#3617;&#3633;&#3588;&#3619;&#3619;&#3656;&#3623;&#3617;</b></td>
   </tr>
 <tr  style="display:none">
-	<td align="right">��ͧ�ҧ����Թ</td>
+	<td align="right">ช่องทางการเงิน</td>
 	<td>&nbsp;
 		<select size="1"  name="type_com" id="type_com" tabindex="10">
-			<option value="" <?if($type_com=="")echo 'selected';?>>��� Ewallet</option>
+			<option value="" <?if($type_com=="")echo 'selected';?>>เข้า Ewallet</option>
 		</select>
 	</td>
 </tr>
@@ -1169,8 +1169,8 @@ mysql_free_result($rs);
   </tr>
   <tr>
     <td align="right">Member Type</td>
-    <td><input type="radio"  name="mtype" id="mtype" value="0" tabindex="10"  <? if($mtype=="0" or empty($mtype)) echo "checked=\"checked\""; ?>>�ؤ�Ÿ�����
-      <input type="radio" name="mtype" id="mtype"  value="1" tabindex="10"  <? if($mtype=="1") echo "checked=\"checked\""; ?>>�ԵԺؤ��</td>
+    <td><input type="radio"  name="mtype" id="mtype" value="0" tabindex="10"  <? if($mtype=="0" or empty($mtype)) echo "checked=\"checked\""; ?>>บุคคลธรรมดา
+      <input type="radio" name="mtype" id="mtype"  value="1" tabindex="10"  <? if($mtype=="1") echo "checked=\"checked\""; ?>>นิติบุคคล</td>
     <td align="right">&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
@@ -1187,24 +1187,24 @@ mysql_free_result($rs);
   <tr>
     <td width="19%" align="right">&#3588;&#3635;&#3609;&#3635;&#3627;&#3609;&#3657;&#3634;&#3594;&#3639;&#3656;&#3629;<font color="#ff0000">*</font>&nbsp;</td>
     <td width="27%"><select tabindex="12" name="name_f" id="name_f" onChange="getRadioValueByName(this.value);document.getElementById('name_ff').value=this.value;if(this.value == '123'){document.getElementById('name_ff').value = ''; document.getElementById('name_ff').readOnly  = false;document.getElementById('name_ff').focus();}else {document.getElementById('name_ff').readOnly  = true;}">
-      <option  value="" <?=($name_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-      <option  value="���" <?=($name_f=="���"?"selected":"")?>>���</option>
-      <option value="�ҧ���" <?=($name_f=="�ҧ���"?"selected":"")?>>�ҧ���</option>
-      <option value="�ҧ" <?=($name_f=="�ҧ"?"selected":"")?>>�ҧ</option>
-      <option value="����ѷ�ӡѴ" <?=($name_f=="����ѷ�ӡѴ"?"selected":"")?>>����ѷ�ӡѴ</option>
-      <option value="��ҧ�����ǹ�ӡѴ" <?=($name_f=="��ҧ�����ǹ�ӡѴ"?"selected":"")?>>��ҧ�����ǹ�ӡѴ</option>
-      <option value="123" <?=($name_f=="����"?"selected":"")?>>����</option>
+      <option  value="" <?=($name_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+      <option  value="นาย" <?=($name_f=="นาย"?"selected":"")?>>นาย</option>
+      <option value="นางสาว" <?=($name_f=="นางสาว"?"selected":"")?>>นางสาว</option>
+      <option value="นาง" <?=($name_f=="นาง"?"selected":"")?>>นาง</option>
+      <option value="บริษัทจำกัด" <?=($name_f=="บริษัทจำกัด"?"selected":"")?>>บริษัทจำกัด</option>
+      <option value="ห้างหุ้นส่วนจำกัด" <?=($name_f=="ห้างหุ้นส่วนจำกัด"?"selected":"")?>>ห้างหุ้นส่วนจำกัด</option>
+      <option value="123" <?=($name_f=="อื่นๆ"?"selected":"")?>>อื่นๆ</option>
     </select>
       <input type="text" name="name_ff"  id="name_ff" value="<?=$name_ff?>" tabindex="13" readonly /></td>
     <td width="22%" align="right">&#3588;&#3635;&#3609;&#3635;&#3627;&#3609;&#3657;&#3634;&#3594;&#3639;&#3656;&#3629;&nbsp;</td>
     <td width="32%"><select name="cname_f"  tabindex="27" id="cname_f" onChange="getRadioValueByName1(this.value);document.getElementById('cname_ff').value=this.value;if(this.value == '123'){document.getElementById('cname_ff').value = ''; document.getElementById('cname_ff').readOnly  = false;document.getElementById('cname_ff').focus();}else {document.getElementById('cname_ff').readOnly  = true;}">
-      <option  value="" <?=($cname_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-      <option  value="���" <?=($cname_f=="���"?"selected":"")?>>���</option>
-      <option value="�ҧ���" <?=($cname_f=="�ҧ���"?"selected":"")?>>�ҧ���</option>
-      <option value="�ҧ" <?=($cname_f=="�ҧ"?"selected":"")?>>�ҧ</option>
-      <option value="����ѷ�ӡѴ" <?=($cname_f=="����ѷ�ӡѴ"?"selected":"")?>>����ѷ�ӡѴ</option>
-      <option value="��ҧ�����ǹ�ӡѴ" <?=($cname_f=="��ҧ�����ǹ�ӡѴ"?"selected":"")?>>��ҧ�����ǹ�ӡѴ</option>
-      <option value="123" <?=($cname_f=="����"?"selected":"")?>>����</option></select>
+      <option  value="" <?=($cname_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+      <option  value="นาย" <?=($cname_f=="นาย"?"selected":"")?>>นาย</option>
+      <option value="นางสาว" <?=($cname_f=="นางสาว"?"selected":"")?>>นางสาว</option>
+      <option value="นาง" <?=($cname_f=="นาง"?"selected":"")?>>นาง</option>
+      <option value="บริษัทจำกัด" <?=($cname_f=="บริษัทจำกัด"?"selected":"")?>>บริษัทจำกัด</option>
+      <option value="ห้างหุ้นส่วนจำกัด" <?=($cname_f=="ห้างหุ้นส่วนจำกัด"?"selected":"")?>>ห้างหุ้นส่วนจำกัด</option>
+      <option value="123" <?=($cname_f=="อื่นๆ"?"selected":"")?>>อื่นๆ</option></select>
       <input type="text" name="cname_ff" id="cname_ff" value="<?=$cname_ff?>" tabindex="28" readonly /></td>
   </tr>
   <tr>
@@ -1222,7 +1222,7 @@ mysql_free_result($rs);
     <td><input type="text" name="cname_e" id="cname_e" size="40" maxlength="40" value="<?=$cname_e?>"  tabindex="30"/></td>
   </tr>
   <tr>
-    <td align="right">���ͷҧ��áԨ</td>
+    <td align="right">ชื่อทางธุรกิจ</td>
     <td><input type="text" id="name_b" name="name_b" size="40" maxlength="40" value="<?=$name_b?>" tabindex="16"/></td>
     <td align="right">&nbsp;</td>
     <td><input type="text" id="cname_b" name="cname_b" size="40" style="display:none" maxlength="40" value="<?=$cname_b?>" tabindex="31"/></td>
@@ -1231,20 +1231,20 @@ mysql_free_result($rs);
     <td align="right">&#3648;&#3614;&#3624;<font color="#ff0000">*</font>&nbsp;</td>
 
 
-    <td><input type="radio" name="sex" id="sex" value="���" tabindex="17" <? if($sex=="���") echo "checked=\"checked\""; ?>>
-      ���
-      <input type="radio" name="sex" id="sex" value="˭ԧ" tabindex="18" <? if($sex=="˭ԧ") echo "checked=\"checked\""; ?>>
-˭ԧ     
+    <td><input type="radio" name="sex" id="sex" value="ชาย" tabindex="17" <? if($sex=="ชาย") echo "checked=\"checked\""; ?>>
+      ชาย
+      <input type="radio" name="sex" id="sex" value="หญิง" tabindex="18" <? if($sex=="หญิง") echo "checked=\"checked\""; ?>>
+หญิง     
     <td align="right">&#3648;&#3614;&#3624;&nbsp;</td>
-    <td><input type="radio" name="csex" id="csex" value="���" tabindex="32" <? if($csex=="���") echo "checked=\"checked\""; ?>>
-  ���
-  <input type="radio" name="csex" id="csex" value="˭ԧ" tabindex="33" <? if($csex=="˭ԧ") echo "checked=\"checked\""; ?>>
-  ˭ԧ     </tr>
+    <td><input type="radio" name="csex" id="csex" value="ชาย" tabindex="32" <? if($csex=="ชาย") echo "checked=\"checked\""; ?>>
+  ชาย
+  <input type="radio" name="csex" id="csex" value="หญิง" tabindex="33" <? if($csex=="หญิง") echo "checked=\"checked\""; ?>>
+  หญิง     </tr>
   <tr>
     <td align="right">&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;&#3648;&#3585;&#3636;&#3604;<font color="#ff0000">*</font>&nbsp;</td>
     <td nowrap="nowrap"><select name="birthday1"  id="birthday1">
       <option value="">
-        �ѹ
+        วัน
         </option>
       <?PHP
 $year =  1; for ($i = 0; $i <= 30; $i++) {echo "<option ".(gencode2($birthday1)==gencode2($year)?"selected":"")." value='".gencode2($year)."' >".gencode2($year)."</option>"; $year++;}
@@ -1252,7 +1252,7 @@ $year =  1; for ($i = 0; $i <= 30; $i++) {echo "<option ".(gencode2($birthday1)=
     </select>
       <select  name="birthday2"  id="birthday2">
         <option value="">
-          ��͹
+          เดือน
           </option>
         <?PHP
 $year =  1; for ($i = 0; $i <= 11; $i++) {echo "<option ".(gencode2($birthday2)==gencode2($year)?"selected":"")." value='".gencode2($year)."' >".gen_month(gencode2($year))."</option>"; $year++;}
@@ -1260,7 +1260,7 @@ $year =  1; for ($i = 0; $i <= 11; $i++) {echo "<option ".(gencode2($birthday2)=
       </select>
       <select  name="birthday3"  id="birthday3" >
         <option value="">
-          ��(�.�.)
+          ปี(พ.ศ.)
           </option>
         <?PHP
 if($mlocationbase == '1'){
@@ -1275,7 +1275,7 @@ if($mlocationbase == '1'){
     <td align="right">&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;&#3648;&#3585;&#3636;&#3604;&nbsp;</td>
     <td nowrap="nowrap"><select name="cbirthday1"  id="cbirthday1">
       <option value="">
-        �ѹ
+        วัน
         </option>
       <?PHP
 $year =  1; for ($i = 0; $i <= 30; $i++) {echo "<option ".(gencode2($cbirthday1)==gencode2($year)?"selected":"")." value='".gencode2($year)."' >".gencode2($year)."</option>"; $year++;}
@@ -1283,7 +1283,7 @@ $year =  1; for ($i = 0; $i <= 30; $i++) {echo "<option ".(gencode2($cbirthday1)
     </select>
       <select  name="cbirthday2"  id="cbirthday2">
         <option value="">
-          ��͹
+          เดือน
           </option>
         <?PHP
 $year =  1; for ($i = 0; $i <= 11; $i++) {echo "<option ".(gencode2($cbirthday2)==gencode2($year)?"selected":"")." value='".gencode2($year)."' >".gen_month(gencode2($year))."</option>"; $year++;}
@@ -1291,7 +1291,7 @@ $year =  1; for ($i = 0; $i <= 11; $i++) {echo "<option ".(gencode2($cbirthday2)
       </select>
       <select  name="cbirthday3"  id="cbirthday3" >
         <option value="">
-          ��(�.�.)
+          ปี(พ.ศ.)
           </option>
         <?PHP
 if($mlocationbase == '1'){
@@ -1304,7 +1304,7 @@ if($mlocationbase == '1'){
       </select>
       <input style="display:none" type="text" name="cbirthday" id="cbirthday" size="10" maxlength="8" tabindex="34" value="<?=$cbirthday?>" onKeyPress="return chknum(window.event.keyCode)"  />
       <input type="text" style="display:none" name="cbirthday" id="cbirthday" size="10" maxlength="10" tabindex="34" value="<?=$cbirthday?>" />
-&nbsp;<a href="javascript:NewCal('cbirthday','yyyymmdd',false,24)"><img style="display:none" src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="(����-��-��)" /></a></td>
+&nbsp;<a href="javascript:NewCal('cbirthday','yyyymmdd',false,24)"><img style="display:none" src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="(ปปปป-ดด-วว)" /></a></td>
   </tr>
   
   <tr>
@@ -1417,7 +1417,7 @@ if($mlocationbase == '1'){
   </tr>
   
   <tr style="display:none">
-    <td align="right">�ٻ��Шӵ��</td>
+    <td align="right">รูปประจำตัว</td>
     <td><?php
             if(@file_exists("../uploads/profile_img/$mcode.jpg"))
             {
@@ -1483,7 +1483,7 @@ if($mlocationbase == '1'){
       </tr>
       <tr>
         <td align="right">&#3619;&#3627;&#3633;&#3626;&#3652;&#3611;&#3619;&#3625;&#3603;&#3637;&#3618;&#3660;&nbsp;</td>
-        <td align="left"><input name="zip_1" tabindex="52" type="text" id="zip_1" value="<?=$zip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button3"  tabindex="48" type="button" onClick="check_zipcode(document.getElementById('province').value,document.getElementById('amphur').value,document.getElementById('district').value)" value="����" /></td>
+        <td align="left"><input name="zip_1" tabindex="52" type="text" id="zip_1" value="<?=$zip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button3"  tabindex="48" type="button" onClick="check_zipcode(document.getElementById('province').value,document.getElementById('amphur').value,document.getElementById('district').value)" value="ค้นหา" /></td>
       </tr>
     </table></td>
     <td colspan="2" align="right"><table width="100%" border="0">
@@ -1519,7 +1519,7 @@ if($mlocationbase == '1'){
       </tr>
       <tr>
         <td align="right">&#3619;&#3627;&#3633;&#3626;&#3652;&#3611;&#3619;&#3625;&#3603;&#3637;&#3618;&#3660;&nbsp;</td>
-        <td align="left"><input name="czip_1" tabindex="62" type="text" id="czip_1" value="<?=$czip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button4"  tabindex="48" type="button" onClick="check_zipcode1(document.getElementById('cprovince').value,document.getElementById('camphur').value,document.getElementById('cdistrict').value)" value="����" /></td>
+        <td align="left"><input name="czip_1" tabindex="62" type="text" id="czip_1" value="<?=$czip?>"   onkeypress="return chknum(window.event.keyCode)"/><input name="button4"  tabindex="48" type="button" onClick="check_zipcode1(document.getElementById('cprovince').value,document.getElementById('camphur').value,document.getElementById('cdistrict').value)" value="ค้นหา" /></td>
       </tr>
     </table></td>
     </tr>
@@ -1527,7 +1527,7 @@ if($mlocationbase == '1'){
 
    <tr bgcolor="#FFCC33">
      <td colspan="2" align="center"><b>&#3586;&#3657;&#3629;&#3617;&#3641;&#3621;&#3585;&#3634;&#3619;&#3619;&#3633;&#3610;&#3612;&#3621;&#3611;&#3619;&#3632;&#3650;&#3618;&#3594;&#3609;&#3660;</b></td>
-     <td colspan="2" align="center"><b>����Ѻ�Ż���ª��ҧ��áԨ</b></td>
+     <td colspan="2" align="center"><b>ผู้รับผลประโยชน์ทางธุรกิจ</b></td>
      </tr>
    <tr>
      <td width="11%" align="right">&#3608;&#3609;&#3634;&#3588;&#3634;&#3619;</td>
@@ -1547,11 +1547,11 @@ if($mlocationbase == '1'){
      </select></td>
      <td width="14%" align="right">&#3588;&#3635;&#3609;&#3635;&#3627;&#3609;&#3657;&#3634;&#3594;&#3639;&#3656;&#3629;&nbsp;</td>
      <td width="41%"><select tabindex="69" name="iname_f" id="iname_f" onChange="document.getElementById('iname_ff').value=this.value;if(this.value == '123'){document.getElementById('iname_ff').value = ''; document.getElementById('iname_ff').readOnly  = false;document.getElementById('iname_ff').focus();}else {document.getElementById('iname_ff').readOnly  = true;}">
-       <option  value="" <?=($iname_f==""?"selected":"")?>>���͡�ӹ�˹��</option>
-       <option  value="���" <?=($iname_f=="���"?"selected":"")?>>���</option>
-       <option value="�ҧ���" <?=($iname_f=="�ҧ���"?"selected":"")?>>�ҧ���</option>
-       <option value="�ҧ" <?=($iname_f=="�ҧ"?"selected":"")?>>�ҧ</option>
-       <option value="123" <?=($iname_f=="����"?"selected":"")?>>����</option>
+       <option  value="" <?=($iname_f==""?"selected":"")?>>เลือกคำนำหน้า</option>
+       <option  value="นาย" <?=($iname_f=="นาย"?"selected":"")?>>นาย</option>
+       <option value="นางสาว" <?=($iname_f=="นางสาว"?"selected":"")?>>นางสาว</option>
+       <option value="นาง" <?=($iname_f=="นาง"?"selected":"")?>>นาง</option>
+       <option value="123" <?=($iname_f=="อื่นๆ"?"selected":"")?>>อื่นๆ</option>
      </select>
      <input type="text" name="iname_ff"  id="iname_ff" value="<?=$iname_ff?>" tabindex="69" readonly /></td>
    </tr>
@@ -1616,7 +1616,7 @@ if($mlocationbase == '1'){
            <input type="text" id="dateInput1" name="bmdate3" size="10" maxlength="10"  tabindex="73" value="<?=$bmdate3?>" />
            <br>
            <input type="checkbox" name="cmp" id="cmp" onClick="if(this.checked == true)document.getElementById('dateInput2').value='<?=date("Y-m-d")?>'; else document.getElementById('dateInput2').value = '';"  value="&#3588;&#3619;&#3610;" <?=$cmp==""?"":"checked"?> tabindex="74" />
-     ���Һѵû�ЪҪ������Ѥ���ѡ
+     สำเนาบัตรประชาชนผู้สมัครหลัก
            <input type="text" id="dateInput2" name="bmdate1" size="10" maxlength="10"  tabindex="75" value="<?=$bmdate1?>" />
 		   <!------------------------------->
 			<table border=0><tr>
@@ -1625,7 +1625,7 @@ if($mlocationbase == '1'){
 			<img  style="display:none" id='pic' name='pic' src='<?='../uploads/member/'.$myfile1;?>'  ><input type='text' readonly name='xpic' id='xpic' value="<?=$myfile1?>" > </td>
 			<td valign=middle><a href="<?='../uploads/member/'.$myfile1;?>" download>Load</a></td>
 			<td valign=middle>
-			<input type="button" name="reset" id="reset" value='ź' onclick="resetpic()" >
+			<input type="button" name="reset" id="reset" value='ลบ' onclick="resetpic()" >
 			</td>
 			<? } ?>
 			<td valign=middle>
@@ -1634,7 +1634,7 @@ if($mlocationbase == '1'){
 <!------------------------------->
            <br>
            <input type="checkbox" name="cmp2" id="cmp2" onClick="if(this.checked == true)document.getElementById('dateInput3').value='<?=date("Y-m-d")?>'; else document.getElementById('dateInput3').value = '';"  value="&#3588;&#3619;&#3610;" <?=$cmp2==""?"":"checked"?> tabindex="76" />
-         ���Һѭ�ո�Ҥ��
+         สำเนาบัญชีธนาคาร
            <input type="text" id="dateInput3" name="bmdate2" size="10" maxlength="10"  tabindex="77" value="<?=$bmdate2?>" />
 		   <!---------------------------------------->
 			<table border=0><tr valign=top>
@@ -1643,7 +1643,7 @@ if($mlocationbase == '1'){
 			<img style="display:none" id='pic2' name='pic2' src='<?='../uploads/member/'.$myfile2;?>' ><input type='text' readonly name='xpic2' id='xpic2' value="<?=$myfile2?>" ></td>
 			<td valign=middle><a href="<?='../uploads/member/'.$myfile2;?>" download>Load</a></td>
 			<td valign=middle>
-			<input type="button" name="reset" id="reset" value='ź' onclick="resetpic2()" >
+			<input type="button" name="reset" id="reset" value='ลบ' onclick="resetpic2()" >
 			</td>
 			<? } ?>
 			<td valign=middle>
@@ -1675,18 +1675,18 @@ if($mlocationbase == '1'){
     </tr>
    
    <tr>
-    <td colspan="4" align="center"><input type="button" value="��Ǩ�ͺ" onClick="<?=(isset($_GET['id'])?"emembercheck()":"imembercheck()")?>;" tabindex="80" > 
+    <td colspan="4" align="center"><input type="button" value="ตรวจสอบ" onClick="<?=(isset($_GET['id'])?"emembercheck()":"imembercheck()")?>;" tabindex="80" > 
       &nbsp;
-                  <input type="submit" value="�ѹ�֡" name="ok"  id="ok" disabled tabindex="81" > 
+                  <input type="submit" value="บันทึก" name="ok"  id="ok" disabled tabindex="81" > 
 
                   &nbsp;
-            <input type="reset" value="¡��ԡ"  onclick="window.location='index.php?sessiontab=1&sub=2'" tabindex="82" ></td>
+            <input type="reset" value="ยกเลิก"  onclick="window.location='index.php?sessiontab=1&sub=2'" tabindex="82" ></td>
     </tr>
 </table>      </td>
     </tr>
   </table>
 <br />
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font></div>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font></div>
 </form>
 <tr><td>&nbsp;</td>
 </tr>

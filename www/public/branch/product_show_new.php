@@ -72,7 +72,7 @@ $rec->setFieldFloatFormat(",,2,2,0,0");
 $rec->setFieldLink(",");
   $rec->setSpecial("./images/add_pic.gif","","cartAction","action,pcode,''","IMAGE","");
 $rec->setSearch("barcode,".$dbprefix."product.pcode,".$dbprefix."product.pdesc,".$dbprefix."product.price,".$dbprefix."product.pv");
-$rec->setSearchDesc("Barcode,ÃËÑÊ,ÃÒÂÅÐàÍÕÂ´,¤§àËÅ×Í,ÃÒ¤Ò,¤Ðá¹¹");
+$rec->setSearchDesc("Barcode,à¸£à¸«à¸±à¸ª,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸£à¸²à¸„à¸²,à¸„à¸°à¹à¸™à¸™");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);
 

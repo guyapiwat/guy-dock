@@ -19,15 +19,15 @@ $sql .= "LEFT JOIN (SELECT provinceId AS sprovinceId,provinceName FROM province)
 //$sql=$rec->getSQL;
 //echo $sql;
 
-logtext(true,$_SESSION["adminusercode"],'æ‘¡æÏ : ∑’ËÕ¬ŸË ¡“™‘°','');
+logtext(true,$_SESSION["adminusercode"],'‡∏û‡∏¥‡∏°‡∏û‡πå : ‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 $text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 writelogfile($text);
 
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‰¡Ëæ∫¢ÈÕ¡Ÿ≈¢Õß∫‘≈‡≈¢∑’Ë <?=$mcode?>
-	<br /><input type="button" value="ª‘¥ÀπÈ“π’È" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà <?=$mcode?>
+	<br /><input type="button" value="‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 
@@ -46,9 +46,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++) {
 
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtId')==""?"":"µ.".mysql_result($rs2,0,'districtId');
-	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurId')==""?"":"  Õ.".mysql_result($rs2,0,'amphurId');
-	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceId')==""?"":"®.".mysql_result($rs2,0,'provinceId');
+	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtId')==""?"":"‡∏ï.".mysql_result($rs2,0,'districtId');
+	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurId')==""?"":"  ‡∏≠.".mysql_result($rs2,0,'amphurId');
+	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceId')==""?"":"‡∏à.".mysql_result($rs2,0,'provinceId');
 	$add2[$mcode[$i]] .= mysql_result($rs2,0,'zip')==""?"":"   ".mysql_result($rs2,0,'zip');
 	//echo "<br>".$name[$mcode[$i]]."<br>".$add[$mcode[$i]]."<br>".$add1[$mcode[$i]]."<br>".$zip[$mcode[$i]];
 	mysql_free_result($rs2);

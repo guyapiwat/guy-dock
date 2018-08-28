@@ -103,25 +103,25 @@ if(!empty($sp_pos))$sql .= " and pos_cur2 = '$sp_pos' ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("fdate,tdate,sp_code,sp_name,pos_cur,pos_cur2,tot_pv");
-		$rec->setFieldDesc("‡√‘Ë¡µÈπ«—π∑’Ë, ‘Èπ ÿ¥«—π∑’Ë,√À—  ¡“™‘°,™◊ËÕ ¡“™‘°,µ”·ÀËß,‡°√’¬µ‘¬»,§–·ππ™—Èπ≈Ÿ°");
+		$rec->setFieldDesc("‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ï‡∏≥‡πÅ‡∏´‡πà‡∏á,‡πÄ‡∏Å‡∏£‡∏µ‡∏¢‡∏ï‡∏¥‡∏¢‡∏®,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏ä‡∏±‡πâ‡∏ô‡∏•‡∏π‡∏Å");
 		$rec->setFieldFloatFormat(",,,,,,0");
 		$rec->setFieldAlign("center,center,center,left,center,center,right");
 		$rec->setFieldSpace("6%,6%,8%,55%,8%,8%,8%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°,®”π«π PV");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV");
 		$rec->setSum(true,false,",,,,,,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill_promotion".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill_promotion".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

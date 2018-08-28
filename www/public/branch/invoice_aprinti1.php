@@ -25,15 +25,15 @@ mysql_query($sqlupdate);
 $sql = "SELECT *,".$dbprefix."isaleh.uid as uidd FROM ".$dbprefix."isaleh ";
 $sql .= " LEFT JOIN ".$dbprefix."invent ON (".$dbprefix."isaleh.inv_code=".$dbprefix."invent.inv_code) WHERE id='$sano'";
 //echo $sql;
-$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '�������' order by id desc";
-$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '��䢺��' order by id desc";
+$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'เพิ่มบิล' order by id desc";
+$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'แก้ไขบิล' order by id desc";
 
 //echo $sql;
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">��辺�����Ţͧ����Ţ��� <?=$sano?>
-	<br /><input type="button" value="�Դ˹�ҹ��" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">ไม่พบข้อมูลของบิลเลขที่ <?=$sano?>
+	<br /><input type="button" value="ปิดหน้านี้" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'ONLINE'  WHEN '4' THEN 'ATO' END AS checkportal";
@@ -52,14 +52,14 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$cmobile[$i] = $obj->cmobile;
 	$inv_ref[$i] = $obj->lid	;
 	$checkportal[$i] = $obj->checkportal	;
-	if(empty($inv_code[$i]))$inv_code[$i] = '�ӹѡ�ҹ�˭�';
+	if(empty($inv_code[$i]))$inv_code[$i] = 'สำนักงานใหญ่';
 
 	$_SESSION["txtcash"] = "";
 	$_SESSION["txtcredit"] = "";
 	$_SESSION["txtewallet"] = "";
 
-	if($send[$i] == '1')$txtshow11 = '�Ѵ��';
-	else $txtshow11 = '�Ѻ����Ң� '.$inv_code[$i];
+	if($send[$i] == '1')$txtshow11 = 'จัดส่ง';
+	else $txtshow11 = 'รับที่สาขา '.$inv_code[$i];
 
 
 	$addcheck[$mcode[$i]] = $obj->provinceName;
@@ -70,9 +70,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	}else
 	{
 		$add1[$mcode[$i]] = $obj->caddress;
-		$add2[$mcode[$i]] .= $obj->cdistrictId==""?"":" �.".$obj->cdistrictId;
-		$add2[$mcode[$i]] .= $obj->camphurId==""?"":" �.".$obj->camphurId;
-		$add2[$mcode[$i]] .= $obj->cprovinceId==""?"":" �.".$obj->cprovinceId;
+		$add2[$mcode[$i]] .= $obj->cdistrictId==""?"":" ต.".$obj->cdistrictId;
+		$add2[$mcode[$i]] .= $obj->camphurId==""?"":" อ.".$obj->camphurId;
+		$add2[$mcode[$i]] .= $obj->cprovinceId==""?"":" จ.".$obj->cprovinceId;
 		$add2[$mcode[$i]] .= " ".$obj->czip;
 		//$add1[$mcode[$i]] = substr($add[$mcode[$i]],0,80);
 		//$add2[$mcode[$i]] = substr($add[$mcode[$i]],80,160);
@@ -86,7 +86,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 		$inv_ref[$i] = mysql_result($rs2,0,'inv_desc');
 	}else
 	{
-		$inv_ref[$i] = '�ӹѡ�ҹ�˭�';
+		$inv_ref[$i] = 'สำนักงานใหญ่';
 	}
 
 
@@ -105,7 +105,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$txtoption[$i] = $obj->txtoption;
 	//if(!empty($txtoption[$i]))
 	$send[$i] = $obj->send;
-	//if($send[$i] == '1')$send[$i] = '�Ѵ��';else $send[$i]  = "";
+	//if($send[$i] == '1')$send[$i] = 'จัดส่ง';else $send[$i]  = "";
 	 $send[$i]  = "";
 
 	$rs1=mysql_query($sqlLog1);
@@ -148,12 +148,12 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$txtAllCredit[$i] = $txtCredit1[$i]+$txtCredit2[$i]+$txtCredit3[$i];
 
 	$txtShow[$i] = "";
-	if(!empty($chkCash[$i])) $txtShow[$i] .= '  �Թʴ:'.$txtCash[$i];
-	if(!empty($chkFuture[$i])) $txtShow[$i] .= '  �Թ�Ѻ��ǧ˹��:'.$txtFuture[$i];
-	if(!empty($chkTransfer[$i])) $txtShow[$i] .= '  �Թ�͹:'.$txtTransfer[$i];
+	if(!empty($chkCash[$i])) $txtShow[$i] .= '  เงินสด:'.$txtCash[$i];
+	if(!empty($chkFuture[$i])) $txtShow[$i] .= '  เงินรับล่วงหน้า:'.$txtFuture[$i];
+	if(!empty($chkTransfer[$i])) $txtShow[$i] .= '  เงินโอน:'.$txtTransfer[$i];
 	if(!empty($chkInternet[$i])) $txtShow[$i] .= '  Ewallet:'.$txtInternet[$i];
-	if(!empty($chkDiscount[$i])) $txtShow[$i] .= '  ��ǹŴ:'.$txtDiscount[$i];
-	if(!empty($chkCredit1[$i]) or !empty($chkCredit2[$i]) or !empty($chkCredit3[$i])) $txtShow[$i] .= '  �ôԵ:'.$txtAllCredit[$i];
+	if(!empty($chkDiscount[$i])) $txtShow[$i] .= '  ส่วนลด:'.$txtDiscount[$i];
+	if(!empty($chkCredit1[$i]) or !empty($chkCredit2[$i]) or !empty($chkCredit3[$i])) $txtShow[$i] .= '  เครดิต:'.$txtAllCredit[$i];
 
 	$sql2 = "SELECT * FROM ".$dbprefix."member ";
 	$sql2 .= "LEFT JOIN district ON (".$dbprefix."member.districtId=district.districtId)";
@@ -218,7 +218,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetFont('angsa','',25);  
 	$pdf->SetY($offsety-7);
 	$pdf->SetX($offsetx+(11*$offsettab)-34);
-	$pdf->Cell((3*$offsettab),10,'������Ѻ�Թ/��觢ͧ',0,0,"L");
+	$pdf->Cell((3*$offsettab),10,'ใบเสร็จรับเงิน/ใบส่งของ',0,0,"L");
 	
 	$pdf->SetFont('angsa','',16);  
 	$pdf->SetY($offsety+(4*$offsetnline)-4);
@@ -238,7 +238,7 @@ for($i=0;$i<sizeof($bill);$i++){
 
 	$pdf->SetY($offsety+(2*$offsetnline)-1);
 	$pdf->SetX($offsetx+(12*$offsettab)+2);
-	$pdf->Cell((3*$offsettab),10,'�������駷�� : '.$print[$i],0,0,"L");
+	$pdf->Cell((3*$offsettab),10,'พิมพ์ครั้งที่ : '.$print[$i],0,0,"L");
 	
 	$pdf->SetFont('angsa','',18);  
 	$pdf->SetY($offsety+(4*$offsetnline)-4);
@@ -355,13 +355,13 @@ for($i=0;$i<sizeof($bill);$i++){
 
 		$pdf->SetY($offsety+(28*$offsetnline)-16);
 		$pdf->SetX($offsetx+(12*$offsettab)+4);
-		//$pdf->Cell($offsettab,10,'�Ҥҡ�͹ VAT : '.number_format($sum*100/107,2,'.',','),0,0,"R"); 
+		//$pdf->Cell($offsettab,10,'ราคาก่อน VAT : '.number_format($sum*100/107,2,'.',','),0,0,"R"); 
 
 		$pdf->SetFont('angsa','',16);  
 		$pdf->SetY($offsety+(28*$offsetnline)-8);
 		$pdf->SetX($offsetx+(11*$offsettab)-4);
 		//$pdf->Cell($offsettab,10,'VAT 7 % : '.number_format($sum-($sum*100/107),2,'.',','),0,0,"R"); 
-		$pdf->Cell($offsettab,10,'�Ҥ����������Ť������',0,0,"R"); 
+		$pdf->Cell($offsettab,10,'ราคารวมภาษีมูลค่าเพิ่ม',0,0,"R"); 
 
 		$pdf->SetFont('angsa','',19);  
 		$pdf->SetY($offsety+(28*$offsetnline));
@@ -376,7 +376,7 @@ for($i=0;$i<sizeof($bill);$i++){
 		$pdf->SetFont('angsa','',16);  
 		$pdf->SetY($offsety+(28*$offsetnline)-8);
 		$pdf->SetX($offsetx+$offsettab-11);
-		if(!empty($cname[$i]))$pdf->Cell($offsettab,10,'���ͼ���Ѻ : '.$cname[$i].' ����Դ��� : '.$cmobile[$i],0,0,"L"); 
+		if(!empty($cname[$i]))$pdf->Cell($offsettab,10,'ชื่อผู้รับ : '.$cname[$i].' เบอร์ติดต่อ : '.$cmobile[$i],0,0,"L"); 
 
 		$pdf->SetFont('angsa','',16);  
 		$pdf->SetY($offsety+(28*$offsetnline)-3);

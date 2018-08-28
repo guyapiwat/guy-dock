@@ -4,7 +4,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
 			window.location='index.php?sessiontab=3&sub=10&state=3&bid='+id;
 		}
 	}
@@ -52,15 +52,15 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."billhd.mcode=".$dbprefix
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,preserve,ability,sadate,tot_pv,total");
 		$rec->setFieldFloatFormat(",,,,,,,2,2");
-		$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÃÑ¡ÉÒÂÍ´,·Ó¤Ø³ÊÁºÑµÔ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”,à¸—à¸³à¸„à¸¸à¸“à¸ªà¸¡à¸šà¸±à¸•à¸´,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setFieldAlign("center,center,left,center,center,center,right,right");
 		$rec->setFieldSpace("5%,15%,26%,7%,7%,10%,15%,15%");
 		$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("hono,sano,".$dbprefix."holdhead.mcode,name_t,sadate,tot_pv,total");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ºÔÅâÎÅì´,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸šà¸´à¸¥à¹‚à¸®à¸¥à¹Œà¸”,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setSum(true,false,",,,,,,,true,true");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","Â¡àÅÔ¡");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=10");

@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>°√ÿ≥“°√Õ°™Ë«ß√Ë“¬‰¥È„ÀÈ∂Ÿ° ‡™Ëπ 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏ä‡πà‡∏ß‡∏á‡∏£‡πà‡∏≤‡∏¢‡πÑ‡∏î‡πâ‡πÉ‡∏´‡πâ‡∏ñ‡∏π‡∏Å ‡πÄ‡∏ä‡πà‡∏ô 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//√Õ∫‡√‘Ë¡µÈπ == √Õ∫ ‘Èπ ÿ¥
+		//‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô == ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -56,7 +56,7 @@ if(mysql_num_rows($rs)>0){
 	$total_pv = mysql_result($rs,0,"total_pv");
 }
 
-echo '<font size=5>¬Õ¥√«¡ '.number_format($total_pv,0,'.',',').' PV</fon>';
+echo '<font size=5>‡∏¢‡∏≠‡∏î‡∏£‡∏ß‡∏° '.number_format($total_pv,0,'.',',').' PV</fon>';
 
 if($fdate != ''){
 		if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
@@ -83,7 +83,7 @@ if($fdate != ''){
 			$rec->setCurPage($page); 
 		//$rec->setShowIndex(true);
 		$rec->setShowField("fdate,tdate,mcode,name_t,mpos,posq,total");
-		$rec->setFieldDesc("µ—Èß·µË«—π∑’Ë,∂÷ß«—π∑’Ë,√À—  ¡“™‘°,™◊ËÕ,‡°’¬√µ‘¬»,Qualify,AllSale");
+		$rec->setFieldDesc("‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏ñ‡∏∂‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡πÄ‡∏Å‡∏µ‡∏¢‡∏£‡∏ï‡∏¥‡∏¢‡∏®,Qualify,AllSale");
 		$rec->setFieldAlign("center,center,center,left,center,center,right");
 		$rec->setFieldSpace("10%,10%,10%,30%,10%,10%,15%");//10
 		$rec->setSum(true,false,",,,,,,true,true,true");
@@ -92,7 +92,7 @@ if($fdate != ''){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","embonus".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","embonus".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -102,7 +102,7 @@ if($fdate != ''){
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		//$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

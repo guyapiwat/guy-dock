@@ -84,14 +84,14 @@ $sql .= "LEFT JOIN ".$dbprefix."invent ON (".$dbprefix."voucher.inv_code=".$dbpr
         //$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
       $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtCash,txtTransfer,txtCredit,txtCommission,sa_type,uid,checkportal");
         $rec->setFieldFloatFormat(",,,,2,2,2,2,2,,");
-        //$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-        $rec->setFieldDesc("�ѹ���,�Ţ�����,���ʼ�����,����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,Commission,Type,�Ң����;�ѡ�ҹ	,��ͧ�ҧ");
+        //$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+        $rec->setFieldDesc("วันที่,เลขที่บิล,รหัสผู้ซื้อ,ชื่อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,Commission,Type,สาขาหรือพนักงาน	,ช่องทาง");
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,center");
         $rec->setFieldSpace("7%,13%,6%,10%,8%,8%,8%,8%,8%,8%");
         //$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
         $rec->setSearch("sano,".$dbprefix."voucher.mcode,sadate,".$dbprefix."voucher.uid");
-        $rec->setSearchDesc("�Ţ�����,������Ҫԡ,�ѹ���,�Ң����;�ѡ�ҹ");
-    //    $rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+        $rec->setSearchDesc("เลขที่บิล,รหัสสมาชิก,วันที่,สาขาหรือพนักงาน");
+    //    $rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
       
         $rec->setSum(true,false,",,,,true,true,true,true,");
         //$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["Bill_print"]);
@@ -104,7 +104,7 @@ $sql .= "LEFT JOIN ".$dbprefix."invent ON (".$dbprefix."voucher.inv_code=".$dbpr
             $rec->setDel("index.php","id","id","sessiontab=3&sub=148");
             $rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=148&state=1","post","delfield");
         }*/
-       // $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+       // $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         //var_dump($acc->isAccess(2));
         //exit;

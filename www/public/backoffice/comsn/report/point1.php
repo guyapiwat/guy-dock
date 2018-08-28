@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -47,7 +47,7 @@ if(empty($fmcode) and empty($strfdate)){
 	if($strfdate>$strtdate){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">«—π∑’Ë‡√‘Ë¡µÈπ µÈÕßπÈÕ¬°«Ë“À√◊Õ‡∑Ë“°—∫ «—π∑’Ë ‘Èπ ÿ¥ °√ÿ≥“√–ÿ∫ÿ«—π∑’Ë„À¡Ë</FONT></td>
+    <td><FONT COLOR="#ff0000">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô ‡∏ï‡πâ‡∏≠‡∏á‡∏ô‡πâ‡∏≠‡∏¢‡∏Å‡∏ß‡πà‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö ‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏£‡∏∞‡∏∏‡∏ö‡∏∏‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÉ‡∏´‡∏°‡πà</FONT></td>
   </tr>
 </table>
 <?
@@ -56,7 +56,7 @@ if(empty($fmcode) and empty($strfdate)){
 	}else{
 ?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-√Õ∫«—π <? echo $strfdate .' ∂÷ß '.$strtdate;?>
+‡∏£‡∏≠‡∏ö‡∏ß‡∏±‡∏ô <? echo $strfdate .' ‡∏ñ‡∏∂‡∏á '.$strtdate;?>
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -208,7 +208,7 @@ if(empty($fmcode) and empty($strfdate)){
 		//$rec->setShowIndex(true);
 		$rec->setShowField("mcode,name_t,fast,binary1,total_team");
 		$rec->setFieldFloatFormat(",,0,0,0,,0,2,2,2,2,2,2,2,2");
-		$rec->setFieldDesc("√À— ,™◊ËÕ,·π–π”(PV),®—∫§ŸË,Point");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥(PV),‡∏à‡∏±‡∏ö‡∏Ñ‡∏π‡πà,Point");
 		$rec->setFieldAlign("center,left,center,center,center,left,left,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("8%,47%,15%,15%,15%");
 		$rec->setSum(true,false,",,true,true,true,,,true,true,true,true,true,true,true,true");
@@ -216,20 +216,20 @@ if(empty($fmcode) and empty($strfdate)){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","Point".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","Point".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);
 				$time_end = getmicrotime();
 $time = $time_end - $time_start;
-echo " ‘Èπ ÿ¥°“√§”π«≥ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "°“√§”π«≥„™È‡«≈“∑—Èß ‘Èπ $time «‘π“∑’<BR>";
+echo "‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô $time ‡∏ß‡∏¥‡∏ô‡∏≤‡∏ó‡∏µ<BR>";
 	}
 }	
 function getmicrotime() { 
@@ -244,26 +244,26 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>√–∫ÿ«—π∑’Ë ·≈– √À—  ¡“™‘°∑’ËµÈÕß°“√∑√“∫¢ÈÕ¡Ÿ≈</strong></td>
+    <td colspan="2" align="center"><strong>‡∏£‡∏∞‡∏ö‡∏∏‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ‡πÅ‡∏•‡∏∞ ‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏ó‡∏£‡∏≤‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <!--tr>
-    <td align="right">√Õ∫&nbsp;&nbsp;</td>
+    <td align="right">‡∏£‡∏≠‡∏ö&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( °√Õ°¢ÈÕ¡Ÿ≈‡ªÁπ 1-9 )</td>
+      &nbsp;( ‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏õ‡πá‡∏ô 1-9 )</td>
   </tr-->
   <tr>
-  <td align="right" >«—π∑’Ë&nbsp;&nbsp;</td>
+  <td align="right" >‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà&nbsp;&nbsp;</td>
   <td colspan="2">
       <input type="text" id="strfdate" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>"/>
-&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë‡‘’√‘Ë¡µÈπ" /></a>&nbsp; ∂÷ß &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
-&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥" /></a>
+&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏¥‡∏µ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô" /></a>&nbsp; ‡∏ñ‡∏∂‡∏á &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
+&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î" /></a>
 </td>
   </tr>
   <tr>
-    <td width="24%" align="right">√À—  ¡“™‘°&nbsp;&nbsp;</td>
+    <td width="24%" align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -271,7 +271,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

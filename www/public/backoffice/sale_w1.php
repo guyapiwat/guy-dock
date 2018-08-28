@@ -11,8 +11,8 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT *,@num := @num + 1 b FROM (SELECT ".$dbprefix."asaleh.online,cancel,".$dbprefix."asaleh.id,".$dbprefix."asaleh.uid as uid,".$dbprefix."asaleh.sano,'' as hono,DATE_FORMAT(".$dbprefix."asaleh.sadate, '%Y-%m-%d') as sadate ,".$dbprefix."asaleh.scheck
 ,".$dbprefix."asaleh.tot_pv,".$dbprefix."asaleh.tot_bv,".$dbprefix."member.id_card,".$dbprefix."asaleh.tot_fv,".$dbprefix."asaleh.total,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.mcode AS smcode,".$dbprefix."asaleh.sa_type";
 $sql .= ",checkportal,CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist' END AS checkportal1";
-$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN '��' ELSE '�Ѻ�ͧ' END AS send ";
-$sql .= ",CONCAT(address,' �.',districtId,' �.',amphurId,' �.',provinceId,' ',zip) AS address ";
+$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'ส่ง' ELSE 'รับเอง' END AS send ";
+$sql .= ",CONCAT(address,' ต.',districtId,' อ.',amphurId,' จ.',provinceId,' ',zip) AS address ";
 $sql .= ",".$dbprefix."asaled.qty as qty1 ";
 //$sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."location_base.cshort ";
 //,".$dbprefix."member.pos_cur as por_cur,".$dbprefix."member.name_f,".$dbprefix."member.sp_code as sp_code
@@ -135,25 +135,25 @@ switch ($strtype) {
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_f,name_t,id_card,sadate,qty1,tot_pv,total,address");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,�ӹ�˹��,���ͼ�����,���ʻ�ЪҪ�,�ѹ������,�ӹǹ,PV,�ӹǹ�Թ���,�������");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,คำนำหน้า,ชื่อผู้ซื้อ,รหัสประชาชน,วันที่ซื้อ,จำนวน,PV,จำนวนเงินรวม,ที่อยู่");
 		$rec->setFieldFloatFormat(",,,,,,,0,2,2");
 		$rec->setFieldAlign("center,center,center,left,left,center,center,right,right,right,left");
 		//$rec->setFieldSpace("3%,6%,6%,3%,14%,4%,7%,4%,7%,3%,3%,4%,4%,4%,4%,4%,5%,5%,5%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,,,,,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

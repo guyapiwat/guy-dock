@@ -12,8 +12,8 @@ include_once("prefix.php");
 set_time_limit (0);
 ini_set("memory_limit","5000M");
 $time_start = getmicrotime();
-echo "�������äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around<BR><BR>";
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR><BR>";
 $sql = "TRUNCATE TABLE ".$dbprefix."bm_chart ";
 mysql_query($sql);
 
@@ -31,7 +31,7 @@ mysql_query($sql);
 					}
 
 					mysql_free_result($rs);
-					//�ӹǹ bm ��������ǹ bmbonus
+					//คำนวน bm ไม่ใช้ในส่วน bmbonus
 					$k = 0;
 					for($i=0;$i<sizeof($mcode);$i++){
 						$up = $mcode[$i];
@@ -56,14 +56,14 @@ mysql_query($sql);
 					}	
 $time_end = getmicrotime();
 $time = $time_end - $time_start;
-echo "LR ����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR><BR>";
+echo "LR สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR><BR>";
 
 
 $time_end = getmicrotime();
 $time = $time_end - $time_start;
-echo "����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";
+echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
 ob_end_flush();
 function getmicrotime() { 
     list($usec, $sec) = explode(" ", microtime()); 

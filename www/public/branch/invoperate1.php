@@ -53,7 +53,7 @@ if(isset($_GET['state'])){
 }
 if($_GET['state']==0){
 	$mid = ++$sano;
-	logtext(true,$_SESSION['adminuserid'],'�������',$mid);
+	logtext(true,$_SESSION['adminuserid'],'เพิ่มบิล',$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	 $sql="insert into ".$dbprefix."isaleh (id,  sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_bv,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 	optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther ) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv','$tot_bv','$tot_fv' ,'".$_SESSION['adminusercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',
@@ -97,7 +97,7 @@ writelogfile($text);
 	updateEwallet($dbprefix,$mcode,$txtInternet);
 	//updatePos($dbprefix,$mcode,$sadate);
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'��䢺��',$id);
+	logtext(true,$_SESSION['adminusercode'],'แก้ไขบิล',$id);
 	if(empty($chkInternet))$txtInternet = 0;
 	updateEwallet1($dbprefix,$mcode,$txtInternet,$id);
 	$sql="update ".$dbprefix."isaleh set sano='$id', id='$id', ";
@@ -268,25 +268,25 @@ function updateEwallet1($dbprefix,$mcode,$oldInternet,$id){
 	}
 	$rs3=mysql_query($sql3);
 } 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 	function updatePos($dbprefix,$mcode,$cur_date){
 		$pos_piority = array('D'=>4,'P'=>3,'G'=>2,'S'=>1,'MB'=>0);
 		$pos_exp = array('D'=>12000,'P'=>6000,'G'=>2000,'S'=>1000,'MB'=>0);
 		$pv_exp=array(12000,6000,2000,1000);
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."isaleh WHERE mcode='$mcode' and sa_type='A' ";
 		$rs = mysql_query($sql);
 		$mexp = 0;
 		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
 		$mexp = $mexp + gettotalpv($dbprefix,$mcode);
 		mysql_free_result($rs);
-		//-----�纵��˹觻Ѩ�غѹ
+		//-----เก็บตำแหน่งปัจจุบัน
 		$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 		$rs = mysql_query($sql);
 		$pos_old = '';
 		if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 		mysql_free_result($rs);
-		//�ӹǳ���˹�
+		//คำนวณตำแหน่ง
 		$flg=false;
 		switch ($pos_old){
 			case 'S':

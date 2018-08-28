@@ -4,7 +4,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
+			alert("เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธฃเธนเธเนเธเธเธฃเธญเธเนเธซเนเธ–เธนเธเธ•เนเธญเธ");
 			return false;
 		}
 	}
@@ -26,7 +26,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -36,7 +36,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธฃเธญเธเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเนเธชเนเธฃเธญเธเธเธฒเธฃเธเธณเธเธงเธ“เนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -60,8 +60,8 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		$fdate = $data->fdate;
 		$tdate = $data->tdate;
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a><br/-->
-<?  echo $fdate .' ถึง '.$tdate;?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a><br/-->
+<?  echo $fdate .' เธ–เธถเธ '.$tdate;?>
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -103,14 +103,14 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		//$rec->setShowField("rcode,name_t,acc_no,total,bankname,mobile,Yes,oon,ttttt");
 		$rec->setFieldFloatFormat(",,,,,,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2");
 		$rec->setShowField("rcode,fdate,tdate,mcode,name_tt,pv,fob,cycle,smb,matching,onetime,thiscom,thiscom1,pvh,totaly,tot_vat,tax,oon1,ttttt");
-		$rec->setFieldDesc("รอบที่,ตั้งแต่วันที่,ถึงวันที่,รหัส,ชื่อ-นามสกุล,ยอดยกมา,FOB,Cycle,SMB,Matching,One Time,Bonusรวม,Bonusรวม<br>+ยอดยกมา,Bonus ยกไป<br>(ไม่โอนรอบนี้),Bonus สะสมทั้งปี,vat,หักภาษี,หักค่าโอน,สรุปยอดโอน");
+		$rec->setFieldDesc("เธฃเธญเธเธ—เธตเน,เธ•เธฑเนเธเนเธ•เนเธงเธฑเธเธ—เธตเน,เธ–เธถเธเธงเธฑเธเธ—เธตเน,เธฃเธซเธฑเธช,เธเธทเนเธญ-เธเธฒเธกเธชเธเธธเธฅ,เธขเธญเธ”เธขเธเธกเธฒ,FOB,Cycle,SMB,Matching,One Time,Bonusเธฃเธงเธก,Bonusเธฃเธงเธก<br>+เธขเธญเธ”เธขเธเธกเธฒ,Bonus เธขเธเนเธ<br>(เนเธกเนเนเธญเธเธฃเธญเธเธเธตเน),Bonus เธชเธฐเธชเธกเธ—เธฑเนเธเธเธต,vat,เธซเธฑเธเธ เธฒเธฉเธต,เธซเธฑเธเธเนเธฒเนเธญเธ,เธชเธฃเธธเธเธขเธญเธ”เนเธญเธ");
 		$rec->setFieldAlign("center,left,center,right,left,right,right,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("2%,6%,6%,5%,14%,5%,5%,5%,5%,5%,5%,5%");//10
 		$rec->setSum(true,false,",,,,,,true,true,true,true,true,true,,,,true,true,true,true");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","packfileA".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","packfileA".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -119,9 +119,9 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("m.mcode");
-		$rec->setSearchDesc("รหัส");
+		$rec->setSearchDesc("เธฃเธซเธฑเธช");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->setFieldLink("");
 		$rec->showRec(1,'SH_QUERY');
@@ -133,21 +133,21 @@ function rpdialog(){?>
 <form name="rform" method="post" action="./index.php?sessiontab=4&sub=58">
 <table width="50%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
   <tr>
-    <td colspan="2" align="center"><a href="index.php?sessiontab=4&sub=25" target="_blank">คลิกดูรายละเอียดรอบ</a></td>
+    <td colspan="2" align="center"><a href="index.php?sessiontab=4&sub=25" target="_blank">เธเธฅเธดเธเธ”เธนเธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธฃเธญเธ</a></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
+    <td colspan="2" align="center"><strong>เธเธฃเธญเธเธฃเธญเธ เนเธฅเธฐเธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ”เธนเธฃเธฒเธขเธเธฒเธ</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">รอบ&nbsp;&nbsp;</td>
+    <td align="right">เธฃเธญเธ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
+      &nbsp;( เธเธฃเธญเธเธเนเธญเธกเธนเธฅเน€เธเนเธ 1-9 )</td>
   </tr>
   <tr>
-    <td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
+    <td width="24%" align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -155,7 +155,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /></td>
     </tr>
   
   <tr>

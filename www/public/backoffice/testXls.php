@@ -5,7 +5,7 @@
 		header("Content-Type: application/force-download");
 		header("Content-Type: application/octet-stream");
 		header("Content-Type: application/download");;
-		header("Content-Disposition: attachment;filename=MD$date.xls\r\n\r\n"); // áÅéÇ¹Õè¡çª×èÍä¿Åì
+		header("Content-Disposition: attachment;filename=MD$date.xls\r\n\r\n"); // à¹à¸¥à¹‰à¸§à¸™à¸µà¹ˆà¸à¹‡à¸Šà¸·à¹ˆà¸­à¹„à¸Ÿà¸¥à¹Œ
 		header("Content-Transfer-Encoding: binary\r\n");*/
 ?>
 <meta content="pragma" content="public" />

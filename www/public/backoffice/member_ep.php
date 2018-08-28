@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("¡ÃØ³ÒàÅ×Í¡ÇÑ¹·ÕèàÃÔèÁµé¹");
+		alert("à¸à¸£à¸¸à¸“à¸²à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("¡ÃØ³ÒàÅ×Í¡ÇÑ¹·ÕèÊÔé¹ÊØ´");
+		alert("à¸à¸£à¸¸à¸“à¸²à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -36,7 +36,7 @@ function chknum(key){
 	$fmcode = $_POST['fmcode']==""?$_GET['fmcode']:$_POST['fmcode'];
 
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">¾ÔÁ¾ì·Ñé§ËÁ´</a-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a-->
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -67,9 +67,9 @@ function chknum(key){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowIndex(true);
-		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","´Ù");
+		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","à¸”à¸¹");
 		$rec->setShowField("date_change,mcode,name_t,pos_before,pos_after");
-		$rec->setFieldDesc("ÇÑ¹·Õè»ÃÑºµÓáË¹è§,ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,µÓáË¹è§à´ÔÁ,µÓáË¹è§ãËÁè");
+		$rec->setFieldDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆà¸›à¸£à¸±à¸šà¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¹€à¸”à¸´à¸¡,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡à¹ƒà¸«à¸¡à¹ˆ");
 		$rec->setFieldAlign("center,center,left,center,center");
 		$rec->setFieldSpace("20%,20%,20%,20%,20%");//10
 		$rec->setFieldFloatFormat("");
@@ -78,12 +78,12 @@ function chknum(key){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","newposition".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","newposition".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

@@ -20,17 +20,17 @@ rpdialog_sale_list($_GET['sub'],$fdate,$tdate,$sale,$s_list);
 		//window.location='index.php?sessiontab=3&sub=6&sanooo='+id;
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id,page){
-	//	if(confirm("��ͧ�������¹�ŧ����Ѻ�ͧ")){
+	//	if(confirm("ต้องการเปลี่ยนแปลงการรับของ")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id+'&page='+page;
 	//	}
 	}
 		function sale_status1(id,page){
-	//	if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+	//	if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab=3&sub=6&state=7&sender='+id+'&page='+page;
 	//	}
 	}
@@ -155,7 +155,7 @@ CASE ".$dbprefix."asaleh.sender WHEN '1' THEN concat('<img src=./images/true.gif
 $sql .= ",CASE cancel WHEN '1' THEN 0 ELSE total-(total*7/107) END  AS total_tax ";
 $sql .= ",CASE cancel WHEN '1' THEN 0 ELSE total*7/107 END  AS tax ";
 
-$sql .= ",CASE cancel WHEN '1' THEN '¡��ԡ' ELSE '' END AS cencels ";
+$sql .= ",CASE cancel WHEN '1' THEN 'ยกเลิก' ELSE '' END AS cencels ";
 
 
 $sql .= "FROM ".$dbprefix."asaleh ";
@@ -269,8 +269,8 @@ if($_GET['print_all']==true){
 			$rec->setCurPage($page);
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,name_t,id_card,lid,total_tax,tax,cencels");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("�ѹ������,�Ţ���,���ͼ�����,�Ţ��Шӵ��,ʶҹ��Сͺ���,�ӹǹ�Թ,����,�����˵�");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,ชื่อผู้ซื้อ,เลขประจำตัว,สถานประกอบการ,จำนวนเงิน,ภาษี,หมายเหตุ");
 		$rec->setFieldAlign("center,left,left,center,center,right,right,center,center,center,center");
 	$rec->setFieldSpace("10%,12%,28%,10%,10%,10%,10%,10%,10%,10% ");
 		//$rec->setFieldSpace("8%,10%,5%,20%,8%,6%,6%,6%,6%,8%,5%,5%,5%,5%,4%,4%");
@@ -279,7 +279,7 @@ if($_GET['print_all']==true){
 
 		$rec->setSearch("".$dbprefix."asaleh.lid");
 		$rec->setSearchDesc("Branch");
-		/*$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�Ң�,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,��ѡ�ҹ");  */
+		/*$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,สาขา,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,พนักงาน");  */
 		$rec->setFieldFloatFormat(",,,,,2,2,");
 		$rec->setSum(true,false,",,,,,true,true,,");
 
@@ -288,7 +288,7 @@ if($_GET['print_all']==true){
  
 	 
 		$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		$rec->setSpace($str2);
 
 		$rec->showRec(1,'SH_QUERY');

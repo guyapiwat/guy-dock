@@ -5,7 +5,7 @@
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("��ͧ���¡��ԡ��Ź��")){
+        if(confirm("ต้องการยกเลิกบิลนี้")){
             window.location='index.php?sessiontab=4&sub=2008&state=3&bid='+id;
         }
     }
@@ -19,7 +19,7 @@
 		if (isset($_REQUEST["strtdate"])){$strtdate=$_REQUEST["strtdate"];} else {$strtdate="";}
 		if (isset($_REQUEST["fmcode"])){$fmcode=$_REQUEST["fmcode"];} else {$fmcode="";}
 		$sql="SELECT ch.fdate,ch.tdate,ch.rcode,ch.date_change,ch.mcode,ch.uid,m.name_t";
-		$sql.=",CASE ch.status WHEN '0' THEN '�ѧ�Ѻ������' WHEN '1' THEN '�ѧ�Ѻ����' END as status";
+		$sql.=",CASE ch.status WHEN '0' THEN 'บังคับไม่จ่าย' WHEN '1' THEN 'บังคับจ่าย' END as status";
 		$sql.=" FROM ali_log_change ch LEFT JOIN ali_member m ON(ch.mcode=m.mcode) WHERE 1=1";
 
 		if($strfdate !="" and $strtdate !="" ) $sql.=" AND ch.fdate >= '$strfdate' AND ch.tdate <= '$strtdate'";
@@ -46,8 +46,8 @@
         //$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
         $rec->setShowField("rcode,fdate,tdate,mcode,name_t,status,uid,date_change");
         $rec->setFieldFloatFormat(",,,,,,,,,,,");
-        //$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-        $rec->setFieldDesc("�ͺ,�ѹ���,�֧�ѹ���,������Ҫԡ,����,ʶҹ�,�����Թ���,�ѹ�����Թ���");
+        //$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+        $rec->setFieldDesc("รอบ,วันที่,ถึงวันที่,รหัสสมาชิก,ชื่อ,สถานะ,ผู้ดำเนินการ,วันที่ดำเนินการ");
         $rec->setFieldAlign("center,center,center,center,left,center,center,center");
         $rec->setFieldSpace("5%,8%,8%,8%,30%,10%,15%,15%");
         $rec->setSum(true,false,",,,,,,,,,,");

@@ -20,15 +20,15 @@ if(isset($_GET['bid']))
 	$tsano = $fsano;
 }*/
 $sql = "SELECT * FROM ".$dbprefix."asaleh WHERE id='$sano' ";
-$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '�������' order by id desc";
-$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '��䢺��' order by id desc";
+$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'เพิ่มบิล' order by id desc";
+$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'แก้ไขบิล' order by id desc";
 
 //echo $sql;
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">��辺�����Ţͧ����Ţ��� <?=$sano?>
-	<br /><input type="button" value="�Դ˹�ҹ��" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">ไม่พบข้อมูลของบิลเลขที่ <?=$sano?>
+	<br /><input type="button" value="ปิดหน้านี้" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 $typedef = array('A'=>"".$word_lan["invoice_A"]."",'Q'=>"".$word_lan["invoice_Q"]."",'H'=>"".$word_lan["invoice_H"]."",'B'=>"".$word_lan["invoice_B"]."");
@@ -57,7 +57,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	//if(!empty($txtoption[$i]))
 	$chkCash[$i] = $obj->chkCash;
 	$send[$i] = $obj->send;
-	//if($send[$i] == '1')$send[$i] = '�Ѵ��';else $send[$i]  = "";
+	//if($send[$i] == '1')$send[$i] = 'จัดส่ง';else $send[$i]  = "";
 	 $send[$i]  = "";
 	$chkFuture[$i] = $obj->chkFuture;
 	$chkTransfer[$i] = $obj->chkTransfer;
@@ -65,7 +65,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$chkCredit2[$i] = $obj->chkCredit2;
 	$chkCredit3[$i] = $obj->chkCredit3;
 	$inv_code[$i] = $obj->inv_code;
-	if(empty($inv_code[$i]))$inv_code[$i] = '�Ѫ�� 26';
+	if(empty($inv_code[$i]))$inv_code[$i] = 'รัชดา 26';
 
 	$rs1=mysql_query($sqlLog1);
 	if(mysql_num_rows($rs1) > 0){
@@ -110,9 +110,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$rs2 = mysql_query($sql2);
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" �.".mysql_result($rs2,0,'districtName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" �.".mysql_result($rs2,0,'amphurName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" �.".mysql_result($rs2,0,'provinceName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" ต.".mysql_result($rs2,0,'districtName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" อ.".mysql_result($rs2,0,'amphurName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" จ.".mysql_result($rs2,0,'provinceName');
 	$add[$mcode[$i]] .= " ".mysql_result($rs2,0,'zip');
 	$sp_code[$mcode[$i]] = mysql_result($rs2,0,'sp_code');
 	$sp_name[$mcode[$i]] = mysql_result($rs2,0,'sp_name');
@@ -169,7 +169,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetFont('angsa','',25);  
 	$pdf->SetY($offsety-7);
 	$pdf->SetX($offsetx+(11*$offsettab)-10);
-	$pdf->Cell((3*$offsettab),10,'������Ѻ�Թ/��觢ͧ',0,0,"L");
+	$pdf->Cell((3*$offsettab),10,'ใบเสร็จรับเงิน/ใบส่งของ',0,0,"L");
 	
 	$pdf->SetFont('angsa','',16);  
 	$pdf->SetY($offsety+(4*$offsetnline)-4);
@@ -211,7 +211,7 @@ for($i=0;$i<sizeof($bill);$i++){
 //info---------------------------------------
 	$pdf->SetY($offsety+(2*$offsetnline)-1);
 	$pdf->SetX($offsetx+(12*$offsettab)+2);
-	$pdf->Cell((3*$offsettab),10,'�������駷�� : '.$print[$i],0,0,"L");
+	$pdf->Cell((3*$offsettab),10,'พิมพ์ครั้งที่ : '.$print[$i],0,0,"L");
 
 	
 	$pdf->SetY($offsety+(2*$offsetnline)-1);

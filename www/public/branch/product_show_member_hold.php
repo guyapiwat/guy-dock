@@ -64,7 +64,7 @@ function chknum(key){
 			step = i*8+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='Åº' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='à¸¥à¸š' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -102,7 +102,7 @@ function chknum(key){
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='price[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='pv[]' value='" + pv + "'></td>";
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'  onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('äÁèÊÒÁÒÃ¶ãÊè¤èÒ 0 ËÃ×Í ªèÍ§ÇèÒ§ä´é');this.value=1;cal();}\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'  onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸ªà¹ˆà¸„à¹ˆà¸² 0 à¸«à¸£à¸·à¸­ à¸Šà¹ˆà¸­à¸‡à¸§à¹ˆà¸²à¸‡à¹„à¸”à¹‰');this.value=1;cal();}\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalprice[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalpv[]' value='" + pv + "'></td>";
 			place += "</tr>";
@@ -176,7 +176,7 @@ $rec->setFieldFloatFormat(",,2,2,0,0");
 $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,qty","IMAGE","");
 $rec->setSearch("".$dbprefix."product.pcode,".$dbprefix."product.pdesc,".$dbprefix."product.price,".$dbprefix."product.pv");
-$rec->setSearchDesc("ÃËÑÊ,ÃÒÂÅÐàÍÕÂ´,¤§àËÅ×Í,ÃÒ¤Ò,¤Ðá¹¹");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ª,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸£à¸²à¸„à¸²,à¸„à¸°à¹à¸™à¸™");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

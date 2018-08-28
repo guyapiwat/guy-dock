@@ -4,7 +4,7 @@
 <? require_once ("function.log.inc.php"); ?>
 <html>
 <head>
-<title>ź�����Ѥ�</title>
+<title>ลบผู้สมัคร</title>
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 </head>
 
@@ -50,11 +50,11 @@ exit;
 $sql = "SELECT * FROM ".$dbprefix."premember WHERE id='$id' LIMIT 1";
 $rs = mysql_query($sql);
 if(mysql_num_rows($rs)>0){
-	echo "<table width='180'><tr><td align='center'>��ͧ��÷���ź�����Ѥê���<br />".mysql_result($rs,0,'name_t')."</td></tr>";
+	echo "<table width='180'><tr><td align='center'>ต้องการที่จะลบผู้สมัครชื่อ<br />".mysql_result($rs,0,'name_t')."</td></tr>";
 	echo "<tr><td align='center'>";
 	?>
-	<input type="submit" value="�׹�ѹ" onClick="window.location = '<?=$PHP_SELF?>?dt=<?=$date?>&did=<?=$id?>&del=1'">
-	<input type="button" value="¡��ԡ" onClick="window.close()">
+	<input type="submit" value="ยืนยัน" onClick="window.location = '<?=$PHP_SELF?>?dt=<?=$date?>&did=<?=$id?>&del=1'">
+	<input type="button" value="ยกเลิก" onClick="window.close()">
 	<?	
 	echo "</td></tr></table>";
 }else{

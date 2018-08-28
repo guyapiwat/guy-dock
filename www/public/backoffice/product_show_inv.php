@@ -29,19 +29,19 @@
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
 		
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
 		place += "<td bgcolor='#99CCCC' style='"+style_l+style_t+style_b+"'>&nbsp;</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>≈”¥—∫</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>√À— </td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>√“¬≈–‡Õ’¬¥</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>√“§“</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏•‡∏≥‡∏î‡∏±‡∏ö</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏£‡∏´‡∏±‡∏™</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏£‡∏≤‡∏Ñ‡∏≤</td>";
 		place += "<td style='"+style_l+style_t+style_b+"'>PV</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>®”π«π</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>√«¡√“§“</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>√«¡PV</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏à‡∏≥‡∏ô‡∏ß‡∏ô</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏£‡∏ß‡∏°‡∏£‡∏≤‡∏Ñ‡∏≤</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>‡∏£‡∏ß‡∏°PV</td>";
 		place += "</tr>";
 		for(i=0;i<(tag.length-skip)/8;i++){
 			showprice = 0;
@@ -49,7 +49,7 @@
 			step = i*8+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='≈∫' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -81,7 +81,7 @@
 		if(out){
 		//alert(tag.length)
 			place += "<tr>";//ssaledel(pcode,pdesc,price,pv)
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='≈∫' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + pcode + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
@@ -95,11 +95,11 @@
 			sumtotal = sumtotal + parseFloat(price);
 		}
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>√«¡</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>‡∏£‡∏ß‡∏°</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumtotal' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumpv' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='µ√«® Õ∫' />&nbsp;<input type='submit' value='∫—π∑÷°' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='¬°‡≈‘°' /></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö' />&nbsp;<input type='submit' value='‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å' /></td></tr>";
 		place += "</table>";
 		window.parent.document.getElementById('sale').innerHTML = place;
 		//fcus.focus();
@@ -133,14 +133,14 @@ $rec->setBackLink($PHP_SELF,"sessiontab=3");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("pcode,pdesc,price,pv,groupname");
-$rec->setFieldDesc("√À— ,√“¬≈–‡Õ’¬¥,√“§“,§–·ππ,ª√–‡¿∑");
+$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó");
 $rec->setFieldAlign("center,left,right,right,left");
 $rec->setFieldSpace("8%,45%,10%,10%,22%");
 $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv","IMAGE","");
 $rec->setSearch("pcode,pdesc,price,pv,groupname");
 $rec->setFieldFloatFormat(",,2,0");
-$rec->setSearchDesc("√À— ,√“¬≈–‡Õ’¬¥,√“§“,§–·ππ,ª√–‡¿∑º≈‘µ¿—≥±Ï");
+$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ú‡∏•‡∏¥‡∏ï‡∏†‡∏±‡∏ì‡∏ë‡πå");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

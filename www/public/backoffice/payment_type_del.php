@@ -5,8 +5,8 @@ require_once ("function.log.inc.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>ลบข้อมูลผู้ใช้ระบบ :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธฅเธเธเนเธญเธกเธนเธฅเธเธนเนเนเธเนเธฃเธฐเธเธ :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -15,14 +15,14 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัสพนักงาน</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัสผู้ใช้</td>
-			<td style="<?=$style_l.$style_t.$style_b?>">ชื่อผู้ใช้</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธชเธเธเธฑเธเธเธฒเธ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธชเธเธนเนเนเธเน</td>
+			<td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญเธเธนเนเนเธเน</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		echo 
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."payment_type WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
@@ -37,7 +37,7 @@ require_once ("function.log.inc.php");
             </tr>
             <?
 		}
-		logtext(true,$_SESSION['adminusercode'],'ลบข้อมูลการชำระเงิน',$row->usercode);
+		logtext(true,$_SESSION['adminusercode'],'เธฅเธเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธณเธฃเธฐเน€เธเธดเธ',$row->usercode);
 		mysql_free_result($rs);
 		//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=invuser_del =>delete from ".$dbprefix."payment_type where id='".$id."'";
@@ -46,6 +46,6 @@ writelogfile($text);
 		mysql_query("delete from ".$dbprefix."payment_type where id='".$id."' ");
 		mysql_query("COMMIT");
 	}
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 ?>
 	</table>

@@ -22,39 +22,39 @@ if ($showrep==''){
 	show_rep_dialogbox();
 }
 else{
-	//��Ǩ�ͺ�����١��ͧ�ͧ��ҷ���觨ҡ dialog
+	//ตรวจสอบความถูกต้องของค่าที่ส่งจาก dialog
 	$oktoshow=true;
 	if ($chkmember=="" AND $chksano=="" AND $chkinvent=="" AND $chkuid=="" AND $chkmdate=="") {
-		$errormsg.="��س����͡�����ŷ���ͧ��ä��Ҿ��������кؤ�ҷ���ͧ���<br>";
+		$errormsg.="กรุณาเลือกข้อมูลที่ต้องการค้นหาพร้อมทั้งระบุค่าที่ต้องการ<br>";
 		$oktoshow=false;
 	}
 		
 	if($chksano<>""){
 		if($sano==""){
-			$errormsg.="�Ţ������觫���������͡<br>";
+			$errormsg.="เลขที่ใบสั่งซื้อไม่ได้กรอก<br>";
 			$oktoshow=false;
 		}
 	}
 			
 	if($chkmdate<>""){
 		if($fmdate==""){
-			$errormsg.="�ѹ���������� ������͡<br>";
+			$errormsg.="วันที่เริ่มต้น ไม่ได้กรอก<br>";
 			$oktoshow=false;
 		}
 		if($tmdate==""){
-			$errormsg.="�ѹ�������ش ������͡<br>";
+			$errormsg.="วันที่สิ้นสุด ไม่ได้กรอก<br>";
 			$oktoshow=false;
 		}
 	}
 
-	// �ҡ���������١��ͧ ����ʴ�
+	// หากข้อมูลไม่ถูกต้อง ไม่แสดง
 	if(! $oktoshow){
 		echo "<font color=red>$errormsg</font>";
 		echo "<br>";
 		echo "<a href=\"javascript:window.close();\">Close Window</a>";
 		exit;
 	}
-	//�� sql statement
+	//หา sql statement
 	$rep_sql="select * from ".$dbprefix."asaleh";
 	$where_sql="";
 
@@ -145,14 +145,14 @@ else{
 	echo "<head>\n";
 	echo "<meta http-equiv='Content-Type' content='text/html; charset=windows-874'>\n";
 	echo "<meta http-equiv='Content-Language' content='th'>\n";
-	echo "<title>��§ҹ ���觫����Թ���Ἱ A</title>\n";
+	echo "<title>รายงาน ใบสั่งซื้อสินค้าแผน A</title>\n";
 	echo "</head>\n";
 	echo "<body>\n";
 	
-	echo "<div align='center'><font size='+1'><B>��§ҹ ���觫����Թ���Ἱ A</B></font></div>";
+	echo "<div align='center'><font size='+1'><B>รายงาน ใบสั่งซื้อสินค้าแผน A</B></font></div>";
 	echo "<br>";
 	echo "<a href=\"javascript:window.close();\">Close Window</a><br>";
-	echo "������ѹ��� ".date("Y-m-d h:i:s");
+	echo "พิมพ์วันที่ ".date("Y-m-d h:i:s");
 
 	echo "<table width='100%'>";
 	echo "<tr>";
@@ -160,16 +160,16 @@ else{
 
 	echo "<table width='100%'>";
 	echo "<tr>";
-	echo "<td  bgcolor='#EEEEEE' width='5%'>�ӴѺ</td>";
-	echo "<td  bgcolor='#EEEEEE' width='5%'>�Ţ�������</td>";
-	echo "<td  bgcolor='#EEEEEE' width='10%'>�ѹ���</td>";
-	echo "<td  bgcolor='#EEEEEE' width='10%'>������Ҫԡ</td>";
-	echo "<td  bgcolor='#EEEEEE' width='15%'>������Ҫԡ</td>";
-	echo "<td  bgcolor='#EEEEEE' width='10%'>�ʹ�Թ</td>";
+	echo "<td  bgcolor='#EEEEEE' width='5%'>ลำดับ</td>";
+	echo "<td  bgcolor='#EEEEEE' width='5%'>เลขที่ใบสั่ง</td>";
+	echo "<td  bgcolor='#EEEEEE' width='10%'>วันที่</td>";
+	echo "<td  bgcolor='#EEEEEE' width='10%'>รหัสสมาชิก</td>";
+	echo "<td  bgcolor='#EEEEEE' width='15%'>ชื่อสมาชิก</td>";
+	echo "<td  bgcolor='#EEEEEE' width='10%'>ยอดเงิน</td>";
 	echo "<td  bgcolor='#EEEEEE' width='10%'>PV</td>";
-	echo "<td  bgcolor='#EEEEEE' width='7%'>�Ң�</td>";
+	echo "<td  bgcolor='#EEEEEE' width='7%'>สาขา</td>";
 	echo "<td  bgcolor='#EEEEEE' width='7%'>UID</td>";
-	echo "<td  bgcolor='#EEEEEE' width='10%'>�����˵�</td>";
+	echo "<td  bgcolor='#EEEEEE' width='10%'>หมายเหตุ</td>";
 	echo "</tr>";
 	
 	include("connectmysql.php");
@@ -231,7 +231,7 @@ else{
 				$sbgdolor=  " bgcolor = '#eeeeee'";						  
 		}
 		$ncount = $ncount + 1;				  
-	}	// �Դ while																					
+	}	// ปิด while																					
 	echo "</table>";
 
 	echo "</td>";
@@ -239,7 +239,7 @@ else{
 	echo "</table>";
 	echo "</body>\n";
 	echo "</html>\n";
-}  //�Դ if showrep
+}  //ปิด if showrep
 
 function show_rep_dialogbox(){
 ?>
@@ -247,7 +247,7 @@ function show_rep_dialogbox(){
 	<head>
 	<meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 	<meta http-equiv="Content-Language" content="th">
-	<title>��§ҹ ���觫����Թ���Ἱ A</title>
+	<title>รายงาน ใบสั่งซื้อสินค้าแผน A</title>
 	<link href="istyle.css" rel="stylesheet" type="text/css">
 	</head>
 	<body>
@@ -260,7 +260,7 @@ function show_rep_dialogbox(){
 		<td width='10%' height='179'></td>
 		<td width='80%' valign=top>
 		<?////////////////////////////////////////////////////////////////////?>
-		<?///////////////////// ��ͺ�͡ //////////////////////////////?>
+		<?///////////////////// กรอบนอก //////////////////////////////?>
 		<TABLE cellSpacing=0 cellPadding=0 border=0>
 		<TBODY>
 			<TR>
@@ -271,7 +271,7 @@ function show_rep_dialogbox(){
 			<TR>
 				<TD width=8 background='images/crn_f2f2f2_l.gif' height=46></TD>
 				<TD bgColor=#f2f2f2 height=46> 
-		<?///////////////////// ��ͺ�͡ //////////////////////////////?>
+		<?///////////////////// กรอบนอก //////////////////////////////?>
 
 
 				<?//////////////////////////////////////////////////////////////////////?>
@@ -279,7 +279,7 @@ function show_rep_dialogbox(){
 				<table width='101%' border='0' cellspacing='2' cellpadding='1'>
 				  <form method='post' name='rep_sa_sales_bill_a_print' id='rep_sa_sales_bill_a_print' action='rep_sa_sales_bill_a_print.php' target='_blank' onSubmit="return check()">
 					<tr> 
-					  <td align='left' colspan='3' height='2'><b>��§ҹ ���觫����Թ���Ἱ A</b></td>
+					  <td align='left' colspan='3' height='2'><b>รายงาน ใบสั่งซื้อสินค้าแผน A</b></td>
 					</tr>			
 					<tr> 
 					  <td width='4%' align='right'>&nbsp;</td>
@@ -290,56 +290,56 @@ function show_rep_dialogbox(){
 					  <td width='4%' align='right'><label>
 					  <input name="chkmember" type="checkbox" value="checkbox">
 					  </label></td>
-					  <td width='32%' align='right'>������Ҫԡ :</td>
+					  <td width='32%' align='right'>รหัสสมาชิก :</td>
 					  <td width='64%'> <input name='member' type='text' size='20' maxlength='20' id='member'>
-					    <font color=808080>( ��. ���� 1-1009 )</font></td>
+					    <font color=808080>( ตย. รหัส 1-1009 )</font></td>
 					</tr>
 					<tr> 
 					  <td width='4%' align='right'><label>
 					  <input type="checkbox" name="chksano" value="checkbox">
 					  </label></td>
-					  <td width='32%' align='right'>�����ҧ���觫����Ţ��� : </td>
+					  <td width='32%' align='right'>ระหว่างใบสั่งซื้อเลขที่ : </td>
 					  <td width='64%'><input name='sano' type='text' id='sano' size='20' maxlength="20"> 
-					    <label><font color=808080>( ��. �Ţ��� 1-9 )</font></label></td>
+					    <label><font color=808080>( ตย. เลขที่ 1-9 )</font></label></td>
 					</tr>
 					<tr>
                       <td align='right'><label>
                         <input type="checkbox" name="chkinvent" value="checkbox">
                       </label></td>
-					  <td align='right'>�����Ң� :</td>
+					  <td align='right'>รหัสสาขา :</td>
 					  <td><input name='invent' type='text' size='20' maxlength='20' id='invent'>
-                          <font color=808080>( ���� 1-1009 )</font></td>
+                          <font color=808080>( รหัส 1-1009 )</font></td>
 				    </tr>
 					<tr>
                       <td align='right'><label>
                         <input type="checkbox" name="chkuid" value="checkbox">
                       </label></td>
-					  <td align='right'>���ʾ�ѡ�ҹ :</td>
+					  <td align='right'>รหัสพนักงาน :</td>
 					  <td><input name='uid' type='text' size='20' maxlength='20' id='uid'>
-				      <font color=808080>( ���� 1-1009 )</font></td>
+				      <font color=808080>( รหัส 1-1009 )</font></td>
 					</tr>				
 					
 					<tr> 
 					  <td width='4%' align='right'><input type='checkbox' value='checkbox' name='chkmdate'></td>
-					  <td width='32%' align='right'>���觫��������ҧ�ѹ��� : </td>
-					  <td width='64%'><input name='fmdate' type='text' size='10' value='<? echo $fmdate;?>'>&nbsp;<a href="javascript:NewCal('fmdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="���͡�ѹ���"></a> �֧ <input name='tmdate' type='text' size='10' value='<? echo $tmdate;?>'>&nbsp;<a href="javascript:NewCal('tmdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="���͡�ѹ���"></a> <font color=808080>(����-��-��)</font></td>
+					  <td width='32%' align='right'>ใบสั่งซื้อระหว่างวันที่ : </td>
+					  <td width='64%'><input name='fmdate' type='text' size='10' value='<? echo $fmdate;?>'>&nbsp;<a href="javascript:NewCal('fmdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่"></a> ถึง <input name='tmdate' type='text' size='10' value='<? echo $tmdate;?>'>&nbsp;<a href="javascript:NewCal('tmdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่"></a> <font color=808080>(ปปปป-ดด-วว)</font></td>
 					</tr>	
 					
 					<tr> 
 					  <td width='4%' align='right'><label></label></td>
-					  <td width='32%' align='right'>&nbsp;���§ :</td>
+					  <td width='32%' align='right'>&nbsp;เรียง :</td>
 					  <td width='64%'>
 						<select name='orderby'>
-						  <option value='sano' selected>���§�Ţ������觫���</option>
-						  <option value='sadate'>���§�ѹ������觫���</option>
-						  <option value='mcode'>���§������Ҫԡ</option>
-						  <option value='uid'>���§���ʾ�ѡ�ҹ</option>
+						  <option value='sano' selected>เรียงเลขที่ใบสั่งซื้อ</option>
+						  <option value='sadate'>เรียงวันที่ใบสั่งซื้อ</option>
+						  <option value='mcode'>เรียงรหัสสมาชิก</option>
+						  <option value='uid'>เรียงรหัสพนักงาน</option>
 						</select>
-						�ҡ
+						จาก
 						<input type='radio' name='sortby' value='asc' checked >
-						������ҡ 
+						น้อยไปมาก 
 						<input type='radio' name='sortby' value='desc'>
-					  �ҡ仹���						</td>
+					  มากไปน้อย						</td>
 					</tr>
 									
 					<tr> 
@@ -351,7 +351,7 @@ function show_rep_dialogbox(){
 					<tr> 
 					  <td colspan='2' align='right'>&nbsp;</td>
 					  <td width='64%'> 
-					  <input type='submit' id='submit' name='showrep' value=' �ʴ���§ҹ '>					  </td>
+					  <input type='submit' id='submit' name='showrep' value=' แสดงรายงาน '>					  </td>
 					</tr>
 					<tr> 
 					  <td colspan='2' align='right'>&nbsp;</td>
@@ -359,11 +359,11 @@ function show_rep_dialogbox(){
 					</tr>
 				</form>
 				</table>
-				<?///////////////////// ��ǹ dialog //////////////////////////////?>
+				<?///////////////////// ส่วน dialog //////////////////////////////?>
 				<?//////////////////////////////////////////////////////////////////////?>
 
 						
-		<?///////////////////// ��ͺ�͡ //////////////////////////////?>
+		<?///////////////////// กรอบนอก //////////////////////////////?>
 				</TD>
 				<TD width=8 background='images/crn_f2f2f2_r.gif' height=46></TD>
 			</TR>
@@ -374,7 +374,7 @@ function show_rep_dialogbox(){
 			</TR>
 		</TBODY>
 		</TABLE>
-		<?///////////////////// ��ͺ�͡ //////////////////////////////?>
+		<?///////////////////// กรอบนอก //////////////////////////////?>
 		<?////////////////////////////////////////////////////////////////////?>
 		
 		</td>
@@ -401,7 +401,7 @@ function check() {
 	var v5 = document.rep_sa_sales_bill_a_print.fmdate.value;
 	var v6 = document.rep_sa_sales_bill_a_print.tmdate.value;
 	if (v1.length==0&&v2.length==0&&v3.length==0&&v4.length==0&&v5.length==0&&v6.length==0) {
-		alert("��س����͡�����ŷ���ͧ��ä��Ҿ��������кؤ�ҷ���ͧ���");
+		alert("กรุณาเลือกข้อมูลที่ต้องการค้นหาพร้อมทั้งระบุค่าที่ต้องการ");
         document.rep_sa_sales_bill_a_print.member.focus();           
 		return false;
 	} else {
@@ -411,9 +411,9 @@ function check() {
 </script>
 <?
 function get_data($field,$table,$field_and_value){
-	//��ҹ��� �ҡ  select $field from $table where $field_and_value
+	//อ่านค่า จาก  select $field from $table where $field_and_value
 	// $field=field name to get data
-	// table=scm_xxxxxx ����ͧ��� scm
+	// table=scm_xxxxxx ไม่ต้องใส่ scm
 	// $field_and_value="fieldname='value' "
 	global $dbprefix;
 	$sql="select * from ".$dbprefix."$table where $field_and_value ";

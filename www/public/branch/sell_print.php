@@ -82,8 +82,8 @@ $inv_code = $_SESSION["admininvent"];
 	}
 
 ?>
-<table align="center"><tr>	<td align="center"><b>�����ź�������ҧ�ѹ��� <?=$fdate?> �֧ <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">������ѹ��� <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>ข้อมูลบิลระหว่างวันที่ <?=$fdate?> ถึง <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">พิมพ์วันที่ <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -100,8 +100,8 @@ $sql = "SELECT *,@num := @num + 1 b FROM (SELECT ".$dbprefix."asaleh.online,canc
 ,tot_pv,total,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.mcode AS smcode";
 $sql .= ",checkportal,CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist' END AS checkportal1";
 $sql .= ",CASE sa_type WHEN 'A' THEN '".$wording_lan['satype']['A']."' WHEN 'B' THEN '".$wording_lan['satype']['B']."' WHEN 'C' THEN '".$wording_lan['satype']['C']."' WHEN 'Q' THEN '".$wording_lan['satype']['Q']."' WHEN 'H' THEN '".$wording_lan['satype']['H']."'    END AS ability";
-$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN '��' ELSE '�Ѻ�ͧ' END AS send ";
-$sql .= ", ".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '����͹�Ź�' ELSE '��Ţ�»���' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
+$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'ส่ง' ELSE 'รับเอง' END AS send ";
+$sql .= ", ".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'บิลออนไลน์' ELSE 'บิลขายปกติ' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
 $sql .= ",
 txtCredit1+txtCredit2+txtCredit3 as AllCredit,txtCredit4 as CreditCS,txtCash as txtCash,txtFuture as txtFuture,txtInternet+0 as txtInternet,txtTransfer,txtDiscount+0 as txtDiscount,txtOther+0 as txtOther,
 ' '+optionCash+optionFuture+optionCredit1+optionCredit2+optionCredit3+optionInternet+optionDiscount+optionOther as optionAll,txtCredit1,txtCredit2,txtCredit3";
@@ -214,19 +214,19 @@ echo '<script type="text/javascript">
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_f,name_t,ability,sadate,tot_pv,total,txtCash,AllCredit,CreditCS,txtInternet,txtFuture,txtTransfer,txtDiscount,uid,inv_ref,checkportal1,send,scheck,cshort");
-		$rec->setFieldDesc($wording_lan["tab2_report_29"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["tab1_mem_13"].",".$wording_lan["Bill_4"].",".$wording_lan["tab2_report_3"].",".$wording_lan["Billjang_4"].",".$wording_lan["ewallet_12"].",".$wording_lan["tab2_report_15"].",".$wording_lan["tab2_report_37"].",".$wording_lan["tab2_report_38"].",�ôԵ��ѡ�ҹ,".$wording_lan["tab3_3_7"].",".$wording_lan["Report_16"].",".$wording_lan["Billjang_12"].",".$wording_lan["tab3_3_9"].",".$wording_lan["word"]["maker"].",".$wording_lan["tab1_mem_51"].",".$wording_lan["Bill_17"].",".$wording_lan["Bill_9"].",".$wording_lan["tab2_report_11"].",".$wording_lan["Report_13"]);
+		$rec->setFieldDesc($wording_lan["tab2_report_29"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["tab1_mem_13"].",".$wording_lan["Bill_4"].",".$wording_lan["tab2_report_3"].",".$wording_lan["Billjang_4"].",".$wording_lan["ewallet_12"].",".$wording_lan["tab2_report_15"].",".$wording_lan["tab2_report_37"].",".$wording_lan["tab2_report_38"].",เครดิตพนักงาน,".$wording_lan["tab3_3_7"].",".$wording_lan["Report_16"].",".$wording_lan["Billjang_12"].",".$wording_lan["tab3_3_9"].",".$wording_lan["word"]["maker"].",".$wording_lan["tab1_mem_51"].",".$wording_lan["Bill_17"].",".$wording_lan["Bill_9"].",".$wording_lan["tab2_report_11"].",".$wording_lan["Report_13"]);
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2,2,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,left,center,center,right,right,right,right,right,right,right,center,center,center");
 		$rec->setFieldSpace("3%,6%,6%,3%,14%,4%,7%,4%,7%,3%,3%,4%,4%,4%,4%,4%,5%,5%,5%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}

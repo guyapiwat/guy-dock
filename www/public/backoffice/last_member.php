@@ -13,8 +13,8 @@ include("global.php");
 	//	echo $sql;
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
-        	dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$notfound);
+			$notfound = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">เนเธเธซเธเนเธฒเธชเธกเธฒเธเธดเธ</a>]";
+        	dialogbox("50%","#990000","เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ",$notfound);
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -134,45 +134,45 @@ include("global.php");
 <head>
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
-<title>สมาชิกคนล่าสุด</title>
+<title>เธชเธกเธฒเธเธดเธเธเธเธฅเนเธฒเธชเธธเธ”</title>
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 </head>
 <div id="err"></div>
 <form name='frm' method="post">
   
   <table width="100%" border="0">
-  	<tr bgcolor="#FFCC33"><td><b>ข้อมูลธุรกิจ</b></td></tr>
+  	<tr bgcolor="#FFCC33"><td><b>เธเนเธญเธกเธนเธฅเธเธธเธฃเธเธดเธ</b></td></tr>
     <tr><td>
 <!--business information--> 
 <table width="100%" border="0" cellspacing="2" cellpadding="0">
   <tr>
-    <td width="25%" align="right" class="texh"><b>รหัสสมาชิก :</b></td>
+    <td width="25%" align="right" class="texh"><b>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ :</b></td>
 	<td width="16%" class="texd">&nbsp;<?=$meminfo['mcode']?></td>
-    <td width="22%" align="right" class="texh"><b>วันที่สมัคร :</b></td>	
+    <td width="22%" align="right" class="texh"><b>เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ :</b></td>	
 	<td width="37%" class="texd">&nbsp;<? echo ($meminfo['mdate']!="")?$meminfo['mdate']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>รหัสผู้แนะนำ :</b></td>
+    <td align="right" class="texh"><b>เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['sp_code']!="")?$meminfo['sp_code']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>รหัสอัพไลน :</b>์</td>
+    <td align="right" class="texh"><b>เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธ :</b>เน</td>
     <td class="texd">&nbsp;<? echo ($meminfo['upa_code']!="")?$meminfo['upa_code']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>ชื่อผู้แนะนำ :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['spname']!="")?$meminfo['spname']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>ชื่ออัพไลน์ :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญเธญเธฑเธเนเธฅเธเน :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['upaname']!="")?$meminfo['upaname']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-  	 <td align="right" class="texh"><b>เลขบิลที่ซื้อล่าลุด :</b></td>
+  	 <td align="right" class="texh"><b>เน€เธฅเธเธเธดเธฅเธ—เธตเนเธเธทเนเธญเธฅเนเธฒเธฅเธธเธ” :</b></td>
     <td class="texd">&nbsp;<? echo $last_sano?$last_sano:'-';?></td>
     
-    <td align="right" class="texh"><b>ด้าน :</b></td>
-    <td class="texd">&nbsp;<? //echo ($meminfo['lr']!="")? ($meminfo['lr']=="1")?"ซ้าย":"ขวา": $meminfo['nodata']; 
+    <td align="right" class="texh"><b>เธ”เนเธฒเธ :</b></td>
+    <td class="texd">&nbsp;<? //echo ($meminfo['lr']!="")? ($meminfo['lr']=="1")?"เธเนเธฒเธข":"เธเธงเธฒ": $meminfo['nodata']; 
 	if(strcmp($meminfo['lr'],'1')==0){
-	echo "ซ้าย"; 
+	echo "เธเนเธฒเธข"; 
 	}else if(strcmp($meminfo['lr'],'2')==0){
-	echo "ขวา";
+	echo "เธเธงเธฒ";
 	}else{
 		echo $meminfo['nodata'];
 	}
@@ -180,7 +180,7 @@ include("global.php");
 	</td>
   </tr>
   <tr>
-   <td valign="top" align="right" class="texh"><b>PV สะสม :</b></td>
+   <td valign="top" align="right" class="texh"><b>PV เธชเธฐเธชเธก :</b></td>
     <td>&nbsp;<? echo $sum_totpv?$sum_totpv:'0';?></td>
     <td align="right" class="texh"><b></b></td>
     <td class="texd">&nbsp;</td>
@@ -188,111 +188,111 @@ include("global.php");
 </table>
     </td></tr>
   	<tr bgcolor="#FFCC33">
-  	  <td><b>ข้อมูลสมาชิก(APPLICANT INFORMATION)</b></td>
+  	  <td><b>เธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธ(APPLICANT INFORMATION)</b></td>
   	</tr>
     <tr>
       <td>
 <!--member Information-->
 <table width="100%" border="0">
   <tr>
-    <td width="25%" align="right" class="texh"><b>คำนำหน้าชื่อ :</b></td>
+    <td width="25%" align="right" class="texh"><b>เธเธณเธเธณเธซเธเนเธฒเธเธทเนเธญ :</b></td>
     <td width="16%" class="texd">&nbsp;<? echo ($meminfo['name_f']!="")?$meminfo['name_f']:$meminfo['nodata']; ?></td>
-    <td width="22%" align="right" class="texh"><b>ที่อยู่ปัจจุบัน :</b></td>
+    <td width="22%" align="right" class="texh"><b>เธ—เธตเนเธญเธขเธนเนเธเธฑเธเธเธธเธเธฑเธ :</b></td>
     <td width="37%" class="texd">&nbsp;<? echo ($meminfo['address']!="")?$meminfo['address']:$meminfo['nodata']; ?></td>
   </tr>
   
   <tr>
-    <td align="right" class="texh"><b>ชื่อ-นามสกุล :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญ-เธเธฒเธกเธชเธเธธเธฅ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['name_t']!="")?$meminfo['name_t']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>ตำบล :</b></td>
+    <td align="right" class="texh"><b>เธ•เธณเธเธฅ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['districtName']!="")?$meminfo['districtName']:$meminfo['nodata']; ?></td>
    </tr>
   <tr>
-    <td align="right" class="texh"><b>ชื้อทางธุรกิจ :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญเธ—เธฒเธเธเธธเธฃเธเธดเธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['name_b']!="")?$meminfo['name_b']:$meminfo['nodata']; ?></td>
-	<td align="right" class="texh"><b>อำเภอ :</b></td>
+	<td align="right" class="texh"><b>เธญเธณเน€เธ เธญ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['amphurName']!="")?$meminfo['amphurName']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
     <td align="right" class="texh"><b>Name &amp; LastName :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['name_e']!="")?$meminfo['name_e']:$meminfo['nodata']; ?></td>
-	<td align="right" class="texh"><b>จังหวัด :</b></td>
+	<td align="right" class="texh"><b>เธเธฑเธเธซเธงเธฑเธ” :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['provinceName']!="")?$meminfo['provinceName']:$meminfo['nodata']; ?></td>
     </tr>
    <tr>
-    <td align="right" class="texh"><b>เพศ :</b></td>
+    <td align="right" class="texh"><b>เน€เธเธจ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['sex']!="")?$meminfo['sex']:$meminfo['nodata']; ?></td>
-	<td align="right" class="texh"><b>รหัสไปรษณีย์ :</b></td>
+	<td align="right" class="texh"><b>เธฃเธซเธฑเธชเนเธเธฃเธฉเธ“เธตเธขเน :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['zip']!="")?$meminfo['zip']:$meminfo['nodata']; ?></td>
    </tr>
    <tr>
-    <td align="right" class="texh"><b>วันที่เกิด :</b></td>
+    <td align="right" class="texh"><b>เธงเธฑเธเธ—เธตเนเน€เธเธดเธ” :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['birthday']!="")?$meminfo['birthday']:$meminfo['nodata']; ?></td>
-     <td align="right" class="texh"><b>โทรศัพท์บ้าน :</b></td>
+     <td align="right" class="texh"><b>เนเธ—เธฃเธจเธฑเธเธ—เนเธเนเธฒเธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['home_t']!="")?$meminfo['home_t']:$meminfo['nodata']; ?></td>
   </tr>
    <tr>
-    <td align="right" class="texh"><b>อายุ :</b></td>
+    <td align="right" class="texh"><b>เธญเธฒเธขเธธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['age']!="")?$meminfo['age']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>โทรศัพท์มือถือ :</b></td>
+    <td align="right" class="texh"><b>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['mobile']!="")?$meminfo['mobile']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>อาชีพ :</b></td>
+    <td align="right" class="texh"><b>เธญเธฒเธเธตเธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['occupation']!="")?$meminfo['occupation']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>โทรสาร :</b></td>
+    <td align="right" class="texh"><b>เนเธ—เธฃเธชเธฒเธฃ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['fax']!="")?$meminfo['fax']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>สัญชาติ :</b></td>
+    <td align="right" class="texh"><b>เธชเธฑเธเธเธฒเธ•เธด :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['national']!="")?$meminfo['national']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>รับโบนัสผ่าน :</b></td>
-    <td class="texd">&nbsp;<? echo ($meminfo['bonusrec']!="")? ($meminfo['bonusrec']=="1")?"ธนาคาร":"รับเอง": $meminfo['nodata']; ?></td>
+    <td align="right" class="texh"><b>เธฃเธฑเธเนเธเธเธฑเธชเธเนเธฒเธ :</b></td>
+    <td class="texd">&nbsp;<? echo ($meminfo['bonusrec']!="")? ($meminfo['bonusrec']=="1")?"เธเธเธฒเธเธฒเธฃ":"เธฃเธฑเธเน€เธญเธ": $meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>เลขประจำตัวประชาชน :</b></td>
+    <td align="right" class="texh"><b>เน€เธฅเธเธเธฃเธฐเธเธณเธ•เธฑเธงเธเธฃเธฐเธเธฒเธเธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['id_card']!="")?$meminfo['id_card']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>ธนาคาร :</b></td>
+    <td align="right" class="texh"><b>เธเธเธฒเธเธฒเธฃ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['bankname']!="")?$meminfo['bankname']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b> เลขประจำตัวผู้เสียภาษี :</b></td>
+    <td align="right" class="texh"><b> เน€เธฅเธเธเธฃเธฐเธเธณเธ•เธฑเธงเธเธนเนเน€เธชเธตเธขเธ เธฒเธฉเธต :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['id_tex']!="")?$meminfo['id_tex']:$meminfo['nodata']; ?></td>
-     <td align="right" class="texh"><b>สาขา :</b></td>
+     <td align="right" class="texh"><b>เธชเธฒเธเธฒ :</b></td>
      <td class="texd">&nbsp;<? echo ($meminfo['branch']!="")?$meminfo['branch']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>สถานะภาพ :</b></td>
+    <td align="right" class="texh"><b>เธชเธ–เธฒเธเธฐเธ เธฒเธ :</b></td>
 	<td class="texd">&nbsp;<? echo ($meminfo['status']!="")?$meminfo['status']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>ประเภทบัญชี :</b></td>
+    <td align="right" class="texh"><b>เธเธฃเธฐเน€เธ เธ—เธเธฑเธเธเธต :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['acc_type']!="")?$meminfo['acc_type']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>ชื่อคู่สมรส :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญเธเธนเนเธชเธกเธฃเธช :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['mar_name']!="")?$meminfo['mar_name']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>เลขที่บัญชี :</b></td>
+    <td align="right" class="texh"><b>เน€เธฅเธเธ—เธตเนเธเธฑเธเธเธต :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['acc_no']!="")?$meminfo['acc_no']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>อายุคู่สมรส :</b></td>
+    <td align="right" class="texh"><b>เธญเธฒเธขเธธเธเธนเนเธชเธกเธฃเธช :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['mar_age']!="")?$meminfo['mar_age']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>ชื่อบัญชี :</b></td>
+    <td align="right" class="texh"><b>เธเธทเนเธญเธเธฑเธเธเธต :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['acc_name']!="")?$meminfo['acc_name']:$meminfo['nodata']; ?></td>
   </tr>
   <tr>
-    <td align="right" class="texh"><b>อีเมล์ :</b></td>
+    <td align="right" class="texh"><b>เธญเธตเน€เธกเธฅเน :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['email']!="")?$meminfo['email']:$meminfo['nodata']; ?></td>
-    <td align="right" class="texh"><b>หมายเหตุ :</b></td>
+    <td align="right" class="texh"><b>เธซเธกเธฒเธขเน€เธซเธ•เธธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['memdesc']!="")?$meminfo['memdesc']:$meminfo['nodata']; ?></td>
   </tr>
    <tr>
-    <td align="right" class="texh"><b>ผู้รับมรดกทางธุรกิจ :</b></td>
+    <td align="right" class="texh"><b>เธเธนเนเธฃเธฑเธเธกเธฃเธ”เธเธ—เธฒเธเธเธธเธฃเธเธดเธ :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['beneficiaries']!="")?$meminfo['beneficiaries']:$meminfo['nodata']; ?></td>
     <td></td>
     <td></td>
   </tr>
    <tr>
-    <td align="right" class="texh"><b>ความสัมพันธ์ :</b></td>
+    <td align="right" class="texh"><b>เธเธงเธฒเธกเธชเธฑเธกเธเธฑเธเธเน :</b></td>
     <td class="texd">&nbsp;<? echo ($meminfo['beneficiaries']!="")?$meminfo['beneficiaries']:$meminfo['nodata']; ?></td>
     <td align="right" ></td>
     <td>&nbsp;</td>

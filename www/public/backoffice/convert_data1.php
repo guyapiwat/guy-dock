@@ -28,14 +28,14 @@ if(!isset($_POST["ftrcode"])){
 	<?
 		$ftrcode = $_POST["ftrcode"];
 		if (strpos($ftrcode,"-")===false){
-			//√Õ∫‡√‘Ë¡µÈπ == √Õ∫ ‘Èπ ÿ¥
+			//‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô == ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î
 			$ftrc[0]=$ftrcode;
 			$ftrc[1]=$ftrcode;
 		}else{
 			$ftrc = explode('-',$ftrcode);
 		}
 		if($ftrc[0]>$ftrc[1]){
-			?><FONT COLOR="#ff0000">√Õ∫‡√‘Ë¡µÈπ µÈÕßπÈÕ¬°«Ë“À√◊Õ‡∑Ë“°—∫ √Õ∫ ‘Èπ ÿ¥ °√ÿ≥“„ Ë√Õ∫°“√§”π«≥„À¡Ë</FONT><?
+			?><FONT COLOR="#ff0000">‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô ‡∏ï‡πâ‡∏≠‡∏á‡∏ô‡πâ‡∏≠‡∏¢‡∏Å‡∏ß‡πà‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÉ‡∏™‡πà‡∏£‡∏≠‡∏ö‡∏Å‡∏≤‡∏£‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÉ‡∏´‡∏°‡πà</FONT><?
 			showdialog();
 			exit;
 		}else{
@@ -45,14 +45,14 @@ if(!isset($_POST["ftrcode"])){
 		$step="1";
 		$time_start = getmicrotime();
 		
-		echo "‡√‘Ë¡°“√∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈ &nbsp;&nbsp;&nbsp;: ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-		//echo "1. ”À√—∫·µË≈–√Õ∫ Ro √–À«Ë“ß Frcode-Trcode „π around<BR>";
-		//ÕË“π¢ÈÕ¡Ÿ≈  ¡“™‘°
+		echo "‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏Å‡∏≤‡∏£‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• &nbsp;&nbsp;&nbsp;: ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+		//echo "1.‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÅ‡∏ï‡πà‡∏•‡∏∞‡∏£‡∏≠‡∏ö Ro ‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á Frcode-Trcode ‡πÉ‡∏ô around<BR>";
+		//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• ‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
 		/*$sql="SELECT * FROM ali_member_old ";
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
 			$sqlObj = mysql_fetch_object($rs);
-			$mcode= $sqlObj->mcode; //√À—  ¡“™‘°
+			$mcode= $sqlObj->mcode; //‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
 			$name_f= $sqlObj->name_f;
 			$name_t= $sqlObj->name_t;
 			$mdate = $sqlObj->mdate;
@@ -118,14 +118,14 @@ if(!isset($_POST["ftrcode"])){
 		$rs1 = mysql_query($sql1);
 		for($l=0;$l<mysql_num_rows($rs1);$l++){
 			$sqlObj1 = mysql_fetch_object($rs1);
-			$mcode1= $sqlObj1->mcode; //√À—  ¡“™‘°
+			$mcode1= $sqlObj1->mcode; //‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
 			$pos_cur= $sqlObj1->pos_cur;
 			$sql="SELECT sum(tot_pv) as tot_pv FROM ali_asaleh_old where cancel=0 and mcode='$mcode1' and sa_type='A' ";
 			$rs = mysql_query($sql);
 			if(mysql_num_rows($rs)>0){
 				$sqlObj = mysql_fetch_object($rs);
-				$btot_pv= $sqlObj->tot_pv; //«—π∑’Ë ¡—§√
-				$sadate= "2010-03-09"; //«—π∑’Ë ¡—§√
+				$btot_pv= $sqlObj->tot_pv; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+				$sadate= "2010-03-09"; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 			}
 			mysql_free_result($rs);
 
@@ -133,12 +133,12 @@ if(!isset($_POST["ftrcode"])){
 			$rs = mysql_query($sql);
 			if(mysql_num_rows($rs)>0){
 				$sqlObj = mysql_fetch_object($rs);
-				$htot_pv= $sqlObj->tot_pv; //«—π∑’Ë ¡—§√
+				$htot_pv= $sqlObj->tot_pv; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 			}
 			mysql_free_result($rs);
 			$sano="-".($l+1);
-			$total= 0; //™◊ËÕ ¡“™‘°
-			$sadate= "2010-03-09"; //«—π∑’Ë ¡—§√
+			$total= 0; //‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
+			$sadate= "2010-03-09"; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 
 			switch ($pos_cur){
 				case 'S':
@@ -188,9 +188,9 @@ if(!isset($_POST["ftrcode"])){
 			$rs = mysql_query($sql);
 			if(mysql_num_rows($rs)>0){
 				$sqlObj = mysql_fetch_object($rs);
-				$carry_l= $sqlObj->carry_l ; //«—π∑’Ë ¡—§√
-				$carry_r= $sqlObj->carry_r ; //«—π∑’Ë ¡—§√
-				$fdate = $sqlObj->fdate; //«—π∑’Ë ¡—§√
+				$carry_l= $sqlObj->carry_l ; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+				$carry_r= $sqlObj->carry_r ; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+				$fdate = $sqlObj->fdate; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 				 
 				 $sql="insert into ".$dbprefix."bmbonus (mcode,rcode,carry_l, carry_r,  fdate,  tdate) values ('$mcode1','0','$carry_l' ,'$carry_r' ,'$fdate','$fdate') ";
 					if (! mysql_query($sql)) {
@@ -213,9 +213,9 @@ if(!isset($_POST["ftrcode"])){
 			$rs = mysql_query($sql);
 			for($l=0;$l<mysql_num_rows($rs);$l++){
 				$sqlObj = mysql_fetch_object($rs);
-				$carry_l= $sqlObj->carry_l ; //«—π∑’Ë ¡—§√
-				$carry_r= $sqlObj->carry_r ; //«—π∑’Ë ¡—§√
-				$mcode = $sqlObj->mcode; //«—π∑’Ë ¡—§√
+				$carry_l= $sqlObj->carry_l ; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+				$carry_r= $sqlObj->carry_r ; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+				$mcode = $sqlObj->mcode; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 				if($carry_r>0){
 					$sql="Update ".$dbprefix."bmbonus  set carry_c='$carry_r', carry_r='0',pcrry_r='0' where mcode='$mcode' ";
 					echo "$sql<br>";
@@ -230,13 +230,13 @@ if(!isset($_POST["ftrcode"])){
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
 			$sqlObj = mysql_fetch_object($rs);
-			$mcode= $sqlObj->MEM_ID; //√À—  ¡“™‘°
-			$name_t= $sqlObj->MEM_Name; //™◊ËÕ ¡“™‘°
-			$mdate= $sqlObj->MEM_Timer; //«—π∑’Ë ¡—§√
-			$pos_no= $sqlObj->MEM_CLSTrue; //«—π∑’Ë ¡—§√
+			$mcode= $sqlObj->MEM_ID; //‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
+			$name_t= $sqlObj->MEM_Name; //‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
+			$mdate= $sqlObj->MEM_Timer; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
+			$pos_no= $sqlObj->MEM_CLSTrue; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 
 
-			//ÕË“π¢ÈÕ¡Ÿ≈∏π“§“√ ®“°µ“√“ß sv_member_bank
+			//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£ ‡∏à‡∏≤‡∏Å‡∏ï‡∏≤‡∏£‡∏≤‡∏á sv_member_bank
 			$sql1 = "SELECT * FROM sv_member_bank WHERE MEM_ID='".$mcode."' ";
 			$rs1 = mysql_query($sql1);
 			if(mysql_num_rows($rs1)>0){
@@ -246,7 +246,7 @@ if(!isset($_POST["ftrcode"])){
 				$acc_type=$row->BNK_Type;
 				$acc_name=$row->BNK_AccName;
 				$acc_no=$row->BNK_AccNo;
-				//‡Õ“™◊ËÕ∏π“§“√‰ªÀ“√À— ∏π“§“√
+				//‡πÄ‡∏≠‡∏≤‡∏ä‡∏∑‡πà‡∏≠‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£‡πÑ‡∏õ‡∏´‡∏≤‡∏£‡∏´‡∏±‡∏™‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£
 				$sql_b = "SELECT * FROM ".$dbprefix."bank WHERE bankname='".$bank_name."' ";
 				$rs_b = mysql_query($sql_b);
 				if(mysql_num_rows($rs_b)>0){
@@ -259,7 +259,7 @@ if(!isset($_POST["ftrcode"])){
 			}
 			mysql_free_result($rs1);
 			
-			//ÕË“π¢ÈÕ¡Ÿ≈ “¬ß“π ¡“™‘° ®“°µ“√“ß sv_member_fiber
+			//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å ‡∏à‡∏≤‡∏Å‡∏ï‡∏≤‡∏£‡∏≤‡∏á sv_member_fiber
 			$sql1 = "SELECT * FROM sv_member_fiber WHERE MEM_ID='".$mcode."' ";
 			$rs1 = mysql_query($sql1);
 			if(mysql_num_rows($rs1)>0){
@@ -281,7 +281,7 @@ if(!isset($_POST["ftrcode"])){
 						$lr='';
 						break;
 				}
-				//‰ªÀ“™◊ËÕºŸÈ·π–π”
+				//‡πÑ‡∏õ‡∏´‡∏≤‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥
 				$sql_b = "SELECT * FROM sv_member WHERE MEM_ID='".$sp_code."' ";
 				//echo "<br>";
 				$rs_b = mysql_query($sql_b);
@@ -292,7 +292,7 @@ if(!isset($_POST["ftrcode"])){
 					$sp_name="";
 				}
 				mysql_free_result($rs_b);
-				//‰ªÀ“™◊ËÕÕ—æ‰≈πÏ
+				//‡πÑ‡∏õ‡∏´‡∏≤‡∏ä‡∏∑‡πà‡∏≠‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå
 				$sql_b = "SELECT * FROM sv_member WHERE MEM_ID='".$upa_code."' ";
 				$rs_b = mysql_query($sql_b);
 				if(mysql_num_rows($rs_b)>0){
@@ -307,7 +307,7 @@ if(!isset($_POST["ftrcode"])){
 			}
 			mysql_free_result($rs1);
 
-			//ÕË“π¢ÈÕ¡Ÿ≈À¡“¬‡≈¢∫—µ√ª√–™“™π ¡“™‘°  sv_member_profile
+			//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å  sv_member_profile
 			$sql1 = "SELECT * FROM sv_member_profile WHERE MEM_ID='".$mcode."' ";
 			$rs1 = mysql_query($sql1);
 			if(mysql_num_rows($rs1)>0){
@@ -319,7 +319,7 @@ if(!isset($_POST["ftrcode"])){
 			}
 			mysql_free_result($rs1);
 
-			//ÕË“π¢ÈÕ¡Ÿ≈À¡“¬‡≈¢∫—µ√ª√–™“™π ¡“™‘°  sv_member_profile
+			//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å  sv_member_profile
 			$sql1 = "SELECT * FROM sv_member_profile WHERE MEM_ID='".$mcode."' ";
 			$rs1 = mysql_query($sql1);
 			if(mysql_num_rows($rs1)>0){
@@ -331,7 +331,7 @@ if(!isset($_POST["ftrcode"])){
 			}
 			mysql_free_result($rs1);
 
-			//ÕË“π¢ÈÕ¡Ÿ≈À¡“¬‡≈¢∫—µ√ª√–™“™π ¡“™‘°  sv_member_profile
+			//‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å  sv_member_profile
 			$sql1 = "SELECT * FROM sv_system_class WHERE CLS_ID='".$pos_no."' ";
 			$rs1 = mysql_query($sql1);
 			if(mysql_num_rows($rs1)>0){
@@ -411,18 +411,18 @@ if(!isset($_POST["ftrcode"])){
 		//}else{
 			//mysql_query("ROLLBACK");
 		//}
-		// ‘Èπ ÿ¥°“√π”‡¢È“¢ÈÕ¡Ÿ≈ ¡“™‘°
+		//‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏ô‡∏≥‡πÄ‡∏Ç‡πâ‡∏≤‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
 		
-		//∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈∫‘≈¢“¬
+		//‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢
 		//mysql_query("START TRANSACTION");
 		//$cmsave=true;
 		$sql="SELECT * FROM sv_sell Order by SEL_ID";
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
 			$sqlObj = mysql_fetch_object($rs);
-			$sano= $sqlObj->SEL_ID; //√À—  ¡“™‘°
-			$mcode= $sqlObj->	MEM_ID; //™◊ËÕ ¡“™‘°
-			$sadate= $sqlObj->SEL_Timer; //«—π∑’Ë ¡—§√
+			$sano= $sqlObj->SEL_ID; //‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
+			$mcode= $sqlObj->	MEM_ID; //‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å
+			$sadate= $sqlObj->SEL_Timer; //‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£
 			
 			$mcode=gencode($mcode);
 
@@ -435,7 +435,7 @@ if(!isset($_POST["ftrcode"])){
 			}else{
 				mysql_query("ROLLBACK");
 				$cmsave=false;
-				echo "‰¡Ëæ∫§–·ππ„π Detail<BR>";
+				echo "‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡πÉ‡∏ô Detail<BR>";
 				exit;
 			}
 			mysql_free_result($rs1);
@@ -473,7 +473,7 @@ if(!isset($_POST["ftrcode"])){
 				}else{
 					mysql_query("ROLLBACK");
 					$cmsave=false;
-					echo "‰¡Ëæ∫™◊ËÕ ‘π§È“„π Detail √À—  ‘π§È“ <BR>";
+					echo "‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÉ‡∏ô Detail ‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ <BR>";
 					exit;
 				}
 				mysql_free_result($rs2);
@@ -503,8 +503,8 @@ if(!isset($_POST["ftrcode"])){
 
 		$time_end = getmicrotime();
 		$time = $time_end - $time_start;
-		echo " ‘Èπ ÿ¥°“√∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈ : ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-		echo "°“√∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈„™È‡«≈“∑—Èß ‘Èπ $time «‘π“∑’<BR>";
+		echo "‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏Å‡∏≤‡∏£‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• : ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+		echo "‡∏Å‡∏≤‡∏£‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô $time ‡∏ß‡∏¥‡∏ô‡∏≤‡∏ó‡∏µ<BR>";
 	} //end else 
 	?>
 	</td>
@@ -522,14 +522,14 @@ function showdialog(){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center">∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈ ¡“™‘°®“°√–∫∫‡¥‘¡ ¥—ßπ’È<br>1.¢ÈÕ¡Ÿ≈ ¡“™‘°<br>2.¢ÈÕ¡Ÿ≈∫‘≈¢“¬</td>
+    <td colspan="2" align="center">‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏à‡∏≤‡∏Å‡∏£‡∏∞‡∏ö‡∏ö‡πÄ‡∏î‡∏¥‡∏° ‡∏î‡∏±‡∏á‡∏ô‡∏µ‡πâ<br>1.‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å<br>2.‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <!--td width="40%" align="right">√Õ∫&nbsp;&nbsp;</td-->
+    <!--td width="40%" align="right">‡∏£‡∏≠‡∏ö&nbsp;&nbsp;</td-->
     <td width="60%">
       <input type="hidden" name="ftrcode" id="ftrcode" value="1" onkeypress="return chknum(window.event.keyCode)" /></td>
   </tr>
@@ -538,7 +538,7 @@ function showdialog(){
     <td>&nbsp;</td>
   </tr>
   <tr align="center">
-    <td colspan="2"><input type="button" name="Submit" value="∂Ë“¬‚Õπ¢ÈÕ¡Ÿ≈" onClick="checkround()"></td>
+    <td colspan="2"><input type="button" name="Submit" value="‡∏ñ‡πà‡∏≤‡∏¢‡πÇ‡∏≠‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•" onClick="checkround()"></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

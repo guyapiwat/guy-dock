@@ -4,7 +4,7 @@
 		window.open(wlink);
 	}
 		function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=44&state=1&bid='+id;
 		}
 	}
@@ -13,7 +13,7 @@
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 	$sql = "SELECT *,ssend,";
 	$sql .= "CASE transtype WHEN '0' THEN CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&id=',id,'&tstype=1\"><img src=\"./images/false.gif\"></a>') ";
 	$sql .= "ELSE '<img src=\"./images/true.gif\">' END AS transtype, ";
@@ -21,7 +21,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 	$sql .= "ELSE '<img src=\"./images/true.gif\">' END AS paytype, ";
 	$sql .= "CASE sendtype WHEN '0' THEN CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&id=',id,'&stype=1\"><img src=\"./images/false.gif\"></a>') ";
 	$sql .= "ELSE '<img src=\"./images/true.gif\">' END AS sendtype ";
-	$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
+	$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 	$sql .= "FROM ".$dbprefix."transfersale_h";
 
 if(isset($_POST["fdate"]))
@@ -37,7 +37,7 @@ $sql .= "CASE credittype WHEN '0' THEN '<img src=\"./images/false.gif\">' ";
 $sql .= "ELSE '<img src=\"./images/true.gif\">' END AS credittype, ";
 $sql .= "CASE sendtype WHEN '0' THEN CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&id=',id,'&stype=1\"><img src=\"./images/false.gif\"></a>') ";
 $sql .= "ELSE '<img src=\"./images/true.gif\">' END AS sendtype1 ";
-$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
+$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 $sql .= "FROM ".$dbprefix."member_tmp ";
 //$sql .= "LEFT JOIN ".$dbprefix."member ON (mcode=".$dbprefix."member.mcode) where 1=1 "; //WHERE smcode='".$_SESSION['usercode']."' 
 //echo $sql;
@@ -80,7 +80,7 @@ $sql .= "FROM ".$dbprefix."member_tmp ";
 			$rec->setCurPage($page);
 		$rec->setShowField("id,name_t,id_card,mdate,sp_code,paytype1,credittype,mcode_ref");
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,√À— ª√–™“™π,«—π∑’Ë ¡—§√,√À— ºŸÈ·π–π”,‚Õπ·≈È«,∫—µ√‡§√¥‘µ,∫‘≈ÕÈ“ßÕ‘ß");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡πÇ‡∏≠‡∏ô‡πÅ‡∏•‡πâ‡∏ß,‡∏ö‡∏±‡∏ï‡∏£‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï,‡∏ö‡∏¥‡∏•‡∏≠‡πâ‡∏≤‡∏á‡∏≠‡∏¥‡∏á");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,center,center,right");
 		$rec->setFieldSpace("6%,45%,10%,8%,8%,6%,6%,6%,6%,6%,6%,6%,6%,6%,6%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -92,12 +92,12 @@ $sql .= "FROM ".$dbprefix."member_tmp ";
 		}
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//$rec->setSearch("code_ref,name_t,mobile,total,transferdate,transfertime,transferbank,paytype,transtype");
-	//	$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,µËÕ·≈È«,‡∫Õ√Ï‚∑√,‡ªÁπ‡ß‘π,«—π∑’Ë‚Õπ‡ß‘π,‡«≈“,∏π“§“√,‚Õπ·≈È«, Ëß ‘π§È“·≈È«");
+	//	$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ï‡πà‡∏≠‡πÅ‡∏•‡πâ‡∏ß,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÇ‡∏≠‡∏ô‡πÄ‡∏á‡∏¥‡∏ô,‡πÄ‡∏ß‡∏•‡∏≤,‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£,‡πÇ‡∏≠‡∏ô‡πÅ‡∏•‡πâ‡∏ß,‡∏™‡πà‡∏á‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÅ‡∏•‡πâ‡∏ß");
 		/*if($acc->isAccess(2))
 			$rec->setEdit("index.php","id","aid","sessiontab=1&sub=13&web=1");*/
-	//	$rec->setSpecial("./images/search.gif","","view","id","IMAGE","¥Ÿ");
+	//	$rec->setSpecial("./images/search.gif","","view","id","IMAGE","‡∏î‡∏π");
 		if($acc->isAccess(4)){
-			$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¬°‡≈‘°");
+			$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å");
 		}
 		$rec->showRec(1,'SH_QUERY');
 		//echo $rec->getSQL("CALC")."<br />";

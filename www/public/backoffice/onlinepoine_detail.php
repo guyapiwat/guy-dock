@@ -20,7 +20,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620" />
-<title>รายละเอียดการสั่งซื้อสินค้า online</title>
+<title>เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒ online</title>
 <link rel="stylesheet" type="text/css" href="./css/pgstyle.css" />
 </head>
 
@@ -30,33 +30,33 @@
     <td><div style="font-weight:bold; font-size:14px; color:#0099CC;">System-bonus.net</div></td>
   </tr>
     <tr>
-    <td><div style="color:#0099CC;">รายละเอียดการสั่งซื้อ Point และ สินค้า ผ่านทางเว็บไซต์ของสมาชิก</div></td>
+    <td><div style="color:#0099CC;">เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญ Point เนเธฅเธฐ เธชเธดเธเธเนเธฒ เธเนเธฒเธเธ—เธฒเธเน€เธงเนเธเนเธเธ•เนเธเธญเธเธชเธกเธฒเธเธดเธ</div></td>
   </tr>
   <tr><td>&nbsp;</td></tr>
   <tr>
     <td>
     <div>
-    <b>รหัสสมาชิก</b>&nbsp;&nbsp;<?=$mcode?>&nbsp;&nbsp;<b>ชื่อ</b>&nbsp;&nbsp;<?=$name_t?>
-    &nbsp;&nbsp;<b>ซื้อ Point จำนวน</b>&nbsp;&nbsp;<?=$point?>&nbsp;<b>point</b>&nbsp;&nbsp;<b>เมื่อวันที่</b>&nbsp;&nbsp;<?=$transferdate?>
-    &nbsp;&nbsp;<b>เวลา</b>&nbsp;&nbsp;<?=$transfertime?>&nbsp;<b>น.</b>
+    <b>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</b>&nbsp;&nbsp;<?=$mcode?>&nbsp;&nbsp;<b>เธเธทเนเธญ</b>&nbsp;&nbsp;<?=$name_t?>
+    &nbsp;&nbsp;<b>เธเธทเนเธญ Point เธเธณเธเธงเธ</b>&nbsp;&nbsp;<?=$point?>&nbsp;<b>point</b>&nbsp;&nbsp;<b>เน€เธกเธทเนเธญเธงเธฑเธเธ—เธตเน</b>&nbsp;&nbsp;<?=$transferdate?>
+    &nbsp;&nbsp;<b>เน€เธงเธฅเธฒ</b>&nbsp;&nbsp;<?=$transfertime?>&nbsp;<b>เธ.</b>
     </div>
   </td>
   </tr>
   <tr>
-    <td><b>ที่อยู่สำหรับจัดส่งสินค้า</b>&nbsp;&nbsp;<?=$address?></td>
+    <td><b>เธ—เธตเนเธญเธขเธนเนเธชเธณเธซเธฃเธฑเธเธเธฑเธ”เธชเนเธเธชเธดเธเธเนเธฒ</b>&nbsp;&nbsp;<?=$address?></td>
   </tr>
 </table>
 <br />
 <table border="0" cellpadding="3" cellspacing="0" width="95%" align="center" style="border:solid 1px #000000;">
   <tr bgcolor="#71D0FF">
-    <td align="center"><b>ลำดับ</b></td>
-    <td align="center"><b>รหัส</b></td>
-    <td align="center"><b>รายการสินค้า</b></td>
-    <td align="center"><b>ราคา</b></td>
-    <td align="center"><b>คะแนน</b></td>
-    <td align="center"><b>จำนวน</b></td>
-    <td align="center"><b>รวมราคา</b></td>
-    <td align="center"><b>รวม P.V.</b></td>
+    <td align="center"><b>เธฅเธณเธ”เธฑเธ</b></td>
+    <td align="center"><b>เธฃเธซเธฑเธช</b></td>
+    <td align="center"><b>เธฃเธฒเธขเธเธฒเธฃเธชเธดเธเธเนเธฒ</b></td>
+    <td align="center"><b>เธฃเธฒเธเธฒ</b></td>
+    <td align="center"><b>เธเธฐเนเธเธ</b></td>
+    <td align="center"><b>เธเธณเธเธงเธ</b></td>
+    <td align="center"><b>เธฃเธงเธกเธฃเธฒเธเธฒ</b></td>
+    <td align="center"><b>เธฃเธงเธก P.V.</b></td>
   </tr>
   <?
   $sql = "SELECT * FROM ".$dbprefix."onlinepoint_d WHERE pid = '".$id."' ORDER BY id ASC ";
@@ -80,7 +80,7 @@
   }
   ?>
   <tr>
-    <td colspan="6" align="right"><b>รวม</b></td>
+    <td colspan="6" align="right"><b>เธฃเธงเธก</b></td>
     <td align="center"><b><?=$total?></b></td>
     <td align="center"><b><?=$tot_pv?></b></td>
   </tr>

@@ -17,12 +17,12 @@ function view(ro,code){
 	}
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("¡ÃØ³ÒàÅ×Í¡ÇÑ¹·ÕèàÃÔèÁµé¹");
+		alert("à¸à¸£à¸¸à¸“à¸²à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("¡ÃØ³ÒàÅ×Í¡ÇÑ¹·ÕèÊÔé¹ÊØ´");
+		alert("à¸à¸£à¸¸à¸“à¸²à¹€à¸¥à¸·à¸­à¸à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -53,7 +53,7 @@ if(empty($tdate))$tdate = $strtdate;
 if(empty($cmc))$cmc = $fmcode;
 	
 	if (strpos($ftrcode,"-")===false){
-			//ÃÍºàÃÔèÁµé¹ == ÃÍºÊÔé¹ÊØ´
+			//à¸£à¸­à¸šà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™ == à¸£à¸­à¸šà¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”
 			$ftrc[0]=$ftrcode;
 			$ftrc[1]=$ftrcode;
 	}else{
@@ -65,7 +65,7 @@ if($ftrcode==""){
 }else{
 	
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">¾ÔÁ¾ì·Ñé§ËÁ´</a-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a-->
 <?
 		require("connectmysql.php");
 		$wwhere = ($fdate=="" ? " a.rcode between '".$ftrc[0]."' and '".$ftrc[1]."' " : " a.fdate >= '".$fdate."' and a.tdate <= '".$tdate."' ");
@@ -92,13 +92,13 @@ if($ftrcode==""){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,mcode1,name_t,total");
-		$rec->setFieldDesc("ÃÍº·Õè,ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,âº¹ÑÊ");
+		$rec->setFieldDesc("à¸£à¸­à¸šà¸—à¸µà¹ˆ,à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¹‚à¸šà¸™à¸±à¸ª");
 		$rec->setFieldAlign("center,center,left,right");
 		$rec->setFieldSpace("8%,10%,65%,15%");//10
 		$rec->setFieldFloatFormat(",,,2");
 		$rec->setSum(true,false,",,,true");
 		//$rec->setFieldLink(",,,,index.php?sessiontab=3&sub=666&aa=,");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","¾ÔÁ¾ì");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);
 	

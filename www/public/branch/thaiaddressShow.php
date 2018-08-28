@@ -5,7 +5,7 @@
 	$sql = "SELECT * FROM province  order by provinceName asc ";
 	$rs = mysql_query($sql);
 	?>
-    <input size="5" style="border:0; text-align:right;" type="text" value="�ѧ��Ѵ"/><font color="#ff0000">*</font>&nbsp;
+    <input size="5" style="border:0; text-align:right;" type="text" value="จังหวัด"/><font color="#ff0000">*</font>&nbsp;
     <select name="province" id="province" style="width:150px;" tabindex="47"  onchange="startAddressRQ('amphur',this.value)"><option></option><?
 	for($i=0;$i<mysql_num_rows($rs);$i++){
 		echo "<option value='".mysql_result($rs,$i,'provinceId')."' ".($provinceId==mysql_result($rs,$i,'provinceId')?"selected":"").">".mysql_result($rs,$i,'provinceName')."</option>";

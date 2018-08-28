@@ -111,7 +111,7 @@ if(mysql_num_rows($rs)>0) {
 	$mid = $hono = mysql_result($rs,0,'id');
 	$mid = ++$hono;
 	$sql="insert into ".$dbprefix."holdhead (id, hono, sano, sadate,  mcode,sp_code,  sa_type, inv_code,  total,bprice, tot_pv,tot_sppv, uid,locationbase,name_f,name_t ,crate) values ('$mid' ,'$hono' ,'".$_POST['hid']."' ,'$sadate' ,'$mcode','$sp_code', '$satype' ,'$inv_code' ,'$total' ,'$tot_base','$tot_pv','$tot_sppv' ,'".$_SESSION['inv_usercode']."','".$_SESSION['inv_locationbase']."','$name_f','$name_t','".$_SESSION["inv_crate"]."') ";
-	logtext(true,$_SESSION['usercode'],'ᨧ��� Hold�ʹ',$mid);
+	logtext(true,$_SESSION['usercode'],'แจงบิล Holdยอด',$mid);
 	if (! mysql_query($sql)) {
 		echo "<script language='JavaScript'>alert('".$wording_lan["operate"]["6"]."')window.location='index.php?sessiontab=3&sub=9'</script>";
 		exit;
@@ -166,7 +166,7 @@ if(mysql_num_rows($rs)>0) {
 
 		$sql="insert into ".$dbprefix."holddesc (hono,pcode,pdesc,price,bprice,pv,sppv,bv,qty,amt,locationbase) values ('$hono','$pcode[$i]','$pdesc[$i]','$price[$i]','$bprice[$i]' ,'$pv[$i]','$special_pv[$i]','$bv[$i]','$qty[$i]','$totalprice[$i]','".$_SESSION["inv_locationbase"]."') ";
 		//logtext(true,$_SESSION['adminusercode'],$sql);
-		logtext(true,$_SESSION['adminusercode'],'ᨧ��� Hold�ʹ',$sql);
+		logtext(true,$_SESSION['adminusercode'],'แจงบิล Holdยอด',$sql);
 		//echo "$sql<br>";
 		mysql_query($sql);
 	

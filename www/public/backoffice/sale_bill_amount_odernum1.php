@@ -12,9 +12,9 @@ $sql = "SELECT *,@num := @num + 1 b FROM (SELECT ".$dbprefix."asaleh.online,canc
 ,tot_pv,tot_bv,tot_fv,bprice as total,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.mcode AS smcode,sa_type";
 $sql .= ",CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS sendsend ";
 $sql .= ",checkportal,CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist'  END AS checkportal1";
-$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN '��' ELSE '�Ѻ�ͧ' END AS send ";
-$sql .= ",CASE sa_type WHEN 'A' THEN '����' WHEN 'H' THEN 'BMC'  END AS ability";
-$sql .= ",".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '����͹�Ź�' ELSE '��Ţ�»���' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
+$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'ส่ง' ELSE 'รับเอง' END AS send ";
+$sql .= ",CASE sa_type WHEN 'A' THEN 'ปกติ' WHEN 'H' THEN 'BMC'  END AS ability";
+$sql .= ",".$dbprefix."asaleh.inv_code,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'บิลออนไลน์' ELSE 'บิลขายปกติ' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
 $sql .= ",
 ".$dbprefix."asaleh.crate*(txtCredit1+txtCredit2+txtCredit3) as AllCredit,".$dbprefix."asaleh.crate*(txtCash) as txtCash,".$dbprefix."asaleh.crate*(txtFuture) as txtFuture,".$dbprefix."asaleh.crate*(txtInternet+0) as txtInternet,".$dbprefix."asaleh.crate*txtTransfer txtTransfer,".$dbprefix."asaleh.crate*(txtDiscount+0) as txtDiscount,".$dbprefix."asaleh.crate*(txtOther+0) as txtOther,
 ' '+optionCash+optionFuture+optionCredit1+optionCredit2+optionCredit3+optionInternet+optionDiscount+optionOther as optionAll,txtCredit1,txtCredit2,txtCredit3";
@@ -132,25 +132,25 @@ switch ($strtype) {
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_f,name_t,ability,sadate,tot_pv,total,txtCash,AllCredit,txtInternet,txtFuture,txtTransfer,txtDiscount,uid,inv_ref,checkportal1,send,scheck,cshort");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,�ӹ�˹��,���ͼ�����,����Ẻ,�ѹ������,PV,�ӹǹ�Թ���,�Թʴ,�ôԵ,Ewallet,Voucher,�Թ�͹,��ǹŴ,���ѹ�֡,�Ң�,��ͧ�ҧ,�Ѵ��,������,LB");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,คำนำหน้า,ชื่อผู้ซื้อ,ซื้อแบบ,วันที่ซื้อ,PV,จำนวนเงินรวม,เงินสด,เครดิต,Ewallet,Voucher,เงินโอน,ส่วนลด,ผู้บันทึก,สาขา,ช่องทาง,จัดส่ง,ประเภท,LB");
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2,2,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,left,center,center,right,right,right,right,right,right,right,center,center,center");
 		$rec->setFieldSpace("3%,6%,6%,3%,14%,4%,7%,4%,7%,3%,3%,4%,4%,4%,4%,4%,5%,5%,5%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

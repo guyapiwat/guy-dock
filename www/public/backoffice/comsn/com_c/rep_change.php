@@ -20,7 +20,7 @@
 	}
 
 	if($rcode != $max_rcode){
-		echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂∫—ß§—∫®Ë“¬‰¡Ë®Ë“¬‰¥È‡æ√“–√Õ∫π’ÈºË“π‰ª·≈È«');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
+		echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏ö‡∏±‡∏á‡∏Ñ‡∏±‡∏ö‡∏à‡πà‡∏≤‡∏¢‡πÑ‡∏°‡πà‡∏à‡πà‡∏≤‡∏¢‡πÑ‡∏î‡πâ‡πÄ‡∏û‡∏£‡∏≤‡∏∞‡∏£‡∏≠‡∏ö‡∏ô‡∏µ‡πâ‡∏ú‡πà‡∏≤‡∏ô‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
 		exit;
 	}
 
@@ -46,10 +46,10 @@
 	//if($cashpayment == $paytype or $status == $paytype){\
 	if($status == $paytype){
 		if($paytype =='1'){
-			echo "<script language='JavaScript'>alert('√À— π’È¡’°“√™”√–‡ß‘π„π√Õ∫π’È‡√’¬∫√ÈÕ¬·≈È«');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
+			echo "<script language='JavaScript'>alert('‡∏£‡∏´‡∏±‡∏™‡∏ô‡∏µ‡πâ‡∏°‡∏µ‡∏Å‡∏≤‡∏£‡∏ä‡∏≥‡∏£‡∏∞‡πÄ‡∏á‡∏¥‡∏ô‡πÉ‡∏ô‡∏£‡∏≠‡∏ö‡∏ô‡∏µ‡πâ‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
 			exit;
 		}else{
-			echo "<script language='JavaScript'>alert('√À— π’È‰¥È∑”°“√‰¡Ë®Ë“¬„π√Õ∫π’È‡√’¬∫√ÈÕ¬·≈È«');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
+			echo "<script language='JavaScript'>alert('‡∏£‡∏´‡∏±‡∏™‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡πÑ‡∏°‡πà‡∏à‡πà‡∏≤‡∏¢‡πÉ‡∏ô‡∏£‡∏≠‡∏ö‡∏ô‡∏µ‡πâ‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";	
 			exit;
 		}
 	}
@@ -132,7 +132,7 @@ function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$paydate,$fmcode,$cpaytype)
                 if($totalamt1[$j] > 0)
                 {         
 					
-                    if($totalamt1[$j] >= 200 and $cmp[$j] == '§√∫' and $cmp2[$j] == '§√∫' and !empty($acc_no[$j]) and $cpaytype !='0' or $cpaytype == '1') //// YES
+                    if($totalamt1[$j] >= 200 and $cmp[$j] == '‡∏Ñ‡∏£‡∏ö' and $cmp2[$j] == '‡∏Ñ‡∏£‡∏ö' and !empty($acc_no[$j]) and $cpaytype !='0' or $cpaytype == '1') //// YES
                     {
                       
                             $tax[$j] = $totalamt1[$j]*0.05;
@@ -182,8 +182,8 @@ function fnc_calc_status($dbprefix,$ro,$fdate,$tdate,$paydate,$fmcode,$cpaytype)
                          }
                          else
                          {
-                            if($cmp[$j] == '§√∫')$c_note1 = 1;else $c_note1 = "";
-                            if($cmp2[$j] == '§√∫')$c_note2 = 1;else $c_note2 = "";
+                            if($cmp[$j] == '‡∏Ñ‡∏£‡∏ö')$c_note1 = 1;else $c_note1 = "";
+                            if($cmp2[$j] == '‡∏Ñ‡∏£‡∏ö')$c_note2 = 1;else $c_note2 = "";
                             if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";                        
                                 
                             $commission = array(

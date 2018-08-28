@@ -20,14 +20,14 @@ writelogfile($text);
 		echo "<font color='#FF0000'>error</font><br>";
 		//echo  "$sql";		
 	}else {
-		logtext(true,$_SESSION['adminuserid'],'‡æ‘Ë¡∏π“§“√',mysql_insert_id());
+		logtext(true,$_SESSION['adminuserid'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£',mysql_insert_id());
 		mysql_query("COMMIT");
 		ob_end_clean();
 		//include "mem_main.php";
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=5&sub=3'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminuserid'],'·°È‰¢¢ÈÕ¡Ÿ≈∏π“§“√',$oid);
+	logtext(true,$_SESSION['adminuserid'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£',$oid);
 	$sql="update ".$dbprefix."bank set bankname='$bankname' ,code='$code',bankcode='$code' where bankcode = '$oid'";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminusercode"]." action=bankoperate =>$sql";

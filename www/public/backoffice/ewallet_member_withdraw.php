@@ -41,10 +41,10 @@ $sql .= " and t.sadate >= '$fdate'  and t.sadate <= '$tdate'  ";
 		$rec->setFieldSpace("8%,20%,10%,35%,20%,15%");
 		$rec->setFieldFloatFormat(",,,,2,");
 		$rec->setSum(true,false,",,,,true,");
-		$rec->setFieldDesc("�ѹ���,�Ţ�����,������Ҫԡ,����-��Ҫԡ,�ӹǹ�Թ");
+		$rec->setFieldDesc("วันที่,เลขที่บิล,รหัสสมาชิก,ชื่อ-สมาชิก,จำนวนเงิน");
 		$rec->setFieldAlign("center,left,center,left,right,center");
 		$rec->setSearch("t.sano,t.mcode,m.name_t,t.total");
-		$rec->setSearchDesc("�Ţ�����,������Ҫԡ,����-��Ҫԡ,�ӹǹ�Թ");
+		$rec->setSearchDesc("เลขที่บิล,รหัสสมาชิก,ชื่อ-สมาชิก,จำนวนเงิน");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");

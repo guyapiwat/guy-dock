@@ -74,7 +74,7 @@ if(empty($sumpv))$sumpv = 0;
 $priceprice = $_SESSION["sumtotal"]+$shipping;
 if($shipping > 0)echo '<meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
-'.' '."<font color=#FF0000><b>PV รวม $sumpv   น้ำหนักรวม $tot_weight1 กิโลกรัม    ค่าจัดส่ง $shipping บาท ยอดรวมใหม่  $priceprice บาท</b></font>" ;
+'.' '."<font color=#FF0000><b>PV เธฃเธงเธก $sumpv   เธเนเธณเธซเธเธฑเธเธฃเธงเธก $tot_weight1 เธเธดเนเธฅเธเธฃเธฑเธก    เธเนเธฒเธเธฑเธ”เธชเนเธ $shipping เธเธฒเธ— เธขเธญเธ”เธฃเธงเธกเนเธซเธกเน  $priceprice เธเธฒเธ—</b></font>" ;
 else echo '1';
 //echo '<iframe width="400" height="500" frameborder="0" src="./free_show.php?sqlwhere="'.$sqlwhere.' ></iframe>';
 

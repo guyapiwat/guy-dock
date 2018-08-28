@@ -5,7 +5,7 @@ require_once ("function.log.inc.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// ·®Èß«Ë“¡’√“¬°“√ ≈∫¢ÈÕ¡Ÿ≈ ¡“™‘°„À¡Ë
+	// ‡πÅ‡∏à‡πâ‡∏á‡∏ß‡πà‡∏≤‡∏°‡∏µ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÉ‡∏´‡∏°‡πà
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -22,16 +22,16 @@ require_once ("function.log.inc.php");
 	if($pcode == "0001" or $pcode == "AS001" or $pcode == "SE0011"){
 
 	}else{
-	echo "<br>≈∫¢ÈÕ¡Ÿ≈ ‘π§È“ :";
+	echo "<br>‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ :";
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">√À—  ‘π§È“</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">√“¬≈–‡Õ’¬¥ ‘π§È“</td>
-			<td style="<?=$style_l.$style_t.$style_b?>">ÀπË«¬</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">√“§“¢“¬</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</td>
+			<td style="<?=$style_l.$style_t.$style_b?>">‡∏´‡∏ô‡πà‡∏ß‡∏¢</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Ç‡∏≤‡∏¢</td>
 			<td style="<?=$style_l.$style_t.$style_b?>">PV</td>
-			<td style="<?=$style_l.$style_t.$style_b?>">¬Õ¥§ß‡À≈◊Õ</td>
+			<td style="<?=$style_l.$style_t.$style_b?>">‡∏¢‡∏≠‡∏î‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠</td>
         </tr>
 		<tr bgcolor="<?=$trcolor[$i%2]?>">
             	<td style="<?=$style_l?>" align="center"><?=$row->pcode;?></td>
@@ -45,7 +45,7 @@ require_once ("function.log.inc.php");
 	<?}
 	
 	//for ($i=0;$i<$numpost;$i++) {
-		// ÕË“π¢ÈÕ¡Ÿ≈‡¥‘¡®“° member
+		// ‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏î‡∏¥‡∏°‡∏à‡∏≤‡∏Å member
 		//$rs=mysql_query("SELECT * FROM ".$dbprefix."product WHERE pcode='".$postval[$postkey[$i]]."' LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		//if (mysql_num_rows($rs)>0){
@@ -55,17 +55,17 @@ require_once ("function.log.inc.php");
 		}
 		//mysql_free_result($rs);
 if($pcode == "0001" or $pcode == "AS001" or $pcode == "SE0011"){
-		echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂≈∫ ‘π§È“√À—  $pcode ‰¥È');window.history.back();</script>";	
+		echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏•‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏£‡∏´‡∏±‡∏™ $pcode ‡πÑ‡∏î‡πâ');window.history.back();</script>";	
 		exit;
 
 }
-logtext(true,$_SESSION['adminusercode'],'≈∫ ‘π§È“ :  '.$pcode,$pcode);
+logtext(true,$_SESSION['adminusercode'],'‡∏•‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ :  '.$pcode,$pcode);
 		//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=product_del=>delete from ".$dbprefix."product where pcode='".$pcode."'";
 writelogfile($text);
 //=================END LOG===========================
 		/*if($pcode == '0001' or $pcode == 'DIS001' or $pcode == 'SE0011' or $pcode == 'SE0012'  or $pcode == 'SE0013'  or $pcode == 'SE0014'  or $pcode == 'SE0015'  or $pcode == 'SE0016'  or $pcode == 'SE0017'  or $pcode == 'SE0018'  or $pcode == 'SE0019'    or $pcode == 'SE0020'){
-			echo '<font size=8>‰¡Ë “¡“√∂≈∫ ‘π§È“ª√–‡¿∑π’È‰¥È</font>';
+			echo '<font size=8>‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏•‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ</font>';
 			exit;
 		}else{
 			
@@ -75,7 +75,7 @@ writelogfile($text);
 		@unlink("uploads/product_img/".$pathImg.".jpg");
 		mysql_query("COMMIT");
 	}
-	// · ¥ß√“¬°“√∑’Ë≈∫
+	// ‡πÅ‡∏™‡∏î‡∏á‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ó‡∏µ‡πà‡∏•‡∏ö
 
 ?>
 	</table>

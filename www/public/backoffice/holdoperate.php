@@ -35,7 +35,7 @@ if($_GET['state']==0){
 	else
 	$sql="insert into ".$dbprefix."holdhead1 (id, hono, sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid ,ref) values ('$mid' ,'$hono' ,'".$_POST['hid']."' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv' ,'".$_SESSION['adminusercode']."','".$_SESSION['inventinvent']."') ";
 	//logtext(true,$_SESSION['adminusercode'],$sql);
-	logtext(true,$_SESSION['adminusercode'],'ᨧ��� Hold�ʹ',$mid);
+	logtext(true,$_SESSION['adminusercode'],'แจงบิล Holdยอด',$mid);
 		//echo "$sql<br>";
 	mysql_query($sql);
 	if(isset($_POST['pcode'])){
@@ -71,7 +71,7 @@ if($_GET['state']==0){
 		else
 		$sql="insert into ".$dbprefix."holddesc1 (hono,pcode,pdesc,price,pv,qty,amt) values ('$mid','$pcode[$i]','$pdesc[$i]','$price[$i]' ,'$pv[$i]',$bv[$i]','$qty[$i]','$totalprice[$i]') ";
 		//logtext(true,$_SESSION['adminusercode'],$sql);
-		logtext(true,$_SESSION['adminusercode'],'ᨧ��� Hold�ʹ',$sql);
+		logtext(true,$_SESSION['adminusercode'],'แจงบิล Holdยอด',$sql);
 		//echo "$sql<br>";
 		mysql_query($sql);
 		updatePos($dbprefix,$mcode,$sadate);
@@ -87,8 +87,8 @@ if($_GET['state']==0){
 	//$sql="update ".$dbprefix."holdhead set ";
 	//$sql.="sa_type='$satype'  where id= '$id' ";
 	//echo $sql;exit;
-	//logtext(true,$_SESSION['adminusercode'],'����HOLD',$sql);
-	logtext(true,$_SESSION['adminusercode'],'��ᨧ��� Hold�ʹ',$sql);
+	//logtext(true,$_SESSION['adminusercode'],'แก้บิลHOLD',$sql);
+	logtext(true,$_SESSION['adminusercode'],'แก้แจงบิล Holdยอด',$sql);
 	mysql_query($sql);
 	/*$sql = "DELETE FROM ".$dbprefix."holddesc WHERE hono='$id'";
 	logtext(true,$_SESSION['adminusercode'],$sql);
@@ -198,14 +198,14 @@ function updateEwallet1($dbprefix,$mcode,$oldInternet,$id){
 	}
 	$rs3=mysql_query($sql3);
 } 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 ?>
 <?
 function updatePos($dbprefix,$mcode,$cur_date){
 
 	$pos_piority = array('EX'=>2,'SU'=>1,'MB'=>0);
 	$pos_exp = array('EX'=>3000,'SU'=>750,'MB'=>0);
-	//-----�纤�ṹ�٧�ش����ա�ë���
+	//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 	//$sql = "SELECT MAX(tot_pv) as pv from ".$dbprefix."asaleh WHERE mcode='$mcode' ";
 	$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE sa_type='A' and mcode='$mcode' and cancel=0 ";
 	$rs = mysql_query($sql);
@@ -222,13 +222,13 @@ function updatePos($dbprefix,$mcode,$cur_date){
 //	$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]);
 
 
-	//-----�纵��˹觻Ѩ�غѹ
+	//-----เก็บตำแหน่งปัจจุบัน
 	$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 	$rs = mysql_query($sql);
 	$pos_old = '';
 	if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 	//mysql_free_result($rs);
-	//�ӹǳ���˹�
+	//คำนวณตำแหน่ง
 	$pos_new = $pos_old;
 	foreach(array_keys($pos_exp) as $key){
 		//echo $key;

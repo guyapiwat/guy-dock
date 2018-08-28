@@ -15,7 +15,7 @@ if (strpos($bonus, "-") === false) {
 }
 
 if ($arr_bonus[0] > $arr_bonus[1]) {
-    echo "<center><FONT COLOR=#ff0000>��سҡ�͡��ǧ���������١ �� 0-500</FONT></center>";
+    echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
 }
 
 if ($fdate != "") {
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode'] == "" ? $_GET['ftrcode'] : $_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2'] == "" ? $_GET['ftrcode2'] : $_POST['ftrcode2'];
 $vip = $_POST['vip'] == "" ? $_GET['vip'] : $_POST['vip'];
 if (strpos($ftrcode, "-") === false) {
-    //�ͺ������� == �ͺ����ش
+    //รอบเริ่มต้น == รอบสิ้นสุด
     $ftrc[0] = $ftrcode;
     $ftrc[1] = $ftrcode;
 } else {
@@ -96,24 +96,24 @@ if ($fdate != '') {
     if (isset($page))
         $rec->setCurPage($page);
     $rec->setShowField("b,mcode,bcode,acc_no,fullname,ttttt,id_card,ref1,ref2,email,mobile,bankname,alltotal,tax_new,com_transfer_chagre");
-    $rec->setFieldDesc("�ӴѺ,������Ҫԡ,���ʸ�Ҥ��,�Ţ���ѭ��,���ͼ���Ѻ�Թ,�ӹǹ�Թ,�Ţ�ѵû�ЪҪ�,ref1,ref2,������,��Ͷ��,���͸�Ҥ��,�ʹ⺹��,�ѡ����,�ѡ����͹");
+    $rec->setFieldDesc("ลำดับ,รหัสสมาชิก,รหัสธนาคาร,เลขที่บัญชี,ชื่อผู้รับเงิน,จำนวนเงิน,เลขบัตรประชาชน,ref1,ref2,อีเมล์,มือถือ,ชื่อธนาคาร,ยอดโบนัส,หักภาษี,หักค่าโอน");
     $rec->setFieldAlign("center,center,center,center,left,right,center,center,center,left,center,left,right,right,right");
     $rec->setFieldSpace("2%,6%,3%,7%,18%,6%,8%,2%,2%,10%,7%,10%,5%,5%,5%");//10
     $rec->setSum(true, false, ",,,,,true,,,,,,,true,true,true,true");
     $rec->setFieldFloatFormat(",,,,,2,,,,,,,2,2,2,");
     if ($_GET['excel'] == 1) {
-        logtext(true, $_SESSION["adminusercode"], 'Export Excel : ��������Ҫԡ', '');
+        logtext(true, $_SESSION["adminusercode"], 'Export Excel : ข้อมูลสมาชิก', '');
         $text = "uid=" . $_SESSION["adminusercode"] . " action=member_export_excel =>$sql";
         writelogfile($text);
 
         $rec->exportXls("ExportXls", "member" . date("Ymd") . ".xls", "SH_QUERY");
         $str = "<fieldset><a href='" . $rec->download("ExportXls", "member" . date("Ymd") . ".xls") . "' >";
-        $str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+        $str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
         //$rec->getParam();
         $rec->setSpace($str);
     }
     $str = "<fieldset><a href='" . $rec->getParam() . "&excel=1' target='_self'>";
-    $str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+    $str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
     $rec->setSpace($str);
     $rec->showRec(1, 'SH_QUERY');        //---------------------------------
 

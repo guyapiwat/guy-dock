@@ -26,11 +26,11 @@ else if(isset($_GET['skey']))
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,qty,price,pv");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´,¨Ó¹Ç¹,ÃÒ¤Ò,pv");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸ˆà¸³à¸™à¸§à¸™,à¸£à¸²à¸„à¸²,pv");
 		$rec->setFieldAlign("center,left,right,right,right,right,right");
 		$rec->setFieldSpace("10%,60%,10%,10%,10%,10%,10%");
 		$rec->setSearch("pcode,pdesc");
-		$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²");
 		$rec->setSum(true,false,",,true,true,true");
 		$rec->setFieldFloatFormat(",,0,0,0");
 

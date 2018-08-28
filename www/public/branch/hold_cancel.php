@@ -4,7 +4,7 @@ require_once("logtext.php");
 	$bid = $_GET['bid'];
 	$remark = $_GET['remark'];
 	if(empty($bid) or empty($remark)){
-		echo "<script language='JavaScript'>alert('�Դ��ͼԴ��Ҵ���');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+		echo "<script language='JavaScript'>alert('เกิดข้อผิดพลาดค่ะ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 		exit;
 	}
 	//echo $bid;
@@ -30,14 +30,14 @@ require_once("logtext.php");
 	$sqlSC = mysql_query($sqlC);
 
 	if(mysql_num_rows($sqlSS) > 0 or mysql_num_rows($sqlSC) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź����');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 			exit;
 	}	
 
 	if($cancel == 0){
 		$sqlUpdate = "UPDATE ".$dbprefix."holdhead SET cancel='1',uid_cancel = '".$_SESSION["inv_usercode"]."',cancel_date = '".$_SESSION["datetimezone"]."',remark='".$remark."' WHERE id='$bid' ";
-		//logtext(true,$_SESSION['adminusercode'],'¡��ԡ ���ᨧ�ٹ��',$sql);
-		logtext(true,$_SESSION['inv_usercode'],'¡��ԡ ���ᨧ�ٹ  �Ţ��� :'.$hono,$bid);
+		//logtext(true,$_SESSION['adminusercode'],'ยกเลิก บิลแจงศูนย์',$sql);
+		logtext(true,$_SESSION['inv_usercode'],'ยกเลิก บิลแจงศูน  เลขบิล :'.$hono,$bid);
 		//echo $sql;
 		
 		
@@ -72,7 +72,7 @@ require_once("logtext.php");
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 	}else{
 
-		echo "�������ö¡��ԡ��ū����";
+		echo "ไม่สามารถยกเลิกบิลซ้ำได้";
 	}
 function plusProduct1($dbprefix,$pcode,$invent,$qty){
 	$sql = "update ".$dbprefix."product_invent set qty = qty+$qty WHERE pcode='$pcode' and inv_code = '$invent' ";
@@ -100,10 +100,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 
 ?>

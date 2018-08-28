@@ -75,7 +75,7 @@ if($_GET['state']==0){
 $subinvent = $_SESSION["subinvent"];
 $inv_ref = 'HQ';
 $inv_code = $_SESSION["admininvent"];
-$sano_f = 'ººS';
+$sano_f = 'à¸šà¸šS';
 $sano  = gencode_bsale($dbprefix,$subinvent,$sano_f);
 
 //echo $sano;

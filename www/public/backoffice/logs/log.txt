@@ -1102,3 +1102,9 @@
 2018-04-09 01:00:42 ip=182.52.129.76 uid=542 action=login
 2018-08-27 06:02:11 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-08-27','18:02:11')
 2018-08-27 06:02:11 ip=::1 uid=558 action=login
+2018-08-28 06:26:54 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-08-28','06:26:54')
+2018-08-28 06:26:54 ip=::1 uid=558 action=login
+2018-08-28 06:29:49 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-08-28','06:29:49')
+2018-08-28 06:29:49 ip=::1 uid=558 action=login
+2018-08-28 10:09:22 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-08-28','10:09:22')
+2018-08-28 10:09:22 ip=::1 uid=558 action=login

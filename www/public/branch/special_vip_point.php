@@ -12,7 +12,7 @@ require_once ("function.log.inc.php");
 	
 	$sql = "SELECT MAX(vip_id) AS maxid FROM ".$dbprefix."special_point";
 /*	if(!$rs=mysql_query($sql)){
-	   $errMsg = "�Դ��ͼԴ��Ҵ �������ö�ѹ�֡��ṹ��";
+	   $errMsg = "เกิดข้อผิดพลาด ไม่สามารถบันทึกคะแนนได้";
 	   echo "<script> alert('".$errMsg."'); </script>";
 	 }*/
 	 
@@ -24,9 +24,9 @@ require_once ("function.log.inc.php");
 	    $newID = ++$oldID;
 	 }
 	
-	$month=date("m"); //���ҧ�����͹�Ѩ�غѹ
-	$day=date("d"); //���ҧ����ѹ�Ѩ�غѹ
-	$year=date("Y"); //���ҧ��һջѨ�غѹ
+	$month=date("m"); //สร้างค่าเดือนปัจจุบัน
+	$day=date("d"); //สร้างค่าวันปัจจุบัน
+	$year=date("Y"); //สร้างค่าปีปัจจุบัน
 	
 	$sadate=$year."-".$month."-".$day;
 	$heal_mouth=$year.$month;
@@ -45,7 +45,7 @@ require_once ("function.log.inc.php");
 	writelogfile($text);
 //=================END LOG===========================
 	 if(!mysql_query($sql2)){
-	   $errMsg = "�Դ��ͼԴ��Ҵ �������ö�ѹ�֡��ṹ��";
+	   $errMsg = "เกิดข้อผิดพลาด ไม่สามารถบันทึกคะแนนได้";
 	   echo "<script> alert('".$errMsg."'); </script>";
 	 }else{
 	   $success = true;
@@ -58,23 +58,23 @@ require_once ("function.log.inc.php");
 ?>
 
 <?
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 	function updatePos($dbprefix,$mcode,$cur_date){
 		$pos_piority = array('P'=>3,'D'=>2,'G'=>1,''=>0);
 		$pos_exp = array('P'=>6000,'D'=>3000,'G'=>1500,''=>0);
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		$sql = "SELECT MAX(tot_pv) as pv from ".$dbprefix."special_point WHERE mcode='$mcode' ";
 		$rs = mysql_query($sql);
 		$mexp = 0;
 		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
 		mysql_free_result($rs);
-		//-----�纵��˹觻Ѩ�غѹ
+		//-----เก็บตำแหน่งปัจจุบัน
 		$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 		$rs = mysql_query($sql);
 		$pos_old = '';
 		if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 		mysql_free_result($rs);
-		//�ӹǳ���˹�
+		//คำนวณตำแหน่ง
 		$pos_new = $pos_old;
 		foreach(array_keys($pos_exp) as $key){
 			//echo $key;
@@ -117,12 +117,12 @@ writelogfile($text);
 		error = false;
 		
 		if(submitted == true){
-		   alert("���ѧ���Թ���");
+		   alert("กำลังดำเนินการ");
 		   return false;
 	    }
 		
-		check_input("sp_code",1,"��س��к������Ţ��Ҫԡ����ͧ���������ṹ");
-		check_point("sppoint","��ṹ����͡��ͧ�繵���Ţ 0-9 ��ҹ��");
+		check_input("sp_code",1,"กรุณาระบุหมายเลขสมาชิกที่ต้องการเพิ่มคะแนน");
+		check_point("sppoint","คะแนนที่กรอกต้องเป็นตัวเลข 0-9 เท่านั้น");
 		
 		if(error == true){
 			alert(error_message);
@@ -173,8 +173,8 @@ writelogfile($text);
     <tr style="display:<?php echo ($success) ? "" : "none";?>">
 			  	<td height="46" valign="top">
 					<div  align="center" style="font-size: 12px; color:#58a0c8;">
-						<br />�ѹ�֡���������º�������� ��ҹ����ö�ӡ�������������ա������
-						 <a href="./index.php?sessiontab=<?=$sesstab?>&sub=2">�����</a>
+						<br />บันทึกข้อมูลเรียบร้อยแล้ว ท่านสามารถทำการเพิ่มข้อมูลอีกครั้งได้
+						 <a href="./index.php?sessiontab=<?=$sesstab?>&sub=2">ที่นี่</a>
 					</div>
 				</td>
 	</tr>
@@ -184,23 +184,23 @@ writelogfile($text);
 	   <table width="950" border="0" cellpadding="0" cellspacing="0" cols="4">
 				<tr>
 				<td width="5%" height="20"></td>
-				<td width="10%" align="right">�ѹ���&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+				<td width="10%" align="right">วันที่&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
 				  <td width="40%">&nbsp;
 				  <input type="text" id="mdate" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" />
-			&nbsp;<a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="���͡�ѹ���" /></a><font color="#808080">(����-��-��)</font></td>
+			&nbsp;<a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a><font color="#808080">(ปปปป-ดด-วว)</font></td>
 				</tr>
 			   <tr>
 			  <td width="5%" height="20"></td>
-			  <td width="10%" align="right">������Ҫԡ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+			  <td width="10%" align="right">รหัสสมาชิก&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
 			  <td width="40%">&nbsp;
 			    <input name="sp_code" id="sp_code" type="text" style="background-color:#FFFF99" size="15" readonly />
-			    <input type="button" onClick="get_mem_listpicker_sp_code()" value="���͡">			  </td>
+			    <input type="button" onClick="get_mem_listpicker_sp_code()" value="เลือก">			  </td>
 			  <td width="50%"></td>
 			</tr>
 			
 			<tr>
 			  <td width="5%" height="20"></td>
-			  <td width="10%" align="right">������Ҫԡ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+			  <td width="10%" align="right">ชื่อสมาชิก&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
 			  <td width="40%">&nbsp;
 
 				<input name="sp_name" type="text" style="background-color:#FFFF99" id="sp_name" readonly />			  </td>
@@ -209,17 +209,17 @@ writelogfile($text);
 			
 			<tr>
 			  <td width="5%" height="20"></td>
-			  <td width="10%" align="right">��Դ�ͧ��ṹ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+			  <td width="10%" align="right">ชนิดของคะแนน&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
 			  <td width="40%">&nbsp;
-				<input name="ptype" type="radio" value="VA" checked />Ἱ A&nbsp;&nbsp;&nbsp;
-				<input name="ptype" type="radio" value="VB" />Ἱ B&nbsp;&nbsp;&nbsp;
-				<input name="ptype" type="radio" value="VQ" />�ѡ���ʹ&nbsp;&nbsp;&nbsp;				</td>
+				<input name="ptype" type="radio" value="VA" checked />แผน A&nbsp;&nbsp;&nbsp;
+				<input name="ptype" type="radio" value="VB" />แผน B&nbsp;&nbsp;&nbsp;
+				<input name="ptype" type="radio" value="VQ" />รักษายอด&nbsp;&nbsp;&nbsp;				</td>
 			  <td width="50%"></td>
 			</tr>
 			
 			<tr>
 			  <td width="5%" height="20"></td>
-			  <td width="10%" align="right">��ṹ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+			  <td width="10%" align="right">คะแนน&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
 			  <td width="40%">&nbsp;
 			  <input name="sppoint" type="text" />	    &nbsp;PV</td>
 			  <td width="50%"></td>
@@ -236,8 +236,8 @@ writelogfile($text);
 			  <td width="5%" height="20"></td>
 			  <td width="10%"></td>
 			  <td width="40%">&nbsp;
-				<input name="sppoint_submit" type="submit" value="�ѹ�֡" />&nbsp;&nbsp;
-				<input name="sppoint_cancel" type="reset" value="¡��ԡ" />			  </td>
+				<input name="sppoint_submit" type="submit" value="บันทึก" />&nbsp;&nbsp;
+				<input name="sppoint_cancel" type="reset" value="ยกเลิก" />			  </td>
 			  <td width="50%"></td>
 			</tr>
 	   </table>

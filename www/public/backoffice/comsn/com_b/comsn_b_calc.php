@@ -1,14 +1,14 @@
 <script language="javascript">
 function checkround(){
     if(document.getElementById("ftrcode").value==""){
-        alert("��س�����ͺ��äӹǳ");
+        alert("กรุณาใส่รอบการคำนวณ");
         document.getElementById("ftrcode").focus();
         return false;
     }else{
         var numCheck = document.getElementById("ftrcode").value;
         var numVal = numCheck.split("-");
         if(numVal.length>2){
-            alert("��سҡ�͡�ٻẺ�ͺ��äӹǳ���١��ͧ");
+            alert("กรุณากรอกรูปแบบรอบการคำนวณให้ถูกต้อง");
             return false;
         }
     }
@@ -42,14 +42,14 @@ if(!isset($_REQUEST["ftrcode"])){
     <?
         $ftrcode = $_REQUEST["ftrcode"];
         if (strpos($ftrcode,"-")===false){
-            //�ͺ������� == �ͺ����ش
+            //รอบเริ่มต้น == รอบสิ้นสุด
             $ftrc[0]=$ftrcode;
             $ftrc[1]=$ftrcode;
         }else{
             $ftrc = explode('-',$ftrcode);
         }
         if($ftrc[0]>$ftrc[1]){
-            ?><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT><?
+            ?><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT><?
             showdialog();
             exit;
         }else{
@@ -61,29 +61,29 @@ if(!isset($_REQUEST["ftrcode"])){
             $result = mysql_query($sql);
             for($i=0;$i<mysql_num_rows($result);$i++){
                 $data = mysql_fetch_object($result);
-                ?><font color="#ff0000">�ͺ <?=$data->rcode?> �ӹǳ����� <br /></font><?
+                ?><font color="#ff0000">รอบ <?=$data->rcode?> คำนวณไปแล้ว <br /></font><?
             }
             mysql_free_result($result);
             if($i>0){
-                ?><font color="#ff0000">��ͧź��äӹǳ����Ԫ��� �ͺ����͹ �֧�Фӹǳ������<br /></font><?
+                ?><font color="#ff0000">ต้องลบการคำนวณคอมมิชชั่น รอบนี้ก่อน จึงจะคำนวณใหม่ได้<br /></font><?
                 showdialog();
                 exit;
             }        
 $step="1";
 $time_start = getmicrotime();
-echo "�������äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around<BR>";
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR>";
 $text="uid=".$_SESSION["adminuserid"]." action=Unilivel calc rcode=$ftrc[0]-$ftrc[1]";
 writelogfile($text);
-//       1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around
-//           1.1 ��ҹ Ro, FSaNo, TSaNo
-//           1.2 ���ҧ��� BM+rcode, BC+rcode
-//           1.3 ź������ BTOTSALE ��ͺ RO ����͡��͹
+//       1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around
+//           1.1 อ่าน Ro, FSaNo, TSaNo
+//           1.2 สร้างไฟล์ BM+rcode, BC+rcode
+//           1.3 ลบข้อมูล BTOTSALE ในรอบ RO นี้ออกก่อน
 for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 
     ///////////////////////////////////////////////////////////////////////
-    //$ro �����ҧ Frcode-Trcode/////////////////////////////////////////
-    //           1.1 ��ҹ ro, FSaNo, TSaNo
+    //$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
+    //           1.1 อ่าน ro, FSaNo, TSaNo
     //$step="1.1";
     //echo "***ro=$ro<BR>";
     //$bonusperpair = 500;
@@ -108,8 +108,8 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
         $month=explode("-",$row["tdate"]);
         $pmonth=$month[0].$month[1];
         ///////////////////////////////////////////////////////////////////////
-        //�ӹǳ �����ͺ $ro
-        echo "<BR><BR>�ӹǳ⺹���ͺ��� RO=$ro<BR>";
+        //คำนวณ แต่ละรอบ $ro
+        echo "<BR><BR>คำนวณโบนัสรอบที่ RO=$ro<BR>";
 		
 		mysql_query("delete from ali_calc_poschange2 where pos_before = '' and pos_after = ''");
 		$sql = " SELECT a.mcode,a.id,a.rcode,a.pos_before,a.pos_after,a.date_change FROM ".$dbprefix."calc_poschange2 as a WHERE a.rcode >= '$ro' order by a.id desc ";
@@ -158,8 +158,8 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 		func_honor($dbprefix,$ro,$fdate,$tdate);// honor
 		fnc_calc_matching($dbprefix,$ro,$fdate,$tdate);//matching
 		calc_pool_bunus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate);// all-sale
-		fnc_summary_bonus($dbprefix,$ro,$fdate,$tdate,$fdate,$tdate);// ��������͹
-		fnc_calc_status_comb($dbprefix,$ro,$fdate,$tdate,$paydate);// ������������͹
+		fnc_summary_bonus($dbprefix,$ro,$fdate,$tdate,$fdate,$tdate);// รวมรายเดือน
+		fnc_calc_status_comb($dbprefix,$ro,$fdate,$tdate,$paydate);// รวมจ่ายรายเดือน
 		$time_end = getmicrotime();
 		$time = $time_end - $time_start;
 		$sql="update ".$dbprefix."bround set calc='1',calc_date='".date("Y-m-d H:i:s")."',timequery='$time',uid='".$_SESSION['adminusercode']."' where rcode='$ro' ";
@@ -197,15 +197,15 @@ for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 		}
 		
     }
-    //$ro �����ҧ Frcode-Trcode/////////////////////////////////////////
+    //$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
     ///////////////////////////////////////////////////////////////////////
 }
   
 
 
 
-echo "<b><font color=green> ����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR></font> ";
+echo "<b><font color=green> สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR></font> ";
 echo "<b>";
 	} //end else 
     ?>
@@ -224,14 +224,14 @@ function showdialog(){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center">��͡�ͺ��äӹǳ����Ԫ��������͹ (Unilevel) ����ͧ��äӹǹ�� 1-12</td>
+    <td colspan="2" align="center">กรอกรอบการคำนวณคอมมิชชั่นรายเดือน (Unilevel) ที่ต้องการคำนวนเช่น 1-12</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td width="40%" align="right">�ͺ&nbsp;&nbsp;</td>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
     <td width="60%">
       <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
   </tr>
@@ -240,7 +240,7 @@ function showdialog(){
     <td>&nbsp;</td>
   </tr>
   <tr align="center">
-    <td colspan="2"><input type="button" name="Submit" value="�ӹǳ�����" onClick="checkround()"></td>
+    <td colspan="2"><input type="button" name="Submit" value="คำนวณรายได้" onClick="checkround()"></td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -352,7 +352,7 @@ function fnc_calc_matching($dbprefix,$ro,$fdate,$tdate){
 			for($j=0;$j<sizeof($n_mcode);$j++){
 				if($n_mcode[$j] === $apv_mcode){
 					$up	= $n_mcode[$j];
-					//echo "�պ�Ţ�� : $up<BR>";
+					//echo "มีบิลขาย : $up<BR>";
 					$lv	 	= 0;
 					$glv	=1;
 					//if($j == '5'){echo 'sssssssssss';exit;}
@@ -426,7 +426,7 @@ function fnc_calc_matching($dbprefix,$ro,$fdate,$tdate){
 		} 
 		mysql_free_result($rs);
 
-		//�ӹǳ⺹�� ��ػ����⺹��		
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
 		$sql = " insert into ".$dbprefix."dmbonus  (rcode, mcode, name_t,total,tax,bonus,fdate,tdate,pos_cur) ";
 		$sql .= "	select '$ro', upa_code,upa_name,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',mposi from ".$dbprefix."dc WHERE  rcode='$ro' group by upa_code ";
 		mysql_query($sql) or die(mysql_error());
@@ -704,7 +704,7 @@ function open_bill($dbprefix,$ro,$mcode,$tdate,$name_t,$all_pv,$type){
 			log_ewallet('eatoship',$mcode,$sano,$all_pv,'CO',date("Y-m-d"),"Cal-B ($sano Date : $tdate"); 
 		}
 	}else{
-		echo "<center><font color = 'red'> ������Թ��� Autoship </center></font> ";
+		echo "<center><font color = 'red'> ไม่มีสินค้า Autoship </center></font> ";
 	}
 }
 function fnc_summary_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
@@ -872,7 +872,7 @@ function fnc_unilevel_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
             for($j=0;$j<sizeof($n_mcode);$j++){
         
                 if($n_mcode[$j]<>$apv_mcode){
-                    //����� pv
+                    //ไม่มี pv
                 }else{
                      $up    = $n_mcode[$j];
                     $max_level = 0;
@@ -884,7 +884,7 @@ function fnc_unilevel_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
                             $lv    = ($lv+1);
                                 $flag = 0; 
                                 $sum_pv = 0;                                
-                                $pos_ncur = get_detail_meber($n_upa_code[$up],$tdate); //��Ǩ�ͺ���˹觼�������Է����Ѻ����Ԫ���
+                                $pos_ncur = get_detail_meber($n_upa_code[$up],$tdate); //ตรวจสอบตำแหน่งผู้ที่มีสิทธิ์รับคอมมิชชั่น
                                 $pos_ncur1 = $pos_ncur['pos_cur'];
 								if($pos_ncur['pos_cur2'] == 'DD' or $pos_ncur['pos_cur2'] == 'SD' or $pos_ncur['pos_cur2'] == 'PD')$pos_ncur1 = $pos_ncur['pos_cur2'];
 								else $pos_ncur1 = $pos_ncur['pos_cur'];
@@ -1058,7 +1058,7 @@ function fnc_calc_status_comb($dbprefix,$ro,$fdate,$tdate,$paydate){
             $totalamt[$j] = $dmbonus[$j]+$embonus[$j];
             $totalamt1[$j] =  $moneyb[$j]+$totalamt[$j];
 			if($totalamt1[$j] > 0){                    
-				if($cmp[$j] == '�ú' and $cmp2[$j] == '�ú' and !empty($acc_no[$j])) //// YES
+				if($cmp[$j] == 'ครบ' and $cmp2[$j] == 'ครบ' and !empty($acc_no[$j])) //// YES
 				{
 					if($totalamt1[$j] >= 100)
 					{
@@ -1084,8 +1084,8 @@ function fnc_calc_status_comb($dbprefix,$ro,$fdate,$tdate,$paydate){
 					 }
 					 else
 					 {
-						if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-						if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
+						if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+						if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
 						if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";                        
 							
 						$commission = array(
@@ -1112,8 +1112,8 @@ function fnc_calc_status_comb($dbprefix,$ro,$fdate,$tdate,$paydate){
 				}
 				else /////  NO
 				{
-					if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-					if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
+					if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+					if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
 					if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
 						$commission = array(
 							"rcode"        => $ro,

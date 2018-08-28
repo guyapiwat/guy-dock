@@ -13,7 +13,7 @@
 		    <br /></td>
 	</tr>
 	<tr>
-		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>���ʼ���� :</strong> ".$_SESSION["adminusercode"]." <strong>���ͼ���� :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 	</tr>
 	<tr>
 		<td width="50%" valign="top"><table width="90%" border="1" bordercolor="#FF7F00" cellSpacing="0" cellPadding="0" >
@@ -30,15 +30,15 @@
           </tr>
 		  <tr  >
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">��§ҹ Stock Card(���)</a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">รายงาน Stock Card(ขาย)</a></td>
 		     </tr>
 			 <tr  >
 			   <td align="right">&nbsp;</td>
-			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=56">��§ҹ ��ԡ�ͧ�Ң�</a></td>
+			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=56">รายงาน ใบเบิกของสาขา</a></td>
 		      </tr>
 			 <tr   >
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=57">��§ҹ ��Ѻ�ͧ�Ң�</a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=57">รายงาน ใบรับของสาขา</a></td>
 		     </tr>
 
 			   <tr>
@@ -51,7 +51,7 @@
           </tr>
 				   <tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
-            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; Stock &#3603; &#3623;&#3633;&#3609;&#3607;&#3637;&#3656; ���</a></td>
+            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; Stock &#3603; &#3623;&#3633;&#3609;&#3607;&#3637;&#3656; รวม</a></td>
           </tr>
           <!--  <tr >
 			<td width="16%" align="right">&nbsp;</td>
@@ -101,19 +101,19 @@
 		  </tr>
 		  <tr>
 			<td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-			<td width="84%"><strong>�׹�ѹ�͡��á�â��ᨧ�ʹ</strong></td>
+			<td width="84%"><strong>ยืนยันเอกสารการขายแจงยอด</strong></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">�͡��÷���ѧ������׹�ѹ</A></td>
+			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">เอกสารที่ยังไม่ได้ยืนยัน</A></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">�͡��÷���׹�ѹ����</a></td>
+			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">เอกสารที่ยืนยันแล้ว</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;��ػ�ʹ��� �ͧ��ѡ�ҹ���Ф� �����ҧ�ѹ���</td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละคน ระหว่างวันที่</td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
@@ -140,7 +140,7 @@
 			case 53:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock � �ѹ���</font></strong>
+       			    <strong><font color="#666666">รายงาน Stock ณ วันที่</font></strong>
                 </legend>
 				<?
 				include("sale_bill_product_date.php");
@@ -148,7 +148,7 @@
 			case 54:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock � �ѹ��� Ẻ���</font></strong>
+       			    <strong><font color="#666666">รายงาน Stock ณ วันที่ แบบรวม</font></strong>
                 </legend>
 				<?
 				include("sale_bill_product_date_group.php");
@@ -156,7 +156,7 @@
 			case 55:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock Card(���)</font></strong>           
+       			    <strong><font color="#666666">รายงาน Stock Card(ขาย)</font></strong>           
                 </legend>
 				<?
 				include("sale_bill_stockcard.php");
@@ -165,7 +165,7 @@
 			case 58:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock Card(�觢ͧ)</font></strong>           
+       			    <strong><font color="#666666">รายงาน Stock Card(ส่งของ)</font></strong>           
                 </legend>
 				<?
 				include("sale_bill_stockcardr.php");
@@ -174,7 +174,7 @@
 			case 56:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ��ԡ�ͧ�Ң�</font></strong>           
+       			    <strong><font color="#666666">รายงาน ใบเบิกของสาขา</font></strong>           
                 </legend>
 				<?
 				include("sale_bil_bb.php");
@@ -183,7 +183,7 @@
 			case 57:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ��Ѻ�ͧ�Ң�</font></strong>           
+       			    <strong><font color="#666666">รายงาน ใบรับของสาขา</font></strong>           
                 </legend>
 				<?
 				include("sale_bil_br.php");
@@ -191,7 +191,7 @@
 			case 21:
 				?>
 				<legend>
-		           	<strong><font color="#666666">��ŨѴ�� Branch / Stockist &nbsp;&nbsp;</font></strong>          
+		           	<strong><font color="#666666">บิลจัดส่ง Branch / Stockist &nbsp;&nbsp;</font></strong>          
 				 </legend>
 				<?
 				include("sale_stockist.php");
@@ -199,14 +199,14 @@
 			case 22:
 				?>
 				<legend>
-		           	<strong><font color="#666666">��ŨѴ�����׹�ѹ�Ѻ�ͧ Branch / Stockist &nbsp;&nbsp;</font></strong>          
+		           	<strong><font color="#666666">บิลจัดส่งรอยืนยันรับของ Branch / Stockist &nbsp;&nbsp;</font></strong>          
 				 </legend>
 				<?
 				include("ssale_stockist.php");
 				break;
 			case 148:
 				?>
-                <legend> <strong><font color="#666666">��� Branch / Stockist �Ѻ�ͧ����Ң� (���Ѻ�ͧ)</font></strong> </legend>
+                <legend> <strong><font color="#666666">บิล Branch / Stockist รับของที่สาขา (รอรับของ)</font></strong> </legend>
 				</legend>
 				<?
 				include("stockist_r.php");
@@ -214,7 +214,7 @@
 			case 155:
 				?>
 				<legend>
-       			    <strong><font color="#666666">����觢ͧ/�Ѻ�ͧ ������ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">บิลส่งของ/รับของ ทั้งหมด &nbsp;&nbsp;</font></strong>
                 </legend>
 				<?
 				include("rhold_all.php");
@@ -222,7 +222,7 @@
 			case 156:
 				?>
 				<legend>
-       			    <strong><font color="#666666">����觢ͧ/�Ѻ�ͧ Branch / Stockist ������ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">บิลส่งของ/รับของ Branch / Stockist ทั้งหมด &nbsp;&nbsp;</font></strong>
                 </legend>
 				<?
 				include("rstockist_all.php");

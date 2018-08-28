@@ -52,7 +52,7 @@
 
 						$sano = gencodesale_IV($sanof);
 
-						if($sletter=="®—¥ Ëß"){
+						if($sletter=="‡∏à‡∏±‡∏î‡∏™‡πà‡∏á"){
 							$sletter=1;
 						}else if($sletter=="1"){
 							$sletter=2;
@@ -63,12 +63,12 @@
 				if (! mysql_query($sql)) {
 						$sql_delete = "DELETE FROM ".$dbprefix."member WHERE mcode = '".$mcode."' ";
 						mysql_query($sql_delete);
-						echo "<script language='JavaScript'>alert(' ¡—§√ ¡“™‘°‰¡Ë ”‡√Á®§Ë– °√ÿ≥“ ¡—§√„À¡ËÕ’°§√—Èß');window.location='index.php?sessiontab=1&sub=910'</script>";
+						echo "<script language='JavaScript'>alert('‡∏™‡∏°‡∏±‡∏Ñ‡∏£‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÑ‡∏°‡πà‡∏™‡∏≥‡πÄ‡∏£‡πá‡∏à‡∏Ñ‡πà‡∏∞ ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏™‡∏°‡∏±‡∏Ñ‡∏£‡πÉ‡∏´‡∏°‡πà‡∏≠‡∏µ‡∏Å‡∏Ñ‡∏£‡∏±‡πâ‡∏á');window.location='index.php?sessiontab=1&sub=910'</script>";
 							exit;  
 				}else{
 					$text="uid=".$_SESSION["inv_usercode"]." action=saleoperate =>$sql";
 					writelogfile($text);
-					logtext(true,$_SESSION['admininvent'],' “¢“‡æ‘Ë¡∫‘≈',$mid);
+					logtext(true,$_SESSION['admininvent'],'‡∏™‡∏≤‡∏Ç‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
 					if(isset($_POST['pcode'])){
 							$pcode=$_POST['pcode'];
 							$pdesc=$_POST['pdesc'];

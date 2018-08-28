@@ -15,7 +15,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
 	$sql  = "SELECT ";
 	$sql .= "CASE WHEN r.pdesc IS NULL THEN CONCAT('<b>',r.sano,'</b>') ELSE '' END AS sano ";
-	$sql .= ", CASE WHEN r.pdesc IS NULL THEN CASE r.sa_type WHEN 'A' THEN CONCAT('<b>��Ż���</b>') WHEN 'C' THEN CONCAT('<b>�ѡ���ʹ��͹��ѧ</b>') WHEN 'Q' THEN CONCAT('<b>�ѡ���ʹ�Ѩ�غѹ</b>') WHEN 'H' THEN CONCAT('<b>Hold</b>') END ELSE '' END AS sa_type ";
+	$sql .= ", CASE WHEN r.pdesc IS NULL THEN CASE r.sa_type WHEN 'A' THEN CONCAT('<b>บิลปกติ</b>') WHEN 'C' THEN CONCAT('<b>รักษายอดย้อนหลัง</b>') WHEN 'Q' THEN CONCAT('<b>รักษายอดปัจจุบัน</b>') WHEN 'H' THEN CONCAT('<b>Hold</b>') END ELSE '' END AS sa_type ";
 	$sql .= ", CASE WHEN r.pdesc IS NULL THEN CONCAT('<b>',r.sadate,'</b>') ELSE '' END AS sadate ";
 	$sql .= ", CASE WHEN r.pdesc IS NULL THEN CONCAT('<b>',r.total,'</b>') ELSE '' END AS total ";
 	$sql .= ", CASE WHEN r.pdesc IS NULL THEN CONCAT('<b>',r.tot_pv,'</b>') ELSE '' END AS tot_pv ";
@@ -59,7 +59,7 @@ $rec->setBackLink($PHP_SELF,"sessiontab=".$sesstab."");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,sano,sa_type,sadate,inv_code,total,tot_pv,pcode,pdesc,qq");
-$rec->setFieldDesc("������Ҫԡ,������Ҫԡ,�Ţ�����,������,�ѹ������,�Ң�,�ӹǹ�Թ,PV,�����Թ���,�����Թ���,�ӹǹ");
+$rec->setFieldDesc("รหัสสมาชิก,ชื่อสมาชิก,เลขที่บิล,ประเภท,วันที่ซื้อ,สาขา,จำนวนเงิน,PV,รหัสสินค้า,ชื่อสินค้า,จำนวน");
 $rec->setFieldFloatFormat(",,,,,,,,,,");
 $rec->setFieldAlign("center,left,center,center,center,center,right,right,center,left,right");
 $rec->setFieldSpace("6%,11%,13%,10%,7%,6%,7%,7%,7%,19%,7%");

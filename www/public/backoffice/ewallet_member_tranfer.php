@@ -76,10 +76,10 @@ $sql .= " and t.sadate >= '$fdate'  and t.sadate <= '$tdate'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,uid,name_t1,mcode,name_t,total");
 		$rec->setFieldFloatFormat(",,,,,,2");
-		$rec->setFieldDesc("�ѹ���,�Ţ�����,���ʼ���͹,���ͼ���͹,���ʼ���Ѻ,���ͼ���Ѻ,�ӹǹ�Թ");
+		$rec->setFieldDesc("วันที่,เลขที่บิล,รหัสผู้โอน,ชื่อผู้โอน,รหัสผู้รับ,ชื่อผู้รับ,จำนวนเงิน");
 		$rec->setFieldAlign("center,left,center,left,center,left,right,center");
 		$rec->setSearch("t.sano,t.uid,m1.name_t,t.mcode,m.name_t,t.total");
-		$rec->setSearchDesc("�Ţ�����,���ʼ���͹,���ͼ���͹,���ʼ���Ѻ,���ͼ���Ѻ,�ӹǹ�Թ");
+		$rec->setSearchDesc("เลขที่บิล,รหัสผู้โอน,ชื่อผู้โอน,รหัสผู้รับ,ชื่อผู้รับ,จำนวนเงิน");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");

@@ -5,8 +5,8 @@ require_once("logtext.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>ยกเลิกข้อมูล :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธขเธเน€เธฅเธดเธเธเนเธญเธกเธนเธฅ :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -15,13 +15,13 @@ require_once("logtext.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ชื่อ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญ</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."transfersale_h WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
 		echo "SELECT * FROM ".$dbprefix."transfersale_h WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		if (mysql_num_rows($rs)>0){
@@ -49,13 +49,13 @@ require_once("logtext.php");
 				//minusProduct1($dbprefix,$pcode,$inv_codeold,$qty);
 			}		
 		//echo $_SESSION['usercode'];
-		logtext(true,$_SESSION['adminuserid'],'ลบสมาชิกสมัครผ่านเว็บ',$row->id);
+		logtext(true,$_SESSION['adminuserid'],'เธฅเธเธชเธกเธฒเธเธดเธเธชเธกเธฑเธเธฃเธเนเธฒเธเน€เธงเนเธ',$row->id);
 		mysql_free_result($rs);
 		
 		
 		//mysql_query("COMMIT");
 	}
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 function plusProduct($dbprefix,$pcode,$invent,$qty){
 	 $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode'";
 		//exit;

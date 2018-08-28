@@ -76,12 +76,12 @@ if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("pcodes,pdescs,inv_codes,qtys");
 $rec->setFieldFloatFormat(",,,,");
-$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÊÒ¢Ò,¨Ó¹Ç¹");
+$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸ªà¸²à¸‚à¸²,à¸ˆà¸³à¸™à¸§à¸™");
 $rec->setFieldAlign("center,left,center,right,right");
 $rec->setFieldSpace("15%,50%,15%,15%,15%,15%");
 $rec->setSum(true,true,",,,,");
 $str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 $rec->setSpace($str2);
 $rec->showRec(1,'SH_QUERY');
 

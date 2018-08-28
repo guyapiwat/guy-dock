@@ -4,8 +4,8 @@ require_once("logtext.php");
 require_once("global.php");
 require_once ("function.log.inc.php");
 
-    // ·®Èß«Ë“¡’√“¬°“√ ≈∫¢ÈÕ¡Ÿ≈ ¡“™‘°„À¡Ë
-    echo "<br>·°È‰¢¢ÈÕ¡Ÿ≈√“¬°“√´◊ÈÕ¢“¬ :";
+    // ‡πÅ‡∏à‡πâ‡∏á‡∏ß‡πà‡∏≤‡∏°‡∏µ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÉ‡∏´‡∏°‡πà
+    echo "<br>‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠‡∏Ç‡∏≤‡∏¢ :";
     $bid = $_GET['bid'];
     $style_l = "border-left:1 solid #FFFFFF;";
     $style_t = "border-top:1 solid #000000;";
@@ -14,12 +14,12 @@ require_once ("function.log.inc.php");
     ?>
     <table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">‡≈¢∫‘≈</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">√À— </td>
-            <td style="<?=$style_l.$style_t.$style_b?>">®”π«π‡ß‘π√«¡</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏´‡∏±‡∏™</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°</td>
         </tr>
     <?
-        // ÕË“π¢ÈÕ¡Ÿ≈‡¥‘¡®“° member
+        // ‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏î‡∏¥‡∏°‡∏à‡∏≤‡∏Å member
         //echo "SELECT * FROM ".$dbprefix."ewallet WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
         //$rs=mysql_query("SELECT * FROM ".$dbprefix."ewallet WHERE id='$bid' and lid = '{$_SESSION["admininvent"]}' and cancel = 0 LIMIT 1");
         if($_SESSION["inventobj6"] != '7')$lid = " and lid = '{$_SESSION["admininvent"]}'";
@@ -49,7 +49,7 @@ writelogfile($text);
                     $text="uid=".$_SESSION["adminuserid"]." action=ewallet_update=>update ".$dbprefix."member set eatoship = eatoship-".$row->txtMoney." where mcode='".$row->mcode."' ";
                     log_ewallet('eatoship',$row->mcode,$row->sano,$row->txtMoney,'I',$row->sadate,"Cancel(".$row->sano.")");  
                 }else{
-                    echo "<script language='JavaScript'>alert('Eatoship ‰¡Ë‡æ’¬ßæÕ∑’Ë¬°‡≈‘°‰¥È');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";
+                    echo "<script language='JavaScript'>alert('Eatoship ‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏û‡∏≠‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";
                     exit;
 
                 }
@@ -61,9 +61,9 @@ writelogfile($text);
             echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";    
 
         }else{
-            echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";    
+            echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";    
         }
-        logtext(true,$_SESSION['adminuserid'],'≈∫∫‘≈ ewallet id : '.$row->sano,$row->sano);
+        logtext(true,$_SESSION['adminuserid'],'‡∏•‡∏ö‡∏ö‡∏¥‡∏• ewallet id : '.$row->sano,$row->sano);
         mysql_free_result($rs);
         mysql_query("COMMIT");
 ?>

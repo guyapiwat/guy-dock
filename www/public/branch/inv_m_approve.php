@@ -36,15 +36,15 @@ require_once ("function.log.inc.php");
 	if($total > $ewallet)$chk_ewallet = 0;
 
 	if($chk_ewallet == '0'){
-		//echo 'Ewallet �ͧ��ҹ�����§��';
+		//echo 'Ewallet ของท่านไม่เพียงพอ';
 		//exit;
 	}
 	if($chk_product == '0'){
-		echo '�Թ��Ңͧ�ҧ Center �����§��';
+		echo 'สินค้าของทาง Center ไม่เพียงพอ';
 		exit;
 	}
 	if($status == '1'){
-		echo "�������ö�׹�ѹ�Թ��� �����";	
+		echo "ไม่สามารถยืนยันสินค้า ซ่ำได้";	
 		exit;
 	}else{	
 		$sql = "select * from ".$dbprefix."esaled where sano='$sano'";
@@ -77,7 +77,7 @@ require_once ("function.log.inc.php");
 		//====================LOG===========================
 		$text="uid=".$_SESSION["admininvent"]." action=easale_cancel=>$sql";
 		writelogfile($text);
-			logtext(true,$_SESSION['admininvent'],'�׹�ѹ�����觫��� '.$bid,$bid);
+			logtext(true,$_SESSION['admininvent'],'ยืนยันการสั่งซื้อ '.$bid,$bid);
 		//=================END LOG===========================
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=140'</script>";	
 	}
@@ -107,7 +107,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$inv_code,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�Ѻ�Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','รับสาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -128,7 +128,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$inv_code,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�Ѻ�Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','รับสาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -170,7 +170,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano,$inv_code,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�͹�Ң��Ѻ','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','โอนสาขารับ','$uid')";
 				mysql_query($sql);
 
 				
@@ -191,7 +191,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano,$inv_code,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�͹�Ң��Ѻ','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','โอนสาขารับ','$uid')";
 				mysql_query($sql);
 
 

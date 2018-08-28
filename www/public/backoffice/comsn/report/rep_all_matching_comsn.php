@@ -19,7 +19,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>°√ÿ≥“°√Õ°™Ë«ß√Ë“¬‰¥È„ÀÈ∂Ÿ° ‡™Ëπ 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏ä‡πà‡∏ß‡∏á‡∏£‡πà‡∏≤‡∏¢‡πÑ‡∏î‡πâ‡πÉ‡∏´‡πâ‡∏ñ‡∏π‡∏Å ‡πÄ‡∏ä‡πà‡∏ô 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -36,7 +36,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//√Õ∫‡√‘Ë¡µÈπ == √Õ∫ ‘Èπ ÿ¥
+		//‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô == ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -98,7 +98,7 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("fdate,tdate,mcode,name_t,total_fast,total_cycle,matching_bonus,total,total_fast2,amount");
 		$rec->setFieldFloatFormat(",,,,2,2,2,2,2,2,");
-		$rec->setFieldDesc("µ—Èß·µË«—π∑’Ë,∂÷ß«—π∑’Ë,√À— ,™◊ËÕ,§Ë“·π–π”,®—∫§ŸË,Unilvel,√“¬‰¥È√«¡,À—° Autoship, ÿ∑∏‘");
+		$rec->setFieldDesc("‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏ñ‡∏∂‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏à‡∏±‡∏ö‡∏Ñ‡∏π‡πà,Unilvel,‡∏£‡∏≤‡∏¢‡πÑ‡∏î‡πâ‡∏£‡∏ß‡∏°,‡∏´‡∏±‡∏Å Autoship,‡∏™‡∏∏‡∏ó‡∏ò‡∏¥");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right");
 		//$rec->setFieldSpace("7%,7%,7%,20%,10%,10%,10%,10%,10%,10%,10%,10%");
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,");
@@ -106,7 +106,7 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate);
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","allbonus".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","allbonus".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -114,7 +114,7 @@ rpdialog_alls($_GET['sub'],$fdate,$tdate);
 //$rec->setFieldLink(",,,,index.php?sessiontab=4&sub=4&ftrcode=$ftrcode&strtdate=$strtdate&fmcode=$fmcode&strfdate=,index.php?sessiontab=4&sub=402&tdate=$tdate&fdate=,index.php?sessiontab=4&sub=9&ftrcode=$ftrcode&strtdate=$strtdate&fmcode=$fmcode&strfdate=,index.php?sessiontab=4&sub=6&ftrcode=$ftrcode&strtdate=$strtdate&fmcode=$fmcode&strfdate=");
 
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

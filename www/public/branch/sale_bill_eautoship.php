@@ -21,9 +21,9 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
     }
     function sale_cancel(id){
         if(confirm("<?=$wording_lan['Bill_21']?>")){
-            var remark = prompt("¡ÃØ³Ò¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ","");
+            var remark = prompt("à¸à¸£à¸¸à¸“à¸²à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°","");
             if(remark == ""){
-                alert("¤Ø³äÁèä´é¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ");
+                alert("à¸„à¸¸à¸“à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°");
             }
             else{
                 window.location='index.php?sessiontab=3&sub=148&state=3&bid='+id+'&remark='+remark;
@@ -100,12 +100,12 @@ $rec->setCurPage($page);
 $rec->setShowField("sadate,sano,smcode,name_t,txtMoney".$colome.",lid,remark");
 $rec->setFieldFloatFormat(",,,,2".$Format.",,,");
 $rec->setSum(true,false,",,,,true".$Sum.",");
-$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_17"].",ËÁÒÂàËµØ");
+$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_17"].",à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,right,center");
 $rec->setSearch("sadate,sano,ewa.mcode,name_t,txtMoney,lid");
 $rec->setSearchDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_17"]);
 
-$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");
+$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
 $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE"); 
 if($_GET['excel']==1){
 $rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");
