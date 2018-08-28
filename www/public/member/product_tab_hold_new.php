@@ -26,7 +26,7 @@ color: #212121/*{fcActive}*/;
   </style>
   <div id="tabs">
     <ul>
-        <li><a href="#tabs-1">ÊÔ¹¤éÒ</a></li> 
+        <li><a href="#tabs-1">à¸ªà¸´à¸™à¸„à¹‰à¸²</a></li> 
     </ul>
     <div class="tab-border">
     <div id="tabs-1"> 

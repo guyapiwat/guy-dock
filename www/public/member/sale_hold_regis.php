@@ -10,7 +10,7 @@
 		window.location='index.php?index.php?sessiontab=1&sub=33&bid='+id;
 	}
 	function sale_hcancel(id){
-		if(confirm("�׹�ѹ��� update")){
+		if(confirm("ยืนยันการ update")){
 			window.location='index.php?sessiontab=4&sub=3&state=1&bid='+id;
 		}
 	}
@@ -63,12 +63,12 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 		$rec->setFieldSpace("12%,8%,8%,11%,18%,10%,10%,10%,10%");
 		$rec->setFieldLink(",index.php?sessiontab=4&sub=3&cmc=,");
 	//	$rec->setSearch("sano,sadate,smcode,name_t,sadate,tot_pv,total");
-	//	$rec->setSearchDesc("�Ţ���,�ѹ���Hold�ʹ,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
+	//	$rec->setSearchDesc("เลขบิล,วันที่Holdยอด,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
 		$rec->setFieldFloatFormat(",,,,,2,2,2,2");
 		$rec->setSum(true,false,",,,,,true,true,true,true");
 		$rec->setSpecial("./images/addmem.gif","","hold_regis","id","IMAGE");
 		//$rec->setSpecial("./images/false.gif","","sale_cancel","id","IMAGE");
-		//$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","ᨧ");
+		//$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","แจง");
 		//if($acc->isAccess(4)){
 		//	$rec->setSpecial("./images/cancel.gif","","sale_hcancel","id","IMAGE","update");
 		//}

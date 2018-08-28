@@ -7,7 +7,7 @@
         window.location='index.php?sessiontab=4&sub=3&state=3&bid='+id;
     }
     function sale_hcancel(id){
-        if(confirm("Â×¹ÂÑ¹¡ÒÃ update")){
+        if(confirm("à¸¢à¸·à¸™à¸¢à¸±à¸™à¸à¸²à¸£ update")){
             window.location='index.php?sessiontab=4&sub=3&state=1&bid='+id;
         }
     }
@@ -52,7 +52,7 @@ $sql .= " WHERE sa_type='H' and (hpv > 0 or htotal>0) and ".$dbprefix."asaleh.mc
        // $rec->setFieldSpace("12%,8%,8%,11%,18%,10%,10%,10%,10%");
         $rec->setFieldLink(",index.php?sessiontab=4&sub=3&cmc=,");
     //    $rec->setSearch("sano,sadate,smcode,name_t,sadate,tot_pv,total");
-    //    $rec->setSearchDesc("àÅ¢ºÔÅ,ÇÑ¹·ÕèHoldÂÍ´,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+    //    $rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸§à¸±à¸™à¸—à¸µà¹ˆHoldà¸¢à¸­à¸”,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
         $rec->setFieldFloatFormat(",,,,2,2,2,2");
         $rec->setSum(true,false,",,,,true,true,true,true");
         //$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");

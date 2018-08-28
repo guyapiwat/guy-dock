@@ -33,7 +33,7 @@ function date_thai($strDate){
 	$strHour= date("H",strtotime($strDate));
 	$strMinute= date("i",strtotime($strDate));
 	$strSeconds= date("s",strtotime($strDate));
-	$strMonthCut = Array("","¡.§.","°.æ.","¡’.§.","‡¡.¬.","æ.§.","¡‘.¬.","°.§."," .§.","°.¬.","µ.§.","æ.¬.","∏.§.");
+	$strMonthCut = Array("","‡∏°.‡∏Ñ.","‡∏Å.‡∏û.","‡∏°‡∏µ.‡∏Ñ.","‡πÄ‡∏°.‡∏¢.","‡∏û.‡∏Ñ.","‡∏°‡∏¥.‡∏¢.","‡∏Å.‡∏Ñ.","‡∏™.‡∏Ñ.","‡∏Å.‡∏¢.","‡∏ï.‡∏Ñ.","‡∏û.‡∏¢.","‡∏ò.‡∏Ñ.");
 	$strMonthThai=$strMonthCut[$strMonth];
 	return "$strDay $strMonthThai $strYear";
 }
@@ -46,7 +46,7 @@ if(empty($_SESSION["m_locationbase"])){
 	exit;
 }
 //include("securimage.php");
-//§”π«≥√Õ∫
+//‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡∏£‡∏≠‡∏ö
 	$sql = "select  DATE_FORMAT(max(calc_date)- INTERVAL 1
 DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 	$rs = mysql_query($sql);
@@ -150,7 +150,7 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 
 			//echo $showewallet;
 			/*if($cl_exp_date < -90){
-				echo "<center><font color=#ff000 size=5>¢ÕÕ¿—¬ √À—  ¡“™‘°π’È‰¥ÈÀ¡¥Õ“¬ÿ ¡“™‘°¡“·≈È« 90 «—π °√ÿ≥“µ‘¥µËÕ‡®È“ÀπÈ“∑’Ë </font></center>";
+				echo "<center><font color=#ff000 size=5>‡∏Ç‡∏≠‡∏≠‡∏†‡∏±‡∏¢ ‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏°‡∏≤‡πÅ‡∏•‡πâ‡∏ß 90 ‡∏ß‡∏±‡∏ô ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏ï‡∏¥‡∏î‡∏ï‡πà‡∏≠‡πÄ‡∏à‡πâ‡∏≤‡∏´‡∏ô‡πâ‡∏≤‡∏ó‡∏µ‡πà </font></center>";
 				$_SESSION["usercode"]=""; 
 				$_SESSION["username"]="";
 				$_SESSION["password"]="";

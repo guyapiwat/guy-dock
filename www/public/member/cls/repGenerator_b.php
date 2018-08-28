@@ -316,13 +316,13 @@ class repGenerator{
 										<div class="col-xs-5 col-sm-2">
 											<div class="control-group">
 												<div class="controls controls-row">
-													<input class="col-xs-12" type="text" placeholder="°√Õ°¢ÈÕ¡Ÿ≈∑’ËµÈÕß°“√§ÈπÀ“..." name="scause">
+													<input class="col-xs-12" type="text" placeholder="‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤..." name="scause">
 												</div>
 											</div>
 										</div>
 										<div class="col-xs-5 col-sm-2">
 											<div class="control-group">
-												<select class="form-control col-xs-12" data-placeholder="‚ª√¥‡≈◊Õ°‡≈◊Õ°" name="skey" class=" form-control chzn-select-deselect span12" tabindex="-1" id="selCSI"> ';
+												<select class="form-control col-xs-12" data-placeholder="‡πÇ‡∏õ‡∏£‡∏î‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡πÄ‡∏•‡∏∑‡∏≠‡∏Å" name="skey" class=" form-control chzn-select-deselect span12" tabindex="-1" id="selCSI"> ';
 													for($i=0;$i<sizeof($showSearch);$i++){
 														echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 													}
@@ -357,7 +357,7 @@ class repGenerator{
 					}
 					if($this->del){
 						echo "<th>";
-						echo "<a href=\"javascript:if(confirm('°√ÿ≥“¬◊π¬—π°“√≈∫¢ÈÕ¡Ÿ≈¥—ß°≈Ë“«')) document.".$this->delFormAttr[0].".submit();\">≈∫</a>";
+						echo "<a href=\"javascript:if(confirm('‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏¢‡∏∑‡∏ô‡∏¢‡∏±‡∏ô‡∏Å‡∏≤‡∏£‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏î‡∏±‡∏á‡∏Å‡∏•‡πà‡∏≤‡∏ß')) document.".$this->delFormAttr[0].".submit();\">‡∏•‡∏ö</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</th>";
 
@@ -365,7 +365,7 @@ class repGenerator{
 					}
 					if($this->edit){
 						echo "<th>";
-						echo "·°È‰¢";
+						echo "‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç";
 						echo "</th>";
 
 						$col2 += 1;
@@ -379,7 +379,7 @@ class repGenerator{
 					echo "</thead>";
 					echo "<tbody>";
 					
-					//¢ÈÕ¡Ÿ≈∑’Ë· ¥ß
+					//‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡πÅ‡∏™‡∏î‡∏á
 
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
 						if(is_int($this->lPage) && $i>=$this->lPage) break;
@@ -398,7 +398,7 @@ class repGenerator{
 							if($extab==true)
 								echo "<td  data-title=''>&nbsp;</td>";
 							if($this->special){
-								// ‡√‘Ë¡ loop $this->specialType ‡æ◊ËÕ· ¥ß¢ÈÕ¡Ÿ≈„π§Õ≈—¡πÏæ‘‡»…µ“¡∑’Ë‡æ‘Ë¡¡“
+								// ‡πÄ‡∏£‡∏¥‡πà‡∏° loop $this->specialType ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡πÅ‡∏™‡∏î‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏Ñ‡∏≠‡∏•‡∏±‡∏°‡∏ô‡πå‡∏û‡∏¥‡πÄ‡∏®‡∏©‡∏ï‡∏≤‡∏°‡∏ó‡∏µ‡πà‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏°‡∏≤
 								for($j=0;$j<sizeof($this->specialType);$j++){
 									echo "<td data-title='' align='center' style='".$style_l."'>";
 									switch($this->specialType[$j]){
@@ -432,7 +432,7 @@ class repGenerator{
 									}
 	
 									echo "</td>";
-								}// ®∫ loop for ¢Õß special
+								}// ‡∏à‡∏ö loop for ‡∏Ç‡∏≠‡∏á special
 							}
 							if($this->del){
 								echo "<td data-title='Del'>";
@@ -484,7 +484,7 @@ class repGenerator{
 						echo "</div></tr>";
 						if($this->allSum==true){
 							echo "<div class='hidden-phone'><tr  bgcolor='#999999'>";
-							echo "<td class='hidden-phone' align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>®“°</td>";						
+							echo "<td class='hidden-phone' align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>‡∏à‡∏≤‡∏Å</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td class='".($showMobileField[$i]=='false'?"hidden-xs":"")."' align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -527,8 +527,8 @@ class repGenerator{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] „™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "„™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){
@@ -600,12 +600,12 @@ class repGenerator{
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
-					//À—«¢ÈÕ∑’ËµÈÕß°“√· ¥ß
+					//‡∏´‡∏±‡∏ß‡∏Ç‡πâ‡∏≠‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÅ‡∏™‡∏î‡∏á
 					for($i=0;$i<sizeof($showList);$i++){
 						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
 					}
 					fprintf($fp,"\n");
-					//¢ÈÕ¡Ÿ≈∑’Ë· ¥ß
+					//‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡πÅ‡∏™‡∏î‡∏á
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -660,8 +660,8 @@ class repGenerator{
 		fclose($fp);
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] „™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "„™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function download($dir,$fileName){

@@ -6,7 +6,7 @@ $_SESSION["perbuy"] = 1;
 <script type="text/javascript" src="js/jquery.1.11.0.min.js"></script>
 <script type="text/javascript"> 
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='zip_']").keyup(function(event){
 		if(event.keyCode==5){
 			if($(this).val().length==0){
@@ -20,7 +20,7 @@ $(function(){
 	});	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='czip_']").keyup(function(event){
 		if(event.keyCode==5){
 			if($(this).val().length==0){
@@ -34,7 +34,7 @@ $(function(){
 	});	
 });
 $(function(){
-/*	����ö����¹�ҡ citizen_ �繤�ҷ���ͧ���  */
+/*	สามารถเปลี่ยนจาก citizen_ เป็นค่าที่ต้องการ  */
 	$("input[name^='acc_no_']").keyup(function(event){
 		if(event.keyCode==10){
 			if($(this).val().length==0){
@@ -61,15 +61,15 @@ $(function(){
     return true;
   }
 function autoTab(obj){
-	/* ��˹��ٻẺ��ͤ�������� _ ᷹������á��� ���ǵ����������ͧ����
-	�����ѭ�ѡɳ������� �蹡�˹���  �ٻẺ�Ţ���ѵû�ЪҪ�
-	4-2215-54125-6-12 ������ö��˹���  _-____-_____-_-__
-	�ٻẺ�������Ѿ�� 08-4521-6521 ��˹��� __-____-____
-	���͡�˹������� 12:45:30 ��˹��� __:__:__
-	������ҧ��ҧ��ҧ�繡�á�˹��ٻẺ�Ţ�ѵû�ЪҪ�
+	/* กำหนดรูปแบบข้อความโดยให้ _ แทนค่าอะไรก็ได้ แล้วตามด้วยเครื่องหมาย
+	หรือสัญลักษณ์ที่ใช้แบ่ง เช่นกำหนดเป็น  รูปแบบเลขที่บัตรประชาชน
+	4-2215-54125-6-12 ก็สามารถกำหนดเป็น  _-____-_____-_-__
+	รูปแบบเบอร์โทรศัพท์ 08-4521-6521 กำหนดเป็น __-____-____
+	หรือกำหนดเวลาเช่น 12:45:30 กำหนดเป็น __:__:__
+	ตัวอย่างข้างล่างเป็นการกำหนดรูปแบบเลขบัตรประชาชน
 	*/
-		var pattern=new String("_-____-_____-__-_"); // ��˹��ٻẺ㹹��
-		var pattern_ex=new String("-"); // ��˹��ѭ�ѡɳ���������ͧ���·������㹹��
+		var pattern=new String("_-____-_____-__-_"); // กำหนดรูปแบบในนี้
+		var pattern_ex=new String("-"); // กำหนดสัญลักษณ์หรือเครื่องหมายที่ใช้แบ่งในนี้
 		var returnText=new String("");
 		var obj_l=obj.value.length;
 		var obj_l2=obj_l-1;
@@ -100,22 +100,22 @@ input = pad_string + input;
 return input; 
 } 
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
-	 req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-      req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     var req = Inint_AJAX(); //สร้าง Object
+	 req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+      req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
        if (req.readyState==4) {
-              if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+              if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
-						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 
 <script language="javascript" type="text/javascript" src="./datetimepick/datetimepicker1.js"></script>
@@ -192,17 +192,17 @@ $rs1=mysql_query($sqlLog1);
 	
 	?></p>
 <div class="row">
-	<div class="table-header">&nbsp��ͧ�ҧ��õԴ���</div>
+	<div class="table-header">&nbspช่องทางการติดต่อ</div>
 	<div class="col-xs-12 col-sm-4">
 		<div class="widget-box">
 			<div class="widget-header">
-				<h4 class="widget-title">�����ż����Ѥ�</h4>
+				<h4 class="widget-title">ข้อมูลผู้สมัคร</h4>
 			</div>
 
 			<div class="widget-body">
 				<div class="widget-main">
 					<label for="form-field-mask-1">
-						<small class="text-success">���Ѿ���ҹ</small>
+						<small class="text-success">โทรศัพท์บ้าน</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -211,7 +211,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">���Ѿ����Ͷ��</small>
+						<small class="text-success">โทรศัพท์มือถือ</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -220,7 +220,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">�����</small>
+						<small class="text-success">โทรสาร</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -229,7 +229,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">�������</small>
+						<small class="text-success">อีเมลล์</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -263,14 +263,14 @@ $rs1=mysql_query($sqlLog1);
 	<div class="col-xs-12 col-sm-4">
 		<div class="widget-box">
 			<div class="widget-header">
-				<h4 class="widget-title">�����ż����Ѥ�����</h4>
+				<h4 class="widget-title">ข้อมูลผู้สมัครร่วม</h4>
 			</div>
 
 			<div class="widget-body">
 				<div class="widget-main">
 					<div>
 						<label for="form-field-mask-1">
-						<small class="text-success">���Ѿ���ҹ</small>
+						<small class="text-success">โทรศัพท์บ้าน</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -279,7 +279,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">���Ѿ����Ͷ��</small>
+						<small class="text-success">โทรศัพท์มือถือ</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -288,7 +288,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">�����</small>
+						<small class="text-success">โทรสาร</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -297,7 +297,7 @@ $rs1=mysql_query($sqlLog1);
 					</div>
 
 					<label for="form-field-mask-1">
-						<small class="text-success">�������</small>
+						<small class="text-success">อีเมลล์</small>
 					</label>
 
 					<!-- #section:plugins/input.masked-input -->
@@ -315,7 +315,7 @@ $rs1=mysql_query($sqlLog1);
 	<div class="col-xs-12 col-sm-4">
 		<div class="widget-box">
 			<div class="widget-header">
-				<h4 class="widget-title">�����������Ѻ�Ѵ�� / ���͡���</h4>
+				<h4 class="widget-title">ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร</h4>
 			</div>
 
 			<div class="widget-body">
@@ -323,7 +323,7 @@ $rs1=mysql_query($sqlLog1);
 					<div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">�Ţ���/��ͧ</small>
+							<small class="text-success">เลขที่/ห้อง</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -332,7 +332,7 @@ $rs1=mysql_query($sqlLog1);
 						</div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">�Ҥ��	</small>
+							<small class="text-success">อาคาร	</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -341,7 +341,7 @@ $rs1=mysql_query($sqlLog1);
 						</div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">�����ҹ/�͹�	</small>
+							<small class="text-success">หมู่บ้าน/คอนโด	</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -350,7 +350,7 @@ $rs1=mysql_query($sqlLog1);
 						</div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">��͡/���	</small>
+							<small class="text-success">ตรอก/ซอย	</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -359,7 +359,7 @@ $rs1=mysql_query($sqlLog1);
 						</div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">���	</small>
+							<small class="text-success">ถนน	</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -384,7 +384,7 @@ $rs1=mysql_query($sqlLog1);
 						<div class="clearfix"></div>
 
 						<label for="form-field-mask-1">
-							<small class="text-success">������ɳ���	</small>
+							<small class="text-success">รหัสไปรษณีย์	</small>
 						</label>
 
 						<!-- #section:plugins/input.masked-input -->
@@ -410,12 +410,12 @@ $rs1=mysql_query($sqlLog1);
 	<div class="clearfix form-actions center">
 			<button class="btn btn-info" type="submit">
 				<i class="ace-icon fa fa-check bigger-110"></i>
-				�ѹ�֡
+				บันทึก
 			</button>
 			&nbsp; &nbsp; &nbsp;
 			<button class="btn" type="reset">
 				<i class="ace-icon fa fa-undo bigger-110"></i>
-				¡��ԡ
+				ยกเลิก
 			</button>
 	</div>
 </div>

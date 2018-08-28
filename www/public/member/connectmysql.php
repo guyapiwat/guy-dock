@@ -9,8 +9,8 @@
 	$charset = "SET NAMES 'tis620'"; 
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysqli_query($charset) or die('Invalid query: ' . mysql_error());
-	//mysql_select_db("$connectmysql_dbname") or die("ÿÿÿÿÿÿÿ?ÿÿ?ÿ?ÿÿÿÿÿÿÿ ÿÿ?ÿÿÿ?ÿ?ÿ?ÿÿÿÿÿÿ install file");
-	mysql_select_db("$connectmysql_dbname",$link) or die("ÿÿÿÿÿÿÿ?ÿÿ?ÿ?ÿÿÿÿÿÿÿ ÿÿ?ÿÿÿ?ÿ?ÿ?ÿÿÿÿÿÿ install file");
+	//mysql_select_db("$connectmysql_dbname") or die("ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ?ï£ˆï£ˆ?ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ ï£ˆï£ˆ?ï£ˆï£ˆï£ˆ?ï£ˆ?ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ install file");
+	mysql_select_db("$connectmysql_dbname",$link) or die("ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ?ï£ˆï£ˆ?ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ ï£ˆï£ˆ?ï£ˆï£ˆï£ˆ?ï£ˆ?ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ install file");
 	/* mysql_connect close connection as soon as script ends, 
 		doesn't require a mysql_close at the end of it use, 
 		but can be close earlier using mysql_close

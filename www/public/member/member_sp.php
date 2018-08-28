@@ -23,13 +23,13 @@ require("connectmysql.php");
 require("./cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 $mm = date("Y-m");
 //$mm = date("Y");
 $sql = "SELECT id,sano,DATE_FORMAT(sadate, '%d-%m-%Y') as sadate,tot_pv,total,name_t,smcode,".$dbprefix."asaleh.mcode";
 $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ";
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN '∫√‘…—∑' ELSE inv_code END AS inv_code,CASE send WHEN '1' THEN '∫‘≈·®ßºË“π∫√‘…—∑' ELSE '∫‘≈¢“¬ª°µ‘' END AS type,'1' as checkcheck ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE inv_code END AS inv_code,CASE send WHEN '1' THEN '‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á‡∏ú‡πà‡∏≤‡∏ô‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE '‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥' END AS type,'1' as checkcheck ";
 
 $sql .= "FROM ".$dbprefix."asaleh ";
 $sql .= "LEFT JOIN (SELECT mcode,sp_code AS smcode,name_t,mdate FROM ".$dbprefix."member) AS tabname ON (".$dbprefix."asaleh.mcode=tabname.mcode) WHERE smcode='".$_SESSION['usercode']."' and sa_type = 'A' and tabname.mdate like '%$mm%' and tot_pv > 0 ";
@@ -37,7 +37,7 @@ $sql .= " UNION ";
 $sql .= "SELECT id,hono as sano,DATE_FORMAT(sadate, '%d-%m-%Y') as sadate,tot_pv,total,name_t,smcode,".$dbprefix."holdhead.mcode";
 $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ";
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN '∫√‘…—∑' ELSE inv_code END AS inv_code,'∫‘≈¢“¬·®ß¬Õ¥' as type,'2' as checkcheck ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE inv_code END AS inv_code,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type,'2' as checkcheck ";
 
 $sql .= "FROM ".$dbprefix."holdhead ";
 $sql .= "LEFT JOIN (SELECT mcode,sp_code AS smcode,name_t,mdate FROM ".$dbprefix."member) AS tabname ON (".$dbprefix."holdhead.mcode=tabname.mcode) WHERE smcode='".$_SESSION['usercode']."' and sa_type = 'A' and tabname.mdate like '%$mm%' and tot_pv > 0 ";
@@ -46,7 +46,7 @@ $sql .= "LEFT JOIN (SELECT mcode,sp_code AS smcode,name_t,mdate FROM ".$dbprefix
 //echo $sql;
 	//	$sql .=  " where m.sp_code = '{$_SESSION["usercode"]}' and m.mdate like '%$mm%' and tab.tot_pv >0 and tab.sa_type='A' and tab.cancel = 0 ";
 
-	/*	$sql .= "SELECT DATE_FORMAT(tab.sadate, '%d-%m-%Y') as fdate,tab.mcode,taba.name_t,tab.tot_pv as pv,tab.hono as sano,tab.id,CASE tab.inv_code WHEN '' THEN '∫√‘…—∑' ELSE tab.inv_code END AS inv_code,'∫‘≈¢“¬·®ß¬Õ¥' as type,'2' as checkcheck FROM ".$dbprefix."holdhead tab  ";
+	/*	$sql .= "SELECT DATE_FORMAT(tab.sadate, '%d-%m-%Y') as fdate,tab.mcode,taba.name_t,tab.tot_pv as pv,tab.hono as sano,tab.id,CASE tab.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE tab.inv_code END AS inv_code,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type,'2' as checkcheck FROM ".$dbprefix."holdhead tab  ";
 		$sql .= " LEFT JOIN (SELECT mcode AS mca,name_t FROM ".$dbprefix."member where sp_code = '{$_SESSION["usercode"]}' and mdate like '%$mm%') AS taba ON (tab.mcode=taba.mca)";
 
 				$sql .=  ' where tab.tot_pv >0 and tab.sa_type="A" and tab.cancel = 0 ';
@@ -98,21 +98,21 @@ $sql .= "LEFT JOIN (SELECT mcode,sp_code AS smcode,name_t,mdate FROM ".$dbprefix
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		$rec->setShowField("sano,mcode,name_t,preserve,ability,imd,sadate,tot_pv,total,inv_code,type");
-		$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,√—°…“¬Õ¥∑—π∑’,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,ºŸÈ∫—π∑÷°,™π‘¥");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏±‡∏ô‡∏ó‡∏µ,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏ä‡∏ô‡∏¥‡∏î");
 		$rec->setFieldFloatFormat(",,,,,,,0,2");
 		$rec->setFieldAlign("center,center,left,center,center,center,center,right,right,center,center");
 		$rec->setFieldSpace("6%,8%,20%,7%,7%,7%,8%,8%,8%,10%,10%");
 		$rec->setFieldLink(",index.php?sessiontab=2&sub=1&cmc=,");
 		//$rec->setSearch("sano,smcode,name_t,sadate,tot_pv,total");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		$rec->setSum(true,false,",,,,,,,true,true");
 		$rec->setFieldLink("");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","æ‘¡æÏ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 	
 	//	$rec->setSearch("".$dbprefix."asaleh.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate");
-	//	$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√");
+	//	$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£");
 			
 	
 		

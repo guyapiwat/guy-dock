@@ -17,7 +17,7 @@ $wording_lan["w13"] = "No member.";
 $wording_lan["w14"] = "No data.";
 $wording_lan["w15"] = "Back to the sponsor chart.";
 $wording_lan["w16"] = "No data bill No.";
-$wording_lan["tab1_mem_591"] ="À≈—°∞“π";
+$wording_lan["tab1_mem_591"] ="‡∏´‡∏•‡∏±‡∏Å‡∏ê‡∏≤‡∏ô";
 $wording_lan["tab1_44"] = "Upload Documents";
 $wording_lan["new_register"] = "New Member";
 
@@ -48,7 +48,7 @@ $wording_lan["system allow to renew member 90 days before expire"] = "system all
 $wording_lan["word"]["sale_editadd"]["typea"] = "ROC";
 $wording_lan["word"]["sale_editadd"]["typeb"] = "Hold";
 $wording_lan["extendyear"] = "Renew";
-$wording_lan["tab5_8_2"] = "√“¬ß“π All sale";
+$wording_lan["tab5_8_2"] = "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô All sale";
 
 // Top Menu 
 $wording_lan["menutop_1"] = "Confirm Payment";
@@ -860,8 +860,8 @@ $wording_lan["tab2_1_18"] = "Personal PV this month";
 $wording_lan["tab2_1_19"] = "PV Left (Carry over)";
 $wording_lan["tab2_1_20"] = "PV Left (This month)";
 $wording_lan["tab2_1_21"] = "PV Left (Total)";
-$wording_lan["tab2_1_212"] = "PV ´È“¬ ( – ¡)";
-$wording_lan["tab2_1_213"] = "PV ¢«“ ( – ¡)";
+$wording_lan["tab2_1_212"] = "PV ‡∏ã‡πâ‡∏≤‡∏¢ (‡∏™‡∏∞‡∏™‡∏°)";
+$wording_lan["tab2_1_213"] = "PV ‡∏Ç‡∏ß‡∏≤ (‡∏™‡∏∞‡∏™‡∏°)";
 $wording_lan["tab2_1_22"] = "PV Right (Carry over)";
 $wording_lan["tab2_1_23"] = "PV Right (This month)";
 $wording_lan["tab2_1_24"] = "PV Right (Total)";

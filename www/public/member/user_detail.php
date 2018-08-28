@@ -110,7 +110,7 @@
 							<div class="profile-info-name"> <?=$wording_lan["tab1_mem_9"]?>  </div>
 
 							<div class="profile-info-value">
-								<span class="editable" id="age"><? echo ($data['lr']!="")? ($data['lr']=="1")?"«éÒÂ":"¢ÇÒ": $data['nodata']; ?></span>
+								<span class="editable" id="age"><? echo ($data['lr']!="")? ($data['lr']=="1")?"à¸‹à¹‰à¸²à¸¢":"à¸‚à¸§à¸²": $data['nodata']; ?></span>
 							</div>
 						</div>
 

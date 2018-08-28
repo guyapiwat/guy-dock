@@ -41,31 +41,31 @@ function str_pad(input, pad_length, pad_string, pad_type){
 	return input; 
 } 
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     var req = Inint_AJAX(); //สร้าง Object
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("czip").value=data.trim(); //�ʴ���
+						 document.getElementById("czip").value=data.trim(); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	 value = str_pad(value,7,0,false);
      req.open('GET', 'search_address_new.php?value='+encodeURIComponent(value), true); 
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
                     var data=req.responseText; 
 					if(data == 1234){
 
@@ -107,44 +107,44 @@ function checkaddress(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	value = value.toUpperCase();
 	//alert(test);
-     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcode').value="";
 					document.getElementById("mname").innerHTML="<?=$wording_lan['tab4']['1_27']?>";
 					}else{
 					document.getElementById('mcode').value=value;
-                    document.getElementById("mname").innerHTML=data; //�ʴ���
+                    document.getElementById("mname").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatus(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1){
 						if(strUser == 'C'){
@@ -165,19 +165,19 @@ function checkStatus(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatusNew(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1){
 						if(strUser == 'Q'){
 							alert("<?=$wording_lan['tab4']['1_44']?>");
@@ -196,16 +196,16 @@ function checkStatusNew(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_invent(value) {
-     var req = Inint_AJAX(); //���ҧ Object
-     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     var req = Inint_AJAX(); //สร้าง Object
+     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ 
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ 
 					if(data == 1234){
 					document.getElementById('inv_code').value="";
 					document.getElementById("inv_desc").innerHTML="<?=$wording_lan['tab4']['1_46']?>";
@@ -216,8 +216,8 @@ function sendget_invent(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 
@@ -244,7 +244,7 @@ function sendget_invent(value) {
 		var tott = 0;
 		document.getElementById('ajaxshipping').value = data;
 		if(<?=$_SESSION["evwallet1"]?> < data){
-				alert("Evoucher �����§��");
+				alert("Evoucher ไม่เพียงพอ");
 				document.getElementById('ok').disabled=true;
 				document.getElementById('checkstate').innerHTML= '';
 
@@ -275,7 +275,7 @@ if(document.getElementById('ccheckr').value == ''){
 	//alert(document.getElementById('mcode').value);
 	// alert(<?=$_SESSION["evwallet1"]?>);
 	if(<?=$_SESSION["evwallet1"]?> < document.getElementById('sumtotal').value){
-		alert("Evoucher �����§��");
+		alert("Evoucher ไม่เพียงพอ");
 		document.getElementById('ok').disabled=true;
 		document.getElementById('showsend1').innerHTML='';
 		exit;
@@ -446,7 +446,7 @@ var wi=null;
 		var style_bd = "border-bottom:1 dashed #000000;";
 		var hidden = "border-left-width:0;border-right-width:0;border-top-width:0;border-bottom-width:0;";
 		tag = window.parent.document.frm.getElementsByTagName('input');
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'  > &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'  > &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'class=' table table-striped table-condensed table-bordered table-hover cf'>";
 		place += "<tr align='center' bgcolor='#999999'>";
@@ -472,7 +472,7 @@ var wi=null;
 			}
 			
 			place += "<tr>";
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' class='visible-lg visible-md visible-sm' align='center'>" + (l+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly style='"+hidden+ "text-align:center;' type='text' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' class='visible-lg visible-md visible-sm' align='left'><input size='13' readonly style='"+hidden+ "' type='text' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -504,8 +504,8 @@ var wi=null;
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumtotal' name='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text'  name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		//place += "<tr><td colspan='9' align='right'><input type='submit' value='�ѹ�֡'></td></tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='<?=$wording_lan['tab4']['5_18']?>' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='<?=$wording_lan['tab4']['5_19']?>' /></td></tr>";
+		//place += "<tr><td colspan='9' align='right'><input type='submit' value='บันทึก'></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='<?=$wording_lan['tab4']['5_18']?>' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='<?=$wording_lan['tab4']['5_19']?>' /></td></tr>";
 		place += "</table>";
 
 		window.parent.document.getElementById('sale').innerHTML = place;
@@ -543,11 +543,11 @@ $txtOther = '0';
 				<div class="col-xs-12 col-sm-7">
 					<div class="profile-user-info profile-user-info-striped ">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����š����觫���</div>
+							<div class="profile-info-value">ข้อมูลการสั่งซื้อ</div>
 							<div class="profile-info-value"></div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѹ��� </div>
+							<div class="profile-info-name"> วันที่ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="sadate" name="sadate" value="<?=$sadate==""?$_SESSION["datetimezone"]:$sadate?>" readonly="" class="form-control">
@@ -555,7 +555,7 @@ $txtOther = '0';
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ٻẺ��ë��� </div>
+							<div class="profile-info-name"> รูปแบบการซื้อ </div>
 							<div class="profile-info-value">
 								<div class="controls">
 									<select name="satype" id="satype" onChange="document.getElementById('ok').disabled=true;">
@@ -572,21 +572,21 @@ $txtOther = '0';
 						</div>	
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ʶҹ� </div>
+							<div class="profile-info-name"> สถานะ </div>
 
 							<div class="control-group">
 								
 								<div class="radio">
 									<label >
 										<input type="radio" class="ace"  name="radsend" id="radsend" value="1" onClick="document.getElementById('inv_code').disabled = true;document.getElementById('ccheckr').value = '1';document.getElementById('inv_code').value = '';document.getElementById('showsend1').innerHTML='';document.getElementById('ok').disabled=true;" <?=($radsend=="1"?"checked":"")?>></input>
-										<span class="lbl">&nbsp&nbsp �Ѵ��</span>
+										<span class="lbl">&nbsp&nbsp จัดส่ง</span>
 									</label>
 									<label>
 										<input type="radio" class="ace" name="radsend" id="radsend" value="2"  onClick="document.getElementById('inv_code').disabled = false;document.getElementById('ccheckr').value = '2';document.getElementById('showsend1').innerHTML='';document.getElementById('ok').disabled=true;"  <?=($radsend=="2"?"checked":"")?> />
-										<span class="lbl">&nbsp&nbsp ���Ѵ��</span>
+										<span class="lbl">&nbsp&nbsp ไม่จัดส่ง</span>
 									</label>
 									<select size="1" name="inv_code" id="inv_code" onChange="document.getElementById('ok').disabled=true;" >
-									 <option  value="" >��س����͡</option>  
+									 <option  value="" >กรุณาเลือก</option>  
 									  <?					
 										$result1=mysql_query("select * from ".$dbprefix."invent where locationbase = '".$_SESSION["m_locationbase"]."' and inv_type=1 order by inv_code");
 										for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -605,7 +605,7 @@ $txtOther = '0';
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ըա�ê����Թ </div>
+							<div class="profile-info-name"> วิธีการชำระเงิน </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-12 col-xs-12">
 									<select size="1" name="spayment" id="spayment"  onChange="document.getElementById('ok').disabled=true;">
@@ -617,7 +617,7 @@ $txtOther = '0';
 
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ������Ҫԡ </div>
+							<div class="profile-info-name"> รหัสสมาชิก </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="mcode" name="mcode"  class="form-control" maxlength="9">
@@ -646,13 +646,13 @@ $txtOther = '0';
 					<div class="space-6"></div>
 					<div class="profile-user-info profile-user-info-striped ">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">��¡���Թ���</div>
+							<div class="profile-info-value">รายการสินค้า</div>
 							<div class="profile-info-value">
 							</div>
 						</div>
 						<div style="padding:5px;background-color: #fff;" id="sale" class="text-center ">
 							<div class="alert alert-danger">
-								�ѧ������͡��¡���Թ���
+								ยังไม่เลือกรายการสินค้า
 							</div>
 						</div>
 					</div>
@@ -671,11 +671,11 @@ $txtOther = '0';
 					</div>
 					<div class="profile-user-info profile-user-info-striped ">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">��͡�����ŷ����������Ѻ�Ѵ��</div>
-							<div class="profile-info-value"><input type="checkbox" class="ace" name="chkaddress" id="chkaddress" onClick="checkaddress(document.getElementById('mcode').value)" value="1"  /><span class="lbl"> ���Թ��ҵ������������������Ѻ����ѷ�</span></div>
+							<div class="profile-info-value">กรอกข้อมูลที่อยู่สำหรับจัดส่ง</div>
+							<div class="profile-info-value"><input type="checkbox" class="ace" name="chkaddress" id="chkaddress" onClick="checkaddress(document.getElementById('mcode').value)" value="1"  /><span class="lbl"> ส่งสินค้าตามที่อยู่ที่ได้แจ้งไว้กับบริษัทฯ</span></div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ͼ���Ѻ </div>
+							<div class="profile-info-name"> ชื่อผู้รับ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="cname" name="cname"  class="form-control">
@@ -683,7 +683,7 @@ $txtOther = '0';
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ����Դ��� </div>
+							<div class="profile-info-name"> เบอร์ติดต่อ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="cmobile" name="cmobile" class="form-control">
@@ -691,7 +691,7 @@ $txtOther = '0';
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ������� </div>
+							<div class="profile-info-name"> ที่อยู่ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="caddress" name="caddress" class="form-control">
@@ -708,7 +708,7 @@ $txtOther = '0';
 						}else{
 						?>
 						<div class="profile-info-row">
-							<div class="profile-info-name">�ѧ��Ѵ</div>
+							<div class="profile-info-name">จังหวัด</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -718,7 +718,7 @@ $txtOther = '0';
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�����</div>
+							<div class="profile-info-name">อำเภอ</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -728,7 +728,7 @@ $txtOther = '0';
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ӻ�</div>
+							<div class="profile-info-name">ตำบล</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -739,7 +739,7 @@ $txtOther = '0';
 						<? } ?>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����ɳ��� </div>
+							<div class="profile-info-name"> รหัสไปษณีย์ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="czip" name="czip"  class="form-control">
@@ -754,7 +754,7 @@ $txtOther = '0';
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����˵� </div>
+							<div class="profile-info-name"> หมายเหตุ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="txtoption" name="txtoption" class="form-control">
@@ -768,7 +768,7 @@ $txtOther = '0';
 				<div class="col-xs-12 col-sm-5">
 					<div class="profile-user-info profile-user-info-striped ">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">��س����͡�Թ���</div>
+							<div class="profile-info-value">กรุณาเลือกสินค้า</div>
 							<div class="profile-info-value"></div>
 						</div>
 					</div>
@@ -777,10 +777,10 @@ $txtOther = '0';
 						<div id="tabs" class="ui-tabs ui-widget ui-widget-content ui-corner-all">
 							<ul class="ui-tabs-nav ui-helper-reset ui-helper-clearfix ui-widget-header ui-corner-all" role="tablist">
 								<li class="ui-state-default ui-corner-top ui-state-hover ui-tabs-active ui-state-active" role="tab" tabindex="0" aria-controls="tabs-1" aria-labelledby="ui-id-29" aria-selected="true" aria-expanded="true">
-									<a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-29">�Թ���</a>
+									<a href="#tabs-1" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-29">สินค้า</a>
 								</li>
 								<li class="ui-state-default ui-corner-top" role="tab" tabindex="-1" aria-controls="tabs-2" aria-labelledby="ui-id-30" aria-selected="false" aria-expanded="false">
-									<a href="#tabs-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-30">�������</a>
+									<a href="#tabs-2" class="ui-tabs-anchor" role="presentation" tabindex="-1" id="ui-id-30">โปรโมชั่น</a>
 								</li>
 							</ul>
 

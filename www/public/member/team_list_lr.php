@@ -9,18 +9,18 @@ if (isset($_GET["lr"])){$lr=$_GET["lr"];} else {$lr="";}
 <?
 
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN àÁ×èÍµéÍ§¡ÒÃ¢éÍÁÙÅÇÑ¹ËÁ´ÍÒÂØã¹â»Ãá¡ÃÁ
+// JOIN à¹€à¸¡à¸·à¹ˆà¸­à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸§à¸±à¸™à¸«à¸¡à¸”à¸­à¸²à¸¢à¸¸à¹ƒà¸™à¹‚à¸›à¸£à¹à¸à¸£à¸¡
 $mm = date("Y-m");
 //$mm = date("Y");
 /*$sql = "SELECT *,";
-$sql .= "CASE lr WHEN '1' THEN '«éÒÂ' WHEN '2' THEN '¢ÇÒ'  END AS lr1 from ".$dbprefix."member_show where uid = '{$_SESSION["usercode"]}' ";
+$sql .= "CASE lr WHEN '1' THEN 'à¸‹à¹‰à¸²à¸¢' WHEN '2' THEN 'à¸‚à¸§à¸²'  END AS lr1 from ".$dbprefix."member_show where uid = '{$_SESSION["usercode"]}' ";
 if($_GET["lr"]){
 $sql .= " and lr = '".$_GET["lr"]."' ";
 }*/
 //echo $sql;
 $sql = "SELECT b.mcode,m.name_t,m.pos_cur,m.pos_cur2,m.pos_cur1,m.sp_code,m.sp_name, ";
-//$sql .= "CASE lr WHEN '1' THEN '«éÒÂ' WHEN '2' THEN '¢ÇÒ'  END AS lr1 from ".$dbprefix."member_show where uid = '{$_SESSION["usercode"]}' ";
-$sql .= "CASE b.lr WHEN '1' THEN '«éÒÂ' WHEN '2' THEN '¢ÇÒ'  END AS lr1 from ".$dbprefix."bm_chart as b  ";
+//$sql .= "CASE lr WHEN '1' THEN 'à¸‹à¹‰à¸²à¸¢' WHEN '2' THEN 'à¸‚à¸§à¸²'  END AS lr1 from ".$dbprefix."member_show where uid = '{$_SESSION["usercode"]}' ";
+$sql .= "CASE b.lr WHEN '1' THEN 'à¸‹à¹‰à¸²à¸¢' WHEN '2' THEN 'à¸‚à¸§à¸²'  END AS lr1 from ".$dbprefix."bm_chart as b  ";
 $sql .= " left join ".$dbprefix."member as m on (m.mcode = b.mcode) ";
 $sql .= " where b.upa_code = '{$_SESSION["usercode"]}' ";
 if($_GET["lr"]){
@@ -144,36 +144,36 @@ $right = mysql_num_rows(mysql_query("SELECT * from ".$dbprefix."bm_chart where u
 ?>
 <table width=60% align=center><tr><td align=center>
 
- <a href="?sessiontab=2&sub=6&lr=1" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;font-size:22px"<?}?>  >ÃÒÂª×èÍ½Ñè§«éÒÂ   <?=$left?>  ¤¹</a>
+ <a href="?sessiontab=2&sub=6&lr=1" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;font-size:22px"<?}?>  >à¸£à¸²à¸¢à¸Šà¸·à¹ˆà¸­à¸à¸±à¹ˆà¸‡à¸‹à¹‰à¸²à¸¢   <?=$left?>  à¸„à¸™</a>
 </td>
 
 <td align=center>
 
-<a href="?sessiontab=2&sub=6&lr=2" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;font-size:22px"<?}?>  >ÃÒÂª×èÍ½Ñè§¢ÇÒ   <?=$right?>  ¤¹</a>
+<a href="?sessiontab=2&sub=6&lr=2" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;font-size:22px"<?}?>  >à¸£à¸²à¸¢à¸Šà¸·à¹ˆà¸­à¸à¸±à¹ˆà¸‡à¸‚à¸§à¸²   <?=$right?>  à¸„à¸™</a>
 </td>
 
 </tr></table>
-<font color="#FF0000" size='5'><b><center><? echo 'â¤Ã§ÊÃéÒ§ã¹¡ÒÃ Show ¨ĞÁÕ¡ÒÃ update ¢éÍÁÙÅãËÁèæ ·Ø¡ÊÔé¹ÇÑ¹';?><br><?=$wording_lan["Info11"]?> <?=$_SESSION["fdate_show"]?>
+<font color="#FF0000" size='5'><b><center><? echo 'à¹‚à¸„à¸£à¸‡à¸ªà¸£à¹‰à¸²à¸‡à¹ƒà¸™à¸à¸²à¸£ Show à¸ˆà¸°à¸¡à¸µà¸à¸²à¸£ update à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¹ƒà¸«à¸¡à¹ˆà¹† à¸—à¸¸à¸à¸ªà¸´à¹‰à¸™à¸§à¸±à¸™';?><br><?=$wording_lan["Info11"]?> <?=$_SESSION["fdate_show"]?>
 </center></b></font>
 <br>
 <table align=center width="100%" style="display:none">
 <tr>
-    <td ><img src="images/mb.gif" height="20" ><font size = 4> Member : <?=$_SESSION[countMB]?> ÃËÑÊ</td>
-    <td ><img src="images/di.gif" height="20" ><font size = 4>Distributor : <?=$_SESSION[countDI]?>  ÃËÑÊ</td>
-    <td ><img src="images/bu.gif" height="20"><font size = 4>Business : <?=$_SESSION[countBU]?> ÃËÑÊ</td>
-	<td ><img src="images/su.gif" height="20"><font size = 4>Supervisor  : <?=$_SESSION[countSU]?>  ÃËÑÊ</td>
+    <td ><img src="images/mb.gif" height="20" ><font size = 4> Member : <?=$_SESSION[countMB]?> à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/di.gif" height="20" ><font size = 4>Distributor : <?=$_SESSION[countDI]?>  à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/bu.gif" height="20"><font size = 4>Business : <?=$_SESSION[countBU]?> à¸£à¸«à¸±à¸ª</td>
+	<td ><img src="images/su.gif" height="20"><font size = 4>Supervisor  : <?=$_SESSION[countSU]?>  à¸£à¸«à¸±à¸ª</td>
 </td>
 <tr>    
-    <td ><img src="images/mg.gif" height="20"><font size = 4>Manager : <?=$_SESSION[countMG]?>  ÃËÑÊ</td>
-    <td ><img src="images/d.gif" height="20"><font size = 4>Director : <?=$_SESSION[countD]?>  ÃËÑÊ</td>
-    <td ><img src="images/ad.gif" height="20"><font size = 4>Area Director : <?=$_SESSION[countAD]?>  ÃËÑÊ </td>
-	<td ><img src="images/rd.gif" height="20"><font size = 4>Regional Director : <?=$_SESSION[countRD]?>  ÃËÑÊ</td>
+    <td ><img src="images/mg.gif" height="20"><font size = 4>Manager : <?=$_SESSION[countMG]?>  à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/d.gif" height="20"><font size = 4>Director : <?=$_SESSION[countD]?>  à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/ad.gif" height="20"><font size = 4>Area Director : <?=$_SESSION[countAD]?>  à¸£à¸«à¸±à¸ª </td>
+	<td ><img src="images/rd.gif" height="20"><font size = 4>Regional Director : <?=$_SESSION[countRD]?>  à¸£à¸«à¸±à¸ª</td>
 </tr>
 <tr> 
-    <td ><img src="images/nd.gif" height="20"><font size = 4>National Director : <?=$_SESSION[countND]?>  ÃËÑÊ</td>
-    <td ><img src="images/gd.gif" height="20"><font size = 4>Continental Director : <?=$_SESSION[countCD]?>  ÃËÑÊ</td>
-	<td ><img src="images/gd.gif" height="20"><font size = 4>Global  Director : <?=$_SESSION[countGD]?>  ÃËÑÊ</td>
-    <td ><img src="images/gep.gif" height="20"><font size = 4>Global Executive President : <?=$_SESSION[countGEP]?>  ÃËÑÊ</font></td>
+    <td ><img src="images/nd.gif" height="20"><font size = 4>National Director : <?=$_SESSION[countND]?>  à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/gd.gif" height="20"><font size = 4>Continental Director : <?=$_SESSION[countCD]?>  à¸£à¸«à¸±à¸ª</td>
+	<td ><img src="images/gd.gif" height="20"><font size = 4>Global  Director : <?=$_SESSION[countGD]?>  à¸£à¸«à¸±à¸ª</td>
+    <td ><img src="images/gep.gif" height="20"><font size = 4>Global Executive President : <?=$_SESSION[countGEP]?>  à¸£à¸«à¸±à¸ª</font></td>
 </tr>
 </table>
 
@@ -197,9 +197,9 @@ $rec->setBackLink($PHP_SELF,"sessiontab=2");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,pos_cur,pos_cur2,pos_cur1,lr1");
-$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,¨Ñº¤Ùè,á¹Ğ¹Ó,à¡ÃÕÂµÔÂÈ,½Ñè§");
+$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸ˆà¸±à¸šà¸„à¸¹à¹ˆ,à¹à¸™à¸°à¸™à¸³,à¹€à¸à¸£à¸µà¸¢à¸•à¸´à¸¢à¸¨,à¸à¸±à¹ˆà¸‡");
 //$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-//$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ğ¹Ó");
+//$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¸£à¸«à¸±à¸ªà¸­à¸±à¸à¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 $rec->setFieldAlign("center,left,center,center,center,center,center,left,center");
 $rec->setFieldSpace("8%,25%,8%,4%,8%,8%,8%,25%,8%");
 	$rec->setFieldLink("index.php?sessiontab=2&sub=1&cmc=,");
@@ -207,7 +207,7 @@ $rec->setFieldSpace("8%,25%,8%,4%,8%,8%,8%,25%,8%");
 //$rec->setFieldFloatFormat(",,,,,,0,,0");
 
 $rec->setSearch("mcode");
-$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸");
 	
 
 

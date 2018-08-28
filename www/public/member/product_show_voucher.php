@@ -53,7 +53,7 @@ include_once("wording".$_SESSION["lan"].".php");
 <![endif]-->
 
 <script src="../assets/js/sweetalert.min.js"></script>
-<script>function aalert(text){swal("����ͼԴ��Ҵ", text, "error");}</script>
+<script>function aalert(text){swal("พบข้อผิดพลาด", text, "error");}</script>
 <script language="javascript" type="text/javascript">
 function chknum(key){
 	if(key>=48&&key<=57)
@@ -166,7 +166,7 @@ function chknum(key){
 			sumtotal = sumtotal + parseFloat(price);
 		}
 				if(<?=$_SESSION["ewallet"]?> < sumtotal){
-					//	alert("point �ͧ�س�����§��");
+					//	alert("point ของคุณไม่เพียงพอ");
 					//	return;
 					}
 

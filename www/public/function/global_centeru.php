@@ -95,6 +95,7 @@ $arr_payment_type=array(
 
 	  $arr_satype=array(
 			'A'=>$wording_lan["satype"]["A"],
+			'B'=>'แจงสมัคร',
 			//'Q'=>$wording_lan["satype"]["Q"],				
 			'H'=>$wording_lan["satype"]["H"],				
 			'Z'=>$wording_lan["satype"]["Z"],				

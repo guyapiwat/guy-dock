@@ -55,7 +55,7 @@ if($_GET['state']==0){
 
 }else if($_GET['state']==1 && !system_code($mcode)){
 
-	//logtext(true,$_SESSION['usercode'],'�����Ҫԡ',$oid);
+	//logtext(true,$_SESSION['usercode'],'แก้ไขสมาชิก',$oid);
 	$sql="update ".$dbprefix."member set email='$email',home_t='$home_t',fax='$fax',mobile = '$mobile'
 	,caddress='$caddress',cstreet='$cstreet',cbuilding='$cbuilding',cvillage='$cvillage',csoi='$csoi',cemail='$cemail',czip='$czip',chome_t='$chome_t',cfax='$cfax',cdistrictId='$cdistrict',camphurId='$camphur',cprovinceId='$cprovince',cmobile = '$cmobile'
 	,line_id='$line_id',facebook_name='$facebook_name'

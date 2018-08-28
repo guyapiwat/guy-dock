@@ -237,8 +237,8 @@ class chartGenerator{
 					$pos_cur1[$mcode[$i]] = mysql_result($rs,0,'pos_cur1');
 					$cmp[$mcode[$k]] = mysql_result($rs,0,'cmp');
 					$cmp2[$mcode[$k]] = mysql_result($rs,0,'cmp2');
-					if($cmp[$mcode[$k]] != '§√∫')$cmp[$mcode[$k]] = '‰¡Ë§√∫';
-					if($cmp2[$mcode[$k]] != '§√∫')$cmp2[$mcode[$k]] = '‰¡Ë§√∫';
+					if($cmp[$mcode[$k]] != '‡∏Ñ‡∏£‡∏ö')$cmp[$mcode[$k]] = '‡πÑ‡∏°‡πà‡∏Ñ‡∏£‡∏ö';
+					if($cmp2[$mcode[$k]] != '‡∏Ñ‡∏£‡∏ö')$cmp2[$mcode[$k]] = '‡πÑ‡∏°‡πà‡∏Ñ‡∏£‡∏ö';
 					$bmdate1[$mcode[$k]] = mysql_result($rs,0,'bmdate1');
 					$bmdate2[$mcode[$k]] = mysql_result($rs,0,'bmdate2');
 					$name_b[$mcode[$i]] = mysql_result($rs,0,'name_b');
@@ -315,7 +315,7 @@ class chartGenerator{
 				//if($i==0){
 					echo "<tr width='$wd'>"; //width='42'
 					echo "	<td colspan='2'  align='center' nowrap>";
-					if($mcode[$k]!=""){ //· ¥ß§–·ππ ´È“¬ ¢«“
+					if($mcode[$k]!=""){ //‡πÅ‡∏™‡∏î‡∏á‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô ‡∏ã‡πâ‡∏≤‡∏¢ ‡∏Ç‡∏ß‡∏≤
 						$altOut = "onmouseout=\"divshow('divname',false,'','','','');";
 						$altOver = "onmouseover=\"divshow('divname',false,'','','','');";
 						$this->setShowAlt(true);
@@ -325,17 +325,17 @@ class chartGenerator{
 						//echo $scr->getQPV($mcode[$k]).' '.$array_mpos[$pos_cur[$mcode[$k]]].' '.$pos_cur[$mcode[$k]].' '.$mcode[$k];
 						$total_q = $scr->getQPV($mcode[$k])-$array_mpos[$pos_cur[$mcode[$k]]];
 						if($total_q >= 0){
-							$sqpv = "<font color=#0000FF><b>§√∫§ÿ≥ ¡∫—µ‘ ‡À≈◊Õ ".$total_q." PV</b></font>";
+							$sqpv = "<font color=#0000FF><b>‡∏Ñ‡∏£‡∏ö‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥ ‡πÄ‡∏´‡∏•‡∏∑‡∏≠ ".$total_q." PV</b></font>";
 						}else{
 							$num_sqpv = $array_mpos[$pos_cur[$mcode[$k]]]-$scr->getQPV($mcode[$k]);
-							$sqpv = "<font color=#c00000><b>‰¡Ë§√∫(¢“¥Õ¬ŸË".$num_sqpv.")</b></font>";
+							$sqpv = "<font color=#c00000><b>‡πÑ‡∏°‡πà‡∏Ñ‡∏£‡∏ö(‡∏Ç‡∏≤‡∏î‡∏≠‡∏¢‡∏π‡πà".$num_sqpv.")</b></font>";
 							$mm2  = date("Ym",strtotime("+1 months"));
 							$sql = "SELECT pv AS all_pv FROM ali_status WHERE mcode='$mcode[$k]'  and month_pv like '%$mm2%' and status = 1 ";
 							//echo $sql;
 							$rs = mysql_query($sql);
 							if(mysql_num_rows($rs) > 0){
 								$total_q = ($all_Qpv+mysql_result($rs,0,'all_pv')); 
-								$sqpv = "<font color=#0000FF><b>§√∫§ÿ≥ ¡∫—µ‘ ‡À≈◊Õ ".$total_q." PV</b></font>";
+								$sqpv = "<font color=#0000FF><b>‡∏Ñ‡∏£‡∏ö‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥ ‡πÄ‡∏´‡∏•‡∏∑‡∏≠ ".$total_q." PV</b></font>";
 								mysql_free_result($rs);
 							}
 						}
@@ -356,7 +356,7 @@ class chartGenerator{
 							$altOut .= "alt('');";
 							//echo file_exists('../upload/uploads/'.$mcode[$k].'.gif');
 							$img_logo = "../logo.gif";
-							$altOver .= "alt('<table><tr><td><table><tr><td>".$wording_lan["mcode"]."</td><td> : </td><td> ".$mcode[$k]."[".$name_b[$mcode[$k]]."]</td></tr><tr><td>".$wording_lan["sp_code"]." </td><td> : </td><td> ".$sp_code[$mcode[$k]]."[".$name_b[$sp_code[$mcode[$k]]]."]</td></tr><tr><td>".$wording_lan["upa_code"]." </td><td> : </td><td> ".$upa_code[$mcode[$k]]."[".$name_b[$upa_code[$mcode[$k]]]."]</td></tr><tr><td>¬Õ¥ Ë«πµ—«‡¥◊Õππ’È </td><td> : </td><td> ".number_format($scr->getAPV($mcode[$k]))."</td></tr><tr><td>".$wording_lan["OldLeft"]."(".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>".$wording_lan["OldRight"]."(".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td>".$wording_lan["NewLeft"]."(".number_format($scr->getSumPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>¢«“„À¡Ë(".number_format($scr->getSumPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td>".$wording_lan["TotalLeft"]."(".number_format($scr->getCarryPV($mcode[$k],1)+$scr->getSumPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>¢«“√«¡(".number_format($scr->getCarryPV($mcode[$k],2)+$scr->getSumPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td> ”‡π“∫—µ√ª√–™“™π</td><td> : </td><td>".$cmp[$mcode[$k]]." ".$bmdate1[$mcode[$k]]."</td></tr><tr><td> ”‡π“∫—≠™’∏π“§“√</td><td> : </td><td>".$cmp2[$mcode[$k]]." ".$bmdate2[$mcode[$k]]."</td></tr></table></td><td valign=top></td></tr></table>')\"";
+							$altOver .= "alt('<table><tr><td><table><tr><td>".$wording_lan["mcode"]."</td><td> : </td><td> ".$mcode[$k]."[".$name_b[$mcode[$k]]."]</td></tr><tr><td>".$wording_lan["sp_code"]." </td><td> : </td><td> ".$sp_code[$mcode[$k]]."[".$name_b[$sp_code[$mcode[$k]]]."]</td></tr><tr><td>".$wording_lan["upa_code"]." </td><td> : </td><td> ".$upa_code[$mcode[$k]]."[".$name_b[$upa_code[$mcode[$k]]]."]</td></tr><tr><td>‡∏¢‡∏≠‡∏î‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡∏ô‡∏µ‡πâ </td><td> : </td><td> ".number_format($scr->getAPV($mcode[$k]))."</td></tr><tr><td>".$wording_lan["OldLeft"]."(".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>".$wording_lan["OldRight"]."(".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td>".$wording_lan["NewLeft"]."(".number_format($scr->getSumPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>‡∏Ç‡∏ß‡∏≤‡πÉ‡∏´‡∏°‡πà(".number_format($scr->getSumPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td>".$wording_lan["TotalLeft"]."(".number_format($scr->getCarryPV($mcode[$k],1)+$scr->getSumPV($mcode[$k],1),0,'.',',').") </td><td> : </td><td>‡∏Ç‡∏ß‡∏≤‡∏£‡∏ß‡∏°(".number_format($scr->getCarryPV($mcode[$k],2)+$scr->getSumPV($mcode[$k],2),0,'.',',').")</td></tr><tr><td>‡∏™‡∏≥‡πÄ‡∏ô‡∏≤‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô</td><td> : </td><td>".$cmp[$mcode[$k]]." ".$bmdate1[$mcode[$k]]."</td></tr><tr><td>‡∏™‡∏≥‡πÄ‡∏ô‡∏≤‡∏ö‡∏±‡∏ç‡∏ä‡∏µ‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£</td><td> : </td><td>".$cmp2[$mcode[$k]]." ".$bmdate2[$mcode[$k]]."</td></tr></table></td><td valign=top></td></tr></table>')\"";
 						}
 						$sp_code = $sp_code2;
 						$upa_code = $upa_code2;
@@ -371,13 +371,13 @@ class chartGenerator{
 									echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost($upa_code[$mcode[$k]])."\"' ";
 									echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
 									echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-									echo "alt='∫π ".$this->upMost($upa_code[$mcode[$k]])."' \>";
+									echo "alt='‡∏ö‡∏ô ".$this->upMost($upa_code[$mcode[$k]])."' \>";
 								}else if(!$this->isUp($upa_code[$mcode[$k]],$this->blockCode)){
 									echo "<img src='images/go_dup.gif' border='0' style='cursor:pointer;' ";
 									echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost($upa_code[$mcode[$k]])."\"' ";
 									echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
 									echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-									echo "alt='∫π ".$this->upMost($upa_code[$mcode[$k]])."' \>";
+									echo "alt='‡∏ö‡∏ô ".$this->upMost($upa_code[$mcode[$k]])."' \>";
 								}else echo "<img src='images/dgo_dup.gif' border='0' \>";
 							}else echo "<img src='images/dgo_dup.gif' border='0' \>";
 							echo "</td><td></td></tr>";
@@ -387,7 +387,7 @@ class chartGenerator{
 								echo "onClick='parent.location.href=\"".$this->redctlink.$this->lrMost($mcode[$k],$this->lrDef[0])."\"' ";
 								echo "onmouseover=\"this.src='images/bgo_left.gif'\" ";
 								echo "onmouseout=\"this.src='images/go_left.gif'\" ";
-								echo "alt='´È“¬ ÿ¥ ".$this->lrMost($mcode[$k],$this->lrDef[0])."' \>";
+								echo "alt='‡∏ã‡πâ‡∏≤‡∏¢‡∏™‡∏∏‡∏î ".$this->lrMost($mcode[$k],$this->lrDef[0])."' \>";
 							}else echo "<img src='images/dgo_left.gif' border='0' \>";
 							echo "&nbsp;</td><td>&nbsp;";
 							if($k==0 && $upa_code[$mcode[$k]]!=""){ 
@@ -396,13 +396,13 @@ class chartGenerator{
 									echo "onClick='parent.location.href=\"".$this->redctlink.$upa_code[$mcode[$k]]."\"' ";
 									echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
 									echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-									echo "alt='∫π ".$upa_code[$mcode[$k]]."' \>";
+									echo "alt='‡∏ö‡∏ô ".$upa_code[$mcode[$k]]."' \>";
 								}else if(!$this->isUp($upa_code[$mcode[$k]],$this->blockCode)){
 									echo "<img src='images/go_up.gif' border='0' style='cursor:pointer;' ";
 									echo "onClick='parent.location.href=\"".$this->redctlink.$upa_code[$mcode[$k]]."\"' ";
 									echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
 									echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-									echo "alt='∫π ".$upa_code[$mcode[$k]]."' \>";
+									echo "alt='‡∏ö‡∏ô ".$upa_code[$mcode[$k]]."' \>";
 								}else echo "<img src='images/dgo_up.gif' border='0' \>";
 							//if($position[$k]=='E'){
 							}else echo "<img src='images/dgo_up.gif' border='0' \>";
@@ -412,7 +412,7 @@ class chartGenerator{
 								echo "onClick='parent.location.href=\"".$this->redctlink.$this->lrMost($mcode[$k],$this->lrDef[sizeof($this->lrDef)-1])."\"' ";
 								echo "onmouseover=\"this.src='images/bgo_right.gif'\" ";
 								echo "onmouseout=\"this.src='images/go_right.gif'\" ";
-								echo "alt='¢«“ ÿ¥ ".$this->lrMost($mcode[$k],$this->lrDef[sizeof($this->lrDef)-1])."' \>";
+								echo "alt='‡∏Ç‡∏ß‡∏≤‡∏™‡∏∏‡∏î ".$this->lrMost($mcode[$k],$this->lrDef[sizeof($this->lrDef)-1])."' \>";
 							}else echo "<img src='images/dgo_right.gif' border='0' \>";
 							echo "&nbsp;</td></tr></table>";
 							echo "</fieldset></div>";						}
@@ -420,19 +420,19 @@ class chartGenerator{
 							echo "<br>";
 						//echo "</td></tr></table>";
 						echo "<table width='$wd' cellpadding='0' $alt cellspacing='0' border='0'>";
-						if($this->imgShow) //‡¡◊ËÕ¡’°“√‡´Áµ§Ë“„ÀÈ¡’°“√· ¥ß√Ÿª
+						if($this->imgShow) //‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏°‡∏µ‡∏Å‡∏≤‡∏£‡πÄ‡∏ã‡πá‡∏ï‡∏Ñ‡πà‡∏≤‡πÉ‡∏´‡πâ‡∏°‡∏µ‡∏Å‡∏≤‡∏£‡πÅ‡∏™‡∏î‡∏á‡∏£‡∏π‡∏õ
 							echo "<tr><td align='center' ><a href='".$this->redctlink."$mcode[$k]' target='_parent' ><img src='".$this->imgDef[$pos[$mcode[$k]]]."' border='0'></a></td></tr>";
 
-						if($i<$this->cmpLevel){ //· ¥ß§–·ππ ´È“¬ ¢«“
+						if($i<$this->cmpLevel){ //‡πÅ‡∏™‡∏î‡∏á‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô ‡∏ã‡πâ‡∏≤‡∏¢ ‡∏Ç‡∏ß‡∏≤
 							echo "<tr><td align='left'>";
-							echo "[´È“¬ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],1),0,'.',',')."</font>]";
+							echo "[‡∏ã‡πâ‡∏≤‡∏¢ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],1),0,'.',',')."</font>]";
 							echo "</td><td align='right'>";
-							echo "[¢«“ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],2),0,'.',',')."</font>]";
+							echo "[‡∏Ç‡∏ß‡∏≤ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],2),0,'.',',')."</font>]";
 							echo "</td></tr>";
 							echo "<tr><td align='left'>";
-							echo "[´È“¬ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',')."</font>]";
+							echo "[‡∏ã‡πâ‡∏≤‡∏¢ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',')."</font>]";
 							echo "</td><td align='right'>";
-							echo "[¢«“ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',')."</font>]";
+							echo "[‡∏Ç‡∏ß‡∏≤ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',')."</font>]";
 							echo "</td></tr>";
 						}
 						echo "<tr><td $clspan align='center' style='cursor:pointer;'  onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabUDef[$pos[$mcode[$k]]]."'><font color='".$this->txtUDef[$pos[$mcode[$k]]]."'>$mcode[$k]</font></td></tr>";
@@ -447,7 +447,7 @@ class chartGenerator{
 							}
 						}
 					}else{
-						$alt = "onmouseout=\"alt('')\" onmouseover=\"alt('§≈‘°‡æ◊ËÕ‡æ‘Ë¡¢ÈÕ¡Ÿ≈ ¡“™‘°')\"";
+						$alt = "onmouseout=\"alt('')\" onmouseover=\"alt('‡∏Ñ‡∏•‡∏¥‡∏Å‡πÄ‡∏û‡∏∑‡πà‡∏≠‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å')\"";
 					?>
 						<table width="35" border="0">
 							  <tr valign="top">
@@ -502,7 +502,7 @@ class chartGenerator{
 ?>
 
 <?
-//class „™ÈÀ“§–·ππ
+//class ‡πÉ‡∏ä‡πâ‡∏´‡∏≤‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô
 class memberScore{
 	private $dbPrefix = "nmp_";
 	private $ret_sum_pv;
@@ -551,11 +551,11 @@ class memberScore{
 		}
 		mysql_free_result($rs);
 		for($i=0;$i<sizeof($mcode);$i++){
-			//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+			//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
 			$up = $mcode[$i];
 			while($up <> ""){
 				if($up == "") break;
-				//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+				//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
 				if($upa_code[$up] <>""){
 					$sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv[$mcode[$i]];
 					if($tot_pv[$mcode[$i]] > 0)
@@ -573,11 +573,11 @@ class memberScore{
 		}
 		mysql_free_result($rs);
 		for($i=0;$i<sizeof($mcode);$i++){
-			//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+			//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
 			$up = $mcode[$i];
 			while($up <> ""){
 				if($up == "") break;
-				//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+				//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
 				if($upa_code[$up] <>""){
 					$sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pvh[$mcode[$i]];
 					if($tot_pvh[$mcode[$i]] > 0)
@@ -711,8 +711,8 @@ class memberScore{
 				mysql_free_result($rs);
 			}
 		
-			if($status == '0')$status = '<font color=#c00000><b>(¬—ß‰¡Ë√—°…“¬Õ¥)</b></font>';
-			if($status == '1')$status = '<font color=#0000FF><b>(√—°…“¬Õ¥ ¡∫Ÿ√≥Ï)</b></font>';
+			if($status == '0')$status = '<font color=#c00000><b>(‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î)</b></font>';
+			if($status == '1')$status = '<font color=#0000FF><b>(‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏™‡∏°‡∏ö‡∏π‡∏£‡∏ì‡πå)</b></font>';
 
 
 		return $status;

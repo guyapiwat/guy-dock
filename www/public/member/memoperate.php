@@ -682,7 +682,7 @@ if (is_numeric($mcode)) {
 }
 $chk_id_card = chk_id_card($mcode, $id_card);
 if ($chk_id_card) {
-    echo "<script language='JavaScript'>alert('�Ţ�ѵû�ЪҪ����������');window.location='index.php?sessiontab=1&sub=2'</script>";
+    echo "<script language='JavaScript'>alert('เลขบัตรประชาชนใช้ไม่ได้ค่ะ');window.location='index.php?sessiontab=1&sub=2'</script>";
     exit;
 }
 
@@ -696,10 +696,10 @@ function uploadProductImages($file_new, $file_old, $oid)
         $tmp_name = $file_new["tmp_name"];
         $path = "uploads/";
         if ($size > 1024000) {
-            checkValues("��Ҵ�ͧ����Ѿ��Ŵ��ͧ�բ�Ҵ����Թ 200Kb ���");
+            checkValues("ขนาดของไฟล์อัพโหลดต้องมีขนาดไม่เกิน 200Kb ค่ะ");
         }
         if (($type != ".jpg") and ($type != ".jpeg") and ($type != ".gif") and ($type != ".png")) {
-            checkValues("���ʡ������ͧ��(.jpg .jpeg .gif .png)��ҹ��");
+            checkValues("นามสกุลไฟล์ต้องเป็น(.jpg .jpeg .gif .png)เท่านั้น");
         }
         if (!empty($name_old)) {
             @unlink($path . $name_old);
@@ -796,7 +796,7 @@ if (mysql_num_rows($result1) > 0) {
 }
 $result1 = mysql_query("select * from " . $dbprefix . "member where id_card = '$id_card' and id_card <> '' ");
 if (mysql_num_rows($result1) > 0) {
-    //echo "<script language='JavaScript'>alert('���ʺѵû�ЪҢ������ӡ����Ѥ�����º��������');window.history.back();</script>";
+    //echo "<script language='JavaScript'>alert('รหัสบัตรประชาขนนี้ได้ทำการสมัครไปเรียบร้อยแล้ว');window.history.back();</script>";
     //exit;
 }
 
@@ -960,7 +960,7 @@ function genformorecode($start, $ncode)
     return array($mcodelist, $upa_codelist, $lrlist);
 }
 
-//���ͧ
+//ผมเอง
 function chkTranslateReceiptID($id)
 {
     $TypeFormat = "0000";

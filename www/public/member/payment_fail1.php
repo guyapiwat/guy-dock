@@ -1,4 +1,4 @@
-<center><font size=8>รายงานการ สั่งซื้อสินค้า ไม่สำเร็จ</font> <table align=center width=60%><tr>
- <td width= 20%  align=center><a href="index.php?sessiontab=4&sub=1">กลับสู่หน้า ประวัติการซื้อ </a></td>
- <td width= 20% align=center><a href="index.php?sessiontab=4&sub=7">กลับสู่หน้า ประวัติการสั่งซื้อสินค้าให้กับสมาชิกอื่น</a></td></tr></table>
+<center><font size=8>เธฃเธฒเธขเธเธฒเธเธเธฒเธฃ เธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒ เนเธกเนเธชเธณเน€เธฃเนเธ</font> <table align=center width=60%><tr>
+ <td width= 20%  align=center><a href="index.php?sessiontab=4&sub=1">เธเธฅเธฑเธเธชเธนเนเธซเธเนเธฒ เธเธฃเธฐเธงเธฑเธ•เธดเธเธฒเธฃเธเธทเนเธญ </a></td>
+ <td width= 20% align=center><a href="index.php?sessiontab=4&sub=7">เธเธฅเธฑเธเธชเธนเนเธซเธเนเธฒ เธเธฃเธฐเธงเธฑเธ•เธดเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒเนเธซเนเธเธฑเธเธชเธกเธฒเธเธดเธเธญเธทเนเธ</a></td></tr></table>
 </center>

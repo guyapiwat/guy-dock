@@ -73,7 +73,7 @@
 						}
 						mysql_free_result($rs);
 					}
-					//�ӹǹ bm ��������ǹ bmbonus
+					//คำนวน bm ไม่ใช้ในส่วน bmbonus
 					
 					for($i=0;$i<sizeof($mcode);$i++){
 						if($tot_pv[$mcode[$i]] > 0){
@@ -105,7 +105,7 @@
 <table align="center" cellspacing="0" cellpadding="5" border="0" width="300">
   <tr>
     <td valign="top"><form method="post" action="<?=$_SERVER["PHP_SELF"]?>" name="Form1" autocomplete="off">
-      ��سҾ���� ������Ҫԡ ��� ���ʼ�ҹ ���ǡ� [Login]<br />
+      กรุณาพิมพ์ รหัสสมาชิก และ รหัสผ่าน แล้วกด [Login]<br />
       <br />
       <table border="0" cellpadding="0" cellspacing="1" width="300" height="150" background="./images/log_banner.jpg" style="background-repeat:no-repeat">
         <tr>
@@ -113,11 +113,11 @@
           <td width="70%" align="left"></td>
         </tr>
         <tr>
-          <td  align="right">������Ҫԡ&nbsp;:&nbsp;</td>
+          <td  align="right">รหัสสมาชิก&nbsp;:&nbsp;</td>
           <td  align="left"><input type="text" name="usercode" size="20" /></td>
         </tr>
         <tr>
-          <td  align="right">���ʼ�ҹ&nbsp;:&nbsp;</td>
+          <td  align="right">รหัสผ่าน&nbsp;:&nbsp;</td>
           <td  align="left"><input type="password" name="password" size="20" /></td>
         </tr>
 		<tr>
@@ -159,10 +159,10 @@
         </tr>
       </table>
     </form>
-        <u><b>�����˵�</b></u> ��Ҫԡ����ѧ��������ʼ�ҹ ��سҵԴ����ӹѡ�ҹ�˭����͢����ʼ�ҹ<br />    </td>
+        <u><b>หมายเหตุ</b></u> สมาชิกที่ยังไม่มีรหัสผ่าน กรุณาติดต่อสำนักงานใหญ่เพื่อขอรหัสผ่าน<br />    </td>
     <!-- 
             <td width="284" align="center" valign="middle">
-                <p></p><img src="pic/mematairstep.jpg" width="170" height="121" border=0 alt="Ἱ������Ҫԡ"><br><FONT face="MS Sans Serif" SIZE="2" COLOR="">��Ἱ������§ҹ��Ҫԡ</td>
+                <p></p><img src="pic/mematairstep.jpg" width="170" height="121" border=0 alt="แผนภูมิสมาชิก"><br><FONT face="MS Sans Serif" SIZE="2" COLOR="">ดูแผนภูมิสายงานสมาชิก</td>
  -->
   </tr>
 </table>

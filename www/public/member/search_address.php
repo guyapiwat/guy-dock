@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //‰¡Ë‰ª‡Õ“®“° cache
+  //‡πÑ‡∏°‡πà‡πÑ‡∏õ‡πÄ‡∏≠‡∏≤‡∏à‡∏≤‡∏Å cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //°”Àπ¥ header µÕπ√—∫
+  //‡∏Å‡∏≥‡∏´‡∏ô‡∏î header ‡∏ï‡∏≠‡∏ô‡∏£‡∏±‡∏ö
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -19,15 +19,15 @@ if(!empty($value)){
   $sql = "SELECT name_t,name_f,mcode,caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId,mobile,locationbase ";
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  where mcode like '%$value%'  limit 0,1";
-		$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+		$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
-		if(!empty($data->caddress))$caddress = '∫È“π‡≈¢∑’Ë  '.$data->caddress.' , ';
-		if(!empty($data->cbuilding))$cbuilding = 'Õ“§“√ '.$data->cbuilding.' , ';
-		if(!empty($data->cvillage))$cvillage = 'À¡ŸË∫È“π/§Õπ‚¥ '.$data->cvillage.' , ';
-		if(!empty($data->csoi))$csoi = 'µ√Õ°/´Õ¬ '.$data->csoi.' , ';
-		if(!empty($data->cstreet))$cstreet = '∂ππ '.$data->cstreet;
+		if(!empty($data->caddress))$caddress = '‡∏ö‡πâ‡∏≤‡∏ô‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà  '.$data->caddress.' , ';
+		if(!empty($data->cbuilding))$cbuilding = '‡∏≠‡∏≤‡∏Ñ‡∏≤‡∏£ '.$data->cbuilding.' , ';
+		if(!empty($data->cvillage))$cvillage = '‡∏´‡∏°‡∏π‡πà‡∏ö‡πâ‡∏≤‡∏ô/‡∏Ñ‡∏≠‡∏ô‡πÇ‡∏î '.$data->cvillage.' , ';
+		if(!empty($data->csoi))$csoi = '‡∏ï‡∏£‡∏≠‡∏Å/‡∏ã‡∏≠‡∏¢ '.$data->csoi.' , ';
+		if(!empty($data->cstreet))$cstreet = '‡∏ñ‡∏ô‡∏ô '.$data->cstreet;
 		$caddress = $caddress.' '.$cbuilding.' '.$cvillage.' '.$csoi.' '.$cstreet;
 		$cprovinceId = $data->cprovinceId;
 		$cdistrictId = $data->cdistrictId;
@@ -38,11 +38,11 @@ if(!empty($value)){
 		$mobile = $data->mobile;
 		$czip = $data->czip;
 		$chkshow = ' <table> <tr valign="top">
-                        <td colspan="2" align="right">™◊ËÕºŸÈ√—∫</td>
+                        <td colspan="2" align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö</td>
                         <td colspan="2"><input type="textbox" name="cname" id="cname" readonly style="background-color:#FFFF99" value="'.$name_t.'"></td>
                       </tr>
 					  <tr valign="top">
-                        <td colspan="2" align="right">‡∫Õ√Ïµ‘¥µËÕ</td>
+                        <td colspan="2" align="right">‡πÄ‡∏ö‡∏≠‡∏£‡πå‡∏ï‡∏¥‡∏î‡∏ï‡πà‡∏≠</td>
                         <td colspan="2"><input type="textbox" name="cmobile" id="cmobile" value="'.$mobile.'"></td>
                       </tr>
 					  <tr valign="top">
@@ -69,17 +69,17 @@ if(!empty($value)){
 			$camphurId = getamphur($camphurId);
 			$cprovinceId = getprovince($cprovinceId);
 			echo $chkshow = '<table><tr valign="top">
-                        <td colspan="2" align="right">µ”∫≈</td>
+                        <td colspan="2" align="right">‡∏ï‡∏≥‡∏ö‡∏•</td>
                         <td colspan="2"><input type="textbox" name="cdistrict" id="cdistrict" value="'.$cdistrictId.'"></td>
                       </tr>
 					  
 					  <tr valign="top">
-                        <td colspan="2" align="right">Õ”‡¿Õ</td>
+                        <td colspan="2" align="right">‡∏≠‡∏≥‡πÄ‡∏†‡∏≠</td>
                         <td colspan="2"><input type="textbox" name="camphur" id="camphur" value="'.$camphurId.'"></td>
                       </tr>
 					  
 					  <tr valign="top">
-                        <td colspan="2" align="right">®—ßÀ«—¥</td>
+                        <td colspan="2" align="right">‡∏à‡∏±‡∏á‡∏´‡∏ß‡∏±‡∏î</td>
                         <td colspan="2"><input type="textbox" name="cprovince" id="cprovince" value="'.$cprovinceId.'"></td>
                       </tr></table>';
 		}

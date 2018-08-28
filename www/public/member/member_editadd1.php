@@ -32,22 +32,22 @@ input = pad_string + input;
 return input; 
 } 
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
-	 req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-      req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     var req = Inint_AJAX(); //สร้าง Object
+	 req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+      req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
        if (req.readyState==4) {
-              if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+              if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
-						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 </script>
 

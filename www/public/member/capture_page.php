@@ -37,15 +37,15 @@ setTimeout("window.status=''",1800)
 
 <table>
 <tr>
-<td align=right>ชื่อ </td>
+<td align=right>เธเธทเนเธญ </td>
 <td><input type=text name='name_t' size=40 maxlength=40></td>
 </tr>
 <tr>
-<td align=right>โทรศัพท์มือถือ </td>
+<td align=right>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ </td>
 <td><input type=text name='mobile' size=20 maxlength=20></td>
 </tr>
 <tr>
-<td align=right>อีเมล์ </td>
+<td align=right>เธญเธตเน€เธกเธฅเน </td>
 <td><input type=text name='email' size=40 maxlength=256></td>
 </tr>
 <tr>
@@ -78,15 +78,15 @@ setTimeout("window.status=''",1800)
 <input type=hidden name='sponsor_code' value='<?=$usercode?>'>
 <table>
 <tr>
-<td align=right>ชื่อ </td>
+<td align=right>เธเธทเนเธญ </td>
 <td><input type=text name='name_t' size=40 maxlength=40></td>
 </tr>
 <tr>
-<td align=right>โทรศัพท์มือถือ </td>
+<td align=right>เนเธ—เธฃเธจเธฑเธเธ—เนเธกเธทเธญเธ–เธทเธญ </td>
 <td><input type=text name='mobile' size=20 maxlength=20></td>
 </tr>
 <tr>
-<td align=right>อีเมล์ </td>
+<td align=right>เธญเธตเน€เธกเธฅเน </td>
 <td><input type=text name='email' size=40 maxlength=256></td>
 </tr>
 <tr>
@@ -98,7 +98,7 @@ setTimeout("window.status=''",1800)
 </textarea>
 </center>
 <hr size="1" color="99CC00" width="95%" align="left">
-<span style="font-size:10"><b>วิธีใช้ : </b>1.นำไปไว้ใน &lt;body&gt;&lt;/body&gt; ในส่วนที่ต้องการครับ<br>
+<span style="font-size:10"><b>เธงเธดเธเธตเนเธเน : </b>1.เธเธณเนเธเนเธงเนเนเธ &lt;body&gt;&lt;/body&gt; เนเธเธชเนเธงเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธเธฃเธฑเธ<br>
 <hr size="1" color="99CC00" width="95%" align="left">
 </span></span></td>
 </form>

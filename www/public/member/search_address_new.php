@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //äÁèä»àÍÒ¨Ò¡ cache
+  //à¹„à¸¡à¹ˆà¹„à¸›à¹€à¸­à¸²à¸ˆà¸²à¸ cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //¡ÓË¹´ header µÍ¹ÃÑº
+  //à¸à¸³à¸«à¸™à¸” header à¸•à¸­à¸™à¸£à¸±à¸š
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -19,15 +19,15 @@ if(!empty($value)){
   $sql = "SELECT name_t,name_f,mcode,caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId,mobile,locationbase ";
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  where mcode like '%$value%'  limit 0,1";
-		$result = mysql_query($sql) or die("ÃÐººäÁèÊÒÁÒÃ¶¤é¹ËÒä´é") ;
+		$result = mysql_query($sql) or die("à¸£à¸°à¸šà¸šà¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¸„à¹‰à¸™à¸«à¸²à¹„à¸”à¹‰") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
-		if(!empty($data->caddress))$caddress = 'ºéÒ¹àÅ¢·Õè  '.$data->caddress.' ';
-		if(!empty($data->cbuilding))$cbuilding = 'ÍÒ¤ÒÃ '.$data->cbuilding.' ';
-		if(!empty($data->cvillage))$cvillage = 'ËÁÙèºéÒ¹/¤Í¹â´ '.$data->cvillage.' ';
-		if(!empty($data->csoi))$csoi = 'µÃÍ¡/«ÍÂ '.$data->csoi.' ';
-		if(!empty($data->cstreet))$cstreet = '¶¹¹ '.$data->cstreet;
+		if(!empty($data->caddress))$caddress = 'à¸šà¹‰à¸²à¸™à¹€à¸¥à¸‚à¸—à¸µà¹ˆ  '.$data->caddress.' ';
+		if(!empty($data->cbuilding))$cbuilding = 'à¸­à¸²à¸„à¸²à¸£ '.$data->cbuilding.' ';
+		if(!empty($data->cvillage))$cvillage = 'à¸«à¸¡à¸¹à¹ˆà¸šà¹‰à¸²à¸™/à¸„à¸­à¸™à¹‚à¸” '.$data->cvillage.' ';
+		if(!empty($data->csoi))$csoi = 'à¸•à¸£à¸­à¸/à¸‹à¸­à¸¢ '.$data->csoi.' ';
+		if(!empty($data->cstreet))$cstreet = 'à¸–à¸™à¸™ '.$data->cstreet;
 		$caddress = $caddress.' '.$cbuilding.' '.$cvillage.' '.$csoi.' '.$cstreet;
 		$cdistrictId = $data->cdistrictId;
 		$camphurId = $data->camphurId;

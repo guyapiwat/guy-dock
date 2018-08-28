@@ -97,8 +97,8 @@ $imgphoto = posimg($data["pos_cur"]);
 //$status=get_status($cmc,date('Y-m-d'),$data['pos_cur']);
 	$status=check_status($cmc,$data['pos_cur'],date('Y-m-d'));
 	$status1=check_status($cmc,$data['pos_cur'],date("Y-m-d", strtotime("first day of -1 month")));
-	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>�ѡ���ʹ����</b></font>";
-	//else $status['status'] ='"<font color=#c00000><b>(�ѧ����ѡ���ʹ)</b></font>"';
+	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>รักษายอดแล้ว</b></font>";
+	//else $status['status'] ='"<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>"';
 
 ////////////// PV LR //////////////////////
 $point = new point_member;
@@ -133,9 +133,9 @@ mysql_free_result($rs);
 	<div class="col-xs-12 col-sm-12 center">
 		<form method="post" action="./index.php?sessiontab=2&sub=1">
 			<div class="control-group">
-				<input type="text" class="input-block-level" placeholder="��͡�����ŷ���ͧ��ä���..." name="cause" value="<?=$cmc?>">
+				<input type="text" class="input-block-level" placeholder="กรอกข้อมูลที่ต้องการค้นหา..." name="cause" value="<?=$cmc?>">
 
-				<select data-placeholder="�ô���͡���͡" name="key" class="chzn-select-deselect span12" tabindex="-1" id="selCSI"> 
+				<select data-placeholder="โปรดเลือกเลือก" name="key" class="chzn-select-deselect span12" tabindex="-1" id="selCSI"> 
 					<option value="code"><?=$wording_lan["mcode"]?></option> 
 					<option value="name"><?=$wording_lan["name"]?></option> 
 				</select> 

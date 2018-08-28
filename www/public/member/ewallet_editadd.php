@@ -48,40 +48,40 @@ return input;
 } 
 
 function checkaddress(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     // alert(value)
     value = str_pad(value,7,0,false);
     //alert(value);
-     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                     //alert(req.responseText);
                     if(data == 1234){
-                    //document.getElementById("mname").innerHTML="������������§ҹ ���� <br>�������ö��觫��͢��������";
+                    //document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน หรือ <br>ไม่สามารถสั่งซื้อข้ามประเทศ";
                     }else{
                     //    alert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
                     }
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     // alert(value)
     value = str_pad(value,7,0,false);
     //alert(value);
     //if(value != <?=$_SESSION["usercode"]?>){
         //alert(test);
-         req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-         req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+         req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+         req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
               if (req.readyState==4) {
-                   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                        var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+                   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                        var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                         //alert(req.responseText);
                         if(data == 1234){
                         document.getElementById('mcode').value="";
@@ -92,33 +92,33 @@ function sendget_sponsor(value) {
 						
 						}else{
                         document.getElementById('mcode').value=value;
-                        document.getElementById("mname").innerHTML=data; //�ʴ���
+                        document.getElementById("mname").innerHTML=data; //แสดงผล
                         }
                    }
               }
          };
-         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-         req.send(null); //�ӡ����
+         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+         req.send(null); //ทำการส่ง
     //}else{
     //                    document.getElementById('mcode').value="";
-    //                    document.getElementById("mname").innerHTML="������������§ҹ ���� <br>�������ö��觫��͢��������";
+    //                    document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน หรือ <br>ไม่สามารถสั่งซื้อข้ามประเทศ";
 
     //}
 };
 function checkStatus(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     // alert(value)
     value = str_pad(value,7,0,false);
     //alert(test);
-     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                     //alert(req.responseText);
                     if(data == 1){
                         if(strUser == 'C'){
-                            alert("�س���ѡ���ʹ�ú�س���ѵ������");
+                            alert("คุณได้รักษายอดครบคุณสมบัติไปแล้ว");
                             document.getElementById('ok').disabled = true;
                             exit;
                         };
@@ -126,7 +126,7 @@ function checkStatus(value,strUser,total) {
                         if(strUser == 'C'){
                             //alert(total);alert(data);
                             if(total <  parseFloat(data) || total >  parseFloat(data)+500 ){
-                                alert("�س��ͧ�ѡ���ʹ�ѹ����繨ӹǹ "+data+"PV ��� �ѡ���ʹ�ѹ��������Թ "+(parseFloat(data)+500)+" PV");
+                                alert("คุณต้องรักษายอดทันที่เป็นจำนวน "+data+"PV และ รักษายอดทันทีได้ไม่เกิน "+(parseFloat(data)+500)+" PV");
                                 document.getElementById('ok').disabled = true;
                                 exit;
                             }
@@ -135,22 +135,22 @@ function checkStatus(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatusNew(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     // alert(value)
     value = str_pad(value,7,0,false);
     //alert(test);
-     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                     if(data == 1){
                         if(strUser == 'Q'){
-                            alert("�س���ѡ���ʹ�ú�س���ѵ���ǧ˹�������");
+                            alert("คุณได้รักษายอดครบคุณสมบัติล่วงหน้าไปแล้ว");
                             document.getElementById('ok').disabled = true;
                             exit;
                         };
@@ -159,8 +159,8 @@ function checkStatusNew(value,strUser,total) {
                             //alert(total);alert(data);
                             if(total >  parseFloat(data)+100 ){
                             //if(total <  parseFloat(data) || total >  parseFloat(data)+100 ){
-                                alert(" �ѡ���ʹ������Թ "+(parseFloat(data)+500)+" PV");
-                                //alert("�س��ͧ�ѡ���ʹ�繨ӹǹ "+data+"PV ��� �ѡ���ʹ������Թ "+(parseFloat(data)+100)+" PV");
+                                alert(" รักษายอดได้ไม่เกิน "+(parseFloat(data)+500)+" PV");
+                                //alert("คุณต้องรักษายอดเป็นจำนวน "+data+"PV และ รักษายอดได้ไม่เกิน "+(parseFloat(data)+100)+" PV");
                                 document.getElementById('ok').disabled = true;
                                 exit;
                             }
@@ -169,26 +169,26 @@ function checkStatusNew(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_invent(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     // alert(value)
     //value = str_pad(value,7,0,false);
     //alert(test);
-     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                     //alert(req.responseText);
                     if(data == 1234){
                     document.getElementById('inv_code').value="";
-                    document.getElementById("inv_desc").innerHTML="�����������к�";
+                    document.getElementById("inv_desc").innerHTML="ไม่ได้อยู่ในระบบ";
                     }else{
                     document.getElementById('inv_code').value=value;
-                    document.getElementById("inv_desc").innerHTML=data; //�ʴ���
+                    document.getElementById("inv_desc").innerHTML=data; //แสดงผล
                     }
                     //alert(data);
                     //if(data == "No Data"){
@@ -198,8 +198,8 @@ function sendget_invent(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
@@ -236,7 +236,7 @@ function sendget_invent(value) {
                 //alert(data);
                 document.getElementById('ajaxshipping').value = data;
                     if(<?=$_SESSION["ewallet"]?> < data){
-                        //    alert('Ewallet �ͧ��ҹ�����§��');
+                        //    alert('Ewallet ของท่านไม่เพียงพอ');
                         //    document.getElementById('ok').disabled=true;
                         //    document.getElementById('checkstate').innerHTML= '';
                             
@@ -244,7 +244,7 @@ function sendget_invent(value) {
                     }
             //alert(tott);
         //    if(parseFloat(document.getElementById('sumtotal').value)+parseFloat(document.getElementById('ajaxshipping').value)+parseFloat(document.getElementById('ajaxshipping').value) != tott){
-            //    alert('�ʹ�Թ '+tott+' �ҷ ��س����͡�Ըժ����Թ���ú����ӹǹ');
+            //    alert('ยอดเงิน '+tott+' บาท กรุณาเลือกวิธีชำระเงินให้ครบตามจำนวน');
             //    document.getElementById('ok').disabled=true;
             //    exit;
             //}
@@ -256,7 +256,7 @@ function sendget_invent(value) {
         //alert(<?=$_SESSION["chkfree"]?>);
         //        var chkfree = '<?=$_SESSION["chkfree"]?>';
         //    if( chkfree != '1'){
-                //alert('��س����͡�Թ��ҿ��');
+                //alert('กรุณาเลือกสินค้าฟรี');
             //    document.getElementById("ok").disabled = true;
             //    clicktab(3);
         //    }
@@ -291,7 +291,7 @@ exit;
     val = val + ","+document.getElementById('inv_code').value;
     field = field +",inv_code";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�����Ң�";*/    
+    errDesc = errDesc + ",รหัสสาขา";*/    
         
 //loop check
     document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -324,7 +324,7 @@ function ebillcheck(){
     skipval = skipval+",";
     field = field +",inv_code";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�����Ң�";
+    errDesc = errDesc + ",รหัสสาขา";
 */
     document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
     //alert(skipval);
@@ -377,7 +377,7 @@ var wi=null;
             pv = parseFloat(tag[step+3].value);
             num = parseFloat(tag[step+4].value);
             if(<?=$_SESSION["ewallet"]?> < sumtotal){
-                //alert("point �ͧ�س�����§��");
+                //alert("point ของคุณไม่เพียงพอ");
                 //tag[step+4].value = 0;
                 //sumtotal = sumtotal - (price*num);
                 //num = 0;
@@ -398,7 +398,7 @@ var wi=null;
         }
         document.getElementById('sumtotal').value=sumtotal;
         document.getElementById('sumpv').value=sumpv;
-        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
         //alert(window.parent.document.mainsale.getElementsByTagName('input').length);
         //alert(sumtotal);
     }
@@ -426,7 +426,7 @@ var wi=null;
             window.parent.document.getElementById('sale').innerHTML = "";
         }*/
         tag = window.parent.document.frm.getElementsByTagName('input');
-        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+        window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
         //alert(tag.length);
         place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
         place += "<tr align='center' bgcolor='#999999'>";
@@ -449,7 +449,7 @@ var wi=null;
             }
             
             place += "<tr>";
-            place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+            place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
             place += "<td style='"+style_l+style_bd+"' align='center'>" + (l+1) + "</td>";
             place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly style='"+hidden+ "text-align:center;' type='text' name='pcode[]' value='" + tag[step].value + "'></td>";
             place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly style='"+hidden+ "' type='text' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -477,18 +477,18 @@ var wi=null;
         //alert(window.parent.document.mainsale.getElementsByTagName('input').length);
         //alert(sumtotal);
         place += "<tr bgcolor='#999999'>";
-        place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>���</td>";
+        place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>รวม</td>";
         place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumtotal' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
         place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumpv' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
         place += "</tr>";
-        //place += "<tr><td colspan='9' align='right'><input type='submit' value='�ѹ�֡'></td></tr>";
-        place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='¡��ԡ' /></td></tr>";
+        //place += "<tr><td colspan='9' align='right'><input type='submit' value='บันทึก'></td></tr>";
+        place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='ยกเลิก' /></td></tr>";
         place += "</table>";
         //alert(place);
         window.parent.document.getElementById('sale').innerHTML = place;
         tag = window.parent.document.frm.getElementsByTagName('input');
         if(tag.length-skip<8){
-            window.parent.document.getElementById('sale').innerHTML = "<table width='500' bgcolor='#009900'><tr><td align='center'><font color='#FFFFFF'>���͡�������͹��Ҩҡ���ҧ������ ������䢨ӹǹ�����ͧ���</font></td></tr></table>";
+            window.parent.document.getElementById('sale').innerHTML = "<table width='500' bgcolor='#009900'><tr><td align='center'><font color='#FFFFFF'>เลือกข้อมูลสอนค้าจากตารางขวามือ แล้วแก้ไขจำนวนตามต้องการ</font></td></tr></table>";
         }
     }
 </script> 
@@ -503,8 +503,8 @@ if(isset($_GET['id'])){
         $sql = "SELECT * FROM ".$dbprefix."transferewallet_h WHERE id='".$_GET['id']."'  LIMIT 1";
         $rs = mysql_query($sql);
         if(mysql_num_rows($rs)<=0){
-            $redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-            dialogbox("50%","#990000","��辺�����ŵ�����͹�",$redirect);
+            $redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+            dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$redirect);
             exit;
         }else{
             $sadate = mysql_result($rs,0,'sadate');
@@ -512,7 +512,7 @@ if(isset($_GET['id'])){
             $sqlC = "select calc from ".$dbprefix."around where fdate >= '$sadate' and tdate <= '$sadate' and calc = 1";
             $sqlSC = mysql_query($sqlC);
             if(mysql_num_rows($sqlSC) > 0 or $cancel == '1'){
-                        echo "<script language='JavaScript'>alert('�������ö��䢺�Ź����');window.location='index.php?sessiontab=3&sub=6'</script>";    
+                        echo "<script language='JavaScript'>alert('ไม่สามารถแก้ไขบิลนี้ได้');window.location='index.php?sessiontab=3&sub=6'</script>";    
                         exit;
                 }        
             $inv_code = mysql_result($rs,0,'inv_code');
@@ -610,7 +610,7 @@ if(isset($_GET['id'])){
             <td><input type="text" name="txtMoney" id="txtMoney"  onKeyPress="return chknum(window.event.keyCode)" value="0" ></td>
             <td nowrap="nowrap"><?=$wording_lan["tab4"]["5_5"]?></td>
             <td><select size="1" name="spayment" id="spayment" onChange="if(this.value == '1'){document.getElementById('chkpayment').checked = false;document.getElementById('showpayment').style.visibility='visible';document.getElementById('ok').disabled = true;document.getElementById('button').disabled = true;}else {document.getElementById('chkpayment').checked = false;document.getElementById('showpayment').style.visibility='visible';document.getElementById('ok').disabled = true;document.getElementById('button').disabled = true;}" >
-              <option value="2">�͹ Ewallet</option>
+              <option value="2">โอน Ewallet</option>
               
             </select></td>
           </tr>

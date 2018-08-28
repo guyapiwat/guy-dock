@@ -52,7 +52,7 @@ $rec->setFieldFloatFormat(",,,,,2,2");
 $rec->setFieldDesc($wording_lan["tab4"]["10_1"].",".$wording_lan["type"].",".$wording_lan["tab4"]["10_2"].",".$wording_lan["tab4"]["10_3"].",".$wording_lan["tab4"]["10_4"].",".$wording_lan["tab4"]["10_5"]."");
 $rec->setFieldAlign("center,center,center,left,center,right,right,center");
 $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");     
+//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");     
 $rec->setSum(true,false,",,,,,true,true");
 $rec->showRec(1,'SH_QUERY');
 	

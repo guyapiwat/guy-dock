@@ -109,7 +109,7 @@ function chknum(key){
 			sumtotal = sumtotal + parseFloat(price);
 		}
 				if(<?=$_SESSION["ewallet"]?> < sumtotal){
-					//	alert("point �ͧ�س�����§��");
+					//	alert("point ของคุณไม่เพียงพอ");
 					//	return;
 					}
 

@@ -39,7 +39,7 @@ $sadate = $_SESSION["datetimezone"];
 			
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -87,7 +87,7 @@ $sadate = $_SESSION["datetimezone"];
 			$qty_after=$qty_before+$qty;
 			//echo $sqlewallet.':'.$qty_before.'<br>';
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -151,7 +151,7 @@ $sadate = $_SESSION["datetimezone"];
 			//}		
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -197,7 +197,7 @@ $sadate = $_SESSION["datetimezone"];
 			//}
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -321,7 +321,7 @@ $sadate = $_SESSION["datetimezone"];
 			
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -369,7 +369,7 @@ $sadate = $_SESSION["datetimezone"];
 			$qty_after=$qty_before+$qty;
 			//echo $sqlewallet.':'.$qty_before.'<br>';
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -435,7 +435,7 @@ $sadate = $_SESSION["datetimezone"];
 		//	}		
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -481,7 +481,7 @@ $sadate = $_SESSION["datetimezone"];
 		//	}
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -933,7 +933,7 @@ function mydate($d)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√¬ËÕ‡¥◊Õπ Õ—ß°ƒ…
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡∏¢‡πà‡∏≠‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏©
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthEAbb($M)
 {
@@ -987,7 +987,7 @@ function MonthEAbb($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√ Õ—ß°ƒ…
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£ ‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏©
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthE($M)
 {
@@ -1041,7 +1041,7 @@ function MonthE($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√¬ËÕ‡¥◊Õπ ‰∑¬
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡∏¢‡πà‡∏≠‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÑ‡∏ó‡∏¢
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthTAbb($M)
 {
@@ -1049,40 +1049,40 @@ function MonthTAbb($M)
 	{	$mm=0+$M;
         switch ($M) {
         Case 1:
-            return("¡.§.");
+            return("‡∏°.‡∏Ñ.");
 			break;
         Case 2:
-            return("°.æ.");
+            return("‡∏Å.‡∏û.");
 			break;
         Case 3:
-            return("¡’.§.");
+            return("‡∏°‡∏µ.‡∏Ñ.");
 			break;
         Case 4:
-            return("‡¡.¬.");
+            return("‡πÄ‡∏°.‡∏¢.");
 			break;
         Case 5:
-            return("æ.§.");
+            return("‡∏û.‡∏Ñ.");
 			break;
         Case 6:
-            return("¡‘.¬.");
+            return("‡∏°‡∏¥.‡∏¢.");
 			break;
         Case 7:
-            return("°.§.");
+            return("‡∏Å.‡∏Ñ.");
 			break;
         Case 8:
-            return(" .§.");
+            return("‡∏™.‡∏Ñ.");
 			break;
         Case 9:
-            return("°.¬.");
+            return("‡∏Å.‡∏¢.");
 			break;
         Case 10:
-            return("µ.§.");
+            return("‡∏ï.‡∏Ñ.");
 			break;
         Case 11:
-            return("æ.¬.");
+            return("‡∏û.‡∏¢.");
 			break;
         Case 12:
-            return("∏.§.");
+            return("‡∏ò.‡∏Ñ.");
 			break;
         default:
             return("");
@@ -1095,7 +1095,7 @@ function MonthTAbb($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√‰∑¬
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡πÑ‡∏ó‡∏¢
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthT($M)
 {
@@ -1103,40 +1103,40 @@ function MonthT($M)
 	{	$mm=0+$M;
         switch ($M) {
         Case 1:
-            return("¡°√“§¡");
+            return("‡∏°‡∏Å‡∏£‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 2:
-            return("°ÿ¡¿“æ—π∏Ï");
+            return("‡∏Å‡∏∏‡∏°‡∏†‡∏≤‡∏û‡∏±‡∏ô‡∏ò‡πå");
 			break;
         Case 3:
-            return("¡’π“§¡");
+            return("‡∏°‡∏µ‡∏ô‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 4:
-            return("‡¡…“¬π");
+            return("‡πÄ‡∏°‡∏©‡∏≤‡∏¢‡∏ô");
 			break;
         Case 5:
-            return("æƒ…¿“§¡");
+            return("‡∏û‡∏§‡∏©‡∏†‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 6:
-            return("¡‘∂ÿπ“¬π");
+            return("‡∏°‡∏¥‡∏ñ‡∏∏‡∏ô‡∏≤‡∏¢‡∏ô");
 			break;
         Case 7:
-            return("°√°Æ“§¡");
+            return("‡∏Å‡∏£‡∏Å‡∏é‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 8:
-            return(" ‘ßÀ“§¡");
+            return("‡∏™‡∏¥‡∏á‡∏´‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 9:
-            return("°—π¬“¬π");
+            return("‡∏Å‡∏±‡∏ô‡∏¢‡∏≤‡∏¢‡∏ô");
 			break;
         Case 10:
-            return("µÿ≈“§¡");
+            return("‡∏ï‡∏∏‡∏•‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 11:
-            return("æƒ»®‘°“¬π");
+            return("‡∏û‡∏§‡∏®‡∏à‡∏¥‡∏Å‡∏≤‡∏¢‡∏ô");
 			break;
         Case 12:
-            return("∏—π«“§¡");
+            return("‡∏ò‡∏±‡∏ô‡∏ß‡∏≤‡∏Ñ‡∏°");
 			break;
         default:
             return("");
@@ -1173,7 +1173,7 @@ function MoneyNoDec($mon)
 }	//End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È‡¢È“√À—  password °ËÕπ°“√‡°Á∫
+// ‡πÉ‡∏ä‡πâ‡πÄ‡∏Ç‡πâ‡∏≤‡∏£‡∏´‡∏±‡∏™ password ‡∏Å‡πà‡∏≠‡∏ô‡∏Å‡∏≤‡∏£‡πÄ‡∏Å‡πá‡∏ö
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function EncodePwd($X)
 {    
@@ -1192,7 +1192,7 @@ function EncodePwd($X)
 }	//End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È∂Õ¥√À—  password °ËÕπ°“√„™È
+// ‡πÉ‡∏ä‡πâ‡∏ñ‡∏≠‡∏î‡∏£‡∏´‡∏±‡∏™ password ‡∏Å‡πà‡∏≠‡∏ô‡∏Å‡∏≤‡∏£‡πÉ‡∏ä‡πâ
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function DecodePwd($X)
 {
@@ -1213,18 +1213,18 @@ function DecodePwd($X)
 // DecodePwd('160173197084126057041076101045')=102186
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™Èª√—∫ step „π°“√ update ¢ÈÕ¡Ÿ≈
+// ‡πÉ‡∏ä‡πâ‡∏õ‡∏£‡∏±‡∏ö step ‡πÉ‡∏ô‡∏Å‡∏≤‡∏£ update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function UpDateStep($p,$s){
 	// connect to database 
 	include_once "connectmysql.php";
-	// À“°¬—ß‰¡Ë¡’ insert
+	// ‡∏´‡∏≤‡∏Å‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏°‡∏µ insert
 	$result=mysql_query("select * from jnt_UDSTEP where PROC='$p' and STEP='$s'");
 	if (mysql_num_rows($result)==0) {
 		mysql_query("insert IGNORE into jnt_UDSTEP (PROC,STEP) values ('$p','$s');");
 	}
 	mysql_free_result($result);
-	// update ¢ÈÕ¡Ÿ≈
+	// update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 	$sql="update jnt_UDSTEP set UDDATE='".date("Y-m-d")."', UD='1' where PROC='$p' and STEP='$s'";
 	mysql_query($sql);
 	$sql="update jnt_UDSTEP set UDDATE='".date("Y-m-d")."', UD='' where PROC='$p' and STEP>'$s'";
@@ -1232,7 +1232,7 @@ function UpDateStep($p,$s){
 }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È· ¥ß step „π°“√ update ¢ÈÕ¡Ÿ≈
+// ‡πÉ‡∏ä‡πâ‡πÅ‡∏™‡∏î‡∏á step ‡πÉ‡∏ô‡∏Å‡∏≤‡∏£ update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function ShowStep($p,$s){
 	// connect to database 

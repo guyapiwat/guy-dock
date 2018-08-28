@@ -6,12 +6,12 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id){
-		if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+		if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
 		}
 	}
@@ -50,7 +50,7 @@ $sql = "SELECT * FROM (SELECT cancel,".$dbprefix."asaleh.id,'1' as typetype,".$d
 ,tot_pv,tot_bv,tot_fv,total,ali_member.name_t,".$dbprefix."asaleh.mcode AS smcode";
 $sql .= ",CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS sendsend ";
 $sql .= $sqlxxxx;
-$sql .= ",CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '����ѷ' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '���ᨧ��ҹ����ѷ' ELSE '��Ţ�»���' END AS type ";
+$sql .= ",CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN 'บริษัท' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'บิลแจงผ่านบริษัท' ELSE 'บิลขายปกติ' END AS type ";
 $sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."member.pos_cur as por_cur, ali_asaleh.sa_type as xxxx, ali_asaleh.scheck ";
 
 $sql .= "FROM ".$dbprefix."asaleh ";
@@ -66,7 +66,7 @@ $sql .= "SELECT cancel,".$dbprefix."holdhead.id,'2' as typetype,".$dbprefix."hol
 ,tot_pv,tot_bv,tot_fv,total,ali_member.name_t,".$dbprefix."holdhead.mcode AS smcode";
 $sql .= ",'<img src=./images/false.gif>' AS sendsend ";
 $sql .= $sqlxxxx;
-$sql .= ",CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '����ѷ' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'��Ţ��ᨧ�ʹ' as type ";
+$sql .= ",CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN 'บริษัท' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'บิลขายแจงยอด' as type ";
 $sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur , ali_holdhead.sa_type as xxxx , '' as scheck ";
 
 $sql .= "FROM ".$dbprefix."holdhead ";
@@ -114,15 +114,15 @@ if(!empty($_GET["aaaa"]))$sql .= "and a.xxxx = '".$_GET["aaaa"]."' and a.scheck 
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,ability,sadate,tot_pv,total,uid");
-		$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,����Ẻ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,���ѹ�֡");
+		$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,ซื้อแบบ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,ผู้บันทึก");
 		$rec->setFieldFloatFormat(",,,,,0,2");
 		$rec->setFieldAlign("center,center,left,center,center,right,right,center,center");
 		$rec->setFieldSpace("15%,7%,40%,7%,8%,8%,8%,6%,10%");
  		//$rec->setSearch("sano,sadate,smcode,inv_code");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก");
 		$rec->setSum(true,false,",,,,,true,true,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,typetype","IMAGE","�����");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,typetype","IMAGE","พิมพ์");
 		$rec->showRec(1,'SH_QUERY');
 	}
 

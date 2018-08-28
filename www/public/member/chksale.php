@@ -20,11 +20,11 @@ $data =$product =array();
      
     ///// Check empty //////
     if(empty($data['mcode'])){
-        echo "√À—  ¡“™‘°‰¡Ë¡’§Ë–";        
+        echo "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏Ñ‡πà‡∏∞";        
         exit;
     } 
     if(empty($data['satype'])){
-        echo "ª√–‡¿∑¢Õß∫‘≈‰¡Ë‰¥È√–∫ÿ§Ë–";        
+        echo "‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏£‡∏∞‡∏ö‡∏∏‡∏Ñ‡πà‡∏∞";        
         exit;
     } 
     if(empty($data['inv_code'])){
@@ -43,7 +43,7 @@ $data =$product =array();
 	
 $detail_member = get_detail_meber($data['mcode'],date("Y-m-d"));
 if(count($detail_member) == 0){
-    echo "<script language='JavaScript'>alert('‰¡Ëæ∫√À—  ¡“™‘°');history.back();</script>";        
+    echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å');history.back();</script>";        
     exit; 
 }
 
@@ -53,21 +53,21 @@ if($data['satype'] == "H"){
 
 /*
 	if($detail_member['mtype'] == 0){
-        echo " ¡“™‘°ª√–‡¿∑ Member ‰¡Ë “¡“√∂‡ª‘¥∫‘≈ Hold ‰¥È";    
+        echo "‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Member ‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• Hold ‡πÑ‡∏î‡πâ";    
         exit;
 	}
 	if($detail_member['mtype'] == 1 and $data['discount'] == "" and $data['sumpv'] < 20000){
-        echo " ¡“™‘°ª√–‡¿∑ Franchise ®–µÈÕß‡ª‘¥∫‘≈ hold ∫‘≈·√°¢—ÈπµË” 20,000pv";    
+        echo "‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Franchise ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡∏ö‡∏¥‡∏•‡πÅ‡∏£‡∏Å‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡πà‡∏≥ 20,000pv";    
         exit;	
 	}else if($detail_member['mtype'] == 1 and $data['discount'] == 1 and $data['sumpv'] < 2000){
-        echo " ¡“™‘°ª√–‡¿∑ Franchise ®–µÈÕß‡ª‘¥∫‘≈ hold ‰¡ËµË”°«Ë“ 2,000pv ‡∑Ë“π—Èπ"; 
+        echo "‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Franchise ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡πÑ‡∏°‡πà‡∏ï‡πà‡∏≥‡∏Å‡∏ß‡πà‡∏≤ 2,000pv ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô"; 
 		exit;
 	}
 	if($detail_member['mtype'] == 2 and $data['discount'] == "" and $data['sumpv'] < 200000){
-        echo " ¡“™‘°ª√–‡¿∑ Agency ®–µÈÕß‡ª‘¥∫‘≈ hold ∫‘≈·√°¢—ÈπµË” 200,000pv";    
+        echo "‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Agency ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡∏ö‡∏¥‡∏•‡πÅ‡∏£‡∏Å‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡πà‡∏≥ 200,000pv";    
 		exit;
 	}else if($detail_member['mtype'] == 2 and $data['discount'] == 1 and $data['sumpv'] < 0){
-        echo " ¡“™‘°ª√–‡¿∑ Agency ®–µÈÕß‡ª‘¥∫‘≈ hold ‰¡ËµË”°«Ë“ 0pv ‡∑Ë“π—Èπ";    
+        echo "‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Agency ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡πÑ‡∏°‡πà‡∏ï‡πà‡∏≥‡∏Å‡∏ß‡πà‡∏≤ 0pv ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô";    
 		exit;
 	}  */
 }

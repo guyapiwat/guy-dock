@@ -87,8 +87,8 @@ $data = get_detail_meber($cmc);
 $imgphoto = posimg($data["pos_cur"]);
 	$status=check_status($cmc,$data['pos_cur'],date('Y-m-d'));
 	$status1=check_status($cmc,$data['pos_cur'],date("Y-m-d", strtotime("first day of -1 month")));
-	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>ÃÑ¡ÉÒÂÍ´áÅéÇ</b></font>";
-	//else $status['status'] ='"<font color=#c00000><b>(ÂÑ§äÁèÃÑ¡ÉÒÂÍ´)</b></font>"';
+	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”à¹à¸¥à¹‰à¸§</b></font>";
+	//else $status['status'] ='"<font color=#c00000><b>(à¸¢à¸±à¸‡à¹„à¸¡à¹ˆà¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”)</b></font>"';
 
 ////////////// PV LR //////////////////////
 $point = new point_member;
@@ -133,9 +133,9 @@ if($bmbonus['pv_month'][1]>$bmbonus['pv_month'][2]){
 	<div class="col-xs-12 col-sm-12 center">
 		<form method="post" action="./index.php?sessiontab=2&sub=2">
 			<div class="control-group">
-				<input type="text" class="input-block-level" placeholder="¡ÃÍ¡¢éÍÁÙÅ·ÕèµéÍ§¡ÒÃ¤é¹ËÒ..." name="cause" value="<?=$cmc?>">
+				<input type="text" class="input-block-level" placeholder="à¸à¸£à¸­à¸à¸‚à¹‰à¸­à¸¡à¸¹à¸¥à¸—à¸µà¹ˆà¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸„à¹‰à¸™à¸«à¸²..." name="cause" value="<?=$cmc?>">
 
-				<select data-placeholder="â»Ã´àÅ×Í¡àÅ×Í¡" name="key" class="chzn-select-deselect span12" tabindex="-1" id="selCSI"> 
+				<select data-placeholder="à¹‚à¸›à¸£à¸”à¹€à¸¥à¸·à¸­à¸à¹€à¸¥à¸·à¸­à¸" name="key" class="chzn-select-deselect span12" tabindex="-1" id="selCSI"> 
 					<option value="code"><?=$wording_lan["mcode"]?></option> 
 					<option value="name"><?=$wording_lan["name"]?></option> 
 				</select> 
@@ -191,7 +191,7 @@ if($bmbonus['pv_month'][1]>$bmbonus['pv_month'][2]){
 						</div>
 
 						<div class="profile-info-row" style="display:none">
-							<div class="profile-info-name"> PV ÊĞÊÁÊèÇ¹µÑÇ (ÀÒÂã¹à´×Í¹)</div>
+							<div class="profile-info-name"> PV à¸ªà¸°à¸ªà¸¡à¸ªà¹ˆà¸§à¸™à¸•à¸±à¸§ (à¸ à¸²à¸¢à¹ƒà¸™à¹€à¸”à¸·à¸­à¸™)</div>
 
 							<div class="profile-info-value">
 								<span class="editable" id="username"><?php echo number_format($point->get_allPointThisMonth($dbprefix,$cmc),0,'',',')?></a></span>

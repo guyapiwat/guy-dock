@@ -47,10 +47,10 @@ function checkfield(){
           <td nowrap="nowrap">link : http://www.successmore1.com/member/<?=$_SESSION["usercode"]?> </td>
         </tr>
         <tr>
-          <td><input type="radio" <?=$strType1?>  id="selfregis" name="selfregis" value="0"> 1 . ��Ѻ���¢��</td>
+          <td><input type="radio" <?=$strType1?>  id="selfregis" name="selfregis" value="0"> 1 . สลับซ้ายขวา</td>
         </tr>
-        <tr>      <td width="59%"><input type="radio" <?=$strType2?> id="selfregis" name="selfregis" value="1">2. ��ṹ�����͹</td>
-       </tr><tr>    <td width="59%"><input type="radio" <?=$strType3?> id="selfregis" name="selfregis" value="2">3. ��ṹ�����</td>
+        <tr>      <td width="59%"><input type="radio" <?=$strType2?> id="selfregis" name="selfregis" value="1">2. คะแนนฝั่งอ่อน</td>
+       </tr><tr>    <td width="59%"><input type="radio" <?=$strType3?> id="selfregis" name="selfregis" value="2">3. คะแนนฝั่งแข็ง</td>
         </tr>
 		<tr>    
 		  <td width="59%">&nbsp;</td>

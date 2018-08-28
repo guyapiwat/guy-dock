@@ -1,6 +1,6 @@
 <?
  $_SESSION["perbuy"] = 1;
-//echo 'update �к�����š�ͧ ��سҡ�Ѻ�������ա ������� �ͺ�س���';
+//echo 'update ระบบการแลกของ กรุณากลับมาใหม่อีก ชั่วโมง ขอบคุณค่ะ';
 //exit;
 ?>
 <script language="javascript" type="text/javascript" src="./js/newcheck.js"></script>
@@ -49,87 +49,87 @@ input = pad_string + input;
 return input; 
 } 
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("czip").value=data; //�ʴ���
+						 document.getElementById("czip").value=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(value);
-     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
-					//document.getElementById("mname").innerHTML="������������§ҹ ���� <br>�������ö��觫��͢��������";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน หรือ <br>ไม่สามารถสั่งซื้อข้ามประเทศ";
 					}else{
 					//	alert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcode').value="";
 					document.getElementById("mname").innerHTML="<?=$wording_lan['tab4']['1_27']?>";
 					}else{
 					document.getElementById('mcode').value=value;
-                    document.getElementById("mname").innerHTML=data; //�ʴ���
+                    document.getElementById("mname").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatus(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1){
 						if(strUser == 'C'){
@@ -150,19 +150,19 @@ function checkStatus(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatusNew(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1){
 						if(strUser == 'Q'){
 							alert("<?=$wording_lan['tab4']['1_44']?>");
@@ -175,7 +175,7 @@ function checkStatusNew(value,strUser,total) {
 							if(total >  parseFloat(data)+100 ){
 							//if(total <  parseFloat(data) || total >  parseFloat(data)+100 ){
 								alert(" <?=$wording_lan['tab4']['1_45']?> "+(parseFloat(data)+500)+" PV");
-								//alert("�س��ͧ�ѡ���ʹ�繨ӹǹ "+data+"PV ��� �ѡ���ʹ������Թ "+(parseFloat(data)+100)+" PV");
+								//alert("คุณต้องรักษายอดเป็นจำนวน "+data+"PV และ รักษายอดได้ไม่เกิน "+(parseFloat(data)+100)+" PV");
 								document.getElementById('ok').disabled = true;
 								exit;
 							}
@@ -184,26 +184,26 @@ function checkStatusNew(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_invent(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('inv_code').value="";
 					document.getElementById("inv_desc").innerHTML="<?=$wording_lan['tab4']['1_46']?>";
 					}else{
 					document.getElementById('inv_code').value=value;
-                    document.getElementById("inv_desc").innerHTML=data; //�ʴ���
+                    document.getElementById("inv_desc").innerHTML=data; //แสดงผล
 					}
 					//alert(data);
 					//if(data == "No Data"){
@@ -213,8 +213,8 @@ function sendget_invent(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
@@ -266,7 +266,7 @@ function sendget_invent(value) {
 					}
 			//alert(tott);
 		//	if(parseFloat(document.getElementById('sumtotal').value)+parseFloat(document.getElementById('ajaxshipping').value)+parseFloat(document.getElementById('ajaxshipping').value) != tott){
-			//	alert('�ʹ�Թ '+tott+' �ҷ ��س����͡�Ըժ����Թ���ú����ӹǹ');
+			//	alert('ยอดเงิน '+tott+' บาท กรุณาเลือกวิธีชำระเงินให้ครบตามจำนวน');
 			//	document.getElementById('ok').disabled=true;
 			//	exit;
 			//}
@@ -278,7 +278,7 @@ function sendget_invent(value) {
 		//alert(<?=$_SESSION["chkfree"]?>);
 		//		var chkfree = '<?=$_SESSION["chkfree"]?>';
 		//	if( chkfree != '1'){
-				//alert('��س����͡�Թ��ҿ��');
+				//alert('กรุณาเลือกสินค้าฟรี');
 			//	document.getElementById("ok").disabled = true;
 			//	clicktab(3);
 		//	}
@@ -338,7 +338,7 @@ if(document.getElementById('spayment').value == '3'){
 	}else if(document.getElementById('ccheckr').value == '2'){
 				
 					if(<?=$_SESSION["ewallet"]?> < document.getElementById('sumtotal').value){
-						//	alert('Ewallet �ͧ��ҹ�����§��');
+						//	alert('Ewallet ของท่านไม่เพียงพอ');
 						//	document.getElementById('ok').disabled=true;
 						//	document.getElementById('showsend1').innerHTML='';
 						//	exit;
@@ -412,7 +412,7 @@ document.getElementById('frm').action='billb_operate1.php?state=0';
 	val = val + ","+document.getElementById('inv_code').value;
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */		
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -445,7 +445,7 @@ function ebillcheck(){
 	skipval = skipval+",";
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -551,7 +551,7 @@ var wi=null;
 
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
@@ -574,7 +574,7 @@ var wi=null;
 			}
 			
 			place += "<tr>";
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (l+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly style='"+hidden+ "text-align:center;' type='text' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly style='"+hidden+ "' type='text' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -606,8 +606,8 @@ var wi=null;
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' id='sumtotal' name='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text'  name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		//place += "<tr><td colspan='9' align='right'><input type='submit' value='�ѹ�֡'></td></tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='<?=$wording_lan['tab4']['5_18']?>' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='<?=$wording_lan['tab4']['5_19']?>' /></td></tr>";
+		//place += "<tr><td colspan='9' align='right'><input type='submit' value='บันทึก'></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='<?=$wording_lan['tab4']['5_18']?>' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='<?=$wording_lan['tab4']['5_19']?>' /></td></tr>";
 		place += "</table>";
 
 
@@ -735,7 +735,7 @@ if(isset($_GET['id'])){
               <td width="16%" align="right"><?=$wording_lan["tab4"]["1_2"]?></td>
               <td nowrap="nowrap"><input style="background-color:#FFFF99" size="15" type="text" id="mcode" name="mcode" value="<?=$_SESSION["usercode"]?>" readonly>
                <input style="display:none" name="button2" type="button" onClick="sendget_sponsor(document.getElementById('mcode').value);document.getElementById('ok').disabled=true;" value="<?=$wording_lan["tab4"]["1_26"]?>" />
-<!--<input type="button" onClick="get_mem_listpicker_mcode()" value="���͡">--><div id="mname"></div> </td>
+<!--<input type="button" onClick="get_mem_listpicker_mcode()" value="เลือก">--><div id="mname"></div> </td>
               <td colspan="2" align="left" valign="top" nowrap="nowrap">
 			  <? if($GLOBALS["sending"] == '1'){?>
 			  <input type="radio" name="radsend" value="1" onClick="document.getElementById('inv_code').disabled = true;document.getElementById('ccheckr').value = '1';document.getElementById('inv_code').value = '';document.getElementById('showsend1').innerHTML='';document.getElementById('ok').disabled=true;" <?=($radsend=="1"?"checked":"")?>>
@@ -788,7 +788,7 @@ if(isset($_GET['id'])){
                  <!--option value="2"><?=$wording_lan["tab4"]["1_13"]?></option--> 
          <!--      <? if($_SESSION["m_locationbase"] == '1'){?>       <option value="1"><?=$wording_lan["tab4"]["1_14"]?></option>
              <? }?>   --></select>
-                <!--  <input style="display:none" name="button3" type="button"  onclick="sendget_invent(document.getElementById('inv_code').value)" value="��" />-->
+                <!--  <input style="display:none" name="button3" type="button"  onclick="sendget_invent(document.getElementById('inv_code').value)" value="ค้น" />-->
                 <input name="button3" type="button" style="display:none" onClick="get_mem_listpicker_invcode()" value="<?=$wording_lan['tab4']['1_65']?>"  >
                 <div id="inv_desc" name="inv_desc"></div></td></tr>            
             
@@ -812,7 +812,7 @@ if(isset($_GET['id'])){
 
 <?=$wording_lan["tab4"]["7_6"]?>                    </td>
                 <td><input type="text" name="txtCash" id="txtCash" size="5"  value="<?=$txtCash?>"></td>
-                <td>��������´ </td>
+                <td>รายละเอียด </td>
                 <td><input name="optionCash" type="text" value="<?=$optionCash?>" size="60"  >                </td>
               </tr>
               <tr valign="top">
@@ -820,7 +820,7 @@ if(isset($_GET['id'])){
                 <input type="checkbox" name="chkFuture" <?=($chkFuture=="on"?"checked":"")?> onClick="showHideNum(this,'txtFuture')">
 <?=$wording_lan["tab4"]["7_11"]?></td>
               <td><input type="text" name="txtFuture" id="txtFuture" size="5"  value="<?=$txtFuture?>"></td>
-              <td>��������´</td>
+              <td>รายละเอียด</td>
                <td><input name="optionFuture"   value="<?=$optionFuture?>" type="text" size="60" ></td>
               </tr>
                <tr valign="top">
@@ -828,14 +828,14 @@ if(isset($_GET['id'])){
                 <input type="checkbox" name="chkTransfer" <?=($chkTransfer=="on"?"checked":"")?> onClick="showHideNum(this,'txtTransfer')">
 <?=$wording_lan["tab4"]["7_11"]?></td>
               <td><input type="text" name="txtTransfer" id="txtTransfer" size="5"  value="<?=$txtTransfer?>"></td>
-              <td>��������´</td>
+              <td>รายละเอียด</td>
                <td><input name="optionTransfer"   value="<?=$optionTransfer?>" type="text" size="60" ></td>
               </tr>
                <tr valign="top">
               <td>
                 <input type="checkbox" name="chkCredit1" <?=($chkCredit1=="on"?"checked":"")?> onClick="showHideNum(this,'txtCredit1')"><?=$wording_lan["tab4"]["7_12"]?></td>
               <td><input type="text" name="txtCredit1" id="txtCredit1" size="5"  value="<?=$txtCredit1?>"></td>
-              <td>��������´</td>
+              <td>รายละเอียด</td>
                <td><input name="optionCredit1"   value="<?=$optionCredit1?>" type="text" size="60" ></td>
               </tr>
                <tr valign="top">
@@ -843,7 +843,7 @@ if(isset($_GET['id'])){
                 <input type="checkbox" name="chkCredit2" <?=($chkCredit2=="on"?"checked":"")?> onClick="showHideNum(this,'txtCredit2')">
 <?=$wording_lan["tab4"]["7_13"]?></td>
               <td><input type="text" name="txtCredit2" id="txtCredit2" size="5"  value="<?=$txtCredit2?>"></td>
-              <td>��������´</td>
+              <td>รายละเอียด</td>
                <td><input name="optionCredit2"   value="<?=$optionCredit2?>" type="text" size="60" ></td>
               </tr>
                <tr valign="top">

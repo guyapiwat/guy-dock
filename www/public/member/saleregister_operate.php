@@ -52,7 +52,7 @@
 
 						$sano = gencodesale_IV($sanof);
 
-						if($sletter=="®—¥ Ëß"){
+						if($sletter=="‡∏à‡∏±‡∏î‡∏™‡πà‡∏á"){
 							$sletter=1;
 						}else if($sletter=="1"){
 							$sletter=2;
@@ -63,7 +63,7 @@
 					//=================END LOG===========================
 					echo $sql;
 						mysql_query($sql);
-						logtext(true,$_SESSION['admininvent'],' “¢“‡æ‘Ë¡∫‘≈',$mid);
+						logtext(true,$_SESSION['admininvent'],'‡∏™‡∏≤‡∏Ç‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
 						$pcode1["0"] = $pcode;
 						$price["0"] = $total;
 						$bprice["0"] = $btotal;

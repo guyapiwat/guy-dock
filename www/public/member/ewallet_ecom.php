@@ -4,7 +4,7 @@ include("global.php");
 ?>    
 <script language="javascript" type="text/javascript">
 	function tranfer(id){
-	  if(confirm("µÈÕß°“√ ‚Õπ Ecommission ‡¢È“ Ewallet")){
+	  if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ ‡πÇ‡∏≠‡∏ô Ecommission ‡πÄ‡∏Ç‡πâ‡∏≤ Ewallet")){
 		window.location='index.php?sessiontab=3&sub=112&bid='+id;
 	  }
 	}
@@ -37,10 +37,10 @@ $sql .= "LEFT JOIN ".$dbprefix."member m ON (e.mcode=m.mcode) ";
 $sql .= "LEFT JOIN ".$dbprefix."invent i ON (e.inv_code=i.inv_code) where e.mcode = '".$_SESSION["usercode"]."' and cancel = 0 and status_tranfer=0 and cmbonus=0"; 
 if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'";
 echo '<br>'; 
-echo "√“¬ß“π‡ß‘π‡¢È“ Ecommission ";
+echo "‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡πÄ‡∏Ç‡πâ‡∏≤ Ecommission ";
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)>0){
-	echo "<button class='btn1' onclick='tranfer(\"ALL\")' style='width: 150px;margin-bottom: 10px;' >‚Õπ‡¢È“ Ewallet ∑—ÈßÀ¡¥</button>";
+	echo "<button class='btn1' onclick='tranfer(\"ALL\")' style='width: 150px;margin-bottom: 10px;' >‡πÇ‡∏≠‡∏ô‡πÄ‡∏Ç‡πâ‡∏≤ Ewallet ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</button>";
 }
 $rec = new repGenerator();
 $rec->setQuery($sql);
@@ -64,8 +64,8 @@ $rec->setFieldDesc($wording_lan["tab4"]["7_1"].",".$wording_lan["tab4"]["7_2"]."
 $rec->setFieldAlign("center,center,center,left,right,center");
 $rec->setFieldSpace("15%,20%,10%,30%,15%");           
 $rec->setSum(true,false,",,,,true,,");
-//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","¥Ÿ");
-$rec->setSpecial("‚Õπ‡¢È“ Ewallet","","tranfer","id","TEXT","");
+//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","‡∏î‡∏π");
+$rec->setSpecial("‡πÇ‡∏≠‡∏ô‡πÄ‡∏Ç‡πâ‡∏≤ Ewallet","","tranfer","id","TEXT","");
 $rec->showRec(1,'SH_QUERY');  
 
 ?>

@@ -99,7 +99,7 @@ function chknum(key){
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='price[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='pv[]' value='" + pv + "'></td>";
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('äÁèÊÒÁÒÃ¶ãÊè¤èÒ 0 ËÃ×Í ªèÍ§ÇèÒ§ä´é');this.value=1;cal();}\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸ªà¹ˆà¸„à¹ˆà¸² 0 à¸«à¸£à¸·à¸­ à¸Šà¹ˆà¸­à¸‡à¸§à¹ˆà¸²à¸‡à¹„à¸”à¹‰');this.value=1;cal();}\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalprice[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalpv[]' value='" + pv + "'></td>";
 			place += "</tr>";
@@ -107,16 +107,16 @@ function chknum(key){
 			sumtotal = sumtotal + parseFloat(price);
 		}
 				if(<?=$_SESSION["ewallet"]?> < sumtotal){
-					//	alert("point ¢Í§¤Ø³äÁèà¾ÕÂ§¾Í");
+					//	alert("point à¸‚à¸­à¸‡à¸„à¸¸à¸“à¹„à¸¡à¹ˆà¹€à¸žà¸µà¸¢à¸‡à¸žà¸­");
 					//	return;
 					}
 
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>ÃÇÁ</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>à¸£à¸§à¸¡</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumtotal' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumpv' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='µÃÇ¨ÊÍº' />&nbsp;<input type='submit' value='ºÑ¹·Ö¡' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=4&sub=1'\" value='Â¡àÅÔ¡' /></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='à¸•à¸£à¸§à¸ˆà¸ªà¸­à¸š' />&nbsp;<input type='submit' value='à¸šà¸±à¸™à¸—à¸¶à¸' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=4&sub=1'\" value='à¸¢à¸à¹€à¸¥à¸´à¸' /></td></tr>";
 		place += "</table>";
 		window.parent.document.getElementById('sale').innerHTML = place;
 		//fcus.focus();

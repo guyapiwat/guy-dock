@@ -39,7 +39,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
         $rec->setPageLinkAlign("right");                       
         $rec->setShowField("sadate,_in,_out,total,_option");
         $rec->setFieldFloatFormat(",2,2,2,");  
-        $rec->setFieldDesc("ÇÑ¹/à´×Í¹/»Õ,ÃÒÂ¡ÒÃà¢éÒ,ÃÒÂ¡ÒÃÍÍ¡,ÂÍ´¤§àËÅ×Í,ËÁÒÂàËµØ");  
+        $rec->setFieldDesc("à¸§à¸±à¸™/à¹€à¸”à¸·à¸­à¸™/à¸›à¸µ,à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸‚à¹‰à¸²,à¸£à¸²à¸¢à¸à¸²à¸£à¸­à¸­à¸,à¸¢à¸­à¸”à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");  
         $rec->setFieldAlign("center,right,right,right,left");
         // $rec->setFieldSpace("5%,10%,5%,30%,10%,10%,10%,20%");    
         $rec->setSum(true,false,",true,true,,");  

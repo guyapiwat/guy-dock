@@ -18,13 +18,13 @@ for($i=0;$i<sizeof($flist);$i++){
 	$arglist = explode('-',$farglist[$i]);
 	//echo  $flist[$i]."-".$farglist[$i]."--".$fval[$i].",a<br />";
 	if($arglist[0]==1 && $fval[$i]==""){ //null
-		$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‰¡Ë‰¥È°√Õ°</br>";
+		$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏Å‡∏£‡∏≠‡∏Å</br>";
 	}
 	if($arglist[1]>0 && strlen($fval[$i])!=$arglist[1] && $fval[$i]!=""){ //size
-		$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." µÈÕß¡’§«“¡¬“« ".$arglist[1]." ‡∑Ë“π—Èπ</br>";
+		$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡∏ï‡πâ‡∏≠‡∏á‡∏°‡∏µ‡∏Ñ‡∏ß‡∏≤‡∏°‡∏¢‡∏≤‡∏ß ".$arglist[1]." ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô</br>";
 	}
 	/*if($arglist[2]==1 && $fval[0]==""){ //format
-		$errmsg += "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‰¡Ë‰¥È°√Õ°</br>";
+		$errmsg += "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏Å‡∏£‡∏≠‡∏Å</br>";
 	}*/
 	if($arglist[3]==1 && $fval[$i]!="" && $fval[$i]!=$fskip[$i]){ //duplicate
 		if((strlen($fval[$i])>0)&&(strlen($fval[$i])<7)){
@@ -49,14 +49,14 @@ for($i=0;$i<sizeof($flist);$i++){
 			$rs = mysql_query($sql);
 			//echo $sql;
 			if(mysql_num_rows($rs)>0)	
-				$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ¡’Õ¬ŸË„π√–∫∫·≈È«</br>";
+				$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏£‡∏∞‡∏ö‡∏ö‡πÅ‡∏•‡πâ‡∏ß</br>";
 			mysql_free_result($rs);
 		}else{
 			mysql_query("SET NAMES 'utf8'");
 			$rs = mysql_query("SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$fval[$i]."' LIMIT 1");
 			//echo "SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$fval[$i]."' LIMIT 1,c";
 			if(mysql_num_rows($rs)>0)	
-				$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ¡’Õ¬ŸË„π√–∫∫·≈È«</br>";
+				$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏£‡∏∞‡∏ö‡∏ö‡πÅ‡∏•‡πâ‡∏ß</br>";
 			mysql_free_result($rs);
 		}
 	}
@@ -72,7 +72,7 @@ for($i=0;$i<sizeof($flist);$i++){
 		$rs = mysql_query("SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$fval[$i]."' LIMIT 1");
 		echo "SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$fval[$i]."' LIMIT 1,d";
 		if(mysql_num_rows($rs)<=0)	
-			$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‰¡Ë¡’Õ¬ŸË„π√–∫∫</br>";
+			$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏£‡∏∞‡∏ö‡∏ö</br>";
 		mysql_free_result($rs);
 	}*/
 	if($arglist[5]==1){ //loop
@@ -84,7 +84,7 @@ for($i=0;$i<sizeof($flist);$i++){
 			}
 		}
 		if($fval[$i]==$fval[0])
-			$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‡ªÁπ√À— µ—«‡Õß‰¡Ë‰¥È</br>";
+			$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÄ‡∏õ‡πá‡∏ô‡∏£‡∏´‡∏±‡∏™‡∏ï‡∏±‡∏ß‡πÄ‡∏≠‡∏á‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ</br>";
 		else{
 			$up = $fval[$i];
 			mysql_query("SET NAMES 'utf8'");
@@ -93,20 +93,20 @@ for($i=0;$i<sizeof($flist);$i++){
 				$rs = mysql_query("SELECT ".$flist[$i]." FROM ".$dbprefix.$table." WHERE ".$flist[0]."='".$up."' LIMIT 1");
 				//echo "SELECT ".$flist[$i]." FROM ".$dbprefix.$table." WHERE ".$flist[0]."='".$up."' LIMIT 1<br />";
 				if(mysql_num_rows($rs)<=0) {
-					$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‰¡Ë¡’Õ¬ŸË„π√–∫∫</br>";
+					$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏£‡∏∞‡∏ö‡∏ö</br>";
 					break;
 				}
 				$up = mysql_result($rs,0,$flist[$i]);
 				//echo trim($up)."--".$fval[0];
 				if($up==$fval[0]){
-					$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‡ªÁπ√À— ∑’ËÕ¬ŸË„π™—Èπ≈Ë“ß°«Ë“</br>";
+					$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÄ‡∏õ‡πá‡∏ô‡∏£‡∏´‡∏±‡∏™‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏ä‡∏±‡πâ‡∏ô‡∏•‡πà‡∏≤‡∏á‡∏Å‡∏ß‡πà‡∏≤</br>";
 					break;
 				}
 				mysql_free_result($rs);
 			}
 			//$rs = mysql_query("SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$up."' LIMIT 1");
 			/*if(mysql_num_rows($rs)<=0)	
-				$errmsg .= "¢ÈÕ¡Ÿ≈„π™ËÕß ".$fdesc[$i]." ‰¡Ë¡’Õ¬ŸË„π√–∫∫</br>";
+				$errmsg .= "‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏ä‡πà‡∏≠‡∏á ".$fdesc[$i]." ‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏¢‡∏π‡πà‡πÉ‡∏ô‡∏£‡∏∞‡∏ö‡∏ö</br>";
 			mysql_free_result($rs);*/
 		}
 	}
@@ -114,7 +114,7 @@ for($i=0;$i<sizeof($flist);$i++){
 	//echo $fval[$i];
 	//echo $fdesc[$i];
 	//print_r($arglist);
-	//echo "∑¥ Õ∫§√—<br />";
+	//echo "‡∏ó‡∏î‡∏™‡∏≠‡∏ö‡∏Ñ‡∏£‡∏±<br />";
 	
 }
 

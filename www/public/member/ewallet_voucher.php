@@ -8,7 +8,7 @@ include("global.php");
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("��ͧ���¡��ԡ��Ź��")){
+        if(confirm("ต้องการยกเลิกบิลนี้")){
             window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
         }
     }
@@ -83,7 +83,7 @@ $fdate=$_SESSION['fdate'];
 $tdate=$_SESSION['tdate'];
 ?>
 
-  <a class="btn2" href="index.php?sessiontab=4&sub=44&state=1" target="_blank"><center><img id="img4" border="0" src="./images/add.gif" width="12" height="12">�š�ͧ</center></a>
+  <a class="btn2" href="index.php?sessiontab=4&sub=44&state=1" target="_blank"><center><img id="img4" border="0" src="./images/add.gif" width="12" height="12">แลกของ</center></a>
   
   <br>                                                                                                        
 <?
@@ -98,7 +98,7 @@ $sql .= "LEFT JOIN ".$dbprefix."member m ON (e.mcode=m.mcode) ";
 $sql .= "LEFT JOIN ".$dbprefix."invent i ON (e.inv_code=i.inv_code) where e.mcode = '".$_SESSION["usercode"]."' and cancel = 0 ";  
 if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'";
       echo '<br>'; 
-     echo "��§ҹ�Թ��� Voucher";
+     echo "รายงานเงินเข้า Voucher";
  
                                            
     if($_GET['state']==1){
@@ -130,12 +130,12 @@ if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'"
         $rec->setFieldAlign("center,center,center,left,right,center");
        // $rec->setFieldSpace("7%,5%,8%,15%,8%,8%,8%,8%,8%,8%,8%,8%");           
         $rec->setSum(true,false,",,,,true,,");
-       // $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");     
+       // $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");     
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");             
         $rec->showRec(1,'SH_QUERY');             
     }
     
-    echo "��§ҹ���-�͡ Voucher";
+    echo "รายงานเข้า-ออก Voucher";
         /////////// LOG //////////////
         $sql = "SELECT l.mcode as smcode,m.name_t,l.sadate,l.sano,l._in as txtMoney,l._out as txtCash,l.total,l._option  as uid 
                  FROM ali_log_voucher l "; 
@@ -153,7 +153,7 @@ if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'"
         $rec->setPageLinkAlign("right");                       
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtCash,total,uid");
         $rec->setFieldFloatFormat(",,,,3,3,3,");  
-        $rec->setFieldDesc("�ѹ/��͹/��,��¡��,�����Ҫԡ,������Ҫԡ,��¡�����,��¡���͡,�ʹ�������,�����˵�");  
+        $rec->setFieldDesc("วัน/เดือน/ปี,รายการ,รหัสมาชิก,ชื่อสมาชิก,รายการเข้า,รายการออก,ยอดคงเหลือ,หมายเหตุ");  
         $rec->setFieldAlign("center,center,center,left,right,right,right,left");
       //  $rec->setFieldSpace("5%,10%,5%,30%,10%,10%,10%,20%");           
         $rec->setSum(true,false,",,,,true,true,,");  

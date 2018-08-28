@@ -6,7 +6,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=4&sub=4&state=3&bid='+id;
 		}
 	}
@@ -19,8 +19,8 @@ $sql = "SELECT cancel,id,sano,DATE_FORMAT(sadate, '%d-%m-%Y') as sadate,tot_pv,t
 $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ";
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hhhhhhhh ";
-//$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN '����ѷ' ELSE inv_code END AS inv_code,CASE send WHEN '1' THEN '���ᨧ��ҹ����ѷ' ELSE '��Ţ�»���' END AS type,'1' as checkcheck ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,uid inv_code,CASE send WHEN '1' THEN '���ᨧ��ҹ����ѷ' ELSE '��Ţ�»���' END AS type,'1' as checkcheck ";
+//$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE inv_code WHEN '' THEN 'บริษัท' ELSE inv_code END AS inv_code,CASE send WHEN '1' THEN 'บิลแจงผ่านบริษัท' ELSE 'บิลขายปกติ' END AS type,'1' as checkcheck ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,uid inv_code,CASE send WHEN '1' THEN 'บิลแจงผ่านบริษัท' ELSE 'บิลขายปกติ' END AS type,'1' as checkcheck ";
 
 $sql .= "FROM ".$dbprefix."atoasaleh ";
 $sql .= "LEFT JOIN (SELECT mcode,mcode AS smcode,".$dbprefix."member.name_t FROM ".$dbprefix."member) AS tabname ON (".$dbprefix."atoasaleh.mcode=tabname.mcode) WHERE smcode='".$_SESSION['usercode']."' and cancel = 0 ";
@@ -33,7 +33,7 @@ $sql .= "LEFT JOIN (SELECT mcode,mcode AS smcode,".$dbprefix."member.name_t FROM
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysql_select_db('free_style',$link);
 	//$rs = mysql_query("SELECT * FROM usaaba_member");
-//	echo '<fieldset><legend><b>�����š�ë���</b></legend>';
+//	echo '<fieldset><legend><b>ข้อมูลการซื้อ</b></legend>';
 	if($_GET['state']==1){
 		include("serv_sale_del.php");
 	}else if($_GET['state']==2){
@@ -58,7 +58,7 @@ $sql .= "LEFT JOIN (SELECT mcode,mcode AS smcode,".$dbprefix."member.name_t FROM
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,ability,sadate,tot_pv,total,inv_code");
-		$rec->setFieldDesc("�Ţ���,���ʼ�����,����,".$wording_lan["word"]["sale_editadd"]["typea"].",�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,���ѹ�֡");
+		$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อ,".$wording_lan["word"]["sale_editadd"]["typea"].",วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,ผู้บันทึก");
 		$rec->setFieldFloatFormat(",,,,,0,2");
 		$rec->setFieldAlign("center,center,left,center,center,right,right,center,center");
 		$rec->setFieldSpace("6%,8%,40%,7%,7%,7%,8%,8%,8%,10%,10%");
@@ -68,9 +68,9 @@ $sql .= "LEFT JOIN (SELECT mcode,mcode AS smcode,".$dbprefix."member.name_t FROM
 		$rec->setSum(true,false,",,,,,true,true");
 		//$rec->setDel("index.php","id","id","sessiontab=3&sub=6");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
-			$rec->setSpecial("¡��ԡ","","sale_cancel","id","TEXT","¡��ԡ");
+			$rec->setSpecial("ยกเลิก","","sale_cancel","id","TEXT","ยกเลิก");
 		//$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
-	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","�����");
+	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","พิมพ์");
 		$rec->showRec(1,'SH_QUERY');
 		//mysql_close($link);
 	}
