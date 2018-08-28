@@ -6,5 +6,6 @@ services:
     image: testdockerphp
     ports:
       - "8081:80"
+      - "9100:9100"
     volumes:
       - ./www:/var/www/html

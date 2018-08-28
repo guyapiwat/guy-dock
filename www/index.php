@@ -11,4 +11,16 @@ echo('<br/>');
 echo($test);
 echo('<br/>');
 echo (extension_loaded('xdebug') ? '' : 'non '), 'exists';
+$servername = "p-enterprise.com:9100";
+$username = "dev";
+$password = "dev@cci";
+$dbname = "cci_db";
+$conn = new mysqli($servername, $username, $password, $dbname);
+
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+}
+else {
+    print ('It\'s work');
+}
 ?>
