@@ -475,7 +475,9 @@ unset($_SESSION["discount"]);
         }
 
     </script>
-<? require("./date_picker.php"); ?>
+<? require("./date_picker.php");
+
+ ?>
     <form method="post" action="billb_operate.php?state=<?= $_GET['id'] == "" ? 0 : 1 ?>" name="frm"
           onsubmit="return checkFormsubmit(this)">
         <table border="0">
@@ -683,7 +685,11 @@ unset($_SESSION["discount"]);
                     </table>
                 </td>
                 <td>
-                    <? include('product_tab_new.php'); ?>
+                    <? 
+                    
+                    include('product_tab_new.php'); 
+                   
+                    ?>
                 </td>
             </tr>
         </table>

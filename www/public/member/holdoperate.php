@@ -63,7 +63,7 @@ if (isset($_GET['state'])) {
     if (isset($_POST["memberfreeid"])) {
     $memberfreeid=$_POST['memberfreeid'];
     $mcode=$memberfreeid;
-    $satype = "B";
+    $satype = "A";
     $remark = "แจงสมัคร";
     }else{
     $memberfreeid="";

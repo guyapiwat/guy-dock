@@ -107,6 +107,9 @@ function selectitem(mcode){
     if($_POST['mcode']){
          $mcode = genmcode($_POST['mcode']);
          $member = get_detail_meber($mcode,date("Y-m-d"));
+         //var_dump($member);
+         //echo $member['name_t'] ;
+
 		  if($member['terminate'] == '1'){
 			echo "<script language='JavaScript'>alert('รหัสสมาชิก ".$member['mcode']." ติดสถานะ Terminate');</script>";	
 			unset($member);
@@ -117,13 +120,15 @@ function selectitem(mcode){
           }
     } 
 	
-    if(count($member) > 0){ 
-		foreach ($member as $key => $value){
-		   $member[$key] = iconv("TIS-620", "UTF-8", $value);
-		}
-	}
+    //if(count($member) > 0){ 
+		//foreach ($member as $key => $value){
+		//   $member[$key] = iconv("TIS-620", "UTF-8", $value);
+		//}
+	//}
    
     if(count($member) >= 0){ 
+        //echo "m".$member['lr'];
+      
 ?>
 <div class='box'>  
     <div class='member'>  
@@ -154,17 +159,35 @@ function selectitem(mcode){
             <input type="text" id="dateInput1" name="sadate" onkeypress="return chknum(window.event.keyCode)"  value="<?=date("Y-m-d")?>" placeholder="2014-01-20" /><br>
             <label>รูปแบบการซื้อ</label>
              <select name="satype" id="satype" onchange="checksatype(this)" class="satype" >
-                    <option  value="" >เลือก</option>     
+           
+                       
                     <?php        
                         foreach($arr_satype1 as $key => $value): 
                         //if($member['pos_cur1'] == '' and $key == 'H' ){
                             ///** pos_cur1 < S member not have Hold
                         //}else{
+                            if($member['lr']."x"=="x"){
+                                if($key=="B"){
+
+                                
                             echo '<option value="'.$key.'"';
-                            if($satype==$key)echo "selected";
+                            if(true)echo "selected";
                             echo'>'.$value.'</option>'; 
+                                }
+
+                            }else{
+                                ?>
+                                <option  value="" >เลือก</option>  
+                                <?
+
+                                echo '<option value="'.$key.'"';
+                                if($satype==$key)echo "selected";
+                                echo'>'.$value.'</option>'; 
+
+                            }
                        // }  
                         endforeach;
+                    
                     ?>
             </select><br>
             

@@ -905,6 +905,11 @@ if(isset($_GET['id'])){
 					endforeach;
 				?>
               </select>
+
+
+			  <?
+			 
+			  ?>
 			  <input type="hidden" value="<?=$_GET['id']?>" name="id"/></td>
             <td width="6%" align="right"><?=$wording_lan["tab2_billedit"]["1_4"]?></td>
             <td width="40%"><input type="text" id="dateInput1" readonly name="sadate" value="<?=$sadate==""?$_SESSION["datetimezone"]:$sadate?>">
