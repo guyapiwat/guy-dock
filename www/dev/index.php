@@ -29,11 +29,10 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 //else {
 //    print ('It\'s work');
 //}
-print('test connect...');
+print('test connect...<br/>');
 
 //$link = mysqli_connect($servername, $username, $password);
 ///@mysql_connect("p-enterprise.com:9100", "dev", "dev@cci") or die("Could not connect: " . mysql_error());
-print('connect work');
 //print('<br> connect');
 if (mysqli_connect_errno()) {
     printf("Connect failed: %s\n", mysqli_connect_error());
@@ -42,5 +41,5 @@ if (mysqli_connect_errno()) {
 else {
     print('connect work');
 }
-//phpinfo();
+phpinfo();
 ?>
