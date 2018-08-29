@@ -43,7 +43,7 @@ if (mysqli_connect_errno()) {
 else {
     print('connect work');
 }
-phpinfo();
+//phpinfo();
 
 
 ?>

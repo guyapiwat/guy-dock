@@ -55,3 +55,5 @@ php_value session.gc_maxlifetime 360000
 
 RewriteEngine On
 RewriteRule l/([0-9]+)?$ /member/member_register.php?sp_code=$1
+RewriteRule branch /public/branch
+RewriteRule backoffice /public/backoffice
