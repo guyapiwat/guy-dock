@@ -7,6 +7,6 @@ services:
     ports:
       - "8081:80"
       - "9100:9100"
-      - "9000:9000"
+      - "9001:9001"
     volumes:
-      - ./www:/var/www/html
+      - ./www/public:/var/www/html
