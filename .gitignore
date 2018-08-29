@@ -1,5 +1,6 @@
 .idea/
 www/vendor
+*.lock
 www/public/l/logs/
 www/public/logs/
 www/public/nuget/
