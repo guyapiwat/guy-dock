@@ -1,0 +1,11 @@
+{
+  "require": {
+    "symfony/yaml": "2.*",
+    "propel/propel": "~2.0@dev"
+  },
+  "autoload": {
+    "classmap": [
+      "orm/CciOrm"
+    ]
+  }
+}

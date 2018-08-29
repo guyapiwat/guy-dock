@@ -19,10 +19,12 @@ RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xd
 RUN a2enmod rewrite
 
 
-WORKDIR /var/www/html
-RUN chown -R www-data /var/www
+#WORKDIR /var/www/html
+#RUN chown -R www-data /var/www
 
 USER www-data
+COPY composer.json /var/www/html/composer.json
+COPY composer.lock /var/www/html/composer.lock
 RUN /usr/bin/composer install
 
 USER root
