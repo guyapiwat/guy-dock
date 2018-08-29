@@ -20,7 +20,7 @@ $servername = "p-enterprise.com:9100";
 $username = "dev";
 $password = "dev@cci";
 $dbname = "cci_db";
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
 //
 //if ($conn->connect_error) {
 //    print ('Connection failed:');
@@ -32,6 +32,8 @@ $conn = new mysqli($servername, $username, $password, $dbname);
 print('test connect...<br/>');
 
 //$link = mysqli_connect($servername, $username, $password);
+$conn = @mysql_connect("p-enterprise.com:9100", "dev", "dev@cci");
+
 ///@mysql_connect("p-enterprise.com:9100", "dev", "dev@cci") or die("Could not connect: " . mysql_error());
 //print('<br> connect');
 if (mysqli_connect_errno()) {

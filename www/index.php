@@ -16,7 +16,8 @@ $servername = "p-enterprise.com:9100";
 $username = "dev";
 $password = "dev@cci";
 $dbname = "cci_db";
-$conn = new mysqli($servername, $username, $password, $dbname);
+//$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = mysql_connect("p-enterprise.com:9100", "dev", "dev@cci");
 
 if ($conn->connect_error) {
     print ('Connection failed:');

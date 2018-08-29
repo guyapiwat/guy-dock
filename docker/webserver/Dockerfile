@@ -1,7 +1,14 @@
 FROM php:5.6-apache
 LABEL maintainer="saintentex@gmail.com"
 
-RUN apt-get update -y && apt-get install -y libpng-dev curl libcurl4-openssl-dev
+RUN apt-get update -y && apt-get install -y \
+    libpng-dev curl \
+    libcurl4-openssl-dev \
+    libmcrypt-dev \
+    libreadline-dev \
+    libmemcached-dev \
+    zlib1g-dev
+
 RUN apt-get install -y git zip unzip && \
         php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer && \
         apt-get -y autoremove && \
@@ -9,9 +16,15 @@ RUN apt-get install -y git zip unzip && \
         rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 
-RUN pecl install xdebug-2.5.0
-RUN docker-php-ext-install pdo pdo_mysql gd curl mysqli
-RUN docker-php-ext-enable xdebug
+RUN pecl install \
+    xdebug-2.5.0 \
+    memcached-3.0.4
+
+RUN docker-php-ext-install pdo pdo_mysql gd curl mysqli mcrypt
+RUN docker-php-ext-enable \
+    xdebug \
+    memcached
+
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo 'xdebug.remote_connect_back=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
