@@ -34,7 +34,7 @@ RUN docker-php-ext-configure gd \
 
 RUN docker-php-ext-install pdo pdo_mysql curl mysqli mcrypt mysql
 RUN docker-php-ext-enable \
-    xdebug memcached
+    xdebug
 
 RUN echo 'xdebug.remote_enable=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
     && echo 'xdebug.remote_autostart=1' >> /usr/local/etc/php/conf.d/docker-php-ext-xdebug.ini \
