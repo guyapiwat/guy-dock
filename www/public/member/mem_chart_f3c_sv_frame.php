@@ -38,10 +38,10 @@ ini_set("memory_limit","1000M");
 	$chart->setBlock($_SESSION['usercode']);
 //	var_dump($chart->isUp($cmc,$_SESSION['usercode']));
 	if($chart->isUp($cmc,$_SESSION['usercode'])){
-		echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>ไม่สามารถดูข้อมูลในระดับสูงกว่าได้</font></td></tr></table>";
+		echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเนเธเธฃเธฐเธ”เธฑเธเธชเธนเธเธเธงเนเธฒเนเธ”เน</font></td></tr></table>";
 		exit;
 	}else if(!$chart->isLine($cmc,$_SESSION['usercode'])){
-		echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>ไม่สามารถดูข้อมูลต่างสายงานได้</font></td></tr></table>";
+		echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเธ•เนเธฒเธเธชเธฒเธขเธเธฒเธเนเธ”เน</font></td></tr></table>";
 		exit;
 	}
 	$rs = mysql_query("SELECT * FROM ".$dbprefix."position ");

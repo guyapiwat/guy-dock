@@ -29,11 +29,11 @@ $sql .=" FROM ".$dbprefix."product_package  left join ".$dbprefix."location_base
 			$rec->setCurPage($page);
 			$rec->setFieldFloatFormat(",,,2,2,2,");
 		$rec->setShowField("pcode,pdesc,unit,qty,customer_price,price,pv,vat");
-		$rec->setFieldDesc("�����Թ���,��������´,˹���,�ӹǹ,�ҤҢ�»�ա,�Ҥ���Ҫԡ,pv,Vat");
+		$rec->setFieldDesc("รหัสสินค้า,รายละเอียด,หน่วย,จำนวน,ราคาขายปลีก,ราคาสมาชิก,pv,Vat");
 		$rec->setFieldAlign("center,left,center,center,right,right,right,right,right,center,center");
 	//	$rec->setFieldSpace("8%,40%,9%,5%,9%,9%,9%,9%,9%,9%,9%");
 		$rec->setSearch("pcode,pdesc");
-		$rec->setSearchDesc("���� package,��������´");
+		$rec->setSearchDesc("รหัส package,รายละเอียด");
 
 		$rec->setFieldLink(",");
 		if($acc->isAccess(4)){

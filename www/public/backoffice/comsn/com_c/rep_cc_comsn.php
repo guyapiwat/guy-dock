@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>��سҡ�͡��ǧ���������١ �� 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -86,7 +86,7 @@ if($fdate != ''){
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("rcode,paydate,mcode,name_t,pvh,c_note1,c_note2,c_note3,c_note5,c_remark,cshort");
-		$rec->setFieldDesc("�ͺ,�ѹ����,����,����,�ʹ¡�,���Һѵû�ЪҪ�,���Һѭ�ո�Ҥ��,�Ţ���ѭ��,���Ѥ�,�����˵�,LB");
+		$rec->setFieldDesc("รอบ,วันจ่าย,รหัส,ชื่อ,ยอดยกไป,สำเนาบัตรประชาชน,สำเนาบัญชีธนาคาร,เลขที่บัญชี,ใบสมัคร,หมายเหตุ,LB");
 		$rec->setFieldAlign("center,center,center,left,right,center,center,center,center,left,right,right,right,right");
 		$rec->setFieldSpace("5%,7%,7%,20%,7%,8%,8%,8%,8%,50%,6%,10%,10%");//10
 		$rec->setSum(true,false,",,,,true,");
@@ -100,7 +100,7 @@ if($fdate != ''){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("a.mcode,lb.cshort");
-		$rec->setSearchDesc("����,LB");
+		$rec->setSearchDesc("รหัส,LB");
 */
 	 $rec->setFieldLink("");
 		if($acc->isAccess(2))

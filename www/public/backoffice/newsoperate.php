@@ -24,14 +24,14 @@ writelogfile($text);
 		echo "<font color='#FF0000'>error</font><br>";
 		//echo  "$sql";		
 	}else {
-		logtext(true,$_SESSION['adminusercode'],'‡æ‘Ë¡ª√–°“»',mysql_insert_id());
+		logtext(true,$_SESSION['adminusercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏õ‡∏£‡∏∞‡∏Å‡∏≤‡∏®',mysql_insert_id());
 		mysql_query("COMMIT");
 		ob_end_clean();
 		//include "mem_main.php";
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=5&sub=20'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'·°È‰¢ª√–°“»',$oid);
+	logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏õ‡∏£‡∏∞‡∏Å‡∏≤‡∏®',$oid);
 	$sql="update ".$dbprefix."news set head='$head' ,body='$body' ,status='$st',popup='$popup',dates='$date' where id = '$id'";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminusercode"]." action=newsoperate =>$sql";

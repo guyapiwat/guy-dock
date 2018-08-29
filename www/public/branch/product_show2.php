@@ -43,23 +43,23 @@ function chknum(key){
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
 		
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
 		place += "<td bgcolor='#99CCCC' style='"+style_l+style_t+style_b+"'>&nbsp;</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�ӴѺ</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>����</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>��������´</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�Ҥ�</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>ลำดับ</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รหัส</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รายละเอียด</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>ราคา</td>";
 		place += "<td style='"+style_l+style_t+style_b+"'>PV</td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"'>BV</td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"'>FV</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>�ӹǹ</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>����Ҥ�</td>";
-		place += "<td style='"+style_l+style_t+style_b+"'>���PV</td>";
-		place += "<td style='"+style_l+style_t+style_b+style_none+"'>���bV</td>";
-		place += "<td style='"+style_l+style_t+style_b+style_none+"'>���fV</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>จำนวน</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รวมราคา</td>";
+		place += "<td style='"+style_l+style_t+style_b+"'>รวมPV</td>";
+		place += "<td style='"+style_l+style_t+style_b+style_none+"'>รวมbV</td>";
+		place += "<td style='"+style_l+style_t+style_b+style_none+"'>รวมfV</td>";
 		place += "</tr>";
 		for(i=0;i<(tag.length-skip)/13;i++){
 			showprice = 0;
@@ -69,7 +69,7 @@ function chknum(key){
 			step = i*13+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -90,7 +90,7 @@ function chknum(key){
 					sumfv = sumfv + parseFloat(fv);
 					sumtotal = sumtotal + parseFloat(price);
 				}else{
-					alert("�ӹǹ�Թ����������§��");
+					alert("จำนวนสินค้ามีไม่เพียงพอ");
 					//num = qty;
 				}
 				//fcus = tag[i*8 +1];
@@ -123,12 +123,12 @@ function chknum(key){
 		if(out){
 		//alert(tag.length)
 				if(qty<=0){
-						alert("�ӹǹ�Թ���������Ǿ�");
+						alert("จำนวนสินค้าไม่เพียวพอ");
 						return;
 					}
 
 			place += "<tr>";//ssaledel(pcode,pdesc,price,pv)
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + pcode + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
@@ -149,13 +149,13 @@ function chknum(key){
 			sumtotal = sumtotal + parseFloat(price);
 		}
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>���</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>รวม</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumpv'  id='sumpv'  value='" + sumpv + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumbv'  id='sumbv' value='" + sumbv + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumfv'  id='sumfv' value='" + sumfv + "'></td>";
 		place += "</tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok' id='ok'  disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=21'\" value='¡��ԡ' /></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok' id='ok'  disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=21'\" value='ยกเลิก' /></td></tr>";
 		place += "</table>";
 		window.parent.document.getElementById('sale').innerHTML = place;
 		//fcus.focus();
@@ -189,14 +189,14 @@ $rec->setBackLink($PHP_SELF,"sessiontab=3");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("pcode,pdesc,qty");
-$rec->setFieldDesc("����,��������´,�ӹǹ");
+$rec->setFieldDesc("รหัส,รายละเอียด,จำนวน");
 $rec->setFieldAlign("center,left,center,right,right");
 $rec->setFieldSpace("20%,60%,20%");
 $rec->setFieldLink(",");
 $rec->setFieldFloatFormat(",,2,0");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,bv,fv,qty","IMAGE","");
 $rec->setSearch("a.pcode,a.pdesc");
-$rec->setSearchDesc("����,��������´");
+$rec->setSearchDesc("รหัส,รายละเอียด");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

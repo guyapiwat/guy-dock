@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("กรุณาเลือกวันที่เริ่มต้น");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("กรุณาเลือกวันที่สิ้นสุด");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ”");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -42,7 +42,7 @@ if(empty($fmcode) and empty($strfdate)){
 	if($strfdate>$strtdate){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">วันที่เริ่มต้น ต้องน้อยกว่าหรือเท่ากับ วันที่สิ้นสุด กรุณาระุบุวันที่ใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเธฃเธฐเธธเธเธธเธงเธฑเธเธ—เธตเนเนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -51,7 +51,7 @@ if(empty($fmcode) and empty($strfdate)){
 	}else{
 ?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-รอบวัน <? echo $strfdate .' ถึง '.$strtdate;?>
+เธฃเธญเธเธงเธฑเธ <? echo $strfdate .' เธ–เธถเธ '.$strtdate;?>
 <?
 		require("connectmysql.php");
 		if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
@@ -181,10 +181,10 @@ if(empty($fmcode) and empty($strfdate)){
 		?>
 			<table width="100%" cellpadding="10" cellspacing="10" border="10">
   <tr>
-    <td align="center"><font color="#FF00FF" size="+6">&nbsp;รายได้&nbsp;</font></td>
-    <td align="center"><font  size="+6" color="#FF0000">&nbsp;ค่าคอมมิชชั่น&nbsp;</font></td>
-    <td align="center"><font  size="+6" color="#0000FF">&nbsp;จ่ายแล้ว &nbsp;</font></td>
-    <td align="center"><font  size="+6" color="#00CC00">&nbsp;ที่ยังไม่จ่าย&nbsp;</font></td>
+    <td align="center"><font color="#FF00FF" size="+6">&nbsp;เธฃเธฒเธขเนเธ”เน&nbsp;</font></td>
+    <td align="center"><font  size="+6" color="#FF0000">&nbsp;เธเนเธฒเธเธญเธกเธกเธดเธเธเธฑเนเธ&nbsp;</font></td>
+    <td align="center"><font  size="+6" color="#0000FF">&nbsp;เธเนเธฒเธขเนเธฅเนเธง &nbsp;</font></td>
+    <td align="center"><font  size="+6" color="#00CC00">&nbsp;เธ—เธตเนเธขเธฑเธเนเธกเนเธเนเธฒเธข&nbsp;</font></td>
   </tr>
   <tr><td align="center"><font color="#FF00FF" size="+6">&nbsp;<? echo number_format($planc,2);?>&nbsp;</font></td><td align="center"><font  size="+6" color="#FF0000">&nbsp;<? echo number_format($planb+$plana,2); ?>&nbsp;</font></td><td align="center"><font  size="+6" color="#0000FF">&nbsp;<? echo number_format($payd+$payf,2); ?>&nbsp;</font></td><td align="center"><font  size="+6" color="#00CC00">&nbsp;<? echo number_format($paye+$payg,2); ?>&nbsp;</font></td></tr></table>
 		<?
@@ -199,26 +199,26 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>ระบุวันที่ และ รหัสสมาชิกที่ต้องการทราบข้อมูล</strong></td>
+    <td colspan="2" align="center"><strong>เธฃเธฐเธเธธเธงเธฑเธเธ—เธตเน เนเธฅเธฐ เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ—เธฃเธฒเธเธเนเธญเธกเธนเธฅ</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <!--tr>
-    <td align="right">รอบ&nbsp;&nbsp;</td>
+    <td align="right">เธฃเธญเธ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
+      &nbsp;( เธเธฃเธญเธเธเนเธญเธกเธนเธฅเน€เธเนเธ 1-9 )</td>
   </tr-->
   <tr>
-  <td align="right" >วันที่&nbsp;&nbsp;</td>
+  <td align="right" >เธงเธฑเธเธ—เธตเน&nbsp;&nbsp;</td>
   <td colspan="2">
       <input type="text" id="strfdate" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>"/>
-&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่เิีริ่มต้น" /></a>&nbsp; ถึง &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
-&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่สิ้นสุด" /></a>
+&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเน€เธดเธตเธฃเธดเนเธกเธ•เนเธ" /></a>&nbsp; เธ–เธถเธ &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
+&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ”" /></a>
 </td>
   </tr>
   <tr>
-    <td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
+    <td width="24%" align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -226,7 +226,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-//  äÁèä»àÍÒ¨Ò¡ cache
+//  à¹„à¸¡à¹ˆà¹„à¸›à¹€à¸­à¸²à¸ˆà¸²à¸ cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //¡ÓË¹´ header µÍ¹ÃÑº
+  //à¸à¸³à¸«à¸™à¸” header à¸•à¸­à¸™à¸£à¸±à¸š
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -34,15 +34,15 @@ if(!empty($value) and isLine($dbprefix,$value,$value1) ){
 			}
 		}
 		else{
-			echo "FULL:ãµé¼Ùéá¹Ð¹ÓÃËÑÊ ".$value." àµçÁ";
+			echo "FULL:à¹ƒà¸•à¹‰à¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³à¸£à¸«à¸±à¸ª ".$value." à¹€à¸•à¹‡à¸¡";
 		}
 	}
 	else{
-		echo "NODATA:äÁèÍÂÙèã¹ÊÒÂ§Ò¹";
+		echo "NODATA:à¹„à¸¡à¹ˆà¸­à¸¢à¸¹à¹ˆà¹ƒà¸™à¸ªà¸²à¸¢à¸‡à¸²à¸™";
 	}
 }
 else{
-	echo "CANNOTFOUND:äÁèÍÂÙèã¹ÊÒÂ§Ò¹";
+	echo "CANNOTFOUND:à¹„à¸¡à¹ˆà¸­à¸¢à¸¹à¹ˆà¹ƒà¸™à¸ªà¸²à¸¢à¸‡à¸²à¸™";
 }
  
  

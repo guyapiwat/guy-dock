@@ -12,6 +12,9 @@ if(isset($_POST["key"])){
 	}else{ 
 		if($_POST["key"]=="code"){
 			$sql = "select * from ".$dbprefix."member where mcode like '%".trim($_POST["cause"])."' limit 0,1";
+			$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 			$rs = mysql_query($sql);
 			if(mysql_num_rows($rs)>0){
 				$cmc = mysql_result($rs,0,"mcode");
@@ -21,6 +24,10 @@ if(isset($_POST["key"])){
 			mysql_free_result($rs);
 		}else if($_POST["key"]=="name"){
 			$sql = "select * from ".$dbprefix."member where name_t like '%".$_POST["cause"]."%' limit 0,1";
+			$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
+			
 			$rs = mysql_query($sql);
 			if(mysql_num_rows($rs)>0){
 				$cmc = mysql_result($rs,0,"mcode");
@@ -28,10 +35,10 @@ if(isset($_POST["key"])){
 				?>
 				<table width="100%" border="0">
 				  <tr align="center">
-					<td><br><font color="#c00000">�������ö�٢�������������辺������Ҫԡ <?=$_POST["cause"]?></font></td>
+					<td><br><font color="#c00000">ไม่สามารถดูข้อมูลได้เพราะไม่พบชื่อสมาชิก <?=$_POST["cause"]?></font></td>
 				  </tr>
 				  <tr align="center">
-					<td><br><img src="./images/upa_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=4">��Ѻ��ѧἹ������§ҹ��Ҫԡ</a>]</td>
+					<td><br><img src="./images/upa_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=4">กลับไปยังแผนภูมิสายงานสมาชิก</a>]</td>
 				  </tr>
 				</table>
 				<?
@@ -40,7 +47,7 @@ if(isset($_POST["key"])){
 		}
 	}
 }
-// ��Ǩ�ͺ��� $cmc �������§ҹ�ͧ $smc �������
+// ตรวจสอบว่า $cmc อยู่ในสายงานของ $smc หรือไม่
 $cmc = $cmc;
 $chk = $_POST["cause1"];
 
@@ -48,8 +55,10 @@ $chk = $_POST["cause1"];
 $cur=$cmc;
  
 
-$abs_lev=0;				// level �ҡ $smc �֧ $cmc; ��� $smc=$cmc, abs_lev=0
-
+$abs_lev=0;				// level จาก $smc ถึง $cmc; ถ้า $smc=$cmc, abs_lev=0
+$charset = "SET NAMES 'UTF8'"; 
+mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 $result=mysql_query("select *,DATE_FORMAT(".$dbprefix."member.mdate, '%d-%m-%Y') as mdate from ".$dbprefix."member where mcode='".$cmc."' ");
 if (mysql_num_rows($result)>0) {
  
@@ -57,10 +66,10 @@ if (mysql_num_rows($result)>0) {
 		?>
 	<table width="100%" border="0">
 	  <tr align="center">
-		<td><br><font color="#c00000">�������ö�٢�������������辺���� <?=$cmc?></font></td>
+		<td><br><font color="#c00000">ไม่สามารถดูข้อมูลได้เพราะไม่พบรหัส <?=$cmc?></font></td>
 	  </tr>
 	  <tr align="center">
-		<td><br><img src="./images/upa_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=4">��Ѻ��ѧἹ������§ҹ��Ҫԡ�ͧ <?=$GLOBALS["defmcode"]?></a>]</td>
+		<td><br><img src="./images/upa_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=4">กลับไปยังแผนภูมิสายงานสมาชิกของ <?=$GLOBALS["defmcode"]?></a>]</td>
 	  </tr>
 	</table>
 	<?
@@ -78,11 +87,11 @@ if($_POST){
          <form method="post" action="./index.php?sessiontab=1&sub=4">
             <input type="text" name="cause" value="<?=$_SESSION["chkSet"]?>">
             <select name="key">
-                <option value="code">������Ҫԡ</option>
-                <option value="name">����</option>
+                <option value="code">รหัสสมาชิก</option>
+                <option value="name">ชื่อ</option>
             </select>
           <!--  <input type="text" name="cause1">-->
-            <input type="submit" value="����">
+            <input type="submit" value="ค้นหา">
 </table>
 
 <table width="100%" border="0">
@@ -110,20 +119,26 @@ function getpositionname($p){
 	global $dbprefix;
 	// connect to database 
 	$sql="select * from ".$dbprefix."position where posid=".$p." ";
-
+	$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 	//echo "$sql<BR>";
-	if ($p==""){return "����յ��˹�";}
+	if ($p==""){return "ไม่มีตำแหน่ง";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		return $row->posname;
 	}else{
-		return "����յ��˹�";
+		return "ไม่มีตำแหน่ง";
 	}
 }
 function gettotalpv($dbprefix,$mcode){
 	$sql3 = "select mcode, SUM(tot_pv) AS tot_pv from ".$dbprefix."special_point WHERE  sa_type='VA' AND mcode='$mcode' group by mcode ";
 				//if($mcode == '0000075')echo "$sql3<BR>";
+				$charset = "SET NAMES 'UTF8'"; 
+				mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+					
+
 				$rs3=mysql_query($sql3);
 				if (mysql_num_rows($rs3)>0) {
 					$sqlObj3 = mysql_fetch_object($rs3);
@@ -138,6 +153,10 @@ function gettotalpv($dbprefix,$mcode){
 function LCR($mc){
 	global $dbprefix;
 	$sql="select * from ".$dbprefix."ambonus where mcode='$mc' order by rcode desc ";
+	$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
+	
 	$result=mysql_query($sql);
 	if($result){
 		if (mysql_num_rows($result)>0) {
@@ -161,10 +180,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 function fnc_check_sp($dbprefix){
 	
@@ -174,6 +193,9 @@ function posname($pos_cur) {
 	
 	$sql = "SELECT posname FROM ali_position WHERE posshort ='".$pos_cur."' ";
 		//echo $sql;
+		$charset = "SET NAMES 'UTF8'"; 
+	mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs) > 0){
 		$posname = mysql_result($rs,0,'posname'); 

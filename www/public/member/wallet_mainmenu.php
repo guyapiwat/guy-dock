@@ -52,16 +52,16 @@ color: #212121/*{fcActive}*/;
 	 <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>		 
  
 	  
-	   <input type="button" name="Submit" value="µ°≈ß" onClick="checkround()" />
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="button" name="Submit" value="‡∏ï‡∏Å‡∏•‡∏á" onClick="checkround()" />
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -70,18 +70,18 @@ color: #212121/*{fcActive}*/;
   <script>
   function checkround(){
 	if(document.getElementById("dateInput1").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}
 	if(document.getElementById("dateInput2").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput2").focus();
 		return false;
 	}
 
 	if(document.getElementById("dateInput1").value > document.getElementById("dateInput2").value){
-		alert("«—π‡√◊Ë¡µÈπ¡“°°«Ë“«—π ‘Èπ ÿ¥");
+		alert("‡∏ß‡∏±‡∏ô‡πÄ‡∏£‡∏∑‡πà‡∏°‡∏ï‡πâ‡∏ô‡∏°‡∏≤‡∏Å‡∏Å‡∏ß‡πà‡∏≤‡∏ß‡∏±‡∏ô‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("dateInput1").focus();
 		return false;
 	}

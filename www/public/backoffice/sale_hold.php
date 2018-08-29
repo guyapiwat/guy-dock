@@ -46,16 +46,16 @@ $sql .= "FROM ".$dbprefix."asaleh WHERE sa_type='H'   "; //WHERE smcode='".$_SES
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,mcode,name_t,sadate,tot_pv,total");
 		$rec->setFieldFloatFormat(",,,,0,2");
-		$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setFieldAlign("center,center,left,center,center,center,center,right,right,right");
 		$rec->setFieldSpace("5%,15%,30%,10%,20%,20%");
 		$rec->setFieldLink(",index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,mcode,name_t,sadate,tot_pv,total");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
 		$rec->setSum(true,false,",,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		//$rec->setSpecial("./images/false.gif","","sale_cancel","id","IMAGE");
-	//	$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","á¨§");
+	//	$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","à¹à¸ˆà¸‡");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		/*if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=6");

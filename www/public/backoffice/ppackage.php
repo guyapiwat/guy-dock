@@ -26,11 +26,11 @@ $sql = "SELECT * FROM ".$dbprefix."product_package1  ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("package,pcode,pdesc,qty");
-		$rec->setFieldDesc("ÃËÑÊ package,ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´,¨Ó¹Ç¹");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª package,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸ˆà¸³à¸™à¸§à¸™");
 		$rec->setFieldAlign("center,center,center,center,right,right,right");
 		 $rec->setFieldSpace("10%,10%,80%,10%");
 		$rec->setSearch("package,pcode,pdesc");
-		$rec->setSearchDesc("ÃËÑÊ&nbsp;package,ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ª&nbsp;package,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²");
 
 		$rec->setFieldLink(",");
 		if($acc->isAccess(4)){

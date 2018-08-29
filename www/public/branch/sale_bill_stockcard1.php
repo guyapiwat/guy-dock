@@ -96,7 +96,7 @@ if($strSearch2!=""){
 
 $sql = "SELECT *,".$dbprefix."stockcard_s.pcode as pcode123,".$dbprefix."stockcard_s.price as price123";
 $sql .=" ,name_t as name  "; 
-$sql .=" ,CASE ".$dbprefix."stockcard_s.action WHEN 'A' THEN '»¡µÔ' WHEN 'HO' THEN 'âÍ¹¤×¹' WHEN 'I' THEN 'Êè§ÊÒ¢Ò' WHEN 'BRHO' THEN 'ãºÃÑº(HQ)' WHEN 'BBHO' THEN 'ãºàºÔ¡(HQ)' WHEN 'BB' THEN 'ãºàºÔ¡(ÊÒ¢Ò)' WHEN 'BR' THEN 'ãºÃÑº(ÊÒ¢Ò)' WHEN 'IM' THEN 'ÊÔ¹¤éÒ¹Óà¢éÒ' END as type  ";  
+$sql .=" ,CASE ".$dbprefix."stockcard_s.action WHEN 'A' THEN 'à¸›à¸à¸•à¸´' WHEN 'HO' THEN 'à¹‚à¸­à¸™à¸„à¸·à¸™' WHEN 'I' THEN 'à¸ªà¹ˆà¸‡à¸ªà¸²à¸‚à¸²' WHEN 'BRHO' THEN 'à¹ƒà¸šà¸£à¸±à¸š(HQ)' WHEN 'BBHO' THEN 'à¹ƒà¸šà¹€à¸šà¸´à¸(HQ)' WHEN 'BB' THEN 'à¹ƒà¸šà¹€à¸šà¸´à¸(à¸ªà¸²à¸‚à¸²)' WHEN 'BR' THEN 'à¹ƒà¸šà¸£à¸±à¸š(à¸ªà¸²à¸‚à¸²)' WHEN 'IM' THEN 'à¸ªà¸´à¸™à¸„à¹‰à¸²à¸™à¸³à¹€à¸‚à¹‰à¸²' END as type  ";  
 $sql .=" FROM ".$dbprefix."stockcard_s left join ".$dbprefix."product on (".$dbprefix."stockcard_s.pcode = ".$dbprefix."product.pcode)";
 //$sql .="LEFT join ".$dbprefix."member on(".$dbprefix."stockcard_s.mcode=".$dbprefix."member.mcode) ";
 $sql .=" where 1=1 $sqlwhere ";
@@ -144,7 +144,7 @@ if($_GET['print_all']==true){
 			//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=55&state=1","post","delfield");
 		}
 		$rec->setFieldFloatFormat(",,,,,,,,,,2,2,,,2,2,");
-		$rec->setFieldDesc("ÇÑ¹à´×Í¹»Õ,ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÃËÑÊÊÒ¢ÒÃÑº,ÃËÑÊÊÒ¢Ò¤ÕÂì,ÃËÑÊÊÒ¢Ò´Óà¹Ô¹¡ÒÃ,àÅ¢·ÕèãºÊÓ¤Ñ­,ÃËÑÊÊÔ¹¤éÒ,ÃÑº,¨èÒÂ,ÃÒ¤ÒµèÍË¹èÇÂ,ÁÙÅ¤èÒ,Â¡ÁÒ,Â¡ä»,ÃÒ¤ÒµèÍË¹èÇÂ,ÁÙÅ¤èÒ¤§àËÅ×Í,»ÃÐàÀ·ºÔÅ");
+		$rec->setFieldDesc("à¸§à¸±à¸™à¹€à¸”à¸·à¸­à¸™à¸›à¸µ,à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²à¸£à¸±à¸š,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²à¸„à¸µà¸¢à¹Œ,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²à¸”à¸³à¹€à¸™à¸´à¸™à¸à¸²à¸£,à¹€à¸¥à¸‚à¸—à¸µà¹ˆà¹ƒà¸šà¸ªà¸³à¸„à¸±à¸,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸±à¸š,à¸ˆà¹ˆà¸²à¸¢,à¸£à¸²à¸„à¸²à¸•à¹ˆà¸­à¸«à¸™à¹ˆà¸§à¸¢,à¸¡à¸¹à¸¥à¸„à¹ˆà¸²,à¸¢à¸à¸¡à¸²,à¸¢à¸à¹„à¸›,à¸£à¸²à¸„à¸²à¸•à¹ˆà¸­à¸«à¸™à¹ˆà¸§à¸¢,à¸¡à¸¹à¸¥à¸„à¹ˆà¸²à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸›à¸£à¸°à¹€à¸ à¸—à¸šà¸´à¸¥");
 		$rec->setFieldAlign("center,center,left,center,center,center,left,center,right,right,right,right,right,right,right,right,center");
 		//$rec->setFieldSpace("7%,7%,10%,4%,4%,4%,10%,5%,5%,5%,5%,5%,5%,5%,5%,5%");
 		$rec->setSum(true,false,",,,,,,,,true,true,true,true,true,true,true,true,");
@@ -152,15 +152,15 @@ if($_GET['print_all']==true){
 		if($_GET['excel']==1){ 
 			$rec->exportXls("ExportXls","stockard".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","stockard".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

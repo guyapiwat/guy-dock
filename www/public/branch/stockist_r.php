@@ -88,7 +88,7 @@ $sql .= ",".$dbprefix."invent.home_t as mobile ";
 $sql .= ",CASE sa_type WHEN 'I' THEN 'Transfer'  END AS ability";
 $sql .= ",CASE ".$dbprefix."isaleh.sender WHEN '1' THEN concat('<img src=./images/true.gif>',".$dbprefix."isaleh.sender_date) ELSE concat('<img src=./images/false.gif>',".$dbprefix."isaleh.sender_date) END AS sender1 ";
 $sql .= ",CASE ".$dbprefix."isaleh.receive WHEN '1' THEN concat('<img src=./images/true.gif>',".$dbprefix."isaleh.receive_date) ELSE concat('<img src=./images/false.gif>',".$dbprefix."isaleh.receive_date) END AS receive1 ";
-$sql .= ",CASE ".$dbprefix."isaleh.send WHEN '2' THEN '�Ѻ�ͧ' ELSE '�Ѵ��' END AS send ";
+$sql .= ",CASE ".$dbprefix."isaleh.send WHEN '2' THEN 'รับเอง' ELSE 'จัดส่ง' END AS send ";
 $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO' WHEN '5' THEN 'Stockist' END AS checkportal ";
 
 
@@ -154,14 +154,14 @@ $sql .= " and sadate like '%$fdate%'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,receive1,remark,lid,uid_receive,checkportal");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-	//	$rec->setFieldDesc("P,�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,��Դ, PV,�ӹǹ�Թ,������,�Ѻ�ͧ,��ҧ�ԧ,�����Ң�,user<br>�Ѻ�ͧ,��ͧ�ҧ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+	//	$rec->setFieldDesc("P,วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,ชนิด, PV,จำนวนเงิน,ผู้คีย์,รับของ,อ้างอิง,ซื้อสาขา,user<br>รับของ,ช่องทาง");
 		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_12"].",".$wording_lan["Bill_13"].",".$wording_lan["Bill_15"].",".$wording_lan["Bill_17"]."");
 		$rec->setFieldAlign("center,center,center,center,left,center,right,right,center,center,center,center,center,center");
 		$rec->setFieldSpace("1%,7%,10%,5%,12%,3%,6%,6%,8%,7%,8%,8%,7%,4%,4%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."isaleh.mcode,".$dbprefix."isaleh.name_t,sadate,tot_pv,total,".$dbprefix."isaleh.uid");
-		//$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�Ң�,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,��ѡ�ҹ");
+		//$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,สาขา,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,พนักงาน");
 		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_1"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_24"].",".$wording_lan["Bill_19"].",".$wording_lan["Bill_20"]);
 		$rec->setSum(true,false,",,,,,,true,true,,");
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["Bill_print"]);
@@ -170,7 +170,7 @@ $sql .= " and sadate like '%$fdate%'  ";
 		 
 		//}
 		if($acc->isAccess(4)){
-		//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		}
 		//var_dump($acc->isAccess(2));
 		//exit;

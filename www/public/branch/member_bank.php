@@ -34,14 +34,14 @@ $sql .= "FROM ".$dbprefix."member LEFT JOIN ".$dbprefix."bank ON ".$dbprefix."me
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,acc_no,acc_name,acc_type,branch,bankname");
-		$rec->setFieldDesc("������Ҫԡ,����,�Ţ�ѭ��,���ͺѭ��,��Դ�ѭ��,�Ң�,��Ҥ��");
+		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,เลขบัญชี,ชื่อบัญชี,ชนิดบัญชี,สาขา,ธนาคาร");
 		$rec->setFieldAlign("center,left,center,left,center,left,left");
 		$rec->setFieldSpace("10%,20%,15%,20%,10%,15%,10%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSearch("mcode,name_t,acc_no,acc_name,acc_type,branch,bankname");
-		$rec->setSearchDesc("������Ҫԡ,����,�Ţ�ѭ��,���ͺѭ��,��Դ�ѭ��,�Ң�,��Ҥ��");
+		$rec->setSearchDesc("รหัสสมาชิก,ชื่อ,เลขบัญชี,ชื่อบัญชี,ชนิดบัญชี,สาขา,ธนาคาร");
 		$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

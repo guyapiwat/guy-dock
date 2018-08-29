@@ -38,7 +38,7 @@ $rec->setFieldDesc($wording_lan["tab4"]["9_1"].",".$wording_lan["productshow"]["
 $rec->setFieldAlign("center,center,center,right,center");
 $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 $rec->setSum(true,false,",,,true,");
-//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");     
+//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");     
 $rec->showRec(1,'SH_QUERY');
 	
 	

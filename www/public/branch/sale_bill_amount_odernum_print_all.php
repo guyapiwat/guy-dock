@@ -19,10 +19,10 @@ $sql .= $sqlscheck;
 
 $sql .= ",CASE ".$dbprefix."asaleh.chkTransfer WHEN '3199' THEN '0.00' ELSE ".$dbprefix."asaleh.txtTransfer+".$dbprefix."asaleh.txtFuture END AS txtTransfer";
 
-$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN '�Ѵ��' ELSE '�Ѻ�ͧ' END AS send ";
+$sql .= ",CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'จัดส่ง' ELSE 'รับเอง' END AS send ";
 $sql .= $sqlWhere_satype;
 
-$sql .= " ,".$dbprefix."asaleh.inv_code,".$dbprefix."asaleh.optionTransfer,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '����͹�Ź�' ELSE '��Ţ�»���' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
+$sql .= " ,".$dbprefix."asaleh.inv_code,".$dbprefix."asaleh.optionTransfer,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN ".$dbprefix."asaleh.uid ELSE ".$dbprefix."asaleh.inv_code END AS inv_code1,CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'บิลออนไลน์' ELSE 'บิลขายปกติ' END AS type,".$dbprefix."asaleh.inv_code as strinvent,".$dbprefix."user.inv_ref,".$dbprefix."asaleh.lid ";
 $sql .= " ,
 txtCredit1+txtCredit2+txtCredit3 as AllCredit,txtCredit4 as CreditCS,txtCash as txtCash,txtFuture as txtFuture,txtInternet+0 as txtInternet,txtDiscount+0 as txtDiscount,txtOther+0 as txtOther,
 ' '+optionCash+optionFuture+optionCredit1+optionCredit2+optionCredit3+optionInternet+optionDiscount+optionOther as optionAll,txtCredit1,txtCredit2,txtCredit3";
@@ -48,8 +48,8 @@ if($satype !=""){
 	else $sql .= " and  a.sa_type = '$satype' ";
 }
 if($logistic !=""){
-	if($logistic=='1')$sql .= " and  send = '�Ѵ��'";
-	else if($logistic=='2')$sql .= " and  send = '�Ѻ�ͧ' ";
+	if($logistic=='1')$sql .= " and  send = 'จัดส่ง'";
+	else if($logistic=='2')$sql .= " and  send = 'รับเอง' ";
 }
 if($inv_code !=""){
 	 $sql .= " and  a.lid = '$inv_code' ";
@@ -83,7 +83,7 @@ if($bank_pay !=""){
 }
  
 if($sregister =="3"){
-	 $sql .= " and  ty_sale = '���ͧ͢'";
+	 $sql .= " and  ty_sale = 'ซื้อของ'";
 }else{
 	if($sregister !=""){
 	 $sql .= " and  ty_sale = '$sregister' ";
@@ -152,28 +152,28 @@ switch ($strtype) {
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_f,name_t,ability,sadate,tot_pv,total,txtCash,AllCredit,txtInternet,txtTransfer,txtFuture,txtOther,txtDiscount,uid,inv_ref,checkportal1,send,ty_sale");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,�ӹ�˹��,���ͼ�����,����Ẻ,�ѹ������,PV,�ӹǹ�Թ���,�Թʴ,�ôԵ,Ewallet,�Թ�͹,voucher,Eautoship,��ǹŴ,���ѹ�֡,�Ң�,��ͧ�ҧ,�Ѵ��,������");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,คำนำหน้า,ชื่อผู้ซื้อ,ซื้อแบบ,วันที่ซื้อ,PV,จำนวนเงินรวม,เงินสด,เครดิต,Ewallet,เงินโอน,voucher,Eautoship,ส่วนลด,ผู้บันทึก,สาขา,ช่องทาง,จัดส่ง,ประเภท");
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2,2,2,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,left,center,center,right,right,right,right,right,right,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("3%,6%,6%,3%,14%,6%,7%,4%,7%,3%,3%,4%,4%,4%,4%,5%,5%,5%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
 		//$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		//$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		//$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		//$rec->setSpace($str);
 		//$str = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		//$str .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		//$str .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		//$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

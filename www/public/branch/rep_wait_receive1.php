@@ -57,7 +57,7 @@ $rec->setBackLink($PHP_SELF,"sessiontab=".$sesstab."");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,pcode,pdesc,qq");
-$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÃËÑÊÊÔ¹¤éÒ,ª×èÍÊÔ¹¤éÒ,¨Ó¹Ç¹");
+$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸Šà¸·à¹ˆà¸­à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸ˆà¸³à¸™à¸§à¸™");
 $rec->setFieldFloatFormat(",,,,");
 $rec->setFieldAlign("center,left,center,left,right");
 $rec->setFieldSpace("15%,45%,10%,20%,10%");

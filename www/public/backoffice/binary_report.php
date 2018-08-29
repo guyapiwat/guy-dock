@@ -8,10 +8,10 @@
          <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
           <tr><td colspan="6" align="center">&nbsp;</td></tr> 
           <tr>    
-            <td align="right">√À—  ¡“™‘°&nbsp;</td>
+            <td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
             <td><input type="text" name="fmcode" id="fmcode" placeholder="0000001" readonly="" value="<?=$_SESSION["usercode"]?>" />                                                                                                            
-           <input type="submit" name="Submit" value="µ°≈ß">
-            &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+           <input type="submit" name="Submit" value="‡∏ï‡∏Å‡∏•‡∏á">
+            &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
           </tr>
          <tr><td colspan="6" align="center">&nbsp;</td></tr>
         </table>
@@ -23,10 +23,10 @@
      <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-        <td align="right">√À—  ¡“™‘°&nbsp;</td>
+        <td align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;</td>
         <td><input type="text" name="fmcode" id="fmcode" placeholder="0000001" value="<?=$fmcode?>" />                                                                                                            
-       <input type="submit" name="Submit" value="µ°≈ß">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏ï‡∏Å‡∏•‡∏á">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
     </table>
@@ -61,20 +61,20 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
 <br>
         
         <table align=right width="100%" cellpadding='5'>
- <tr ><td align=center>‚§√ß √È“ß√À—  : <?=$fmcode?>
- / ®”π«π∑—ÈßÀ¡¥  : <?=$binary['status']['All']?> √À— 
-/  ´È“¬  : <?if($binary['status']['lr'][1]){echo$binary['status']['lr'][1];}else{echo 0;}?> √À—  /  ¢«“    : <?if($binary['status']['lr'][2]){echo$binary['status']['lr'][2];}else{echo 0;}?> √À— </td></tr>
+ <tr ><td align=center>‡πÇ‡∏Ñ‡∏£‡∏á‡∏™‡∏£‡πâ‡∏≤‡∏á‡∏£‡∏´‡∏±‡∏™ : <?=$fmcode?>
+ / ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î  : <?=$binary['status']['All']?> ‡∏£‡∏´‡∏±‡∏™
+/  ‡∏ã‡πâ‡∏≤‡∏¢  : <?if($binary['status']['lr'][1]){echo$binary['status']['lr'][1];}else{echo 0;}?> ‡∏£‡∏´‡∏±‡∏™ /  ‡∏Ç‡∏ß‡∏≤    : <?if($binary['status']['lr'][2]){echo$binary['status']['lr'][2];}else{echo 0;}?> ‡∏£‡∏´‡∏±‡∏™</td></tr>
  </table>
  
  <br> <br> <br> <br>
         <table width=60% align=center><tr><td align=center>
-         <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&lr=1&sale=1&fmcode=<?=$fmcode?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>√“¬™◊ËÕΩ—Ëß´È“¬</a>
+         <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&lr=1&sale=1&fmcode=<?=$fmcode?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>‡∏£‡∏≤‡∏¢‡∏ä‡∏∑‡πà‡∏≠‡∏ù‡∏±‡πà‡∏á‡∏ã‡πâ‡∏≤‡∏¢</a>
         </td>
         <td align=center>
-        <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&sale=1&fmcode=<?=$fmcode?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>∑—ÈßÀ¡¥</a>
+        <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&sale=1&fmcode=<?=$fmcode?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a>
         </td>
         <td align=center>
-        <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&lr=2&sale=1&fmcode=<?=$fmcode?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>√“¬™◊ËÕΩ—Ëß¢«“</a>
+        <a href="?sessiontab=<?=$_GET["sessiontab"]?>&sub=<?=$_GET["sub"]?>&lr=2&sale=1&fmcode=<?=$fmcode?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>‡∏£‡∏≤‡∏¢‡∏ä‡∏∑‡πà‡∏≠‡∏ù‡∏±‡πà‡∏á‡∏Ç‡∏ß‡∏≤</a>
         </td>
         </tr>
          <tr><td colspan=3>          
@@ -89,12 +89,12 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
       $gen = 3;           
       $max=$gen;           
       $tr = ceil(sizeof($position)/$max);  
-     if($tr)echo "&nbsp;®”π«πµ”·ÀπËß∑“ß∏ÿ√°‘®∑—ÈßÀ¡¥ : ".$position['All']." √À— <br /><br />";
+     if($tr)echo "&nbsp;‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡∏ó‡∏≤‡∏á‡∏ò‡∏∏‡∏£‡∏Å‡∏¥‡∏à‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î : ".$position['All']." ‡∏£‡∏´‡∏±‡∏™<br /><br />";
 	  for($i=1;$i<=$tr;$i++){   
         echo '<tr>';  
         for($k=$k;$k<=$max;$k++){
            if($position[$k]){
-               echo "<td width=33% align=left><img src='images/".$position[$k]['posimg']."' height='20' ><font size = 3> ".$position[$k]['posname']." : ".$position[$k]['member']." √À— </td>   ";   
+               echo "<td width=33% align=left><img src='images/".$position[$k]['posimg']."' height='20' ><font size = 3> ".$position[$k]['posname']." : ".$position[$k]['member']." ‡∏£‡∏´‡∏±‡∏™</td>   ";   
            }else{
                //echo "<td ></td >";
            } 
@@ -109,12 +109,12 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
       $k=1;           
       $max=$gen;           
       $tr = ceil(sizeof($honor)/$max); 
-	    if($tr)echo "&nbsp®”π«πµ”·ÀπËß‡°’¬µ‘¬»∑—ÈßÀ¡¥ :  ".$honor['All']." √À— <br /><br />";
+	    if($tr)echo "&nbsp‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡πÄ‡∏Å‡∏µ‡∏¢‡∏ï‡∏¥‡∏¢‡∏®‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î :  ".$honor['All']." ‡∏£‡∏´‡∏±‡∏™<br /><br />";
       for($i=1;$i<=$tr;$i++){         
         echo '<tr>';  
         for($k=$k;$k<=$max;$k++){
            if($honor[$k]){
-               echo "<td width=33% align=left ><img src='images/".$honor[$k]['posimg']."' height='20' ><font size = 3> ".$honor[$k]['posname']." : ".$honor[$k]['member']." √À— </td>   ";   
+               echo "<td width=33% align=left ><img src='images/".$honor[$k]['posimg']."' height='20' ><font size = 3> ".$honor[$k]['posname']." : ".$honor[$k]['member']." ‡∏£‡∏´‡∏±‡∏™</td>   ";   
            }else{
               // echo "<td ></td >";
            } 
@@ -159,7 +159,7 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
  
   
     $sql = "SELECT *,";
-    $sql .= "CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS lr1 from ali_binary_report where uid = '$fmcode' ";
+    $sql .= "CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS lr1 from ali_binary_report where uid = '$fmcode' ";
     if($_GET["lr"]){
     $sql .= " and lr = '".$_GET["lr"]."' ";
     }
@@ -183,7 +183,7 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
     if(isset($page))
      $rec->setCurPage($page);
     $rec->setShowField("mcode,name_t,mdate,lr1,pos_cur,pos_cur1,totpv,sp_code,sp_name,lv,lv_sp");
-      $rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π ¡—§√,¥È“π,Package,µ”·ÀπËß,§–·ππ Ë«πµ—«,√À— ºŸÈ·π–π”,™◊ËÕºŸÈ·π–π”,™—Èπ Binary,™—Èπ sponser");                 
+      $rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏î‡πâ‡∏≤‡∏ô,Package,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏ä‡∏±‡πâ‡∏ô Binary,‡∏ä‡∏±‡πâ‡∏ô sponser");                 
     
     $rec->setFieldAlign("center,left,center,center,center,right,right,center,left,center,center");
   //  $rec->setFieldSpace("8%,20%,8%,4%,4%,8%,8%,8%,20%,5%,5%"); 
@@ -195,12 +195,12 @@ $honor = $bn->showposition($pos_cur2,'posid >30');
 
     $rec->exportXls("ExportXls","Team_List".date("Ymd").".xls","SH_QUERY");
     $str = "<fieldset><a href='".$rec->download("ExportXls","Team_List".date("Ymd").".xls")."' >";
-    $str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+    $str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
     //$rec->getParam();
     $rec->setSpace($str);
 
     $rec->setSearch("mcode");
-    $rec->setSearchDesc("√À—  ¡“™‘°");
+    $rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å");
     $rec->showRec(1,'SH_QUERY');
 }
  

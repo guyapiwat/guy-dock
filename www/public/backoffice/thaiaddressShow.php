@@ -5,7 +5,7 @@
 	$sql = "SELECT * FROM province  order by provinceName asc";
 	$rs = mysql_query($sql);
 	?>
-    <input size="5" style="border:0; text-align:right;" type="text" value="¨Ñ§ËÇÑ´"/>&nbsp;
+    <input size="5" style="border:0; text-align:right;" type="text" value="à¸ˆà¸±à¸‡à¸«à¸§à¸±à¸”"/>&nbsp;
     <select name="province" id="province" style="width:150px;" tabindex="47"  onchange="startAddressRQ('amphur',this.value)"><option></option><?
 	for($i=0;$i<mysql_num_rows($rs);$i++){
 		echo "<option value='".mysql_result($rs,$i,'provinceId')."' ".($provinceId==mysql_result($rs,$i,'provinceId')?"selected":"").">".mysql_result($rs,$i,'provinceName')."</option>";
@@ -17,7 +17,7 @@
 	$rs = mysql_query($sql);
 	?>     
 <div id="amphurSection">
-	<input size="5" style="border:0; text-align:right;" type="text" value="ÍÓàÀÍ"/>&nbsp;
+	<input size="5" style="border:0; text-align:right;" type="text" value="à¸­à¸³à¹€à¸ à¸­"/>&nbsp;
     <select name="amphur" id="amphur" style="width:150px;" tabindex="48"  onchange="startAddressRQ('district',this.value)"><option></option>
 	<? for($i=0;$i<mysql_num_rows($rs);$i++){
 		echo "<option value='".mysql_result($rs,$i,'amphurId')."' ".($amphurId==mysql_result($rs,$i,'amphurId')?"selected":"").">".mysql_result($rs,$i,'amphurName')."</option>";
@@ -28,7 +28,7 @@
 	$rs = mysql_query($sql);
 	?>     
 	<div id="districtSection">
-    <input size="5" style="border:0; text-align:right;" type="text" value="µÓºÅ"/>&nbsp;
+    <input size="5" style="border:0; text-align:right;" type="text" value="à¸•à¸³à¸šà¸¥"/>&nbsp;
     <select name="district" id="district" style="width:150px;" tabindex="49" ><option></option>
 	<? for($i=0;$i<mysql_num_rows($rs);$i++){
 		echo "<option value='".mysql_result($rs,$i,'districtId')."' ".($districtId==mysql_result($rs,$i,'districtId')?"selected":"").">".mysql_result($rs,$i,'districtName')."</option>";

@@ -29,7 +29,7 @@ if(isset($_GET['state'])){
 }
  
 	if($_GET['state']==0){
-		logtext(true,$_SESSION['adminusercode'],'‡æ‘Ë¡ “¢“ : '.$inv_code);
+		logtext(true,$_SESSION['adminusercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏™‡∏≤‡∏Ç‡∏≤ : '.$inv_code);
 		$sql = "insert into ".$dbprefix."invent (inv_code,  inv_desc ,inv_type ,address ,districtId ,amphurId ,provinceId,zip,uid,code_ref,discount,home_t,fax,no_tax,locationbase,bill_ref) ";
 		$sql .= "values ('$inv_code' ,'$inv_desc', '$inv_type','$address','$district','$amphur','$province','$zip',";
 		$sql .= "'".$_SESSION['adminusercode']."', '$mcode','$discount','$home_t','$fax','$no_tax','$locationbase','$bill_ref') ";
@@ -49,7 +49,7 @@ writelogfile($text);
 		}
 
 	}else if($_GET['state']==1){
-		logtext(true,$_SESSION['adminusercode'],'·°È‰¢ “¢“ : '.$inv_code);
+		logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏™‡∏≤‡∏Ç‡∏≤ : '.$inv_code);
 		$sql = "update ".$dbprefix."invent set  inv_desc='$inv_desc',";
 		$sql .= "inv_code='$inv_code',inv_type='$inv_type',discount='$discount',bill_ref='$bill_ref',";
 		$sql .= "address='$address',provinceId='$province',";

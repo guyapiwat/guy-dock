@@ -51,11 +51,11 @@ $sql .= "FROM ".$dbprefix."user WHERE usertype='1' and usercode <> 'support' ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("usercode,username,object1r,object2r,object3r,object4r,object5r,object6r");//uid,
-		$rec->setFieldDesc("���ʼ����,���ͼ����,������Ҫԡ,�觵�駵��˹�,���٢��,���٤ӹǳ,���ٺ������к�,Stock,�Ң�");//���ʾ�ѡ�ҹ,
+		$rec->setFieldDesc("รหัสผู้ใช้,ชื่อผู้ใช้,เมนูสมาชิก,แต่งตั้งตำแหน่ง,เมนูขาย,เมนูคำนวณ,เมนูบริหารระบบ,Stock,สาขา");//รหัสพนักงาน,
 		$rec->setFieldAlign("center,center,center,center,center,center,center,center,center,center");//center,
 		//$rec->setFieldSpace("10%,15%,7%,7%,7%,7%,7%,7%,7%,7%,10%");//10%,
 		$rec->setFieldLink(",");
-		$rec->setSpecial("./images/search.gif","","view","uid","IMAGE","��");
+		$rec->setSpecial("./images/search.gif","","view","uid","IMAGE","ดู");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","uid","uid","sessiontab=5&sub=4");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=5&sub=4&state=1","post","delfield");

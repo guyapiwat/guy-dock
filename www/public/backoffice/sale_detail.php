@@ -5,12 +5,12 @@
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("��ͧ���¡��ԡ��Ź��")){
+        if(confirm("ต้องการยกเลิกบิลนี้")){
             window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
         }
     }
     function sale_status(id){
-        if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+        if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
             window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
         }
     }
@@ -45,7 +45,7 @@ $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END A
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '����ѷ' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '���ᨧ��ҹ����ѷ' ELSE '��Ţ�»���' END AS type ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN 'บริษัท' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN 'บิลแจงผ่านบริษัท' ELSE 'บิลขายปกติ' END AS type ";
 $sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 $sql .= "FROM ".$dbprefix."asaleh ";
@@ -64,7 +64,7 @@ $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END A
 $sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '����ѷ' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'��Ţ��ᨧ�ʹ' as type ";
+$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN 'บริษัท' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'บิลขายแจงยอด' as type ";
 $sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 $sql .= "FROM ".$dbprefix."holdhead ";
@@ -111,12 +111,12 @@ $sql .= " ) as a where 1=1 ";
         if(isset($page))
             $rec->setCurPage($page);
         $rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total,inv_code");
-        $rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,HOLD,�ѹ������,PV,�ӹǹ�Թ���,���ѹ�֡");
+        $rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,HOLD,วันที่ซื้อ,PV,จำนวนเงินรวม,ผู้บันทึก");
         $rec->setFieldFloatFormat(",,,,,,,,2,");
         $rec->setFieldAlign("center,center,left,center,center,center,center,right,right,right");
         $rec->setFieldSpace("8%,8%,30%,5%,5%,5%,8%,10%,10%,15%");
          $rec->setSearch("sano,sadate,smcode,inv_code");
-        $rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡");
+        $rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก");
         $rec->setSum(true,false,",,,,,,,true,true,");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         $rec->showRec(1,'SH_QUERY');

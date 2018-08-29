@@ -24,7 +24,7 @@ $sql = "SELECT *,REPLACE(calc,'1','<img src=./images/true.gif>') AS cal FROM ".$
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,rdate,fsano,tsano,paydate,cal,remark");
-		$rec->setFieldDesc("�����ͺ,�ѹ��������ͺ,��ŷ��ӹǹ�������,��ŷ��ӹǳ����ش,�ѹ�������Թ,�ӹǳ����,�����˵�");
+		$rec->setFieldDesc("รหัสรอบ,วันที่เพิ่มรอบ,บิลที่คำนวนเริ่มต้น,บิลที่คำนวณสิ้นสุด,วันที่จ่ายเงิน,คำนวณแล้ว,หมายเหตุ");
 		$rec->setFieldAlign("center,center,center,center,center,center,left");
 		$rec->setFieldSpace("10%,15%,15%,15%,15%,10%,20%");
 		$rec->setFieldLink("index.php?sessiontab=4&sub=21&cmc=,");

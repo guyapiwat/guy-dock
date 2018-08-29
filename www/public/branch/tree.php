@@ -37,7 +37,7 @@ function gentree($datas, $parent, $limit=0,$mainparent){
                 $tree .= ' <b>'.$datas[$i]['mcode'].'</b>';
                 $tree .= ' </button>';       
                 $tree .= ' ('.$datas[$i]['name_t'].') ';
-                $tree .= ' ( <img src="./images/Animp.gif" width="13px"> : '.count_mem($datas[$i]['mcode']).' ÃËÑÊ ) ';
+                $tree .= ' ( <img src="./images/Animp.gif" width="13px"> : '.count_mem($datas[$i]['mcode']).' à¸£à¸«à¸±à¸ª ) ';
                 $tree .= '</li>';
                 $tree .= '<div  id='.$datas[$i]['mcode'].'></div>';
             }

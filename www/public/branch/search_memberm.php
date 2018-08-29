@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //äÁèä»àÍÒ¨Ò¡ cache
+  //à¹„à¸¡à¹ˆà¹„à¸›à¹€à¸­à¸²à¸ˆà¸²à¸ cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //¡ÓË¹´ header µÍ¹ÃÑº
+  //à¸à¸³à¸«à¸™à¸” header à¸•à¸­à¸™à¸£à¸±à¸š
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -21,7 +21,7 @@ $value=(isset($_POST["value"])) ? $_POST["value"] : $_GET["value"];
 		$sql .= " FROM ".$dbprefix."member  where mcode = '$value' ";
 		//if($value != $_SESSION["usercode"])$sql .= "and id > 127 ";
 		$sql .= " limit 0,1";
-		$result = mysql_query($sql) or die("ÃÐººäÁèÊÒÁÒÃ¶¤é¹ËÒä´é") ;
+		$result = mysql_query($sql) or die("à¸£à¸°à¸šà¸šà¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¸„à¹‰à¸™à¸«à¸²à¹„à¸”à¹‰") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;      

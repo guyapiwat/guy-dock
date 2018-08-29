@@ -93,11 +93,11 @@ ini_set("memory_limit","1000M");
 			mysql_free_result($rs);
 			
 			for($i=0;$i<sizeof($mcode);$i++){
-				//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //äÁèÃÑ¡ÉÒÂÍ´·Ôé§ä»àÅÂ
+				//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //à¹„à¸¡à¹ˆà¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”à¸—à¸´à¹‰à¸‡à¹„à¸›à¹€à¸¥à¸¢
 				$up = $mcode[$i];
 				while($up <> ""){
 					if($up == "") break;
-					//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //äÁèÃÑ¡ÉÒÂÍ´·Ôé§ä»àÅÂ
+					//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //à¹„à¸¡à¹ˆà¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”à¸—à¸´à¹‰à¸‡à¹„à¸›à¹€à¸¥à¸¢
 					if($upa_code[$up] <>""){
 						$sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv[$mcode[$i]];
 						$sum_pvh[$upa_code[$up]][$lr[$up]] += $tot_pvh[$mcode[$i]];

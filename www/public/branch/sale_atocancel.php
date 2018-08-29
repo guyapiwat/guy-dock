@@ -32,7 +32,7 @@ require_once ("function.log.inc.php");
 //	echo $sqlC;
 //	exit;
 	if(mysql_num_rows($sqlSS) > 0 ){
-			echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È');window.location='index.php?sessiontab=3&sub=6'</script>";	
+			echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=3&sub=6'</script>";	
 			exit;
 	}		
 	$sql = "UPDATE ".$dbprefix."atoasaleh SET cancel='1' WHERE id='$bid' ";
@@ -43,7 +43,7 @@ writelogfile($text);
 //=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION['adminuserid'],'¬°‡≈‘°∫‘≈',$bid);
+	logtext(true,$_SESSION['adminuserid'],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•',$bid);
 	$sql = "select * from ".$dbprefix."atoasaled where sano='$bid'";
 			$result = mysql_query($sql);
 			for($i=0;$i<mysql_num_rows($result);$i++){

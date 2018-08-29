@@ -44,7 +44,7 @@ $sql .= "LEFT JOIN ".$dbprefix."location_base ON (".$dbprefix."location_base.cid
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,inv_desc,address,loca,bill_ref");
-		$rec->setFieldDesc("√À— ,™◊ËÕ,∑’Ëµ—Èß,locationbase,À—«∫‘≈");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡∏ó‡∏µ‡πà‡∏ï‡∏±‡πâ‡∏á,locationbase,‡∏´‡∏±‡∏ß‡∏ö‡∏¥‡∏•");
 		$rec->setFieldAlign("center,left,left,center,center,center");
 	//	$rec->setFieldSpace("10%,10%,10%,40%,10%,10%");
 		$rec->setFieldLink("");
@@ -57,16 +57,16 @@ $sql .= "LEFT JOIN ".$dbprefix."location_base ON (".$dbprefix."location_base.cid
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","invent".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","invent".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$rec->setSearch("inv_code,inv_desc");
-		$rec->setSearchDesc("√À—  “¢“,™◊ËÕ “¢“");		
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏≤‡∏Ç‡∏≤");		
 		$rec->setFieldFloatFormat(",,");
 		$rec->setSum(true,false,",,,,");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

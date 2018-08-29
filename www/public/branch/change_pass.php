@@ -4,29 +4,29 @@ require_once ("function.log.inc.php");
 //echo $_SESSION["userpass"];
 ?>
 	<script type="text/javascript" language="javascript">
-		var desc = new Array('รหัสผ่านเดิม','รหัสใหม่','ยืนยันรหัสใหม่');
+		var desc = new Array('เธฃเธซเธฑเธชเธเนเธฒเธเน€เธ”เธดเธก','เธฃเธซเธฑเธชเนเธซเธกเน','เธขเธทเธเธขเธฑเธเธฃเธซเธฑเธชเนเธซเธกเน');
 		var box = new Array("old","new","cnew");
 		function check(){
 		//var chpass = document.getElementById("cpass");
 			for(i=0;i<3;i++)
 				if(document.getElementById(box[i]).value==""){
-					alert(	"ไม่ใส่ข้อมูลใน "+desc[i]);
+					alert(	"เนเธกเนเนเธชเนเธเนเธญเธกเธนเธฅเนเธ "+desc[i]);
 					document.getElementById(box[i]).focus();
 					return;
 				}
 
 			if(document.getElementById(box[1]).value == document.getElementById(box[0]).value){
-				alert(	desc[1]+"ต้องไม่เท่ากับ "+desc[0]);
+				alert(	desc[1]+"เธ•เนเธญเธเนเธกเนเน€เธ—เนเธฒเธเธฑเธ "+desc[0]);
 				document.getElementById(box[1]).focus();
 				return;
 			}
 
 			if(document.getElementById(box[2]).value != document.getElementById(box[1]).value){
-				alert(	desc[2]+"ต้องเท่ากับ "+desc[1]);
+				alert(	desc[2]+"เธ•เนเธญเธเน€เธ—เนเธฒเธเธฑเธ "+desc[1]);
 				document.getElementById(box[2]).focus();
 				return;
 			}
-			conf = confirm("    รหัสผ่านมีความสำคัญในการเข้าใช้งานระบบ\nคุณต้องทำการเปลี่ยนแปลงรหัสผ่านตามข้อมูลนี้หรือไม่");
+			conf = confirm("    เธฃเธซเธฑเธชเธเนเธฒเธเธกเธตเธเธงเธฒเธกเธชเธณเธเธฑเธเนเธเธเธฒเธฃเน€เธเนเธฒเนเธเนเธเธฒเธเธฃเธฐเธเธ\nเธเธธเธ“เธ•เนเธญเธเธ—เธณเธเธฒเธฃเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธฃเธซเธฑเธชเธเนเธฒเธเธ•เธฒเธกเธเนเธญเธกเธนเธฅเธเธตเนเธซเธฃเธทเธญเนเธกเน");
 			if(conf){
 				document.chpass.submit();
 			}else{

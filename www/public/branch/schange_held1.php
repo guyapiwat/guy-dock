@@ -19,11 +19,11 @@ if(isset($_GET['state'])){
 	//exit;
 	mysql_free_result($rs);
 	if($send == '2' and $_SESSION["inventobj6"] != '7'){
-		echo "<script language='JavaScript'>alert('�������ö��䢡���觢ͧ��');window.location='index.php?sessiontab=3&sub=6'</script>";	
+		echo "<script language='JavaScript'>alert('ไม่สามารถแก้ไขการส่งของได้');window.location='index.php?sessiontab=3&sub=6'</script>";	
 		exit;
 	}
 	if($asend == '1'){
-		//echo "<script language='JavaScript'>alert('�������ö��䢡���觢ͧ��');window.location='index.php?sessiontab=3&sub=6'</script>";	
+		//echo "<script language='JavaScript'>alert('ไม่สามารถแก้ไขการส่งของได้');window.location='index.php?sessiontab=3&sub=6'</script>";	
 	//	exit;
 	}
 	if($_POST){
@@ -40,9 +40,9 @@ echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GE
 }
 ?>
 <form action="" method="post">
-�Ţ��� : <?=$sano?>
+เลขบิล : <?=$sano?>
 <br>
-��͡��������ҧ�ԧ����ѷ�Ѵ�� : <input type="textbox" name="txtoption">
+กรอกข้อมูลอ้างอิงบริษัทจัดส่ง : <input type="textbox" name="txtoption">
 <input type="submit" name="submit" value="update">
 <input type="hidden" name="sender" value="<?=$_REQUEST["sender"]?>">
 </form>

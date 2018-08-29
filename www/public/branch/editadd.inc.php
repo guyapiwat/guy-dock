@@ -83,26 +83,26 @@ if ($dosave=="1" and $edit=="1"){
 
 
 ?>
-	<b><font size="+2">��� <?=$title?></font></b><br>
+	<b><font size="+2">แก้ไข <?=$title?></font></b><br>
 	<BR>
-	[<a href="<?=$mlink?>?page=<?=$page?>">��Ѻ� ��¡�� <?=$title?></a>]<br>
+	[<a href="<?=$mlink?>?page=<?=$page?>">กลับไป รายการ <?=$title?></a>]<br>
 	<br>
 <?
-	// ��ҹ��ҷ�����Ҩҡ��� POST
+	// อ่านค่าที่ส่งมาจากการ POST
 	$oktosave=true;
-	// ��Ǩ�ͺ
+	// ตรวจสอบ
 	if($C1=='') {
 		$oktosave=false;
-		echo "<font color='#FF0000'>������׹�ѹ �����Ŷ١��ͧ</font><br>";
+		echo "<font color='#FF0000'>ไม่ได้ยืนยัน ข้อมูลถูกต้อง</font><br>";
 	}
 	for($k=0;$k<$numoffield;$k++){
-		//��Ǩ�ͺ�����١��ͧ�ͧ�����š�͹ save
+		//ตรวจสอบความถูกต้องของข้อมูลก่อน save
 		if(strstr($validatefield,$k)){
 			checkvalidatefield($k);
 		}
 	}
 
-	// �ѹ�֡��¡�����
+	// บันทึกรายการแก้ไข
 	if ($oktosave){
 		$sql="update ".$dbtable." set ";
 		for ($i=1;$i<$numoffield;$i++) {
@@ -125,7 +125,7 @@ if ($dosave=="1" and $edit=="1"){
 			}
 	}
 			else {
-				echo "<font color='#FF0000'>�������ѧ���١��ͧ ��س����</font><br>";
+				echo "<font color='#FF0000'>ข้อมูลยังไม่ถูกต้อง กรุณาแก้ไข</font><br>";
 			}
 	}	
 // -------------------- SAVE EDIT --------------------
@@ -136,24 +136,24 @@ if ($dosave=="1" and $edit==""){
 	?>
 	<b><font size="+2"></font></b><br>
 	<BR>
-	[<a href="<?=$mlink?>?page=<?=$page?>">��Ѻ� ��¡��<?=$title?></a>]<br>
+	[<a href="<?=$mlink?>?page=<?=$page?>">กลับไป รายการ<?=$title?></a>]<br>
 	<br>
 	<?
-	// ��ҹ��ҷ�����Ҩҡ��� POST
+	// อ่านค่าที่ส่งมาจากการ POST
 	$oktosave=true;
-	// ��Ǩ�ͺ
+	// ตรวจสอบ
 	if($C1=='') {
 		$oktosave=false;
-		echo "<font color='#FF0000'>������׹�ѹ �����Ŷ١��ͧ</font><br>";
+		echo "<font color='#FF0000'>ไม่ได้ยืนยัน ข้อมูลถูกต้อง</font><br>";
 	}
 	for($k=0;$k<$numoffield;$k++){
-		//��Ǩ�ͺ�����١��ͧ�ͧ�����š�͹ save
+		//ตรวจสอบความถูกต้องของข้อมูลก่อน save
 		if(strstr($validatefield,$k)){
 			checkvalidatefield($k);
 		}
 	}
 
-	// �ѹ�֡��¡�����
+	// บันทึกรายการแก้ไข
 	if ($oktosave){                   
 		$sql="insert into ".$dbtable." (";
 		for ($i=1;$i<$numoffield;$i++) {
@@ -182,7 +182,7 @@ if ($dosave=="1" and $edit==""){
 		}
 		else {
 			mysql_query("COMMIT");
-			echo "<font color='#339900'>�ѹ�֡���������� ... </font><img src='images/correctsign.gif' width='16' height='16'>&nbsp;<br>";
+			echo "<font color='#339900'>บันทึกข้อมูลแล้ว ... </font><img src='images/correctsign.gif' width='16' height='16'>&nbsp;<br>";
 			// reset all fields
 			$oid="";
 				for ($i=0;$i<$numoffield;$i++) {
@@ -191,7 +191,7 @@ if ($dosave=="1" and $edit==""){
 		}
 	}
 	else {
-		echo "<font color='#FF0000'>�������ѧ���١��ͧ ��س����</font><br>";
+		echo "<font color='#FF0000'>ข้อมูลยังไม่ถูกต้อง กรุณาแก้ไข</font><br>";
 	}
 }	
 // -------------------- SAVE ADD -------------------- 
@@ -199,9 +199,9 @@ if ($dosave=="1" and $edit==""){
 // -------------------- NO SAVE -------------------- 
 if ($dosave<>"1"){
 	?>
-	<b><font size="+2"><? if ($edit=="1") {echo "���";} else {echo "����";}?> <?=$title?></font></b><br>
+	<b><font size="+2"><? if ($edit=="1") {echo "แก้ไข";} else {echo "เพิ่ม";}?> <?=$title?></font></b><br>
 	<BR>
-	[<a href="<?=$mlink?>?page=<?=$page?>">��Ѻ� ��¡��<?=$title?></a>]<br>
+	[<a href="<?=$mlink?>?page=<?=$page?>">กลับไป รายการ<?=$title?></a>]<br>
 	<br>
 	<?
 	if ($edit=="1") {
@@ -214,10 +214,10 @@ if ($dosave<>"1"){
 				}
 		} 
 		else {
-			echo "�Դ��ͼԴ��Ҵ ��辺������ ����ͧ������";
+			echo "เกิดข้อผิดพลาด ไม่พบข้อมูล ที่ต้องการแก้ไข";
 			?>
 			<br>
-			[<a href="<?=$mlink?>?page=<?=$page?>">��Ѻ� ��¡��<?=$title?></a>]&nbsp;&nbsp;
+			[<a href="<?=$mlink?>?page=<?=$page?>">กลับไป รายการ<?=$title?></a>]&nbsp;&nbsp;
 			<br>
 			<?//include 'footer.php';?>
 			<?
@@ -233,7 +233,7 @@ if ($dosave<>"1"){
 }
 // -------------------- NO SAVE -------------------- 
 
-// �ʴ���¡�â����� ��ʹ��Ҥ�
+// แสดงรายการข้อมูล ใบเสนอราคา
 
 ?>
 <table width="100%" cellpadding=0 cellspacing=0 border=0 bgcolor=80c0ff>
@@ -297,7 +297,7 @@ if ($dosave<>"1"){
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr>
 	  <td width="<?=$colwidth0?>" align=right valign=top>&nbsp;</td>
-      <td width="<?=$colwidth1?>" colspan=2 align=left><input type="checkbox" name="C1" value="ok"><FONT COLOR="ff0000">*</FONT>�����Ŷ١��ͧ&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="�ѹ�֡" name="B1"></td>
+      <td width="<?=$colwidth1?>" colspan=2 align=left><input type="checkbox" name="C1" value="ok"><FONT COLOR="ff0000">*</FONT>ข้อมูลถูกต้อง&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" value="บันทึก" name="B1"></td>
     </tr>
   </table>
 </form>

@@ -36,9 +36,9 @@ if(isset($_GET['state'])){
 }
 ?>
 <form action="" method="post">
-‡≈¢∫‘≈ : <?=$sano?>
+‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏• : <?=$sano?>
 <br>
-°√Õ°¢ÈÕ¡Ÿ≈ÕÈ“ßÕ‘ß∫√‘…—∑®—¥ Ëß : <input type="textbox" name="txtoption">
+‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏≠‡πâ‡∏≤‡∏á‡∏≠‡∏¥‡∏á‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó‡∏à‡∏±‡∏î‡∏™‡πà‡∏á : <input type="textbox" name="txtoption">
 <input type="submit" name="submit" value="update">
 <input type="hidden" name="sender" value="<?=$_REQUEST["sender"]?>">
 </form>

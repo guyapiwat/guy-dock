@@ -14,7 +14,7 @@ function view(code){
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 $sql = "SELECT ".$dbprefix."member.*,".$dbprefix."member.id_card,DATE_FORMAT(".$dbprefix."member.mdate, '%d-%m-%Y') as mdate,taba.posname as posname, asa.date_change FROM ".$dbprefix."member ";
 //$sql .= "LEFT JOIN (SELECT mid,MAX(exp_date) AS exp_date FROM ".$dbprefix."expdate GROUP BY mid) AS taba ON (".$dbprefix."member.id=taba.mid)";
 $sql .= " LEFT JOIN ".$dbprefix."position1 AS taba ON (".$dbprefix."member.pos_cur1=taba.posshort) ";
@@ -55,11 +55,11 @@ $sql .= " LEFT JOIN (SELECT max(date_change) AS date_change,mcode  FROM ".$dbpre
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		$rec->setShowField("mcode,name_t,id_card,mdate,pos_cur,posname,upa_code,sp_code,date_change");
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,√À— ª√–™“™π,«—π∑’Ë ¡—§√,µ”·ÀπËß,‡°√’¬µ‘¬»,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,«—π∑’Ë‡ª≈’¬π");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡πÄ‡∏Å‡∏£‡∏µ‡∏¢‡∏ï‡∏¥‡∏¢‡∏®,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏õ‡∏•‡∏µ‡∏¢‡∏ô");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center");
 		$rec->setFieldSpace("8%,35%,11%,8%,8%,8%,8%,8%,8%,8%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -69,20 +69,20 @@ $sql .= " LEFT JOIN (SELECT max(date_change) AS date_change,mcode  FROM ".$dbpre
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=16&state=1","post","delfield");
 		}
 		$rec->setSearch($dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,exp_date,".$dbprefix."member.pos_cur,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code,".$dbprefix."member.id_card");
-		$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,√À— ª√–™“™π");
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô");
 		if($acc->isAccess(2))
 			$rec->setEdit("index.php","id","id","sessiontab=1&sub=16");
 			
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

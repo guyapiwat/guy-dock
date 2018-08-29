@@ -121,27 +121,27 @@ if($_GET["txtKeyword"] == "")
 	?>
 	<table width="100%" border="0">
 		<tr>
-		<td align="left" width="50%">บิลแจงยอด  ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?>             </td>
-		<td align="right"  width="50%">พิมพ์วันที่ <? echo date("Y-m-d")?></td>
+		<td align="left" width="50%">เธเธดเธฅเนเธเธเธขเธญเธ”  เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน   <?=$fdate?> เธ–เธถเธ <?=$tdate?>             </td>
+		<td align="right"  width="50%">เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน <? echo date("Y-m-d")?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	
 	<table style=' margin:0 auto;' border="1">
 	  <tr>	
-	     <th><div align="center">เลขบิล </div></th>		
-	    <th><div align="center" style="width:100px;">ประเภท </div></th>	
-	    <th><div align="center">รหัสผู้ซื้อ </div></th>		
-	    <th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
-		<th><div align="center" >ผู้แนะนำ </div></th>			
-		<th><div align="center">ตำแหน่งผู้แนะนำ </div></th>
-		<th><div align="center" style="width:100px;">วันที่ซื้อ</div></th>
-		<th><div align="center">จำนวนรวม  PV</div></th>
-		<th><div align="center">จำนวนเงินรวม</div></th>
-		<th><div align="center">เลขที่บิล HOLD</div></th>
-		<th><div align="center">รหัสผู้ซื้อ HOLD</div></th>
-		<th><div align="center" style="width:190px;">ชื่อผู้ซื้อ HOLD</div></th>
-		<th><div align="center">ผู้บันทึก</div></th>
+	     <th><div align="center">เน€เธฅเธเธเธดเธฅ </div></th>		
+	    <th><div align="center" style="width:100px;">เธเธฃเธฐเน€เธ เธ— </div></th>	
+	    <th><div align="center">เธฃเธซเธฑเธชเธเธนเนเธเธทเนเธญ </div></th>		
+	    <th ><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ</div></th>		
+		<th><div align="center" >เธเธนเนเนเธเธฐเธเธณ </div></th>			
+		<th><div align="center">เธ•เธณเนเธซเธเนเธเธเธนเนเนเธเธฐเธเธณ </div></th>
+		<th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธเธทเนเธญ</div></th>
+		<th><div align="center">เธเธณเธเธงเธเธฃเธงเธก  PV</div></th>
+		<th><div align="center">เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก</div></th>
+		<th><div align="center">เน€เธฅเธเธ—เธตเนเธเธดเธฅ HOLD</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธเธนเนเธเธทเนเธญ HOLD</div></th>
+		<th><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ HOLD</div></th>
+		<th><div align="center">เธเธนเนเธเธฑเธเธ—เธถเธ</div></th>
 	  </tr>
 	<?
 	$rr = 0;
@@ -155,26 +155,26 @@ if($_GET["txtKeyword"] == "")
 	</div> 
 	<table width="100%" border="0" style="page-break-before: always">
 		<tr>
-		<td align="left" width="50%">บิลแจงยอด  ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?>             </td>
-		<td align="right"  width="50%">พิมพ์วันที่ <? echo date("Y-m-d")?></td>
+		<td align="left" width="50%">เธเธดเธฅเนเธเธเธขเธญเธ”  เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน   <?=$fdate?> เธ–เธถเธ <?=$tdate?>             </td>
+		<td align="right"  width="50%">เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน <? echo date("Y-m-d")?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-	    <th><div align="center">เลขบิล </div></th>		
-	    <th><div align="center" style="width:100px;">ประเภท </div></th>	
-	    <th><div align="center">รหัสผู้ซื้อ </div></th>		
-	    <th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
-		<th><div align="center" >ผู้แนะนำ </div></th>			
-		<th><div align="center">ตำแหน่งผู้แนะนำ </div></th>
-		<th><div align="center" style="width:100px;">วันที่ซื้อ</div></th>
-		<th><div align="center">จำนวนรวม  PV</div></th>
-		<th><div align="center">จำนวนเงินรวม</div></th>
-		<th><div align="center">เลขที่บิล HOLD</div></th>
-		<th><div align="center">รหัสผู้ซื้อ HOLD</div></th>
-		<th><div align="center" style="width:190px;">ชื่อผู้ซื้อ HOLD</div></th>
-		<th><div align="center">ผู้บันทึก</div></th>
+	    <th><div align="center">เน€เธฅเธเธเธดเธฅ </div></th>		
+	    <th><div align="center" style="width:100px;">เธเธฃเธฐเน€เธ เธ— </div></th>	
+	    <th><div align="center">เธฃเธซเธฑเธชเธเธนเนเธเธทเนเธญ </div></th>		
+	    <th ><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ</div></th>		
+		<th><div align="center" >เธเธนเนเนเธเธฐเธเธณ </div></th>			
+		<th><div align="center">เธ•เธณเนเธซเธเนเธเธเธนเนเนเธเธฐเธเธณ </div></th>
+		<th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธเธทเนเธญ</div></th>
+		<th><div align="center">เธเธณเธเธงเธเธฃเธงเธก  PV</div></th>
+		<th><div align="center">เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก</div></th>
+		<th><div align="center">เน€เธฅเธเธ—เธตเนเธเธดเธฅ HOLD</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธเธนเนเธเธทเนเธญ HOLD</div></th>
+		<th><div align="center" style="width:190px;">เธเธทเนเธญเธเธนเนเธเธทเนเธญ HOLD</div></th>
+		<th><div align="center">เธเธนเนเธเธฑเธเธ—เธถเธ</div></th>
 	  </tr>
 	<?	
 		  }

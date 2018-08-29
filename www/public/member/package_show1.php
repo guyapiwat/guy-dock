@@ -53,7 +53,7 @@ include_once("wording".$_SESSION["lan"].".php");
 <![endif]-->
 
 <script src="../assets/js/sweetalert.min.js"></script>
-<script>function aalert(text){swal("����ͼԴ��Ҵ", text, "error");}</script>
+<script>function aalert(text){swal("พบข้อผิดพลาด", text, "error");}</script>
 <script language="javascript" type="text/javascript">
 function chknum(key){
 	if(key>=48&&key<=57)
@@ -85,7 +85,7 @@ function chknum(key){
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
 		
-		window.parent.document.getElementById('checkstate').innerHTML = "<div class='alert alert-danger'>��ԡ��Ǩ�ͺ���ͷӡ�õ�Ǩ�ͺ������ </div>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<div class='alert alert-danger'>คลิกตรวจสอบเพื่อทำการตรวจสอบข้อมูล </div>";
 		//alert(tag.length);
 		place = "<table border='0' width='100%' class=' table table-striped table-condensed table-bordered table-hover cf'  cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
@@ -166,7 +166,7 @@ function chknum(key){
 			sumtotal = sumtotal + parseFloat(price);
 		}
 				if(<?=$_SESSION["ewallet"]?> < sumtotal){
-					//	alert("point �ͧ�س�����§��");
+					//	alert("point ของคุณไม่เพียงพอ");
 					//	return;
 					}
 

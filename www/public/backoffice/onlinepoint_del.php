@@ -5,8 +5,8 @@ require_once("logtext.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>ลบข้อมูลการซื้อสินค้าผ่านเว็ป และซื้อ Point :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธฅเธเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธชเธดเธเธเนเธฒเธเนเธฒเธเน€เธงเนเธ เนเธฅเธฐเธเธทเนเธญ Point :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -15,15 +15,15 @@ require_once("logtext.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">ลำดับที่</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ชื่อ</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ซื้อ Point</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฅเธณเธ”เธฑเธเธ—เธตเน</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญ Point</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."onlinepoint_h WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		if (mysql_num_rows($rs)>0){
@@ -40,11 +40,11 @@ require_once("logtext.php");
 			mysql_query("delete from ".$dbprefix."onlinepoint_h where id='$id' ");
 			mysql_query("delete from ".$dbprefix."onlinepoint_d where pid='$id' ");
 		
-		logtext(true,$_SESSION['adminuserid'],'ลบบิล',$row->id);
+		logtext(true,$_SESSION['adminuserid'],'เธฅเธเธเธดเธฅ',$row->id);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 	}
 }
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 ?>
 	</table>

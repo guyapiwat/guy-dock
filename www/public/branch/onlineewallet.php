@@ -13,7 +13,7 @@
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 	$sql = "SELECT *,ssend,";
 	$sql .= "CASE transtype WHEN '0' THEN CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&id=',id,'&tstype=1\"><img src=\"./images/false.gif\"></a>') ";
 	$sql .= "ELSE CONCAT('<a href=\"index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."&state=4&id=',id,'&tstype=0\"><img src=\"./images/true.gif\"></a>') END AS transtype, ";
@@ -94,7 +94,7 @@ $sql .= " and sadate like '%$fdate%'  ";
 		$rec->setFieldDesc($wording_lan["supervisor_19"].",".$wording_lan["supervisor_20"].",".$wording_lan["supervisor_21"].",".$wording_lan["supervisor_22"].",".$wording_lan["supervisor_23"].",".$wording_lan["supervisor_24"].",".$wording_lan["supervisor_25"].",".$wording_lan["supervisor_27"]);
 		
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,center,left,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("8%,7%,30%,8%,10%,10%,10%,10%,6%,6%,6%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -104,13 +104,13 @@ $sql .= " and sadate like '%$fdate%'  ";
 		}
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->setSearch("".$dbprefix."transferewallet_h.id,".$dbprefix."transferewallet_h.mcode,".$dbprefix."transferewallet_h.name_t");
-		//$rec->setSearchDesc("‡≈¢„∫ —Ëß´◊ÈÕ,√À—  ¡“™‘°,™◊ËÕ");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡πÉ‡∏ö‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠");
 			$rec->setSearchDesc($wording_lan["supervisor_19"].",".$wording_lan["supervisor_20"].",".$wording_lan["supervisor_21"]);
 		/*if($acc->isAccess(2))
 			$rec->setEdit("index.php","id","aid","sessiontab=1&sub=13&web=1");*/
-		//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","¥Ÿ");
+		//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","‡∏î‡∏π");
 		if($acc->isAccess(4)){
-			//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¬°‡≈‘°");
+			//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å");
 		}
 		$rec->showRec(1,'SH_QUERY');
 		//echo $rec->getSQL("CALC")."<br />";

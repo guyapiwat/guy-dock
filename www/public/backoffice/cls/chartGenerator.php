@@ -418,21 +418,21 @@ class chartGenerator{
                 //if($i==0){
                     echo "<tr width='$wd'>"; //width='42'
                     echo "    <td colspan='2'  align='center' nowrap>";
-                    if($mcode[$k]!=""){ //· ¥ß§–·ππ ´È“¬ ¢«“
+                    if($mcode[$k]!=""){ //‡πÅ‡∏™‡∏î‡∏á‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô ‡∏ã‡πâ‡∏≤‡∏¢ ‡∏Ç‡∏ß‡∏≤
                         $altOut = "onmouseout=\"divshow('divname',false,'','','','');";
                         $altOver = "onmouseover=\"divshow('divname',false,'','','','');";
                         $this->setShowAlt(true);
                         $sqpv = "";
                         $num_sqpv = 0;
-                        $montharry = array('01'=>'¡°√“§¡','02'=> '°ÿ¡¿“æ—π∏Ï','03' => '¡’π“§¡', '04' => '‡¡…“¬π', '05' => 'æƒ…¿“§¡', '06' => '¡‘∂ÿπ“¬π', '07' => '°√°Æ“§¡', '08' => ' ‘ßÀ“§¡', '09' => '°—π¬“¬π', '10' => 'µÿ≈“§¡', '11' => 'æƒ»®‘°“¬π', '12' => '∏—π«“§¡' );
+                        $montharry = array('01'=>'‡∏°‡∏Å‡∏£‡∏≤‡∏Ñ‡∏°','02'=> '‡∏Å‡∏∏‡∏°‡∏†‡∏≤‡∏û‡∏±‡∏ô‡∏ò‡πå','03' => '‡∏°‡∏µ‡∏ô‡∏≤‡∏Ñ‡∏°', '04' => '‡πÄ‡∏°‡∏©‡∏≤‡∏¢‡∏ô', '05' => '‡∏û‡∏§‡∏©‡∏†‡∏≤‡∏Ñ‡∏°', '06' => '‡∏°‡∏¥‡∏ñ‡∏∏‡∏ô‡∏≤‡∏¢‡∏ô', '07' => '‡∏Å‡∏£‡∏Å‡∏é‡∏≤‡∏Ñ‡∏°', '08' => '‡∏™‡∏¥‡∏á‡∏´‡∏≤‡∏Ñ‡∏°', '09' => '‡∏Å‡∏±‡∏ô‡∏¢‡∏≤‡∏¢‡∏ô', '10' => '‡∏ï‡∏∏‡∏•‡∏≤‡∏Ñ‡∏°', '11' => '‡∏û‡∏§‡∏®‡∏à‡∏¥‡∏Å‡∏≤‡∏¢‡∏ô', '12' => '‡∏ò‡∏±‡∏ô‡∏ß‡∏≤‡∏Ñ‡∏°' );
 
                         if($this->altShow){
-							if($lr[$mcode[$k]] == '1'){$lrxxx = "´È“¬";}
-							else if($lr[$mcode[$k]] == '2'){$lrxxx = "¢«“";}
+							if($lr[$mcode[$k]] == '1'){$lrxxx = "‡∏ã‡πâ‡∏≤‡∏¢";}
+							else if($lr[$mcode[$k]] == '2'){$lrxxx = "‡∏Ç‡∏ß‡∏≤";}
 							else{$lrxxx = "";}
 							
                             $altOut .= "alt('');";
-    $altOver .= "alt('<table><tr><td>™◊ËÕ<td> : </td></td><td>".$name_b[$mcode[$k]]."</td></tr><tr><td>µ”·ÀπËß<td> : </td></td><td>".posname($pos[$mcode[$k]])."</td></tr><tr><td>ª√–‡¿∑ ¡“™‘°<td> : </td></td><td>".$wording_lan["mtype"][$mtype1[$mcode[$k]]]."</td></tr></tr><tr><td>¥È“π(Õ—æ‰≈πÏ)<td> : </td></td><td>".$lrxxx."</td></tr><tr><td>ºŸÈ·π–π”<td> : </td></td><td>".strtoupper($sp_code[$mcode[$k]])."</td></tr><tr><td>PV  – ¡</td><td> : </td><td>".number_format($scr->getAPV($mcode[$k]),0,'.',',')."</td><tr style=display:none ><td>√—°…“¬Õ¥‡¥◊Õπ".$montharry[date("m", strtotime("first day of +0 Month"))]."</td><td> : </td><td>".$scr->getStatus($mcode[$k],$pos[$mcode[$k]],0)."</td></tr><tr style=display:none ><td>√—°…“¬Õ¥‡¥◊Õπ".$montharry[date("m", strtotime("first day of +1 Month"))]."</td><td> : </td><td>".$scr->getStatus($mcode[$k],$pos[$mcode[$k]],1)."</td></tr><tr><td>HPV</td><td> : </td><td>".number_format($hpv[$mcode[$k]],0,'.',',')."</td></tr><tr><td>´È“¬‡°Ë“(".number_format($pcarry[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>¢«“‡°Ë“(".number_format($pcarry[$mcode[$k]][2],0,'.',',').")</td></tr><tr><td>´È“¬„À¡Ë(".number_format($new_point[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>¢«“„À¡Ë(".number_format($new_point[$mcode[$k]][2],0,'.',',').")</td></tr><tr><td>´È“¬√«¡(".number_format($pcarry[$mcode[$k]][1]+$new_point[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>¢«“√«¡(".number_format($pcarry[$mcode[$k]][2]+$new_point[$mcode[$k]][2],0,'.',',').")</td></tr></tr></table>')\"";
+    $altOver .= "alt('<table><tr><td>‡∏ä‡∏∑‡πà‡∏≠<td> : </td></td><td>".$name_b[$mcode[$k]]."</td></tr><tr><td>‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á<td> : </td></td><td>".posname($pos[$mcode[$k]])."</td></tr><tr><td>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å<td> : </td></td><td>".$wording_lan["mtype"][$mtype1[$mcode[$k]]]."</td></tr></tr><tr><td>‡∏î‡πâ‡∏≤‡∏ô(‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå)<td> : </td></td><td>".$lrxxx."</td></tr><tr><td>‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥<td> : </td></td><td>".strtoupper($sp_code[$mcode[$k]])."</td></tr><tr><td>PV ‡∏™‡∏∞‡∏™‡∏°</td><td> : </td><td>".number_format($scr->getAPV($mcode[$k]),0,'.',',')."</td><tr style=display:none ><td>‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÄ‡∏î‡∏∑‡∏≠‡∏ô".$montharry[date("m", strtotime("first day of +0 Month"))]."</td><td> : </td><td>".$scr->getStatus($mcode[$k],$pos[$mcode[$k]],0)."</td></tr><tr style=display:none ><td>‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÄ‡∏î‡∏∑‡∏≠‡∏ô".$montharry[date("m", strtotime("first day of +1 Month"))]."</td><td> : </td><td>".$scr->getStatus($mcode[$k],$pos[$mcode[$k]],1)."</td></tr><tr><td>HPV</td><td> : </td><td>".number_format($hpv[$mcode[$k]],0,'.',',')."</td></tr><tr><td>‡∏ã‡πâ‡∏≤‡∏¢‡πÄ‡∏Å‡πà‡∏≤(".number_format($pcarry[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>‡∏Ç‡∏ß‡∏≤‡πÄ‡∏Å‡πà‡∏≤(".number_format($pcarry[$mcode[$k]][2],0,'.',',').")</td></tr><tr><td>‡∏ã‡πâ‡∏≤‡∏¢‡πÉ‡∏´‡∏°‡πà(".number_format($new_point[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>‡∏Ç‡∏ß‡∏≤‡πÉ‡∏´‡∏°‡πà(".number_format($new_point[$mcode[$k]][2],0,'.',',').")</td></tr><tr><td>‡∏ã‡πâ‡∏≤‡∏¢‡∏£‡∏ß‡∏°(".number_format($pcarry[$mcode[$k]][1]+$new_point[$mcode[$k]][1],0,'.',',').") </td><td> : </td><td>‡∏Ç‡∏ß‡∏≤‡∏£‡∏ß‡∏°(".number_format($pcarry[$mcode[$k]][2]+$new_point[$mcode[$k]][2],0,'.',',').")</td></tr></tr></table>')\"";
                         }
                         $alt = $altOut."\" ".$altOver."\"";
                         
@@ -496,7 +496,7 @@ class chartGenerator{
                         //echo "</td></tr></table>";
                     
                         echo "<table width='$wd' cellpadding='0' $alt cellspacing='0' border='0'>";
-                         if($this->imgShow) //‡¡◊ËÕ¡’°“√‡´Áµ§Ë“„ÀÈ¡’°“√· ¥ß√Ÿª
+                         if($this->imgShow) //‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏°‡∏µ‡∏Å‡∏≤‡∏£‡πÄ‡∏ã‡πá‡∏ï‡∏Ñ‡πà‡∏≤‡πÉ‡∏´‡πâ‡∏°‡∏µ‡∏Å‡∏≤‡∏£‡πÅ‡∏™‡∏î‡∏á‡∏£‡∏π‡∏õ
 							echo "<tr><td align='center' ><a href='".$this->redctlink."$mcode[$k]' target='_parent' >";
 							if($pos_cur[$mcode[$k]] != 'TN' and $pos_cur2[$mcode[$k]] <> ''){
 							echo "<img src='".$this->imgDef[$pos_cur2[$mcode[$k]]]."' >";
@@ -504,21 +504,21 @@ class chartGenerator{
 								echo "<img src='".$this->imgDef[$pos[$mcode[$k]]]."' border='0' width='45px'";
 							}
 							echo "</a></td></tr>";
-                        if($i<$this->cmpLevel){ //· ¥ß§–·ππ ´È“¬ ¢«“
+                        if($i<$this->cmpLevel){ //‡πÅ‡∏™‡∏î‡∏á‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô ‡∏ã‡πâ‡∏≤‡∏¢ ‡∏Ç‡∏ß‡∏≤
                             echo "<tr><td align='left'>";
-                            echo "[´È“¬ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],1),0,'.',',')."</font>]";
+                            echo "[‡∏ã‡πâ‡∏≤‡∏¢ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],1),0,'.',',')."</font>]";
                             echo "</td><td align='right'>";
-                            echo "[¢«“ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],2),0,'.',',')."</font>]";
+                            echo "[‡∏Ç‡∏ß‡∏≤ : <font color=\'#00AA00\'>".number_format($scr->getSumPV($mcode[$k],2),0,'.',',')."</font>]";
                             echo "</td></tr>";
                             echo "<tr><td align='left'>";
-                            echo "[´È“¬ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',')."</font>]";
+                            echo "[‡∏ã‡πâ‡∏≤‡∏¢ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],1),0,'.',',')."</font>]";
                             echo "</td><td align='right'>";
-                            echo "[¢«“ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',')."</font>]";
+                            echo "[‡∏Ç‡∏ß‡∏≤ : <font color=\'#0000EE\'>".number_format($scr->getCarryPV($mcode[$k],2),0,'.',',')."</font>]";
                             echo "</td></tr>";
                         }
                         echo "<tr><td $clspan align='center' style='cursor:pointer;'  onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabUDef[$pos[$mcode[$k]]]."'><font color='".$this->txtUDef[$pos[$mcode[$k]]]."'>$mcode[$k](".$lb[$mcode[$k]].")</font></td></tr>";
                         echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>".substr($name_b[$mcode[$k]],0,15)."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
-                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>µ”·ÀπËß  : ".$pos[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
+                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á  : ".$pos[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
                     //    echo $pos[$mcode[$k]];
                         echo "</table>";
                         if($i==($this->maxLevel)){
@@ -530,7 +530,7 @@ class chartGenerator{
                             }
                         }
                     }else{
-                        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('§≈‘°‡æ◊ËÕ‡æ‘Ë¡¢ÈÕ¡Ÿ≈ ¡“™‘°')\"";
+                        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('‡∏Ñ‡∏•‡∏¥‡∏Å‡πÄ‡∏û‡∏∑‡πà‡∏≠‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å')\"";
                     ?>
                        <table width="35" border="0">
                               <tr valign="top">
@@ -585,7 +585,7 @@ class chartGenerator{
 ?>
 
 <?
-//class „™ÈÀ“§–·ππ
+//class ‡πÉ‡∏ä‡πâ‡∏´‡∏≤‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô
 class memberScore{
     private $dbPrefix = "nmp_";
     private $ret_sum_pv;
@@ -645,7 +645,7 @@ class memberScore{
             $up = $cmcode[$i];
             while($up <> ""){
                 if($up == "") break;
-                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
                 if($upa_code[$up] <>""){
                     $sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv[$cmcode[$i]];
                     if($tot_pv[$cmcode[$i]] > 0)
@@ -674,7 +674,7 @@ class memberScore{
             $up = $cmcode1[$i];
             while($up <> ""){
                 if($up == "") break;
-                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
                 if($upa_code[$up] <>""){
                     $sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv1[$cmcode1[$i]];
                     if($tot_pv1[$cmcode1[$i]] > 0)
@@ -852,13 +852,13 @@ class memberScore{
                 $status = mysql_result($rs,0,'status'); 
                 mysql_free_result($rs);
             } 
-            $no = '¬—ß‰¡Ë√—°…“¬Õ¥';
-            $yes = '√—°…“¬Õ¥·≈È«';
+            $no = '‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î';
+            $yes = '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÅ‡∏•‡πâ‡∏ß';
 
 
             if($status == '0'){
                 $status1 = '<font color=#c00000><b>('.$no.'';            
-                if($lastbv != 0 )$status1 .= '  – ¡ '.$lastbv.''; 
+                if($lastbv != 0 )$status1 .= ' ‡∏™‡∏∞‡∏™‡∏° '.$lastbv.''; 
                 $status1 .= ')</b></font>';
             }
            if($status == 1 ){

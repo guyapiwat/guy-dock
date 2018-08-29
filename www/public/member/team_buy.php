@@ -18,10 +18,10 @@ if(empty($_REQUEST["tdate"]))$tdate = date("Y-m-t");
 <table style="margin-left:20;" width="500" border="0"><tr><td align="center"><fieldset>
 <form style="margin-bottom:0;" action="index.php?sessiontab=2&sub=7" method="post">
 	<input size="15" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>  ∂÷ß
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>  ‡∏ñ‡∏∂‡∏á
 	<input size="15" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>
-    <input type="submit" value="§Èπ" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>
+    <input type="submit" value="‡∏Ñ‡πâ‡∏ô" />
 </form>
 </fieldset></td></tr></table>
 
@@ -75,7 +75,7 @@ $sql .= "GROUP BY ".$dbprefix."holddesc.pcode";
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysql_select_db('free_style',$link);
 	//$rs = mysql_query("SELECT * FROM usaaba_member");
-//	echo '<fieldset><legend><b>¢ÈÕ¡Ÿ≈°“√´◊ÈÕ</b></legend>';
+//	echo '<fieldset><legend><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠</b></legend>';
 	if($_GET['state']==1){
 		include("serv_sale_del.php");
 	}else if($_GET['state']==2){
@@ -99,13 +99,13 @@ $sql .= "GROUP BY ".$dbprefix."holddesc.pcode";
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=6&state=1","post","delfield");
 		//$rec->setEdit("index.php","id","id","sessiontab=4&sub=21&state=1");
-	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","æ‘¡æÏ");
+	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		$rec->showRec(1,'SH_QUERY');
 		//mysql_close($link);
 	}

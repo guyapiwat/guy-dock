@@ -13,8 +13,8 @@ function selectitem(pcode,pdesc){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>àÅ×Í¡ package</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">àÅ×Í¡ package</font></strong></legend>
+<title>à¹€à¸¥à¸·à¸­à¸ package</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">à¹€à¸¥à¸·à¸­à¸ package</font></strong></legend>
 <?
 require("connectmysql.php");
 require("./cls/repGenerator.php");
@@ -52,12 +52,12 @@ $sql = "SELECT pcode,pdesc FROM ".$dbprefix."product_package  ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc");
-		$rec->setFieldDesc("ÃËÑÊ package,ÃÒÂÅĞàÍÕÂ´ package");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª package,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸” package");
 		$rec->setFieldAlign("center,left");
 		$rec->setFieldSpace("30%,70%%");
 		$rec->setFieldLink("");
 		$rec->setSearch("pcode,pdesc");
-		$rec->setSearchDesc("ÃËÑÊ package,ÃÒÂÅĞàÍÕÂ´ package");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ª package,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸” package");
 		//$rec->setDel("index.php","inv_code","inv_code","sessiontab=3&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","inv_code","inv_code","sessiontab=3&sub=2");

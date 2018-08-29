@@ -5,13 +5,13 @@ require_once("global.php");
 require_once("function.php");
 require_once ("function.log.inc.php");
 
-	// ·®Èß«Ë“¡’√“¬°“√ ≈∫¢ÈÕ¡Ÿ≈ ¡“™‘°„À¡Ë
-	echo "<br>·°È‰¢¢ÈÕ¡Ÿ≈√“¬°“√´◊ÈÕ¢“¬ :";
+	// ‡πÅ‡∏à‡πâ‡∏á‡∏ß‡πà‡∏≤‡∏°‡∏µ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÉ‡∏´‡∏°‡πà
+	echo "<br>‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠‡∏Ç‡∏≤‡∏¢ :";
 	$bid = $_GET['bid'];
 	$remark = $_GET['remark'];
 	
 	if(empty($bid) or empty($remark)){
-		echo "<script language='JavaScript'>alert('‡°‘¥¢ÈÕº‘¥æ≈“¥§Ë–');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+		echo "<script language='JavaScript'>alert('‡πÄ‡∏Å‡∏¥‡∏î‡∏Ç‡πâ‡∏≠‡∏ú‡∏¥‡∏î‡∏û‡∏•‡∏≤‡∏î‡∏Ñ‡πà‡∏∞');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 		exit;
 	}	
 	
@@ -22,12 +22,12 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">‡≈¢∫‘≈</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">√À— </td>
-            <td style="<?=$style_l.$style_t.$style_b?>">®”π«π‡ß‘π√«¡</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏£‡∏´‡∏±‡∏™</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°</td>
         </tr>
 	<?
-		// ÕË“π¢ÈÕ¡Ÿ≈‡¥‘¡®“° member
+		// ‡∏≠‡πà‡∏≤‡∏ô‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏î‡∏¥‡∏°‡∏à‡∏≤‡∏Å member
 		//echo "SELECT * FROM ".$dbprefix."ewallet WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		//$rs=mysql_query("SELECT * FROM ".$dbprefix."ewallet WHERE id='$bid' and lid = '{$_SESSION["admininvent"]}' and cancel = 0 LIMIT 1");
 		if($_SESSION["inventobj6"] != '7')$lid = " and lid = '{$_SESSION["admininvent"]}'";
@@ -67,12 +67,12 @@ writelogfile($text);
 				
                     log_ewallet('ewallet',$row->mcode,$row->sano,$row->txtMoney,'O',date('Y-m-d'),"Cancel(".$row->sano.")"); // log                   
                 }else{
-					echo "<script language='JavaScript'>alert('Ewallet ‰¡Ë‡æ’¬ßæÕ∑’Ë¬°‡≈‘°‰¥È');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";
+					echo "<script language='JavaScript'>alert('Ewallet ‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏û‡∏≠‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";
 					exit;
 
 				}
 			}
-			//echo "®∫";
+			//echo "‡∏à‡∏ö";
 			//exit;
 			//====================LOG===========================
 			writelogfile($text);
@@ -85,9 +85,9 @@ writelogfile($text);
 			echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
             
 		}else{
-			echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+			echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 		}
-		logtext(true,$_SESSION['inv_usercode'],'¬°‡≈‘°∫‘≈ ewallet id : '.$row->sano,$row->sano);
+		logtext(true,$_SESSION['inv_usercode'],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏• ewallet id : '.$row->sano,$row->sano);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 ?>

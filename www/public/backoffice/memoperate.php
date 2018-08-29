@@ -185,7 +185,7 @@ if(isset($_GET['state'])){
    }
 $chk_id_card = chk_id_card($mcode,$id_card);
 if($chk_id_card){
-	echo "<script language='JavaScript'>alert('�Ţ�ѵû�ЪҪ����������');window.location='index.php?sessiontab=1&sub=2'</script>";	
+	echo "<script language='JavaScript'>alert('เลขบัตรประชาชนใช้ไม่ได้ค่ะ');window.location='index.php?sessiontab=1&sub=2'</script>";	
 	exit;	
 }
 
@@ -271,7 +271,7 @@ $province = getprovince($province);
 				} else {
 					move_uploaded_file($_FILES["myfile"]["tmp_name"], "../uploads/profile_img/".$mcode.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='�ú' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='ครบ' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}
@@ -284,7 +284,7 @@ $province = getprovince($province);
 			mysql_query($sql);
 
 			if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -294,7 +294,7 @@ $province = getprovince($province);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -333,7 +333,7 @@ $province = getprovince($province);
 							$chkCredit1 = 'on';$txtCredit1 = $total;
 						}
 						//$mid = ++$sano;
-						logtext(true,$_SESSION['adminusercode'],'�Ң��������'.$mid);
+						logtext(true,$_SESSION['adminusercode'],'สาขาเพิ่มบิล'.$mid);
 						$sql="insert into ".$dbprefix."asaleh (id,  name_t,sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid,txtInternet,chkInternet,txtCash,chkCash,txtCredit1,chkCredit1 ,scheck,checkportal,send) values ('$mid' ,'$name_t','$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv' ,'".$_SESSION['adminusercode']."','$txtInternet','$chkInternet','$txtCash','$chkCash','$txtCredit1','$chkCredit1','register','1','2') ";
 						//echo $sql;
 						//exit;
@@ -364,10 +364,10 @@ $province = getprovince($province);
 			mysql_query("COMMIT");
 			ob_end_clean();
 			//include "mem_main.php";
-			//echo "������Ҫԡ ��� : ".$mcode." <br>";
-			//echo "����-ʡ�� ��� : $name_t <br>";
-			//echo "���ʼ�ҹ ��� : $sv_code <br>";
-			//echo '<a href="index.php?sessiontab=1&sub=2">��Ѻ˹����Ҫԡ</a>';
+			//echo "รหัสสมาชิก คือ : ".$mcode." <br>";
+			//echo "ชื่อ-สกุล คือ : $name_t <br>";
+			//echo "รหัสผ่าน คือ : $sv_code <br>";
+			//echo '<a href="index.php?sessiontab=1&sub=2">กลับหน้าสมาชิก</a>';
 			$_SESSION["perbuy"] = 0 ;
 			//if($checksale == '1')echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=6&state=2&cmc=$mcode'</script>";	
 			 echo "<script language='JavaScript'>window.location='index.php?sessiontab=1&sub=22&cmc=$mcode'</script>";	
@@ -492,7 +492,7 @@ $province = getprovince($province);
 		}
 	
 	
-		logtext1(true,$_SESSION['adminusercode'],'�����Ҫԡ ���� : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
+		logtext1(true,$_SESSION['adminusercode'],'แก้ไขสมาชิก รหัส : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
 		//$acc_no = $acc_no_1.$acc_no_2.$acc_no_3.$acc_no_4.$acc_no_5.$acc_no_6.$acc_no_7.$acc_no_8.$acc_no_9.$acc_no_10;
 		//echo $zip;
 		//exit;
@@ -560,7 +560,7 @@ writelogfile($text);
 
 		mysql_query($sql);
 		if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -570,7 +570,7 @@ writelogfile($text);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -624,7 +624,7 @@ writelogfile($text);
 				} else {
 					move_uploaded_file($_FILES["myfile"]["tmp_name"], "../uploads/profile_img/".$mcode.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='�ú' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='ครบ' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}
@@ -676,10 +676,10 @@ function uploadProductImages($file_new,$file_old,$oid){
 		$tmp_name = $file_new["tmp_name"];
 		$path = "../uploads/member/";
 		if($size > 102400){
-			checkValues("��Ҵ�ͧ����Ѿ��Ŵ��ͧ�բ�Ҵ����Թ 100Kb ���");
+			checkValues("ขนาดของไฟล์อัพโหลดต้องมีขนาดไม่เกิน 100Kb ค่ะ");
 		}
 		if(($type!=".jpg") and ($type!=".jpeg") and ($type!=".gif") and ($type!=".png")){
-			checkValues("���ʡ������ͧ�� (.jpg .jpeg .gif .png) ��ҹ�鹤��");
+			checkValues("นามสกุลไฟล์ต้องเป็น (.jpg .jpeg .gif .png) เท่านั้นค่ะ");
 		}
 		if(!empty($name_old)){
 			@unlink($path.$name_old);
@@ -705,10 +705,10 @@ function uploadProductImages2($file_new,$file_old,$oid){
 		$tmp_name = $file_new["tmp_name"];
 		$path = "../uploads/member/";
 		if($size > 102400){
-			checkValues("��Ҵ�ͧ����Ѿ��Ŵ��ͧ�բ�Ҵ����Թ 100Kb ���");
+			checkValues("ขนาดของไฟล์อัพโหลดต้องมีขนาดไม่เกิน 100Kb ค่ะ");
 		}
 		if(($type!=".jpg") and ($type!=".jpeg") and ($type!=".gif") and ($type!=".png")){
-			checkValues("���ʡ������ͧ�� (.jpg .jpeg .gif .png) ��ҹ�鹤��");
+			checkValues("นามสกุลไฟล์ต้องเป็น (.jpg .jpeg .gif .png) เท่านั้นค่ะ");
 		}
 		if(!empty($name_old)){
 			@unlink($path.$name_old);

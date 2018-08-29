@@ -21,7 +21,7 @@ $sql = "SELECT cancel,print,".$dbprefix."asaleh.id,".$dbprefix."asaleh.lid,sano,
 $sql .= ",CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS sendsend ";
 $sql .= ",CASE ".$dbprefix."asaleh.uid WHEN '' THEN ".$dbprefix."asaleh.inv_code ELSE ".$dbprefix."asaleh.uid END AS uid ";
 $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'ONLINE'  END AS checkportal";
-$sql .= ",CASE sa_type WHEN 'A' THEN 'ª°µ‘' WHEN 'H' THEN 'Hold' WHEN 'Q' THEN '√—°…“¬Õ¥' END AS ability";
+$sql .= ",CASE sa_type WHEN 'A' THEN '‡∏õ‡∏Å‡∏ï‡∏¥' WHEN 'H' THEN 'Hold' WHEN 'Q' THEN '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î' END AS ability";
 $sql .= $sqlWhere_satype1;
 
 $sql .= ",CASE ".$dbprefix."asaleh.receive WHEN '1' THEN concat('<img src=./images/true.gif><br>',".$dbprefix."asaleh.receive_date) ELSE '<img src=./images/false.gif>' END AS receive ,

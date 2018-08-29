@@ -22,10 +22,10 @@ if($_POST["submit"] == 'sendsms'){
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
 	
 	
-	echo "<br>ส่งข้อมูล SMS ให้กับทางสมาชิก :";
+	echo "<br>เธชเนเธเธเนเธญเธกเธนเธฅ SMS เนเธซเนเธเธฑเธเธ—เธฒเธเธชเธกเธฒเธเธดเธ :";
 	$numpost = sizeof($postkey);
 	//var_dump($numpost);
 	//exit;
@@ -36,13 +36,13 @@ if($_POST["submit"] == 'sendsms'){
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ชื่อ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญ</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		//var_dump($numpost);
 		//exit;
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
@@ -65,7 +65,7 @@ if($_POST["submit"] == 'sendsms'){
 
 
 		// Message to send, please ensure that your message has a UTF-8 charset.
-		//$message = "สวัสดีค่ะคุณ ".$row->name_t.' '.$_POST["optional"] ;
+		//$message = "เธชเธงเธฑเธชเธ”เธตเธเนเธฐเธเธธเธ“ ".$row->name_t.' '.$_POST["optional"] ;
 		$message = $_POST["optional"] ;
 
 
@@ -88,7 +88,7 @@ if($_POST["submit"] == 'sendsms'){
 
 
 		//echo 'sssssssssssssssss';
-		logtext(true,$_SESSION['adminuserid'],'ส่ง SMS',$row->id);
+		logtext(true,$_SESSION['adminuserid'],'เธชเนเธ SMS',$row->id);
 		//====================LOG===========================
 		$text="uid=".$_SESSION["adminuserid"]." action=member_sms => id='$id' ";
 		writelogfile($text);
@@ -98,7 +98,7 @@ if($_POST["submit"] == 'sendsms'){
 		
 	}
 	//$_SESSION["texttext"] = "";
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 //echo 'sssssssssssssssss';
 echo '<SCRIPT LANGUAGE="JavaScript">
 			<!--

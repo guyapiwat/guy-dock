@@ -90,7 +90,7 @@ if(isset($_GET['state'])){
 
 }
 if($total > $_SESSION["limitcredit"]){
-   echo "<script language='JavaScript'>alert('§ÿ≥§’¬Ï‡°‘π°”Àπ¥¢Õß§ÿ≥§Ë– °√ÿ≥“µ√«® Õ∫Õ’°§√—Èß');window.location='index.php?sessiontab=3&sub=139&state=8'</script>";	
+   echo "<script language='JavaScript'>alert('‡∏Ñ‡∏∏‡∏ì‡∏Ñ‡∏µ‡∏¢‡πå‡πÄ‡∏Å‡∏¥‡∏ô‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡∏Ç‡∏≠‡∏á‡∏Ñ‡∏∏‡∏ì‡∏Ñ‡πà‡∏∞ ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏≠‡∏µ‡∏Å‡∏Ñ‡∏£‡∏±‡πâ‡∏á');window.location='index.php?sessiontab=3&sub=139&state=8'</script>";	
 	exit;
 }
 
@@ -211,7 +211,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 	$arr_sending = array();
 	$arr_sending = searchsending($dbprefix,$_SESSION["inv_locationbase"],$stype,$tot_pv,$weight);
 	//var_dump($arr_sending);
-	if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '°√ÿß‡∑æ¡À“π§√' or $cprovinceId == ' ¡ÿ∑√ª√“°“√' or $cprovinceId == 'ππ∑∫ÿ√’' or $cprovinceId == 'ª∑ÿ¡∏“π’'){
+	if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '‡∏Å‡∏£‡∏∏‡∏á‡πÄ‡∏ó‡∏û‡∏°‡∏´‡∏≤‡∏ô‡∏Ñ‡∏£' or $cprovinceId == '‡∏™‡∏°‡∏∏‡∏ó‡∏£‡∏õ‡∏£‡∏≤‡∏Å‡∏≤‡∏£' or $cprovinceId == '‡∏ô‡∏ô‡∏ó‡∏ö‡∏∏‡∏£‡∏µ' or $cprovinceId == '‡∏õ‡∏ó‡∏∏‡∏°‡∏ò‡∏≤‡∏ô‡∏µ'){
 		//echo $total;
 		$total = $total+$arr_sending["inbound-pcode"]["price"];
 		$tot_cus = $tot_cus+$arr_sending["inbound-pcode"]["price"];
@@ -239,7 +239,7 @@ if(empty($mcode)){
 	echo "<script language='JavaScript'>alert('".$wording_lan["operate"]["6"]."');window.location='index.php?sessiontab=3&sub=139&state=8'</script>";
 		exit;
 }
-	logtext(true,$_SESSION['inv_usercode'],'‡æ‘Ë¡∫‘≈',$mid);
+	logtext(true,$_SESSION['inv_usercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•',$mid);
  //  if($chkCredit3 == 'on')$tot_pv = 0;
 	$chdate  = explode('-',date("Y-m-15", strtotime("+1 months")));
 
@@ -311,10 +311,10 @@ if (!mysql_query($sql1)) {
 
 			// Sum Vat ////////
 			if($vat == '0'){
-				$total_exvat+=($qty[$i]*$price[$i]); //√√“§“ ‰¡Ë√«¡ vat
+				$total_exvat+=($qty[$i]*$price[$i]); //‡∏£‡∏£‡∏≤‡∏Ñ‡∏≤ ‡πÑ‡∏°‡πà‡∏£‡∏ß‡∏° vat
 			}else{
 				$vat_sum = ($qty[$i]*$price[$i]*$vat/(100+$vat));
-				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//√√“§“°ËÕπ vat
+				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//‡∏£‡∏£‡∏≤‡∏Ñ‡∏≤‡∏Å‡πà‡∏≠‡∏ô vat
 				$total_vat+=($qty[$i]*$price[$i]*$vat/(100+$vat));
 				//$total_vat+=($qty[$i]*$price[$i]*100/(100+$vat[$i]));
 				$total_invat_sum+= ($qty[$i]*$price[$i])-$vat_sum;
@@ -356,7 +356,7 @@ writelogfile($text);
 	/////// send to address  ///////
 
 	if($radsend == '1' and $GLOBALS["sending"] == '1'){
-			if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '°√ÿß‡∑æ¡À“π§√' or $cprovinceId == ' ¡ÿ∑√ª√“°“√' or $cprovinceId == 'ππ∑∫ÿ√’' or $cprovinceId == 'ª∑ÿ¡∏“π’'){
+			if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '‡∏Å‡∏£‡∏∏‡∏á‡πÄ‡∏ó‡∏û‡∏°‡∏´‡∏≤‡∏ô‡∏Ñ‡∏£' or $cprovinceId == '‡∏™‡∏°‡∏∏‡∏ó‡∏£‡∏õ‡∏£‡∏≤‡∏Å‡∏≤‡∏£' or $cprovinceId == '‡∏ô‡∏ô‡∏ó‡∏ö‡∏∏‡∏£‡∏µ' or $cprovinceId == '‡∏õ‡∏ó‡∏∏‡∏°‡∏ò‡∏≤‡∏ô‡∏µ'){
 				$totalprice = $arr_sending["inbound-pcode"]["price"];
 				$pcode = $arr_sending["inbound-pcode"]["pcode"];
 			}
@@ -409,7 +409,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','§’¬Ï√—∫∑’Ë “¢“','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 				mysql_query($sql);
 
 				
@@ -430,7 +430,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','§’¬Ï√—∫∑’Ë “¢“','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 				mysql_query($sql);
 
 
@@ -463,7 +463,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','∫‘≈¢“¬','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢','$uid')";
 				mysql_query($sql);
 
 
@@ -477,7 +477,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','∫‘≈¢“¬','$uid')";
+			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";
@@ -593,6 +593,6 @@ function keysend($dbprefix,$mid,$pcode,$inv_code,$qty,$weight,$totalprice,$price
 	}
 }
 
-//update µ”·ÀπËß ·∫∫‰¡Ë – ¡§–·ππ
+//update ‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á ‡πÅ‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏∞‡∏™‡∏°‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô
 ?>
  

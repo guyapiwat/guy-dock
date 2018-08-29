@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("กรุณาเลือกวันที่เริ่มต้น");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("กรุณาเลือกวันที่สิ้นสุด");
+		alert("เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ”");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -41,7 +41,7 @@ if($strfdate=="" || $strtdate==""){
 	if($strfdate>$strtdate){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">วันที่เริ่มต้น ต้องน้อยกว่าหรือเท่ากับ วันที่สิ้นสุด กรุณาระุบุวันที่ใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธงเธฑเธเธ—เธตเนเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเธฃเธฐเธธเธเธธเธงเธฑเธเธ—เธตเนเนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -68,7 +68,7 @@ if($strfdate=="" || $strtdate==""){
  
 ?>
 &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-รอบเดือน <? echo $strfdate .' ถึง '.$strtdate.'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;ยอดขายทั่วโลก : '.$data->pv_world.'';?><!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a-->
+เธฃเธญเธเน€เธ”เธทเธญเธ <? echo $strfdate .' เธ–เธถเธ '.$strtdate.'<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;เธขเธญเธ”เธเธฒเธขเธ—เธฑเนเธงเนเธฅเธ : '.$data->pv_world.'';?><!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a-->
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -107,10 +107,10 @@ if($strfdate=="" || $strtdate==""){
 		$rec->setBackLink($PHP_SELF,"sessiontab=4");
 		if(isset($page))
 			$rec->setCurPage($page);
-		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","ดู");
+		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","เธ”เธน");
 		//$rec->setShowField("tdate,mcode,name_t,pv_world,total1,total2,total3,total4,total5,total6,total");
 		$rec->setShowField("mcode,name_t,total1,total2,total3,total4,total5,total");
-		$rec->setFieldDesc("รหัสสมาชิก,ชื่อสมาชิก,กองทุนRB (2%),กองทุน EM (2%),กองทุน D(2%),กองทุน DD(2%),กองทุน TD(2%),รายได้");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธเธญเธเธ—เธธเธRB (2%),เธเธญเธเธ—เธธเธ EM (2%),เธเธญเธเธ—เธธเธ D(2%),เธเธญเธเธ—เธธเธ DD(2%),เธเธญเธเธ—เธธเธ TD(2%),เธฃเธฒเธขเนเธ”เน");
 		$rec->setFieldAlign("center,left,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("9%,45%,15%,9%,9%,9%,9%,9%,9%,9%,5%,10%,10%");
 		$rec->setSum(true,false,",,true,true,true,true,true,true,true,true,,true");
@@ -121,9 +121,9 @@ if($strfdate=="" || $strtdate==""){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("e.mcode");
-		$rec->setSearchDesc("รหัส");
+		$rec->setSearchDesc("เธฃเธซเธฑเธช");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 
@@ -140,26 +140,26 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>ระบุวันที่ และ รหัสสมาชิกที่ต้องการทราบข้อมูล</strong></td>
+    <td colspan="2" align="center"><strong>เธฃเธฐเธเธธเธงเธฑเธเธ—เธตเน เนเธฅเธฐ เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ—เธฃเธฒเธเธเนเธญเธกเธนเธฅ</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <!--tr>
-    <td align="right">รอบ&nbsp;&nbsp;</td>
+    <td align="right">เธฃเธญเธ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
+      &nbsp;( เธเธฃเธญเธเธเนเธญเธกเธนเธฅเน€เธเนเธ 1-9 )</td>
   </tr-->
   <tr>
-  <td align="right" >วันที่&nbsp;&nbsp;</td>
+  <td align="right" >เธงเธฑเธเธ—เธตเน&nbsp;&nbsp;</td>
   <td colspan="2">
       <input type="text" id="strfdate" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>"/>
-&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่เิีริ่มต้น" /></a>&nbsp; ถึง &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
-&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่สิ้นสุด" /></a>
+&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเน€เธดเธตเธฃเธดเนเธกเธ•เนเธ" /></a>&nbsp; เธ–เธถเธ &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
+&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธชเธดเนเธเธชเธธเธ”" /></a>
 </td>
   </tr>
   <tr>
-    <td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
+    <td width="24%" align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -167,7 +167,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

@@ -14,12 +14,12 @@ function iinventcheck(){
 	var val = document.getElementById('inv_code').value;
 	var field = "inv_code";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  “¢“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤";
 	
 	val = val + ","+document.getElementById('inv_desc').value;
 	field = field +",inv_desc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",™◊ËÕ “¢“";
+	errDesc = errDesc + ",‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏≤‡∏Ç‡∏≤";
 		
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -32,13 +32,13 @@ function einventcheck(){
 	var skipval = document.getElementById('oinv_code').value;
 	var field = "inv_code";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À—  “¢“";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤";
 	
 	val = val + ","+document.getElementById('inv_desc').value;
 	skipval = skipval+",";
 	field = field +",inv_desc";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",™◊ËÕ “¢“";
+	errDesc = errDesc + ",‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏≤‡∏Ç‡∏≤";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -51,8 +51,8 @@ function einventcheck(){
 		$sql = "SELECT * FROM ".$dbprefix."invent WHERE inv_code='".$_GET['inv_code']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‰¡Ëæ∫¢ÈÕ¡Ÿ≈µ“¡‡ß◊ËÕπ‰¢</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3&sub=2';">‰ªÀπÈ“¢ÈÕ¡Ÿ≈ “¢“</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≤‡∏°‡πÄ‡∏á‡∏∑‡πà‡∏≠‡∏ô‡πÑ‡∏Ç</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3&sub=2';">‡πÑ‡∏õ‡∏´‡∏ô‡πâ‡∏≤‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏≤‡∏Ç‡∏≤</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -85,40 +85,40 @@ function einventcheck(){
   <table border="0" cellpadding="0" cellspacing="0" width="100%">
     <tr> 
       <td width="23%" valign="top" align="right" ></td>
-      <td width="77%"><font color="#808080"><u>À¡“¬‡Àµÿ</u></font> <font color="#ff0000">*</font><font color="#808080">=®”‡ªÁπµÈÕß°√Õ°¢ÈÕ¡Ÿ≈</font><br> 
+      <td width="77%"><font color="#808080"><u>‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</u></font> <font color="#ff0000">*</font><font color="#808080">=‡∏à‡∏≥‡πÄ‡∏õ‡πá‡∏ô‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</font><br> 
         <br></td>
     </tr>
     <tr> 
-      <td width="23%" valign="top" align="right" >√À— <font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >‡∏£‡∏´‡∏±‡∏™<font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="text" name="inv_code" id="inv_code" size="20" maxlength="7" value="<?=$inv_code?>">
 	  <input type="hidden" name="oinv_code" id="oinv_code" value="<?=$inv_code?>">	  </td>
     </tr>
 
     <tr> 
-      <td width="23%" valign="top" align="right" >™◊ËÕ <font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >‡∏ä‡∏∑‡πà‡∏≠ <font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="text" name="inv_desc" id="inv_desc" size="40" maxlength="40" value="<?=$inv_desc?>"></td>
     </tr>
 
 
     <!--tr> 
-      <td width="23%" valign="top" align="right" >¢ÈÕ¡Ÿ≈∂Ÿ°µÈÕß <font color="#ff0000">*</font></td>
+      <td width="23%" valign="top" align="right" >‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á <font color="#ff0000">*</font></td>
       <td width="77%">&nbsp; <input type="checkbox" name="C1" value="ok"></td>
     </tr-->
     <tr>
-      <td valign="top" align="right" >√À—  ¡“™‘°</td>
+      <td valign="top" align="right" >‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</td>
       <td>&nbsp;
         <input style="background-color:#FFFF99" readonly size="15" type="text" id="mcode" name="mcode" value="<?=$mcode?>">
-                <input type="button" onClick="get_mem_listpicker_mcode()" value="‡≈◊Õ°"><div id="mname"></div></td>
+                <input type="button" onClick="get_mem_listpicker_mcode()" value="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å"><div id="mname"></div></td>
     </tr>
     <tr> 
-      <td width="23%" valign="top" align="right" >ª√–‡¿∑ </td>
+      <td width="23%" valign="top" align="right" >‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó </td>
       <td width="77%">&nbsp;
         <select name="inv_type" id="inv_type">
           <option value="1" <?=($inv_type=='1'?"selected":"")?> >Branch</option>
         </select></td>
     </tr>
     <tr> 
-        <td width="23%" align="right">∑’ËÕ¬ŸËª—®®ÿ∫—π&nbsp;</td>
+        <td width="23%" align="right">‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡∏õ‡∏±‡∏à‡∏à‡∏∏‡∏ö‡∏±‡∏ô&nbsp;</td>
         <td width="77%">&nbsp; <textarea name="address" cols="50" rows="3"><?=$address?></textarea></td>
     </tr>
     <tr> 
@@ -133,19 +133,19 @@ function einventcheck(){
             ?>        </td>
     </tr>
     <tr>
-      <td align="right">√À— ‰ª√…≥’¬Ï&nbsp;</td>
+      <td align="right">‡∏£‡∏´‡∏±‡∏™‡πÑ‡∏õ‡∏£‡∏©‡∏ì‡∏µ‡∏¢‡πå&nbsp;</td>
       <td>&nbsp; <input type="text" name="zip" size="10" maxlength="5" value="<?=$zip?>" /></td>
     </tr>
     <tr>
-      <td align="right">‡∫Õ√Ïµ‘¥µËÕ &nbsp;</td>
+      <td align="right">‡πÄ‡∏ö‡∏≠‡∏£‡πå‡∏ï‡∏¥‡∏î‡∏ï‡πà‡∏≠ &nbsp;</td>
       <td>&nbsp; <input type="text" name="home_t"  maxlength="20" value="<?=$home_t?>" tabindex="25"/></td>
     </tr>
 	<tr>
-      <td align="right">‚∑√ “√ &nbsp;</td>
+      <td align="right">‡πÇ‡∏ó‡∏£‡∏™‡∏≤‡∏£ &nbsp;</td>
       <td>&nbsp; <input type="text" name="fax"  maxlength="20" value="<?=$fax?>" tabindex="25"/></td>
     </tr>
 	<tr>
-      <td align="right">‡≈¢∑’ËºŸÈ‡ ’¬¿“…’ &nbsp;</td>
+      <td align="right">‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ú‡∏π‡πâ‡πÄ‡∏™‡∏µ‡∏¢‡∏†‡∏≤‡∏©‡∏µ &nbsp;</td>
       <td>&nbsp; <input type="text" name="no_tax"  maxlength="20" value="<?=$no_tax?>" tabindex="25"/></td>
     </tr>
     <tr  >
@@ -164,13 +164,13 @@ function einventcheck(){
 						?>
      </select></td>
 	 <tr> 
-      <td width="23%" valign="top" align="right" >À—«∫‘≈ <font color="#ff0000"></font></td>
+      <td width="23%" valign="top" align="right" >‡∏´‡∏±‡∏ß‡∏ö‡∏¥‡∏• <font color="#ff0000"></font></td>
       <td width="77%">&nbsp; <input type="text" name="bill_ref" id="bill_ref" size="5" maxlength="5" value="<?=$bill_ref?>"></td>
     </tr>
 
     </tr>
     <tr style="display:none">
-      <td align="right"> Ë«π≈¥&nbsp;</td>
+      <td align="right">‡∏™‡πà‡∏ß‡∏ô‡∏•‡∏î&nbsp;</td>
       <td>&nbsp; <input type="text" name="discount" size="10" maxlength="5" value="<?=$discount?>" />
         %</td>
     </tr>
@@ -181,17 +181,17 @@ function einventcheck(){
     <tr> 
       <td width="23%" valign="top" align="right" >&nbsp;</td>
       <td width="77%">
-	  <input name="button" id="button" type="button" onClick="<?=(isset($_GET['inv_code'])?"einventcheck()":"iinventcheck()")?>" value="µ√«® Õ∫" />
+	  <input name="button" id="button" type="button" onClick="<?=(isset($_GET['inv_code'])?"einventcheck()":"iinventcheck()")?>" value="‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö" />
              &nbsp;
-             <input type="submit" value="∫—π∑÷°"  name="ok"   id="ok"   disabled="disabled" />
+             <input type="submit" value="‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å"  name="ok"   id="ok"   disabled="disabled" />
              &nbsp;
-          <input name="reset" id="reset" type="reset"  onclick="window.location='index.php?sessiontab=5&sub=2'" value="¬°‡≈‘°" />    </tr>
+          <input name="reset" id="reset" type="reset"  onclick="window.location='index.php?sessiontab=5&sub=2'" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" />    </tr>
   </table>
 
 </form>
 </td>
      <td width="40%">
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font></div></td>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font></div></td>
    </tr>
  </table>
      

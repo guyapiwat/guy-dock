@@ -8,9 +8,9 @@
 	<td width="94%" valign="top">
       <br>
       <form action="./index.php?sessiontab=<?=$sesstab?>&sub=1&backup=1" method="post">
-	  &nbsp;&nbsp;<img src="images/8_18s.gif" border="0">&nbsp;   ”√Õß¢ÈÕ¡Ÿ≈ <br>	  <br>
+	  &nbsp;&nbsp;<img src="images/8_18s.gif" border="0">&nbsp;  ‡∏™‡∏≥‡∏£‡∏≠‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• <br>	  <br>
 	  
-	  	<input type="submit" value="    ”√Õß¢ÈÕ¡Ÿ≈   " name="submit">
+	  	<input type="submit" value="   ‡∏™‡∏≥‡∏£‡∏≠‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•   " name="submit">
 	  </form>
 	</td>
 	<td width="10%"></td>
@@ -68,9 +68,9 @@ set_time_limit(0);
 	<td width="80%" valign="top">
       <br>
       <form action="./index.php?sessiontab=<?=$sesstab?>&sub=1&backup=1" method="post">
-	  &nbsp;&nbsp;<img src="images/8_18s.gif" border="0">&nbsp;   ”√Õß¢ÈÕ¡Ÿ≈ <br>	  <br>
+	  &nbsp;&nbsp;<img src="images/8_18s.gif" border="0">&nbsp;  ‡∏™‡∏≥‡∏£‡∏≠‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• <br>	  <br>
 	  
-	  	<input type="submit" value="    ”√Õß¢ÈÕ¡Ÿ≈   " name="submit">
+	  	<input type="submit" value="   ‡∏™‡∏≥‡∏£‡∏≠‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•   " name="submit">
 	  </form>
 	</td>
 	<td width="10%"></td>

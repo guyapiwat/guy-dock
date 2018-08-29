@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -51,8 +51,8 @@ if($fdate != ''){
 		}
 		$sql = "SELECT m.acc_no,m.bankcode";
 		$sql .= ",a.id,a.rcode,a.mcode,m.name_t,a.pv,a.pvb,a.total,a.id_card  ";
-		$sql .= ",CASE a.status WHEN '1' THEN 'จ่าย' WHEN '0' THEN 'ไม่จ่าย'  END AS status ";
-		$sql .= ",CONCAT(address,' ต.',districtId,' อ.',amphurId,' จ.',provinceId,' ',zip) AS address ";
+		$sql .= ",CASE a.status WHEN '1' THEN 'เธเนเธฒเธข' WHEN '0' THEN 'เนเธกเนเธเนเธฒเธข'  END AS status ";
+		$sql .= ",CONCAT(address,' เธ•.',districtId,' เธญ.',amphurId,' เธ.',provinceId,' ',zip) AS address ";
 		$sql .= "FROM ".$dbprefix."cmbonus a ";
 		$sql .= " LEFT JOIN ".$dbprefix."member m ON a.mcode=m.mcode ";
 	
@@ -81,7 +81,7 @@ if($fdate != ''){
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("rcode,id,mcode,total,pv,name_t,address,id_card,status");
-		$rec->setFieldDesc("รอบ,ลำดับ,รหัส,จำนวนรวมโบนัส,หัก ณ ที่จ่าย,ชื่อ,ที่อยู่,เลขที่บัตรประชาชน,สถานะ");
+		$rec->setFieldDesc("เธฃเธญเธ,เธฅเธณเธ”เธฑเธ,เธฃเธซเธฑเธช,เธเธณเธเธงเธเธฃเธงเธกเนเธเธเธฑเธช,เธซเธฑเธ เธ“ เธ—เธตเนเธเนเธฒเธข,เธเธทเนเธญ,เธ—เธตเนเธญเธขเธนเน,เน€เธฅเธเธ—เธตเนเธเธฑเธ•เธฃเธเธฃเธฐเธเธฒเธเธ,เธชเธ–เธฒเธเธฐ");
 		$rec->setFieldAlign("center,center,center,right,right,left,left,left,center");
 		$rec->setFieldSpace("3%,3%,5%,10%,10%,20%,40%,10%");//10
 		$rec->setSum(true,false,",,,true,true");
@@ -95,17 +95,17 @@ if($fdate != ''){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("a.mcode,a.status");
-		$rec->setSearchDesc("รหัส, จ่าย : 1   |   ไม่จ่าย  :  0");
+		$rec->setSearchDesc("เธฃเธซเธฑเธช, เธเนเธฒเธข : 1   |   เนเธกเนเธเนเธฒเธข  :  0");
 		$rec->setFieldLink("");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","packfile100".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","packfile100".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

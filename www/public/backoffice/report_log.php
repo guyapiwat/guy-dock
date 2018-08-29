@@ -17,7 +17,7 @@ function view(code){
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
@@ -68,7 +68,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 	}else if($_GET['state']==3){
 		include("sale_cancel.php");
 	}else{
-		echo '<font color="#ff0000"><b>µ—«Õ¬Ë“ß°“√„ Ë «—π∑’Ë 2010-12-04</b></font>';
+		echo '<font color="#ff0000"><b>‡∏ï‡∏±‡∏ß‡∏≠‡∏¢‡πà‡∏≤‡∏á‡∏Å‡∏≤‡∏£‡πÉ‡∏™‡πà ‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà 2010-12-04</b></font>';
 		$rec = new repGenerator();
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);
@@ -88,14 +88,14 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 			$rec->setCurPage($page);
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sys_id,name1,ip,logdate,logtime,subject,chk_mobile,chk_id_card,chk_sp_code,chk_upa_code,chk_acc_no");
-		$rec->setFieldDesc("√À— ºŸÈ„™Èß“π,™◊ËÕºŸÈ„™Èß“π,‰Õæ’,«—π∑’Ë∑”√“¬°“√,‡«≈“,√“¬≈–‡Õ’¬¥¥”‡π‘°“√,‡∫Õ√Ï¡◊Õ∂◊Õ,‡≈¢∫—µ√ª√–™“™π,ºŸÈ·π–π”,Õ—æ‰≈πÏ,‡≈¢∫—≠™’");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏á‡∏≤‡∏ô,‡πÑ‡∏≠‡∏û‡∏µ,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ó‡∏≥‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£,‡πÄ‡∏ß‡∏•‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏î‡∏≥‡πÄ‡∏ô‡∏¥‡∏Å‡∏≤‡∏£,‡πÄ‡∏ö‡∏≠‡∏£‡πå‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠,‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡πÄ‡∏•‡∏Ç‡∏ö‡∏±‡∏ç‡∏ä‡∏µ");
 		$rec->setFieldAlign("center,left,center,center,center,left,center,center,center,center");
 		$rec->setFieldSpace("7%,10%,10%,7%,7%,25%,7%,7%,7%,7%,7%");//10
-		$rec->setSpecial("./images/search.gif","","view","idi","IMAGE","¥Ÿ¢ÈÕ¡Ÿ≈∑’Ë·°È‰¢");
+		$rec->setSpecial("./images/search.gif","","view","idi","IMAGE","‡∏î‡∏π‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç");
 
 		//$rec->setFieldLink(",index.php?sessiontab=5&sub=8&cmc=,");
 		$rec->setSearch("sys_id,subject,mcode,logdate,logtime");
-		$rec->setSearchDesc("√À— ºŸÈ„™È√–∫∫,√“¬°“√∑’Ë∑”,√À—  ¡“™‘°,«—π∑’Ë,‡«≈“");
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏£‡∏∞‡∏ö‡∏ö,‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ó‡∏µ‡πà‡∏ó‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡πÄ‡∏ß‡∏•‡∏≤");
 		$rec->setSum(true,false,",,,,,,,,,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

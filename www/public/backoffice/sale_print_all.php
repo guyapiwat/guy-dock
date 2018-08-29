@@ -20,17 +20,17 @@ if(!empty($_GET['fmcode'])){$mcode = $_GET['fmcode'];}else {if(!empty($_POST['fm
 		//window.location='index.php?sessiontab=3&sub=6&sanooo='+id;
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id,page){
-	//	if(confirm("��ͧ�������¹�ŧ����Ѻ�ͧ")){
+	//	if(confirm("ต้องการเปลี่ยนแปลงการรับของ")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id+'&page='+page;
 	//	}
 	}
 		function sale_status1(id,page){
-	//	if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+	//	if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab=3&sub=6&state=7&sender='+id+'&page='+page;
 	//	}
 	}
@@ -139,8 +139,8 @@ $sql .= " and inv_code like '%$inv%'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,remark,lid,checkportal");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("print,�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,����Ẻ, PV,�ӹǹ�Թ,������,���Ѵ��,�觢ͧ,�Ѻ�ͧ,��ҧ�ԧ,�Ң�,��ͧ�ҧ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("print,วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,ซื้อแบบ, PV,จำนวนเงิน,ผู้คีย์,ให้จัดส่ง,ส่งของ,รับของ,อ้างอิง,สาขา,ช่องทาง");
 		$rec->setFieldAlign("center,left,left,left,left,left,center,center,right,right,center,center,center,center");
 		$rec->setFieldSpace("1%,8%,10%,5%,20%,6%,6%,6%,8%,5%,5%,5%,5%,4%,4%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
@@ -149,31 +149,31 @@ $sql .= " and inv_code like '%$inv%'  ";
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		 	
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ��������Ҫԡ','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ข้อมูลสมาชิก','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 	 
 			$rec->setSpace($str);
 		}
 	//		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	//	$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+	//	$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 	//	$rec->setSpace($str);
 	 
 	//	$str1 = "<fieldset><a href='invoice_pdf_sale.php?hid=$id' target='_blank'>";
-	//	$str1 .= "<img border='0' src='./images/excel.gif'>���ҧ PDF</a></fieldset>";
+	//	$str1 .= "<img border='0' src='./images/excel.gif'>สร้าง PDF</a></fieldset>";
 	//	$rec->setSpace($str1);
 
 	 
 	//	$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		//$rec->setSpace($str2);
 
-		//$rec->setSpecial("./images/true.gif","","sale_status1","id,page","IMAGE","�觢ͧ");
+		//$rec->setSpecial("./images/true.gif","","sale_status1","id,page","IMAGE","ส่งของ");
 	
-		//$rec->setSpecial("./images/true.gif","","sale_status","id,page","IMAGE","�Ѻ�ͧ");
+		//$rec->setSpecial("./images/true.gif","","sale_status","id,page","IMAGE","รับของ");
 		$rec->showRec(1,'SH_QUERY');
 
 

@@ -46,11 +46,11 @@ $sql .= "FROM ".$dbprefix."user WHERE usertype='1'";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("usercode,username,object1r,object2r,object3r,object4r,object5r,inv_ref");//uid,
-		$rec->setFieldDesc("ÃËÑÊ¼Ùéãªé,ª×èÍ¼Ùéãªé,àÁ¹ÙÊÁÒªÔ¡,VIP,àÁ¹Ù¢ÒÂ,àÁ¹Ù¤Ó¹Ç³,àÁ¹ÙºÃÔËÒÃÃÐºº,ÊÒ¢Ò");//ÃËÑÊ¾¹Ñ¡§Ò¹,
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹ƒà¸Šà¹‰,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹ƒà¸Šà¹‰,à¹€à¸¡à¸™à¸¹à¸ªà¸¡à¸²à¸Šà¸´à¸,VIP,à¹€à¸¡à¸™à¸¹à¸‚à¸²à¸¢,à¹€à¸¡à¸™à¸¹à¸„à¸³à¸™à¸§à¸“,à¹€à¸¡à¸™à¸¹à¸šà¸£à¸´à¸«à¸²à¸£à¸£à¸°à¸šà¸š,à¸ªà¸²à¸‚à¸²");//à¸£à¸«à¸±à¸ªà¸žà¸™à¸±à¸à¸‡à¸²à¸™,
 		$rec->setFieldAlign("center,center,center,center,center,center,center,center");//center,
 		$rec->setFieldSpace("15%,25%,10%,10%,10%,10%,10%,10%");//10%,
 		$rec->setFieldLink(",");
-		$rec->setSpecial("./images/search.gif","","view","uid","IMAGE","´Ù");
+		$rec->setSpecial("./images/search.gif","","view","uid","IMAGE","à¸”à¸¹");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","uid","uid","sessiontab=5&sub=4");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=5&sub=4&state=1","post","delfield");

@@ -35,7 +35,7 @@ writelogfile($text);
 //=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION['adminuserid'],'¡��ԡ���',$bid);
+	logtext(true,$_SESSION['adminuserid'],'ยกเลิกบิล',$bid);
 	$sql = "select * from ".$dbprefix."atoasaled where sano='$bid'";
 			$result = mysql_query($sql);
 			for($i=0;$i<mysql_num_rows($result);$i++){

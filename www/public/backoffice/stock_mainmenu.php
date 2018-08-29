@@ -13,7 +13,7 @@
 		    <br /></td>
 	</tr>
 	<tr>
-		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>���ʼ���� :</strong> ".$_SESSION["adminusercode"]." <strong>���ͼ���� :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 	</tr>
 	<tr>
 		<td width="50%" valign="top">
@@ -28,41 +28,41 @@
           </tr>
 		  <tr>
             <td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-            <td width="84%"><strong>�Ѵ����Թ���</strong></td>
+            <td width="84%"><strong>จัดการสินค้า</strong></td>
           </tr>
          <tr>
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
-			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=15"><img src="images/9_28_s.gif" align="absmiddle" /> ������Թ���</a></td>
+			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=15"><img src="images/9_28_s.gif" align="absmiddle" /> กลุ่มสินค้า</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
-			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=1"><img src="images/9_28_s.gif" align="absmiddle" /> �������Թ���</a></td>
+			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=1"><img src="images/9_28_s.gif" align="absmiddle" /> ข้อมูลสินค้า</a></td>
 		  </tr>
          <tr>
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
-			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=37"><img src="images/9_28_s.gif" align="absmiddle" /> �������Թ����Ң�</a></td>
+			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=37"><img src="images/9_28_s.gif" align="absmiddle" /> ข้อมูลสินค้าสาขา</a></td>
 		  </tr>
 		  <tr >
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
-			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=11"><img src="images/10_11_s.gif" /> ������ package</a></td>
+			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=11"><img src="images/10_11_s.gif" /> ข้อมูล package</a></td>
 		  </tr>
           
           <tr >
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
-			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=12"><img src="images/10_11_s.gif" /> �Թ���� package</a></td>
+			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=12"><img src="images/10_11_s.gif" /> สินค้าใน package</a></td>
 		  </tr>
 		  	<tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=60">�Թ��ҹ����</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=60">สินค้านำเข้า</a></td>
 			</tr>
 
 		    <tr >
 		     <td align="right">&nbsp;</td>
-		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=138">����� �Ң�</a></td>
+		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=138">บิลส่ง สาขา</a></td>
 		    </tr>
 		  <tr>
              <td align="right">&nbsp;</td>
-		     <td align="left" style="display:none"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">��§ҹ Stock Card(���)</a></td>
+		     <td align="left" style="display:none"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">รายงาน Stock Card(ขาย)</a></td>
 		     </tr>
 		  <tr >
 			<td width="16%" align="right">&nbsp;&nbsp;</td>
@@ -84,35 +84,35 @@
           </tr>
 		  <tr style="display:none">
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=555">��§ҹ Auto Stock </a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=555">รายงาน Auto Stock </a></td>
 		     </tr>
 			<tr style="display:none">
 				 <td align="right">&nbsp;</td>
-				 <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=551">��¡������͹����Թ���(Stock Movement)</a></td>
+				 <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=551">รายการเคลื่อนไหวสินค้า(Stock Movement)</a></td>
 		     </tr>	
 			<tr style="display:none">
 				 <td align="right">&nbsp;</td>
-				 <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=552">��¡������͹����Թ���(��-�Ѻ)(Stock Movement)</a></td>
+				 <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=552">รายการเคลื่อนไหวสินค้า(ส่ง-รับ)(Stock Movement)</a></td>
 		     </tr>				 
 			 <tr>
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">��§ҹ Stock Card(���)</a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=55">รายงาน Stock Card(ขาย)</a></td>
 		     </tr>
 			 <tr style="display:none">
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=556">��§ҹ Stock Card(��-�Ѻ)</a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=556">รายงาน Stock Card(ส่ง-รับ)</a></td>
 		     </tr>
 			 <tr  >
 			   <td align="right">&nbsp;</td>
-			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=56">��§ҹ�ʹ�Թ��ҷ��١�ԡ�ͧ�Ң�</a></td>
+			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=56">รายงานยอดสินค้าที่ถูกเบิกของสาขา</a></td>
 		      </tr>
 			 <tr   >
              <td align="right">&nbsp;</td>
-		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=57">��§ҹ�ʹ�Թ��ҷ���Ѻ�ͧ�Ң�</a></td>
+		     <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=57">รายงานยอดสินค้าที่รับของสาขา</a></td>
 		     </tr>
 			  <tr style="display:none">
 			   <td align="right">&nbsp;</td>
-			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=5656">��§ҹ�ʹ�Թ��ҷ��١�ԡ�ͧ�ӹѡ�ҹ�˭�</a></td>
+			   <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=5656">รายงานยอดสินค้าที่ถูกเบิกของสำนักงานใหญ่</a></td>
 		      </tr>
 			  <tr>
             <!--td width="16%" align="right">&nbsp;</td>
@@ -120,15 +120,15 @@
           </tr>
 		   <tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
-            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=52">��§ҹ Stock HQ � �ѹ���  �ʹ�Թ�������͹���</a></td>
+            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=52">รายงาน Stock HQ ณ วันที่  ยอดสินค้าเคลื่อนไหว</a></td>
           </tr>
 			<tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
-            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">��§ҹ Stock � �ѹ��� �Ң� �ʹ�Թ�������͹���</a></td>
+            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">รายงาน Stock ณ วันที่ สาขา ยอดสินค้าเคลื่อนไหว</a></td>
           </tr>
 		  <tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
-            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=540">��§ҹ Stock(��-�Ѻ) � �ѹ��� �Ң� �ʹ�Թ�������͹���</a></td>
+            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=540">รายงาน Stock(ส่ง-รับ) ณ วันที่ สาขา ยอดสินค้าเคลื่อนไหว</a></td>
           </tr>
 		  <tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
@@ -136,24 +136,24 @@
           </tr>
 		  <tr style="display:none">
             <td width="16%" align="right">&nbsp;</td>
-            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=500">&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; Stock &#3603; &#3623;&#3633;&#3609;&#3607;&#3637;&#3656;(��-�Ѻ) </a></td>
+            <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=500">&#3619;&#3634;&#3618;&#3591;&#3634;&#3609; Stock &#3603; &#3623;&#3633;&#3609;&#3607;&#3637;&#3656;(ส่ง-รับ) </a></td>
           </tr>
 				   <tr>
 				     <td align="right">&nbsp;</td>
-				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">��ػ�ʹ��� �Թ��� / Package / �Թ���� Package</td>
+				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">สรุปยอดขาย สินค้า / Package / สินค้าใน Package</td>
 		      </tr>
 
 				   <tr>
 				     <td align="right">&nbsp;</td>
-				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=888">��ػ�ʹ���  Package �¡�Ң� �¡  Package </td>
+				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=888">สรุปยอดขาย  Package แยกสาขา แยก  Package </td>
 		      </tr>
 			   <tr style="display:none">
 		    <td align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=7777">��§ҹ�Թ��Ҥ��������������Ң�</A></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=7777">รายงานสินค้าคงเหลือรวมแต่ละสาขา</A></td>
 		    </tr>
 				   <tr style="display:none">
 				     <td align="right">&nbsp;</td>
-				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=7">�ʹ�Թ��ҷ��١���</a></td>
+				     <td><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=7">ยอดสินค้าที่ถูกขาย</a></td>
 		      </tr>
           <!--  <tr >
 			<td width="16%" align="right">&nbsp;</td>
@@ -166,15 +166,15 @@
 		 
 		   <tr  >
 		     <td align="right"  >&nbsp;</td>
-		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=23">��Ѻ</a></td>
+		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=23">ใบรับ</a></td>
 		 </tr>
 		  <tr  >
 		     <td  align="right"  >&nbsp;</td>
-		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=20">��ԡ</a></td>
+		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=20">ใบเบิก</a></td>
 		     </tr>
 		<tr  >
 		     <td  align="right"  >&nbsp;</td>
-		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=2323">��͹�׹�Թ��Ҩҡ �Ң� -> �ӹѡ�ҹ�˭� </a></td>
+		     <td ><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=2323">ใบโอนคืนสินค้าจาก สาขา -> สำนักงานใหญ่ </a></td>
 		     </tr>
         </table>
 		
@@ -216,19 +216,19 @@
 		  </tr>
 		  <tr>
 			<td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-			<td width="84%"><strong>�׹�ѹ�͡��á�â��ᨧ�ʹ</strong></td>
+			<td width="84%"><strong>ยืนยันเอกสารการขายแจงยอด</strong></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">�͡��÷���ѧ������׹�ѹ</A></td>
+			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">เอกสารที่ยังไม่ได้ยืนยัน</A></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">�͡��÷���׹�ѹ����</a></td>
+			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">เอกสารที่ยืนยันแล้ว</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;��ػ�ʹ��� �ͧ��ѡ�ҹ���Ф� �����ҧ�ѹ���</td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละคน ระหว่างวันที่</td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
@@ -255,7 +255,7 @@
 			case 50:
                 ?>
                 <legend>
-                       <strong><font color="#666666">��§ҹ Stock � �ѹ���</font></strong>
+                       <strong><font color="#666666">รายงาน Stock ณ วันที่</font></strong>
                 </legend>
                 <?
                 include("stock_product_date.php");
@@ -263,7 +263,7 @@
 			case 500:
                 ?>
                 <legend>
-                       <strong><font color="#666666">��§ҹ Stock(��-�Ѻ) � �ѹ���</font></strong>
+                       <strong><font color="#666666">รายงาน Stock(ส่ง-รับ) ณ วันที่</font></strong>
                 </legend>
                 <?
                 include("stock_product_r_date.php");
@@ -271,7 +271,7 @@
 			case 53:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock � �ѹ���</font></strong>
+       			    <strong><font color="#666666">รายงาน Stock ณ วันที่</font></strong>
                 </legend>
 				<?
 				include("sale_bill_product_date.php");
@@ -279,7 +279,7 @@
 			case 555:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Auto Stock</font></strong>
+       			    <strong><font color="#666666">รายงาน Auto Stock</font></strong>
                 </legend>
 				<?
 				include("sale_bill_auto_stock.php");
@@ -287,7 +287,7 @@
 			case 52:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock HQ � �ѹ��� �ʹ�Թ�������͹���</font></strong>
+       			    <strong><font color="#666666">รายงาน Stock HQ ณ วันที่ ยอดสินค้าเคลื่อนไหว</font></strong>
                 </legend>
 				<?
 				include("sale_bill_productHQ_date.php");
@@ -295,7 +295,7 @@
 			case 54:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock �.�ѹ��� �Ң� �ʹ�Թ�������͹���</font></strong><!--��§ҹ Stock � �ѹ��� Ẻ���-->
+       			    <strong><font color="#666666">รายงาน Stock ณ.วันที่ สาขา ยอดสินค้าเคลื่อนไหว</font></strong><!--รายงาน Stock ณ วันที่ แบบรวม-->
                 </legend>
 				<?
 				include("sale_bill_product_date_group.php");
@@ -303,7 +303,7 @@
 			case 540:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock(��-�Ѻ) �.�ѹ��� �Ң� �ʹ�Թ�������͹���</font></strong><!--��§ҹ Stock � �ѹ��� Ẻ���-->
+       			    <strong><font color="#666666">รายงาน Stock(ส่ง-รับ) ณ.วันที่ สาขา ยอดสินค้าเคลื่อนไหว</font></strong><!--รายงาน Stock ณ วันที่ แบบรวม-->
                 </legend>
 				<?
 				include("sale_bill_product_date_group_r.php");
@@ -311,7 +311,7 @@
 			case 55:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock Card(���)</font></strong>           
+       			    <strong><font color="#666666">รายงาน Stock Card(ขาย)</font></strong>           
                 </legend>
 				<?
 				include("sale_bill_stockcard.php");
@@ -320,7 +320,7 @@
 			case 551:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��¡������͹����Թ��� (Stock Movement)</font></strong>           
+       			    <strong><font color="#666666">รายการเคลื่อนไหวสินค้า (Stock Movement)</font></strong>           
                 </legend>
 				<?
 				include("stock_movement.php");
@@ -329,7 +329,7 @@
 			case 552:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��¡������͹����Թ���(��-�Ѻ) (Stock Movement)</font></strong>           
+       			    <strong><font color="#666666">รายการเคลื่อนไหวสินค้า(ส่ง-รับ) (Stock Movement)</font></strong>           
                 </legend>
 				<?
 				include("stock_r_movement.php");
@@ -338,7 +338,7 @@
 			case 556:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock Card(��-�Ѻ)</font></strong>           
+       			    <strong><font color="#666666">รายงาน Stock Card(ส่ง-รับ)</font></strong>           
                 </legend>
 				<?
 				include("sale_bill_stockcard_r.php");
@@ -347,7 +347,7 @@
 			case 58:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ Stock Card(�觢ͧ)</font></strong>           
+       			    <strong><font color="#666666">รายงาน Stock Card(ส่งของ)</font></strong>           
                 </legend>
 				<?
 				include("sale_bill_stockcardr.php");
@@ -356,7 +356,7 @@
 			case 56:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ��ԡ�ͧ�Ң�</font></strong>           
+       			    <strong><font color="#666666">รายงาน ใบเบิกของสาขา</font></strong>           
                 </legend>
 				<?
 				include("sale_bil_bb.php");
@@ -365,7 +365,7 @@
 			case 5656:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ��ԡ�ͧ�ӹѡ�ҹ�˭�</font></strong>           
+       			    <strong><font color="#666666">รายงาน ใบเบิกของสำนักงานใหญ่</font></strong>           
                 </legend>
 				<?
 				include("sale_bil_bb_hq.php");
@@ -374,7 +374,7 @@
 			case 57:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ��Ѻ�ͧ�Ң�</font></strong>           
+       			    <strong><font color="#666666">รายงาน ใบรับของสาขา</font></strong>           
                 </legend>
 				<?
 				include("sale_bil_br.php");
@@ -382,7 +382,7 @@
 			case 21:
 				?>
 				<legend>
-		           	<strong><font color="#666666">��ŨѴ�� Branch / Stockist &nbsp;&nbsp;</font></strong>          
+		           	<strong><font color="#666666">บิลจัดส่ง Branch / Stockist &nbsp;&nbsp;</font></strong>          
 				 </legend>
 				<?
 				include("sale_stockist.php");
@@ -390,7 +390,7 @@
 			case 22:
 				?>
 				<legend>
-		           	<strong><font color="#666666">��ŨѴ�����׹�ѹ�Ѻ�ͧ Branch / Stockist &nbsp;&nbsp;</font></strong>          
+		           	<strong><font color="#666666">บิลจัดส่งรอยืนยันรับของ Branch / Stockist &nbsp;&nbsp;</font></strong>          
 				 </legend>
 				<?
 				include("ssale_stockist.php");
@@ -398,9 +398,9 @@
 			case 20:
 				?>
 				<legend>
-       			    <strong><font color="#666666"> ��ԡ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666"> ใบเบิก &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="������ԡ" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=20&state=2'>������ԡ</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มใบเบิก" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=20&state=2'>เพิ่มใบเบิก</a>
                    <? }?>              
                 </legend>
 				<?
@@ -409,9 +409,9 @@
 			case 23:
 				?>
 				<legend>
-       			    <strong><font color="#666666"> ��Ѻ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666"> ใบรับ &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="������ԡ" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=23&state=2'>������Ѻ</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มใบเบิก" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=23&state=2'>เพิ่มใบรับ</a>
                    <? }?>              
                 </legend>
 				<?
@@ -419,7 +419,7 @@
 				break;
 			case 148:
 				?>
-                <legend> <strong><font color="#666666">��� Branch / Stockist �Ѻ�ͧ����Ң� (���Ѻ�ͧ)</font></strong> </legend>
+                <legend> <strong><font color="#666666">บิล Branch / Stockist รับของที่สาขา (รอรับของ)</font></strong> </legend>
 				</legend>
 				<?
 				include("stockist_r.php");
@@ -427,7 +427,7 @@
 			case 155:
 				?>
 				<legend>
-       			    <strong><font color="#666666">����觢ͧ/�Ѻ�ͧ ������ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">บิลส่งของ/รับของ ทั้งหมด &nbsp;&nbsp;</font></strong>
                 </legend>
 				<?
 				include("rhold_all.php");
@@ -435,7 +435,7 @@
 			case 156:
 				?>
 				<legend>
-       			    <strong><font color="#666666">����觢ͧ/�Ѻ�ͧ Branch / Stockist ������ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">บิลส่งของ/รับของ Branch / Stockist ทั้งหมด &nbsp;&nbsp;</font></strong>
                 </legend>
 				<?
 				include("rstockist_all.php");
@@ -451,7 +451,7 @@
 			case 777:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ����Թ����������</font></strong>
+       			    <strong><font color="#666666">รายงานยอดขายสินค้าและแพ็คเก็จ</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount_all.php");
@@ -459,9 +459,9 @@
 			case 15:
 				?>
 				<legend>
-       			    <strong><font color="#666666">������Թ���</font></strong>
+       			    <strong><font color="#666666">กลุ่มสินค้า</font></strong>
                     <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" title="������Թ���" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>&state=2'>����������Թ���</a>
+                   <img border="0" src="./images/add.gif" title="กลุ่มสินค้า" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>&state=2'>เพิ่มกลุ่มสินค้า</a>
                    <? }?>  
                 </legend>
                 
@@ -471,9 +471,9 @@
 			case 1:
 				?>
 				<legend>
-		           	<strong><font color="#666666">�������Թ���&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">ข้อมูลสินค้า&nbsp;&nbsp;</font></strong>
                    	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="�����������Թ���" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>�����Թ���</a>
+               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้า</a>
                    <? }?>              
 				</legend>
 				<?
@@ -481,7 +481,7 @@
 				break;
 			case 37:
 				?>
-                <legend> <strong><font color="#666666">�Թ����Ң�</font></strong> </legend>
+                <legend> <strong><font color="#666666">สินค้าสาขา</font></strong> </legend>
 				</legend>
 				<?
 				include("product_invent.php");
@@ -489,9 +489,9 @@
 			case 11:
 				?>
 				<legend>
-		           	<strong><font color="#666666">������ package&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">ข้อมูล package&nbsp;&nbsp;</font></strong>
                    	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="���� package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=11&state=2'>���� package</a>
+               	   	<img border="0" src="./images/add.gif" alt="เพิ่ม package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=11&state=2'>เพิ่ม package</a>
                    <? }?>              
 				</legend>
 				<?
@@ -500,9 +500,9 @@
 			case 12:
 				?>
 				<legend>
-		           <strong><font color="#666666"> �Թ���package&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666"> สินค้าpackage&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="�����������Թ���� package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=12&state=2'>�����������Թ���� package</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้าใน package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=12&state=2'>เพิ่มข้อมูลสินค้าใน package</a>
                    <? }?>      
      			</legend>
 				<?
@@ -510,9 +510,9 @@
 				break;
 			case 60:
 				?>
-				<legend> <strong><font color="#666666">�������Ѻ�Թ������ [Ẻ�Դ���]&nbsp;&nbsp;</font></strong>
+				<legend> <strong><font color="#666666">ข้อมูลรับสินค้าเข้า [แบบเปิดบิล]&nbsp;&nbsp;</font></strong>
 				<? if($acc->isAccess(1)){?>
-				<img border="0" src="./images/add.gif" alt="��������Ѻ�Թ������ [Ẻ�Դ���]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>��������Ѻ�Թ������ [Ẻ�Դ���]</a>
+				<img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]</a>
 				<? }?>
 				</legend>
 				<?
@@ -521,9 +521,9 @@
 			case 138:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ����� �Ң� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    บิลส่ง สาขา &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="��������� �Ң� / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=138&state=2'>��������� �Ң� </a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มบิลส่ง สาขา / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=138&state=2'>เพิ่มบิลส่ง สาขา </a>
                    <? }?>              
                 </legend>
 				<?
@@ -532,7 +532,7 @@
 			case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ�Թ��ҷ��١���</font></strong>
+       			    <strong><font color="#666666">รายงานยอดสินค้าที่ถูกขาย</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -540,7 +540,7 @@
 			case 888:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��ػ�ʹ���  Package �¡�Ң� �¡  Package </font></strong>
+       			    <strong><font color="#666666">สรุปยอดขาย  Package แยกสาขา แยก  Package </font></strong>
                 </legend>
 				<?
 				include("package_sale_amount.php");
@@ -548,7 +548,7 @@
 			case 7777:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�Թ��Ҥ��������������Ң�</font></strong>
+       			    <strong><font color="#666666">รายงานสินค้าคงเหลือรวมแต่ละสาขา</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount_invent.php");
@@ -559,7 +559,7 @@
 			case 2323:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��͹�׹�Թ��Ҩҡ �Ң� -> �ӹѡ�ҹ�˭� &nbsp;&nbsp;</font></strong>            
+       			    <strong><font color="#666666">ใบโอนคืนสินค้าจาก สาขา -> สำนักงานใหญ่ &nbsp;&nbsp;</font></strong>            
                 </legend>
 				 
 				<?

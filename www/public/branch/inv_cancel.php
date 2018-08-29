@@ -25,7 +25,7 @@ $bid = $_GET['bid'];
 	$inv_from =$data->inv_from;
 
 	if($receive != '0'){
-		echo '<script type="text/javascript">alert("�������ö¡��ԡ��Ź���� ���ͧ�ҡ�Ѻ�ͧ����� ")</script>';
+		echo '<script type="text/javascript">alert("ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากรับของไปแล้ว ")</script>';
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=138'</script>";	
 		exit;
 	}
@@ -58,9 +58,9 @@ $bid = $_GET['bid'];
 				updateEwallet($dbprefix,$mcode,$txtInternet);
 				updateVoucher($dbprefix,$mcode,$txtFuture);
 			}
-		echo '¡��ԡ���º����';
+		echo 'ยกเลิกเรียบร้อย';
 	}else{
-		echo '<script type="text/javascript">alert("�������ö¡��ԡ�����")</script>';
+		echo '<script type="text/javascript">alert("ไม่สามารถยกเลิกซ้ำได้")</script>';
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=138'</script>";	
 		exit;
 	}
@@ -69,13 +69,13 @@ $bid = $_GET['bid'];
 		//echo "delete from ".$dbprefix."asaled where sano='$id' ";
 		$sql = "UPDATE ".$dbprefix."isaleh SET cancel='1' WHERE id='$bid' ";
 		mysql_query($sql);
-	logtext(true,$_SESSION['admininvent'],'ź��� id : '.$id.' �Ң� '.$mcode,$row->sano);
+	logtext(true,$_SESSION['admininvent'],'ลบบิล id : '.$id.' สาขา '.$mcode,$row->sano);
 	mysql_free_result($rs);
 	
 	echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=138'</script>";	
 
 
-	// �ʴ���¡�÷��ź
+	// แสดงรายการที่ลบ
 function minusProduct($dbprefix,$pcode,$invent,$qty){
 	//$sql = "update".$dbprefix."product_invent set qty = qty-$qty WHERE pcode='$pcode' and inv_code = '$invent' ";
 	//$rs = mysql_query($sql);
@@ -120,7 +120,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ�͹�Թ�����Ŵ�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิกโอนสินค้าโฮลด์','$uid')";
 				mysql_query($sql);
 
 				
@@ -142,7 +142,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ�͹�Թ�����Ŵ�','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิกโอนสินค้าโฮลด์','$uid')";
 			mysql_query($sql);
 
 			if(empty($invent)){
@@ -176,7 +176,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ�Ѻ�Թ�����Ŵ�','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิกรับสินค้าโฮลด์','$uid')";
 				mysql_query($sql);
 
 				
@@ -197,7 +197,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ�Ѻ�Թ�����Ŵ�','$uid')";
+				  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิกรับสินค้าโฮลด์','$uid')";
 				mysql_query($sql);
 
 

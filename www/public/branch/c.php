@@ -64,7 +64,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 		if($tot_weight >= 0)$shipping = $arr_sending["inbound-pcode"]["price"];
 	
 	/*
-		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '°√ÿß‡∑æ¡À“π§√' or $cprovinceId == ' ¡ÿ∑√ª√“°“√' or $cprovinceId == 'ππ∑∫ÿ√’' or $cprovinceId == 'ª∑ÿ¡∏“π’')$shipping = $arr_sending["inbound-pcode"]["price"];
+		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '‡∏Å‡∏£‡∏∏‡∏á‡πÄ‡∏ó‡∏û‡∏°‡∏´‡∏≤‡∏ô‡∏Ñ‡∏£' or $cprovinceId == '‡∏™‡∏°‡∏∏‡∏ó‡∏£‡∏õ‡∏£‡∏≤‡∏Å‡∏≤‡∏£' or $cprovinceId == '‡∏ô‡∏ô‡∏ó‡∏ö‡∏∏‡∏£‡∏µ' or $cprovinceId == '‡∏õ‡∏ó‡∏∏‡∏°‡∏ò‡∏≤‡∏ô‡∏µ')$shipping = $arr_sending["inbound-pcode"]["price"];
 		else $shipping = $arr_sending["outbound-pcode"]["price"];
 		$tot_weight = $tot_weight-$arr_sending["maxweight"];
 		if($tot_weight >0)$shipping = $shipping+$arr_sending["overweight-pcode"]["price"]*ceil($tot_weight);
@@ -82,9 +82,9 @@ if($shipping > 0){
 
  $sss = '<meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
-'.' '."<font color=#FF0000><b>√“§“√«¡ $sumtotal ∫“∑  PV √«¡ $tot_pv   πÈ”Àπ—°√«¡ $tot_weight1 °‘‚≈°√—¡    §Ë“®—¥ Ëß $shipping ∫“∑  " ;
+'.' '."<font color=#FF0000><b>‡∏£‡∏≤‡∏Ñ‡∏≤‡∏£‡∏ß‡∏° $sumtotal ‡∏ö‡∏≤‡∏ó  PV ‡∏£‡∏ß‡∏° $tot_pv   ‡∏ô‡πâ‡∏≥‡∏´‡∏ô‡∏±‡∏Å‡∏£‡∏ß‡∏° $tot_weight1 ‡∏Å‡∏¥‡πÇ‡∏•‡∏Å‡∏£‡∏±‡∏°    ‡∏Ñ‡πà‡∏≤‡∏à‡∏±‡∏î‡∏™‡πà‡∏á $shipping ‡∏ö‡∏≤‡∏ó  " ;
 if($_SESSION["ajaxcharge"]>0)$sss .= " Charge $shipping ";
-$sss .= " ¬Õ¥√«¡„À¡Ë  $priceprice </b></font>";
+$sss .= " ‡∏¢‡∏≠‡∏î‡∏£‡∏ß‡∏°‡πÉ‡∏´‡∏°‡πà  $priceprice </b></font>";
 echo $sss;}else echo '1';
 //echo '<iframe width="400" height="500" frameborder="0" src="./free_show.php?sqlwhere="'.$sqlwhere.' ></iframe>';
 

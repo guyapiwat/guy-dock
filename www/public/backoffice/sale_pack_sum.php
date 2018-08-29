@@ -5,7 +5,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=33&state=3&bid='+id;
 		}
 	}
@@ -46,11 +46,11 @@ $rsUpdate = mysql_query($sql);
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT cancel,".$dbprefix."asaleh.id,".$dbprefix."asaleh.uid as uid,sano1,DATE_FORMAT(sadate, '%d-%m-%Y') as sadate 
 ,tot_pv,tot_bv,tot_fv,total,name_t,".$dbprefix."asaleh.mcode AS smcode,".$dbprefix."asaleh.sa_type";
-//$sql .= ",CASE sa_type WHEN 'Q' THEN '√—°…“¬Õ¥' ELSE '' END AS sa_type ";
-$sql .= ",CASE sa_type WHEN 'A' THEN '§ÿ≥ ¡∫—µ‘' ELSE '' END AS sa_type ";
-//$sql .= ",CASE sa_type WHEN 'H' THEN '‚Õ≈¬Õ¥' ELSE '' END AS sa_type ";
-//$sql .= ",CASE sa_type WHEN 'I' THEN ' Ëß»Ÿπ¬Ï' ELSE '' END AS sa_type ";
-//$sql .= ",CASE sa_type WHEN 'C' THEN '√—°…“¬Õ¥∑—π∑’' ELSE '' END AS sa_type ";
+//$sql .= ",CASE sa_type WHEN 'Q' THEN '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î' ELSE '' END AS sa_type ";
+$sql .= ",CASE sa_type WHEN 'A' THEN '‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥' ELSE '' END AS sa_type ";
+//$sql .= ",CASE sa_type WHEN 'H' THEN '‡πÇ‡∏≠‡∏•‡∏¢‡∏≠‡∏î' ELSE '' END AS sa_type ";
+//$sql .= ",CASE sa_type WHEN 'I' THEN '‡∏™‡πà‡∏á‡∏®‡∏π‡∏ô‡∏¢‡πå' ELSE '' END AS sa_type ";
+//$sql .= ",CASE sa_type WHEN 'C' THEN '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏±‡∏ô‡∏ó‡∏µ' ELSE '' END AS sa_type ";
 $sql .= " FROM ".$dbprefix."asaleh "; //WHERE smcode='".$_SESSION['usercode']."' 
 $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) where ".$dbprefix."asaleh.sano1  <> '' "; //WHERE smcode='".$_SESSION['usercode']."' 
 
@@ -93,31 +93,31 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sano1,sadate,smcode,name_t,sa_type,tot_pv,total");
 		$rec->setFieldFloatFormat(",,,,,,,,2,2,2,2,");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
-		$rec->setFieldDesc("‡≈¢∑’Ë„∫‡ √Á®,«—π∑’Ë„∫‡ √Á®,√À—  ¡“™‘°,™◊ËÕ ¡“™‘°,ª√–‡¿∑°“√´◊ÈÕ,PV, ®”π«π‡ß‘π");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡πÉ‡∏ö‡πÄ‡∏™‡∏£‡πá‡∏à,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÉ‡∏ö‡πÄ‡∏™‡∏£‡πá‡∏à,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠,PV, ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		$rec->setFieldAlign("center,center,center,left,center,right,right,center,right,right,right,right,right,center");
 		$rec->setFieldSpace("8%,8%,8%,45%,10%,10%,10%,7%,7%,7%,7%,7%,15%,8%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setSearch("sano,".$dbprefix."asaleh.mcode,name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡, “¢“À√◊Õæπ—°ß“π")
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô")
 		$rec->setSearch("sano1,".$dbprefix."asaleh.mcode,name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡, “¢“À√◊Õæπ—°ß“π");
+		$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale11".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale11".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=33");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=33&state=1","post","delfield");
 		}
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","æ‘¡æÏ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		$rec->setSum(true,false,",,,,,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

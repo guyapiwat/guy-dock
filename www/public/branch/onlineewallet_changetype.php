@@ -10,7 +10,7 @@ $id = $_GET['id'];
 	 $sql = "SELECT *  FROM ".$dbprefix."transferewallet_h  WHERE id='".$id."' and cancel = 0 and credittype = '1' ";
 	$rs = mysql_query($sql);
 	if(mysql_num_rows($rs) > 0){
-		 echo "<script language='JavaScript'>alert('��Ź������м�ҹ�ѵ��ôԵ����');window.location='index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."'</script>";
+		 echo "<script language='JavaScript'>alert('บิลนี้ได้ชำระผ่านบัตรเครดิตแล้ว');window.location='index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."'</script>";
 		exit;
 	}
 

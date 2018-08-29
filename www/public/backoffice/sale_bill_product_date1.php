@@ -13,7 +13,7 @@ set_time_limit(0);
 ini_set("memory_limit","10000M");
 
 $time_start = getmicrotime();
-echo "�������äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
 
 require("connectmysql.php");
 //require("./cls/sqlAnalizer.php");
@@ -211,18 +211,18 @@ $_GET['excel'] = '1';
 	if(isset($page))
 		$rec->setCurPage($page);
 	$rec->setShowField("pcode,pdesc,qty,qtys,inv_code");
-	$rec->setFieldDesc("�����Թ���,��������´�Թ���,�ӹǹ(���),�ӹǹ(�Ѻ),�Ң�");
+	$rec->setFieldDesc("รหัสสินค้า,รายละเอียดสินค้า,จำนวน(ขาย),จำนวน(รับ),สาขา");
 	$rec->setFieldFloatFormat(",,0");
 	$rec->setFieldAlign("center,left,right,right,center");
 	$rec->setFieldSpace("10%,60%,10%,10%,10%");
 	$rec->setFieldLink(",");
 //	$rec->setSearch("inv_code");
-//	$rec->setSearchDesc("�Ң�");
+//	$rec->setSearchDesc("สาขา");
 	//$rec->setSum(true,false,",,true,true,true,true");
 	if($_GET['excel']==1){
 		$rec->exportXls("ExportXls","sale_bill_product".date("Ym").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill_product".date("Ym").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 		//$rec->getParam();
 		$rec->setSpace($str);
 	}
@@ -230,14 +230,14 @@ $_GET['excel'] = '1';
 
 	//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","");
 	//$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	//$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+	//$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 	//$rec->setSpace($str);
 	$rec->showRec(1,'SH_QUERY');
 
 $time_end = getmicrotime();
 $time = $time_end - $time_start;
-echo "����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";
+echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
 //echo 'Done';
 $sql = "update ".$dbprefix."propro set propro_calc = '1',propro_time = '$time'	 where id = '$mid' ";
 mysql_query($sql);

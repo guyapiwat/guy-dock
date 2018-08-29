@@ -76,11 +76,11 @@
           </tr>
 		   <tr style="display:none">
             <td width="16%" align="right"><img src="./images/mon.gif" align="absmiddle">&nbsp;&nbsp;</td>
-            <td width="84%"><FONT SIZE="+2" ><B>คอมมิชชั่น</B></FONT></td>
+            <td width="84%"><FONT SIZE="+2" ><B>เธเธญเธกเธกเธดเธเธเธฑเนเธ</B></FONT></td>
           </tr>
 		  <tr style="display:none">
                 <td align="right">&nbsp;</td>
-                <td><img src="./images/rp_pay_s.gif" alt="" align="absmiddle">&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=65">คอมมิชชั่น ค่าคีย?/a></td>
+                <td><img src="./images/rp_pay_s.gif" alt="" align="absmiddle">&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=65">เธเธญเธกเธกเธดเธเธเธฑเนเธ เธเนเธฒเธเธตเธข?/a></td>
            </tr>
         </table>
 		  <br></td>
@@ -103,19 +103,19 @@
 		  </tr>
 		  <tr>
 			<td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-			<td width="84%"><strong>ยืนยันเอกสารการขายแจงยอด</strong></td>
+			<td width="84%"><strong>เธขเธทเธเธขเธฑเธเน€เธญเธเธชเธฒเธฃเธเธฒเธฃเธเธฒเธขเนเธเธเธขเธญเธ”</strong></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">เอกสารที่ยังไม่ได้ยืนยัน</A></td>
+			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">เน€เธญเธเธชเธฒเธฃเธ—เธตเนเธขเธฑเธเนเธกเนเนเธ”เนเธขเธทเธเธขเธฑเธ</A></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">เอกสารที่ยืนยันแล้?/a></td>
+			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">เน€เธญเธเธชเธฒเธฃเธ—เธตเนเธขเธทเธเธขเธฑเธเนเธฅเน?/a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละค?ระหว่างวันที?/td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;เธชเธฃเธธเธเธขเธญเธ”เธเธฒเธข เธเธญเธเธเธเธฑเธเธเธฒเธเนเธ•เนเธฅเธฐเธ?เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธต?/td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
@@ -135,7 +135,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เมนูขา?" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เน€เธกเธเธนเธเธฒ?" /></a>
 
 </td>
 <td width="100%">
@@ -146,9 +146,9 @@
 			case 1:
 				?>
 				<legend>
-		           	<strong><font color="#666666">ข้อมูลสินค้า&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">เธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒ&nbsp;&nbsp;</font></strong>
                    	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้?/a>
+               	   	<img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเน? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เน€เธเธดเนเธกเธชเธดเธเธเน?/a>
                    <? }?>              
       </legend>
 				<?
@@ -157,9 +157,9 @@
 				case 11:
 				?>
 				<legend>
-		           	<strong><font color="#666666">ข้อมูล package&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">เธเนเธญเธกเธนเธฅ package&nbsp;&nbsp;</font></strong>
                    	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="เพิ่?package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=11&state=2'>เพิ่?package</a>
+               	   	<img border="0" src="./images/add.gif" alt="เน€เธเธดเน?package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=11&state=2'>เน€เธเธดเน?package</a>
                    <? }?>              
       </legend>
 				<?
@@ -168,9 +168,9 @@
 			case 12:
 				?>
 				<legend>
-		           <strong><font color="#666666"> สินค้าpackage&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666"> เธชเธดเธเธเนเธฒpackage&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้าใ?package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=12&state=2'>เพิ่มข้อมูลสินค้าใ?package</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเน?package" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=12&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเน?package</a>
                    <? }?>      
      			</legend>
 				<?
@@ -179,9 +179,9 @@
 			case 3:
 				?>
 				<legend>
-		           <strong><font color="#666666">ยืนยันเอกสาร&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666">เธขเธทเธเธขเธฑเธเน€เธญเธเธชเธฒเธฃ&nbsp;&nbsp;</font></strong>
                    <!--<? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้าในสต๊อก" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=3&state=2'>เพิ่มข้อมูลสินค้าในสต๊อก</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเนเธเธชเธ•เนเธญเธ" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=3&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเนเธเธชเธ•เนเธญเธ</a>
                    <? }?>      -->        
      			</legend>
 				<?
@@ -192,9 +192,9 @@
 			case 4:
 				?>
 				<legend>
-		           	<strong><font color="#666666">ข้อมูลสินค้านำเข้า&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">เธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเธเธณเน€เธเนเธฒ&nbsp;&nbsp;</font></strong>
                    <!--<? if($acc->isAccess(1)){?>
-      			   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้านำเข้? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=4&state=2'>เพิ่มข้อมูลสินค้านำเข้?/a>
+      			   	<img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเธเธณเน€เธเน? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=4&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเธเธณเน€เธเน?/a>
                    <? }?>            -->  
       			</legend>
 				<?
@@ -204,9 +204,9 @@
 			case 5:
 				?>
 				<legend>
-		           <strong><font color="#666666">ส่งสินค้าระหว่างสาขา&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666">เธชเนเธเธชเธดเธเธเนเธฒเธฃเธฐเธซเธงเนเธฒเธเธชเธฒเธเธฒ&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มการส่งสินค้าระหว่างสาขา" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=5&state=2'>เพิ่มการส่งสินค้าระหว่างสาขา</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเธฒเธฃเธชเนเธเธชเธดเธเธเนเธฒเธฃเธฐเธซเธงเนเธฒเธเธชเธฒเธเธฒ" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=5&state=2'>เน€เธเธดเนเธกเธเธฒเธฃเธชเนเธเธชเธดเธเธเนเธฒเธฃเธฐเธซเธงเนเธฒเธเธชเธฒเธเธฒ</a>
                    <? }?>              
                 </legend>
 				<?
@@ -215,9 +215,9 @@
 			case 6:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    รายการสั่งซื้อ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    เธฃเธฒเธขเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญ &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขา? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=6&state=2'>เพิ่มข้อมูลการซื้อขา?/a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=6&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ?/a>
                    <? }?>              
                 </legend>
 				<?
@@ -226,7 +226,7 @@
 			case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">รายงานยอดสินค้าที่ถูกขาย</font></strong>
+       			    <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธชเธดเธเธเนเธฒเธ—เธตเนเธ–เธนเธเธเธฒเธข</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -242,7 +242,7 @@
 			case 27:
 				?>
 				<legend>
-       			    <strong><font color="#666666">ใบสรุป รายการรับเงิ?Ewallet ระหว่างวันที?/font> <a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">ใบรายงานสรุปรายวัน รายวัน</a></strong>
+       			    <strong><font color="#666666">เนเธเธชเธฃเธธเธ เธฃเธฒเธขเธเธฒเธฃเธฃเธฑเธเน€เธเธด?Ewallet เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธต?/font> <a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">เนเธเธฃเธฒเธขเธเธฒเธเธชเธฃเธธเธเธฃเธฒเธขเธงเธฑเธ เธฃเธฒเธขเธงเธฑเธ</a></strong>
                 </legend>
 				<?
 				include("sale_bill_ewallet_member1.php");
@@ -250,7 +250,7 @@
 			case 26:
 				?>
 				<legend>
-       			    <strong><font color="#666666">ใบสรุป รายการรับเงิ?Ewallet ระหว่างวันที?/font></strong>
+       			    <strong><font color="#666666">เนเธเธชเธฃเธธเธ เธฃเธฒเธขเธเธฒเธฃเธฃเธฑเธเน€เธเธด?Ewallet เธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธต?/font></strong>
                 </legend>
 				<?
 				include("sale_bill_ewallet_member.php");
@@ -258,7 +258,7 @@
 			case 9:
 				?>
 				<legend>
-       			    <strong><font color="#666666">แจงยอด</font></strong>
+       			    <strong><font color="#666666">เนเธเธเธขเธญเธ”</font></strong>
                 </legend>
 				<?
 				include("sale_hold.php");
@@ -266,7 +266,7 @@
 			case 10:
 				?>
 				<legend>
-       			    <strong><font color="#666666">บิลแจงยอ?/font></strong>
+       			    <strong><font color="#666666">เธเธดเธฅเนเธเธเธขเธญ?/font></strong>
                 </legend>
 				<?
 				include("hold.php");
@@ -274,7 +274,7 @@
 			case 21:
 				?>
 				<legend>
-       			    <strong><font color="#666666">บิลขายแบบคุณสมบัติ</font></strong>
+       			    <strong><font color="#666666">เธเธดเธฅเธเธฒเธขเนเธเธเธเธธเธ“เธชเธกเธเธฑเธ•เธด</font></strong>
                 </legend>
 				<?
 				include("salea.php");
@@ -282,7 +282,7 @@
 			case 24:
 				?>
 				<legend>
-       			    <strong><font color="#666666">ใบสรุป รายการรับเงิ?/font></strong>
+       			    <strong><font color="#666666">เนเธเธชเธฃเธธเธ เธฃเธฒเธขเธเธฒเธฃเธฃเธฑเธเน€เธเธด?/font></strong>
                 </legend>
 				<?
 				include("sale_bill_price.php");
@@ -290,7 +290,7 @@
 			case 22:
 				?>
 				<legend>
-       			    <strong><font color="#666666">บิลขายรักษายอด</font></strong>
+       			    <strong><font color="#666666">เธเธดเธฅเธเธฒเธขเธฃเธฑเธเธฉเธฒเธขเธญเธ”</font></strong>
                 </legend>
 				<?
 				include("saleb.php");
@@ -298,9 +298,9 @@
 			case 23:
 				?>
 				<legend>
-       			    <strong><font color="#666666">   รายงานการเติมเงิ?&nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">   เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเน€เธ•เธดเธกเน€เธเธด?&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขา? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=23&state=2'>เติมเงิน</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=23&state=2'>เน€เธ•เธดเธกเน€เธเธดเธ</a>
 				   
                    <? }?>              
                 </legend>
@@ -310,9 +310,9 @@
 			case 25:
 				?>
 		<legend>
-       			    <strong><font color="#666666">   บิลขายส่?&nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">   เธเธดเธฅเธเธฒเธขเธชเน?&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขายส่ง" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=25&state=2'>สร้างบิลขายส่ง</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒเธขเธชเนเธ" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=25&state=2'>เธชเธฃเนเธฒเธเธเธดเธฅเธเธฒเธขเธชเนเธ</a>
                    <? }?>              
                 </legend>
 				<?
@@ -321,7 +321,7 @@
 			case 28:
 				?>
 				<legend>
-       			    <strong><font color="#666666">รายงานการจัดสินค้าระหว่างบิล</font></strong>
+       			    <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเธเธฑเธ”เธชเธดเธเธเนเธฒเธฃเธฐเธซเธงเนเธฒเธเธเธดเธฅ</font></strong>
                 <br>
                 <?
 				include("sale_w.php");
@@ -329,9 +329,9 @@
 
 			case 30:
 				?>
-                <legend> <strong><font color="#666666">ข้อมูลรับสินค้าเข้?nbsp;&nbsp;</font></strong>
+                <legend> <strong><font color="#666666">เธเนเธญเธกเธนเธฅเธฃเธฑเธเธชเธดเธเธเนเธฒเน€เธเน?nbsp;&nbsp;</font></strong>
                 <? if($acc->isAccess(1)){?>
-                <img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=30&state=2'>เพิ่มการรับสินค้าเข้?/a>
+                <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเธฒเธฃเธฃเธฑเธเธชเธดเธเธเนเธฒเน€เธเน? align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=30&state=2'>เน€เธเธดเนเธกเธเธฒเธฃเธฃเธฑเธเธชเธดเธเธเนเธฒเน€เธเน?/a>
                 <? }?>
                 </legend>
                 <?
@@ -339,14 +339,14 @@
 				break;
 			case 31:
 				?>
-                <legend> <strong><font color="#666666">ข้อมูลสินค้าสาขา</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒเธชเธฒเธเธฒ</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_bill.php");
 				break;
 			case 32:
 				?>
-                <legend> <strong><font color="#666666">บิลขาย</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธเธดเธฅเธเธฒเธข</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_pack.php");
@@ -354,56 +354,56 @@
 			case 33:
 
 				?>
-                <legend> <strong><font color="#666666">บิลสรรพากร</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธเธดเธฅเธชเธฃเธฃเธเธฒเธเธฃ</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_pack_sum.php");
 				break;
 			case 34:
 				?>
-                <legend> <strong><font color="#666666">รายงานยอดบิลสรรพาก?/font></strong> </legend>
+                <legend> <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธดเธฅเธชเธฃเธฃเธเธฒเธ?/font></strong> </legend>
 				</legend>
 				<?
 				include("product_sale_amount1.php");
 				break;
 			case 35:
 				?>
-                <legend> <strong><font color="#666666">ยอดขายสินค้า(ตามบิล)</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ(เธ•เธฒเธกเธเธดเธฅ)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_held.php");
 				break;
 			case 36:
 				?>
-                <legend> <strong><font color="#666666">ยอดขายสินค้า</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_held_sum.php");
 				break;
 			case 37:
 				?>
-                <legend> <strong><font color="#666666">สินค้าสาขา</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธชเธดเธเธเนเธฒเธชเธฒเธเธฒ</font></strong> </legend>
 				</legend>
 				<?
 				include("product_invent.php");
 				break;
 			case 38:
 				?>
-                <legend> <strong><font color="#666666">สรุปบิลขายสมาชิก</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธชเธฃเธธเธเธเธดเธฅเธเธฒเธขเธชเธกเธฒเธเธดเธ</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_all.php");
 				break;
 			case 40:
 				?>
-                <legend> <strong><font color="#666666">ยอดขายสินค้า(บิ?Hold)</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ(เธเธด?Hold)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_heldd.php");
 				break;
 			case 41:
 				?>
-                <legend> <strong><font color="#666666">ยอดขายสินค้า(บิ?Hold)</font></strong> </legend>
+                <legend> <strong><font color="#666666">เธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒ(เธเธด?Hold)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_heldd_sum.php");
@@ -411,9 +411,9 @@
 			case 138:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    รายการสั่งซื้อ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    เธฃเธฒเธขเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญ &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขา? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=138&state=2'>เพิ่มข้อมูลการซื้อขา?/a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=138&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ?/a>
                    <? }?>              
                 </legend>
 				<?
@@ -421,21 +421,21 @@
 				break;
 			case 141:
 				?>
-                <legend> <strong><font color="#666666">บิลระหว่างศูนย?/font></strong> </legend>
+                <legend> <strong><font color="#666666">เธเธดเธฅเธฃเธฐเธซเธงเนเธฒเธเธจเธนเธเธข?/font></strong> </legend>
 				</legend>
 				<?
 				include("inv_m.php");
 				break;
 			case 142:
 				?>
-                <legend> <strong><font color="#666666">ใบสรุป การใช้จ่าย Ewallet ของสาข?</font></strong> </legend>
+                <legend> <strong><font color="#666666">เนเธเธชเธฃเธธเธ เธเธฒเธฃเนเธเนเธเนเธฒเธข Ewallet เธเธญเธเธชเธฒเธ?</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_report_ewallet.php");
 				break;
 			case 143:
 				?>
-                <legend> <strong><font color="#666666">ใบสรุป การใช้จ่าย Ewallet ของสาข?</font></strong> </legend>
+                <legend> <strong><font color="#666666">เนเธเธชเธฃเธธเธ เธเธฒเธฃเนเธเนเธเนเธฒเธข Ewallet เธเธญเธเธชเธฒเธ?</font></strong> </legend>
 				</legend>
 				<?
 				include("log_ewallet.php");
@@ -444,9 +444,9 @@
 			case 144:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    รายการสั่งซื้อ Autoship &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    เธฃเธฒเธขเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญ Autoship &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขา? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=144&state=2'>เพิ่มข้อมูลการซื้อขา?Autoship</a>
+                   <img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=144&state=2'>เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธทเนเธญเธเธฒ?Autoship</a>
                    <? }?>              
                 </legend>
 				<?
@@ -455,9 +455,9 @@
 			case 15:
 				?>
 				<legend>
-       			    <strong><font color="#666666">กลุ่มสินค้?/font></strong>
+       			    <strong><font color="#666666">เธเธฅเธธเนเธกเธชเธดเธเธเน?/font></strong>
                     <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" title="กลุ่มสินค้? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>&state=2'>เพิ่มกลุ่มสินค้า</a>
+                   <img border="0" src="./images/add.gif" title="เธเธฅเธธเนเธกเธชเธดเธเธเน? height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$_GET['sub']?>&state=2'>เน€เธเธดเนเธกเธเธฅเธธเนเธกเธชเธดเธเธเนเธฒ</a>
                    <? }?>  
                 </legend>
                 
@@ -467,7 +467,7 @@
 			case 16:
 				?>
 				<legend>
-       			    <strong><font color="#666666">บิลจัดส่?/font></strong>
+       			    <strong><font color="#666666">เธเธดเธฅเธเธฑเธ”เธชเน?/font></strong>
                 </legend>
                 
 				<?
@@ -500,7 +500,7 @@
 			case 65:
 				?>
 				<legend>
-       			    <strong><font color="#666666">โบนัสค่าคีย์</font></strong>
+       			    <strong><font color="#666666">เนเธเธเธฑเธชเธเนเธฒเธเธตเธขเน</font></strong>
                 </legend>
 				<?
 				include("./comsn/com_a/rep_fmbonus_comsn.php");
@@ -508,19 +508,19 @@
 			case 66:
 				?>
 				<legend>
-       			    <strong><font color="#666666">โบนัสค่าคีย์</font></strong>
+       			    <strong><font color="#666666">เนเธเธเธฑเธชเธเนเธฒเธเธตเธขเน</font></strong>
                 </legend>
 				<?
 				include("./comsn/com_a/rep_fc_comsn.php");
 				break;
 			case 222:
 			?>
-			<legend><strong><font color="#666666">รายละเอียดบิ?nbsp;&nbsp;</font></strong></legend><?
+			<legend><strong><font color="#666666">เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธเธด?nbsp;&nbsp;</font></strong></legend><?
 			include("./comsn/com_a/rep_bc_comsn2.php");
 			break;
 			case 114:
 			?>
-			<legend><strong><font color="#666666">รายละเอียดบิ?nbsp;&nbsp;</font></strong></legend><?
+			<legend><strong><font color="#666666">เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธเธด?nbsp;&nbsp;</font></strong></legend><?
 			include("./comsn/com_a/rep_bc_comsn3.php");
 			break;
 			case 115:

@@ -1,7 +1,7 @@
 <script language="javascript" type="text/javascript">
 
 	function sale_cancel(id){
-		if(confirm("ต้องการยกเลิกบิลนี้")){
+		if(confirm("เธ•เนเธญเธเธเธฒเธฃเธขเธเน€เธฅเธดเธเธเธดเธฅเธเธตเน")){
 			window.location='index.php?sessiontab=4&sub=2008&state=3&bid='+id;
 		}
 	}
@@ -23,7 +23,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -40,7 +40,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -94,11 +94,11 @@ if($fmcode != '' )$sql .= " and ".$dbprefix."adjust.mcode = '$fmcode'";
             $rec->setCurPage($page);
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtoption,uid");
         $rec->setFieldFloatFormat(",,,,2,,,,,,,");
-        $rec->setFieldDesc("วันที่จ่าย,เลขบิล,รหัสสมาชิก,ชื่อสมาชิก,Adjust,หมายเหตุ,สาขา หรือ พนักงาน");
+        $rec->setFieldDesc("เธงเธฑเธเธ—เธตเนเธเนเธฒเธข,เน€เธฅเธเธเธดเธฅ,เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,Adjust,เธซเธกเธฒเธขเน€เธซเธ•เธธ,เธชเธฒเธเธฒ เธซเธฃเธทเธญ เธเธเธฑเธเธเธฒเธ");
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,right,center");
         $rec->setFieldSpace("10%,10%,%10%,15%,10%,30%,5%");
         $rec->setSum(true,false,",,,,true,,,,,,");
-        $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
+        $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","เธขเธเน€เธฅเธดเธ");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         $rec->showRec(1,'SH_QUERY');
     }

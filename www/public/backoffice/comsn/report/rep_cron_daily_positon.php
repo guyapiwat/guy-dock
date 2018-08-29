@@ -23,7 +23,7 @@ if(isset($page))
 	$rec->setCurPage($page);
 //$rec->setShowIndex(true);
 $rec->setShowField("start_cron_cal,finish_cron_cal");
-$rec->setFieldDesc("�ѹ-���ҷ�������,�ѹ-���ҷ������ش");
+$rec->setFieldDesc("วัน-เวลาที่เริ่ม,วัน-เวลาที่สิ้นสุด");
 $rec->setFieldAlign("center,center");
 //$rec->setFieldSpace("5%,15%,15%,40%,10%,20%");//10
 $rec->setSum(true,false,",,");
@@ -31,14 +31,14 @@ $rec->setFieldFloatFormat(",,");
 if($_GET['excel']==1){
 	$rec->exportXls("ExportXls","cron_daily_positon".date("Ymd").".xls","SH_QUERY");
 	$str = "<fieldset><a href='".$rec->download("ExportXls","cron_daily_positon".date("Ymd").".xls")."' >";
-	$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 	$rec->getParam();
 	$rec->setSpace($str);
 }
-//		$rec->setSpecial("","","","","NUMROW","�ӴѺ");
+//		$rec->setSpecial("","","","","NUMROW","ลำดับ");
 
 $str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 if(isset($_POST['skey']))
 	$rec->setCause($_POST['skey'],$_POST['scause']);
 else if(isset($_GET['skey']))

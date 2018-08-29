@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-//  ไม่ไปเอาจาก cache
+//  เนเธกเนเนเธเน€เธญเธฒเธเธฒเธ cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //กำหนด header ตอนรับ
+  //เธเธณเธซเธเธ” header เธ•เธญเธเธฃเธฑเธ
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -34,15 +34,15 @@ if(!empty($value) and isLine($dbprefix,$value,$value1) ){
 			}
 		}
 		else{
-			echo "FULL:ใต้ผู้แนะนำรหัส ".$object->sp_code2." เต็ม";
+			echo "FULL:เนเธ•เนเธเธนเนเนเธเธฐเธเธณเธฃเธซเธฑเธช ".$object->sp_code2." เน€เธ•เนเธก";
 		}
 	}
 	else{
-		echo "NODATA:ไม่อยู่ในสายงาน";
+		echo "NODATA:เนเธกเนเธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธ";
 	}
 }
 else{
-	echo "CANNOTFOUND:ไม่อยู่ในสายงาน";
+	echo "CANNOTFOUND:เนเธกเนเธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธ";
 }
  
  

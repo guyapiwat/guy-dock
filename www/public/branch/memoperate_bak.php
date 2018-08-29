@@ -195,11 +195,11 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 	//	$code = mysql_result($rs,0,'code');
 	//	$mcode11 = gencode($code+1);
 		//if(mysql_num_rows($rs) > 0){
-		//	echo "<script language='JavaScript'>alert('������Ҫԡ��ӡ�س���Ѥ��ա�ͺ');window.location='index.php?sessiontab=3&sub=666&state=2'</script>";	
+		//	echo "<script language='JavaScript'>alert('รหัสสมาชิกซ้ำกรุณาสมัครอีกรอบ');window.location='index.php?sessiontab=3&sub=666&state=2'</script>";	
 		//}
 		$result1=mysql_query("select * from ".$dbprefix."member where id_card = '$id_card'");
 		if(mysql_num_rows($result1) > 0){
-				echo "<script language='JavaScript'>alert('���ʺѵû�ЪҢ������ӡ����Ѥ�����º��������');window.location='index.php?sessiontab=3&sub=666'</script>";	
+				echo "<script language='JavaScript'>alert('รหัสบัตรประชาขนนี้ได้ทำการสมัครไปเรียบร้อยแล้ว');window.location='index.php?sessiontab=3&sub=666'</script>";	
 				exit;
 		}
 		$sql = "SELECT MAX(mcode) AS code FROM ".$dbprefix."member ";
@@ -229,7 +229,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		if (! mysql_query($sql)) {
 //			echo "<font color='#FF0000'>error</font><br>";
 //			echo  "$sql";	
-			echo "<script language='JavaScript'>alert('����ͼԴ��Ҵ㹡�úѹ�֡��س��ͧ�����ա����')window.location='index.php?sessiontab=3&sub=666&state=2'</script>";	
+			echo "<script language='JavaScript'>alert('พบข้อผิดพลาดในการบันทึกกรุณาลองใหม่อีกครั้ง')window.location='index.php?sessiontab=3&sub=666&state=2'</script>";	
 			exit;
 
 		}else {
@@ -240,12 +240,12 @@ writelogfile($text);
 					if(!empty($mobile)){
 						$msisdn = $mobile;
 						$subname = substr($name_t,0,15);
-					$message = "�Թ�յ�͹�Ѻ��� SUCCESSMORE
-���� $name_t 
-���� $mcode
-���ʼ�ҹ $sv_code
-���͡��á�͹ ".date("d-m-Y",strtotime("+1 Month",strtotime($mdate)))." ";
-						//$message = "�Թ�յ�͹�Ѻ��� �Ѥ������ ����� ���� : ".$mcode." ���ʼ�ҹ : ".$sv_code;
+					$message = "ยินดีต้อนรับสู่ SUCCESSMORE
+ชื่อ $name_t 
+รหัส $mcode
+รหัสผ่าน $sv_code
+ส่งเอกสารก่อน ".date("d-m-Y",strtotime("+1 Month",strtotime($mdate)))." ";
+						//$message = "ยินดีต้อนรับสู่ ซัคเซสมอร์ บีอิ้ง รหัส : ".$mcode." รหัสผ่าน : ".$sv_code;
 						sendsms($dbprefix,$msisdn,$message,$ScheduledDelivery="",$mcode);
 					}
 				//}
@@ -256,33 +256,33 @@ writelogfile($text);
 			//$strHeader .= "MIME-Version: 1.0' . \r\n";
 			$strHeader = "Content-type: text/html; charset=windows-874\r\n"; 
 			$strHeader .= "From: SUCCESSMORE Information<info@successmore.com>";
-			//$strVar = "��ͤ���������";
-			$strMessage = "�Թ�յ�͹�Ѻ��� SUCCESSMORE
-				<br><br> ������Ҫԡ�ͧ�س��� : $mcode 
-				<br> ���ͼ����Ѥ���ѡ : $name_f $name_t
-				<br> ���ʼ�ҹ����Ѻ����к� Online : ��� 4 ��Ƿ��¢ͧ�����Ţ�ѵû�ЪҪ��ͧ�����Ѥ���ѡ  
-				<br><br> ��ҹ����ö�������к� SUCCESSMORE Online Member Service ������觫����Թ���,��Ѥ���Ҫԡ����,��⺹�� ���ʹ���ͧ��âͧ��ҹ���� <br> <a href='http://www.successmore.com'>www.successmore.com</a>
-				<br> ��س������Ѥ�����͡��û�Сͺ�����Ѥ������ѹ���  ".date("d-m-Y",strtotime("+1 Month",strtotime($mdate)))."
-				<br><br> �ҡ�դӶ�����͢��ʧ��»�С��� ��سҵԴ���
-				<br><br> Ἱ������١��� ( Customer Support )
-				<br> ����ѷ �Ѥ������ ����駤� �ӡѴ
-				<br> ���Ѿ�� 02-5415655 
+			//$strVar = "ข้อความภาษาไทย";
+			$strMessage = "ยินดีต้อนรับสู่ SUCCESSMORE
+				<br><br> รหัสสมาชิกของคุณคือ : $mcode 
+				<br> ชื่อผู้สมัครหลัก : $name_f $name_t
+				<br> รหัสผ่านสำหรับเข้าระบบ Online : คือ 4 ตัวท้ายของหมายเลขบัตรประชาชนของผู้สมัครหลัก  
+				<br><br> ท่านสามารถเข้าสู่ระบบ SUCCESSMORE Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่ <br> <a href='http://www.successmore.com'>www.successmore.com</a>
+				<br> กรุณาส่งใบสมัครและเอกสารประกอบการสมัครภายในวันที่  ".date("d-m-Y",strtotime("+1 Month",strtotime($mdate)))."
+				<br><br> หากมีคำถามหรือข้อสงสัยประการใด กรุณาติดต่อ
+				<br><br> แผนกดูแลลูกค้า ( Customer Support )
+				<br> บริษัท ซัคเซสมอร์ บีอิ้งค์ จำกัด
+				<br> โทรศัพท์ 02-5415655 
 				<br> Fax 02-5415653 
 				<br> Email : <a href='mailto:support@successmore.com'>support@successmore.com</a>
 				<br><Br>SUCCESSMORE
-				<br> �Inspiration for your Being� 
-				<br> ��ç�ѹ���㨷������¹���Ե�س�� ";
+				<br> “Inspiration for your Being” 
+				<br> “แรงบันดาลใจที่เปลี่ยนชีวิตคุณได้” ";
 			$flgSend = @mail($strTo,$strSubject,$strMessage,$strHeader);
 			//	mail("$email","","From:Webmaster<webmaster@cabnetsystem.com>","webmaster@cabnetsystem.com");
 		}
 			$select = "select max(id) as id from  ".$dbprefix."member ";
 			$rs = mysql_query($select);
 			$idi = mysql_result($rs,0,'id');
-			logtext(true,$_SESSION['admininvent'],'������Ҫԡ',$idi);
+			logtext(true,$_SESSION['admininvent'],'เพิ่มสมาชิก',$idi);
 			$sql = "INSERT INTO ".$dbprefix."expdate (mid,exp_date,date_change) VALUES('".$idi."',ADDDATE('".$mdate."', INTERVAL 1 YEAR),'".date("Y-m-d")."')";
 			mysql_query($sql);
 			if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -292,7 +292,7 @@ writelogfile($text);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -333,7 +333,7 @@ writelogfile($text);
 						}else{
 							$chkCredit1 = 'on';$txtCredit1 = $total;
 						}
-						logtext(true,$_SESSION['admininvent'],'�Ң��������',$mid);
+						logtext(true,$_SESSION['admininvent'],'สาขาเพิ่มบิล',$mid);
 						$inv_code = $_SESSION['admininvent'];
 						$sql="insert into ".$dbprefix."asaleh (id,  name_t,sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv, uid,remark,txtInternet,chkInternet,txtCash,chkCash,txtCredit1,chkCredit1 ,send,scheck,lid,checkportal) values ('$mid' ,'$name_t','$sano' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv' ,'".$_SESSION['inv_usercode']."','','$txtInternet','$chkInternet','$txtCash','$chkCash','$txtCredit1','$chkCredit1','2','register','".$_SESSION['admininvent']."','2') ";						//====================LOG===========================
 					$text="uid=".$_SESSION["inv_usercode"]." action=saleoperate =>$sql";
@@ -456,7 +456,7 @@ writelogfile($text);
 
 	//echo $zip;
 	//exit;
-		logtext1(true,$_SESSION['inv_usercode'],'�����Ҫԡ',$oid,$objtext);
+		logtext1(true,$_SESSION['inv_usercode'],'แก้ไขสมาชิก',$oid,$objtext);
 		//$acc_no = $acc_no_1.$acc_no_2.$acc_no_3.$acc_no_4.$acc_no_5.$acc_no_6.$acc_no_7.$acc_no_8.$acc_no_9.$acc_no_10;
 		//echo $zip;
 		//exit;
@@ -518,7 +518,7 @@ writelogfile($text);
 
 		mysql_query($sql);*/
 		if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -528,7 +528,7 @@ writelogfile($text);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -611,7 +611,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -632,7 +632,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -665,7 +665,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 				mysql_query($sql);
 
 
@@ -679,7 +679,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";

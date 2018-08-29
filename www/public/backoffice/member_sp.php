@@ -54,33 +54,33 @@
 <table style="margin-left:20;" width="1000" border="0">
   <tr valign="top"><td width="850" align="center" ><fieldset>
 	<input size="14" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="���͡�ѹ���" /></a>   <!-- �֧
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>   <!-- ถึง
 	<input size="14" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="���͡�ѹ���" /></a>
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>
   <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>���§����Ţ���</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>���§����Թ���</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>���§�����Ҫԡ</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
     </select>
-	Ἱ
+	แผน
 	<select name="satype">
-				 <option  value="" <?=($satype==""?"selected":"")?>>������</option>
-                <option  value="A" <?=($satype=="A"?"selected":"")?>>Ἱ A</option>
-                <option value="Q" <?=($satype=="Q"?"selected":"")?>>�ѡ���ʹ</option>
-				<option value="C" <?=($satype=="C"?"selected":"")?>>�ѡ���ʹ�ѹ��</option>
+				 <option  value="" <?=($satype==""?"selected":"")?>>ทั้งหมด</option>
+                <option  value="A" <?=($satype=="A"?"selected":"")?>>แผน A</option>
+                <option value="Q" <?=($satype=="Q"?"selected":"")?>>รักษายอด</option>
+				<option value="C" <?=($satype=="C"?"selected":"")?>>รักษายอดทันที</option>
               </select>
-	��Դ
+	ชนิด
 	<select name="sbtype">
-				 <option  value="" <?=($sbtype==""?"selected":"")?>>������</option>
-                <option  value="����͹�Ź�" <?=($sbtype=="����͹�Ź�"?"selected":"")?>>����͹�Ź�</option>
-                <option value="��Ţ�»���" <?=($sbtype=="��Ţ�»���"?"selected":"")?>>��Ţ�»���</option>
-				<option value="���ᨧ�ʹ" <?=($sbtype=="���ᨧ�ʹ"?"selected":"")?>>���ᨧ�ʹ</option>
+				 <option  value="" <?=($sbtype==""?"selected":"")?>>ทั้งหมด</option>
+                <option  value="บิลออนไลน์" <?=($sbtype=="บิลออนไลน์"?"selected":"")?>>บิลออนไลน์</option>
+                <option value="บิลขายปกติ" <?=($sbtype=="บิลขายปกติ"?"selected":"")?>>บิลขายปกติ</option>
+				<option value="บิลแจงยอด" <?=($sbtype=="บิลแจงยอด"?"selected":"")?>>บิลแจงยอด</option>
               </select>-->
 	<input type="text" name="strSearch" value="<?=$strSearch?>">
 	<select name="strtype">
-				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>������Ҫԡ</option>
+				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>รหัสสมาชิก</option>
               </select>
-    <input type="submit" value="��" />
+    <input type="submit" value="ค้น" />
 </fieldset></td>
 <td align="center" width="110"></td>
 </tr></table>

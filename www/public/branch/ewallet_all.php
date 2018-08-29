@@ -18,9 +18,9 @@ $where_bills = findBills("sano","ewa",$bills);
 	}
 	function sale_cancel(id){
 		if(confirm("<?=$wording_lan['Bill_21']?>")){
-			var remark = prompt("��سҡ�͡�����˵� ���","");
+			var remark = prompt("กรุณากรอกหมายเหตุ ค่ะ","");
 			if(remark == ""){
-				alert("�س������͡�����˵� ���");
+				alert("คุณไม่ได้กรอกหมายเหตุ ค่ะ");
 			}
 			else{
 				window.location='index.php?sessiontab=3&sub=148&state=3&bid='+id+'&remark='+remark;
@@ -40,6 +40,8 @@ $where_bills = findBills("sano","ewa",$bills);
 require("connectmysql.php");
 
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
+$charset = "SET NAMES 'UTF8'"; 
+mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 
  $set_payment = query("*",'ali_payment pm '," 1=1 and pm.shows_ewallet = 1 ORDER BY pm.id"); 
  foreach($set_payment as $key => $val):
@@ -117,19 +119,19 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
         $rec->setFieldFloatFormat(",,,,2".$Format.",,,");
         $rec->setSum(true,false,",,,,true".$Sum.",");
 		
-	//	$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,��ѡ�ҹ,�Ң�,��ͧ�ҧ");
-	$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_14"].",".$wording_lan["Billjang_15"].",".$wording_lan["Billjang_16"].",�����˵�");
+	//	$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,พนักงาน,สาขา,ช่องทาง");
+	$rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_14"].",".$wording_lan["Billjang_15"].",".$wording_lan["Billjang_16"].",หมายเหตุ");
 		
 		$rec->setFieldAlign("center,left,center,left,right,right,right,right,right,right,center,center");
 	//	$rec->setFieldSpace("6%,12%,6%,23%,8%,8%,8%,8%,8%,8%,8%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 		$rec->setSearch("sano,ewa.mcode,name_t,txtMoney,uid");
-		//$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+		//$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
 		$rec->setSearchDesc($wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"].",".$wording_lan["Bill_25"]); 
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE",$wording_lan["Bill_print"]);
 		//$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE",$wording_lan["Bill_view"]);
 		if($acc->isAccess(4) and $_SESSION["inventobj6"] == '15'){
-		   $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		   $rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 
 		//	$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE",$wording_lan["Bill_cancle"]);
 		}		//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
@@ -151,7 +153,7 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		$str .= "<img border='0' src='./images/excel.gif'>".$wording_lan["Billjang_cre"]." Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='http:../invoice/eprint_sale_branch.php?bid=$bills' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."asaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."asaleh.mcode AS smcode";

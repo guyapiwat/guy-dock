@@ -1,5 +1,5 @@
 <?	
-	$thaimonth=array("���Ҥ�","����Ҿѹ��","�չҤ�","����¹","����Ҥ�","�Զع�¹","�á�Ҥ�","�ԧ�Ҥ�","�ѹ��¹","���Ҥ�","��Ȩԡ�¹","�ѹ�Ҥ�");
+	$thaimonth=array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม");
 	 
 
 	if(!isset($_GET['sub'])){
@@ -12,10 +12,10 @@
 
 <table width="98%" border="0" cellpadding="0" cellspacing="0">
 	<tr>
-		<td  valign="top" colspan="2"><img src="images/sales.gif" border="0" align="absmiddle"><FONT SIZE="+2" ><B>��� Sales</B></FONT><br /><br /></td>
+		<td  valign="top" colspan="2"><img src="images/sales.gif" border="0" align="absmiddle"><FONT SIZE="+2" ><B>ขาย Sales</B></FONT><br /><br /></td>
 	</tr>
 	<tr>
-		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>���ʼ���� :</strong> ".$_SESSION["adminusercode"]." <strong>���ͼ���� :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+		<td height="28" colspan="2"><img src="images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 	</tr>
 	<tr>
 		<td width="50%" valign="top">
@@ -30,69 +30,69 @@
 		   
           <tr>
 			<td width="16%" align="right"><img src="images/6_20_s.gif" width="24" height="24" />&nbsp;&nbsp;</td>
-			<td width="84%"><strong>��Ţ�� (���觫����Թ��Ңͧ��Ҫԡ)</strong></td>
+			<td width="84%"><strong>บิลขาย (ใบสั่งซื้อสินค้าของสมาชิก)</strong></td>
 		  </tr>
 		   <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=6">��Ţ��</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=6">บิลขาย</a></td>
 		  </tr>
 <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=16">��ŨѴ��</a></td>
+			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=16">บิลจัดส่ง</a></td>
 		  </tr>
 <tr style="">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=10">���ᨧ�ʹ</a></td>
+			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=10">บิลแจงยอด</a></td>
 		  </tr>
 <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/hold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">ᨧ�ʹ</a></td>
+			<td width="84%"><img src="./images/hold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">แจงยอด</a></td>
 		  </tr>
 		  <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">��¡��ᨧ�ʹ�Թ��Ҥ������</a></td>
+			<td width="84%"><img src="./images/billhold_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">รายการแจงยอดสินค้าคงเหลือ</a></td>
 		</tr>
 		 
             <tr style="display:none">
 		     <td align="right">&nbsp;</td>
-		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=141">��������ҧ�ٹ��</a></td>
+		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=141">บิลระหว่างศูนย์</a></td>
 		     </tr>
 			 <tr style="display:none" >
 		     <td align="right">&nbsp;</td>
-		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=144">��� Autoship</a></td>
+		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=144">บิล Autoship</a></td>
 		     </tr>
           <!--  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=36">��Ţ������þҡ�</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=36">บิลขายส่งสรรพากร</a></td>
 		  </tr>-->
            
           <tr  >
 			<td width="16%" align="right"><img src="images/6_20_s.gif" width="24" height="24" />&nbsp;&nbsp;</td>
-			<td width="84%"><strong>�ѭ���Թʴ��ǹ���(Ewallet),(Eautoship)</strong></td>
+			<td width="84%"><strong>บัญชีเงินสดส่วนตัว(Ewallet),(Eautoship)</strong></td>
 		  </tr>
 		   <tr  style="display:none"  >
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=23&state=2">����Թ</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=23&state=2">เติมเงิน</a></td>
 		  </tr>
 		   <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=17">��¡������Թ Ewallet ������</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=17">รายการเติมเงิน Ewallet ทั้งหมด</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=177">��¡������Թ Eautoship ������</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=177">รายการเติมเงิน Eautoship ทั้งหมด</a></td>
 		  </tr>
            <tr  style="display:none"  >
              <td align="right">&nbsp;</td>
-             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=23">��¡������Թ</a></td>
+             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=23">รายการเติมเงิน</a></td>
            </tr>
 		  <tr style="display:none"  >
 		   <td width="16%" align="right">&nbsp;</td>
-		    <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=149">��¡���͹�Թ Ewallet ��Ҫԡ</a></td>
+		    <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=149">รายการโอนเงิน Ewallet สมาชิก</a></td>
 		 </tr>
 		 <tr  style="display:none">
 		   <td width="16%" align="right">&nbsp;</td>
-		    <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=150">��¡�ö͹�Թ Ewallet ��Ҫԡ</a></td>
+		    <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=<?=$sesstab?>&sub=150">รายการถอนเงิน Ewallet สมาชิก</a></td>
 		 </tr>
 		 
 	<tr style="display:none">
@@ -102,25 +102,25 @@
 
              <tr style="display:none">
              <td align="right">&nbsp;</td>
-             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=234">��¡�� Ecom</a></td>
+             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=234">รายการ Ecom</a></td>
            </tr>
              <tr  style="display:none" >
              <td align="right">&nbsp;</td>
-             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=2345">��§ҹ Evoucher</a></td>
+             <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=2345">รายงาน Evoucher</a></td>
            </tr>
            
 		   
 		   <tr style="display:none">
              <td align="right"><img src="images/6_20_s.gif" width="24" height="24" />&nbsp;&nbsp;</td>
-		     <td><strong>��§ҹ Hold ��§ҹ</strong></td>
+		     <td><strong>รายงาน Hold รายงาน</strong></td>
 		     </tr>
 		   <tr style="display:none">
              <td align="right">&nbsp;</td>
-		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=42">�ʹ����</a></td>
+		     <td><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=42">ยอดซื้อ</a></td>
 		     </tr>
 		   <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">�ʹᨧ </a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=9">ยอดแจง </a></td>
 		  </tr>
 		  <tr>
 			<td colspan="2">&nbsp;</td>
@@ -156,7 +156,7 @@
 		  </tr>
 		  <tr>
 			<td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-			<td width="84%"><strong>��§ҹ</strong></td>
+			<td width="84%"><strong>รายงาน</strong></td>
 		  </tr>
 		  <tr style="display:none" bordercolor="#FF7F00">
             <td align="right">&nbsp;</td>
@@ -169,66 +169,66 @@
 		  
 		  <tr style="display:none">
 		    <td align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">��§ҹ�Թ��Ҥ��������������Ң�</A></td>
+		    <td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">รายงานสินค้าคงเหลือรวมแต่ละสาขา</A></td>
 		    </tr>
 		   <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=20">�ʹ�Թ��ҷ��١���͡</A></td>
+			<td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=20">ยอดสินค้าที่ถูกส่งออก</A></td>
 		  </tr>
             
            <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=28">��§ҹ��â�������Ѥ���Ҫԡ</A></td>
+			<td width="84%"><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=28">รายงานการขายและสมัครสมาชิก</A></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=8">��§ҹ��â�������Ѥ���Ҫԡ</a></td>
+			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=8">รายงานการขายและสมัครสมาชิก</a></td>
 		  </tr>
 		  <tr style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=8&stype=2">��§ҹ��¡�â�������Ѥ���Ҫԡ(Base Currency)</a></td>
+			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=8&stype=2">รายงานรายการขายและสมัครสมาชิก(Base Currency)</a></td>
 		  </tr>
   <tr  style="display:none">
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=17&stype=2">��§ҹ��¡������Թ �ѭ���Թʴ��ǹ���(Base Currency)</a></td>
+			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=17&stype=2">รายงานรายการเติมเงิน บัญชีเงินสดส่วนตัว(Base Currency)</a></td>
 		  </tr>
   <tr  style="display:none" >
     <td align="right">&nbsp;</td>
-    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./sell_print_uidp.php" target="_blank">��§ҹ����Ѻ�����Թ��Ш��ѹ �¡����ҹ�������л�������ê���(���)</a></td>
+    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./sell_print_uidp.php" target="_blank">รายงานการรับชำระเงินประจำวัน แยกตามเคาน์เตอร์และประเภทการชำระ(ขาย)</a></td>
   </tr>
    <tr  style="display:none" >
     <td align="right">&nbsp;</td>
-    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./sell_print_uidp_e.php" target="_blank">��§ҹ����Ѻ�����Թ��Ш��ѹ �¡����ҹ�������л�������ê���(����Թ)</a></td>
+    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./sell_print_uidp_e.php" target="_blank">รายงานการรับชำระเงินประจำวัน แยกตามเคาน์เตอร์และประเภทการชำระ(เติมเงิน)</a></td>
   </tr>
        
 		 <!--  <tr >
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">���ػ �������� Ewallet �ͧ�Ң�1</a></td>
+			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">ใบสรุป การใช้จ่าย Ewallet ของสาขา1</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;��ػ�ʹ��� �ͧ��ѡ�ҹ���Ф� �����ҧ�ѹ���</td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละคน ระหว่างวันที่</td>
 		  </tr-->
 		  
 		  <tr style="display:none" >
 		    <td align="right">&nbsp;</td>
-		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=61">��§ҹ list active ��觫����Թ���������͹ (<?=$thaimonth[date(" m ")-1]?>)</A></td>
+		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=61">รายงาน list active สั่งซื้อสินค้าภายในเดือน (<?=$thaimonth[date(" m ")-1]?>)</A></td>
 		  </tr>
 		  <tr style="display:none" >
             <td align="right">&nbsp;</td>
-		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=66667">��§ҹ��â�»�Ш��ѹ</a></td>
+		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=66667">รายงานการขายประจำวัน</a></td>
 		    </tr>
 		  <tr style="display:none" >
             <td align="right">&nbsp;</td>
-		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=66666">��§ҹ���բ��</a></td>
+		    <td><img src="./images/sale_stat_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=66666">รายงานภาษีขาย</a></td>
 		    </tr>
 			<tr style="display:none" >
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=1313">��§ҹ ewallet ������ͷ���к� � �����͹</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=1313">รายงาน ewallet คงเหลือทั้งระบบ ณ สิ้นเดือน</a></td>
 		  </tr>
 		  <tr style="display:none" >
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=1314">��§ҹ�ʹ��µ���Ҥ</a></td>
+			<td width="84%"><img src="./images/8_19_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=1314">รายงานยอดขายตามภาค</a></td>
 		  </tr>
 		  <tr>
 		    <td width="16%" align="right">&nbsp;</td>
@@ -246,43 +246,43 @@
 		    </tr>
 		  <tr>
 		    <td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-		    <td width="84%"><strong>��§ҹ��ػ</strong></td>
+		    <td width="84%"><strong>รายงานสรุป</strong></td>
 		    </tr>
 		  <tr>
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">��ػ�ʹ��¡�â���������Թ Ewallet,Eautoship</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">สรุปยอดรายการขายและเติมเงิน Ewallet,Eautoship</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=45">��ػ�ʹ��¡�â���������Թ �ѭ���Թʴ��ǹ��� (Base Currency)</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=45">สรุปยอดรายการขายและเติมเงิน บัญชีเงินสดส่วนตัว (Base Currency)</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=46">��ػ�ʹ��¡�â���������Թ Ewallet ��ҹ Stockist</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=46">สรุปยอดรายการขายและเติมเงิน Ewallet ผ่าน Stockist</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=47">��ػ�ʹ��¡�â���������Թ Ewallet ��ҹ Stockist (Base Currency)</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=47">สรุปยอดรายการขายและเติมเงิน Ewallet ผ่าน Stockist (Base Currency)</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=24">���ػ ��ػ��¡���Ѻ�Թ</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=24">ใบสรุป สรุปรายการรับเงิน</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td width="16%" align="right">&nbsp;</td>
-		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=143">���ػ ����Ѻ�Թ Ewallet</a></td>
+		    <td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=143">ใบสรุป การรับเงิน Ewallet</a></td>
 		    </tr>
 		  <!--  <tr >
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">���ػ �������� Ewallet �ͧ�Ң�1</a></td>
+			<td width="84%"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">ใบสรุป การใช้จ่าย Ewallet ของสาขา1</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;��ػ�ʹ��� �ͧ��ѡ�ҹ���Ф� �����ҧ�ѹ���</td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละคน ระหว่างวันที่</td>
 		  </tr-->
 		  <tr style="display:none">
 		    <td align="right">&nbsp;</td>
-		    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=44">��§ҹ�����Ѥ��͹�Ź�</a></td>
+		    <td align="left"><img src="./images/9_41_s.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=3&sub=44">รายงานการสมัครออนไลน์</a></td>
 		    </tr>
 		  <tr style="display:none">
 		    <td align="right">&nbsp;</td>
@@ -318,19 +318,19 @@
 		  </tr>
 		  <tr>
 			<td width="16%" align="right"><img src="./images/folder.gif" align="absmiddle">&nbsp;&nbsp;</td>
-			<td width="84%"><strong>�׹�ѹ�͡��á�â��ᨧ�ʹ</strong></td>
+			<td width="84%"><strong>ยืนยันเอกสารการขายแจงยอด</strong></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">�͡��÷���ѧ������׹�ѹ</A></td>
+			<td width="84%"><img src="./images/storage.gif" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=3">เอกสารที่ยังไม่ได้ยืนยัน</A></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">�͡��÷���׹�ѹ����</a></td>
+			<td width="84%"><img src="./images/vip.png" align="absmiddle" />&nbsp;&nbsp;<a href="./index.php?sessiontab=<?=$sesstab?>&sub=4">เอกสารที่ยืนยันแล้ว</a></td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
-			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;��ػ�ʹ��� �ͧ��ѡ�ҹ���Ф� �����ҧ�ѹ���</td>
+			<td width="84%"><img src="images/ICREPLY.GIF">&nbsp;&nbsp;สรุปยอดขาย ของพนักงานแต่ละคน ระหว่างวันที่</td>
 		  </tr>
 		  <tr>
 			<td width="16%" align="right">&nbsp;</td>
@@ -350,7 +350,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <!--<? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="���٢��" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เมนูขาย" /></a>
 
 </td>-->
 <td width="100%">
@@ -362,9 +362,9 @@
 			case 3:
 				?>
 				<legend>
-		           <strong><font color="#666666">�׹�ѹ�͡���&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666">ยืนยันเอกสาร&nbsp;&nbsp;</font></strong>
                    <!--<? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="�����������Թ����ʵ�͡" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=3&state=2'>�����������Թ����ʵ�͡</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้าในสต๊อก" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=3&state=2'>เพิ่มข้อมูลสินค้าในสต๊อก</a>
                    <? }?>      -->        
      			</legend>
 				<?
@@ -375,9 +375,9 @@
 			case 4:
 				?>
 				<legend>
-		           	<strong><font color="#666666">�������Թ��ҹ����&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">ข้อมูลสินค้านำเข้า&nbsp;&nbsp;</font></strong>
                    <!--<? if($acc->isAccess(1)){?>
-      			   	<img border="0" src="./images/add.gif" alt="�����������Թ��ҹ����" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=4&state=2'>�����������Թ��ҹ����</a>
+      			   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้านำเข้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=4&state=2'>เพิ่มข้อมูลสินค้านำเข้า</a>
                    <? }?>            -->  
       			</legend>
 				<?
@@ -387,9 +387,9 @@
 			case 5:
 				?>
 				<legend>
-		           <strong><font color="#666666">���Թ��������ҧ�Ң�&nbsp;&nbsp;</font></strong>
+		           <strong><font color="#666666">ส่งสินค้าระหว่างสาขา&nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="����������Թ��������ҧ�Ң�" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=5&state=2'>����������Թ��������ҧ�Ң�</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มการส่งสินค้าระหว่างสาขา" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=5&state=2'>เพิ่มการส่งสินค้าระหว่างสาขา</a>
                    <? }?>              
                 </legend>
 				<?
@@ -406,7 +406,7 @@
 			case 6:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ��¡����觫��� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    รายการสั่งซื้อ &nbsp;&nbsp;</font></strong>
                           
                 </legend>
 				<?
@@ -415,7 +415,7 @@
 			case 66666:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ��¡����觫��� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    รายการสั่งซื้อ &nbsp;&nbsp;</font></strong>
                  </legend>
 				<?
 				include("sale_tax.php");
@@ -423,7 +423,7 @@
 			case 66667:
 				?>
 				<legend>
-       			    <strong><font color="#666666">  ��§ҹ��â�»�Ш��ѹ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">  รายงานการขายประจำวัน &nbsp;&nbsp;</font></strong>
                  </legend>
 				<?
 				include("sale_report_of_day.php");
@@ -431,7 +431,7 @@
 			case 666:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ��¡����觫��� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    รายการสั่งซื้อ &nbsp;&nbsp;</font></strong>
                  </legend>
 				<?
 				include("sale1.php");
@@ -439,7 +439,7 @@
 			case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ�Թ��ҷ��١���</font></strong>
+       			    <strong><font color="#666666">รายงานยอดสินค้าที่ถูกขาย</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -447,7 +447,7 @@
 			case 777:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�Թ��Ҥ��������������Ң�</font></strong>
+       			    <strong><font color="#666666">รายงานสินค้าคงเหลือรวมแต่ละสาขา</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount_invent.php");
@@ -455,7 +455,7 @@
 			case 7777:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ����Թ����������</font></strong>
+       			    <strong><font color="#666666">รายงานยอดขายสินค้าและแพ็คเก็จ</font></strong>
 
                 </legend>
 				<?
@@ -464,7 +464,7 @@
 			case 8:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ��â�������Ѥ���Ҫԡ</font></strong>
+       			    <strong><font color="#666666">รายงานการขายและสมัครสมาชิก</font></strong>
                 </legend>
 				<?
 				include("sale_bill_amount.php");
@@ -472,7 +472,7 @@
 			case 27:
 				?>
 				<legend>
-       			    <strong><font color="#666666">���ػ ��¡���Ѻ�Թ Ewallet �����ҧ�ѹ���</font> <a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">���§ҹ��ػ����ѹ ����ѹ</a></strong>
+       			    <strong><font color="#666666">ใบสรุป รายการรับเงิน Ewallet ระหว่างวันที่</font> <a href="./index.php?sessiontab=<?=$sesstab?>&sub=142">ใบรายงานสรุปรายวัน รายวัน</a></strong>
                 </legend>
 				<?
 				include("sale_bill_ewallet_member1.php");
@@ -480,7 +480,7 @@
 			case 26:
 				?>
 				<legend>
-       			    <strong><font color="#666666">���ػ ��¡���Ѻ�Թ Ewallet �����ҧ�ѹ���</font></strong>
+       			    <strong><font color="#666666">ใบสรุป รายการรับเงิน Ewallet ระหว่างวันที่</font></strong>
                 </legend>
 				<?
 				include("sale_bill_ewallet_member.php");
@@ -488,7 +488,7 @@
 			case 9:
 				?>
 				<legend>
-       			    <strong><a href="./index.php?sessiontab=<?=$sesstab?>&sub=9"><font color="#666666">��¡��ᨧ�ʹ�Թ��Ҥ������</font> </a></strong>
+       			    <strong><a href="./index.php?sessiontab=<?=$sesstab?>&sub=9"><font color="#666666">รายการแจงยอดสินค้าคงเหลือ</font> </a></strong>
                 </legend>
 				<?
 				include("sale_hold9.php");
@@ -496,7 +496,7 @@
 			case 10:
 				?>
 				<legend>
-       			    <strong><font color="#666666">���ᨧ�ʹ</font></strong>
+       			    <strong><font color="#666666">บิลแจงยอด</font></strong>
                 </legend>
 				<?
 				include("hold.php");
@@ -504,7 +504,7 @@
 			case 21:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��Ţ��Ẻ�س���ѵ�</font></strong>
+       			    <strong><font color="#666666">บิลขายแบบคุณสมบัติ</font></strong>
                 </legend>
 				<?
 				include("salea.php");
@@ -513,7 +513,7 @@
 				?>
 
 				<legend>
-       			    <strong><font color="#666666">���ػ ��¡���Ѻ�Թ</font></strong>
+       			    <strong><font color="#666666">ใบสรุป รายการรับเงิน</font></strong>
                 </legend>
 				<?
 				include("sale_bill_price.php");
@@ -521,7 +521,7 @@
 			case 22:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��Ţ���ѡ���ʹ</font></strong>
+       			    <strong><font color="#666666">บิลขายรักษายอด</font></strong>
                 </legend>
 				<?
 				include("saleb.php");
@@ -529,7 +529,7 @@
 			case 23:
 				?>
 				<legend>
-       			    <strong><font color="#666666">   ��§ҹ�������Թ &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">   รายงานการเติมเงิน &nbsp;&nbsp;</font></strong>
                    </legend>
 				<?
 				include("ewallet.php");
@@ -537,9 +537,9 @@
           case 234:
                 ?>
                 <legend>
-                       <strong><font color="#666666"> ��¡����� Ecom &nbsp;&nbsp;</font></strong>
+                       <strong><font color="#666666"> รายการเติม Ecom &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="���������š�ë��͢��" height="16" width="16" align="absmiddle" style='display:none' />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=233&state=2' style='display:none'>����Թ</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขาย" height="16" width="16" align="absmiddle" style='display:none' />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=233&state=2' style='display:none'>เติมเงิน</a>
                    
                    <? }?>              
                 </legend>
@@ -550,9 +550,9 @@
 			case 203:
 				?>
 				<legend>
-       			    <strong><font color="#666666">   ��¡�� Bill Payment &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">   รายการ Bill Payment &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="���������š�ë��͢��" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=203&state=2'>����Һ��</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขาย" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=203&state=2'>นำเข้าบิล</a>
 				   
                    <? }?>              
                 </legend>
@@ -563,9 +563,9 @@
 			case 25:
 				?>
 		<legend>
-       			    <strong><font color="#666666">   ��Ţ���� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">   บิลขายส่ง &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="���������š�ë��͢����" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=25&state=2'>���ҧ��Ţ����</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขายส่ง" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=25&state=2'>สร้างบิลขายส่ง</a>
                    <? }?>              
         </legend>
 				<?
@@ -574,7 +574,7 @@
 			case 28:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ��èѴ�Թ��������ҧ���</font></strong>
+       			    <strong><font color="#666666">รายงานการจัดสินค้าระหว่างบิล</font></strong>
                 <br>
                 <?
 				include("sale_w.php");
@@ -582,9 +582,9 @@
 
 			case 30:
 				?>
-                <legend> <strong><font color="#666666">�������Ѻ�Թ������&nbsp;&nbsp;</font></strong>
+                <legend> <strong><font color="#666666">ข้อมูลรับสินค้าเข้า&nbsp;&nbsp;</font></strong>
                 <? if($acc->isAccess(1)){?>
-                <img border="0" src="./images/add.gif" alt="��������Ѻ�Թ������" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=30&state=2'>��������Ѻ�Թ������</a>
+                <img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=30&state=2'>เพิ่มการรับสินค้าเข้า</a>
                 <? }?>
                 </legend>
                 <?
@@ -592,14 +592,14 @@
 				break;
 			case 31:
 				?>
-                <legend> <strong><font color="#666666">�������Թ����Ң�</font></strong> </legend>
+                <legend> <strong><font color="#666666">ข้อมูลสินค้าสาขา</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_bill.php");
 				break;
 			case 32:
 				?>
-                <legend> <strong><font color="#666666">��Ţ��</font></strong> </legend>
+                <legend> <strong><font color="#666666">บิลขาย</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_pack.php");
@@ -607,28 +607,28 @@
 			case 33:
 
 				?>
-                <legend> <strong><font color="#666666">�����þҡ�</font></strong> </legend>
+                <legend> <strong><font color="#666666">บิลสรรพากร</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_pack_sum.php");
 				break;
 			case 34:
 				?>
-                <legend> <strong><font color="#666666">��§ҹ�ʹ�����þҡ�</font></strong> </legend>
+                <legend> <strong><font color="#666666">รายงานยอดบิลสรรพากร</font></strong> </legend>
 				</legend>
 				<?
 				include("product_sale_amount1.php");
 				break;
 			case 35:
 				?>
-                <legend> <strong><font color="#666666">�ʹ����Թ���(������)</font></strong> </legend>
+                <legend> <strong><font color="#666666">ยอดขายสินค้า(ตามบิล)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_held.php");
 				break;
 			case 36:
 				?>
-                <legend> <strong><font color="#666666">�ʹ����Թ���</font></strong> </legend>
+                <legend> <strong><font color="#666666">ยอดขายสินค้า</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_held_sum.php");
@@ -636,35 +636,35 @@
 			
 	        case 38:
                 ?>
-                <legend> <strong><font color="#666666">��ػ��Ţ����Ҫԡ</font></strong> </legend>
+                <legend> <strong><font color="#666666">สรุปบิลขายสมาชิก</font></strong> </legend>
                 </legend>
                 <?
                 include("sale_all.php");
                 break;		
             case 388:
 				?>
-                <legend> <strong><font color="#666666">��ػ��Ţ����Ҫԡ</font></strong> </legend>
+                <legend> <strong><font color="#666666">สรุปบิลขายสมาชิก</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_all2.php");
 				break;
 			case 40:
 				?>
-                <legend> <strong><font color="#666666">�ʹ����Թ���(��� Hold)</font></strong> </legend>
+                <legend> <strong><font color="#666666">ยอดขายสินค้า(บิล Hold)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_heldd.php");
 				break;
 			case 42:
 				?>
-                <legend> <strong><font color="#666666">�ʹ�����Թ��� ��§ҹ Hold </font></strong> </legend>
+                <legend> <strong><font color="#666666">ยอดซื้อสินค้า รายงาน Hold </font></strong> </legend>
 				</legend>
 				<?
 				include("sale_stockiset.php");
 				break;
 			case 41:
 				?>
-                <legend> <strong><font color="#666666">�ʹ����Թ���(��� Hold)</font></strong> </legend>
+                <legend> <strong><font color="#666666">ยอดขายสินค้า(บิล Hold)</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_heldd_sum.php");
@@ -672,9 +672,9 @@
 			case 138:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ����� �Ң� &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    บิลส่ง สาขา &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="��������� �Ң� / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=138&state=2'>��������� �Ң� </a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มบิลส่ง สาขา / Stockist" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=138&state=2'>เพิ่มบิลส่ง สาขา </a>
                    <? }?>              
                 </legend>
 				<?
@@ -682,21 +682,21 @@
 				break;
 			case 141:
 				?>
-                <legend> <strong><font color="#666666">��������ҧ�ٹ��</font></strong> </legend>
+                <legend> <strong><font color="#666666">บิลระหว่างศูนย์</font></strong> </legend>
 				</legend>
 				<?
 				include("inv_m.php");
 				break;
 			case 142:
 				?>
-                <legend> <strong><font color="#666666">���ػ �������� Ewallet �ͧ�Ң�1</font></strong> </legend>
+                <legend> <strong><font color="#666666">ใบสรุป การใช้จ่าย Ewallet ของสาขา1</font></strong> </legend>
 				</legend>
 				<?
 				include("sale_report_ewallet.php");
 				break;
 			case 143:
 				?>
-                <legend> <strong><font color="#666666">���ػ �������� Ewallet �ͧ�Ң�1</font></strong> </legend>
+                <legend> <strong><font color="#666666">ใบสรุป การใช้จ่าย Ewallet ของสาขา1</font></strong> </legend>
 				</legend>
 				<?
 				include("log_ewallet.php");
@@ -705,9 +705,9 @@
 			case 144:
 				?>
 				<legend>
-       			    <strong><font color="#666666">    ��¡����觫��� Autoship &nbsp;&nbsp;</font></strong>
+       			    <strong><font color="#666666">    รายการสั่งซื้อ Autoship &nbsp;&nbsp;</font></strong>
                    <? if($acc->isAccess(1)){?>
-                   <img border="0" src="./images/add.gif" alt="���������š�ë��͢��" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=144&state=2'>���������š�ë��͢�� Autoship</a>
+                   <img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลการซื้อขาย" height="16" width="16" align="absmiddle" />&nbsp;&nbsp;<a href='./index.php?sessiontab=3&sub=144&state=2'>เพิ่มข้อมูลการซื้อขาย Autoship</a>
                    <? }?>              
                 </legend>
 				<?
@@ -717,7 +717,7 @@
 			case 16:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��ŨѴ��</font></strong>
+       			    <strong><font color="#666666">บิลจัดส่ง</font></strong>
                 </legend>
                 
 				<?
@@ -727,7 +727,7 @@
 			case 17:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��¡������Թ Ewallet ������</font></strong>
+       			    <strong><font color="#666666">รายการเติมเงิน Ewallet ทั้งหมด</font></strong>
                 </legend>
 				<?
 				include("sale_bill_ewallet.php");
@@ -735,7 +735,7 @@
 			case 177:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��¡������Թ Eautoship ������</font></strong>
+       			    <strong><font color="#666666">รายการเติมเงิน Eautoship ทั้งหมด</font></strong>
                 </legend>
 				<?
 				include("eatoship.php");
@@ -743,7 +743,7 @@
 			case 18:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��ػ�ʹ��¡�â���������Թ Ewallet,Eautoship</font></strong>
+       			    <strong><font color="#666666">สรุปยอดรายการขายและเติมเงิน Ewallet,Eautoship</font></strong>
                 </legend>
 				<?
 				include("sale_bill_total.php");
@@ -751,7 +751,7 @@
 			case 19:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ</font></strong>
+       			    <strong><font color="#666666">รายงาน</font></strong>
                 </legend>
 				<?
 				include("sale_detail.php");
@@ -759,7 +759,7 @@
 			case 20:
 				?>
 				<legend>
-       			    <strong><font color="#666666">�ʹ�Թ��ҷ��١���͡</font></strong>
+       			    <strong><font color="#666666">ยอดสินค้าที่ถูกส่งออก</font></strong>
                 </legend>
 				<?
 				include("product_sale_amounts.php");
@@ -770,7 +770,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��§ҹ�������Թ��Ҽ�ҹ�ҧ˹�����</font></strong>           
+       			    <strong><font color="#666666">รายงานที่ซื้อสินค้าผ่านทางหน้าเว็บ</font></strong>           
 
                 </legend>
 
@@ -784,7 +784,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��§ҹ�������Թ Ewallet ��ҹ�ҧ˹�����</font></strong>           
+       			    <strong><font color="#666666">รายงานการเติมเงิน Ewallet ผ่านทางหน้าเว็บ</font></strong>           
 
                 </legend>
 
@@ -799,7 +799,7 @@
 				<legend>
 
 
-       			    <strong><font color="#666666">��§ҹ�����Ѥ��͹�Ź�</font></strong>           
+       			    <strong><font color="#666666">รายงานการสมัครออนไลน์</font></strong>           
 
                 </legend>
 
@@ -813,7 +813,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��ػ�ʹ��¡�â���������Թ Ewallet (Base Currency)</font></strong>           
+       			    <strong><font color="#666666">สรุปยอดรายการขายและเติมเงิน Ewallet (Base Currency)</font></strong>           
 
                 </legend>
 
@@ -827,7 +827,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��ػ�ʹ��¡�â���������Թ Ewallet ��ҹ Stockist (Base Currency)</font></strong>           
+       			    <strong><font color="#666666">สรุปยอดรายการขายและเติมเงิน Ewallet ผ่าน Stockist (Base Currency)</font></strong>           
 
                 </legend>
 
@@ -841,7 +841,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��ػ�ʹ��¡�â���������Թ Ewallet ��ҹ Stockist  (Base Currency)</font></strong>           
+       			    <strong><font color="#666666">สรุปยอดรายการขายและเติมเงิน Ewallet ผ่าน Stockist  (Base Currency)</font></strong>           
 
                 </legend>
 
@@ -850,7 +850,7 @@
 				break;
 			case 149:
 				?>
-                <legend> <strong><font color="#666666">��¡���͹�Թ Ewallet ��Ҫԡ</font></strong> </legend>
+                <legend> <strong><font color="#666666">รายการโอนเงิน Ewallet สมาชิก</font></strong> </legend>
 				</legend>
 				<?
 				include("ewallet_member_tranfer.php");
@@ -858,7 +858,7 @@
 
 			case 150:
 				?>
-                <legend> <strong><font color="#666666">��¡�ö͹�Թ Ewallet ��Ҫԡ</font></strong> </legend>
+                <legend> <strong><font color="#666666">รายการถอนเงิน Ewallet สมาชิก</font></strong> </legend>
 				</legend>
 				<?
 				include("ewallet_member_withdraw.php");
@@ -869,7 +869,7 @@
 
 				<legend>
 
-       			    <strong><font color="#666666">��§ҹ list active ��觫����Թ���������͹ (<?=$thaimonth[date(" m ")-1]?>)</font></strong>           
+       			    <strong><font color="#666666">รายงาน list active สั่งซื้อสินค้าภายในเดือน (<?=$thaimonth[date(" m ")-1]?>)</font></strong>           
 
                 </legend>
 
@@ -879,9 +879,9 @@
 
 			case 60:
 				?>
-				<legend> <strong><font color="#666666">�������Ѻ�Թ������ [Ẻ�Դ���]&nbsp;&nbsp;</font></strong>
+				<legend> <strong><font color="#666666">ข้อมูลรับสินค้าเข้า [แบบเปิดบิล]&nbsp;&nbsp;</font></strong>
 				<? if($acc->isAccess(1)){?>
-				<img border="0" src="./images/add.gif" alt="��������Ѻ�Թ������ [Ẻ�Դ���]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>��������Ѻ�Թ������ [Ẻ�Դ���]</a>
+				<img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]</a>
 				<? }?>
 				</legend>
 				<?
@@ -890,7 +890,7 @@
 			case 1313:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ ewallet ������ͷ���к� � �����͹</font></strong>
+       			    <strong><font color="#666666">รายงาน ewallet คงเหลือทั้งระบบ ณ สิ้นเดือน</font></strong>
                 </legend>
 				<?
 				include("ewallet_sumary_month.php");
@@ -899,7 +899,7 @@
 
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ��µ���Ҥ</font></strong>
+       			    <strong><font color="#666666">รายงานยอดขายตามภาค</font></strong>
                 </legend>
 				<?
 				include("sale_zone_report.php");
@@ -907,7 +907,7 @@
 			case 999:
 				?>
 				<legend>
-       			    <strong><a href="./index.php?sessiontab=<?=$sesstab?>&sub=999"><font color="#666666">�ʹ��ҧᨧ�ʹ</font> </a></strong>
+       			    <strong><a href="./index.php?sessiontab=<?=$sesstab?>&sub=999"><font color="#666666">ยอดค้างแจงยอด</font> </a></strong>
                 </legend>
 				<?
 				include("hold_balance999.php");

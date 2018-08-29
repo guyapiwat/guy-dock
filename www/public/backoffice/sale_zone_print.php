@@ -140,18 +140,18 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2>��§ҹ�ʹ��µ���Ҥ</h2>	
+				<h2>รายงานยอดขายตามภาค</h2>	
 			</td>
 		</tr>
 		<tr >
  			<td align="center"  width="50%" colspan='2' style="font-size:14px;" >
-			<? if($fdate!=''){?>��Ш��ѹ���   <?=$fdate?> �֧ <?=$tdate?>
-			<? }else{ ?>��Ш��ѹ��������<? } ?>
+			<? if($fdate!=''){?>ประจำวันที่   <?=$fdate?> ถึง <?=$tdate?>
+			<? }else{ ?>ประจำวันที่ทั้งหมด<? } ?>
 			</td>
 		</tr>
 	<!--	<tr>
-			<td align="left" width="50%"><b>���ͼ���Сͺ���  </b> ����ѷ �Ҫ����  (�����)�ӡѴ  </td>
-			<td align="left" width="60%"><b>�Ţ����ШӼ�����������ҡ�  </b>0105541041740</td>
+			<td align="left" width="50%"><b>ชื่อผู้ประกอบการ  </b> บริษัท ลาชูเล่  (เอเชีย)จำกัด  </td>
+			<td align="left" width="60%"><b>เลขที่ประจำผู้เสียภาษีอากร  </b>0105541041740</td>
 		</tr> -->
 
 	</table>
@@ -159,8 +159,8 @@ if($_GET["txtKeyword"] == "")
 	<div class="CSSTableGenerator" >
 		<table style=' margin:0 auto;' border="1">
 		  <tr>	
-			<th width="70%"><div align="center" >�Ҥ/�ѧ��Ѵ </div></th>		
-			<th width="30%"><div align="center" >��Ť�� </div></th>	
+			<th width="70%"><div align="center" >ภาค/จังหวัด </div></th>		
+			<th width="30%"><div align="center" >มูลค่า </div></th>	
 		  </tr>
 		<?
 		$rr = 0;
@@ -181,21 +181,21 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2 >��§ҹ�ʹ��µ���Ҥ</h2>	
+				<h2 >รายงานยอดขายตามภาค</h2>	
 			</td>
 		</tr>
 		<tr >
  			<td align="center"  width="50%" colspan='2' style="font-size:14px;" >
-				<? if($fdate!=''){?>��Ш��ѹ���   <?=$fdate?> �֧ <?=$tdate?>
-			<? }else{ ?>��Ш��ѹ��������<? } ?>
+				<? if($fdate!=''){?>ประจำวันที่   <?=$fdate?> ถึง <?=$tdate?>
+			<? }else{ ?>ประจำวันที่ทั้งหมด<? } ?>
 			</td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-	  	<th width="65%"><div align="center" >�Ҥ/�ѧ��Ѵ </div></th>		
-			<th width="35%"><div align="center" >��Ť�� </div></th>	
+	  	<th width="65%"><div align="center" >ภาค/จังหวัด </div></th>		
+			<th width="35%"><div align="center" >มูลค่า </div></th>	
 	  </tr>
 	<?	
 		  }

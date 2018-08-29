@@ -44,15 +44,15 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode ,name_t  ,mobile,point ,transferdate ,transfertime ,transferbank ,transtype ,paytype ,sendtype");
 		$rec->setFieldFloatFormat(",,,,,,,,,");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,â·Ã,«×éÍ&nbsp;Point,ÇÑ¹·ÕèâÍ¹à§Ô¹,àÇÅÒ,¸¹Ò¤ÒÃ,âÍ¹à§Ô¹áÅéÇ,ãËé&nbsp;Point&nbsp;áÅéÇ,Êè§ÊÔ¹¤éÒáÅéÇ");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¹‚à¸—à¸£,à¸‹à¸·à¹‰à¸­&nbsp;Point,à¸§à¸±à¸™à¸—à¸µà¹ˆà¹‚à¸­à¸™à¹€à¸‡à¸´à¸™,à¹€à¸§à¸¥à¸²,à¸˜à¸™à¸²à¸„à¸²à¸£,à¹‚à¸­à¸™à¹€à¸‡à¸´à¸™à¹à¸¥à¹‰à¸§,à¹ƒà¸«à¹‰&nbsp;Point&nbsp;à¹à¸¥à¹‰à¸§,à¸ªà¹ˆà¸‡à¸ªà¸´à¸™à¸„à¹‰à¸²à¹à¸¥à¹‰à¸§");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("8%,23%,10%,10%,8%,5%,10%,8%,8%,8%");
 		$rec->setFieldLink(",index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("mcode ,name_t  ,mobile,point ,transferdate ,transfertime ,transferbank ,transtype ,paytype ,sendtype");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,â·Ã.,«×éÍ Point,ÇÑ¹·ÕèâÍ¹à§Ô¹,àÇÅÒ,¸¹Ò¤ÒÃ,âÍ¹à§Ô¹áÅéÇ,ãËé Point áÅéÇ,Êè§ÊÔ¹¤éÒáÅéÇ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¹‚à¸—à¸£.,à¸‹à¸·à¹‰à¸­ Point,à¸§à¸±à¸™à¸—à¸µà¹ˆà¹‚à¸­à¸™à¹€à¸‡à¸´à¸™,à¹€à¸§à¸¥à¸²,à¸˜à¸™à¸²à¸„à¸²à¸£,à¹‚à¸­à¸™à¹€à¸‡à¸´à¸™à¹à¸¥à¹‰à¸§,à¹ƒà¸«à¹‰ Point à¹à¸¥à¹‰à¸§,à¸ªà¹ˆà¸‡à¸ªà¸´à¸™à¸„à¹‰à¸²à¹à¸¥à¹‰à¸§");
 	//	$rec->setSum(true,false,",,,,,,,,,true,true");
-		$rec->setSpecial("./images/search_16.png","","view","id","IMAGE","´Ù");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","Â¡àÅÔ¡");
+		$rec->setSpecial("./images/search_16.png","","view","id","IMAGE","à¸”à¸¹");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=11");

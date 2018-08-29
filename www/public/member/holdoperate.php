@@ -64,7 +64,7 @@ if (isset($_GET['state'])) {
     $memberfreeid=$_POST['memberfreeid'];
     $mcode=$memberfreeid;
     $satype = "A";
-    $remark = "·®ß ¡—§√";
+    $remark = "‡πÅ‡∏à‡∏á‡∏™‡∏°‡∏±‡∏Ñ‡∏£";
     }else{
     $memberfreeid="";
     $remark ="";
@@ -135,7 +135,7 @@ if ($_GET['state'] == 0) {
     }
 
     if ($_SESSION["m_mtype1"] <= $mtype1 and $satype == 'Y') {
-        if (preg_match('/‚¡∫“¬/', $name_t)) {
+        if (preg_match('/‡πÇ‡∏°‡∏ö‡∏≤‡∏¢/', $name_t)) {
             $checkPass = true;
         } elseif (preg_match('/[Mm]obile/', $name_t)) {
             $checkPass = true;
@@ -196,7 +196,7 @@ if ($_GET['state'] == 0) {
 
 }
 //echo 'Pass';
-//echo "<script language='JavaScript'>alert('·®ß„ÀÈ√À—   $mcode ®”π«π $tot_pv §–·ππ  ‡ √Á® ¡∫Ÿ√≥Ï·≈È«')</script>";
+//echo "<script language='JavaScript'>alert('‡πÅ‡∏à‡∏á‡πÉ‡∏´‡πâ‡∏£‡∏´‡∏±‡∏™  $mcode ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô $tot_pv ‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô  ‡πÄ‡∏™‡∏£‡πá‡∏à‡∏™‡∏°‡∏ö‡∏π‡∏£‡∏ì‡πå‡πÅ‡∏•‡πâ‡∏ß')</script>";
 
 echo "<script language='JavaScript'>window.location='index.php?sessiontab=4&sub=5'</script>";
 

@@ -50,7 +50,7 @@ if(isset($_GET['state'])){
 if($_GET['state']==0){
 	$mid = ++$sano;
 
-	logtext(true,$_SESSION['usercode'],'�š RVPOINT id : '.$mcode .' RVPOINT : '.$total,$mid);
+	logtext(true,$_SESSION['usercode'],'แลก RVPOINT id : '.$mcode .' RVPOINT : '.$total,$mid);
 
 	mysql_query("update ".$dbprefix."member set rv_point = rv_point-".$txtMoney." where mcode='".$mcode."' ");
 
@@ -77,7 +77,7 @@ mysql_query("update ".$dbprefix."invent set ewallet = ewallet+".$txtMoney." wher
 $text="uid=".$_SESSION["adminuserid"]." action=ewallet_update=>update ".$dbprefix."member set ewallet = ewallet+".$txtMoney." where mcode='".$mcode."' ";
 writelogfile($text);*/
 }else if($_GET['state']==1){
-	/*logtext(true,$_SESSION['adminusercode'],'��� Ewallet',$mid);
+	/*logtext(true,$_SESSION['adminusercode'],'แก้ไข Ewallet',$mid);
 	$sql="update ".$dbprefix."rvpoint set sano='$id', id='$id', ";
 	$sql.="mcode='$mcode' ,sa_type='$satype' ,sadate='$sadate' , inv_code='$inv_code', total='$total', txtoption='$txtoption'
 	, txtMoney='$txtMoney', chkCash='$chkCash', chkTransfer='$chkTransfer', chkCredit1='$chkCredit1', chkCredit2='$chkCredit2'

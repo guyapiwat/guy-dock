@@ -1,6 +1,6 @@
 <? 
 session_start();
-$_SESSION["type_regist"]=1;//  ��Ѥ� 300
+$_SESSION["type_regist"]=1;//  สมัคร 300
 include("global.php"); 
 function func_check(){
 	$sqll="SELECT price FROM ali_product WHERE pcode='".$GLOBALS["pcode_register"]."'";
@@ -12,7 +12,7 @@ function func_check(){
 	$sql="SELECT ewallet FROM ali_member WHERE mcode='".$_SESSION["usercode"]."' HAVING ewallet >= '$price'";
 	$rs=mysql_query($sql);
 	if(mysql_num_rows($rs)<1){
-		echo "<script language='JavaScript'>alert('Ewallet �����§����Ѥ���Ҫԡ');window.history.back()</script>";	
+		echo "<script language='JavaScript'>alert('Ewallet ไม่เพียงพอสมัครสมาชิก');window.history.back()</script>";	
 		exit;
 	}
 }
@@ -61,14 +61,14 @@ function check_dash(ele)
 
 function getRadioValueByName(name){
 
-		if(name == '���')document.forms[0].sex[0].checked = true;
-		if(name == '�ҧ���')document.forms[0].sex[1].checked = true;
-		if(name == '�ҧ')document.forms[0].sex[1].checked = true;
+		if(name == 'นาย')document.forms[0].sex[0].checked = true;
+		if(name == 'นางสาว')document.forms[0].sex[1].checked = true;
+		if(name == 'นาง')document.forms[0].sex[1].checked = true;
 	}
 function getRadioValueByName1(name){
-		if(name == '���')document.forms[0].csex[0].checked = true;
-		if(name == '�ҧ���')document.forms[0].csex[1].checked = true;
-		if(name == '�ҧ')document.forms[0].csex[1].checked = true;
+		if(name == 'นาย')document.forms[0].csex[0].checked = true;
+		if(name == 'นางสาว')document.forms[0].csex[1].checked = true;
+		if(name == 'นาง')document.forms[0].csex[1].checked = true;
 	}
  function checkForm(frm)
   {
@@ -94,32 +94,32 @@ for(i=input.length; i<pad_length; i++){
 return input; 
 } 
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
                     var data=req.responseText; 
 					var myarr = data.split("|");
 			 			 
-					 //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+					 //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('sp_code').value="";
-					document.getElementById("sp_name").value="������������§ҹ";
-					document.getElementById("l1").innerHTML="";//�ʴ���
+					document.getElementById("sp_name").value="ไม่ได้อยู่ในสายงาน";
+					document.getElementById("l1").innerHTML="";//แสดงผล
 					document.getElementById("l2").innerHTML="";
 					document.getElementById("l3").innerHTML="";
 
 					}else{
 					document.getElementById('sp_code').value=value;
                     document.getElementById("sp_name").value=myarr[0].trim();
-					document.getElementById("l1").innerHTML="���� "+myarr[1];//�ʴ���
-					document.getElementById("l2").innerHTML="���� "+myarr[2];
-					document.getElementById("l3").innerHTML="���� "+myarr[3];
+					document.getElementById("l1").innerHTML="รหัส "+myarr[1];//แสดงผล
+					document.getElementById("l2").innerHTML="รหัส "+myarr[2];
+					document.getElementById("l3").innerHTML="รหัส "+myarr[3];
 
 					}
 					//alert(data);
@@ -130,8 +130,8 @@ function sendget_sponsor(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_sponsor1(value,value1) {
 	if(value1 == ''){
@@ -139,22 +139,22 @@ function sendget_sponsor1(value,value1) {
 		document.getElementById('upa_code').value="";
 		exit;
 	}
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	value1 = str_pad(value1,7,0,false);
 	//alert(value);
 	//alert(value1);
 
-     req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('upa_code').value="";
-					document.getElementById("upa_name").value="������������§ҹ";
+					document.getElementById("upa_name").value="ไม่ได้อยู่ในสายงาน";
 					}else{
 						var myArray = data.split(':');
 						var left = myArray[0];
@@ -163,7 +163,7 @@ function sendget_sponsor1(value,value1) {
 						var left = left.trim();
 						
 						 if(left == '1' && right == '1'){
-							alert('�Ѿ�Ź��բ� 2 ��ҹ����');
+							alert('อัพไลน์มีขา 2 ด้านแล้ว');
 							document.getElementById('upa_code').value="";
 							document.forms[0].lr[0].disabled = true;
 							document.forms[0].lr[0].checked = false;
@@ -173,7 +173,7 @@ function sendget_sponsor1(value,value1) {
 							var l_alert = document.forms[0].lr[0].checked;
 							var r_alert = document.forms[0].lr[1].checked;
 							if(left == '1'){
-								if(l_alert == true)alert('�Ѿ�Ź��մ�ҹ���� ������');
+								if(l_alert == true)alert('อัพไลน์มีด้านซ้าย มีแล้ว');
 								document.forms[0].lr[0].disabled = true;
 								document.forms[0].lr[0].checked = false;
 							}
@@ -182,7 +182,7 @@ function sendget_sponsor1(value,value1) {
 							}
 
 							if(right == '1'){
-								if(r_alert == true)alert('�Ѿ�Ź��մ�ҹ��� ������');
+								if(r_alert == true)alert('อัพไลน์มีด้านขวา มีแล้ว');
 								document.forms[0].lr[1].disabled = true;
 								document.forms[0].lr[1].checked = false;
 							}
@@ -190,7 +190,7 @@ function sendget_sponsor1(value,value1) {
 								document.forms[0].lr[1].disabled = false;
 							}
 							document.getElementById('upa_code').value=value;
-							document.getElementById("upa_name").value=name; //�ʴ���
+							document.getElementById("upa_name").value=name; //แสดงผล
 						 }
 						
 
@@ -205,8 +205,8 @@ function sendget_sponsor1(value,value1) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 <script language="javascript" type="text/javascript" src="./datetimepick/datetimepicker.js"></script>
@@ -237,77 +237,77 @@ function onclickaddress(){
 	  }
 }
 function check_zipcode(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("zip_1").value=''; //�ʴ���
+						 document.getElementById("zip_1").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("zip_1").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("zip_1").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("czip_1").value=''; //�ʴ���
+						 document.getElementById("czip_1").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("czip_1").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("czip_1").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
-     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					if(data == 1234){
-					//document.getElementById("mname").innerHTML="������������§ҹ";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					//	alert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function imembercheck(){
 	sendget_sponsor1(document.getElementById('upa_code').value,document.getElementById('sp_code').value);
@@ -326,109 +326,109 @@ function imembercheck(){
 	var val = document.getElementById('upa_name').value;
 	var field = "upa_name";
 	var flag = "1-0-0-0-0";
-	var errDesc = '�����Ѿ�Ź�';
+	var errDesc = 'ชื่ออัพไลน์';
 	
 	val = val + ","+document.getElementById('upa_code').value;
     field = field +",upa_code";
     flag = flag+",1-7-0-0-0-0";
-    errDesc = errDesc + ",�����Ѿ�Ź�";
+    errDesc = errDesc + ",รหัสอัพไลน์";
 	
 	val = val + ","+document.getElementById('sp_code').value;
     field = field +",sp_code";
     flag = flag+",1-7-0-0-0-0";
-    errDesc = errDesc + ",���ʼ���й�";
+    errDesc = errDesc + ",รหัสผู้แนะนำ";
 
 	val = val + ","+document.getElementById('sp_name').value;
     field = field +",sp_name";
     flag = flag+",1-0-0-0-0-0";
-    errDesc = errDesc + ",���ͼ���й�";
+    errDesc = errDesc + ",ชื่อผู้แนะนำ";
 
     val = val + ","+document.getElementById('name_f').value;
     field = field +",name_f";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�ӹ�˹�Ҫ���";
+    errDesc = errDesc + ",คำนำหน้าชื่อ";
 
     val = val + ","+document.getElementById('name_t').value;
     field = field +",name_t";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",����-���ʡ��";
+    errDesc = errDesc + ",ชื่อ-นามสกุล";
 
     val = val + ","+document.getElementById('birthday1').value;
     field = field +",birthday1";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�ѹ�Դ";
+    errDesc = errDesc + ",วันเกิด";
 	
 	 val = val + ","+document.getElementById('birthday2').value;
     field = field +",birthday2";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",��͹�Դ";
+    errDesc = errDesc + ",เดือนเกิด";
 
 	 val = val + ","+document.getElementById('birthday3').value;
     field = field +",birthday3";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",���Դ";
+    errDesc = errDesc + ",ปีเกิด";
   
   
     val = val + ","+document.getElementById('id_card').value;
     field = field +",id_card";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�Ţ��Шӵ�ǻ�ЪҪ�";
+    errDesc = errDesc + ",เลขประจำตัวประชาชน";
 
     val = val + ","+document.getElementById('mobile').value;
     field = field +",mobile";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",������";
+    errDesc = errDesc + ",เบอร์โทร";
 
 
 	val = val + ","+document.getElementById('address').value;
     field = field +",address";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�Ţ���/��ͧ";
+    errDesc = errDesc + ",เลขที่/ห้อง";
 
 	val = val + ","+document.getElementById('province').value;
     field = field +",province";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�ѧ��Ѵ";
+    errDesc = errDesc + ",จังหวัด";
 
 	val = val + ","+document.getElementById('amphur').value;
     field = field +",amphur";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�����";
+    errDesc = errDesc + ",อำเภอ";
 
 	val = val + ","+document.getElementById('district').value;
     field = field +",district";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�Ӻ�";
+    errDesc = errDesc + ",ตำบล";
 
 	val = val + ","+document.getElementById('zip_1').value;
     field = field +",zip_1";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",������ɳ���";
+    errDesc = errDesc + ",รหัสไปรษณีย์";
 
 	val = val + ","+document.getElementById('caddress').value;
     field = field +",caddress";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�Ţ���/��ͧ �Ѵ��";
+    errDesc = errDesc + ",เลขที่/ห้อง จัดส่ง";
 
 	val = val + ","+document.getElementById('cprovince').value;
     field = field +",cprovince";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�ѧ��Ѵ �Ѵ��";
+    errDesc = errDesc + ",จังหวัด จัดส่ง";
 
 	val = val + ","+document.getElementById('camphur').value;
     field = field +",camphur";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",����� �Ѵ��";
+    errDesc = errDesc + ",อำเภอ จัดส่ง";
 
 	val = val + ","+document.getElementById('cdistrict').value;
     field = field +",cdistrict";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",�Ӻ� �Ѵ��";
+    errDesc = errDesc + ",ตำบล จัดส่ง";
 
 	val = val + ","+document.getElementById('czip_1').value;
     field = field +",czip_1";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",������ɳ��� �Ѵ��";
+    errDesc = errDesc + ",รหัสไปรษณีย์ จัดส่ง";
 
    
     if(document.getElementById('email').value != ''){
@@ -441,14 +441,14 @@ function imembercheck(){
 
     }
 	/*if( document.getElementById('sumpv').value <1500){
-		alert("�ʹ�Թ��Ң�鹵�� 1500 PV ��س����͡�Թ���");
+		alert("ยอดสินค้าขั้นต่ำ 1500 PV กรุณาเลือกสินค้า");
 		document.getElementById('ok').disabled=true;
 		exit;
 	}*/
 		
 	/*    if(mobile != ''){
         if(mobile.charAt(0) != '0'){
-            alert('������Ͷ�͵�ͧ��鹵鹴��� �ٹ��');
+            alert('เบอร์มือถือต้องขึ้นต้นด้วย ศูนย์');
             exit;
         }
     }*/
@@ -456,13 +456,13 @@ function imembercheck(){
     if(document.getElementById('national').value == 'Thailand'){
         var a = document.getElementById('id_card').value;
         var id_card = "";
-        var t = a.split("-");  //�������äᵡ��ŧ array t
+        var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
         for(var i=0; i<t.length ; i++){
             id_card = id_card+ t[i];
         }
         var id = document.getElementById('id_card').value;
         
-            if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("�Ţ�ѵû�ЪҪ����������"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
+            if( id.charAt(0) < 1 || id.charAt(0) > 8 ) {alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ"); document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();exit;}
             for(i=0,sum=0;i<12;i++){
                 sum += parseInt(id.charAt(i))*(13-i);
             }
@@ -471,13 +471,13 @@ function imembercheck(){
                 sum = 1-sum;
             else
                 sum = 11-sum;
-            if(sum != parseInt(id.charAt(12))){alert("�Ţ�ѵû�ЪҪ����������");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
+            if(sum != parseInt(id.charAt(12))){alert("เลขบัตรประชาชนใช้ไม่ได้ค่ะ");document.getElementById('ok').disabled = true;document.getElementById('id_card').focus();
 			exit;}
 
         val = val + ","+document.getElementById('id_card').value;
         field = field +",id_card";
         flag = flag+",1-13-0-1-0";
-        errDesc = errDesc + ",�Ţ�ѵû�ЪҪ����������";
+        errDesc = errDesc + ",เลขบัตรประชาชนใช้ไม่ได้ค่ะ";
         
     }
     document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -558,14 +558,14 @@ mysql_free_result($rs);
 					<div class="profile-user-info profile-user-info-striped ">
 
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����ż���й�</div>
+							<div class="profile-info-value">ข้อมูลผู้แนะนำ</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ʼ���й� </div>
+							<div class="profile-info-name"> รหัสผู้แนะนำ </div>
 
 							<div class="input-group">
 								<input class="form-control" type="text" id="sp_code" name="sp_code" value="">
@@ -579,7 +579,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ͼ���й� </div>
+							<div class="profile-info-name"> ชื่อผู้แนะนำ </div>
 
 							<div class="input-group col-sm-9 col-xs-9">
 								<input type="text" id="sp_name" name="sp_name" readonly placeholder="" class="form-control">
@@ -604,14 +604,14 @@ mysql_free_result($rs);
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�������Ѿ�Ź�</div>
+							<div class="profile-info-value">ข้อมูลอัพไลน์</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����Ѿ�Ź� </div>
+							<div class="profile-info-name"> รหัสอัพไลน์ </div>
 
 							<div class="input-group">
 								<input class="form-control" type="text" id="upa_code" name="upa_code" value="<?=$upa_code?>">
@@ -625,7 +625,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����Ѿ�Ź� </div>
+							<div class="profile-info-name"> ชื่ออัพไลน์ </div>
 
 							<div class="input-group col-sm-9 col-xs-9">
 								<input class="form-control" type="text" id="upa_code" name="upa_code" readonly value="<?=$upa_name?>" >
@@ -633,7 +633,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">��ҹ</div>
+							<div class="profile-info-name">ด้าน</div>
 							<div class="control-group">
 								<div class="radio">
 									<?
@@ -667,22 +667,22 @@ mysql_free_result($rs);
 					<div class="profile-user-info profile-user-info-striped">
 
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����ż����Ѥ�</div>
+							<div class="profile-info-value">ข้อมูลผู้สมัคร</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ӹ�˹�Ҫ��� </div>
+							<div class="profile-info-name"> คำนำหน้าชื่อ </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
 									<select class="span2" name="name_f" id="name_f" onchange="getRadioValueByName(this.value);document.getElementById('name_ff').value=this.value;if(this.value == '123'){document.getElementById('name_ff').value = '';document.getElementById('name_ff').disabled  = false;document.getElementById('name_ff').focus();}else {document.getElementById('name_ff').disabled = true;}">
-									  <option value="" selected="">�ӹ�˹��</option>
-									  <option value="���">���</option>
-									  <option value="�ҧ���">�ҧ���</option>
-									  <option value="�ҧ">�ҧ</option>
-									  <option value="123">����</option>
+									  <option value="" selected="">คำนำหน้า</option>
+									  <option value="นาย">นาย</option>
+									  <option value="นางสาว">นางสาว</option>
+									  <option value="นาง">นาง</option>
+									  <option value="123">อื่นๆ</option>
 									</select>
 									<input class="span4" type="text" name="name_ff" disabled id="name_ff" value="" tabindex="24">
 								</div>
@@ -690,7 +690,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ����-���ʡ�� ���� ���͹ԵԺؤ�� </div>
+							<div class="profile-info-name"> ชื่อ-นามสกุล หรือ ชื่อนิติบุคคล </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -710,7 +710,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ͷҧ��áԨ </div>
+							<div class="profile-info-name"> ชื่อทางธุรกิจ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -720,25 +720,25 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �� </div>
+							<div class="profile-info-name"> เพศ </div>
 
 							<div class="control-group">
 								
 								<div class="radio">
 									<label>
 										<input type="radio" class="ace" id='sex'  name='sex' value="&#3594;&#3634;&#3618;"></input>
-										<span class="lbl">&nbsp&nbsp ���</span>
+										<span class="lbl">&nbsp&nbsp ชาย</span>
 									</label>
 									<label>
 										<input type="radio" class="ace" id='sex'  name='sex' value="&#3627;&#3597;&#3636;&#3591;" />
-										<span class="lbl">&nbsp&nbsp ˭ԧ</span>
+										<span class="lbl">&nbsp&nbsp หญิง</span>
 									</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѹ����Դ </div>
+							<div class="profile-info-name"> วันที่เกิด </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
@@ -769,7 +769,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѭ�ҵ� </div>
+							<div class="profile-info-name"> สัญชาติ </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
@@ -792,7 +792,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ��Шӵ�ǻ�ЪҪ�/��ʻ��� </div>
+							<div class="profile-info-name"> เลขประจำตัวประชาชน/พาสปอร์ต </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -802,7 +802,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ����¹�ԵԺؤ�� </div>
+							<div class="profile-info-name"> เลขทะเบียนนิติบุคคล </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -812,7 +812,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���Ѿ���ҹ </div>
+							<div class="profile-info-name"> โทรศัพท์บ้าน </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -822,7 +822,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���Ѿ����Ͷ�� </div>
+							<div class="profile-info-name"> โทรศัพท์มือถือ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -832,7 +832,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����	 </div>
+							<div class="profile-info-name"> โทรสาร	 </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -842,7 +842,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ������� </div>
+							<div class="profile-info-name"> อีเมลล์ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -882,22 +882,22 @@ mysql_free_result($rs);
 					<div class="profile-user-info profile-user-info-striped">
 
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����ż����Ѥ�����</div>
+							<div class="profile-info-value">ข้อมูลผู้สมัครร่วม</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ӹ�˹�Ҫ��� </div>
+							<div class="profile-info-name"> คำนำหน้าชื่อ </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
 									<select class="span2" name="cname_f" id="cname_f" onchange="getRadioValueByName1(this.value);document.getElementById('cname_ff').value=this.value;if(this.value == '123'){document.getElementById('cname_ff').value = ''; document.getElementById('cname_ff').disabled  = false;document.getElementById('cname_ff').focus();}else {document.getElementById('cname_ff').disabled  = true;}">
-									  <option value="" selected="">�ӹ�˹��</option>
-									  <option value="���">���</option>
-									  <option value="�ҧ���">�ҧ���</option>
-									  <option value="�ҧ">�ҧ</option>
-									  <option value="123">����</option>
+									  <option value="" selected="">คำนำหน้า</option>
+									  <option value="นาย">นาย</option>
+									  <option value="นางสาว">นางสาว</option>
+									  <option value="นาง">นาง</option>
+									  <option value="123">อื่นๆ</option>
 									</select>
 									<input class="span4" type="text" name="cname_ff" id="cname_ff" value="" tabindex="24">
 								</div>
@@ -905,7 +905,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ����-���ʡ�� ���� ���͹ԵԺؤ�� </div>
+							<div class="profile-info-name"> ชื่อ-นามสกุล หรือ ชื่อนิติบุคคล </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -925,7 +925,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ͷҧ��áԨ </div>
+							<div class="profile-info-name"> ชื่อทางธุรกิจ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -935,25 +935,25 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �� </div>
+							<div class="profile-info-name"> เพศ </div>
 
 							<div class="control-group">
 								
 								<div class="radio">
 									<label>
 										<input type="radio" id="csex" name="csex" class="ace" value="&#3594;&#3634;&#3618;" />
-										<span class="lbl">&nbsp&nbsp ���</span>
+										<span class="lbl">&nbsp&nbsp ชาย</span>
 									</label>
 									<label>
 										<input type="radio" id="csex" name="csex" class="ace" value="&#3627;&#3597;&#3636;&#3591;"/>
-										<span class="lbl">&nbsp&nbsp ˭ԧ</span>
+										<span class="lbl">&nbsp&nbsp หญิง</span>
 									</label>
 								</div>
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѹ����Դ </div>
+							<div class="profile-info-name"> วันที่เกิด </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
@@ -984,7 +984,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѭ�ҵ� </div>
+							<div class="profile-info-name"> สัญชาติ </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
@@ -1007,7 +1007,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ��Шӵ�ǻ�ЪҪ�/��ʻ��� </div>
+							<div class="profile-info-name"> เลขประจำตัวประชาชน/พาสปอร์ต </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1017,7 +1017,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ����¹�ԵԺؤ�� </div>
+							<div class="profile-info-name"> เลขทะเบียนนิติบุคคล </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1027,7 +1027,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���Ѿ���ҹ </div>
+							<div class="profile-info-name"> โทรศัพท์บ้าน </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1037,7 +1037,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���Ѿ����Ͷ�� </div>
+							<div class="profile-info-name"> โทรศัพท์มือถือ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1047,7 +1047,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �����	 </div>
+							<div class="profile-info-name"> โทรสาร	 </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1057,7 +1057,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ������� </div>
+							<div class="profile-info-name"> อีเมลล์ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1100,14 +1100,14 @@ mysql_free_result($rs);
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�������������¹��ҹ</div>
+							<div class="profile-info-value">ที่อยู่ตามทะเบียนบ้าน</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 	
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ţ���/��ͧ</div>
+							<div class="profile-info-name">เลขที่/ห้อง</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1117,7 +1117,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ҥ��</div>
+							<div class="profile-info-name">อาคาร</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1127,7 +1127,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�����ҹ/�͹�</div>
+							<div class="profile-info-name">หมู่บ้าน/คอนโด</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1137,7 +1137,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">��͡/���</div>
+							<div class="profile-info-name">ตรอก/ซอย</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1147,7 +1147,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">���</div>
+							<div class="profile-info-name">ถนน</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1165,7 +1165,7 @@ mysql_free_result($rs);
 							}else{
 						?>
 						<div class="profile-info-row">
-							<div class="profile-info-name">�ѧ��Ѵ</div>
+							<div class="profile-info-name">จังหวัด</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1175,7 +1175,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�����</div>
+							<div class="profile-info-name">อำเภอ</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1185,7 +1185,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ӻ�</div>
+							<div class="profile-info-name">ตำบล</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1196,7 +1196,7 @@ mysql_free_result($rs);
 						<? } ?>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">������ɳ���</div>
+							<div class="profile-info-name">รหัสไปรษณีย์</div>
 
 							<div class="input-group">
 								<input class="form-control" type="text" id="zip" name="zip" value="">
@@ -1219,14 +1219,14 @@ mysql_free_result($rs);
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����������Ѻ�Ѵ�� / ���͡��� </div>
+							<div class="profile-info-value">ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร </div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 	
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ţ���/��ͧ</div>
+							<div class="profile-info-name">เลขที่/ห้อง</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1236,7 +1236,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ҥ��</div>
+							<div class="profile-info-name">อาคาร</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1246,7 +1246,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�����ҹ/�͹�</div>
+							<div class="profile-info-name">หมู่บ้าน/คอนโด</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1256,7 +1256,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">��͡/���</div>
+							<div class="profile-info-name">ตรอก/ซอย</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1266,7 +1266,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">���</div>
+							<div class="profile-info-name">ถนน</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1284,7 +1284,7 @@ mysql_free_result($rs);
 							}else{
 						?>
 						<div class="profile-info-row">
-							<div class="profile-info-name">�ѧ��Ѵ</div>
+							<div class="profile-info-name">จังหวัด</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1294,7 +1294,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�����</div>
+							<div class="profile-info-name">อำเภอ</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1304,7 +1304,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">�Ӻ�</div>
+							<div class="profile-info-name">ตำบล</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1315,7 +1315,7 @@ mysql_free_result($rs);
 						<? } ?>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name">������ɳ���</div>
+							<div class="profile-info-name">รหัสไปรษณีย์</div>
 
 							<div class="input-group">
 								<input class="form-control" type="text" id="czip" name="czip" value="">
@@ -1342,13 +1342,13 @@ mysql_free_result($rs);
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����š���Ѻ�Ż���ª��</div>
+							<div class="profile-info-value">ข้อมูลการรับผลประโยชน์</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ��Ҥ�� </div>
+							<div class="profile-info-name"> ธนาคาร </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
@@ -1370,7 +1370,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ң� </div>
+							<div class="profile-info-name"> สาขา </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1380,17 +1380,17 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �������ѭ��	 </div>
+							<div class="profile-info-name"> ประเภทบัญชี	 </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
-									<input class="form-control" readonly type="text" id="acc_type" name="acc_type" value="�����Ѿ��">
+									<input class="form-control" readonly type="text" id="acc_type" name="acc_type" value="ออมทรัพย์">
 								</div>
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ���ѭ�� </div>
+							<div class="profile-info-name"> เลขที่บัญชี </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1400,7 +1400,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ͺѭ�� </div>
+							<div class="profile-info-name"> ชื่อบัญชี </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1422,22 +1422,22 @@ mysql_free_result($rs);
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">����Ѻ�Ż���ª��ҧ��áԨ</div>
+							<div class="profile-info-value">ผู้รับผลประโยชน์ทางธุรกิจ</div>
 
 							<div class="profile-info-value">
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ӹ�˹�Ҫ���</div>
+							<div class="profile-info-name"> คำนำหน้าชื่อ</div>
 
 							<div class="profile-info-value">
 								<div class="controls">
 									<select class="span2" name="iname_f" id="iname_f" onChange="document.getElementById('iname_ff').value=this.value;if(this.value == '123'){document.getElementById('iname_ff').value = ''; document.getElementById('iname_ff').readOnly  = false;document.getElementById('iname_ff').focus();}else {document.getElementById('iname_ff').readOnly  = true;}" >
-									  <option value="" selected="">�ӹ�˹��</option>
-									  <option value="���">���</option>
-									  <option value="�ҧ���">�ҧ���</option>
-									  <option value="�ҧ">�ҧ</option>
-									  <option value="123">����</option>
+									  <option value="" selected="">คำนำหน้า</option>
+									  <option value="นาย">นาย</option>
+									  <option value="นางสาว">นางสาว</option>
+									  <option value="นาง">นาง</option>
+									  <option value="123">อื่นๆ</option>
 									</select>
 									<input class="span4" type="text" name="iname_ff"  id="iname_ff" readonly value="" tabindex="24">
 								</div>
@@ -1445,7 +1445,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ����-ʡ�� </div>
+							<div class="profile-info-name"> ชื่อ-สกุล </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1455,7 +1455,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ��������ѹ�� </div>
+							<div class="profile-info-name"> ความสัมพันธ์ </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1465,7 +1465,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���Ѿ��</div>
+							<div class="profile-info-name"> โทรศัพท์</div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1475,7 +1475,7 @@ mysql_free_result($rs);
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �Ţ�ѵû�ЪҪ� </div>
+							<div class="profile-info-name"> เลขบัตรประชาชน </div>
 
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
@@ -1504,17 +1504,17 @@ mysql_free_result($rs);
 <center>
 	<button class="btn btn-info" type="button" onClick="<?=(isset($_GET['id'])?"emembercheck()":"imembercheck()")?>" >
 		<i class="ace-icon fa-dot-circle-o bigger-110"></i>
-		��Ǩ�ͺ
+		ตรวจสอบ
 	</button>
 	&nbsp; &nbsp; &nbsp;
 	<button class="btn btn-info" name="ok"  id="ok" disabled  type="submit">
 		<i class="ace-icon fa fa-check bigger-110"></i>
-		�ѹ�֡
+		บันทึก
 	</button>
 	&nbsp; &nbsp; &nbsp;
 	<button class="btn" type="reset">
 		<i class="ace-icon fa fa-undo bigger-110"></i>
-		¡��ԡ
+		ยกเลิก
 	</button>
 </center>
 

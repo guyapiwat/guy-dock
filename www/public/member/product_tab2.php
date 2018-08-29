@@ -22,9 +22,9 @@ color: #212121/*{fcActive}*/;
   </style>
   <div id="tabs">
     <ul>
-        <li><a href="#tabs-1">สินค้า</a></li>
-       <li><a href="#tabs-2">สินค้า Package</a></li>
-		<li style="display:none" ><a href="#tabs-2">สินค้า Promotion</a></li>
+        <li><a href="#tabs-1">เธชเธดเธเธเนเธฒ</a></li>
+       <li><a href="#tabs-2">เธชเธดเธเธเนเธฒ Package</a></li>
+		<li style="display:none" ><a href="#tabs-2">เธชเธดเธเธเนเธฒ Promotion</a></li>
    </ul>
 	<div class="tab-border">
     <div id="tabs-1">

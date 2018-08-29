@@ -9,7 +9,7 @@ include("global.php");
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("��ͧ���¡��ԡ��Ź��")){
+        if(confirm("ต้องการยกเลิกบิลนี้")){
             window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
         }
     }

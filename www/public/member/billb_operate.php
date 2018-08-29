@@ -128,17 +128,17 @@ if($satype == "H"){
         exit;
 	}
 	/*if($mtype == 1 and $discount == "" and $tot_pv < 20000){
-        echo "<script>alert('��Ҫԡ������ Franchise �е�ͧ�Դ��� hold ����á��鹵�� 20,000pv');window.history.back();</script>";    
+        echo "<script>alert('สมาชิกประเภท Franchise จะต้องเปิดบิล hold บิลแรกขั้นต่ำ 20,000pv');window.history.back();</script>";    
         exit;	
 	}else if($mtype == 1 and $discount == 1 and $tot_pv < 2000){
-        echo "<script>alert('��Ҫԡ������ Franchise �е�ͧ�Դ��� hold ����ӡ��� 2,000pv ��ҹ��');window.history.back();</script>"; 
+        echo "<script>alert('สมาชิกประเภท Franchise จะต้องเปิดบิล hold ไม่ต่ำกว่า 2,000pv เท่านั้น');window.history.back();</script>"; 
 		exit;
 	}
 	if($mtype == 2 and $discount == "" and $tot_pv < 200000){
-        echo "<script>alert('��Ҫԡ������ Agency �е�ͧ�Դ��� hold ����á��鹵�� 200,000pv');window.history.back();</script>";    
+        echo "<script>alert('สมาชิกประเภท Agency จะต้องเปิดบิล hold บิลแรกขั้นต่ำ 200,000pv');window.history.back();</script>";    
 		exit;
 	}else if($mtype == 2 and $discount == 1 and $tot_pv < 0){
-        echo "<script>alert('��Ҫԡ������ Agency �е�ͧ�Դ��� hold ����ӡ���  0pv ��ҹ��');window.history.back();</script>";    
+        echo "<script>alert('สมาชิกประเภท Agency จะต้องเปิดบิล hold ไม่ต่ำกว่า  0pv เท่านั้น');window.history.back();</script>";    
 		exit;
 	} */
 }
@@ -197,7 +197,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 	$arr_sending = array();
 	$arr_sending = searchsending($dbprefix,$_SESSION["m_locationbase"],$stype,$tot_pv,$weight);
 	//var_dump($arr_sending);
-	if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '��ا෾��ҹ��' or $cprovinceId == '��طû�ҡ��' or $cprovinceId == '�������' or $cprovinceId == '�����ҹ�'){
+	if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == 'กรุงเทพมหานคร' or $cprovinceId == 'สมุทรปราการ' or $cprovinceId == 'นนทบุรี' or $cprovinceId == 'ปทุมธานี'){
 		//echo $total;
 		$total = $total+$arr_sending["inbound-pcode"]["price"];
 		$tot_cus = $tot_cus+$arr_sending["inbound-pcode"]["price"];
@@ -217,7 +217,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 	if($total > $showewallet1){
 		$stotal = $total-$tot_old;
 		echo "<script language='JavaScript'>alert('".$wording_lan["operate"]["7"].$stotal." ".$wording_lan["operate"]["13"]."');window.location='index.php?sessiontab=4&sub=21&state=1'</script>";	
-		//			echo "<script language='JavaScript'>alert('ewallet �����§�� �դ�ҡ�èѴ�� ".$stot_weight." �ҷ');'</script>";	
+		//			echo "<script language='JavaScript'>alert('ewallet ไม่เพียงพอ มีค่าการจัดส่ง ".$stot_weight." บาท');'</script>";	
 		exit;
 	}
 
@@ -304,10 +304,10 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 
 			// Sum Vat ////////
 			if($vat == '0'){
-				$total_exvat+=($qty[$i]*$price[$i]); //��Ҥ� ������ vat
+				$total_exvat+=($qty[$i]*$price[$i]); //รราคา ไม่รวม vat
 			}else{
 				$vat_sum = ($qty[$i]*$price[$i]*$vat/(100+$vat));
-				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//��Ҥҡ�͹ vat
+				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//รราคาก่อน vat
 				$total_vat+=($qty[$i]*$price[$i]*$vat/(100+$vat));
 				//$total_vat+=($qty[$i]*$price[$i]*100/(100+$vat[$i]));
 				$total_invat_sum+= ($qty[$i]*$price[$i])-$vat_sum;
@@ -350,7 +350,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 	if($satype == 'H' )updatehpv1($dbprefix,$mcode,$tot_pv);
 
 	if($radsend == '1' and $GLOBALS["sending"] == '1'){
-		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '��ا෾��ҹ��' or $cprovinceId == '��طû�ҡ��' or $cprovinceId == '�������' or $cprovinceId == '�����ҹ�'){
+		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == 'กรุงเทพมหานคร' or $cprovinceId == 'สมุทรปราการ' or $cprovinceId == 'นนทบุรี' or $cprovinceId == 'ปทุมธานี'){
 			$totalprice = $arr_sending["inbound-pcode"]["price"];
 			$pcode = $arr_sending["inbound-pcode"]["pcode"];
 		}
@@ -472,10 +472,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
-	 $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
-	 $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
-	 $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
-	 return $ndate; // �觤�ҡ�Ѻ
+	 $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+	 $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+	 $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+	 return $ndate; // ส่งค่ากลับ
 }
 function minusVoucher($dbprefix,$mcode,$total,$btotal){
      global $sano;    
@@ -510,7 +510,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -531,7 +531,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -560,7 +560,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','��Ţ��','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','บิลขาย','$uid')";
 				mysql_query($sql);
 				$sql = "update ".$dbprefix."product set qty = qty-$qty2 WHERE pcode='$pcode2' ";
 				$rs1 = mysql_query($sql);
@@ -572,7 +572,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','��Ţ��','$uid')";
+			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".$_SESSION["datetimezone"]."','".$_SESSION["datetimezone_time"]."','บิลขาย','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";

@@ -8,9 +8,9 @@
 
 			<table border="0" cellspacing="0" cellpadding="0" width="1260">
 				<tr>
-					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>Ἱ���õ�Ҵ</B></FONT><br /><br />
+					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>แผนกการตลาด</B></FONT><br /><br />
 				<tr >
-					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>���ʼ���� :</strong> ".$_SESSION["adminusercode"]." <strong>���ͼ���� :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 				</tr>
 				<tr>
 				  <td width="368">
@@ -24,23 +24,23 @@
 					  </tr>
                         <tr >
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=9">��§ҹ����Թ����������</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=9">รายงานขายสินค้าโปรโมชั่น</a></td>
                       </tr>
                       <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=7">��§ҹ�ʹ�Թ��ҷ��١���</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=7">รายงานยอดสินค้าที่ถูกขาย</a></td>
                       </tr>
                       <tr>
                         <td width="16%" align="right"><img src="images/inv_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">���˹觷ҧ��áԨ</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=54">ตำแหน่งทางธุรกิจ</a></td>
                       </tr>
                       <tr>
                         <td align="right"><img src="images/inv_s.gif" />&nbsp;&nbsp;</td>
-                        <td><a href="./index.php?sessiontab=<?=$sesstab?>&sub=55">���˹����µ���</a></td>
+                        <td><a href="./index.php?sessiontab=<?=$sesstab?>&sub=55">ตำแหน่งเกรียติยศ</a></td>
                       </tr>
                       <tr>
 						<td width="16%" align="right"><img src="./images/6_11.gif" width="25" height="25" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=8">��§ҹ��â�鹵��˹�</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=8">รายงานการขึ้นตำแหน่ง</a></td>
 					  </tr>
 					</table>
 				</td>
@@ -56,7 +56,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="���ٺ������к�" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เมนูบริหารระบบ" /></a>
 
 </td>
 <td width="100%">
@@ -66,7 +66,7 @@
 			case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ�Թ��ҷ��١���</font></strong>
+       			    <strong><font color="#666666">รายงานยอดสินค้าที่ถูกขาย</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -74,14 +74,14 @@
 			case 8:
 				?>
 				<legend>
-		           <strong><font color="#666666">��§ҹ�ʴ�ʶҹС�û�Ѻ���˹觢ͧ��Ҫԡ</font></strong></legend>
+		           <strong><font color="#666666">รายงานแสดงสถานะการปรับตำแหน่งของสมาชิก</font></strong></legend>
 				<?
 				include("./comsn/com_a/rep_newpositon4.php");
 				break;
 			case 9:
 				?>
 				<legend>
-       			    <strong><font color="#666666">��§ҹ�ʹ����Թ����������</font></strong>
+       			    <strong><font color="#666666">รายงานยอดขายสินค้าและแพ็คเก็จ</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount_all.php");
@@ -89,14 +89,14 @@
 			case 54:
 				?>
 				<legend>
-		           <strong><font color="#666666">��§ҹ�ʴ�ʶҹС�û�Ѻ���˹觢ͧ��Ҫԡ</font></strong></legend>
+		           <strong><font color="#666666">รายงานแสดงสถานะการปรับตำแหน่งของสมาชิก</font></strong></legend>
 				<?
 				include("./comsn/com_a/rep_newpositon1.php");
 				break;
 			case 55:
 				?>
 				<legend>
-		           <strong><font color="#666666">��§ҹ�ʴ�ʶҹС�û�Ѻ���˹觢ͧ��Ҫԡ</font></strong></legend>
+		           <strong><font color="#666666">รายงานแสดงสถานะการปรับตำแหน่งของสมาชิก</font></strong></legend>
 				<?
 				include("./comsn/com_a/rep_newpositon2.php");
 				break;

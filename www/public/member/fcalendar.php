@@ -77,40 +77,40 @@ class Calender{
     function getMonthName($mm = 1){      
      switch ($mm-1){
             case 0:
-                return "���Ҥ�";
+                return "มกราคม";
                 break;
             case 1:
-                return "����Ҿѹ��";
+                return "กุมภาพันธ์";
                 break;
             case 2:
-                return "�չҤ�";
+                return "มีนาคม";
                 break;
             case 3:
-                return "����¹";
+                return "เมษายน";
                 break;
             case 4:
-                return "����Ҥ�";
+                return "พฤษภาคม";
                 break;
             case 5:
-                return "�Զع�¹";
+                return "มิถุนายน";
                 break;
             case 6:
-                return "�á�Ҥ�";
+                return "กรกฏาคม";
                 break;
             case 7:
-                return "�ԧ�Ҥ�";
+                return "สิงหาคม";
                 break;
             case 8:
-                return "�ѹ��¹";
+                return "กันยายน";
                 break;
             case 9:
-                return "���Ҥ�";
+                return "ตุลาคม";
                 break;
             case 10:
-                return "��Ȩԡ�¹";
+                return "พฤศจิกายน";
                 break;
             case 11:
-            	return "�ѹ�Ҥ�";
+            	return "ธันวาคม";
             	break;
             default:
             	return 0;
@@ -145,40 +145,40 @@ function  create_daylist($nday){
  function MonthName($mm = 1){      
      switch ($mm-1){
             case 0:
-                return "���Ҥ�";
+                return "มกราคม";
                 break;
             case 1:
-                return "����Ҿѹ��";
+                return "กุมภาพันธ์";
                 break;
             case 2:
-                return "�չҤ�";
+                return "มีนาคม";
                 break;
             case 3:
-                return "����¹";
+                return "เมษายน";
                 break;
             case 4:
-                return "����Ҥ�";
+                return "พฤษภาคม";
                 break;
             case 5:
-                return "�Զع�¹";
+                return "มิถุนายน";
                 break;
             case 6:
-                return "�á�Ҥ�";
+                return "กรกฏาคม";
                 break;
             case 7:
-                return "�ԧ�Ҥ�";
+                return "สิงหาคม";
                 break;
             case 8:
-                return "�ѹ��¹";
+                return "กันยายน";
                 break;
             case 9:
-                return "���Ҥ�";
+                return "ตุลาคม";
                 break;
             case 10:
-                return "��Ȩԡ�¹";
+                return "พฤศจิกายน";
                 break;
             case 11:
-            	return "�ѹ�Ҥ�";
+            	return "ธันวาคม";
             	break;
             default:
             	return 0;

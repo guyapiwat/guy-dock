@@ -32,14 +32,14 @@ $sql = "SELECT * FROM ".$dbprefix."log ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sys_code,subject,object,logdate,logtime");
-		$rec->setFieldDesc("ÃËÑÊ¼ÙéãªéÃÐºº,·ÓÍÐäÃ,¡ÑºÍÐäÃ,ÇÑ¹·Õè,àÇÅÒ");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸£à¸°à¸šà¸š,à¸—à¸³à¸­à¸°à¹„à¸£,à¸à¸±à¸šà¸­à¸°à¹„à¸£,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¹€à¸§à¸¥à¸²");
 		$rec->setFieldAlign("center,left,left,center,center");
 		$rec->setFieldSpace("10%,20%,50%,10%,10%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSearch("sys_code,subject,object,logdate,logtime");
-		$rec->setSearchDesc("ÃËÑÊ¼ÙéãªéÃÐºº,·ÓÍÐäÃ,¡ÑºÍÐäÃ,ÇÑ¹·Õè,àÇÅÒ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹ƒà¸Šà¹‰à¸£à¸°à¸šà¸š,à¸—à¸³à¸­à¸°à¹„à¸£,à¸à¸±à¸šà¸­à¸°à¹„à¸£,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¹€à¸§à¸¥à¸²");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

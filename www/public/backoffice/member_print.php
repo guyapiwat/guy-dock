@@ -54,25 +54,25 @@ $sql .= " ORDER BY id DESC";
 	?><br>
 	<table align='center' width='95%'  border='0' cellpadding='0' cellspacing='0'>
 		<tr>
-			<td colspan="11" align="center"><h4><b>รายงาน รายละเอียดสมาชิก</b></h4></td>
+			<td colspan="11" align="center"><h4><b>เธฃเธฒเธขเธเธฒเธ เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธกเธฒเธเธดเธ</b></h4></td>
 		</tr>
-		<tr><td colspan="11"><? echo "พิมพ์วันที่ ".date("Y-m-d h:i:s");?></td></tr>
+		<tr><td colspan="11"><? echo "เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน ".date("Y-m-d h:i:s");?></td></tr>
 		<tr bgcolor='#999999' align='center'>
 		<form name='maindel' id='maindel' action='./index.php?sessiontab=1&sub=2&state=1' method='post'>
-			<td width='5%' bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ลำดับ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสสมาชิก</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่อ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสผู้แนะนำ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่อผู้แนะนำ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสอัพไลน์</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่ออัพไลน์</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>PV สะสม</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>วันที่สมัคร</td>
-			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>สต๊อกคีป</td>
-			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>โมบาย</td>
+			<td width='5%' bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฅเธณเธ”เธฑเธ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญเธญเธฑเธเนเธฅเธเน</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>PV เธชเธฐเธชเธก</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ</td>
+			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธชเธ•เนเธญเธเธเธตเธ</td>
+			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เนเธกเธเธฒเธข</td>
 		</tr>
 		<?
-		//รหัสผู้แนะนำ,ชื่อผู้แนะนำ,รหัสอัพไลน์,ชื่ออัพไลน์,PV สะสม,วันที่สมัคร,สต๊อกคีป,โมบาย
+		//เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธเธทเนเธญเธญเธฑเธเนเธฅเธเน,PV เธชเธฐเธชเธก,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธชเธ•เนเธญเธเธเธตเธ,เนเธกเธเธฒเธข
 		//mcode,name_t,sp_code,sp_name,upa_code,upa_name,tot_pv,mdate,stockist,mo
 		$onmouseover = array("this.style.background='#FFCC99'","this.style.background='#FFCC99'");
 		$onmouseout = array("this.style.background='#EDEDED'","this.style.background='#FFFFFF'");
@@ -101,7 +101,7 @@ $sql .= " ORDER BY id DESC";
 		}//if(($key!='')||($cause!='')){
 		else{
 		?>
-		</form><table align='center' width='95%'  border='0' cellpadding='0' cellspacing='0'><br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr></table>
+		</form><table align='center' width='95%'  border='0' cellpadding='0' cellspacing='0'><br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ</font></td></tr><tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr></table>
 		<?
 		}
 	?>

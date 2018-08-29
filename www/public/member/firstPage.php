@@ -2,11 +2,11 @@
 		<tr><td valign="top"><br />
 	<blockquote>
 		<br>
-	รหัส&nbsp;<?=$usercode?>&nbsp;ชื่อ&nbsp;<?=$username?><br>
+	เธฃเธซเธฑเธช&nbsp;<?=$usercode?>&nbsp;เธเธทเนเธญ&nbsp;<?=$username?><br>
 	<br>
 	<br>
 	
-<a href="changepasswd.php">เปลี่ยนรหัสผ่านผู้ใช้งานระบบ</a>
+<a href="changepasswd.php">เน€เธเธฅเธตเนเธขเธเธฃเธซเธฑเธชเธเนเธฒเธเธเธนเนเนเธเนเธเธฒเธเธฃเธฐเธเธ</a>
 	<br><br>
 	<br><br>
 	[<a href="logout.php">Logout</a>]

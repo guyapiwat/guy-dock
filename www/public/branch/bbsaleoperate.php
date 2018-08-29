@@ -66,17 +66,17 @@ if(isset($_GET['state'])){
 if($_GET['state']==0){
 	$satype = 'BR';
 	$mid = ++$sano;
-	//logtext(true,$_SESSION['adminuserid'],'‚Õπ∫‘≈ »Ÿπ¬Ï : '.$sano,$mid);
+	//logtext(true,$_SESSION['adminuserid'],'‡πÇ‡∏≠‡∏ô‡∏ö‡∏¥‡∏• ‡∏®‡∏π‡∏ô‡∏¢‡πå : '.$sano,$mid);
 	//
 		if(empty($chkInternet))$txtInternet = 0;
-//∫ÕS„™È‡≈¢subinventory56110001
-//∑ÿ° “¢“ run µËÕ‡π◊ÈÕß°—πÀ¡¥
+//‡∏ö‡∏≠S‡πÉ‡∏ä‡πâ‡πÄ‡∏•‡∏Çsubinventory56110001
+//‡∏ó‡∏∏‡∏Å‡∏™‡∏≤‡∏Ç‡∏≤ run ‡∏ï‡πà‡∏≠‡πÄ‡∏ô‡∏∑‡πâ‡∏≠‡∏á‡∏Å‡∏±‡∏ô‡∏´‡∏°‡∏î
 
 $subinvent = $_SESSION["subinvent"];
 //$inv_ref = "HQ";
 $inv_ref = $_SESSION["admininvent"];
 $inv_code = $_SESSION["admininvent"];
-$sano_f = '∫√S';
+$sano_f = '‡∏ö‡∏£S';
 $sano  = gencode_bbsale($dbprefix,$subinvent,$sano_f);
 
 //echo $sano;
@@ -120,7 +120,7 @@ $sano  = gencode_bbsale($dbprefix,$subinvent,$sano_f);
 	//updateEwallet($dbprefix,$mcode,$txtInternet);
 	//updatePos($dbprefix,$mcode,$sadate);
 }else if($_GET['state']==1){
-	//logtext(true,$_SESSION['adminusercode'],'·°È‰¢∫‘≈',$id);
+	//logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏ö‡∏¥‡∏•',$id);
 	if(empty($chkInternet))$txtInternet = 0;
 	//updateEwallet1($dbprefix,$mcode,$txtInternet,$id);
 	$sql="update ".$dbprefix."istockh set sano='$id', id='$id', ";

@@ -10,8 +10,8 @@ function selectitem(mid,mname,sumtotal){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>р┼╫═б╩┴╥к╘б</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">рр┼╫═б╩┴╥к╘б</font></strong></legend>
+<title>р╣Ар╕ер╕╖р╕нр╕Бр╕кр╕бр╕▓р╕Кр╕┤р╕Б</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">р╣Ар╣Ар╕ер╕╖р╕нр╕Бр╕кр╕бр╕▓р╕Кр╕┤р╕Б</font></strong></legend>
 <?
 require("connectmysql.php");
 require("prefix.php");
@@ -52,12 +52,12 @@ $sql .= " LEFT JOIN (SELECT mcode ,sum(tot_pv)as total FROM ".$dbprefix."holdhea
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,sumtotal");
-		$rec->setFieldDesc("├╦╤╩╩┴╥к╘б,к╫ш═,PV ╩╨╩┴");
+		$rec->setFieldDesc("р╕гр╕лр╕▒р╕кр╕кр╕бр╕▓р╕Кр╕┤р╕Б,р╕Кр╕╖р╣Ир╕н,PV р╕кр╕░р╕кр╕б");
 		$rec->setFieldAlign("center,left");
 		$rec->setFieldSpace("40%,60%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("mcode,name_t");
-		$rec->setSearchDesc("├╦╤╩╩┴╥к╘б,к╫ш═");
+		$rec->setSearchDesc("р╕гр╕лр╕▒р╕кр╕кр╕бр╕▓р╕Кр╕┤р╕Б,р╕Кр╕╖р╣Ир╕н");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");

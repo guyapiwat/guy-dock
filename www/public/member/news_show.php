@@ -3,8 +3,8 @@
 		$sql = "SELECT * FROM ".$dbprefix."news WHERE id='".$_GET['ids']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><div class='alert alert-danger center'>��辺�����ŵ�����͹�</div>
-		<div class='alert alert-danger center'>[<a href="javascript:history.back();">�˹�Ң����ż�����к�</a>]</div><?
+		?><div class='alert alert-danger center'>ไม่พบข้อมูลตามเงื่อนไข</div>
+		<div class='alert alert-danger center'>[<a href="javascript:history.back();">ไปหน้าข้อมูลผู้ใช้ระบบ</a>]</div><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);

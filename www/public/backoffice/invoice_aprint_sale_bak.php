@@ -20,18 +20,18 @@ if(isset($_GET['bid']))
 	$tsano = $fsano;
 }*/
 $sql = "SELECT * FROM ".$dbprefix."asaleh WHERE id='$sano' ";
-$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '‡æ‘Ë¡∫‘≈' order by id desc";
-$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '·°È‰¢∫‘≈' order by id desc";
+$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•' order by id desc";
+$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏ö‡∏¥‡∏•' order by id desc";
 
 //echo $sql;
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‰¡Ëæ∫¢ÈÕ¡Ÿ≈¢Õß∫‘≈‡≈¢∑’Ë <?=$sano?>
-	<br /><input type="button" value="ª‘¥ÀπÈ“π’È" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà <?=$sano?>
+	<br /><input type="button" value="‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
-$typedef = array('A'=>"∫‘≈¢“¬ª°µ‘",'Q'=>"√—°…“¬Õ¥",'H'=>"∫‘≈ BMC");
+$typedef = array('A'=>"‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥",'Q'=>"‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î",'H'=>"‡∏ö‡∏¥‡∏• BMC");
 for($i=0;$i<mysql_num_rows($rs);$i++){
 	$obj = mysql_fetch_object($rs);
 	$bill[$i] = $obj->id;
@@ -54,7 +54,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	//if(!empty($txtoption[$i]))
 	$chkCash[$i] = $obj->chkCash;
 	$send[$i] = $obj->send;
-	//if($send[$i] == '1')$send[$i] = '®—¥ Ëß';else $send[$i]  = "";
+	//if($send[$i] == '1')$send[$i] = '‡∏à‡∏±‡∏î‡∏™‡πà‡∏á';else $send[$i]  = "";
 	 $send[$i]  = "";
 	$chkFuture[$i] = $obj->chkFuture;
 	$chkTransfer[$i] = $obj->chkTransfer;
@@ -62,7 +62,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$chkCredit2[$i] = $obj->chkCredit2;
 	$chkCredit3[$i] = $obj->chkCredit3;
 	$inv_code[$i] = $obj->inv_code;
-	if(empty($inv_code[$i]))$inv_code[$i] = '√—™¥“ 26';
+	if(empty($inv_code[$i]))$inv_code[$i] = '‡∏£‡∏±‡∏ä‡∏î‡∏≤ 26';
 
 	$rs1=mysql_query($sqlLog1);
 	if(mysql_num_rows($rs1) > 0){
@@ -107,9 +107,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$rs2 = mysql_query($sql2);
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" µ.".mysql_result($rs2,0,'districtName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" Õ.".mysql_result($rs2,0,'amphurName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" ®.".mysql_result($rs2,0,'provinceName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" ‡∏ï.".mysql_result($rs2,0,'districtName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" ‡∏≠.".mysql_result($rs2,0,'amphurName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" ‡∏à.".mysql_result($rs2,0,'provinceName');
 	$add[$mcode[$i]] .= " ".mysql_result($rs2,0,'zip');
 	$sp_code[$mcode[$i]] = mysql_result($rs2,0,'sp_code');
 	$sp_name[$mcode[$i]] = mysql_result($rs2,0,'sp_name');
@@ -169,7 +169,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetFont('angsa','',22);  
 	$pdf->SetY($offsety-7);
 	$pdf->SetX($offsetx+(11*$offsettab));
-	$pdf->Cell((3*$offsettab),10,'∫‘≈„∫‡ √Á®',0,0,"L");
+	$pdf->Cell((3*$offsettab),10,'‡∏ö‡∏¥‡∏•‡πÉ‡∏ö‡πÄ‡∏™‡∏£‡πá‡∏à',0,0,"L");
 	
 	$pdf->SetFont('angsa','',14);  
 	$pdf->SetY($offsety+(4*$offsetnline)-4);

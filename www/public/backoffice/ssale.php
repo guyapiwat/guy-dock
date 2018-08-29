@@ -14,17 +14,17 @@
 		//window.location='index.php?sessiontab=3&sub=16&sanooo='+id;
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=16&state=3&bid='+id;
 		}
 	}
 	function sale_status(id){
-		//if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß°“√√—∫¢Õß")){
+		//if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á")){
 			window.location='index.php?sessiontab=3&sub=16&state=6&sender='+id;
 		//}
 	}
 		function sale_status1(id){
-		//if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß®—¥ Ëß")){
+		//if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏à‡∏±‡∏î‡∏™‡πà‡∏á")){
 			window.location='index.php?sessiontab=3&sub=16&state=7&sender='+id;
 		//}
 	}
@@ -86,7 +86,7 @@ $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END A
 $sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd ";
 $sql .= ",CASE ".$dbprefix."asaleh.receive WHEN '1' THEN concat('<img src=./images/true.gif>',".$dbprefix."asaleh.receive_date) ELSE '<img src=./images/false.gif>' END AS receive ,
 CASE ".$dbprefix."asaleh.sender WHEN '1' THEN concat('<img src=./images/true.gif>',".$dbprefix."asaleh.sender_date) ELSE '<img src=./images/false.gif>' END AS sender ,
-".$dbprefix."member.pos_cur as por_cur,".$dbprefix."asaleh.caddress,CONCAT(".$dbprefix."asaleh.caddress,' µ.',districtName,' Õ.',amphurName,' ®.',provinceName,' ',zip) AS address123  ";
+".$dbprefix."member.pos_cur as por_cur,".$dbprefix."asaleh.caddress,CONCAT(".$dbprefix."asaleh.caddress,' ‡∏ï.',districtName,' ‡∏≠.',amphurName,' ‡∏à.',provinceName,' ',zip) AS address123  ";
 
 $sql .= "FROM ".$dbprefix."asaleh ";
 $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) "; //WHERE smcode='".$_SESSION['usercode']."' 
@@ -147,30 +147,30 @@ $sql .= " and sadate like '%$fdate%'  ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,smcode,name_t1,address123,mobile,tot_pv,total,sendsend,sender,receive,remark");
 		$rec->setFieldFloatFormat("");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
-		$rec->setFieldDesc("«—π∑’Ë´◊ÈÕ,‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,∑’ËÕ¬ŸË®—¥ Ëß,¡◊Õ∂◊Õ,√«¡pv,√«¡√“§“,„ÀÈ®—¥ Ëß, Ëß¢Õß,√—∫¢Õß,ÕÈ“ßÕ‘ß");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
+		$rec->setFieldDesc("‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡∏à‡∏±‡∏î‡∏™‡πà‡∏á,‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠,‡∏£‡∏ß‡∏°pv,‡∏£‡∏ß‡∏°‡∏£‡∏≤‡∏Ñ‡∏≤,‡πÉ‡∏´‡πâ‡∏à‡∏±‡∏î‡∏™‡πà‡∏á,‡∏™‡πà‡∏á‡∏Ç‡∏≠‡∏á,‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á,‡∏≠‡πâ‡∏≤‡∏á‡∏≠‡∏¥‡∏á");
 		$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center");
 		$rec->setFieldSpace("7%,7%,5%,16%,20%,7%,5%,5%,5%,7%,3%,8%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."asaleh.mcode,".$dbprefix."asaleh.name_t,".$dbprefix."asaleh.inv_code,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ, “¢“,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,æπ—°ß“π");
+		$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
 		$rec->setSum(true,false,",,,,,,,,,");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","æ‘¡æÏ");
-		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","¥Ÿ");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
+		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE","‡∏î‡∏π");
 		
-		$rec->setSpecial("./images/true.gif","","sale_status1","id,page","IMAGE"," Ëß¢Õß");
+		$rec->setSpecial("./images/true.gif","","sale_status1","id,page","IMAGE","‡∏™‡πà‡∏á‡∏Ç‡∏≠‡∏á");
 
-		$rec->setSpecial("./images/true.gif","","sale_status","id,page","IMAGE","√—∫¢Õß");
+		$rec->setSpecial("./images/true.gif","","sale_status","id,page","IMAGE","‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ssale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","ssale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		
 		$rec->showRec(1,'SH_QUERY');

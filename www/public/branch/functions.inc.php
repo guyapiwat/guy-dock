@@ -540,7 +540,7 @@ function PMBP_email_store($attachments,$backup_info) {
 	// send to all every addresses
     foreach($all_emails as $email) {
 	    // verify email
-    	if (!eregi("^\ *[äöüÄÖÜa-zA-Z0-9_-]+(\.[äöüÄÖÜa-zA-Z0-9\._-]+)*@([äöüÄÖÜa-zA-Z0-9-]+\.)+([a-z]{2,4})$",$email)) {
+    	if (!eregi("^\ *[×”×¦ï¢•Ö´×²ï¢a-zA-Z0-9_-]+(\.[×”×¦ï¢•Ö´×²ï¢a-zA-Z0-9\._-]+)*@([×”×¦ï¢•Ö´×²ï¢a-zA-Z0-9-]+\.)+([a-z]{2,4})$",$email)) {
         	$out.="<div class=\"red\">".F_MAIL_1."</div>\n";
 			continue;
     	}
@@ -743,7 +743,7 @@ function PMBP_unzip($mode,$path) {
         $comp=substr($comp,0,(strlen($comp)-80-strlen($filename)));
 
         // fix the crc bugfix (see function save_to_file)
-        $comp="xœ".$comp.$suffix;
+        $comp="xÂœ".$comp.$suffix;
         $file_data=gzuncompress($comp);
     }
 

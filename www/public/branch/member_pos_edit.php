@@ -13,7 +13,7 @@
 <form action="memposoperate.php?state=1" method="post" name="posedit">
 <table align="center" width="70%" border="0">
 	<tr>
-	  <td colspan="6">รหัส <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;ชื่อ <?=mysql_result($rs,0,'name_t')?>
+	  <td colspan="6">เธฃเธซเธฑเธช <?=mysql_result($rs,0,'mcode')?>&nbsp;&nbsp;&nbsp;&nbsp;เธเธทเนเธญ <?=mysql_result($rs,0,'name_t')?>
       <input type='hidden' name='id' id='id' value='<?=$id?>'>
       <input type='hidden' name='opos' id='opos' value='<?=$pos_cur?>'>
       </td>
@@ -34,7 +34,7 @@
 	//$imgPosDef[$posid[$i]] = "./images/balls_11.gif";
 	//$tabUPosDef[$posid[$i]] = "#EEEEEE";
 	//$tabDPosDef[$posid[$i]] = mysql_result($rs,$i,'posdtab');
-	//$namePosDef[$posid[$i]] = "ไม่มีสมาชิก";
+	//$namePosDef[$posid[$i]] = "เนเธกเนเธกเธตเธชเธกเธฒเธเธดเธ";
 	mysql_free_result($rs);
 	?>
     <?
@@ -68,17 +68,17 @@
 	?>
 	<tr><td colspan="6" align="center" width="38%">&nbsp;</td></tr>
     <tr>
-      <td colspan="6" align="center">ซ้าย
+      <td colspan="6" align="center">เธเนเธฒเธข
         <input type="text" size="15" id="carry_l" name="carry_l"  value="<?=$carry_l?>">
-      ขวา
+      เธเธงเธฒ
       <input type="text" size="15" id="carry_r" name="carry_r" value="<?=$carry_r?>" ></td>
     </tr>
     <tr>
-      <td colspan="6" align="center" width="38%">วันที่ตำแหน่งมีผล:
+      <td colspan="6" align="center" width="38%">เธงเธฑเธเธ—เธตเนเธ•เธณเนเธซเธเนเธเธกเธตเธเธฅ:
         <input type="text" size="15" id="posdate" name="posdate" value="<?=date("Y-m-d")?>">
               <a href="javascript:NewCal('posdate','yyyymmdd',false,24)">
-              <img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่"></a>
+              <img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน"></a>
     </td></tr>
-    <tr><td align="center" colspan="6"><input type="submit" value="ตกลง"></td></tr>
+    <tr><td align="center" colspan="6"><input type="submit" value="เธ•เธเธฅเธ"></td></tr>
 </table>
 </form>

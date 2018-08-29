@@ -22,11 +22,11 @@ color: #212121/*{fcActive}*/;
   </style>
   <div id="tabs">
     <ul>
-        <li><a href="#tabs-1">�Թ���</a></li>
+        <li><a href="#tabs-1">สินค้า</a></li>
         
-        <li><a href="#tabs-2">�Թ��� Package</a></li>
-      <!-- <li><a href="#tabs-3">�Թ��Ңͧ��</a></li>
-      <li><a href="#tabs-4">�Թ��Ҿ�ѡ�ҹ</a></li>
+        <li><a href="#tabs-2">สินค้า Package</a></li>
+      <!-- <li><a href="#tabs-3">สินค้าของแถม</a></li>
+      <li><a href="#tabs-4">สินค้าพนักงาน</a></li>
    --></ul>
     <div class="tab-border">
     <div id="tabs-1">

@@ -32,26 +32,26 @@ input = pad_string + input;
 return input; 
 } 
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
     value = str_pad(value,7,0,false);
-         req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-         req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+         req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+         req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
               if (req.readyState==4) {
-                   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                        var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+                   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                        var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
                         //alert(req.responseText);
                         if(data == 1234){
                         document.getElementById('mcode').value="";
                         document.getElementById("mname").innerHTML="<?=$wording_lan["tab4"]["1_27"]?>";
                         }else{
                         document.getElementById('mcode').value=value;
-                        document.getElementById("mname").innerHTML=data; //�ʴ���
+                        document.getElementById("mname").innerHTML=data; //แสดงผล
                         }
                    }
               }
          };
-         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-         req.send(null); //�ӡ����
+         req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+         req.send(null); //ทำการส่ง
 };
 </script>
 <script language="javascript">
@@ -70,7 +70,7 @@ function ibillcheck(){
     val = val + ","+document.getElementById('spayment').value;
     field = field +",spayment";
     flag = flag+",1-0-0-0-0";
-    errDesc = errDesc + ",���͡�Ըա�ê����Թ";
+    errDesc = errDesc + ",เลือกวิธีการชำระเงิน";
 
 	if(document.getElementById('txtMoney').value == ""){
 		document.getElementById('txtMoney').value = 0;
@@ -78,7 +78,7 @@ function ibillcheck(){
 	}
 
 	if(document.getElementById('spayment').value =='2' && document.getElementById('mcode').value != '<?=$_SESSION["usercode"]?>'){
-		alert('�����ʵ���ͧ��ҹ��');
+		alert('เป็นรหัสตัวเองเท่านั้น');
 		document.getElementById('mcode').value = '';
 		document.getElementById('mname').innerHTML = '';
 		exit;
@@ -86,14 +86,14 @@ function ibillcheck(){
 	}
 
 	if(document.getElementById('spayment').value =='3' && document.getElementById('mcode').value != '<?=$_SESSION["usercode"]?>'){
-		alert('�͹������ʵ���ͧ����ҹ��');
+		alert('ถอนให้รหัสตัวเองได้เท่านั้น');
 		document.getElementById('mcode').value = '';
 		document.getElementById('mname').innerHTML = '';
 		exit;
 	}
 
 	if(document.getElementById('txtMoney').value < 1){
-		alert('��سҡ�͡ Ewallet ����ͧ����͹');
+		alert('กรุณากรอก Ewallet ที่ต้องการโอน');
 		document.getElementById('txtMoney').focus();
 		exit;
 	}             
@@ -112,11 +112,11 @@ function ibillcheck(){
 				<div class="col-xs-12 col-sm-7">
 					<div class="profile-user-info profile-user-info-striped ">
 						<div class="profile-info-row table-header">
-							<div class="profile-info-value">�����š���͹ Ecom ��� Ewallet</div>
+							<div class="profile-info-value">ข้อมูลการโอน Ecom เข้า Ewallet</div>
 							<div class="profile-info-value"></div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ѹ��� </div>
+							<div class="profile-info-name"> วันที่ </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="sadate" name="sadate" value="<?=$sadate==""?$_SESSION["datetimezone"]:$sadate?>" readonly="" class="form-control">
@@ -124,11 +124,11 @@ function ibillcheck(){
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���͡�Ըա�ê����Թ </div>
+							<div class="profile-info-name"> เลือกวิธีการชำระเงิน </div>
 							<div class="profile-info-value">
 								<div class="controls">
 									<select size="1" name="spayment" id="spayment" onChange="if(this.value == '1'){document.getElementById('chkpayment').checked = false;document.getElementById('showpayment').style.visibility='visible';document.getElementById('ok').disabled = true;document.getElementById('button').disabled = true;}else {document.getElementById('chkpayment').checked = false;document.getElementById('showpayment').style.visibility='visible';document.getElementById('ok').disabled = true;document.getElementById('button').disabled = true;}if(this.value == '1'){document.getElementById('chk_confirm').style.display = 'none';}else if(this.value == '2'){document.getElementById('chk_confirm').style.display = '';}else{document.getElementById('chk_confirm').style.display = 'none';}" >
-									  <option value="2">�͹��� Ewallet</option>
+									  <option value="2">โอนเข้า Ewallet</option>
 									</select>
 								</div>
 							</div>
@@ -136,7 +136,7 @@ function ibillcheck(){
 						
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> �ӹǹ�Թ </div>
+							<div class="profile-info-name"> จำนวนเงิน </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="number" min=0 id="txtMoney" name="txtMoney" onkeypress="return chknum(window.event.keyCode)"  class="form-control">
@@ -145,7 +145,7 @@ function ibillcheck(){
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ���ʼ�ҹ </div>
+							<div class="profile-info-name"> รหัสผ่าน </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="sv_code" name="sv_code"  class="form-control">
@@ -153,7 +153,7 @@ function ibillcheck(){
 							</div>
 						</div>
 						<div class="profile-info-row">
-							<div class="profile-info-name"> ������Ҫԡ </div>
+							<div class="profile-info-name"> รหัสสมาชิก </div>
 							<div class="profile-info-value">
 								<div class="input-group col-sm-9 col-xs-9">
 									<input type="text" id="mcode" name="mcode"  value="<?=$_SESSION["usercode"]?>" class="form-control" readonly>
@@ -173,23 +173,23 @@ function ibillcheck(){
 </div>
    <center>
 <input type="checkbox" name="chkpayment" id="chkpayment" value="checkbox" onChange="if(this.checked == true){document.getElementById('button').disabled = false;document.getElementById('ok').disabled = true;}else{document.getElementById('button').disabled = true;document.getElementById('ok').disabled = true;}"  /> 
-		  <a href="#">�׹�ѹ����͹ Ecom ��� Ewallet</a><br/><br/><br/>
+		  <a href="#">ยืนยันการโอน Ecom เข้า Ewallet</a><br/><br/><br/>
 		  
 
 <button class="btn btn-info" name='button'  id='button' type='button' disabled="disabled" onClick="ibillcheck()" >
 	<i class="ace-icon fa-dot-circle-o bigger-110"></i>
-	��Ǩ�ͺ
+	ตรวจสอบ
 </button>
 
 &nbsp; &nbsp; &nbsp;
 <button class="btn btn-info" name="ok"  id="ok" disabled  type="submit">
 	<i class="ace-icon fa fa-check bigger-110"></i>
-	�ѹ�֡
+	บันทึก
 </button>
 &nbsp; &nbsp; &nbsp;
 <button class="btn" type="reset">
 	<i class="ace-icon fa fa-undo bigger-110"></i>
-	¡��ԡ
+	ยกเลิก
 </button>
 </center>
 </form>

@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //‰¡Ë‰ª‡Õ“®“° cache
+  //‡πÑ‡∏°‡πà‡πÑ‡∏õ‡πÄ‡∏≠‡∏≤‡∏à‡∏≤‡∏Å cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //°”Àπ¥ header µÕπ√—∫
+  //‡∏Å‡∏≥‡∏´‡∏ô‡∏î header ‡∏ï‡∏≠‡∏ô‡∏£‡∏±‡∏ö
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -20,7 +20,7 @@ include("connectmysql.php");
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  left join ".$dbprefix."location_base on (".$dbprefix."member.locationbase = ".$dbprefix."location_base.cid) where mcode like '%$value%' limit 0,1";
 
-		$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+		$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
@@ -49,8 +49,8 @@ include("connectmysql.php");
 
 	
 				if($mtype1 > 0){			
-					$chkshow = 'ª√–‡¿∑ ¡“™‘° : '.$arr_mtype1[$mtype1].' <br>';
-					$chkshow .= '™◊ËÕ : '.$name_t.' <br>';
+					$chkshow = '‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å : '.$arr_mtype1[$mtype1].' <br>';
+					$chkshow .= '‡∏ä‡∏∑‡πà‡∏≠ : '.$name_t.' <br>';
 					echo $chkshow;
 				}else{
 					echo "1234";

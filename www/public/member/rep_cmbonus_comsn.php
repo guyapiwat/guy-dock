@@ -13,7 +13,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("°√ÿ≥“°√Õ°√Ÿª·∫∫√Õ∫„ÀÈ∂Ÿ°µÈÕß");
+			alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö‡∏£‡∏≠‡∏ö‡πÉ‡∏´‡πâ‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á");
 			return false;
 		}
 	}
@@ -45,7 +45,7 @@ if ($cmc=="") {
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//√Õ∫‡√‘Ë¡µÈπ == √Õ∫ ‘Èπ ÿ¥
+		//‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô == ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -75,9 +75,9 @@ if ($cmc=="") {
 		$rec->setBackLink($PHP_SELF,"sessiontab=5");
 		if(isset($page))
 			$rec->setCurPage($page);
-		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","¥Ÿ");
+		//$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","‡∏î‡∏π");
 		$rec->setShowField("rcode,rdate,sano,mcode,name_t,bcode,spname_t,pv,percentbm,percenttopup,total");
-		$rec->setFieldDesc("√À— √Õ∫,«—π∑’Ë,√À— ∫‘≈,√À— ºŸÈ·π–π”,™◊ËÕ,√À— ºŸÈ´◊ÈÕ,™◊ËÕ,PV,%§Ë“·π–π”,%∑ÍÕ∫Õ—æ,‰¥È ");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏£‡∏≠‡∏ö,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏ä‡∏∑‡πà‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠,PV,%‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,%‡∏ó‡πä‡∏≠‡∏ö‡∏≠‡∏±‡∏û,‡πÑ‡∏î‡πâ ");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,right,right,right,right");
 		$rec->setFieldSpace("8%,10%,5%,10%,15%,10%,15%,10%,8%,8%,10%");
 		$rec->setSum(true,false,",,,,,,,,,,true");
@@ -95,22 +95,22 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>°√Õ°√Õ∫ ·≈–√À—  ¡“™‘°∑’ËµÈÕß°“√¥Ÿ√“¬ß“π</strong></td>
+    <td colspan="2" align="center"><strong>‡∏Å‡∏£‡∏≠‡∏Å‡∏£‡∏≠‡∏ö ‡πÅ‡∏•‡∏∞‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">√Õ∫&nbsp;&nbsp;</td>
+    <td align="right">‡∏£‡∏≠‡∏ö&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( °√Õ°¢ÈÕ¡Ÿ≈‡ªÁπ 1-9 )</td>
+      &nbsp;( ‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏õ‡πá‡∏ô 1-9 )</td>
   </tr>
  
   <tr align="center">
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /></td>
     </tr>
   
   <tr>

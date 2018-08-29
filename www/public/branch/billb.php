@@ -9,7 +9,7 @@ $xinv_code = $_SESSION["admininvent"];
 
 $where_bills = findBills("sano","ali_asaleh",$bills);
 
-
+ 
 ?>
 <script language="javascript" type="text/javascript">
 	function sale_print(id){
@@ -25,9 +25,9 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 	}
 	function sale_cancel(id){
 		if(confirm("<?=$wording_lan['Bill_21']?>")){
-			var remark = prompt("¡ÃØ³Ò¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ","");
+			var remark = prompt("à¸à¸£à¸¸à¸“à¸²à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°","");
 			if(remark == ""){
-				alert("¤Ø³äÁèä´é¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ");
+				alert("à¸„à¸¸à¸“à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°");
 			}
 			if(remark !== null && remark !== ""){
 				window.location='index.php?sessiontab=3&sub=139&state=3&bid='+id+'&remark='+remark;
@@ -164,7 +164,10 @@ $monthmonth = explode("-",$fdate);
 	}
 	else{
 //echo $sql;
+ 
 		rpdialog_sale_branch1($_GET['sub'],$fdate,$tdate,$sale,$type,$xinv_code);
+		
+		 
 		$rec = new repGenerator();
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);
@@ -185,9 +188,9 @@ $monthmonth = explode("-",$fdate);
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,inv_code,remark");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÃÑ¡ÉÒÂÍ´,·Ó¤Ø³ÊÁºÑµÔ,holdÂÍ´,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ");
-	//	$rec->setFieldDesc("P,ÇÑ¹·Õè«×éÍ,àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ª¹Ô´, PV,¨Ó¹Ç¹à§Ô¹,¼Ùé¤ÕÂì,¨Ñ´Êè§,ÇÑ¹¨Ñ´Êè§,ÇÑ¹ÃÑº¢Í§,ÍéÒ§ÍÔ§,ÃÑº¢Í§ÊÒ¢Ò");
-		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_9"].",".$wording_lan["Bill_10"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_14"].",ËÁÒÂàËµØ");
+		//$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”,à¸—à¸³à¸„à¸¸à¸“à¸ªà¸¡à¸šà¸±à¸•à¸´,holdà¸¢à¸­à¸”,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡");
+	//	$rec->setFieldDesc("P,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸™à¸´à¸”, PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™,à¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œ,à¸ˆà¸±à¸”à¸ªà¹ˆà¸‡,à¸§à¸±à¸™à¸ˆà¸±à¸”à¸ªà¹ˆà¸‡,à¸§à¸±à¸™à¸£à¸±à¸šà¸‚à¸­à¸‡,à¸­à¹‰à¸²à¸‡à¸­à¸´à¸‡,à¸£à¸±à¸šà¸‚à¸­à¸‡à¸ªà¸²à¸‚à¸²");
+		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_9"].",".$wording_lan["Bill_10"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_14"].",à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 		$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center,center,center");
 		$rec->setSearch("sano,".$dbprefix."asaleh.mcode,".$dbprefix."asaleh.name_t,tot_pv,total,".$dbprefix."asaleh.uid");
 		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_19"].",".$wording_lan["Bill_25"]."");
@@ -206,7 +209,7 @@ $monthmonth = explode("-",$fdate);
 		//if($acc->isAccess(2))
 			//$rec->setEdit("index.php","id","id","sessiontab=3&sub=139");
 		$str2 = "<fieldset ><a href='".$actual_link."invoice/aprint_sale_branch.php?bid=$bills&fdate=$fdate&tdate=$tdate&sale=$sale&inv=$xinv_code&type=$type' target='_blank'>";  
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."asaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."asaleh.mcode AS smcode";

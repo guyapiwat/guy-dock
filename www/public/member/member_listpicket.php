@@ -45,8 +45,8 @@ function selectitem(mcode){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>р┼╫═б╩╥в╥</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">р┼╫═б Member</font></strong></legend>
+<title>р╣Ар╕ер╕╖р╕нр╕Бр╕кр╕▓р╕Вр╕▓</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">р╣Ар╕ер╕╖р╕нр╕Б Member</font></strong></legend>
 <?
 require("connectmysql.php");
 require("./cls/repGenerator.php");
@@ -72,11 +72,11 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
         if(isset($page))
             $rec->setCurPage($page);
         $rec->setShowField("mcode,name_t,");
-        $rec->setFieldDesc("├╦╤╩╩┴╥к╘б,к╫ш═");
+        $rec->setFieldDesc("р╕гр╕лр╕▒р╕кр╕кр╕бр╕▓р╕Кр╕┤р╕Б,р╕Кр╕╖р╣Ир╕н");
         $rec->setFieldAlign("center,left");
         $rec->setFieldSpace("40%,60%"); 
         $rec->setSearch("mcode,name_t");
-        $rec->setSearchDesc("├╦╤╩╩┴╥к╘б,к╫ш═"); 
+        $rec->setSearchDesc("р╕гр╕лр╕▒р╕кр╕кр╕бр╕▓р╕Кр╕┤р╕Б,р╕Кр╕╖р╣Ир╕н"); 
         $rec->setSpecial("./images/add_pic.gif","","selectitem","mcode","IMAGE","");
         $rec->showRec(1,'SH_QUERY');
      

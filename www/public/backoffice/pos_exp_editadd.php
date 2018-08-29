@@ -44,13 +44,13 @@ div.border{
 		<div class='col-md-6'> 
 			<div id="" class="col-md-12 text-center">
 				<div class="widget-header">
-					<h4 class="widget-title">������蹵��˹�</h4>
+					<h4 class="widget-title">โปรโมชั่นตำแหน่ง</h4>
 				</div>
 				<div class="widget-body" style="display: block;">
 					<div class="widget-main" style="padding-top:5px"> 
 						<div class="form-group grey" >
 								<div class="col-md-6">
-								<span class="lbl">&nbsp &nbsp ��ṹ</span>
+								<span class="lbl">&nbsp &nbsp คะแนน</span>
 								</div>
 								<div class="col-md-6">
 									<input id="vip_exp" name="vip_exp" type="number" value="<?=$data[0]['vip_exp']?>" >
@@ -70,10 +70,10 @@ div.border{
 	<div class="form-group text-center">
 		<div class="col-sm-12 col-md-12 ">
 			<button type="submit" class="btn btn-white btn-md btn-success btn-round no-border" id="hhh">
-				�ѹ�֡
+				บันทึก
 			</button>
 			<button type="reset" class="btn btn-white btn-md btn-default btn-round no-border">
-				¡��ԡ
+				ยกเลิก
 			</button>
 		</div>
 	</div>
@@ -84,7 +84,7 @@ div.border{
 		$('#from_conf').submit(function(){
 			var vip_exp = formatNumber($('#vip_exp').val());
 			var vip_exp_old = formatNumber($('#vip_exp_old').val());
-			if(confirm("�͹������������¹��ṹ��â�鹵��˹� �ҡ "+vip_exp_old+" �� "+vip_exp)){
+			if(confirm("คอนเฟิร์มการเปลี่ยนคะแนนการขึ้นตำแหน่ง จาก "+vip_exp_old+" เป็น "+vip_exp)){
 				return true;
 			}
 			return false;

@@ -8,9 +8,9 @@
 
 			<table border="0" cellspacing="0" cellpadding="0" width="1260">
 				<tr>
-					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>บัญชี Account</B></FONT><br /><br />
+					<td  valign="top" colspan="3"><img src="images/sysadmin.gif" border="0" align="absmiddle" /><FONT SIZE="+2" ><B>เธเธฑเธเธเธต Account</B></FONT><br /><br />
 				<tr >
-					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>รหัสผู้ใช้ :</strong> ".$_SESSION["adminusercode"]." <strong>ชื่อผู้ใช้ :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
+					<td height="28" colspan="2"><img src="./images/user.gif" width="32" height="32" align="absmiddle" />&nbsp;<? echo  "<strong>เธฃเธซเธฑเธชเธเธนเนเนเธเน :</strong> ".$_SESSION["adminusercode"]." <strong>เธเธทเนเธญเธเธนเนเนเธเน :</strong> ".$_SESSION["adminusername"]."<br /><br />";?> </td>
 				</tr>
 				<tr>
 				  <td width="368">
@@ -25,40 +25,40 @@
 
 					   <tr>
 						<td width="16%" align="right"><img src="images/9_37s.gif" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2">ข้อมูลสมาชิก</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2">เธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธ</a></td>
 					  </tr>	
 					    <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">สรุปยอดขาย สินค้า / Package / สินค้าใน Package +ช่องต้นทุน</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=777">เธชเธฃเธธเธเธขเธญเธ”เธเธฒเธข เธชเธดเธเธเนเธฒ / Package / เธชเธดเธเธเนเธฒเนเธ Package +เธเนเธญเธเธ•เนเธเธ—เธธเธ</a></td>
                       </tr>
                         <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=36">ค่าคอมแยก vip  แยก ธนาคาร</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=36">เธเนเธฒเธเธญเธกเนเธขเธ vipย  เนเธขเธ เธเธเธฒเธเธฒเธฃ</a></td>
                       </tr>
                       <tr>
                         <td width="16%" align="right"><img src="images/10_11_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=1">บันทึกต้นทุนสินค้า</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=1">เธเธฑเธเธ—เธถเธเธ•เนเธเธ—เธธเธเธชเธดเธเธเนเธฒ</a></td>
                       </tr>
 					  <tr>
                         <td width="16%" align="right"><img src="images/inv_s.gif" />&nbsp;&nbsp;</td>
-                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2828">ภงด. (1, 1ก, หนังสือรับรองงการหักภาษี ณ ที่จ่าย)</a></td>
+                        <td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=2828">เธ เธเธ”. (1, 1เธ, เธซเธเธฑเธเธชเธทเธญเธฃเธฑเธเธฃเธญเธเธเธเธฒเธฃเธซเธฑเธเธ เธฒเธฉเธต เธ“ เธ—เธตเนเธเนเธฒเธข)</a></td>
                       </tr>
 					  
 					  <tr>
 						<td width="16%" align="right"><img src="./images/6_11.gif" width="25" height="25" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">รายงานการจ่ายเงิน (บัตรเครดิตรเงินโอน)</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=18">เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเธเนเธฒเธขเน€เธเธดเธ (เธเธฑเธ•เธฃเน€เธเธฃเธ”เธดเธ•เธฃเน€เธเธดเธเนเธญเธ)</a></td>
 					  </tr>
 					  <tr>
 						<td width="16%" align="right"><img src="images/9_37s.gif" border="0">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=7">ยอดขายแต่ละศูนย์</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=7">เธขเธญเธ”เธเธฒเธขเนเธ•เนเธฅเธฐเธจเธนเธเธขเน</a></td>
 					  </tr>	
 					    <tr>
 						<td width="16%" align="right"><img src="./images/exec.gif" width="24" height="24">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./sell_print_uidp.php" target="_blank">รายงานการรับชำระเงินประจำวัน  (แยกตามเคาน์เตอร์และประเภทการชำระ แยกสาขา)</a></td>
+						<td width="84%"><a href="./sell_print_uidp.php" target="_blank">เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเธฃเธฑเธเธเธณเธฃเธฐเน€เธเธดเธเธเธฃเธฐเธเธณเธงเธฑเธ  (เนเธขเธเธ•เธฒเธกเน€เธเธฒเธเนเน€เธ•เธญเธฃเนเนเธฅเธฐเธเธฃเธฐเน€เธ เธ—เธเธฒเธฃเธเธณเธฃเธฐ เนเธขเธเธชเธฒเธเธฒ)</a></td>
 					  </tr>
                        <tr>
 						<td width="16%" align="right"><img src="./images/exec.gif" width="24" height="24">&nbsp;&nbsp;</td>
-						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=60">นำสินค้าเข้าระบบ</a></td>
+						<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=60">เธเธณเธชเธดเธเธเนเธฒเน€เธเนเธฒเธฃเธฐเธเธ</a></td>
 					  </tr>
 					
 					</table>
@@ -75,7 +75,7 @@
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
 <? $hl = "style='border:inset 1 #FF9933;'"; ?>
-<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เมนูบริหารระบบ" /></a>
+<a href="javascript:history.back()"><img src="./images/back.gif" border="0"height="40" width="40" alt="เน€เธกเธเธนเธเธฃเธดเธซเธฒเธฃเธฃเธฐเธเธ" /></a>
 
 </td>
 <td width="100%">
@@ -85,9 +85,9 @@
 			 case 1:
 				?>
 				<legend>
-		           	<strong><font color="#666666">บันทึกต้นทุนสินค้า&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">เธเธฑเธเธ—เธถเธเธ•เนเธเธ—เธธเธเธชเธดเธเธเนเธฒ&nbsp;&nbsp;</font></strong>
                    <!--	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้า</a>
+               	   	<img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒ" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เน€เธเธดเนเธกเธชเธดเธเธเนเธฒ</a>
                    <? }?>    -->          
 				</legend>
 				<?
@@ -97,9 +97,9 @@
 			 case 2:
 				?>
 				<legend>
-		           	<strong><font color="#666666">บันทึกต้นทุนสินค้า&nbsp;&nbsp;</font></strong>
+		           	<strong><font color="#666666">เธเธฑเธเธ—เธถเธเธ•เนเธเธ—เธธเธเธชเธดเธเธเนเธฒ&nbsp;&nbsp;</font></strong>
                    <!--	<? if($acc->isAccess(1)){?>
-               	   	<img border="0" src="./images/add.gif" alt="เพิ่มข้อมูลสินค้า" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เพิ่มสินค้า</a>
+               	   	<img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเนเธญเธกเธนเธฅเธชเธดเธเธเนเธฒ" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=1&state=2'>เน€เธเธดเนเธกเธชเธดเธเธเนเธฒ</a>
                    <? }?>    -->          
 				</legend>
 				<?
@@ -109,7 +109,7 @@
 			 case 7:
 				?>
 				<legend>
-       			    <strong><font color="#666666">ยอดขายแต่ละศูนย์</font></strong>
+       			    <strong><font color="#666666">เธขเธญเธ”เธเธฒเธขเนเธ•เนเธฅเธฐเธจเธนเธเธขเน</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount.php");
@@ -117,9 +117,9 @@
 
 			 case 60:
 				?>
-				<legend> <strong><font color="#666666">นำสินค้าเข้าระบบ</font></strong>
+				<legend> <strong><font color="#666666">เธเธณเธชเธดเธเธเนเธฒเน€เธเนเธฒเธฃเธฐเธเธ</font></strong>
 				<? if($acc->isAccess(1)){?>
-				<img border="0" src="./images/add.gif" alt="เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>เพิ่มการรับสินค้าเข้า [แบบเปิดบิล]</a>
+				<img border="0" src="./images/add.gif" alt="เน€เธเธดเนเธกเธเธฒเธฃเธฃเธฑเธเธชเธดเธเธเนเธฒเน€เธเนเธฒ [เนเธเธเน€เธเธดเธ”เธเธดเธฅ]" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=<?=$sesstab?>&sub=60&state=2'>เน€เธเธดเนเธกเธเธฒเธฃเธฃเธฑเธเธชเธดเธเธเนเธฒเน€เธเนเธฒ [เนเธเธเน€เธเธดเธ”เธเธดเธฅ]</a>
 				<? }?>
 				</legend>
 				<?
@@ -128,14 +128,14 @@
 			 case 2828:
 				?>
 				<legend>
-		           <strong><font color="#666666">รายงานสรุปรอบการจ่าย ภงด. (1, 1ก, หนังสือรับรองงการหักภาษี ณ ที่จ่าย)</font></strong></legend>
+		           <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธชเธฃเธธเธเธฃเธญเธเธเธฒเธฃเธเนเธฒเธข เธ เธเธ”. (1, 1เธ, เธซเธเธฑเธเธชเธทเธญเธฃเธฑเธเธฃเธญเธเธเธเธฒเธฃเธซเธฑเธเธ เธฒเธฉเธต เธ“ เธ—เธตเนเธเนเธฒเธข)</font></strong></legend>
 				<?
 				include("./comsn/com_c/rep_cmbonus_comsn_3.php");
 				break;
 			case 36:
 				?>
 				<legend>
-		           <strong><font color="#666666">ค่าคอมแยก vip  แยก ธนาคาร</font></strong></legend>
+		           <strong><font color="#666666">เธเนเธฒเธเธญเธกเนเธขเธ vipย  เนเธขเธ เธเธเธฒเธเธฒเธฃ</font></strong></legend>
 				<?
 				//include("./comsn/com_c/packfile_tee.php");
 			include("./comsn/com_c/rep_cmbonus_comsn_44.php");
@@ -143,7 +143,7 @@
 			case 18:
 				?>
 				<legend>
-       			    <strong><font color="#666666">รายงานการจ่ายเงิน (บัตรเครดิตรเงินโอน)</font></strong>
+       			    <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเธเนเธฒเธขเน€เธเธดเธ (เธเธฑเธ•เธฃเน€เธเธฃเธ”เธดเธ•เธฃเน€เธเธดเธเนเธญเธ)</font></strong>
                 </legend>
 				<?
 				include("sale_bill_total.php");
@@ -155,7 +155,7 @@
 			case 777:
 				?>
 				<legend>
-       			    <strong><font color="#666666">รายงานยอดขายสินค้าและแพ็คเก็จ</font></strong>
+       			    <strong><font color="#666666">เธฃเธฒเธขเธเธฒเธเธขเธญเธ”เธเธฒเธขเธชเธดเธเธเนเธฒเนเธฅเธฐเนเธเนเธเน€เธเนเธ</font></strong>
                 </legend>
 				<?
 				include("product_sale_amount_all_acc.php");

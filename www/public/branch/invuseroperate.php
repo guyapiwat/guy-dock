@@ -32,7 +32,7 @@ if(isset($_GET['state'])){
 	//print_r($obj);
 }
 if($_GET['state']==0){
-	logtext(true,$_SESSION['adminusercode'],'‡æ‘Ë¡ºŸÈ„™È√–∫∫',$usercode);
+	logtext(true,$_SESSION['adminusercode'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏£‡∏∞‡∏ö‡∏ö',$usercode);
 	$sql="insert into ".$dbprefix."user (usercode, username,  password,  object1,  object2,  object3,  object4,  object5,accessright,usertype,inv_ref) values ('$usercode' ,'$username','".EncodePwd($password)."' ,'$obj[1]','$obj[2]' ,'$obj[3]','$obj[4]' ,'$obj[5]','$accessright','2','$inv_ref') ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=invuseroperate =>$sql";
@@ -48,7 +48,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=5&sub=6'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'·°È‰¢ºŸÈ„™È√–∫∫',$usercode);
+	logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏ú‡∏π‡πâ‡πÉ‡∏ä‡πâ‡∏£‡∏∞‡∏ö‡∏ö',$usercode);
 	$sql = "UPDATE ".$dbprefix."user SET  usercode ='$usercode', username='$username', ";
 	$sql .= "password='".EncodePwd($password)."',inv_ref='$inv_ref' WHERE uid = '$oid' ";
 	//====================LOG===========================

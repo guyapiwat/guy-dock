@@ -23,8 +23,8 @@ if($_POST){
 	$rs = mysql_query($sql);
 	?>
 		<table width = '500' border=1 align=center><tr>
-	<td colspan=2 align=center><p>การยืนยันของคุณได้รับการบันทึกเรียบร้อยแล้ว</p>
-	  <p><b><font color="orange" size="5">ขอบคุณครับ / Thank you</font></b></p></td></tr>
+	<td colspan=2 align=center><p>เธเธฒเธฃเธขเธทเธเธขเธฑเธเธเธญเธเธเธธเธ“เนเธ”เนเธฃเธฑเธเธเธฒเธฃเธเธฑเธเธ—เธถเธเน€เธฃเธตเธขเธเธฃเนเธญเธขเนเธฅเนเธง</p>
+	  <p><b><font color="orange" size="5">เธเธญเธเธเธธเธ“เธเธฃเธฑเธ / Thank you</font></b></p></td></tr>
 	</table>
 
 	<?
@@ -44,33 +44,33 @@ $sql="SELECT * FROM ".$dbprefix."event where mcode = '".$_SESSION["usercode"]."'
 		?>
 		<form name='frm' method="post">
 		<table width = '74%' border=1 align=center><tr>
-		<td colspan=2 align=center><p><b><font color="orange" size="5">คุณได้รับเชิญเข้าร่วมงาน </font></b></p>
+		<td colspan=2 align=center><p><b><font color="orange" size="5">เธเธธเธ“เนเธ”เนเธฃเธฑเธเน€เธเธดเธเน€เธเนเธฒเธฃเนเธงเธกเธเธฒเธ </font></b></p>
 		  <p><b><font color="orange" size="5">Success Night Party</font></b></p>
-		  <p><b><font size="5" color="orange">วันที่ 14 มีนาคม 2557</font></b> </p>
-		  <p><b><font color="orange" size="5">กรุณายืนยันการเข้าร่วมงาน</font></b></p></td></tr>
+		  <p><b><font size="5" color="orange">เธงเธฑเธเธ—เธตเน 14 เธกเธตเธเธฒเธเธก 2557</font></b> </p>
+		  <p><b><font color="orange" size="5">เธเธฃเธธเธ“เธฒเธขเธทเธเธขเธฑเธเธเธฒเธฃเน€เธเนเธฒเธฃเนเธงเธกเธเธฒเธ</font></b></p></td></tr>
 		<tr>
-		<td width="31%" height="40" align=left>กรุณาเลือกประเภทการยืนยัน :</td><td width="69%">
+		<td width="31%" height="40" align=left>เธเธฃเธธเธ“เธฒเน€เธฅเธทเธญเธเธเธฃเธฐเน€เธ เธ—เธเธฒเธฃเธขเธทเธเธขเธฑเธ :</td><td width="69%">
 		
 		  <p>
 		     <select tabindex="69" name="status" id="status" >
-		      <option   value="" >โปรดเลือก</option>
-		      <option <? if($data->status == 'ยืนยันเข้าร่วมงาน')echo 'selected="selected"'; ?>  value="ยืนยันเข้าร่วมงาน">ยืนยันเข้าร่วมงาน</option>
-		      <option <? if($data->status == 'ไม่สามารถไปร่วมงานได้')echo 'selected="selected"'; ?>  value="ไม่สามารถไปร่วมงานได้">ไม่สามารถไปร่วมงานได้</option>
+		      <option   value="" >เนเธเธฃเธ”เน€เธฅเธทเธญเธ</option>
+		      <option <? if($data->status == 'เธขเธทเธเธขเธฑเธเน€เธเนเธฒเธฃเนเธงเธกเธเธฒเธ')echo 'selected="selected"'; ?>  value="เธขเธทเธเธขเธฑเธเน€เธเนเธฒเธฃเนเธงเธกเธเธฒเธ">เธขเธทเธเธขเธฑเธเน€เธเนเธฒเธฃเนเธงเธกเธเธฒเธ</option>
+		      <option <? if($data->status == 'เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เนเธเธฃเนเธงเธกเธเธฒเธเนเธ”เน')echo 'selected="selected"'; ?>  value="เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เนเธเธฃเนเธงเธกเธเธฒเธเนเธ”เน">เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เนเธเธฃเนเธงเธกเธเธฒเธเนเธ”เน</option>
             </select>
 		  </p>
 
 
 		</td></tr>
 		<tr>
-		<td colspan=2 align=left><p>หมายเหตุ : 
+		<td colspan=2 align=left><p>เธซเธกเธฒเธขเน€เธซเธ•เธธ : 
 		  <br>
 		  <textarea name="remark" id="remark" cols="100" rows="5"><?=$data->remark?>
 		</textarea>
-		  เงื่อนไข :</p>
-		  <p>- งานเริ่มเวลา 17:30 น. ที่ โรงแรมโพธาลัย ห้อง Center Pond &lt;<a href="http://www.plp.co.th/mice/index.php/location#prettyPhoto/0/">แผนที่โรงแรม</a>&gt;</p>
-		  <p>- การแต่งกาย ชุดราตรียาว/ทักซิโด้</p></td></tr>
+		  เน€เธเธทเนเธญเธเนเธ :</p>
+		  <p>- เธเธฒเธเน€เธฃเธดเนเธกเน€เธงเธฅเธฒ 17:30 เธ. เธ—เธตเน เนเธฃเธเนเธฃเธกเนเธเธเธฒเธฅเธฑเธข เธซเนเธญเธ Center Pond &lt;<a href="http://www.plp.co.th/mice/index.php/location#prettyPhoto/0/">เนเธเธเธ—เธตเนเนเธฃเธเนเธฃเธก</a>&gt;</p>
+		  <p>- เธเธฒเธฃเนเธ•เนเธเธเธฒเธข เธเธธเธ”เธฃเธฒเธ•เธฃเธตเธขเธฒเธง/เธ—เธฑเธเธเธดเนเธ”เน</p></td></tr>
 			<td colspan=2 align=center>  <p>
-			  <input type="submit" value="ยืนยัน / Confirm" name="ok"  id="ok"  tabindex="81" >
+			  <input type="submit" value="เธขเธทเธเธขเธฑเธ / Confirm" name="ok"  id="ok"  tabindex="81" >
 	      </p></td></tr></table>
 			</form>
 		<?

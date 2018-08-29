@@ -110,7 +110,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 			$balance = $ewallet;
 		for($j=0;$j<mysql_num_rows($rs111);$j++){
 			$sqlObj = mysql_fetch_object($rs111);
-			//insert µÃ§¹Õé
+			//insert à¸•à¸£à¸‡à¸™à¸µà¹‰
 			$sadate = $sqlObj->sadate;
 			$sid = $sqlObj->sid;
 			$uid = $sqlObj->uid;

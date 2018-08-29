@@ -1,6 +1,6 @@
 <script language="javascript" type="text/javascript">
     function adjust(id,mcode,rcode,fdate,tdate,paydate){
-        if(confirm("��ͧ��� Adjust")){
+        if(confirm("ต้องการ Adjust")){
 			//alert(id+" "+mcode+" "+rcode+" "+fdate+" "+tdate+" "+paydate);
 			var wlink = 'index.php?sessiontab=4&sub=2008&state=2&mcode='+mcode+'&fdate='+fdate+'&tdate='+tdate+'&rcode='+rcode+'&bid='+id+'&paydate='+paydate;
             window.location=wlink;    
@@ -26,7 +26,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>��سҡ�͡��ǧ���������١ �� 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -43,7 +43,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -73,13 +73,13 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		}
 		$sql = "SELECT *,@num := @num + 1 b FROM (SELECT a.fdate,a.tdate,a.paydate,a.dmbonus,a.embonus,a.com_transfer_chagre,(a.total+a.pv) as thiscom,a.bankcode";
 		$sql .= ",a.id,a.rcode,a.mcode,m.name_t,a.pv,a.pvb,a.total,a.tot_tax as tax ";
-		$sql .= ",CASE a.status WHEN '1' THEN '����' WHEN '0' THEN '������'  END AS status
+		$sql .= ",CASE a.status WHEN '1' THEN 'จ่าย' WHEN '0' THEN 'ไม่จ่าย'  END AS status
 		,m.cmp,m.cmp2,b.bankname,m.acc_name,m.acc_no,m.branch,m.mobile
 		";
 		$sql .= ",a.tot_tax AS tax_new ";
 		$sql .= ",CASE a.status WHEN '1' THEN (a.total+a.pv)-a.tot_tax WHEN '0' THEN '0'  END AS total_real ";
 		$sql .= ",CASE a.status WHEN '1' THEN ((a.total+a.pv)-a.tot_tax)-a.com_transfer_chagre WHEN '0' THEN '0'  END AS ttttt ";
-		$sql .= ",CONCAT(m.address,' �.',m.districtId,' �.',m.amphurId,' �.',m.provinceId,' ',m.zip) as address1,m.id_card ";
+		$sql .= ",CONCAT(m.address,' ต.',m.districtId,' อ.',m.amphurId,' จ.',m.provinceId,' ',m.zip) as address1,m.id_card ";
 		$sql .= "FROM ".$dbprefix."cmbonus_b a ";
  
 		//if($type_report == '2' or $type_report == '3' or $type_report == '4' or $type_report == '5')
@@ -119,7 +119,7 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		//$rec->setShowIndex(true);
 		
 		$rec->setShowField("b,rcode,fdate,tdate,paydate,mcode,id_card,name_t,pv,dmbonus,embonus,thiscom,tax_new,com_transfer_chagre,ttttt,address1,cmp,cmp2,bankname,acc_name,acc_no,branch,mobile,status");
-		$rec->setFieldDesc("�ӴѺ,�ͺ,�����,����ش,�ѹ������,�����Ҫԡ,�ѵû�ЪҪ�,����,�ʹ¡��,Matching,AllSale,���⺹��,��������,����͹,⺹�ʨ��¨�ԧ,�������,���Һѵû�ЪҪ�,���Һѭ�ո�Ҥ��,��Ҥ��,����-�ѭ��,�Ţ�ѭ��,�Ң�,����Դ���,status");
+		$rec->setFieldDesc("ลำดับ,รอบ,เริ่ม,สิ้นสุด,วันที่จ่าย,รหัสมาชิก,บัตรประชาชน,ชื่อ,ยอดยกมา,Matching,AllSale,รวมโบนัส,จ่ายภาษี,ค่าโอน,โบนัสจ่ายจริง,ที่อยู่,สำเนาบัตรประชาชน,สำเนาบัญชีธนาคาร,ธนาคาร,ชื่อ-บัญชี,เลขบัญชี,สาขา,เบอร์ติดต่อ,status");
 		$rec->setFieldAlign("center,center,center,center,center,center,center,left,right,right,right,right,right,right,right,left,center,center,left,center");
 	//	$rec->setFieldSpace("10%,10%,10%,30%,5%,7%,7%,7%,7%,10%");//10
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true,true");
@@ -134,12 +134,12 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","pay_or_not_pay".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","pay_or_not_pay".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		
 		//$rec->setSpecial("adjust","","adjust","xid,mcode,rcode,fdate,tdate,paydate","TEXT","adjust"); // adjust
 		
@@ -155,15 +155,15 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		}
 		$sql = "SELECT *,@num := @num + 1 b FROM (SELECT a.pvh,a.fdate,a.tdate,a.paydate,a.dmbonus,a.embonus,(a.total+a.pv) as thiscom,a.bankcode";
 		$sql .= ",a.id,a.rcode,a.mcode,m.name_t,a.pv,a.pvb,a.total,a.tot_tax as tax,m.id_card  ";
-		$sql .= ",CASE a.status WHEN '1' THEN '����' WHEN '0' THEN '������'  END AS status
+		$sql .= ",CASE a.status WHEN '1' THEN 'จ่าย' WHEN '0' THEN 'ไม่จ่าย'  END AS status
 		,b.bankname,m.acc_name,m.branch,m.mobile
 		";
 		$sql .= ",CASE a.status WHEN '1' THEN (a.total+a.pv)-a.tot_tax ELSE '0'  END AS total_real ";
 		$sql .= ",CASE a.status WHEN '1' THEN ((a.total+a.pv)-a.tot_tax)-a.com_transfer_chagre ELSE '0'  END AS ttttt ";	
-		$sql .= ",CASE m.cmp WHEN '�ú' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS cmp ";
-        $sql .= ",CASE m.cmp2 WHEN '�ú' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS cmp2 ";
+		$sql .= ",CASE m.cmp WHEN 'ครบ' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS cmp ";
+        $sql .= ",CASE m.cmp2 WHEN 'ครบ' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS cmp2 ";
         $sql .= ",CASE m.acc_no WHEN '' THEN '<img src=./images/false.gif>' ELSE  m.acc_no  END AS acc_no "; 
-		$sql .= ",CONCAT(m.address,' �.',m.districtId,' �.',m.amphurId,' �.',m.provinceId,' ',m.zip) as address1 ";
+		$sql .= ",CONCAT(m.address,' ต.',m.districtId,' อ.',m.amphurId,' จ.',m.provinceId,' ',m.zip) as address1 ";
 		$sql .= "FROM ".$dbprefix."cmbonus_b a ";
  
 		//if($type_report == '2' or $type_report == '3' or $type_report == '4' or $type_report == '5')
@@ -203,7 +203,7 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		
 		  
         $rec->setShowField("b,rcode,fdate,mcode,id_card,name_t,dmbonus,embonus,total,pvh,address1,cmp,cmp2,acc_no,mobile,status");
-        $rec->setFieldDesc("�ӴѺ,�ͺ,�����,�����Ҫԡ,�ѵû�ЪҪ�,����,Matching,AllSale,⺹��,�ʹ¡�,�������,���Һѵû�ЪҪ�,���Һѭ�ո�Ҥ��,�Ţ�ѭ��,����Դ���,status");
+        $rec->setFieldDesc("ลำดับ,รอบ,เริ่ม,รหัสมาชิก,บัตรประชาชน,ชื่อ,Matching,AllSale,โบนัส,ยอดยกไป,ที่อยู่,สำเนาบัตรประชาชน,สำเนาบัญชีธนาคาร,เลขบัญชี,เบอร์ติดต่อ,status");
         $rec->setFieldAlign("center,center,center,center,center,left,right,right,right,right,left,center,center,center,center,center,center,center");
        // $rec->setFieldSpace("3%,3%,8%,8%,8%,10%,7%,7%,7%,7%,15%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%");//10
 		$rec->setSum(true,false,",,,,,,true,true,true ");
@@ -212,7 +212,7 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 
 		
 		/*$rec->setShowField("rcode,mcode,name_t,pv,fob,cycle,total,status");
-		$rec->setFieldDesc("�ͺ,����,����,�ʹ¡��,����й�,Balance<br>Team,�ʹ�������,ʶҹ�");
+		$rec->setFieldDesc("รอบ,รหัส,ชื่อ,ยอดยกมา,ค่าแนะนำ,Balance<br>Team,ยอดรวมจ่าย,สถานะ");
 		$rec->setFieldAlign("center,center,left,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("3%,5%,40%,10%,10%,10%,10%,10%,10%,10%,10%");//10
 		$rec->setSum(true,false,",,,true,true,true,true,,");
@@ -228,17 +228,17 @@ if($fdate != '' and  ($type_report1 == 1 or $type_report1 == '') ){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 	//	$rec->setSearch("a.mcode,a.status"); 
-	//	$rec->setSearchDesc("����, ���� : 1   |   ������  :  0");
+	//	$rec->setSearchDesc("รหัส, จ่าย : 1   |   ไม่จ่าย  :  0");
 	
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","pay_or_not_pay".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","pay_or_not_pay".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

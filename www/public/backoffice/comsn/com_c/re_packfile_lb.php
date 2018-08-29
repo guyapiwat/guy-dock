@@ -1,19 +1,19 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("ftrcode").value==""){
-		alert("��س�����ͺ��äӹǳ");
+		alert("กรุณาใส่รอบการคำนวณ");
 		document.getElementById("ftrcode").focus();
 		return false;
 	}/*else{
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ��äӹǳ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบการคำนวณให้ถูกต้อง");
 			return false;
 		}
 	}*/
 	if(document.getElementById("ftrcode2").value < document.getElementById("ftrcode").value){
-		alert("���͡�ͺ�ӹǹ����");
+		alert("เลือกรอบคำนวนใหม่");
 		document.getElementById("ftrcode2").focus();
 		return false;
 	}
@@ -35,7 +35,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 
 	//var_dump($ftrcode);
 	if ($ftrcode2!=''){
-			//�ͺ������� == �ͺ����ش
+			//รอบเริ่มต้น == รอบสิ้นสุด
 			$ftrc[0]=$ftrcode;
 			$ftrc[1]=$ftrcode2;
 	}else{
@@ -46,7 +46,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT></td>
+    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
   </tr>
 </table>
 <?
@@ -70,8 +70,8 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		$fdate = $data->fdate;
 		$tdate = $data->tdate;
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">����������</a><br/-->
-<?  echo $fdate .' �֧ '.$tdate;?>
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a><br/-->
+<?  echo $fdate .' ถึง '.$tdate;?>
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -136,14 +136,14 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		//$rec->setShowField("rcode,name_t,acc_no,total,bankname,mobile,Yes,oon,ttttt");
 		$rec->setFieldFloatFormat(",,,,,2,2,2,2,2,2,2,2,2,2,2,2,2,2,2,0");
 		$rec->setShowField("rcode,fdate,tdate,mcode,name_tt,pv,fob,cycle,smb,matching,onetime,thiscom,thiscom1,pvh,totaly,tot_vat,tax,oon1,voucher,ttttt,status_pv,cshort");
-		$rec->setFieldDesc("�ͺ���,������ѹ���,�֧�ѹ���,����,����-���ʡ��,�ʹ¡��,FOB,Cycle,SMB,Matching,One Time,Bonus���,Bonus���<br>+�ʹ¡��,Bonus ¡�<br>(����͹�ͺ���),Bonus ������駻�,vat,�ѡ����,�ѡ����͹,voucher,��ػ�ʹ�͹,PV,LB");
+		$rec->setFieldDesc("รอบที่,ตั้งแต่วันที่,ถึงวันที่,รหัส,ชื่อ-นามสกุล,ยอดยกมา,FOB,Cycle,SMB,Matching,One Time,Bonusรวม,Bonusรวม<br>+ยอดยกมา,Bonus ยกไป<br>(ไม่โอนรอบนี้),Bonus สะสมทั้งปี,vat,หักภาษี,หักค่าโอน,voucher,สรุปยอดโอน,PV,LB");
 		$rec->setFieldAlign("center,left,center,right,left,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,center,center");
 		$rec->setFieldSpace("2%,6%,6%,5%,14%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%");//10
 		$rec->setSum(true,false,",,,,,,true,true,true,true,true,true,,,,true,true,true,true");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","packfileA".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","packfileA".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -152,9 +152,9 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("m.mcode,lb.cshort");
-		$rec->setSearchDesc("����,LB");
+		$rec->setSearchDesc("รหัส,LB");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->setFieldLink("");
 		$rec->showRec(1,'SH_QUERY');
@@ -166,18 +166,18 @@ function rpdialog(){?>
 <form name="rform" method="post" action="./index.php?sessiontab=4&sub=115">
 <table width="50%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
   <tr>
-    <td colspan="2" align="center"><a href="index.php?sessiontab=4&sub=25" target="_blank">��ԡ����������´�ͺ</a></td>
+    <td colspan="2" align="center"><a href="index.php?sessiontab=4&sub=25" target="_blank">คลิกดูรายละเอียดรอบ</a></td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>��͡�ͺ ���������Ҫԡ����ͧ��ô���§ҹ</strong></td>
+    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">�ͺ&nbsp;&nbsp;</td>
+    <td align="right">รอบ&nbsp;&nbsp;</td>
     <td><select name="ftrcode" id="ftrcode" style="width:150px">
-			<option value="">������ͺ</option>
+			<option value="">ตั้งแต่รอบ</option>
 				<?
 				$sql = "SELECT * FROM ali_around where calc=1";
 				$result = mysql_query($sql);
@@ -186,14 +186,14 @@ function rpdialog(){?>
 					$data = mysql_fetch_object($result);
 					echo '<option value="'.$data->rcode.'" ';  
 					if($_POST['ftrcode']==$data->rcode){ echo "selected";}
-					echo '>�ͺ��� '.$data->rcode.' ( '.$data->fdate.' �֧ '.$data->tdate.' )</option>';
+					echo '>รอบที่ '.$data->rcode.' ( '.$data->fdate.' ถึง '.$data->tdate.' )</option>';
 				}
 				//echo $sql;
 				
 				?>
-		</select>&nbsp;�֧&nbsp; 
+		</select>&nbsp;ถึง&nbsp; 
 		<select name="ftrcode2" id="ftrcode2" style="width:150px">
-			<option value="">�֧�ͺ</option>
+			<option value="">ถึงรอบ</option>
 				<?
 				$sql = "SELECT * FROM ali_around where calc=1";
 				$result = mysql_query($sql);
@@ -202,7 +202,7 @@ function rpdialog(){?>
 					$data = mysql_fetch_object($result);
 					echo '<option value="'.$data->rcode.'" ';  
 					if($_POST['ftrcode2']==$data->rcode){ echo "selected";}
-					echo '>�ͺ��� '.$data->rcode.' ( '.$data->fdate.' �֧ '.$data->tdate.' )</option>';
+					echo '>รอบที่ '.$data->rcode.' ( '.$data->fdate.' ถึง '.$data->tdate.' )</option>';
 				}
 				//echo $sql;
 				?>
@@ -211,7 +211,7 @@ function rpdialog(){?>
 	<!--<input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />--></td>
   </tr>
   <tr>
-    <td width="24%" align="right">������Ҫԡ&nbsp;&nbsp;</td>
+    <td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -219,7 +219,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="����§ҹ" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
     </tr>
   
   <tr>

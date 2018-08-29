@@ -31,11 +31,11 @@ if(isset($_GET['state']))
      
     ///// Check empty //////
     if(empty($data['mcode'])){
-        echo "<script language='JavaScript'>alert('√À—  ¡“™‘°‰¡Ë¡’§Ë–');history.back();</script>";        
+        echo "<script language='JavaScript'>alert('‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏Ñ‡πà‡∏∞');history.back();</script>";        
         exit;
     } 
     if(empty($data['satype'])){
-        echo "<script language='JavaScript'>alert('ª√–‡¿∑¢Õß∫‘≈‰¡Ë‰¥È√–∫ÿ§Ë–');history.back();</script>";        
+        echo "<script language='JavaScript'>alert('‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏£‡∏∞‡∏ö‡∏∏‡∏Ñ‡πà‡∏∞');history.back();</script>";        
         exit;
     } 
     if(empty($data['inv_code'])){
@@ -53,28 +53,28 @@ if(isset($_GET['state']))
 	
 $detail_member = get_detail_meber($data['mcode'],date("Y-m-d"));
 if(count($detail_member) == 0){
-    echo "<script language='JavaScript'>alert('‰¡Ëæ∫√À—  ¡“™‘°');history.back();</script>";        
+    echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å');history.back();</script>";        
     exit; 
 }
 
 
 if($data['satype'] == "H"){
 	/*if($detail_member['mtype'] == 0 ){
-        echo "<script>alert(' ¡“™‘°ª√–‡¿∑ Member ‰¡Ë “¡“√∂‡ª‘¥∫‘≈ Hold ‰¥È');window.history.back();</script>";    
+        echo "<script>alert('‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Member ‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• Hold ‡πÑ‡∏î‡πâ');window.history.back();</script>";    
         exit;
 	}
 	if($detail_member['mtype'] == 1 and $data['discount'] == "" and $data['sumpv'] < 20000){
-        echo "<script language='JavaScript'>alert(' ¡“™‘°ª√–‡¿∑ Franchise ®–µÈÕß‡ª‘¥∫‘≈ hold ∫‘≈·√°¢—ÈπµË” 20,000pv');window.history.back()</script>";    
+        echo "<script language='JavaScript'>alert('‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Franchise ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡∏ö‡∏¥‡∏•‡πÅ‡∏£‡∏Å‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡πà‡∏≥ 20,000pv');window.history.back()</script>";    
         exit;	
 	}else if($detail_member['mtype'] == 1 and $data['discount'] == 1 and $data['sumpv'] < 2000){
-        echo "<script language='JavaScript'>alert(' ¡“™‘°ª√–‡¿∑ Franchise ®–µÈÕß‡ª‘¥∫‘≈ hold ‰¡ËµË”°«Ë“ 2,000pv ‡∑Ë“π—Èπ');window.history.back()</script>"; 
+        echo "<script language='JavaScript'>alert('‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Franchise ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡πÑ‡∏°‡πà‡∏ï‡πà‡∏≥‡∏Å‡∏ß‡πà‡∏≤ 2,000pv ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô');window.history.back()</script>"; 
 		exit;
 	}
 	if($detail_member['mtype'] == 2 and $data['discount'] == "" and $data['sumpv'] < 200000){
-        echo "<script language='JavaScript'>alert(' ¡“™‘°ª√–‡¿∑ Agency ®–µÈÕß‡ª‘¥∫‘≈ hold ∫‘≈·√°¢—ÈπµË” 200,000pv');window.history.back()</script>";    
+        echo "<script language='JavaScript'>alert('‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Agency ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡∏ö‡∏¥‡∏•‡πÅ‡∏£‡∏Å‡∏Ç‡∏±‡πâ‡∏ô‡∏ï‡πà‡∏≥ 200,000pv');window.history.back()</script>";    
 		exit;
 	}else if($detail_member['mtype'] == 2 and $data['discount'] == 1 and $data['sumpv'] < 0){
-        echo "<script language='JavaScript'>alert(' ¡“™‘°ª√–‡¿∑ Agency ®–µÈÕß‡ª‘¥∫‘≈ hold ‰¡ËµË”°«Ë“ 0pv ‡∑Ë“π—Èπ');window.history.back()</script>";    
+        echo "<script language='JavaScript'>alert('‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó Agency ‡∏à‡∏∞‡∏ï‡πâ‡∏≠‡∏á‡πÄ‡∏õ‡∏¥‡∏î‡∏ö‡∏¥‡∏• hold ‡πÑ‡∏°‡πà‡∏ï‡πà‡∏≥‡∏Å‡∏ß‡πà‡∏≤ 0pv ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô');window.history.back()</script>";    
 		exit;
 	}*/
 }
@@ -124,7 +124,7 @@ foreach($product['pcode'] as $key => $val){
         $data['sending'] += $pd['price'];
     }
     if($pd['vat'] == 0){
-        $total_exvat+=($asaleds[$val]['amt']); //√√“§“ ‰¡Ë√«¡ vat
+        $total_exvat+=($asaleds[$val]['amt']); //‡∏£‡∏£‡∏≤‡∏Ñ‡∏≤ ‡πÑ‡∏°‡πà‡∏£‡∏ß‡∏° vat
     }else{
         $vat_sum = ($asaleds[$val]['amt']*$pd['vat']/(100+$pd['vat']));
         $total_vat+=($asaleds[$val]['amt']*$pd['vat']/(100+$pd['vat']));
@@ -197,7 +197,7 @@ foreach($set_payment as $key => $val):
 endforeach;
 
 if($chk_sum != $asaleh['total']){
-    echo "<script language='JavaScript'>alert('‡°‘¥¢ÈÕº‘¥æ≈“¥');history.back();</script>";        
+    echo "<script language='JavaScript'>alert('‡πÄ‡∏Å‡∏¥‡∏î‡∏Ç‡πâ‡∏≠‡∏ú‡∏¥‡∏î‡∏û‡∏•‡∏≤‡∏î');history.back();</script>";        
     exit;
 }
 

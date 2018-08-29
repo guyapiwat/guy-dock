@@ -43,7 +43,7 @@ foreach($product['pcode'] as $key => $val){
         $data['sending'] += $pd['price'];
     }
     if($pd['vat'] == 0){
-        $total_exvat+=($asaleds[$val]['amt']); //√√“§“ ‰¡Ë√«¡ vat
+        $total_exvat+=($asaleds[$val]['amt']); //‡∏£‡∏£‡∏≤‡∏Ñ‡∏≤ ‡πÑ‡∏°‡πà‡∏£‡∏ß‡∏° vat
     }else{
         $vat_sum = ($asaleds[$val]['amt']*$pd['vat']/(100+$pd['vat']));
         $total_vat+=($asaleds[$val]['amt']*$pd['vat']/(100+$pd['vat']));

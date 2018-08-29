@@ -22,7 +22,7 @@ rpdialog_sale_hold_list($_GET['sub'],$fdate,$tdate,$sale,$s_list,$fmcode);
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
 			window.location='index.php?sessiontab=3&sub=10&state=3&bid='+id;
 		}
 	}
@@ -114,16 +114,16 @@ if($_GET['print_all']==true){
 			$rec->setCurPage($page);
 		$rec->setShowField("hono,sadate,preserve,smcode,name_t,tot_pv,total,uid,remark");
 		$rec->setFieldFloatFormat(",,,,,2,2");
-		$rec->setFieldDesc("àÅ¢ºÔÅ,ÇÑ¹·Õè«×éÍ,»ÃÐàÀ·ºÔÅ
-		,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡,ËÁÒÂàËµØ");
+		$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸›à¸£à¸°à¹€à¸ à¸—à¸šà¸´à¸¥
+		,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 		$rec->setFieldAlign("center,center,center,center,left,right,right,center,lefts,left,left");
 		//$rec->setFieldSpace("5%,5%,8%,20%,7%,7%,7%,7%,10%,10%,20%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("hono,".$dbprefix."holdhead.mcode,".$dbprefix."holdhead.name_t,".$dbprefix."holdhead.sadate,".$dbprefix."holdhead.tot_pv,".$dbprefix."holdhead.total,".$dbprefix."holdhead.uid");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé¶Ù¡á¨§,ª×èÍ¼Ùé¶Ù¡á¨§,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸–à¸¹à¸à¹à¸ˆà¸‡,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸–à¸¹à¸à¹à¸ˆà¸‡,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		$rec->setSum(true,false,",,,,,true,true");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","hono","IMAGE","¾ÔÁ¾ì");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","Â¡àÅÔ¡");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","hono","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		/*if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=10");
@@ -132,20 +132,20 @@ if($_GET['print_all']==true){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","hold".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","hold".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 
 		//$str1 = "<fieldset><a href='invoice_pdf_hold.php?hid=$id' //target='_self'>";
-		//$str1 .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ //PDF</a></fieldset>";
+		//$str1 .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ //PDF</a></fieldset>";
 		//$rec->setSpace($str1);
 		
 		$str2 = "<fieldset ><a href='http:../invoice/hprint_sale_backoffice.php?bid=$bills' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		$rec->setSpace($str2);
 	 
 //		if($acc->isAccess(2))

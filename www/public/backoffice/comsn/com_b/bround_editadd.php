@@ -5,28 +5,28 @@
 	var val = document.getElementById('rcode').value;
 	var field = "rcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À— √Õ∫";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏£‡∏≠‡∏ö";
 	
 	val = val + ","+document.getElementById('dateInput1').value;
 	field = field +",dateInput1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë‡æ‘Ë¡√Õ∫";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏£‡∏≠‡∏ö";
 	
 	val = val + ","+document.getElementById('dateInput2').value;
 	field = field +",dateInput2";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë‡√‘Ë¡µÈπ";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô";
 	
 	val = val + ","+document.getElementById('dateInput3').value;
 	field = field +",dateInput3";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë ‘Èπ ÿ¥";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î";
 
 	
 	val = val + ","+document.getElementById('dateInput4').value;
 	field = field +",dateInput4";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë®Ë“¬";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏à‡πà‡∏≤‡∏¢";
 	
 //loop check
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
@@ -39,32 +39,32 @@ function earoundcheck(){
 	var skipval = document.getElementById('orcode').value;
 	var field = "rcode";
 	var flag = "1-0-0-1-0";
-	var errDesc = "√À— √Õ∫";
+	var errDesc = "‡∏£‡∏´‡∏±‡∏™‡∏£‡∏≠‡∏ö";
 	
 	val = val + ","+document.getElementById('dateInput1').value;
 	skipval = skipval+",";
 	field = field +",dateInput1";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë‡æ‘Ë¡√Õ∫";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏£‡∏≠‡∏ö";
 	
 	val = val + ","+document.getElementById('dateInput2').value;
 	skipval = skipval+",";
 	field = field +",dateInput2";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë‡√‘Ë¡µÈπ";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô";
 	
 	val = val + ","+document.getElementById('dateInput3').value;
 	skipval = skipval+",";
 	field = field +",dateInput3";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë ‘Èπ ÿ¥";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î";
 
 	
 	val = val + ","+document.getElementById('dateInput4').value;
 	skipval = skipval+",";
 	field = field +",dateInput4";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",«—π∑’Ë®Ë“¬";
+	errDesc = errDesc + ",‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏à‡πà‡∏≤‡∏¢";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -76,8 +76,8 @@ if($_GET['rid']){
 		$sql = "SELECT * FROM ".$dbprefix."bround WHERE rid='".$_GET['rid']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‰¡Ëæ∫¢ÈÕ¡Ÿ≈µ“¡‡ß◊ËÕπ‰¢</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‰ªÀπÈ“ ‘π§È“</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≤‡∏°‡πÄ‡∏á‡∏∑‡πà‡∏≠‡∏ô‡πÑ‡∏Ç</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=3';">‡πÑ‡∏õ‡∏´‡∏ô‡πâ‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -106,7 +106,7 @@ if($_GET['rid']){
 <table width="98%" border="0">
   
   <tr>
-    <td width="34%" align="right">√Õ∫∑’Ë&nbsp;</td>
+    <td width="34%" align="right">‡∏£‡∏≠‡∏ö‡∏ó‡∏µ‡πà&nbsp;</td>
     <td width="66%">
       <input type="text" name="rcode" id="rcode" size="10" value="<?=$rcode?>"> 
 	  <input type="hidden" id="orcode" name="orcode" size="10"  value="<?=$rcode?>"><input type="hidden" name="oid" value="<?=$oid?>" >
@@ -114,33 +114,33 @@ if($_GET['rid']){
   </tr>
   <tr>
 
-    <td align="right">«—π∑’Ë&nbsp;</td>
+    <td align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà&nbsp;</td>
     <td>
 		<input type="text" id="dateInput1" name="rdate" value="<?=$rdate==""?date("Y-m-d"):$rdate?>">
 		<input type="hidden" id="ordate" name="ordate" value="<?=$rdate==""?date("Y-m-d"):$rdate?>">
     </td>
   </tr>
   <tr>
-    <td align="right">«—π∑’Ë‡√‘Ë¡µÈπ&nbsp;</td>
+    <td align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô&nbsp;</td>
     <td>
 		<input type="text" id="dateInput2" name="fdate" value="<?=$fdate?>">
 	</td>
   </tr>
   <tr>
-    <td align="right">«—π∑’Ë ‘Èπ ÿ¥&nbsp;</td>
+    <td align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î&nbsp;</td>
     <td><input type="text" id="dateInput3" name="tdate" value="<?=$tdate?>"></td>
 
   </tr>
   <tr>
-    <td align="right">«—π∑’Ë®Ë“¬&nbsp;</td>
+    <td align="right">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏à‡πà‡∏≤‡∏¢&nbsp;</td>
     <td><input type="text" id="dateInput4" name="paydate" value="<?=$paydate?>"></td>
   </tr>
   <tr>
-    <td align="right">§”π«π·≈È«&nbsp;</td>
+    <td align="right">‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ô‡πÅ‡∏•‡πâ‡∏ß&nbsp;</td>
     <td><input type="checkbox" name="calc" id="calc" value="1"  <?=($calc==1?"checked=\"checked\"":"")?>></td>
   </tr>
   <tr>
-    <td align="right">À¡“¬‡Àµÿ&nbsp;</td>
+    <td align="right">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏&nbsp;</td>
     <td><input type="text" id="remark" name="remark" value="<?=$remark?>" size="60"></td>
   </tr>
   <tr>
@@ -149,14 +149,14 @@ if($_GET['rid']){
   </tr>
   <tr>
     <td>&nbsp;</td>
-    <td><input name="button" type="button" id="button" onclick="<?=(isset($_GET['rid'])?"earoundcheck()":"iaroundcheck()")?>" value="µ√«® Õ∫" />
+    <td><input name="button" type="button" id="button" onclick="<?=(isset($_GET['rid'])?"earoundcheck()":"iaroundcheck()")?>" value="‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö" />
              &nbsp;
-             <input type="submit" value="∫—π∑÷°" name="ok" id="ok" disabled="disabled" />
+             <input type="submit" value="‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å" name="ok" id="ok" disabled="disabled" />
              &nbsp;
-            <input name="reset" type="reset" id="reset"  onclick="window.location='index.php?sessiontab=4&sub=11'" value="¬°‡≈‘°" /></td>
+            <input name="reset" type="reset" id="reset"  onclick="window.location='index.php?sessiontab=4&sub=11'" value="‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å" /></td>
   </tr>
 </table>
 </form><td width="37%">
-      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font></div></td>
+      <div id="checkstate" align="center"><font color="#FFFFFF" style="background:#990000"> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font></div></td>
    </tr>
  </table>

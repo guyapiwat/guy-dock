@@ -70,7 +70,7 @@ if($_GET['state']==0){
     }
 
     if($rcode != $max_rcode){
-        echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂ Adjust ‰¥È‡æ√“–√Õ∫π’ÈºË“π‰ª·≈È«');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";    
+        echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ Adjust ‡πÑ‡∏î‡πâ‡πÄ‡∏û‡∏£‡∏≤‡∏∞‡∏£‡∏≠‡∏ö‡∏ô‡∏µ‡πâ‡∏ú‡πà‡∏≤‡∏ô‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=4&sub=282828&fdate=".$fdate."&tdate=".$tdate."'</script>";    
         exit;
     }
      
@@ -104,7 +104,7 @@ mysql_query("update ".$dbprefix."invent set ewallet = ewallet+".$txtMoney." wher
 $text="uid=".$_SESSION["adminuserid"]." action=ewallet_update=>update ".$dbprefix."member set ewallet = ewallet+".$txtMoney." where mcode='".$mcode."' ";
 writelogfile($text);*/
 }else if($_GET['state']==1){
-    /*logtext(true,$_SESSION['adminusercode'],'·°È‰¢ Ewallet',$mid);
+    /*logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç Ewallet',$mid);
     $sql="update ".$dbprefix."adjust set sano='$id', id='$id', ";
     $sql.="mcode='$mcode' ,sa_type='$satype' ,sadate='$sadate' , inv_code='$inv_code', total='$total', txtoption='$txtoption'
     , txtMoney='$txtMoney', chkCash='$chkCash', chkTransfer='$chkTransfer', chkCredit1='$chkCredit1', chkCredit2='$chkCredit2'

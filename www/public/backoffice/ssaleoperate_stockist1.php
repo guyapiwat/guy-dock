@@ -88,7 +88,7 @@ if($_REQUEST['state']==0){
 
 	
 	
-	logtext(true,$_SESSION['adminusercode'],'�Դ��� �Ѻ�觢ͧStockist',$mid);
+	logtext(true,$_SESSION['adminusercode'],'เปิดบิล รับส่งของStockist',$mid);
 		//echo "$sql<br>";
 	if (! mysql_query($sql)) {
 		echo "<script language='JavaScript'>alert('This Process can not be success.Please try again.');window.location='index.php?sessiontab=".$_REQUEST["sessiontab"]."&sub=".$_REQUEST["sub"]."&page=".$_REQUEST["page"]."&chktype=".$_REQUEST["chktype"]."''</script>";	
@@ -128,7 +128,7 @@ if($_REQUEST['state']==0){
 		//$sql="insert into ".$dbprefix."risaled (hono,pcode,pdesc,price,pv,qty,amt) values ('$mid','$pcode[$i]','$pdesc[$i]','$price[$i]' ,'$pv[$i]','$qty[$i]','$totalprice[$i]') ";
 		$sql="insert into ".$dbprefix."risaled (hono,pcode,pdesc,price,bprice,pv,bv,qty,amt,locationbase,crate) values ('$mid','$pcode[$i]','$pdesc[$i]','$price[$i]','$bprice[$i]' ,'$pv[$i]','$bv[$i]','$qty[$i]','$totalprice[$i]','".$_SESSION["inv_locationbase"]."','".$_SESSION["inv_crate"]."') ";
 
-		logtext(true,$_SESSION['adminusercode'],'�Դ����Ѻ�觢ͧ',$mid);
+		logtext(true,$_SESSION['adminusercode'],'เปิดบิลรับส่งของ',$mid);
 		//echo "$sql<br>";
 		mysql_query($sql);
 		$inv_ref = $_SESSION["admininvent"];

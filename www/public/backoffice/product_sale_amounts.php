@@ -19,17 +19,17 @@
 <table style="margin-left:20;" width="350" border="0"><tr><td align="center"><fieldset>
 <form style="margin-bottom:0;" action="index.php?sessiontab=3&sub=20" method="post">
 	<input size="15" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>  ∂÷ß
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>  ‡∏ñ‡∏∂‡∏á
 	<input size="15" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>
-    <input type="submit" value="§Èπ" />
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>
+    <input type="submit" value="‡∏Ñ‡πâ‡∏ô" />
 </form>
 </fieldset></td></tr></table>
 
 <?
 require("connectmysql.php");
 //require("./cls/repGenerator.php");
-echo '<center><font size=4>∫‘≈ HQ</font></center>';
+echo '<center><font size=4>‡∏ö‡∏¥‡∏• HQ</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -83,7 +83,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -91,12 +91,12 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
 	//}
-echo '<center><font size=4>∫‘≈ Branch °√ÿß‡∑æ</font></center>';
+echo '<center><font size=4>‡∏ö‡∏¥‡∏• Branch ‡∏Å‡∏£‡∏∏‡∏á‡πÄ‡∏ó‡∏û</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -150,7 +150,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -158,12 +158,12 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------
 	//}
-echo '<center><font size=4>∫‘≈ Branch À“¥„À≠Ë</font></center>';
+echo '<center><font size=4>‡∏ö‡∏¥‡∏• Branch ‡∏´‡∏≤‡∏î‡πÉ‡∏´‡∏ç‡πà</font></center>';
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
 $sql .= "CASE ifnull(".$dbprefix."product.pdesc,0) WHEN '0' THEN ".$dbprefix."product_package.pdesc ELSE ".$dbprefix."product.pdesc END AS pdesc, ";
@@ -217,7 +217,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -225,7 +225,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";// LEFT JOIN ".$dbprefix."bank ON "
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,√“§“,®”π«π,‡ªÁπ‡ß‘π");
+		//$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

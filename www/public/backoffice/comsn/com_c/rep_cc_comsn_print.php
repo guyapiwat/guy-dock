@@ -1,12 +1,12 @@
 <link href="./../../../style.css" rel="stylesheet" type="text/css">
-<title>พิมพ์รายงาน</title>
+<title>เธเธดเธกเธเนเธฃเธฒเธขเธเธฒเธ</title>
 <?
 	if(isset($_POST["ftrcode"]))
 		$ftrcode = $_POST["ftrcode"];
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -41,9 +41,9 @@
 		if(isset($page))
 			$rec->setCurPage($page);
 	//	$rec->setShowIndex(true);
-	//	$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","ดู");
+	//	$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","เธ”เธน");
 		$rec->setShowField("rcode,mcode,name_t,upa_code,upa_name,pv,gpv,mpos");
-		$rec->setFieldDesc("รหัสรอบ,รหัส,ชื่อ,รหัสอัพไลน์,ชื่ออัพไฟล์,คะแนนต่อรอบ,คะแนนสะสม,ตำแหน่งปัจจุบัน");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธฃเธญเธ,เธฃเธซเธฑเธช,เธเธทเนเธญ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธเธทเนเธญเธญเธฑเธเนเธเธฅเน,เธเธฐเนเธเธเธ•เนเธญเธฃเธญเธ,เธเธฐเนเธเธเธชเธฐเธชเธก,เธ•เธณเนเธซเธเนเธเธเธฑเธเธเธธเธเธฑเธ");
 		$rec->setFieldAlign("center,center,left,center,left,right,right,center");
 		$rec->setFieldSpace("10%,10%,20%,10%,20%,10%,10%,10%");
 		$rec->setFieldLink("");

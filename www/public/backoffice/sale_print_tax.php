@@ -138,35 +138,35 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2>��§ҹ���բ��</h2>	
+				<h2>รายงานภาษีขาย</h2>	
 			</td>
 		</tr>
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				 �����ҧ�ѹ���   <?=$fdate?> �֧ <?=$tdate?> 
+				 ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?> 
 			</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>���ͼ���Сͺ���  </b> ����ѷ �Ҫ����  (�����)�ӡѴ  </td>
-			<td align="left" width="60%"><b>�Ţ����ШӼ�����������ҡ�  </b>0105541041740</td>
+			<td align="left" width="50%"><b>ชื่อผู้ประกอบการ  </b> บริษัท ลาชูเล่  (เอเชีย)จำกัด  </td>
+			<td align="left" width="60%"><b>เลขที่ประจำผู้เสียภาษีอากร  </b>0105541041740</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>����ʶҹ��Сͺ��� </b> ����ѷ �Ҫ����  (�����)�ӡѴ  </td>
-			<td align="left" width="40%"><b>�Ң�</b> <?=$rs1->inv_desc;?></td>
+			<td align="left" width="50%"><b>ชื่อสถานประกอบการ </b> บริษัท ลาชูเล่  (เอเชีย)จำกัด  </td>
+			<td align="left" width="40%"><b>สาขา</b> <?=$rs1->inv_desc;?></td>
 		</tr>
 	</table>
 	 
 	<div class="CSSTableGenerator" >
 		<table style=' margin:0 auto;' border="1">
 		  <tr>	
-			<th><div align="center" style="width:100px;">�ѹ������ </div></th>		
-			<th><div align="center" >�Ţ��� </div></th>	
-			<th ><div align="center" style="width:190px;">���ͼ�����</div></th>		
-			<th><div align="center">�Ţ��Шӵ�� </div></th>
-			<th><div align="center">ʶҹ��Сͺ���</div></th>
-			<th><div align="right">�ӹǹ�Թ</div></th>
-			<th><div align="right">����</div></th>
-			<th><div align="center">�����˵�</div></th>
+			<th><div align="center" style="width:100px;">วันที่ซื้อ </div></th>		
+			<th><div align="center" >เลขบิล </div></th>	
+			<th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
+			<th><div align="center">เลขประจำตัว </div></th>
+			<th><div align="center">สถานประกอบการ</div></th>
+			<th><div align="right">จำนวนเงิน</div></th>
+			<th><div align="right">ภาษี</div></th>
+			<th><div align="center">หมายเหตุ</div></th>
 		  </tr>
 		<?
 		$rr = 0;
@@ -190,34 +190,34 @@ if($_GET["txtKeyword"] == "")
 		</tr>		 
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				<h2>��§ҹ���բ��</h2>	
+				<h2>รายงานภาษีขาย</h2>	
 			</td>
 		</tr>
 		<tr>
  			<td align="center"  width="50%" colspan='2' >
-				 �����ҧ�ѹ���   <?=$fdate?> �֧ <?=$tdate?> 
+				 ระหว่างวันที่   <?=$fdate?> ถึง <?=$tdate?> 
 			</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>���ͼ���Сͺ���  </b> ����ѷ �Ҫ����  (�����)�ӡѴ  </td>
-			<td align="left" width="50%"><b>�Ţ����ШӼ�����������ҡ�  </b>0105541041740</td>
+			<td align="left" width="50%"><b>ชื่อผู้ประกอบการ  </b> บริษัท ลาชูเล่  (เอเชีย)จำกัด  </td>
+			<td align="left" width="50%"><b>เลขที่ประจำผู้เสียภาษีอากร  </b>0105541041740</td>
 		</tr>
 		<tr>
-			<td align="left" width="50%"><b>����ʶҹ��Сͺ��� </b> ����ѷ �Ҫ����  (�����)�ӡѴ  </td>
-			<td align="left" width="50%"><b>�Ң�</b> <?=$objResult["lid"];?></td>
+			<td align="left" width="50%"><b>ชื่อสถานประกอบการ </b> บริษัท ลาชูเล่  (เอเชีย)จำกัด  </td>
+			<td align="left" width="50%"><b>สาขา</b> <?=$objResult["lid"];?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-	    <th><div align="center" style="width:100px;">�ѹ������ </div></th>		
-	    <th><div align="center" >�Ţ��� </div></th>	
-	    <th ><div align="center" style="width:190px;">���ͼ�����</div></th>		
-		<th><div align="center">�Ţ��Шӵ�� </div></th>
-		<th><div align="center">ʶҹ��Сͺ���</div></th>
-		<th><div align="center">�ӹǹ�Թ</div></th>
-		<th><div align="center">����</div></th>
-		<th><div align="center">�����˵�</div></th>
+	    <th><div align="center" style="width:100px;">วันที่ซื้อ </div></th>		
+	    <th><div align="center" >เลขบิล </div></th>	
+	    <th ><div align="center" style="width:190px;">ชื่อผู้ซื้อ</div></th>		
+		<th><div align="center">เลขประจำตัว </div></th>
+		<th><div align="center">สถานประกอบการ</div></th>
+		<th><div align="center">จำนวนเงิน</div></th>
+		<th><div align="center">ภาษี</div></th>
+		<th><div align="center">หมายเหตุ</div></th>
 	  </tr>
 	<?	
 		  }

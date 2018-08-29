@@ -17,7 +17,7 @@ $sql .= ",CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=.
 $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ";
 $sql .= ",CASE ".$dbprefix."asaleh.uid WHEN '' THEN ".$dbprefix."asaleh.inv_code ELSE ".$dbprefix."asaleh.uid END AS uid ";
 $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'ONLINE'  END AS checkportal";
-$sql .= ",CASE sa_type WHEN 'A' THEN 'ª°µ‘' WHEN 'H' THEN 'BMC'  END AS ability";
+$sql .= ",CASE sa_type WHEN 'A' THEN '‡∏õ‡∏Å‡∏ï‡∏¥' WHEN 'H' THEN 'BMC'  END AS ability";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
 $sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd ";
@@ -35,7 +35,7 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysql_select_db('free_style',$link);
 	//$rs = mysql_query("SELECT * FROM usaaba_member");
-//	echo '<fieldset><legend><b>¢ÈÕ¡Ÿ≈°“√´◊ÈÕ</b></legend>';
+//	echo '<fieldset><legend><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠</b></legend>';
 	if($_GET['state']==1){
 		include("serv_sale_del.php");
 	}else if($_GET['state']==2){
@@ -59,19 +59,19 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 			$rec->setCurPage($page);
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,remark,lid,checkportal");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		$rec->setFieldDesc($wording_lan["tab4"]["3_1"].",".$wording_lan["tab4"]["3_2"].",".$wording_lan["tab4"]["3_3"].",".$wording_lan["tab4"]["3_4"].",".$wording_lan["tab4"]["3_5"].",".$wording_lan["tab4"]["3_6"].",".$wording_lan["tab4"]["3_7"].",".$wording_lan["tab4"]["3_8"].",".$wording_lan["tab4"]["3_8"].",".$wording_lan["tab4"]["3_9"].",".$wording_lan["tab4"]["3_10"].",".$wording_lan["tab4"]["3_11"].",".$wording_lan["tab4"]["3_12"].",".$wording_lan["tab4"]["3_13"].",".$wording_lan["tab4"]["3_14"].",".$wording_lan["tab4"]["3_15"]."");
 		$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center,center");
 		$rec->setFieldSpace("1%,7%,7%,5%,15%,4%,6%,6%,8%,5%,8%,8%,7%,4%,4%");
 		$rec->setFieldLink(",,index.php?sessiontab=2&sub=25&cmc=,");
 		//$rec->setSearch("sano,smcode,name_t,sadate,tot_pv,total");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		$rec->setSum(true,false,",,,,,,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=6&state=1","post","delfield");
 		//$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
-	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","æ‘¡æÏ");
+	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id,checkcheck","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		$rec->showRec(1,'SH_QUERY');
 		//mysql_close($link);
 	}

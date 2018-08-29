@@ -65,7 +65,7 @@ $toyear = mysql_result($rs,0,'toyear');
 	$k=0;
 	$ucode[$k] = $smc;
 	$cond = "( ";
-	$satype_def = array('A'=>"ทำคุณสมบัติ",'Q'=>"รักษายอด");
+	$satype_def = array('A'=>"เธ—เธณเธเธธเธ“เธชเธกเธเธฑเธ•เธด",'Q'=>"เธฃเธฑเธเธฉเธฒเธขเธญเธ”");
 	$style_b = "border-bottom:dashed #000000 1;";
 	$style_l = "border-left:solid #000000 1;";
 	while($ucode[$k]!=""){
@@ -113,7 +113,7 @@ $toyear = mysql_result($rs,0,'toyear');
 	?>
 	<table border="0" width="95%" cellpadding="0" cellspacing="0">
 	  <tr class="border" align="center" bgcolor="#CCCCCC">
-		<td width="15%" style="border-bottom:#333333 solid 1;"><b>วันที่</b></td>
+		<td width="15%" style="border-bottom:#333333 solid 1;"><b>เธงเธฑเธเธ—เธตเน</b></td>
 		<? for($k=0;$k<$GLOBALS["numofchild"];$k++){?>
 			<td width="<?=(24/$GLOBALS["numofchild"])?>%" class="border"><b><?
 			if($GLOBALS["numofchild"]==2||$GLOBALS["numofchild"]==3) 
@@ -122,9 +122,9 @@ $toyear = mysql_result($rs,0,'toyear');
 				echo $k;		
 			?></b></td>
 		<? }?>
-		<td width="18%" class="border"><b>ได้จาก</b></td>
-		<td width="27%" class="border"><b>ชื่อ</b></td>	
-		<td width="15%" class="border"><b>หมายเหตุ</b></td>	
+		<td width="18%" class="border"><b>เนเธ”เนเธเธฒเธ</b></td>
+		<td width="27%" class="border"><b>เธเธทเนเธญ</b></td>	
+		<td width="15%" class="border"><b>เธซเธกเธฒเธขเน€เธซเธ•เธธ</b></td>	
 	  </tr>
 <?
 	$j=0;
@@ -177,7 +177,7 @@ $toyear = mysql_result($rs,0,'toyear');
 		<? }?>
 	  <td align="center" style="<?=$style_b.$style_l?>">&nbsp;</td>
 		<td style="<?=$style_b.$style_l?>">&nbsp;</td>
-		<td style="<?=$style_b.$style_l?>" align="center"><b>รวม</b></td>
+		<td style="<?=$style_b.$style_l?>" align="center"><b>เธฃเธงเธก</b></td>
 	  </tr>
 <?
 	//--------------------------
@@ -240,12 +240,12 @@ echo "</table>";
     </fieldset>
     <fieldset>
     <table width="100%" border="0" cellpadding="0" cellspacing="0">
-    <tr align="center"><td style="border-bottom:#333333 solid 1">วันที่</td>
+    <tr align="center"><td style="border-bottom:#333333 solid 1">เธงเธฑเธเธ—เธตเน</td>
  <?
 	 for($k=0;$k<$GLOBALS["numofchild"];$k++){?>
 		<td class="border"><?
 		if($GLOBALS["numofchild"]==2||$GLOBALS["numofchild"]==3) 
-			echo "รวม PV ".$GLOBALS["mem_def"][$k];
+			echo "เธฃเธงเธก PV ".$GLOBALS["mem_def"][$k];
 		else 
 			echo $k;		
 		?></td>

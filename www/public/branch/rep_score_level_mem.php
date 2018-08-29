@@ -17,17 +17,17 @@ if ($showrep=='' ){
 	show_rep_dialogbox();
 }
 else{
-	//��Ǩ�ͺ�����١��ͧ�ͧ��ҷ���觨ҡ dialog
+	//ตรวจสอบความถูกต้องของค่าที่ส่งจาก dialog
 	$oktoshow=true;
 	/*
 	if ($chkro=="" ) {
-		$errormsg.="��س����͡�����ŷ���ͧ��ä��Ҿ��������кؤ�ҷ���ͧ���<br>";
+		$errormsg.="กรุณาเลือกข้อมูลที่ต้องการค้นหาพร้อมทั้งระบุค่าที่ต้องการ<br>";
 		$oktoshow=false;
 	}
 	*/
 	//echo"$mcode<BR>";
 	/*	
-	// �ҡ���������١��ͧ ����ʴ�
+	// หากข้อมูลไม่ถูกต้อง ไม่แสดง
 	if(! $oktoshow){
 		echo "<font color=red>$errormsg</font>";
 		echo "<br>";
@@ -35,7 +35,7 @@ else{
 		exit;
 	}
 	*/
-	//�� sql statement
+	//หา sql statement
  	$maxlevel ="select coalesce(a.level_l, a.level_r) as level 
 				FROM gug_ad as a 
 				WHERE a.mcode ='$cmc' 
@@ -87,15 +87,15 @@ else{
 	echo "<head>\n";
 	echo "<meta http-equiv='Content-Type' content='text/html; charset=windows-874'>\n";
 	echo "<meta http-equiv='Content-Language' content='th'>\n";
-	echo "<title>��ػ��ṹ���Ъ�� Ἱ A </title>\n";
+	echo "<title>สรุปคะแนนแต่ละชั้น แผน A </title>\n";
 	echo "</head>\n";
 	echo "<body>\n";
 	$name_t = get_data("name_t","member","mcode='$cmc' " );
-	echo "<div align='center'><font size='+1'><B>��§ҹ��ػ ��ṹ���Ъ�� Ἱ A �ͧ</B></font></div>";
+	echo "<div align='center'><font size='+1'><B>รายงานสรุป คะแนนแต่ละชั้น แผน A ของ</B></font></div>";
 	echo "<div align='center'><font size='+1'><B>$cmc   $name_t</B></font></div>";
 	echo "<br>";
 	echo "<a href=\"javascript:window.close();\">Close Window</a><br>";
-	echo "������ѹ��� ".date("Y-m-d h:i:s");
+	echo "พิมพ์วันที่ ".date("Y-m-d h:i:s");
 
 	echo "<table width='100%'>";
 	echo "<tr>";
@@ -103,10 +103,10 @@ else{
 
 	echo "<table width='50%'>";
 	echo "<tr align=center>";
-	echo "<td  bgcolor='#EEEEEE' width='5%'>�ӴѺ</td>";
-	echo "<td  bgcolor='#EEEEEE' width='10%'>��鹷��</td>";
-	echo "<td  bgcolor='#EEEEEE' width='20%'>����</td>";
-	echo "<td  bgcolor='#EEEEEE' width='20%'>���</td>";
+	echo "<td  bgcolor='#EEEEEE' width='5%'>ลำดับ</td>";
+	echo "<td  bgcolor='#EEEEEE' width='10%'>ชั้นที่</td>";
+	echo "<td  bgcolor='#EEEEEE' width='20%'>ซ้าย</td>";
+	echo "<td  bgcolor='#EEEEEE' width='20%'>ขวา</td>";
 	echo "</tr>";
 	
  
@@ -170,12 +170,12 @@ else{
 	mysql_free_result($leftarray);
 	mysql_free_result($rightarray);
 	echo "<tr bgcolor='#E0EFF3'>";
-	echo "<td colspan=2 align=center>���</td>";
+	echo "<td colspan=2 align=center>รวม</td>";
 	echo "<td align=right>$sumlevelleft</td>";
 	echo "<td align=right>$sumlevelright</td>";
 	echo "</tr>";	
 	echo "<tr bgcolor='#E0EFF3'>";
-	echo "<td colspan=2 align=center>�����</td>";
+	echo "<td colspan=2 align=center>เหลือ</td>";
 	if( $sumlevelleft <= $sumlevelright ) {
 		$total =$sumlevelright - $sumlevelleft;
 		echo "<td align=right>$total</td>";
@@ -196,13 +196,13 @@ else{
 
  
 
-}  //�Դ if showrep
+}  //ปิด if showrep
  
 
 function get_data($field,$table,$field_and_value){
-	//��ҹ��� �ҡ  select $field from $table where $field_and_value
+	//อ่านค่า จาก  select $field from $table where $field_and_value
 	// $field=field name to get data
-	// table=scm_xxxxxx ����ͧ��� scm
+	// table=scm_xxxxxx ไม่ต้องใส่ scm
 	// $field_and_value="fieldname='value' "
 	global $dbprefix;
 	$sql="select * from ".$dbprefix."$table where $field_and_value ";

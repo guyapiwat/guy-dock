@@ -186,8 +186,8 @@ class chartGenerator{
 		else if($lrxx == '2'){$lr = $lrxxx = $wording_lan["endright"];}
 		else{$lr = "";}
 
-		//if($lr == '1'){$lr = "´È“¬";}
-		//else if($lr == '2'){$lr = "¢«“";}
+		//if($lr == '1'){$lr = "‡∏ã‡πâ‡∏≤‡∏¢";}
+		//else if($lr == '2'){$lr = "‡∏Ç‡∏ß‡∏≤";}
       
         $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>".$wording_lan["tab4"]["8_5"]."<td> : </td></td><td>".$name_show."</td></tr><tr><td>".$wording_lan["allpv"]."</td><td> : </td><td>".number_format($scr->getAPV($mcode),0,'.',',')."</td></tr><tr><td>HPV</td><td> : </td><td>".number_format($sqlObj2->hpv,0,'.',',')."</td></tr><tr><td>".$wording_lan["tab3_6"]."<td> : </td></td><td>".$sqlObj2->sss."</td></tr><tr><td>".$wording_lan["tab1_mem_6"]."<td> : </td></td><td>".$name_show1."</td></tr><tr><td>".$wording_lan["tab3_5"]."<td> : </td></td><td>".$sqlObj2->upa."</td></tr><tr><td>".$wording_lan["tab1_mem_7"]."<td> : </td></td><td>".$sqlObj2->upan."</td></tr><tr><td>".$wording_lan["tab1_1_8"]."</td><td> : </td><td>".$lr."</td></tr></table>')\"";
         if(mysql_num_rows($rs)<=0){
@@ -255,7 +255,7 @@ class chartGenerator{
         echo "<img src='./images/link_v.gif'></td></tr>";
         echo "<tr valign='top' align='center'>";
         for($i=0;$i<mysql_num_rows($rs);$i++){
-            //°”Àπ¥°“√™‘¥
+            //‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡∏Å‡∏≤‡∏£‡∏ä‡∏¥‡∏î
             if(0==mysql_num_rows($rs)-1)
                 echo "<td align='center'>";
             else if($i==0 && $i==mysql_num_rows($rs)-1)
@@ -267,7 +267,7 @@ class chartGenerator{
             else
                 echo "<td background='./images/link_h.gif' align='center'>";
             
-            //°”Àπ¥‡ Èπ    
+            //‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡πÄ‡∏™‡πâ‡∏ô    
             if($i==mysql_num_rows($rs)-1 && $i!=0)
                 echo "<img src='./images/link_h.gif' width='49%' height='6'>";
             echo "<img src='./images/link_rl.gif'>";
@@ -301,7 +301,7 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost(mysql_result($rs,0,'sp_code'))."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-                echo "alt='∫π ".$this->upMost($xsp_code)."' \>";
+                echo "alt='‡∏ö‡∏ô ".$this->upMost($xsp_code)."' \>";
                 
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
                 
@@ -309,13 +309,13 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.$xsp_code."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-                echo "alt='∫π ".$xsp_code."' \>";
+                echo "alt='‡∏ö‡∏ô ".$xsp_code."' \>";
             }else if(!$this->isUp($xsp_code,$this->blockCode)){
                 echo "<img src='images/go_dup.gif' border='0' style='cursor:pointer;' ";
                 echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost(mysql_result($rs,0,'sp_code'))."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-                echo "alt='∫π ".$this->upMost($xsp_code)."' \>";
+                echo "alt='‡∏ö‡∏ô ".$this->upMost($xsp_code)."' \>";
                 
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
                 
@@ -323,7 +323,7 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.$xsp_code."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-                echo "alt='∫π ".$xsp_code."' \>";
+                echo "alt='‡∏ö‡∏ô ".$xsp_code."' \>";
             }else{
                 echo "<img src='images/dgo_dup.gif' border='0' \>";
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
@@ -358,7 +358,7 @@ function gettotalpv($dbprefix,$mcode){
     return $total_fv3;
 } 
 
-//class „™ÈÀ“§–·ππ
+//class ‡πÉ‡∏ä‡πâ‡∏´‡∏≤‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô
 class memberScore{
     private $dbPrefix = "ali_";
     private $ret_sum_pv;
@@ -503,13 +503,13 @@ function getStatus($mcd,$pos_cur,$state){
                 $status = mysql_result($rs,0,'status'); 
                 mysql_free_result($rs);
             } 
-            $no = '¬—ß‰¡Ë√—°…“¬Õ¥';
-            $yes = '√—°…“¬Õ¥·≈È«';
+            $no = '‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î';
+            $yes = '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÅ‡∏•‡πâ‡∏ß';
 
 
             if($status == '0'){
                 $status1 = '<font color=#c00000><b>('.$no.'';            
-                if($lastbv != 0 )$status1 .= '  – ¡ '.$lastbv.''; 
+                if($lastbv != 0 )$status1 .= ' ‡∏™‡∏∞‡∏™‡∏° '.$lastbv.''; 
                 $status1 .= ')</b></font>';
             }
             if($status == '1'){            

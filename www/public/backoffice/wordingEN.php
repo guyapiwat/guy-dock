@@ -2,18 +2,18 @@
 //Warning
 $wording_lan = array();
 
-$wording_lan["word"]["sale_editadd"]["typea"] = "����Ẻ����";
-$wording_lan["word"]["sale_editadd"]["typeb"] = "����Ẻ BMC";
+$wording_lan["word"]["sale_editadd"]["typea"] = "ซื้อแบบปกติ";
+$wording_lan["word"]["sale_editadd"]["typeb"] = "ซื้อแบบ BMC";
 
-$wording_lan["word"]["register"]["choosetitle"] = "���͡�ӹ�˹��";
-$wording_lan["word"]["register"]["mr"] = "���";
-$wording_lan["word"]["register"]["ms"] = "�ҧ���";
-$wording_lan["word"]["register"]["mrs"] = "�ҧ";
-$wording_lan["word"]["register"]["company"] = "����ѷ�ӡѴ";
-$wording_lan["word"]["register"]["limited"] = "��ҧ�����ǹ�ӡѴ";
-$wording_lan["word"]["register"]["other"] = "����";
-$wording_lan["com_a"]="�������ͺ��äӹǳ����Ԫ��� - ����й� + ⺹����ǹ���˹�";
-$wording_lan["com_a_cal"]="�ӹǳ����Ԫ��� - ����й� + ⺹����ǹ���˹�";
+$wording_lan["word"]["register"]["choosetitle"] = "เลือกคำนำหน้า";
+$wording_lan["word"]["register"]["mr"] = "นาย";
+$wording_lan["word"]["register"]["ms"] = "นางสาว";
+$wording_lan["word"]["register"]["mrs"] = "นาง";
+$wording_lan["word"]["register"]["company"] = "บริษัทจำกัด";
+$wording_lan["word"]["register"]["limited"] = "ห้างหุ้นส่วนจำกัด";
+$wording_lan["word"]["register"]["other"] = "อื่นๆ";
+$wording_lan["com_a"]="ข้อมูลรอบการคำนวณคอมมิชชั่น - ค่าแนะนำ + โบนัสส่วนตำแหน่ง";
+$wording_lan["com_a_cal"]="คำนวณคอมมิชชั่น - ค่าแนะนำ + โบนัสส่วนตำแหน่ง";
 
 //binary
 $wording_lan["word"]["ac"]["1"] = "Date";
@@ -301,7 +301,7 @@ $wording_lan["commission"]["topicweely"]["6"] = "Sammary Report Weekly";
 $wording_lan["commission"]["topicweely"]["7"] = "Summary report with payment";
 $wording_lan["commission"]["topicweely"]["8"] = "Summary report without payment";
 $wording_lan["commission"]["topicweely"]["9"] = "Summary Packfile";
-$wording_lan["commission"]["bdetail"] = "�ӹǳ����Ԫ��� Ἱ B";
+$wording_lan["commission"]["bdetail"] = "คำนวณคอมมิชชั่น แผน B";
 
 
 //System
@@ -346,20 +346,20 @@ $wording_lan["system"]["case"]["6"]["2"] = 'Permission application';
 $wording_lan["member"]["chart"]["success"] = 'Recieved';
 $wording_lan["member"]["chart"]["fail"] = 'Not Recieve';
 
-$wording_lan["tab4"]["1_28"] = "�ӴѺ	";
-$wording_lan["tab4"]["1_29"] = "����";
-$wording_lan["tab4"]["1_30"] = "��������´";
-$wording_lan["tab4"]["1_31"] = "�Ҥ�";
+$wording_lan["tab4"]["1_28"] = "ลำดับ	";
+$wording_lan["tab4"]["1_29"] = "รหัส";
+$wording_lan["tab4"]["1_30"] = "รายละเอียด";
+$wording_lan["tab4"]["1_31"] = "ราคา";
 $wording_lan["tab4"]["1_32"] = "PV";
-$wording_lan["tab4"]["1_33"] = "�ӹǹ";
-$wording_lan["tab4"]["1_34"] = "����Ҥ�";
-$wording_lan["tab4"]["1_35"] = "���PV";
-$wording_lan["tab4"]["1_36"] = "ź";
-$wording_lan["tab4"]["1_37"] = "��Ǩ�ͺ";
-$wording_lan["tab4"]["1_38"] = "�ѹ�֡";
-$wording_lan["tab4"]["1_39"] = "¡��ԡ";
-$wording_lan["tab2_chartgen_left"] = "����" ;
-$wording_lan["tab2_chartgen_rihght"] = "���" ;
+$wording_lan["tab4"]["1_33"] = "จำนวน";
+$wording_lan["tab4"]["1_34"] = "รวมราคา";
+$wording_lan["tab4"]["1_35"] = "รวมPV";
+$wording_lan["tab4"]["1_36"] = "ลบ";
+$wording_lan["tab4"]["1_37"] = "ตรวจสอบ";
+$wording_lan["tab4"]["1_38"] = "บันทึก";
+$wording_lan["tab4"]["1_39"] = "ยกเลิก";
+$wording_lan["tab2_chartgen_left"] = "ซ้าย" ;
+$wording_lan["tab2_chartgen_rihght"] = "ขวา" ;
 
 
 

@@ -5,8 +5,8 @@ require_once ("function.log.inc.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>ลบข้อมูลรายการซื้อขาย :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธฅเธเธเนเธญเธกเธนเธฅเธฃเธฒเธขเธเธฒเธฃเธเธทเนเธญเธเธฒเธข :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -15,15 +15,15 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">เลขบิล</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">จำนวนรวม PV</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">จำนวนเงินรวม</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เน€เธฅเธเธเธดเธฅ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธช</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธณเธเธงเธเธฃเธงเธก PV</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก member
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ member
 		$rs=mysql_query("SELECT * FROM ".$dbprefix."asaleh WHERE id='".$postval[$postkey[$i]]."' LIMIT 1");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
 		if (mysql_num_rows($rs)>0){
@@ -60,11 +60,11 @@ writelogfile($text);
 			//echo "delete from ".$dbprefix."asaled where sano='$id' ";
 			mysql_query("delete from ".$dbprefix."asaled where sano='$id' ");
 		}
-		logtext(true,$_SESSION['adminuserid'],'ลบบิล',$row->sano);
+		logtext(true,$_SESSION['adminuserid'],'เธฅเธเธเธดเธฅ',$row->sano);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 	}
-	// แสดงรายการที่ลบ
+	// เนเธชเธ”เธเธฃเธฒเธขเธเธฒเธฃเธ—เธตเนเธฅเธ
 function minusProduct($dbprefix,$pcode,$invent,$qty){
 	//$sql = "update".$dbprefix."product_invent set qty = qty-$qty WHERE pcode='$pcode' and inv_code = '$invent' ";
 	//$rs = mysql_query($sql);

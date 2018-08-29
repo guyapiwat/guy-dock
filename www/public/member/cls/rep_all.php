@@ -284,11 +284,11 @@ class repGenerator{
 				$col += $extab==true?1:0;
 				//show report
 				if(mysql_num_rows($this->rs)<=0){
-					echo "<br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>‰¡Ëæ∫¢ÈÕ¡Ÿ≈µ“¡‡ß◊ËÕπ‰¢</font></td></tr>";
+					echo "<br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ï‡∏≤‡∏°‡πÄ‡∏á‡∏∑‡πà‡∏≠‡∏ô‡πÑ‡∏Ç</font></td></tr>";
 					echo "<tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr>";
 				}else{
 					echo "<tr><td colspan='".$col."'><form style='margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px;' name='searh' id='searh' action='".$this->alink."?".($this->alinkarg==""?"":$this->alinkarg."&")."ord=".$showList[$i]."&srt=".($this->dsort==" ASC "?"UP":"DOWN").($this->cause[0]==""?"":"&scause=".$this->cause[1]."&skey=".$this->cause[0])."&lp=".$this->lPage."' method='post'>";
-					//À—«¢ÈÕ∑’ËµÈÕß°“√· ¥ß
+					//‡∏´‡∏±‡∏ß‡∏Ç‡πâ‡∏≠‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÅ‡∏™‡∏î‡∏á
 					if($this->search){
 						echo "<br />";
 						echo "<input type='text' name='scause'>";
@@ -297,13 +297,13 @@ class repGenerator{
 							echo "<option value='".$showSearch[$i]."' ".($this->cause[0]==$showSearch[$i]?"selected":"").">$showSearchDesc[$i]</option>";
 						}
 						echo "</select>";
-						echo "<input type='submit' value='§Èπ'>";
+						echo "<input type='submit' value='‡∏Ñ‡πâ‡∏ô'>";
 					}
 					echo "</form></td></tr>";
 					if($this->pageLinkShow['top']){
 						echo "<tr><td align='".$this->pageLinkAlign."' colspan='".$col."'>";
 						echo "<div><font color='#999999'>";
-						echo "· ¥ß ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage)." √“¬°“√ ®“° ".$this->nInfo." √“¬°“√ ÀπÈ“≈– <input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode)' title='Enter ‡æ◊ËÕª√—∫·µËß°“√· ¥ßº≈' value='".$this->lPage."'> ¢ÈÕ¡Ÿ≈</font></div>";
+						echo "‡πÅ‡∏™‡∏î‡∏á ".($this->cPage==$this->nPage?$this->nInfo-(($this->nPage-1)*$this->lPage):$this->lPage)." ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏à‡∏≤‡∏Å ".$this->nInfo." ‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£ ‡∏´‡∏ô‡πâ‡∏≤‡∏•‡∏∞ <input name='lp' type='text' size='1' style='text-align:right;font-size:10px;background-color: #CCCCCC;border: 1px solid #000000;' onKeyUp='pageset(window.event.keyCode)' title='Enter ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏õ‡∏£‡∏±‡∏ö‡πÅ‡∏ï‡πà‡∏á‡∏Å‡∏≤‡∏£‡πÅ‡∏™‡∏î‡∏á‡∏ú‡∏•' value='".$this->lPage."'> ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</font></div>";
 						$this->pageShow();
 						echo "</td></tr>";
 					}
@@ -319,13 +319,13 @@ class repGenerator{
 					}
 					if($this->del){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "<a href=\"javascript:if(confirm('°√ÿ≥“¬◊π¬—π°“√≈∫¢ÈÕ¡Ÿ≈¥—ß°≈Ë“«')) document.".$this->delFormAttr[0].".submit();\">≈∫</a>";
+						echo "<a href=\"javascript:if(confirm('‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏¢‡∏∑‡∏ô‡∏¢‡∏±‡∏ô‡∏Å‡∏≤‡∏£‡∏•‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏î‡∏±‡∏á‡∏Å‡∏•‡πà‡∏≤‡∏ß')) document.".$this->delFormAttr[0].".submit();\">‡∏•‡∏ö</a>";
 						echo "<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'>";
 						echo "</td>";
 					}
 					if($this->edit){
 						echo "<td bgcolor='#99CCCC' style='".$style_l.$style_t.$style_b."'>";
-						echo "·°È‰¢";
+						echo "‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç";
 						echo "</td>";
 					}
 					for($i=0;$i<sizeof($showList);$i++){
@@ -334,7 +334,7 @@ class repGenerator{
 						echo "</td>";
 					}
 					echo "</tr>";
-					//¢ÈÕ¡Ÿ≈∑’Ë· ¥ß
+					//‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡πÅ‡∏™‡∏î‡∏á
 					//$sumVal="";
 					//echo mysql_num_rows($this->rs);
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
@@ -354,7 +354,7 @@ class repGenerator{
 							if($extab==true)
 								echo "<td style='".$style_l."'>&nbsp;</td>";
 							if($this->spcial){
-								// ‡√‘Ë¡ loop $this->spcialType ‡æ◊ËÕ· ¥ß¢ÈÕ¡Ÿ≈„π§Õ≈—¡πÏæ‘‡»…µ“¡∑’Ë‡æ‘Ë¡¡“
+								// ‡πÄ‡∏£‡∏¥‡πà‡∏° loop $this->spcialType ‡πÄ‡∏û‡∏∑‡πà‡∏≠‡πÅ‡∏™‡∏î‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÉ‡∏ô‡∏Ñ‡∏≠‡∏•‡∏±‡∏°‡∏ô‡πå‡∏û‡∏¥‡πÄ‡∏®‡∏©‡∏ï‡∏≤‡∏°‡∏ó‡∏µ‡πà‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏°‡∏≤
 								for($j=0;$j<sizeof($this->spcialType);$j++){
 									echo "<td align='center' style='".$style_l."'>";
 									switch($this->spcialType[$j]){
@@ -388,7 +388,7 @@ class repGenerator{
 									}
 	
 									echo "</td>";
-								}// ®∫ loop for ¢Õß special
+								}// ‡∏à‡∏ö loop for ‡∏Ç‡∏≠‡∏á special
 							}
 							if($this->del){
 								echo "<td align='center' style='".$style_l."'>";
@@ -423,7 +423,7 @@ class repGenerator{
 					echo "<tr><td colspan='$col' height='1' bgcolor='#000000'></td></tr>";
 					if($this->sum==true){
 						echo "<tr bgcolor='".($this->allSum==true?"#BBBBBB":"#999999")."'>";
-						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>√«¡</td>";						
+						echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>‡∏£‡∏ß‡∏°</td>";						
 						for($i=0;$i<sizeof($showList);$i++){
 							if($showSumList[$i]==true){							
 								echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";
@@ -438,7 +438,7 @@ class repGenerator{
 						echo "</tr>";
 						if($this->allSum==true){
 							echo "<tr bgcolor='#999999'>";
-							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>®“°</td>";						
+							echo "<td align='right' colspan='".($col-sizeof($showList))."' style='color:#FFFFFF;".$style_b.$style_l."'>‡∏à‡∏≤‡∏Å</td>";						
 							for($i=0;$i<sizeof($showList);$i++){
 								if($showSumList[$i]==true){
 									echo "<td align='right' style='color:#FFFFFF;".$style_b.$style_l."'>";//.number_format(,2,'.','');
@@ -465,8 +465,8 @@ class repGenerator{
 		}
 	/*	$endtm = date("H:i:s");
 		$rs = mysql_query("SELECT TIMEDIFF('$endtm', '$starttm') AS tm ");
-		//echo "S[".$starttm."]-E[".$endtm."] „™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
-		echo "„™È‡«≈“ [".mysql_result($rs,0,'tm')."]<br>";
+		//echo "S[".$starttm."]-E[".$endtm."] ‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
+		echo "‡πÉ‡∏ä‡πâ‡πÄ‡∏ß‡∏•‡∏≤ [".mysql_result($rs,0,'tm')."]<br>";
 	*/	
 	}
 	public function pageShow(){

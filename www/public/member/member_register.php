@@ -24,14 +24,14 @@ $_SESSION["type_regist"]=1;
 <script type="text/javascript">
 
 function getRadioValueByName(name){
-		if(name == '���' || name == 'Mr.' )document.forms[0].sex[0].checked = true;
-		if(name == '�ҧ���' || name == 'Miss.' )document.forms[0].sex[1].checked = true;
-		if(name == '�ҧ' || name == 'Mrs.' )document.forms[0].sex[1].checked = true;
+		if(name == 'นาย' || name == 'Mr.' )document.forms[0].sex[0].checked = true;
+		if(name == 'นางสาว' || name == 'Miss.' )document.forms[0].sex[1].checked = true;
+		if(name == 'นาง' || name == 'Mrs.' )document.forms[0].sex[1].checked = true;
 	}
 function getRadioValueByName1(name){
-		if(name == '���' || name == 'Mr.')document.forms[0].csex[0].checked = true;
-		if(name == '�ҧ���' || name == 'Miss.')document.forms[0].csex[1].checked = true;
-		if(name == '�ҧ' || name == 'Mrs.')document.forms[0].csex[1].checked = true;
+		if(name == 'นาย' || name == 'Mr.')document.forms[0].csex[0].checked = true;
+		if(name == 'นางสาว' || name == 'Miss.')document.forms[0].csex[1].checked = true;
+		if(name == 'นาง' || name == 'Mrs.')document.forms[0].csex[1].checked = true;
 	}
  function checkForm(frm)
   {
@@ -57,34 +57,34 @@ for(i=input.length; i<pad_length; i++){
 return input; 
 } 
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// aalert(value)
 	value = str_pad(value,7,0,false);
 	value = value.toUpperCase();
 	
-     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_memberm.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
                     var data=req.responseText; 
 					var myarr = data.split("|");
 					if(data == 1234){
 						document.getElementById('sp_code').value="";
 						document.getElementById("sp_name").value="<?=$wording_lan["tab1_mem_88"];?>";
-						document.getElementById("l1").innerHTML="";//�ʴ���
+						document.getElementById("l1").innerHTML="";//แสดงผล
 						document.getElementById("l2").innerHTML="";
 						//document.getElementById("l3").innerHTML="";
 					}else{
 						document.getElementById('sp_code').value=value;
 						document.getElementById("sp_name").value=myarr[0].trim();
-						document.getElementById("l1").innerHTML="<?=$wording_lan["upa_code"];?> "+myarr[1];//�ʴ���
+						document.getElementById("l1").innerHTML="<?=$wording_lan["upa_code"];?> "+myarr[1];//แสดงผล
 						document.getElementById("l2").innerHTML="<?=$wording_lan["upa_code"];?> "+myarr[2];
 					}
                }
           }
      };
      req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
-     req.send(null); //�ӡ����
+     req.send(null); //ทำการส่ง
 };
 function sendget_sponsor1(value,value1) {
 	if(value1 == ''){
@@ -95,15 +95,15 @@ function sendget_sponsor1(value,value1) {
     var req = Inint_AJAX();
 	value = str_pad(value,7,0,false);
 	value1 = str_pad(value1,7,0,false);
-    req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-    req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+    req.open('GET', 'search_member11.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+    req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
 	  if (req.readyState==4) {
-		   if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-				var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+		   if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+				var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//aalert(req.responseText);
 				if(data == 1234){
 				document.getElementById('upa_code').value="";
-				document.getElementById("upa_name").value="������������§ҹ";
+				document.getElementById("upa_name").value="ไม่ได้อยู่ในสายงาน";
 				}else{
 					var myArray = data.split(':');
 					var left = myArray[0];
@@ -112,7 +112,7 @@ function sendget_sponsor1(value,value1) {
 					var left = left.trim();
 					
 					 if(left == '1' && right == '1'){
-						aalert('�Ѿ�Ź��բ� 2 ��ҹ����');
+						aalert('อัพไลน์มีขา 2 ด้านแล้ว');
 						document.getElementById('upa_code').value="";
 						document.forms[0].lr[0].disabled = true;
 						document.forms[0].lr[0].checked = false;
@@ -122,7 +122,7 @@ function sendget_sponsor1(value,value1) {
 						var l_alert = document.forms[0].lr[0].checked;
 						var r_alert = document.forms[0].lr[1].checked;
 						if(left == '1'){
-							if(l_alert == true)aalert('�Ѿ�Ź��մ�ҹ���� ������');
+							if(l_alert == true)aalert('อัพไลน์มีด้านซ้าย มีแล้ว');
 							document.forms[0].lr[0].disabled = true;
 							document.forms[0].lr[0].checked = false;
 						}
@@ -131,7 +131,7 @@ function sendget_sponsor1(value,value1) {
 						}
 
 						if(right == '1'){
-							if(r_alert == true)aalert('�Ѿ�Ź��մ�ҹ��� ������');
+							if(r_alert == true)aalert('อัพไลน์มีด้านขวา มีแล้ว');
 							document.forms[0].lr[1].disabled = true;
 							document.forms[0].lr[1].checked = false;
 						}
@@ -139,14 +139,14 @@ function sendget_sponsor1(value,value1) {
 							document.forms[0].lr[1].disabled = false;
 						}
 						document.getElementById('upa_code').value=value;
-						document.getElementById("upa_name").value=name; //�ʴ���
+						document.getElementById("upa_name").value=name; //แสดงผล
 					 }
 				}
 		   }
 	 }
  };
- req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
- req.send(null); //�ӡ����
+ req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+ req.send(null); //ทำการส่ง
 };
 </script>
 <script language="javascript" type="text/javascript" src="./datetimepick/datetimepicker.js"></script>
@@ -195,79 +195,79 @@ function onclickaddress(){
 }
 
 function check_zipcode(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// aalert(value)
 	//value = str_pad(value,7,0,false);
 	//aalert(value);
 	//aalert(value);aalert(value1);aalert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	aalert(req.responseText);
 					//aalert(data);
 					if(data == 1234){
-						 document.getElementById("zip").value=''; //�ʴ���
+						 document.getElementById("zip").value=''; //แสดงผล
 					}else{
 					//	aalert(data);
-						 document.getElementById("zip").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("zip").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// aalert(value)
 	//value = str_pad(value,7,0,false);
 	//aalert(value);
 	//aalert(value);aalert(value1);aalert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	aalert(req.responseText);
 					//aalert(data);
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
 					//	aalert(data);
-						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //�ʴ���
+						 document.getElementById("czip").value=data.replace(/^\s+|\s+$/g,""); //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// aalert(value)
 	//value = str_pad(value,7,0,false);
 	//aalert(value);
 	//aalert(value1);
 	//aalert(value2);
-     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_addressm.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	aalert(req.responseText);
 					if(data == 1234){
-					//document.getElementById("mname").innerHTML="������������§ҹ";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					//	aalert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 
 function checkMemberExit(){
@@ -345,7 +345,7 @@ function imembercheck(){
 	if(document.getElementById('national').value == 'Thailand'){
 	var a = document.getElementById('id_card').value;
 	var id_card = "";
-	var t = a.split("-");  //�������äᵡ��ŧ array t
+	var t = a.split("-");  //ถ้าเจอวรรคแตกเก็บลง array t
 	for(var i=0; i<t.length ; i++){
 		id_card = id_card+ t[i];
 	}
@@ -674,14 +674,14 @@ include("../function/global_center.php");
 							</div>
 						</div>
 						<div class="profile-info-row" style="display:none">
-							<div class="profile-info-name"> �ٻ�Ҿ </div>
+							<div class="profile-info-name"> รูปภาพ </div>
 
 							<div class="profile-info-value">
 								<div class="controls">
 							<?if($pathImg !=""){ ?>
 
 							<input type="text" name="profile_img" id="profile_img" value='<?=$pathImg;?>' readonly placeholder="None" >
-							<input type="button" name="reset" id="reset" value='��ҧ' onclick="resetpic()" >
+							<input type="button" name="reset" id="reset" value='ล้าง' onclick="resetpic()" >
 							</br></br>
 							<? } ?>
 
@@ -804,7 +804,7 @@ include("../function/global_center.php");
 									echo "<option value=\"".$row1->nation."\" >";
 									
 									if($row1->nation == 'Thailand'){
-										echo '��' ;
+										echo 'ไทย' ;
 									}else{
 										echo $row1->nation;
 									}

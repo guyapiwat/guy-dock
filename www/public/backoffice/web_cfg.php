@@ -27,12 +27,12 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 			$rec->setCurPage($page);
 		$rec->setShowField("web_cfg");
 		//$rec->setFieldFloatFormat(",,,,,,0,2");
-		$rec->setFieldDesc("ª×èÍàÇçºä«µì");
+		$rec->setFieldDesc("à¸Šà¸·à¹ˆà¸­à¹€à¸§à¹‡à¸šà¹„à¸‹à¸•à¹Œ");
 		$rec->setFieldAlign("left");
 		$rec->setFieldSpace("100%");
 		$rec->setFieldLink(",index.php?sessiontab=5&sub=7&cmc=,");
 		//$rec->setSearch("web_cfg");
-		//$rec->setSearchDesc("ª×èÍàÇçºä«µì");
+		//$rec->setSearchDesc("à¸Šà¸·à¹ˆà¸­à¹€à¸§à¹‡à¸šà¹„à¸‹à¸•à¹Œ");
 		//$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		/*if($acc->isAccess(4)){

@@ -24,31 +24,31 @@ else $cmc = $_SESSION['usercode'];
 	}
 ?><table align=center width=500	>
 <tr>
-      <td  align="center" bgcolor="#FFFF00">�Թ�յ�͹�Ѻ</td>
+      <td  align="center" bgcolor="#FFFF00">ยินดีต้อนรับ</td>
       </tr>
    <tr><td>
 <table border="3" bordercolor="#00FFFF" width="100%"> <tr>
-      <td width="50%" >������Ҫԡ������</td>
+      <td width="50%" >รหัสสมาชิกใหม่คือ</td>
     <td width="50%"><?=$cmc?></td>
   </tr>  <tr >
-    <td>���ͼ����Ѥ���ѡ</td>
+    <td>ชื่อผู้สมัครหลัก</td>
 	<td><?=$name_f.' '.$name_t?></td>
   </tr>  <tr  style="display:none">
-    <td>���ͼ����Ѥ�����</td>
+    <td>ชื่อผู้สมัครร่วม</td>
 	<td><?=$cname_f.' '.$cname_t?></td>
   </tr>  
   <tr >
-    <td>�к��������ʼ�ҹ㹡�������ҹ价�� Email : <br>
-      (��س��礴ٷ�� Inbox , Spam email ���� Junk email)</td>
+    <td>ระบบได้ส่งรหัสผ่านในการเข้าใช้งานไปที่ Email : <br>
+      (กรุณาเช็คดูที่ Inbox , Spam email หรือ Junk email)</td>
     <td><?=$email?></td>
   </tr>
   <tr >
-    <td nowrap="nowrap">��سҹ������Ѥ������ѡ�ҹ��Сͺ�����Ѥ������ѹ��� </td>
+    <td nowrap="nowrap">กรุณานำส่งใบสมัครและหลักฐานประกอบการสมัครภายในวันที่ </td>
     <td><?=date("Y-m-d",strtotime("+1 Month",$mdate));?></td>
   </tr> 
   <tr><td colspan=2 align=center>
   <table><tr>
-  <td width=100 align=center><a href="mem_detailview.php?fmcode=<?=$cmc?>" target="_blank">��������Ҫԡ</a></td>
+  <td width=100 align=center><a href="mem_detailview.php?fmcode=<?=$cmc?>" target="_blank">ข้อมูลสมาชิก</a></td>
  </tr></table>
   </td></tr>
   </table></td></tr></table>

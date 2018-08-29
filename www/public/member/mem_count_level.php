@@ -5,7 +5,7 @@ if ($cmc=="") {$cmc=$smc;}
 if ($cmc==""){$cmc=$smc;}
 // connect to database 
 require("connectmysql.php");
-// ตรวจสอบว่า $cmc อยู่ในสายงานของ $smc หรือไม่
+// เธ•เธฃเธงเธเธชเธญเธเธงเนเธฒ $cmc เธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธเธเธญเธ $smc เธซเธฃเธทเธญเนเธกเน
 $cur=$cmc;
 for ($i=strlen($cur);$i<7;$i++){$cur="0".$cur;}
 do {
@@ -16,15 +16,15 @@ do {
 		if ($cur==$smc){break;}else{$cur=$cur_upa_code;}
 	}else{
 		require "header.php";
-		echo "<font color=c00000><br>ไม่สามารถดูข้อมูลได้เพราะ<br>";
-		echo "รหัส $cmc ไม่อยู๋ในสายงานของ $smc<br></font>";
+		echo "<font color=c00000><br>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเนเธ”เนเน€เธเธฃเธฒเธฐ<br>";
+		echo "เธฃเธซเธฑเธช $cmc เนเธกเนเธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธเธเธญเธ $smc<br></font>";
 		exit;
 	}
 	mysql_free_result($result);
 } while(1);
 set_time_limit(0);
 ini_set("memory_limit","200M");
-// หาลูกข้างซ้ายและขาวเพื่อหา ลูกทีมในแต่ละชั้น
+// เธซเธฒเธฅเธนเธเธเนเธฒเธเธเนเธฒเธขเนเธฅเธฐเธเธฒเธงเน€เธเธทเนเธญเธซเธฒ เธฅเธนเธเธ—เธตเธกเนเธเนเธ•เนเธฅเธฐเธเธฑเนเธ
 $result=mysql_query("select * from ".$dbprefix."member where mcode='".$cmc."' ");
 if (mysql_num_rows($result)>0) {
 	$row = mysql_fetch_array($result, MYSQL_ASSOC);
@@ -38,7 +38,7 @@ for ($i=1;$i<=mysql_num_rows($result);$i++) {
 	if ($row["lr"]=="2"){$rmc=$row["mcode"];}
 }
 
-// ใส่ข้อมูลสมาชิกและสายงานใน n_mcode[] เริ่มจาก $lmc
+// เนเธชเนเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธฅเธฐเธชเธฒเธขเธเธฒเธเนเธ n_mcode[] เน€เธฃเธดเนเธกเธเธฒเธ $lmc
 ///////////////////// $lmc ///////////////////// 
 $s=0;
 $result=mysql_query("select * from ".$dbprefix."member where mcode='".$lmc."' ");
@@ -175,8 +175,8 @@ do{
 
 //echo "l_max=$l_max<br>";
 //echo "r_max=$r_max<br>";
-echo "รหัส " . $mcode ."&nbsp;&nbsp;".$name_t."<br>";
-echo "[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=2&sub=1&cmc=". $mcode ."\">แผนภูมิ สายงานรหัส ". $mcode ."</a>] &nbsp;[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=2&sub=5&cmc=". $mcode ."\">สายงานแบบต้นไม้ของรหัส ". $mcode ."</a>] &nbsp;[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=5&sub=1&cmc=". $mcode ."\">ยอดคอมมิชชั่นแผน A ของรหัส". $mcode ."</a>]<br>";
+echo "เธฃเธซเธฑเธช " . $mcode ."&nbsp;&nbsp;".$name_t."<br>";
+echo "[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=2&sub=1&cmc=". $mcode ."\">เนเธเธเธ เธนเธกเธด เธชเธฒเธขเธเธฒเธเธฃเธซเธฑเธช ". $mcode ."</a>] &nbsp;[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=2&sub=5&cmc=". $mcode ."\">เธชเธฒเธขเธเธฒเธเนเธเธเธ•เนเธเนเธกเนเธเธญเธเธฃเธซเธฑเธช ". $mcode ."</a>] &nbsp;[<a href=\"".$_SERVER["PHP_SELF"]."?sessiontab=5&sub=1&cmc=". $mcode ."\">เธขเธญเธ”เธเธญเธกเธกเธดเธเธเธฑเนเธเนเธเธ A เธเธญเธเธฃเธซเธฑเธช". $mcode ."</a>]<br>";
 
 echo "<br>";
 echo "<br>";
@@ -185,10 +185,10 @@ echo "<tr><td width=\"100%\" height=1 bgcolor=000000></td></tr>";
 echo "</table>";
 echo "<table border=0 cellpadding=0 cellspacing=0 width=\"100%\">";
 echo "<tr>";
-echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>ลำดับ</td>";
-echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>ชั้นที่</td>";
-echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>คะแนน-ซ้าย</td>";
-echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>คะแนน-ขวา</td>";
+echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>เธฅเธณเธ”เธฑเธ</td>";
+echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>เธเธฑเนเธเธ—เธตเน</td>";
+echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>เธเธฐเนเธเธ-เธเนเธฒเธข</td>";
+echo "<td width=\"10%\" align=left valign=top bgcolor=f0f0f0>เธเธฐเนเธเธ-เธเธงเธฒ</td>";
 echo "<td width=\"60%\" align=left valign=top bgcolor=f0f0f0></td>";
 echo "</tr>";
 echo "</table>";
@@ -220,7 +220,7 @@ if (($i % 2)==0){
 }else{$bgcolor="";}
 echo "<tr>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor></td>";
-echo "<td width=\"10%\" align=left valign=top $bgcolor>รวม</td>";
+echo "<td width=\"10%\" align=left valign=top $bgcolor>เธฃเธงเธก</td>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor>$l_tot</td>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor>$r_tot</td>";
 echo "<td width=\"60%\" align=left valign=top $bgcolor></td>";
@@ -238,7 +238,7 @@ if (($i % 2)==0){
 }else{$bgcolor="";}
 echo "<tr>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor></td>";
-echo "<td width=\"10%\" align=left valign=top $bgcolor>เหลือ</td>";
+echo "<td width=\"10%\" align=left valign=top $bgcolor>เน€เธซเธฅเธทเธญ</td>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor>$l_remain</td>";
 echo "<td width=\"10%\" align=left valign=top $bgcolor>$r_remain</td>";
 echo "<td width=\"60%\" align=left valign=top $bgcolor></td>";

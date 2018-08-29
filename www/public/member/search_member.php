@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //ÿÿÿÿÿÿ?? cache
+  //ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ?? cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //ÿÿ?ÿ header ÿ?ÿ?
+  //ï£ˆï£ˆ?ï£ˆ header ï£ˆ?ï£ˆ?
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -26,7 +26,7 @@ if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
 $sql = "SELECT mtype1 ";
 $sql .= " FROM ".$dbprefix."member  where mcode = '$mcode1' ";
 $sql .= " limit 0,1";
-$result = mysql_query($sql) or die("ÿ?ÿÿÿÿÿÿÿÿ?ÿÿÿÿÿÿ") ;
+$result = mysql_query($sql) or die("ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ") ;
 $data = mysql_fetch_object($result);
 $mtype1 = $data->mtype1;      
 if($mtype1 == 0)$chkline = isLine("ali_",$value,$_SESSION["usercode"]);
@@ -36,7 +36,7 @@ $sql = "SELECT locationbase,ewallet,pos_cur,pos_cur1,name_t,name_f,mcode,caddres
 $sql .= $sqlmtype;
 
 	$sql .= " FROM ".$dbprefix."member  where mcode = '$value' limit 0,1";
-	$result = mysql_query($sql) or die("ÿ?ÿÿÿÿÿÿÿÿ?ÿÿÿÿÿÿ") ;
+	$result = mysql_query($sql) or die("ï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ?ï£ˆï£ˆï£ˆï£ˆï£ˆï£ˆ") ;
 	if(mysql_num_rows($result) > 0){
 		
 	$data = mysql_fetch_object($result);

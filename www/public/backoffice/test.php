@@ -4,7 +4,7 @@
 <?
 /* $member = query("mt.mcode,m.pos_cur","member_terminate mt LEFT JOIN ali_member m ON (m.mcode=mt.mcode)","1=1");
 foreach($member as $key => $val){
-	logtext(true,"System","��Ѻ���˹� ������Ҫԡ : ".$val['mcode']." �ҡ  ".$val['pos_cur']." �� TN",$val['mcode']);
+	logtext(true,"System","ปรับตำแหน่ง รหัสสมาชิก : ".$val['mcode']." จาก  ".$val['pos_cur']." เป็น TN",$val['mcode']);
 }
  */
  

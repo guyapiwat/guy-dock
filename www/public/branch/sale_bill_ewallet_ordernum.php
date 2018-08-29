@@ -116,25 +116,25 @@ switch ($strtype) {
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_t,sadate,txtMoney,txtCash,txtCredit,txtTransfer,uid,lid,checkportal1");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ�Թ���,�Թʴ,�ôԵ,�Թ�͹,���ѹ�֡,�Ң�,��ͧ�ҧ");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนเงินรวม,เงินสด,เครดิต,เงินโอน,ผู้บันทึก,สาขา,ช่องทาง");
 		$rec->setFieldFloatFormat(",,,,,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,center,right,right,right,right,center,center,center");
 		$rec->setFieldSpace("3%,7%,6%,25%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,true,",,,,,true,true,true,true,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_ewallet".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_ewallet".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

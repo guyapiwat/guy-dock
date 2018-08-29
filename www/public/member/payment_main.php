@@ -12,33 +12,33 @@ function Inint_AJAX() {
 	document.getElementById('chkline').disabled = true;
     document.getElementById('chkline').value = "Please wait...";
     document.getElementById('chkdownline').innerHTML = "<img src='images/ProgressBar.gif'>";
-    var req = Inint_AJAX(); //���ҧ Object
+    var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'getchkline.php?chkre=1', true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-	 req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'getchkline.php?chkre=1', true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+	 req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
        //   alert(req);
      if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('chkline').disabled = false;
-					document.getElementById('chkline').value = "����Ҫԡ�ѡ���ʹ";
+					document.getElementById('chkline').value = "ดูสมาชิกรักษายอด";
 					document.getElementById('chkdownline').innerHTML = "";
 					//document.getElementById('mcode').value="";
-					//document.getElementById("mname").innerHTML="������������§ҹ";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					document.getElementById('chkline').disabled = false;
-					document.getElementById('chkline').value = "����Ҫԡ�ѡ���ʹ";
-                    document.getElementById("chkdownline").innerHTML=data; //�ʴ���
+					document.getElementById('chkline').value = "ดูสมาชิกรักษายอด";
+                    document.getElementById("chkdownline").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 
   };
 </script>
@@ -52,7 +52,7 @@ function Inint_AJAX() {
 ?>
 <table border="0" height="390"><tr valign="top">
 <td width="50">
-<a href="javascript:history.back()"><img border="0" src="./images/back.gif" height="40" width="40" alt="������Ҫԡ" /></a>
+<a href="javascript:history.back()"><img border="0" src="./images/back.gif" height="40" width="40" alt="เมนูสมาชิก" /></a>
 </td>
 <td align="left" width="100%">
 <?
@@ -60,7 +60,7 @@ function Inint_AJAX() {
 			case 1:
 			?><legend>
 		           <strong><font color="#666666">Payment Success</font></strong>
-                   <!--img border="0" src="./images/add.gif" alt="��䢢�������Ҫԡ" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=1&sub=3'>��䢢�������Ҫԡ</a-->
+                   <!--img border="0" src="./images/add.gif" alt="แก้ไขข้อมูลสมาชิก" align="absmiddle" width="16" height="16" />&nbsp;&nbsp;<a href='./index.php?sessiontab=1&sub=3'>แก้ไขข้อมูลสมาชิก</a-->
                 </legend>
 				<?
 				include("payment_success.php");
@@ -124,10 +124,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 
 

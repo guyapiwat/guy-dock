@@ -28,11 +28,11 @@ if(isset($_POST["strSearch"]))
 <table style="margin-left:20;" width="1100" border="0">
   <tr valign="top"><td width="1000" align="center" ><fieldset>
 	<input size="14" type="text" name="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>  ∂÷ß
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>  ‡∏ñ‡∏∂‡∏á
 	<input size="14" type="text" name="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë" /></a>
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà" /></a>
 	<input type="text" name="strSearch" value="<?=$strSearch?>">
-    <input type="submit" value="§Èπ" />
+    <input type="submit" value="‡∏Ñ‡πâ‡∏ô" />
 </fieldset></td>
 <td align="center" width="110"></td>
 </tr></table>
@@ -63,7 +63,7 @@ if(!empty($strSearch))$sql .= " and a.pcode LIKE '%$strSearch%' ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,bbuy_Balance,bbuy_Qua,total,bbuy_Date,txtoption");
-		$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥,®”π«π§ß‡À≈◊Õ,®”π«π,¬Õ¥√«¡,«—π∑’Ë —Ëß´◊ÈÕ,À¡“¬‡Àµÿ");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡∏¢‡∏≠‡∏î‡∏£‡∏ß‡∏°,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠,‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏");
 		$rec->setFieldAlign("center,left,center,center,right,center,left");
 		$rec->setFieldSpace("10%,20%,10%,10%,10%,8%,32%");
 		$rec->setFieldLink(",");
@@ -74,16 +74,16 @@ if(!empty($strSearch))$sql .= " and a.pcode LIKE '%$strSearch%' ";
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","buyproduct".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","buyproduct".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","bid","IMAGE","æ‘¡æÏ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","bid","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		/*if($acc->isAccess(2))
 			$rec->setEdit("index.php","pcode","pcode","sessiontab=3&sub=1");*/
 		$rec->showRec(1,'SH_QUERY');

@@ -67,7 +67,7 @@ if($fdate){
         else $sql.=",'*' AS checkportal1";
 
         $sql .=" FROM ( ";
-            $sql .= "SELECT '��Ţ��' as type,count(id) as num";
+            $sql .= "SELECT 'บิลขาย' as type,count(id) as num";
             $sql .= ",SUM(ash.total) as total";
             $sql .= ",SUM(ash.total_vat) as total_vat";
             $sql .= ",SUM(ash.total_invat) as total_invat";
@@ -77,7 +77,7 @@ if($fdate){
             $sql .= " FROM ali_asaleh ash WHERE scheck = '' {$where}"; 
             $sql .= " GROUP BY locationbase ";
         $sql .= " UNION ALL ";
-            $sql .= "SELECT '�������Թ Ewallet' as type,count(id) as num";
+            $sql .= "SELECT 'บิลเติมเงิน Ewallet' as type,count(id) as num";
 			$sql .= ",SUM(ash.total) as total";
             $sql .= ",'0' as total_vat";
             $sql .= ",SUM(ash.total) as total_invat";
@@ -87,7 +87,7 @@ if($fdate){
             $sql .= " FROM ali_ewallet ash WHERE 1=1 and ash.sa_type <> 'TI' and ash.sa_type <> 'TO'  and ash.sa_type <> 'T' and ash.sa_type <> 'W' {$where} and txtWithdraw = 0 and ash.sa_type <> 'CI'  and txtTransfer_in = 0 and txtTransfer_out = 0 ";
             $sql .= " GROUP BY locationbase ";
         $sql .= " UNION ALL ";
-            $sql .= "SELECT '�������Թ Eautoship' as type,count(id) as num";
+            $sql .= "SELECT 'บิลเติมเงิน Eautoship' as type,count(id) as num";
             $sql .= ",SUM(ash.total) as total";
             $sql .= ",'0' as total_vat";
             $sql .= ",SUM(ash.total) as total_invat";
@@ -97,7 +97,7 @@ if($fdate){
             $sql .= " FROM ali_eatoship ash WHERE 1=1 and ash.sa_type <> 'TI' and ash.sa_type <> 'TO' and ash.sa_type <> 'T' and ash.sa_type <> 'W' {$where_ea} and ash.sa_type <> 'CI' ";
             $sql .= " GROUP BY locationbase ";
         $sql .= " UNION ALL ";
-            $sql .= "SELECT '�����Ѥ�' as type,count(id) as num";
+            $sql .= "SELECT 'บิลสมัคร' as type,count(id) as num";
             $sql .= ",SUM(ash.total) as total";
             $sql .= ",SUM(ash.tot_pv) as tot_pv";
             $sql .= ",SUM(ash.total_vat) as total_vat";
@@ -127,25 +127,25 @@ if($fdate){
         if(isset($page))
             $rec->setCurPage($page);
          $rec->setShowField("type,fdate,tdate,num,total,total_invat,total_vat,tot_pv".$colome.",Sending,txtUser,txtInvcode,checkportal1");
-        $rec->setFieldDesc("��Դ,�ҡ�ѹ���,�֧�ѹ���,�ӹǹ���,�ӹǹ�Թ���,�ʹ��¡�͹ VAT,VAT,PV".$colome_text.",��ҨѴ��,User,�Ң�,��ͧ�ҧ");
+        $rec->setFieldDesc("ชนิด,จากวันที่,ถึงวันที่,จำนวนบิล,จำนวนเงินรวม,ยอดขายก่อน VAT,VAT,PV".$colome_text.",ค่าจัดส่ง,User,สาขา,ช่องทาง");
         $rec->setFieldFloatFormat(",,,2,2,2,2,2".$Format.",");
         $rec->setFieldAlign("Center,center,center,right,right,right,right,right,right,right,right,right,right,right,center,center,center");
      //   $rec->setFieldSpace("7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%");
         $rec->setFieldLink(",");
         //$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-        //$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+        //$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
         $rec->setSum(true,false,",,,true,true,true,true,true".$Sum.",true");
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         if($_GET['excel']==1){
             $rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
             $str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-            $str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+            $str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
             //$rec->getParam();
             $rec->setSpace($str);
         }
         //$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
         $str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-        $str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+        $str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
         $rec->setSpace($str);
         $rec->showRec(1,'SH_QUERY');
     }

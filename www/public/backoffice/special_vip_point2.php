@@ -5,6 +5,7 @@ require_once("logtext.php");
 ?>
 
 <?
+ 
    if(isset($_POST['sppoint_submit'])){
      $vipinfo['sp_code'] = $_POST['sp_code'];
      $vipinfo['ptype'] = $_POST['ptype'];
@@ -13,10 +14,12 @@ require_once("logtext.php");
     
     $sql = "SELECT MAX(vip_id) AS maxid FROM ".$dbprefix."special_point_group";
 /*    if(!$rs=mysql_query($sql)){
-       $errMsg = "�Դ��ͼԴ��Ҵ �������ö�ѹ�֡��ṹ��";
+       $errMsg = "เกิดข้อผิดพลาด ไม่สามารถบันทึกคะแนนได้";
        echo "<script> alert('".$errMsg."'); </script>";
      }*/
-     
+     $charset = "SET NAMES 'UTF8'"; 
+     mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+
      $rs = mysql_query($sql);
      $oldID = mysql_result($rs,0,'maxid'); 
      $newID = 1;
@@ -25,9 +28,9 @@ require_once("logtext.php");
         $newID = ++$oldID;
      }
     
-    $month=date("m"); //���ҧ�����͹�Ѩ�غѹ
-    $day=date("d"); //���ҧ����ѹ�Ѩ�غѹ
-    $year=date("Y"); //���ҧ��һջѨ�غѹ
+    $month=date("m"); //สร้างค่าเดือนปัจจุบัน
+    $day=date("d"); //สร้างค่าวันปัจจุบัน
+    $year=date("Y"); //สร้างค่าปีปัจจุบัน
     
     $sadate=$year."-".$month."-".$day;
     $heal_mouth=$year.$month;
@@ -43,12 +46,12 @@ require_once("logtext.php");
      ;
      //====================LOG===========================
     $text="uid=".$_SESSION["adminuserid"]." action=special_vip_point=>$sql2";
-        logtext(true,$_SESSION['adminusercode'],'VIP ��ṹ��Ҫԡ  : '.$vipinfo['sp_code'].' �ӹǹ '.$vipinfo['sppoint'].' ��ṹ','');
+        logtext(true,$_SESSION['adminusercode'],'VIP คะแนนสมาชิก  : '.$vipinfo['sp_code'].' จำนวน '.$vipinfo['sppoint'].' คะแนน','');
     writelogfile($text);
 
 //=================END LOG===========================
      if(!mysql_query($sql2)){
-       $errMsg = "�Դ��ͼԴ��Ҵ �������ö�ѹ�֡��ṹ��";
+       $errMsg = "เกิดข้อผิดพลาด ไม่สามารถบันทึกคะแนนได้";
        echo "<script> alert('".$errMsg."'); </script>";
      }else{
        $success = true;
@@ -79,12 +82,12 @@ require_once("logtext.php");
         error = false;
         
         if(submitted == true){
-           alert("���ѧ���Թ���");
+           alert("กำลังดำเนินการ");
            return false;
         }
         
-        check_input("sp_code",1,"��س��к������Ţ��Ҫԡ����ͧ���������ṹ");
-        check_point("sppoint","��ṹ����͡��ͧ�繵���Ţ 0-9 ��ҹ��");
+        check_input("sp_code",1,"กรุณาระบุหมายเลขสมาชิกที่ต้องการเพิ่มคะแนน");
+        check_point("sppoint","คะแนนที่กรอกต้องเป็นตัวเลข 0-9 เท่านั้น");
         
         if(error == true){
             alert(error_message);
@@ -135,8 +138,8 @@ require_once("logtext.php");
     <tr style="display:<?php echo ($success) ? "" : "none";?>">
                   <td height="46" valign="top">
                     <div  align="center" style="font-size: 12px; color:#58a0c8;">
-                        <br />�ѹ�֡���������º�������� ��ҹ����ö�ӡ�������������ա������
-                         <a href="./index.php?sessiontab=<?=$sesstab?>&sub=22">�����</a>
+                        <br />บันทึกข้อมูลเรียบร้อยแล้ว ท่านสามารถทำการเพิ่มข้อมูลอีกครั้งได้
+                         <a href="./index.php?sessiontab=<?=$sesstab?>&sub=22">ที่นี่</a>
                     </div>
                 </td>
     </tr>
@@ -146,22 +149,22 @@ require_once("logtext.php");
        <table width="950" border="0" cellpadding="0" cellspacing="0" cols="4">
                 <tr>
                 <td width="5%" height="20"></td>
-                <td width="10%" align="right">�ѹ���&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+                <td width="10%" align="right">วันที่&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
                   <td width="40%">&nbsp;
-                  <input type="text" id="dateInput1" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" /><font color="#808080">(����-��-��)</font></td>
+                  <input type="text" id="dateInput1" name="mdate" size="10" maxlength="10" value="<?=($mdate==""?date("Y-m-d"):$mdate)?>" /><font color="#808080">(ปปปป-ดด-วว)</font></td>
                 </tr>
                <tr>
               <td width="5%" height="20"></td>
-              <td width="10%" align="right">������Ҫԡ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+              <td width="10%" align="right">รหัสสมาชิก&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
               <td width="40%">&nbsp;
                 <input name="sp_code" id="sp_code" type="text" style="background-color:#FFFF99" size="15" readonly />
-                <input type="button" onClick="get_mem_listpicker_sp_code()" value="���͡">              </td>
+                <input type="button" onClick="get_mem_listpicker_sp_code()" value="เลือก">              </td>
               <td width="50%"></td>
             </tr>
             
             <tr>
               <td width="5%" height="20"></td>
-              <td width="10%" align="right">������Ҫԡ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+              <td width="10%" align="right">ชื่อสมาชิก&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
               <td width="40%">&nbsp;
 
                 <input name="sp_name" type="text" style="background-color:#FFFF99" id="sp_name" readonly />              </td>
@@ -170,15 +173,15 @@ require_once("logtext.php");
             
             <tr>
               <td width="5%" height="20"></td>
-              <td width="10%" align="right" nowrap>��Դ�ͧ��ṹ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+              <td width="10%" align="right" nowrap>ชนิดของคะแนน&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
               <td width="40%">&nbsp;
-                <input name="ptype" type="radio" value="VA" checked />Ἱ A (��ṹ�����)    </td>
+                <input name="ptype" type="radio" value="VA" checked />แผน A (คะแนนกลุ่ม)    </td>
               <td width="50%"></td>
             </tr>
             
             <tr>
               <td width="5%" height="20"></td>
-              <td width="10%" align="right">��ṹ&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
+              <td width="10%" align="right">คะแนน&nbsp;<font color="#ff0000">*</font>&nbsp;</td>
               <td width="40%">&nbsp;
               <input name="sppoint" type="text" />        
               &nbsp;PV</td>
@@ -196,8 +199,8 @@ require_once("logtext.php");
               <td width="5%" height="20"></td>
               <td width="10%"></td>
               <td width="40%">&nbsp;
-                <input name="sppoint_submit" type="submit" value="�ѹ�֡" />&nbsp;&nbsp;
-                <input name="sppoint_cancel" type="reset" value="¡��ԡ" />              </td>
+                <input name="sppoint_submit" type="submit" value="บันทึก" />&nbsp;&nbsp;
+                <input name="sppoint_cancel" type="reset" value="ยกเลิก" />              </td>
               <td width="50%"></td>
             </tr>
        </table>

@@ -10,14 +10,14 @@ if($_GET['operate']==0){
 		echo "<font color='#FF0000'>error</font><br>";
 		//echo  "$sql";		
 	}else {
-		logtext(true,$_SESSION['adminuserid'],'‡æ‘Ë¡°≈ÿË¡ ‘π§È“',mysql_insert_id());
+		logtext(true,$_SESSION['adminuserid'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏Å‡∏•‡∏∏‡πà‡∏°‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',mysql_insert_id());
 		mysql_query("COMMIT");
 		ob_end_clean();
 		//include "mem_main.php";
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."'</script>";	
 	}
 }else if($_GET['operate']==1){
-	logtext(true,$_SESSION['adminuserid'],'·°È‰¢¢ÈÕ¡Ÿ≈°≈ÿË¡ ‘π§È“',$oid);
+	logtext(true,$_SESSION['adminuserid'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏•‡∏∏‡πà‡∏°‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$oid);
 	$sql="update ".$dbprefix."productgroup set groupname='$groupname' where id = '$oid'";
 	if (!mysql_query($sql)) {
 		ob_end_flush();

@@ -26,7 +26,7 @@ else if(isset($_GET['skey']))
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,qty,price,pv,tot_price,tot_pv");
-		$rec->setFieldDesc("".$wording_lan["pcode"].",".$wording_lan["pcode"].",¨Ó¹Ç¹¤§àËÅ×Í,".$wording_lan["price"].",PV,ÃÒ¤ÒÃÇÁ·Ñé§ËÁ´,".$wording_lan["PV"]."");
+		$rec->setFieldDesc("".$wording_lan["pcode"].",".$wording_lan["pcode"].",à¸ˆà¸³à¸™à¸§à¸™à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,".$wording_lan["price"].",PV,à¸£à¸²à¸„à¸²à¸£à¸§à¸¡à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”,".$wording_lan["PV"]."");
 		$rec->setFieldAlign("center,left,right,right,right,right,right");
 		$rec->setFieldSpace("10%,40%,10%,10%,10%,10%,10%,10%,10%");
 	//	$rec->setSearch("pcode,pdesc");

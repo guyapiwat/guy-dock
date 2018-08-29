@@ -138,19 +138,19 @@ $sql = "SELECT *,".$dbprefix."stockcard_r.pcode as pcode123,".$dbprefix."stockca
 			//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=55&state=1","post","delfield");
 		}
 		$rec->setFieldFloatFormat(",,,,,,0,2,2,0,2,2,0,0,2,2");
-		$rec->setFieldDesc("�ѹ��͹��,������Ҫԡ,�����Ң��Ѻ,�����ҢҤ���,�Ţ�����Ӥѭ,�����Թ���,�Ѻ,�Ҥҵ��˹���,��Ť��,����,�Ҥҵ��˹���,��Ť��,¡��,¡�,�Ҥҵ��˹���,��Ť�Ҥ������");
+		$rec->setFieldDesc("วันเดือนปี,รหัสสมาชิก,รหัสสาขารับ,รหัสสาขาคีย์,เลขที่ใบสำคัญ,รหัสสินค้า,รับ,ราคาต่อหน่วย,มูลค่า,จ่าย,ราคาต่อหน่วย,มูลค่า,ยกมา,ยกไป,ราคาต่อหน่วย,มูลค่าคงเหลือ");
 		$rec->setFieldAlign("center,center,center,center,center,center,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("7%,7%,6%,6%,10%,9%,5%,7%,5%,5%,7%,5%,5%,5%,5%,7%");
 		$rec->setSum(true,false,",,,,,,true,true,true,true,true,true,true,true,true,true");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","stockard".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","stockard".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 	
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

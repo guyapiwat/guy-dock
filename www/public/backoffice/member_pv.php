@@ -13,7 +13,7 @@ function view(code){
 <script language="javascript" type="text/javascript">
 	
 	function sale_status(id){
-		if(confirm("µÈÕß°“√ Reset Password")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ Reset Password")){
 			window.location='index.php?sessiontab=1&sub=25&state=3&bid='+id;
 		}
 	}
@@ -71,19 +71,19 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //var_dump($_SESSION);
 
 
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 /*if($_GET['excel']==1){
 	$sql = "SELECT ".$dbprefix."member.*,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ,allpv.tot_pv as tot_pv,ewallet,".$dbprefix."member.id_card";
-	$sql .= ",CASE status_doc WHEN '1' THEN '§√∫' ELSE '‰¡Ë§√∫' END AS status_doc ";
-	$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
-	$sql .= ",CASE status_expire WHEN '1' THEN '‡ª‘¥' ELSE 'ª‘¥' END AS status_expire ";
-	$sql .= ",CASE status_terminate WHEN '1' THEN '‡ª‘¥' ELSE 'ª‘¥' END AS status_terminate1 ";
-	$sql .= ",CASE status_ato WHEN '1' THEN '‡ª‘¥' ELSE 'ª‘¥' END AS status_ato ";
-	$sql .= ",CASE status_suspend WHEN '0' THEN CONCAT('ª‘¥') ";
-	$sql .= "ELSE CONCAT('‡ª‘¥') END AS status_suspend ";
+	$sql .= ",CASE status_doc WHEN '1' THEN '‡∏Ñ‡∏£‡∏ö' ELSE '‡πÑ‡∏°‡πà‡∏Ñ‡∏£‡∏ö' END AS status_doc ";
+	$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
+	$sql .= ",CASE status_expire WHEN '1' THEN '‡πÄ‡∏õ‡∏¥‡∏î' ELSE '‡∏õ‡∏¥‡∏î' END AS status_expire ";
+	$sql .= ",CASE status_terminate WHEN '1' THEN '‡πÄ‡∏õ‡∏¥‡∏î' ELSE '‡∏õ‡∏¥‡∏î' END AS status_terminate1 ";
+	$sql .= ",CASE status_ato WHEN '1' THEN '‡πÄ‡∏õ‡∏¥‡∏î' ELSE '‡∏õ‡∏¥‡∏î' END AS status_ato ";
+	$sql .= ",CASE status_suspend WHEN '0' THEN CONCAT('‡∏õ‡∏¥‡∏î') ";
+	$sql .= "ELSE CONCAT('‡πÄ‡∏õ‡∏¥‡∏î') END AS status_suspend ";
 
-	$sql .= ",CASE status_blacklist WHEN '0' THEN CONCAT('ª‘¥') ";
-	$sql .= "ELSE CONCAT('‡ª‘¥') END AS status_blacklist ";
+	$sql .= ",CASE status_blacklist WHEN '0' THEN CONCAT('‡∏õ‡∏¥‡∏î') ";
+	$sql .= "ELSE CONCAT('‡πÄ‡∏õ‡∏¥‡∏î') END AS status_blacklist ";
 
 
 	$sql .= ",DATE_FORMAT(".$dbprefix."member.mdate, '%d-%m-%Y') as mdate,allpv.tot_pv_l,allpv.tot_pv_c FROM ".$dbprefix."member ";
@@ -92,14 +92,14 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 } 
 else {
 	$sql = "SELECT ".$dbprefix."member.*,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ,ewallet,".$dbprefix."member.id_card";
-	$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
+	$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 	$sql .= ",DATE_FORMAT(".$dbprefix."member.mdate, '%d-%m-%Y') as mdate, allpv.tot_pv_l,allpv.tot_pv_c FROM ".$dbprefix."member ";
 	$sql .= " LEFT JOIN ".$dbprefix."member_allpv AS allpv ON (".$dbprefix."member.mcode=allpv.mcode) ";
 	//echo $sql;
 	//$sql .= " ORDER  BY ali_member.id";
 }*/
 	$sql = "select a.pvall,b.mcode,sum(b.ro_l) as total_pv_l,sum(b.ro_c) as total_pv_c,a.name_t,a.id_card,a.mdate,a.pos_cur,a.pos_cur2,a.upa_code";
-	$sql .= ",CASE a.lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ,a.sp_code from ".$dbprefix."bmbonus as b ";
+	$sql .= ",CASE a.lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ,a.sp_code from ".$dbprefix."bmbonus as b ";
 
 	$sql .= "left join ".$dbprefix."member as a on (b.mcode = a.mcode) group by b.mcode";
 
@@ -144,14 +144,14 @@ else {
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		//$rec->setShowField("mcode,name_t,id_card,mdate,pos_cur,upa_code,statur_lr,sp_code,status_doc,status_suspend,status_terminate1,ewallet,sv_code");
 		$rec->setShowField("mcode,name_t,total_pv_l,total_pv_c,id_card,mdate,pos_cur,pos_cur2,upa_code,statur_lr,sp_code,pvall");
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 
-		$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,§–·ππ´È“¬,§–·ππ¢«“,√À— ª√–™“™π,«—π∑’Ë ¡—§√,µ”·ÀπËß,µ”·ÀπËß‡°√’¬µ‘¬»ß,√À— Õ—æ‰≈πÏ,¥È“π,√À— ºŸÈ·π–π”,pv  – ¡");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏ã‡πâ‡∏≤‡∏¢,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏Ç‡∏ß‡∏≤,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡πÄ‡∏Å‡∏£‡∏µ‡∏¢‡∏ï‡∏¥‡∏¢‡∏®‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏î‡πâ‡∏≤‡∏ô,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,pv ‡∏™‡∏∞‡∏™‡∏°");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,left,right,right,center,center,center,center,center,center,center,right");
 		$rec->setFieldSpace("6%,16%,10%,10%,8%,6%,4%,8%,6%,3%,6%,5%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -161,20 +161,20 @@ else {
 			//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		}
 		$rec->setSearch($dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,exp_date,".$dbprefix."member.pos_cur,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code,".$dbprefix."member.id_card,status_doc,status_suspend,status_blacklist,status_ato");
-		$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,√À— ª√–™“™π,‡Õ° “√,suspend,blacklist,Autoship,LB");
+		$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,suspend,blacklist,Autoship,LB");
 		if($acc->isAccess(2))
 			//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 			//$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","Reset Password");
 	
 		$rec->setSpace($str);

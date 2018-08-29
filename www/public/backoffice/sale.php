@@ -27,17 +27,17 @@ rpdialog_sale_list($_GET['sub'],$fdate,$tdate,$sale,$s_list,$mcode);
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id,page){
-	//	if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß°“√√—∫¢Õß")){
+	//	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id+'&page='+page;
 	//	}
 	}
 		function sale_status1(id,page){
-	//	if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß®—¥ Ëß")){
+	//	if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏à‡∏±‡∏î‡∏™‡πà‡∏á")){
 			window.location='index.php?sessiontab=3&sub=6&state=7&sender='+id+'&page='+page;
 	//	}
 	}
@@ -81,6 +81,7 @@ CASE ".$dbprefix."asaleh.sender WHEN '1' THEN concat('<img src=./images/true.gif
 $sql .= "FROM ".$dbprefix."asaleh ";
 $sql .= " where 1=1 "; //WHERE smcode='".$_SESSION['usercode']."' 
 //var_dump($sale);
+ 
 if(!empty($sale)){
 	if($sale=='A')$sql .= " and cancel = '0' ";
 else $sql .= " and cancel = '$sale' ";
@@ -191,30 +192,30 @@ else{
 	if(isset($page))$rec->setCurPage($page);
 	$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,remark,lid1,checkportal");
 	$rec->setFieldFloatFormat(",,,,,,2,2,");
-	$rec->setFieldDesc("print,«—π∑’Ë´◊ÈÕ,‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,ª√–‡¿∑∫‘≈, PV,®”π«π‡ß‘π,ºŸÈ∫—π∑÷°,„ÀÈ®—¥ Ëß, Ëß¢Õß,√—∫¢Õß,ÕÈ“ßÕ‘ß, “¢“,™ËÕß∑“ß");
+	$rec->setFieldDesc("print,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•, PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡πÉ‡∏´‡πâ‡∏à‡∏±‡∏î‡∏™‡πà‡∏á,‡∏™‡πà‡∏á‡∏Ç‡∏≠‡∏á,‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á,‡∏≠‡πâ‡∏≤‡∏á‡∏≠‡∏¥‡∏á,‡∏™‡∏≤‡∏Ç‡∏≤,‡∏ä‡πà‡∏≠‡∏á‡∏ó‡∏≤‡∏á");
 	$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center,center");
 	$rec->setSearch("sano,".$dbprefix."asaleh.mcode,".$dbprefix."asaleh.name_t,tot_pv,total,".$dbprefix."asaleh.uid");
-	$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,ºŸÈ∫—π∑÷°");
+	$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
 	$rec->setSum(true,false,",,,,,,true,true,,");
-	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","æ‘¡æÏ");
-	$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","¥Ÿ");
+	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
+	$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","‡∏î‡∏π");
 	
 	$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		
 	if($_GET['excel']==1){
-		logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+		logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 		$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 		writelogfile($text);
 		$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 		$rec->setSpace($str);
 	}
 	$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 	$rec->setSpace($str);
 	$str2 = "<fieldset ><a href='".$actual_link."invoice/aprint_sale_backoffice.php?bid=$bills&fdate=$fdate&tdate=$tdate&sale=$sale&inv=$inv&type=$type' target='_blank'>"; 
-	$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>æ‘¡æÏ∑—ÈßÀ¡¥</a></fieldset>";
+	$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a></fieldset>";
 	$rec->setSpace($str2);
 	$rec->showRec(1,'SH_QUERY');
 

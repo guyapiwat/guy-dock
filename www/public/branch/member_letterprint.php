@@ -12,8 +12,8 @@ $sql = "SELECT * FROM ".$dbprefix."member WHERE mcode='$mcode' ";
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‰¡Ëæ∫¢ÈÕ¡Ÿ≈¢Õß∫‘≈‡≈¢∑’Ë <?=$mcode?>
-	<br /><input type="button" value="ª‘¥ÀπÈ“π’È" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà <?=$mcode?>
+	<br /><input type="button" value="‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 
@@ -29,9 +29,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++) {
 	$rs2 = mysql_query($sql2);
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtName')==""?"":" µ.".mysql_result($rs2,0,'districtName');
-	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":"Õ.".mysql_result($rs2,0,'amphurName');
-	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceName')==""?"":" ®.".mysql_result($rs2,0,'provinceName');
+	$add1[$mcode[$i]] = mysql_result($rs2,0,'districtName')==""?"":" ‡∏ï.".mysql_result($rs2,0,'districtName');
+	$add1[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":"‡∏≠.".mysql_result($rs2,0,'amphurName');
+	$add2[$mcode[$i]] = mysql_result($rs2,0,'provinceName')==""?"":" ‡∏à.".mysql_result($rs2,0,'provinceName');
 	$add2[$mcode[$i]] .= mysql_result($rs2,0,'zip')==""?"":"   ".mysql_result($rs2,0,'zip');
 	//echo "<br>".$name[$mcode[$i]]."<br>".$add[$mcode[$i]]."<br>".$add1[$mcode[$i]]."<br>".$zip[$mcode[$i]];
 	
@@ -64,7 +64,7 @@ $pdf -> SetFont('angsa','',12);
 
 $pdf -> SetY($offsety+$offsetnline);
 $pdf -> SetX($offsetx+(13*$offsettab));
-$pdf -> Cell(2*$offsettab,20," ·µ¡ªÏ",1,0,"C");
+$pdf -> Cell(2*$offsettab,20,"‡∏™‡πÅ‡∏ï‡∏°‡∏õ‡πå",1,0,"C");
 
 $pdf -> SetY($offsety+(11*$offsetnline));
 $pdf -> SetX($offsetx+(7*$offsettab));

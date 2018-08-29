@@ -195,7 +195,7 @@ $upa_code = lrMost($dbprefix,$sp_code,$lr);
 
 $chk_id_card = chk_id_card($mcode,$id_card);
 if($chk_id_card){
-	echo "<script language='JavaScript'>alert('�Ţ�ѵû�ЪҪ����������');window.location='index.php?sessiontab=1&sub=2'</script>";	
+	echo "<script language='JavaScript'>alert('เลขบัตรประชาชนใช้ไม่ได้ค่ะ');window.location='index.php?sessiontab=1&sub=2'</script>";	
 	exit;	
 }
 if($_SESSION["inv_locationbase"] == '1')$birthday3 = $birthday3-543;
@@ -212,7 +212,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		$sql = "SELECT mcode FROM ".$dbprefix."member where mcode = '$mcode' ";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs) > 0) {
-			echo "<script language='JavaScript'>alert('��������Ҫԡ���������к����� ��سҡ�͡��������');window.history.back();</script>";	
+			echo "<script language='JavaScript'>alert('มีรหัสสมาชิกนี้อยู่ในระบบแล้ว กรุณากรอกรหัสใหม่');window.history.back();</script>";	
 			exit;
 		}
 		$sql = "SELECT name_t FROM ".$dbprefix."member where mcode = '$upa_code' ";
@@ -223,13 +223,13 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		$sp_name = mysql_result($rs,0,'name_t');
 
 		if(!empty($cname_t)){
-			if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+			if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 				$status_doc = '1';
 			}else{
 				$status_doc = '0';
 			}
 		}else{
-			if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+			if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 				$status_doc = '1';
 			}else{
 				$status_doc = '0';
@@ -241,7 +241,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		//$mcode = gencode_new("",$code+1);
 
 		if(empty($name_t) or empty($sp_code) or ($mcode == $upa_code) or ($mcode == $sp_code) or empty($upa_code)){
-				echo "<script language='JavaScript'>alert('�к��Դ��ͼԴ��Ҵ��س���Ѥ������ա���');window.history.back();</script>";	
+				echo "<script language='JavaScript'>alert('ระบบเกิดข้อผิดพลาดกรุณาสมัครใหม่อีกคร้ง');window.history.back();</script>";	
 				exit;
 		}
 		
@@ -272,7 +272,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		) ";
 
 	if (!mysql_query($sql)) {
-			echo "<script language='JavaScript'>alert('����ͼԴ��Ҵ㹡�úѹ�֡��س��ͧ�����ա����');window.history.back();</script>";	
+			echo "<script language='JavaScript'>alert('พบข้อผิดพลาดในการบันทึกกรุณาลองใหม่อีกครั้ง');window.history.back();</script>";	
 			exit;
 
 		}else {
@@ -280,7 +280,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 			if(!empty($mobile)){
 					$msisdn = $mobile;
 					$subname = substr($name_t,0,17);
-					$message = $wording_lan["sms"]["company"]." �Թ�յ�͹�Ѻ�س $subname ���� $mcode ���ʼ�ҹ $sv_code";
+					$message = $wording_lan["sms"]["company"]." ยินดีต้อนรับคุณ $subname รหัส $mcode รหัสผ่าน $sv_code";
 					sendsms($dbprefix,$msisdn,$message,$ScheduledDelivery="",$mcode);
 			}
 
@@ -299,14 +299,14 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 			$select = "select max(id) as id from  ".$dbprefix."member ";
 			$rs = mysql_query($select);
 			$idi = mysql_result($rs,0,'id');
-			logtext1(true,$_SESSION['inv_usercode'],'������Ҫԡ ���� : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
+			logtext1(true,$_SESSION['inv_usercode'],'เพิ่มสมาชิก รหัส : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
 			$sql = "INSERT INTO ".$dbprefix."expdate (mid,exp_date,date_change) VALUES('".$idi."',ADDDATE('".$mdate."', INTERVAL 1 YEAR),'".date("Y-m-d")."')";
 			mysql_query($sql);
 
 
 
 			if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -316,7 +316,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$idi  ";
 					mysql_query($sql);
 
@@ -329,7 +329,7 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 	
 			
 			if(isset($email)){
-				send_email_register($email,$name_f,$name_t,$mcode);//�������
+				send_email_register($email,$name_f,$name_t,$mcode);//ส่งอีเมล
 			}
 
 			
@@ -464,8 +464,8 @@ $id_card = $id_card1[0].$id_card1[1].$id_card1[2].$id_card1[3].$id_card1[4];
 		 
 	//echo $zip;
 	//exit;
-		logtext1(true,$_SESSION['inv_usercode'],'�����Ҫԡ ���� : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
-		//logtext1(true,$_SESSION['inv_usercode'],'�����Ҫԡ',$oid,$objtext);
+		logtext1(true,$_SESSION['inv_usercode'],'แก้ไขสมาชิก รหัส : '.$mcode,$oid,$objtext,$chkk_mobile,$chkk_id_card,$chkk_sp_code,$chkk_upa_code,$chkk_acc_no);
+		//logtext1(true,$_SESSION['inv_usercode'],'แก้ไขสมาชิก',$oid,$objtext);
 		//$acc_no = $acc_no_1.$acc_no_2.$acc_no_3.$acc_no_4.$acc_no_5.$acc_no_6.$acc_no_7.$acc_no_8.$acc_no_9.$acc_no_10;
 		//echo $zip;
 		//exit;
@@ -521,7 +521,7 @@ writelogfile($text);
 
 		mysql_query($sql);*/
 		if(!empty($cname_t)){
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú' and  $ccmp == '�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ' and  $ccmp == 'ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -531,7 +531,7 @@ writelogfile($text);
 
 				}
 			}else{
-				if($cmp == '�ú' and $cmp2 =='�ú' and $cmp3 =='�ú'){
+				if($cmp == 'ครบ' and $cmp2 =='ครบ' and $cmp3 =='ครบ'){
 					$sql="update ".$dbprefix."member set status_doc = 1 where id=$oid  ";
 					mysql_query($sql);
 
@@ -579,7 +579,7 @@ writelogfile($text);
 				} else {
 					move_uploaded_file($_FILES["myfile"]["tmp_name"], "../uploads/profile_img/".$mcode.".jpg");
 					//$date_add = date("Y-m-d");
-					//$sql_idcard="update ".$dbprefix."member set  profile_img='�ú' ,bmdate1='$date_add'where mcode=$mcode ";
+					//$sql_idcard="update ".$dbprefix."member set  profile_img='ครบ' ,bmdate1='$date_add'where mcode=$mcode ";
 					//mysql_query($sql_idcard);
 				}
 			}
@@ -633,7 +633,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -654,7 +654,7 @@ function minusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$inv_code){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','�����Ѻ����Ң�','$uid')";
+				  values('$sano','$inv_code','$invent','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -687,7 +687,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 				mysql_query($sql);
 
 
@@ -701,7 +701,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";
@@ -731,10 +731,10 @@ function uploadProductImages($file_new,$file_old,$oid){
 		$tmp_name = $file_new["tmp_name"];
 		$path = "../uploads/member//";
 		if($size > 102400){
-			checkValues("��Ҵ�ͧ����Ѿ��Ŵ��ͧ�բ�Ҵ����Թ 100Kb ���");
+			checkValues("ขนาดของไฟล์อัพโหลดต้องมีขนาดไม่เกิน 100Kb ค่ะ");
 		}
 		if(($type!=".jpg") and ($type!=".jpeg") and ($type!=".gif") and ($type!=".png")){
-			checkValues("���ʡ������ͧ�� (.jpg .jpeg .gif .png) ��ҹ�鹤��");
+			checkValues("นามสกุลไฟล์ต้องเป็น (.jpg .jpeg .gif .png) เท่านั้นค่ะ");
 		}
 		if(!empty($name_old)){
 			@unlink($path.$name_old);
@@ -759,10 +759,10 @@ function uploadProductImages2($file_new,$file_old,$oid){
 		$tmp_name = $file_new["tmp_name"];
 		$path = "../uploads/member/";
 		if($size > 102400){
-			checkValues("��Ҵ�ͧ����Ѿ��Ŵ��ͧ�բ�Ҵ����Թ 100Kb ���");
+			checkValues("ขนาดของไฟล์อัพโหลดต้องมีขนาดไม่เกิน 100Kb ค่ะ");
 		}
 		if(($type!=".jpg") and ($type!=".jpeg") and ($type!=".gif") and ($type!=".png")){
-			checkValues("���ʡ������ͧ�� (.jpg .jpeg .gif .png) ��ҹ�鹤��");
+			checkValues("นามสกุลไฟล์ต้องเป็น (.jpg .jpeg .gif .png) เท่านั้นค่ะ");
 		}
 		if(!empty($name_old)){
 			@unlink($path.$name_old);

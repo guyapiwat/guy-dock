@@ -13,7 +13,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -46,7 +46,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -56,7 +56,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT></td>
+    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
   </tr>
 </table>
 <?
@@ -104,9 +104,9 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
-		$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","��");
+		$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","ดู");
 		$rec->setShowField("rcode,mcode,name_t,total");
-		$rec->setFieldDesc("�ͺ,�����Ҫԡ,������Ҫԡ,����Ԫ���");
+		$rec->setFieldDesc("รอบ,รหัสมาชิก,ชื่อสมาชิก,คอมมิชชั่น");
 		$rec->setFieldAlign("center,center,left,right");
 		$rec->setFieldSpace("15%,20%,35%,30%");//10
 		$rec->setFieldFloatFormat(",,,2");
@@ -123,21 +123,21 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>��͡�ͺ ���������Ҫԡ����ͧ��ô���§ҹ</strong></td>
+    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">�ͺ&nbsp;&nbsp;</td>
+    <td align="right">รอบ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( ��͡�������� 1-9 )</td>
+      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
   </tr>
   <tr align="center">
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="����§ҹ" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
     </tr>
   
   <tr>

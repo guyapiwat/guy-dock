@@ -13,7 +13,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
+			alert("เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธฃเธนเธเนเธเธเธฃเธญเธเนเธซเนเธ–เธนเธเธ•เนเธญเธ");
 			return false;
 		}
 	}
@@ -46,7 +46,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -56,7 +56,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธฃเธญเธเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเนเธชเนเธฃเธญเธเธเธฒเธฃเธเธณเธเธงเธ“เนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -96,7 +96,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("rcode,mcode,name_t, com_a,com_b,com_c,com_d,total_all,tax,netprice");
-		$rec->setFieldDesc("รหัสรอบ,รหัสมาชิก,ชื่อสมาชิก,ค่าแนะนำ,ทีมขาย,พัฒนาทีมขาย,แมชชิ่ง,รวมรายได้,หักภาษี 5%,รายได้สุทธิ");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธฃเธญเธ,เธฃเธซเธฑเธชเธกเธฒเธเธดเธ,เธเธทเนเธญเธชเธกเธฒเธเธดเธ,เธเนเธฒเนเธเธฐเธเธณ,เธ—เธตเธกเธเธฒเธข,เธเธฑเธ’เธเธฒเธ—เธตเธกเธเธฒเธข,เนเธกเธเธเธดเนเธ,เธฃเธงเธกเธฃเธฒเธขเนเธ”เน,เธซเธฑเธเธ เธฒเธฉเธต 5%,เธฃเธฒเธขเนเธ”เนเธชเธธเธ—เธเธด");
 		$rec->setFieldAlign("center,center,left,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("7%,7%,16%,10%,10%,10%,10%,10%,10%,10%");
 		$rec->setSum(true,false,",,,true,true,true,true,true,true,true");
@@ -263,21 +263,21 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
+    <td colspan="2" align="center"><strong>เธเธฃเธญเธเธฃเธญเธ เนเธฅเธฐเธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ”เธนเธฃเธฒเธขเธเธฒเธ</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <tr>
-    <td align="right">รอบ&nbsp;&nbsp;</td>
+    <td align="right">เธฃเธญเธ&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( กรอกข้อมูลเป็น 1-9 )</td>
+      &nbsp;( เธเธฃเธญเธเธเนเธญเธกเธนเธฅเน€เธเนเธ 1-9 )</td>
   </tr>
   <tr align="center">
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /></td>
     </tr>
   
   <tr>

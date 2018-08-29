@@ -1,12 +1,12 @@
 <link href="./../../../style.css" rel="stylesheet" type="text/css">
-<title>æ‘¡æÏ√“¬ß“π</title>
+<title>‡∏û‡∏¥‡∏°‡∏û‡πå‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô</title>
 <?
 	if(isset($_POST["ftrcode"]))
 		$ftrcode = $_POST["ftrcode"];
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//√Õ∫‡√‘Ë¡µÈπ == √Õ∫ ‘Èπ ÿ¥
+		//‡∏£‡∏≠‡∏ö‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô == ‡∏£‡∏≠‡∏ö‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -41,9 +41,9 @@
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
-	//	$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","¥Ÿ");
+	//	$rec->setSpecial("./images/search.gif","","view","rcode,mcode","IMAGE","‡∏î‡∏π");
 		$rec->setShowField("rcode,mcode,name_t,upa_code,upa_name,pv,percer,total");
-		$rec->setFieldDesc("√À— √Õ∫,√À—  ¡“™‘°,™◊ËÕ ¡“™‘°,√À— Õ—æ‰≈πÏ,™◊ËÕÕ—æ‰≈πÏ,§–·ππ,%‚∫π— ,‰¥È‚∫π— ");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏£‡∏≠‡∏ö,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏ä‡∏∑‡πà‡∏≠‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô,%‡πÇ‡∏ö‡∏ô‡∏±‡∏™,‡πÑ‡∏î‡πâ‡πÇ‡∏ö‡∏ô‡∏±‡∏™");
 		$rec->setFieldAlign("center,center,left,center,left,right,right,right");
 		$rec->setFieldSpace("10%,10%,20%,10%,20%,10%,10%,10%");//10
 		$rec->setFieldFloatFormat(",,,,,2,2,2");

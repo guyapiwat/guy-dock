@@ -2,28 +2,30 @@
 	$date_now = date('Y-m-d');
 	$date_now1 = date('Y-m');
 	$data = get_detail_meber($cmc,$date_now);
+
+	//var_dump($montharry);
 	$month_1 = $montharry[date("m", strtotime("first day of +0 month"))];
 	$month_2 = $montharry[date("m", strtotime("first day of -1 month"))];
-	$completely = "§√∫∂È«π";
-	$incomplete = "§È“ß Ëß‡Õ° “√";
+	$completely = "‡∏Ñ‡∏£‡∏ö‡∏ñ‡πâ‡∏ß‡∏ô";
+	$incomplete = "‡∏Ñ‡πâ‡∏≤‡∏á‡∏™‡πà‡∏á‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£";
 
 	$status1=check_status($cmc,$data['pos_cur'],date("Y-m-d", strtotime("first day of -1 month")));
 	$status=check_status($cmc,$data['pos_cur'],date('Y-m-d'));
 
 
-	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>√—°…“¬Õ¥·≈È«</b></font>";
-	//else $status['status'] ="<font color=#c00000><b>(¬—ß‰¡Ë√—°…“¬Õ¥)</b></font>";
-	//if($status1['status'] == '1')$status1['status'] = "<font color=#31B404><b>√—°…“¬Õ¥·≈È«</b></font>";
-	//else $status['status1'] ="<font color=#c00000><b>(¬—ß‰¡Ë√—°…“¬Õ¥)</b></font>";
+	//if($status['status'] == '1')$status['status'] = "<font color=#31B404><b>‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÅ‡∏•‡πâ‡∏ß</b></font>";
+	//else $status['status'] ="<font color=#c00000><b>(‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î)</b></font>";
+	//if($status1['status'] == '1')$status1['status'] = "<font color=#31B404><b>‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÅ‡∏•‡πâ‡∏ß</b></font>";
+	//else $status['status1'] ="<font color=#c00000><b>(‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î)</b></font>";
   
 	//$status=Status_all($cmc,$data['pos_cur'],'0');
 	//$status1=Status_all($cmc,$data['pos_cur'],'1'); 
 	
 	$_crate = 1.00;
 	
-	$success_x = ' ”‡√Á®';
-	$none_success_x = '‰¡Ë ”‡√Á®';
-	$time_out_x = 'À¡¥‡«≈“';
+	$success_x = '‡∏™‡∏≥‡πÄ‡∏£‡πá‡∏à';
+	$none_success_x = '‡πÑ‡∏°‡πà‡∏™‡∏≥‡πÄ‡∏£‡πá‡∏à';
+	$time_out_x = '‡∏´‡∏°‡∏î‡πÄ‡∏ß‡∏•‡∏≤';
 	$month = '-1';
 	$month1 = '0';
 	
@@ -34,7 +36,7 @@
 		<div class="panel-heading" role="tab" id="profile" style="background-color:#3399ff;padding:4px;">
 			<h4 class="panel-title">
 				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#profileMember" aria-expanded="false" aria-controls="profileMember">
-					<font size='3' style='font-weight:bold' >¢ÈÕ¡Ÿ≈ Ë«πµ—«</font>
+					<font size='3' style='font-weight:bold' >‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß</font>
 				</a>
 			</h4>
 		</div>
@@ -50,11 +52,11 @@
         <td colspan="2"> <?php echo $data['mdate'];?></td>
      </tr>   
     <tr  >
-      <td colspan="2" >√—°…“¬Õ¥ (<?=$month_2?>)</td>
+      <td colspan="2" >‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î (<?=$month_2?>)</td>
       <td colspan="2" ><?=$status1['tot_pv']?></td>
 	 </tr>
     <tr  >
-      <td colspan="2" >√—°…“¬Õ¥ (<?=$month_1?>)</td>
+      <td colspan="2" >‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î (<?=$month_1?>)</td>
       <td colspan="2" ><?=$status['tot_pv']?></td>
 	 </tr>
     <tr>
@@ -77,7 +79,7 @@
 		<div class="panel-heading" role="tab" id="document" style="background-color:#3399ff;padding:4px;">
 			<h4 class="panel-title">
 				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#documentMember" aria-expanded="false" aria-controls="documentMember">
-					<font size='3' style='font-weight:bold' >¢ÈÕ¡Ÿ≈‡Õ° “√</font>
+					<font size='3' style='font-weight:bold' >‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£</font>
 				</a>
 			</h4>
 		</div>

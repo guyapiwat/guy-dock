@@ -7,12 +7,12 @@
 		window.location='index.php?sessiontab=3&sub=28&state=3&bid='+id;
 	}
 	function sale_hcancel(id){
-		if(confirm("�׹�ѹ��� update")){
+		if(confirm("ยืนยันการ update")){
 			window.location='index.php?sessiontab=3&sub=28&state=4&bid='+id;
 		}
 	}
 	function hold1(id){
-		/*if(confirm("�׹�ѹ����Ǻ")){
+		/*if(confirm("ยืนยันการรวบ")){
 		window.location='index.php?sessiontab=3&sub=28&state=4&bid='+id;
 		}*/
 		window.location='index.php?sessiontab=3&sub=10&sano='+id;
@@ -67,20 +67,20 @@ if($_GET["sano"])$sql .= " and ".$dbprefix."asaleh.id = '".$_GET["sano"]."' ";
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,inv_code,sadate,inv_desc,tot_pv,total,hcount");
 		$rec->setFieldFloatFormat(",,,,0,2");
-		$rec->setFieldDesc("�Ţ���,������Ҫԡ,�ѹ������,����,�ӹǹ���  PV,�ӹǹ�Թ���,�ӹǹ");
+		$rec->setFieldDesc("เลขที่,รหัสสมาชิก,วันที่ซื้อ,ชื่อ,จำนวนรวม  PV,จำนวนเงินรวม,จำนวน");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,");
 		$rec->setFieldSpace("12%,12%,10%,40%,10%,10%,10%,8%");
 	//	$rec->setFieldLink(",index.php?sessiontab=3&sub=10,");
 		$rec->setSearch("sano,sadate,smcode,name_t,sadate,tot_pv,total");
-		$rec->setSearchDesc("�Ţ���,�ѹ���Hold�ʹ,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
+		$rec->setSearchDesc("เลขบิล,วันที่Holdยอด,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
 		//$rec->setSum(true,false,",,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		//$rec->setSpecial("./images/false.gif","","sale_cancel","id","IMAGE");
 	//	$rec->setDel("index.php","id","id","sessiontab=3&sub=28");
 		//	$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=28&state=1","post","delfield");
-		$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","�Ѻ�׹");
-		//$rec->setSpecial("�Ǻ","","hold1","id","TEXT","�Ǻ���");
-	//	$rec->setSpecial("��Ǩ�ͺ","","hold1","id","TEXT","��Ǩ�ͺ");
+		$rec->setSpecial("./images/hold_s.gif","","hold","id","IMAGE","รับคืน");
+		//$rec->setSpecial("รวบ","","hold1","id","TEXT","รวบบิล");
+	//	$rec->setSpecial("ตรวจสอบ","","hold1","id","TEXT","ตรวจสอบ");
 		//if($acc->isAccess(4)){
 	//		$rec->setSpecial("./images/cancel.gif","","sale_hcancel","id","IMAGE","update");
 		//}

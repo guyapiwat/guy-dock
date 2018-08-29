@@ -42,7 +42,7 @@ $sql .= "left join ".$dbprefix."location_base on (".$dbprefix."invent.locationba
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("usercode,username,object1r,object3r,object4r,object5r,object6r,inv_ref,cname");//uid,
-		$rec->setFieldDesc("���ʼ����,���ͼ����,��Ҫԡ,���,��§ҹ,�Ѻ�ͧ,    Supervisor,�Ң�,�����");//���ʾ�ѡ�ҹ,
+		$rec->setFieldDesc("รหัสผู้ใช้,ชื่อผู้ใช้,สมาชิก,ขาย,รายงาน,รับของ,    Supervisor,สาขา,ประเทศ");//รหัสพนักงาน,
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center");//center,
 		$rec->setFieldSpace("15%,25%,10%,10%,10%,10%,10%,10%,10%");//10%,
 		$rec->setFieldLink(",");

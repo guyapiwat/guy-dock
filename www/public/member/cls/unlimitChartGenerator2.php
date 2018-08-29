@@ -186,8 +186,8 @@ class chartGenerator{
 			}
 		}    
         
-        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>™◊ËÕ<td> : </td></td><td>".$name_show."</td></tr><tr><td>PV  – ¡</td><td> : </td><td>".number_format($scr->getAPV($mcode),0,'.',',')."</td></tr><tr><td>ºŸÈ·π–π”<td> : </td></td><td>".mysql_result($rs2,0,'sss')."</td></tr><tr><td>™◊ËÕºŸÈ·π–π”<td> : </td></td><td>".$name_show1."</td></tr><tr><td>Õ—æ‰≈πÏ<td> : </td></td><td>".mysql_result($rs2,0,'sss2')."</td></tr><tr><td>™◊ËÕÕ—æ‰≈πÏ<td> : </td></td><td>".$name_show2."</td></tr></table>')\"";
-        if(mysql_num_rows($rs)<=0){//‰¡Ë¡’≈Ÿ°∑’Ë·π–π”
+        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>‡∏ä‡∏∑‡πà‡∏≠<td> : </td></td><td>".$name_show."</td></tr><tr><td>PV ‡∏™‡∏∞‡∏™‡∏°</td><td> : </td><td>".number_format($scr->getAPV($mcode),0,'.',',')."</td></tr><tr><td>‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥<td> : </td></td><td>".mysql_result($rs2,0,'sss')."</td></tr><tr><td>‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥<td> : </td></td><td>".$name_show1."</td></tr><tr><td>‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå<td> : </td></td><td>".mysql_result($rs2,0,'sss2')."</td></tr><tr><td>‡∏ä‡∏∑‡πà‡∏≠‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå<td> : </td></td><td>".$name_show2."</td></tr></table>')\"";
+        if(mysql_num_rows($rs)<=0){//‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏•‡∏π‡∏Å‡∏ó‡∏µ‡πà‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥
             //if($mcode==$cm && mysql_result($rs2,0,'sp_code')!="")
             //    echo "<tr align='center'><td><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' \><br></td></tr>";
             $pos_cur = mysql_result($rs2,0,'pos_cur');
@@ -205,12 +205,12 @@ class chartGenerator{
             echo "</td></tr>";
             return;
         }
-        if($maxlv<=0){//™—Èπ ÿ¥∑È“¬
+        if($maxlv<=0){//‡∏ä‡∏±‡πâ‡∏ô‡∏™‡∏∏‡∏î‡∏ó‡πâ‡∏≤‡∏¢
             /*if($mcode==$cm && mysql_result($rs2,0,'sp_code')!=""){ //up arrow
                 if($this->block==false){ 
-                    echo "<tr align='center'><td><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='∫π ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
+                    echo "<tr align='center'><td><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='‡∏ö‡∏ô ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
                 }else if(!$this->isUp(mysql_result($rs2,0,'sp_code'),$this->blockCode)){
-                    echo "<tr align='center'><td><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='∫π ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
+                    echo "<tr align='center'><td><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='‡∏ö‡∏ô ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
                 }
             }*/
             if($this->imgShow)
@@ -234,9 +234,9 @@ class chartGenerator{
         //echo "<tr align='center'>";
         /*if($mcode==$cm && mysql_result($rs2,0,'sp_code')!=""){ //up arrow
             if($this->block==false){ 
-                echo "<tr align='center'><td colspan='".mysql_num_rows($rs)."'><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='∫π ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
+                echo "<tr align='center'><td colspan='".mysql_num_rows($rs)."'><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='‡∏ö‡∏ô ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
             }else if(!$this->isUp(mysql_result($rs2,0,'sp_code'),$this->blockCode)){
-                echo "<tr align='center'><td colspan='".mysql_num_rows($rs)."'><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='∫π ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
+                echo "<tr align='center'><td colspan='".mysql_num_rows($rs)."'><img src='images/go_upa_code.gif' border='0' style='cursor:pointer;' onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs2,0,'sp_code')."\"' alt='‡∏ö‡∏ô ".mysql_result($rs2,0,'sp_code')."' \></td></tr>";
             }
         }*/
         if($this->imgShow)
@@ -259,7 +259,7 @@ class chartGenerator{
         echo "<img src='./images/link_v.gif'></td></tr>";
         echo "<tr valign='top' align='center'>";
         for($i=0;$i<mysql_num_rows($rs);$i++){
-            //°”Àπ¥°“√™‘¥
+            //‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡∏Å‡∏≤‡∏£‡∏ä‡∏¥‡∏î
             if(0==mysql_num_rows($rs)-1)
                 echo "<td align='center'>";
             else if($i==0 && $i==mysql_num_rows($rs)-1)
@@ -271,7 +271,7 @@ class chartGenerator{
             else
                 echo "<td background='./images/link_h.gif' align='center'>";
             
-            //°”Àπ¥‡ Èπ    
+            //‡∏Å‡∏≥‡∏´‡∏ô‡∏î‡πÄ‡∏™‡πâ‡∏ô    
             if($i==mysql_num_rows($rs)-1 && $i!=0)
                 echo "<img src='./images/link_h.gif' width='49%' height='6'>";
             echo "<img src='./images/link_rl.gif'>";
@@ -301,7 +301,7 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost(mysql_result($rs,0,'sp_code'))."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-                echo "alt='∫π ".$this->upMost(mysql_result($rs,0,'sp_code'))."' \>";
+                echo "alt='‡∏ö‡∏ô ".$this->upMost(mysql_result($rs,0,'sp_code'))."' \>";
                 
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
                 
@@ -309,13 +309,13 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs,0,'sp_code2')."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-                echo "alt='∫π ".mysql_result($rs,0,'sp_code')."' \>";
+                echo "alt='‡∏ö‡∏ô ".mysql_result($rs,0,'sp_code')."' \>";
             }else if(!$this->isUp(mysql_result($rs,0,'sp_code'),$this->blockCode)){
                 echo "<img src='images/go_dup.gif' border='0' style='cursor:pointer;' ";
                 echo "onClick='parent.location.href=\"".$this->redctlink.$this->upMost(mysql_result($rs,0,'sp_code2'))."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_dup.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_dup.gif'\" ";
-                echo "alt='∫π ".$this->upMost(mysql_result($rs,0,'sp_code'))."' \>";
+                echo "alt='‡∏ö‡∏ô ".$this->upMost(mysql_result($rs,0,'sp_code'))."' \>";
                 
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
                 
@@ -323,7 +323,7 @@ class chartGenerator{
                 echo "onClick='parent.location.href=\"".$this->redctlink.mysql_result($rs,0,'sp_code2')."\"' ";
                 echo "onmouseover=\"this.src='images/bgo_up.gif'\" ";
                 echo "onmouseout=\"this.src='images/go_up.gif'\" ";
-                echo "alt='∫π ".mysql_result($rs,0,'sp_code')."' \>";
+                echo "alt='‡∏ö‡∏ô ".mysql_result($rs,0,'sp_code')."' \>";
             }else{
                 echo "<img src='images/dgo_dup.gif' border='0' \>";
                 echo "&nbsp;</td></tr><tr align='center' height='25'><td>&nbsp;";
@@ -358,7 +358,7 @@ function gettotalpv($dbprefix,$mcode){
     return $total_fv3;
 } 
 
-//class „™ÈÀ“§–·ππ
+//class ‡πÉ‡∏ä‡πâ‡∏´‡∏≤‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô
 class memberScore{
     private $dbPrefix = "nmp_";
     private $ret_sum_pv;
@@ -430,7 +430,7 @@ class memberScore{
             $up = $cmcode[$i];
             while($up <> ""){
                 if($up == "") break;
-                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
                 if($upa_code[$up] <>""){
                     $sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv[$cmcode[$i]];
                     if($tot_pv[$cmcode[$i]] > 0)
@@ -459,7 +459,7 @@ class memberScore{
             $up = $cmcode1[$i];
             while($up <> ""){
                 if($up == "") break;
-                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‰¡Ë√—°…“¬Õ¥∑‘Èß‰ª‡≈¬
+                //if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡∏ó‡∏¥‡πâ‡∏á‡πÑ‡∏õ‡πÄ‡∏•‡∏¢
                 if($upa_code[$up] <>""){
                     $sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv1[$cmcode1[$i]];
                     if($tot_pv1[$cmcode1[$i]] > 0)
@@ -652,13 +652,13 @@ function getStatus($mcd,$pos_cur,$state){
                 $status = mysql_result($rs,0,'status'); 
                 mysql_free_result($rs);
             } 
-            $no = '¬—ß‰¡Ë√—°…“¬Õ¥';
-            $yes = '√—°…“¬Õ¥·≈È«';
+            $no = '‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î';
+            $yes = '‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î‡πÅ‡∏•‡πâ‡∏ß';
 
 
             if($status == '0'){
                 $status1 = '<font color=#c00000><b>('.$no.'';            
-                if($lastbv != 0 )$status1 .= '  – ¡ '.$lastbv.''; 
+                if($lastbv != 0 )$status1 .= ' ‡∏™‡∏∞‡∏™‡∏° '.$lastbv.''; 
                 $status1 .= ')</b></font>';
             }
             if($status == '1'){            

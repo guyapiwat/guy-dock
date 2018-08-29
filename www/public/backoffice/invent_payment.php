@@ -89,7 +89,7 @@ function get_package_listpicker_mcode(){
 <script type="text/javascript"> 
  
 $( document ).ready(function() {    
-    var texthtml2 = "<div class='error' onClick='get_package_listpicker_mcode()'  >���͡�Ң�</div>"; 
+    var texthtml2 = "<div class='error' onClick='get_package_listpicker_mcode()'  >เลือกสาขา</div>"; 
     if($('#product-item').text() == ''){ 
          $('#invent-item').html(texthtml2);      
     }
@@ -100,10 +100,10 @@ function eproductcheck(){
    checkForm();
 
   if(typeof(inv_code) !== 'undefined') { 
-      $('#ok').val("�ѹ�֡");
+      $('#ok').val("บันทึก");
       $("#ok").prop('disabled', false);
   }else{
-     alert("��س����͡�Ң��ա����");   
+     alert("กรุณาเลือกสาขาอีกครั้ง");   
      checkinForm();
   }  
  
@@ -119,7 +119,7 @@ function checkForm()
 function checkinForm()
 {
     $("#ok").prop('disabled', true);
-    $('#ok').val("�ѹ�֡");
+    $('#ok').val("บันทึก");
     return true; 
 }
 

@@ -34,62 +34,62 @@ if (mysql_num_rows($result)>0) {
   <tr valign="top">
     <td width="1%">&nbsp;</td>
     <td width="48%"><strong class="style2">
-      <fieldset><legend>¢ÈÕ¡Ÿ≈ Ë«πµ—«</legend>
+      <fieldset><legend>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß</legend>
     <table width="100%" border="0">
       <tr>
         <td class="style2" colspan="6">&nbsp;</td>
       </tr>
       <tr>
         <td class="style2">
-        	<div align="right"><strong class="style2">™◊ËÕ :</strong></div>
+        	<div align="right"><strong class="style2">‡∏ä‡∏∑‡πà‡∏≠ :</strong></div>
         </td>
         <td bordercolor="#000000" class="style11" colspan="5"><p>
              <?=$row["name_t"]?></p>              
         </td>
       </tr>
       <tr>
-        <td class="style2"><div align="right">™◊ËÕ(Õ—ß°ƒ…) : </div></td>
+        <td class="style2"><div align="right">‡∏ä‡∏∑‡πà‡∏≠(‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏©) : </div></td>
         <td class="style11" colspan="5"> <?=$row["name_e"]?> &nbsp;</td>
       <tr>
-        <td width="25%" class="style2"><div align="right">‡æ» : </div></td>
+        <td width="25%" class="style2"><div align="right">‡πÄ‡∏û‡∏® : </div></td>
         <td width="23%" class="style11"><?=$row["sex"]?>&nbsp;</td>
-        <td class="style2"  colspan="2"><div align="right">«—π/‡¥◊Õπ/ª’‡°‘¥ : </div></td>
+        <td class="style2"  colspan="2"><div align="right">‡∏ß‡∏±‡∏ô/‡πÄ‡∏î‡∏∑‡∏≠‡∏ô/‡∏õ‡∏µ‡πÄ‡∏Å‡∏¥‡∏î : </div></td>
         <td class="style11"  colspan="2"><?=$row["birthday"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="25%"><div align="right" class="style2">Õ“¬ÿ :</div></td>
+            <td width="25%"><div align="right" class="style2">‡∏≠‡∏≤‡∏¢‡∏∏ :</div></td>
           <td width="23%" class="style11"> <?=$row["age"]?>&nbsp;</td>
-          <td width="11%" class="style2"><div align="right"> —≠™“µ‘ : </div></td>
+          <td width="11%" class="style2"><div align="right">‡∏™‡∏±‡∏ç‡∏ä‡∏≤‡∏ï‡∏¥ : </div></td>
           <td width="18%" class="style11"> <?=$row["national"]?> &nbsp;</td>
-          <td width="10%" class="style2"><div align="right"> ∂“π– : </div></td>
+          <td width="10%" class="style2"><div align="right">‡∏™‡∏ñ‡∏≤‡∏ô‡∏∞ : </div></td>
           <td width="13%" class="style11"> <?=$row["status"]?></td>
       </tr>
       
       <tr>
-            <td width="25%" class="style2"><div align="right">Õ“™’æ : </div></td>
+            <td width="25%" class="style2"><div align="right">‡∏≠‡∏≤‡∏ä‡∏µ‡∏û : </div></td>
           <td width="23%" class="style11"> <?=$row["occupation"]?>&nbsp;</td>
-          <td class="style2" colspan="2"><div align="right">‡∫Õ√Ï‚∑√»—æ∑Ï : </div></td>
+          <td class="style2" colspan="2"><div align="right">‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå : </div></td>
           <td class="style11" colspan="2"> <?=$row["home_t"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="25%" class="style2"> <div align="right">¡◊Õ∂◊Õ : </div></td>
+            <td width="25%" class="style2"> <div align="right">‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠ : </div></td>
           <td width="23%" class="style11"> <?=$row["mobile"]?>&nbsp;</td>
-          <td class="style2" colspan="2"><div align="right">·ø°´Ï :</div></td>
+          <td class="style2" colspan="2"><div align="right">‡πÅ‡∏ü‡∏Å‡∏ã‡πå :</div></td>
           <td class="style11" colspan="2"> <?=$row["fax"]?>&nbsp;</td>
       </tr>
       <tr>
-          <td width="25%" class="style2"><div align="right">∑’ËÕ¬ŸË : </div></td>
+          <td width="25%" class="style2"><div align="right">‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà : </div></td>
           <td class="style11" colspan="5"> <?=$row["address"]?></td>
       </tr>
       <tr>
-          <td width="25%" class="style2"><div align="right">·¢«ß/µ”∫≈ : </div></td>
+          <td width="25%" class="style2"><div align="right">‡πÅ‡∏Ç‡∏ß‡∏á/‡∏ï‡∏≥‡∏ö‡∏• : </div></td>
             <td width="23%" class="style11">
 			<? $dis = getdistrict($row["districtId"]);
 				echo $dis;
 		    ?>
 			 
 			 &nbsp;</td>
-          <td class="style2" colspan="2"><div align="right">‡¢µ/Õ”‡¿Õ: </div></td>
+          <td class="style2" colspan="2"><div align="right">‡πÄ‡∏Ç‡∏ï/‡∏≠‡∏≥‡πÄ‡∏†‡∏≠: </div></td>
             <td class="style11" colspan="2"> 
 			<? $amp = getamphur($row["amphurId"]);
 			   echo $amp;
@@ -98,25 +98,25 @@ if (mysql_num_rows($result)>0) {
 			&nbsp;</td>
       </tr>
       <tr>
-            <td width="25%" class="style2"><div align="right">®—ßÀ«—¥ : </div></td>
+            <td width="25%" class="style2"><div align="right">‡∏à‡∏±‡∏á‡∏´‡∏ß‡∏±‡∏î : </div></td>
           <td width="23%" class="style11"> 
 			<?=getprovince($row["provinceId"])?>
 			&nbsp;</td>
-          <td class="style2" colspan="2"><div align="right">√À— ‰ª√…≥’¬Ï : </div></td>
+          <td class="style2" colspan="2"><div align="right">‡∏£‡∏´‡∏±‡∏™‡πÑ‡∏õ‡∏£‡∏©‡∏ì‡∏µ‡∏¢‡πå : </div></td>
           <td class="style11" colspan="2"> <?=$row["zip"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="25%" class="style2"><div align="right">™◊ËÕ§ŸË ¡√  : </div></td>
+            <td width="25%" class="style2"><div align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏Ñ‡∏π‡πà‡∏™‡∏°‡∏£‡∏™ : </div></td>
           <td width="23%" class="style11"> <?=$row["mar_name"]?>&nbsp;</td>
-          <td class="style2" colspan="2"><div align="right">Õ“¬ÿ :</div></td>
+          <td class="style2" colspan="2"><div align="right">‡∏≠‡∏≤‡∏¢‡∏∏ :</div></td>
           <td class="style11" colspan="2"> <?=$row["mar_age"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td class="style2" colspan="2" align="right">‡≈¢ª√–®”µ—«ºŸÈ‡ ’¬¿“…’ : </td>
+            <td class="style2" colspan="2" align="right">‡πÄ‡∏•‡∏Ç‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ï‡∏±‡∏ß‡∏ú‡∏π‡πâ‡πÄ‡∏™‡∏µ‡∏¢‡∏†‡∏≤‡∏©‡∏µ : </td>
           <td class="style11" colspan="4"><?=$row["id_tax"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td class="style2" colspan="2" align="right">‡≈¢∑’Ë∫—µ√ª√–®”µ—«ª√–™“™π : </td>
+            <td class="style2" colspan="2" align="right">‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏±‡∏ï‡∏£‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ï‡∏±‡∏ß‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô : </td>
           <td class="style11" colspan="4"> <?=$row["id_card"]?>&nbsp;</td>
       </tr>
     </table>
@@ -125,64 +125,64 @@ if (mysql_num_rows($result)>0) {
     </strong></td>
     <td width="1%">&nbsp;</td>
     <td width="49%"><strong class="style2">
-      <fieldset><legend>¢ÈÕ¡Ÿ≈∏ÿ√°‘®</legend>
+      <fieldset><legend>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ò‡∏∏‡∏£‡∏Å‡∏¥‡∏à</legend>
       <table width="100%" border="0">
       <tr>
         <td>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">√À—  ¡“™‘° : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å : </div></td>
           <td width="21%" class="style11"><?=$row["mcode"]?>&nbsp;</td>
-          <td width="18%" class="style2"><div align="right">√À—  “¢“ : </div></td>
+          <td width="18%" class="style2"><div align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤ : </div></td>
           <td width="33%" class="style11"><?=getinv($row["inv_code"])?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">µ”·ÀπËß : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á : </div></td>
           <td colspan="3" class="style11"><?=getpositionname($row["pos_cur"])?>&nbsp;</td>
         </tr>
       <tr>
-          <td width="28%" class="style2"><div align="right">PV √«¡ : </div></td>
+          <td width="28%" class="style2"><div align="right">PV ‡∏£‡∏ß‡∏° : </div></td>
           <td colspan="3" class="style11"><?=$_SESSION["PV"]?>&nbsp; </td>
         </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">‡≈¢∑’Ë∫—≠™’ : </div></td>
+            <td width="28%" class="style2"><div align="right">‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏±‡∏ç‡∏ä‡∏µ : </div></td>
           <td class="style11" colspan="3"><?=$row["acc_no"]?></td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">™◊ËÕ∫—≠™’ : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏ö‡∏±‡∏ç‡∏ä‡∏µ : </div></td>
         <td colspan="3"><span class="style11">
               <?=$row["acc_name"]?>
             </span></td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">∏π“§“√ : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£ : </div></td>
             <td width="21%" class="style11"> 
 			<?=getbank($row["bankcode"])?>&nbsp;</td>
-          <td width="18%" class="style2"><div align="right"> “¢“ : </div></td>
+          <td width="18%" class="style2"><div align="right">‡∏™‡∏≤‡∏Ç‡∏≤ : </div></td>
           <td width="33%" class="style11"> <?=$row["branch"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">™◊ËÕºŸÈ·π–π” : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥ : </div></td>
           <td class="style11" colspan="3"><?=$row["sp_name"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">√À— ºŸÈ·π–π” : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥ : </div></td>
           <td class="style11" colspan="3"><?=$row["sp_code"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">™◊ËÕÕ—æ‰≈πÏ : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå : </div></td>
           <td class="style11" colspan="3"><?=$row["upa_name"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2"><div align="right">√À— Õ—æ‰≈πÏ : </div></td>
+            <td width="28%" class="style2"><div align="right">‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå : </div></td>
             <td class="style11" colspan="3"><?=$row["upa_code"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2" align="right">™◊ËÕºŸÈ√—∫¡√¥° : </td>
+            <td width="28%" class="style2" align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡∏°‡∏£‡∏î‡∏Å : </td>
           <td class="style11" colspan="3"><?=$row["beneficiaries"]?>&nbsp;</td>
       </tr>
       <tr>
-            <td width="28%" class="style2" align="right">§«“¡ —¡æ—π∏Ï : </td>
+            <td width="28%" class="style2" align="right">‡∏Ñ‡∏ß‡∏≤‡∏°‡∏™‡∏±‡∏°‡∏û‡∏±‡∏ô‡∏ò‡πå : </td>
           <td class="style11" colspan="3"> <?=$row["relation"]?>&nbsp;</td>
       </tr>
     </table>
@@ -209,14 +209,14 @@ if (mysql_num_rows($result)>0) {
 	include_once "connectmysql.php";
 	$sql="select * from district where districtId=".$mc." ";
 	//echo "$sql<BR>";
-	if ($mc==""){return "‰¡Ë¡’µ”∫≈";}
+	if ($mc==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ï‡∏≥‡∏ö‡∏•";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		//echo $row->districtName;
 		return $row->districtName;
 	}else{
-		return "‰¡Ë¡’µ”∫≈";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ï‡∏≥‡∏ö‡∏•";
 	}
 }
 function getamphur($mc){
@@ -226,14 +226,14 @@ function getamphur($mc){
 	include_once "connectmysql.php";
 	$sql="select * from amphur where amphurId=".$mc." ";
 	//echo "$sql<BR>";
-	if ($mc==""){return "‰¡Ë¡’Õ”‡¿Õ";}
+	if ($mc==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏≥‡πÄ‡∏†‡∏≠";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		//echo $row->districtName;
 		return $row->amphurName;
 	}else{
-		return "‰¡Ë¡’Õ”‡¿Õ";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏≠‡∏≥‡πÄ‡∏†‡∏≠";
 	}
 }
 
@@ -244,14 +244,14 @@ function getprovince($mc){
 	include_once "connectmysql.php";
 	$sql="select * from province where provinceId=".$mc." ";
 	//echo "$sql<BR>";
-	if ($mc==""){return "‰¡Ë¡’®—ßÀ«—¥";}
+	if ($mc==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏à‡∏±‡∏á‡∏´‡∏ß‡∏±‡∏î";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		//echo $row->districtName;
 		return $row->provinceName;
 	}else{
-		return "‰¡Ë¡’®—ßÀ«—¥";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏à‡∏±‡∏á‡∏´‡∏ß‡∏±‡∏î";
 	}
 }
 
@@ -263,14 +263,14 @@ function getinv($mc){
 	
 	$sql="select * from ".$dbprefix."invent where inv_code='".$mc."' ";
 	//echo "$sql<BR>";
-	if ($mc==""){return "‰¡Ë¡’ “¢“";}
+	if ($mc==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏™‡∏≤‡∏Ç‡∏≤";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		//echo $row->districtName;
 		return $row->inv_desc;
 	}else{
-		return "‰¡Ë¡’ “¢“";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏™‡∏≤‡∏Ç‡∏≤";
 	}
 }
 
@@ -280,13 +280,13 @@ function getpositionname($p){
 	include_once "connectmysql.php";
 	$sql="select * from ".$dbprefix."position where posshort='".$p."' ";
 	//echo "$sql<BR>";
-	if ($p==""){return "‰¡Ë¡’µ”·ÀπËß";}
+	if ($p==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		return $row->posname." ($p)";
 	}else{
-		return "‰¡Ë¡’µ”·ÀπËß";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á";
 	}
 }
 function getbank($p){
@@ -295,13 +295,13 @@ function getbank($p){
 	include_once "connectmysql.php";
 	$sql="select * from ".$dbprefix."bank where bankcode=".$p." ";
 	//echo "$sql<BR>";
-	if ($p==""){return "‰¡Ë¡’‘bank";}
+	if ($p==""){return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏¥bank";}
 	$result=mysql_query($sql);
 	if (mysql_num_rows($result)>0) {
 		$row = mysql_fetch_object($result);
 		return $row->bankname;
 	}else{
-		return "‰¡Ë¡’∏π“§“√";
+		return "‡πÑ‡∏°‡πà‡∏°‡∏µ‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£";
 	}
 }
 

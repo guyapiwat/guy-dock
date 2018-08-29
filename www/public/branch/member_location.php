@@ -13,7 +13,7 @@ function view(code){
 <script language="javascript" type="text/javascript">
 	
 	function sale_status(id){
-		if(confirm("µÈÕß°“√ Reset Password")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£ Reset Password")){
 			window.location='index.php?sessiontab=1&sub=2&state=3&bid='+id;
 		}
 	}
@@ -45,9 +45,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 
 	}
 }
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 $sql = "SELECT ".$dbprefix."member.*,".$dbprefix."location_base.cshort,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ,DATE_FORMAT(exp_date, '%d-%m-%Y') as exp_date,".$dbprefix."member.id_card,FORMAT(".$dbprefix."member.ewallet,2) as ewallet ";
-$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
+$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 $sql .= ",CASE status_doc WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_doc ";
 $sql .= ",CASE status_expire WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_expire ";
 $sql .= ",CASE status_terminate WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_terminate1 ";
@@ -69,10 +69,10 @@ $sql .= " LEFT JOIN ".$dbprefix."position1 AS taba ON (".$dbprefix."member.pos_c
 
 //}
 
-// JOIN ‡¡◊ËÕµÈÕß°“√¢ÈÕ¡Ÿ≈«—πÀ¡¥Õ“¬ÿ„π‚ª√·°√¡
+// JOIN ‡πÄ‡∏°‡∏∑‡πà‡∏≠‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡πÉ‡∏ô‡πÇ‡∏õ‡∏£‡πÅ‡∏Å‡∏£‡∏°
 $sql = "SELECT ".$dbprefix."member.*,cshort,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ,DATE_FORMAT(exp_date, '%d-%m-%Y') as exp_date,ewallet,".$dbprefix."member.id_card";
 $sql .= ",CASE status_doc WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_doc ";
-$sql .= ",CASE lr WHEN '1' THEN '´È“¬' WHEN '2' THEN '¢«“'  END AS statur_lr ";
+$sql .= ",CASE lr WHEN '1' THEN '‡∏ã‡πâ‡∏≤‡∏¢' WHEN '2' THEN '‡∏Ç‡∏ß‡∏≤'  END AS statur_lr ";
 $sql .= ",CASE status_expire WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_expire ";
 $sql .= ",CASE status_terminate WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_terminate1 ";
 $sql .= ",CASE status_ato WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_ato ";
@@ -129,13 +129,13 @@ $sql .= " LEFT JOIN ".$dbprefix."location_base AS lb ON (".$dbprefix."member.loc
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,°√–‡ªÎ“‡ß‘π,§–·ππ Ë«πµ—«");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏Å‡∏£‡∏∞‡πÄ‡∏õ‡πã‡∏≤‡πÄ‡∏á‡∏¥‡∏ô,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß");
 		$rec->setShowField("mcode,name_t,id_card,mdate,pos_cur,pos_cur4,sp_code,status_doc,status_suspend,status_terminate1,status_ato,ewallet,voucher,cshort");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,√À— ª√–™“™π,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,PIN,√À— ºŸÈ·π–π”,‡Õ° “√,Suspend,Terminate,Autoship,Ewallet,Voucher,LB");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,PIN,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,Suspend,Terminate,Autoship,Ewallet,Voucher,LB");
 $rec->setFieldDesc($wording_lan["Report_1"].",".$wording_lan["Report_2"].",".$wording_lan["Report_3"].",".$wording_lan["Report_4"].",".$wording_lan["Report_6"].",".$wording_lan["Report_7"].",".$wording_lan["Report_8"].",".$wording_lan["Report_9"].",".$wording_lan["Report_10"].",".$wording_lan["Report_11"].",".$wording_lan["Report_12"].",".$wording_lan["Report_17"].",".$wording_lan["Report_16"].",".$wording_lan["Report_13"]."");
 
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”");
+		//$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,right,right,center");
 		$rec->setFieldSpace("6%,20%,10%,8%,4%,4%,6%,6%,5%,5%,5%,7%,4%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -143,13 +143,13 @@ $rec->setFieldDesc($wording_lan["Report_1"].",".$wording_lan["Report_2"].",".$wo
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 		
 		$rec->setSearch($dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,exp_date,".$dbprefix."member.pos_cur,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code,".$dbprefix."member.id_card,status_doc,status_suspend,status_blacklist,status_ato");
-	//	$rec->setSearchDesc("√À—  ¡“™‘°,™◊ËÕ,«—π∑’Ë ¡—§√,«—πÀ¡¥Õ“¬ÿ,µ”·ÀπËß,√À— Õ—æ‰≈πÏ,√À— ºŸÈ·π–π”,√À— ª√–™“™π,‡Õ° “√,suspend,blacklist,Autoship");
+	//	$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏±‡∏Ñ‡∏£,‡∏ß‡∏±‡∏ô‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏,‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á,‡∏£‡∏´‡∏±‡∏™‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥,‡∏£‡∏´‡∏±‡∏™‡∏õ‡∏£‡∏∞‡∏ä‡∏≤‡∏ä‡∏ô,‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£,suspend,blacklist,Autoship");
 		$rec->setSearchDesc($wording_lan["Report_1"].",".$wording_lan["Report_2"].",".$wording_lan["Report_4"].",".$wording_lan["Report_5"].",".$wording_lan["Report_6"].",".$wording_lan["Report_14"].",".$wording_lan["Report_8"].",".$wording_lan["Report_3"].",".$wording_lan["Report_9"].",".$wording_lan["Report_10"].",".$wording_lan["Report_11"].",".$wording_lan["Report_12"]."");
 	//if($acc->isAccess(2))
 			$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			
 		
-		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","¥Ÿ");
+		$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","‡∏î‡∏π");
 	
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

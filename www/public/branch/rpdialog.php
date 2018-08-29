@@ -2,12 +2,12 @@
 
 function checkround(){
     if(document.getElementById("dateInput1").value==""){
-        alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+        alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
         document.getElementById("dateInput1").focus();
         return false;
     }
     if(document.getElementById("dateInput2").value==""){
-        alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+        alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
         document.getElementById("dateInput2").focus();
         return false;
     }
@@ -26,7 +26,7 @@ function checkround(){
  
 <?
 require("../backoffice/date_picker.php"); 
-
+ 
 
 
 function rpdialog_m($sub){ ?>
@@ -35,13 +35,13 @@ function rpdialog_m($sub){ ?>
      <table width="50%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=$_REQUEST['strfdate']?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=$_REQUEST['strtdate']?>" placeholder="2014-01-31"/>         
-        &nbsp;<input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /></td>
+        &nbsp;<input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /></td>
       </tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
     </table>
@@ -56,17 +56,20 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
 	 <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">«—π∑’Ë
+	   <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		∂÷ß
+		‡∏ñ‡∏∂‡∏á
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>	
 		</td>
 
-		<td align="right"> “¢“</td>
+		<td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
 		 <td><select size="1" name="inv" id="inv" tabindex="63">
-			 <?					
+             <?		
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                          
 				$result1=mysql_query("select * from ali_invent where inv_code = '".$_SESSION["admininvent"]."' ");
 				for ($i=1;$i<=mysql_num_rows($result1);$i++){
 					$row1 = mysql_fetch_object($result1);
@@ -94,7 +97,7 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
         </select>
 
 		</td>
-		 <td align="right">®”π«π√“¬°“√</td>
+		 <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
 	      <td align="left"><select name="s_list" id="s_list">
 	        <option value="50" <? if($s_list=='50'){echo 'selected';}?> >50</option>
 	        <option value="100" <? if($s_list=='100'){echo 'selected';}?>>100</option>
@@ -102,17 +105,17 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
 	        <option value="300" <? if($s_list=='300'){echo 'selected';}?>>300</option>
 	        <option value="400" <? if($s_list=='400'){echo 'selected';}?>>400</option>
 	        <option value="500" <? if($s_list=='500'){echo 'selected';}?>>500</option>
-	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+	        <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
 	   <td align="center"> 
-	   <input type="submit" name="Submit" onclick="checkround()" value="§ÈπÀ“">
-		&nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" onclick="checkround()" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+		&nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
 </form>
 		<?if($inv!=''){?>
-			<h3>√“¬ß“π “¢“  <?php echo $inv;?> </h3> 
+			<h3>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô‡∏™‡∏≤‡∏Ç‡∏≤  <?php echo $inv;?> </h3> 
 		<?}?>
 
 <?}?>
@@ -124,13 +127,13 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
      <table width="50%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
-         <td align="right">®”π«π√“¬°“√</td>
+         <td align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</td>
           <td align="left"><select name="s_list" id="s_list">
             <option value="50" <? if($s_list=='50'){echo 'selected';}?> >50</option>
             <option value="100" <? if($s_list=='100'){echo 'selected';}?>>100</option>
@@ -138,16 +141,16 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
             <option value="300" <? if($s_list=='300'){echo 'selected';}?>>300</option>
             <option value="400" <? if($s_list=='400'){echo 'selected';}?>>400</option>
             <option value="500" <? if($s_list=='500'){echo 'selected';}?>>500</option>
-            <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+            <option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
           </select></td>
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($sale=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($sale=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($sale=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($sale=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
     </table>
@@ -161,17 +164,20 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
      <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-         <td align="right"> “¢“</td>
+         <td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
-                  <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
-             <?                    
+                  <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
+             <?   
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                               
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -183,9 +189,9 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
                 ?>
          </select>
          </td>
- <td>ª√–‡¿∑∫‘≈
-	 <select size="1" name="type" id="type" tabindex="63">
-                        <option value="" <? if($type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+ <td>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•
+	                    <select size="1" name="type" id="type" tabindex="63">
+                        <option value="" <? if($type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
                         <?php foreach($arr_satype as $key=> $val){?>
                            <option value="<?=$key?>" <? if($type==$key)echo "selected"; ?> ><?=$val?></option> 
                         <?}?>
@@ -194,17 +200,17 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	  <tr <?if(($_GET['sessiontab'] == 3) and $_GET['sub'] != 139 and $_GET['sub'] != 147){echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -219,17 +225,19 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
      <table width="80%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-         <td align="right"> “¢“</td>
+         <td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
                   <option value="" <? if($inv=='')echo "selected"; ?> 
-             <?                    
+             <?       
+                $charset = "SET NAMES 'UTF8'"; 
+                mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
                 $result1=mysql_query("select * from ali_invent where inv_code = '$xinv_code' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -241,9 +249,9 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
                 ?>
          </select>
          </td>
- <td>ª√–‡¿∑∫‘≈
+ <td>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•
 	 <select size="1" name="type" id="type" tabindex="63">
-                        <option value="" <? if($type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+                        <option value="" <? if($type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
                         <?php foreach($arr_satype as $key=> $val){?>
                            <option value="<?=$key?>" <? if($type==$key)echo "selected"; ?> ><?=$val?></option> 
                         <?}?>
@@ -252,17 +260,17 @@ global $inv,$arr_sspv,$sspv,$_SESSION;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	  <tr <?if(($_GET['sessiontab'] == 3) and $_GET['sub'] != 139 and $_GET['sub'] != 147){echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -277,10 +285,10 @@ global $inv,$bills;
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
@@ -288,17 +296,17 @@ global $inv,$bills;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148 or $_GET['sub'] == 202))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -312,25 +320,25 @@ global $inv,$bills;
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148 or $_GET['sub'] == 202))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -344,17 +352,20 @@ global $inv,$bills;
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-         <td align="right"> “¢“</td>
+         <td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
          <td><select size="1" name="inv_code" id="inv_code" tabindex="63">
-                  <option value="" <? if($inv=='')echo "selected"; ?> >°√ÿ≥“‡≈◊Õ°</option>
-             <?                    
+                  <option value="" <? if($inv=='')echo "selected"; ?> >‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
+             <?     
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -371,17 +382,17 @@ global $inv,$bills;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 4 and $_GET['sub'] == 17) or ($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148 or $_GET['sub'] == 202))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -396,16 +407,19 @@ global $inv,$bills;
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-         <td align="right"> “¢“</td>
+         <td align="right">‡∏™‡∏≤‡∏Ç‡∏≤</td>
          <td><select size="1" name="inv" id="inv" tabindex="63">
-             <?                    
+             <?      
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                            
                 $result1=mysql_query("select * from ali_invent where inv_code= '$xinv_code' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -422,17 +436,17 @@ global $inv,$bills;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 4 and $_GET['sub'] == 17) or ($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148 or $_GET['sub'] == 202))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -446,17 +460,17 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
      <table width="60%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-       <td align="center">«—π∑’Ë
+       <td align="center">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;&nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>         
  
-          <td align="right">™π‘¥∫‘≈</td>
+          <td align="right">‡∏ä‡∏ô‡∏¥‡∏î‡∏ö‡∏¥‡∏•</td>
 	      <td align="left">
 		  <select size="1"  name="sa_type" id="sa_type" tabindex="63">
-			  <option value="" <? if($sa_type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+			  <option value="" <? if($sa_type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 			  <?php foreach($arr_satypeh1 as $key=> $val){?>
 			  <option value="<?=$key?>" <? if($sa_type==$key)echo "selected"; ?> >
 				<?=$val?>
@@ -468,17 +482,17 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
  
        <td align="center"> 
         <select name="sale" id="sale">
-            <option value="" >∫‘≈∑—ÈßÀ¡¥ </option>     
-            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>∫‘≈∑’Ë‰¡Ë¬°‡≈‘°</option>
-            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>∫‘≈∑’Ë¬°‡≈‘°</option>
+            <option value="" >‡∏ö‡∏¥‡∏•‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </option>     
+            <option value="A" <?if($_REQUEST['sale']=='A')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡πÑ‡∏°‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
+            <option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>‡∏ö‡∏¥‡∏•‡∏ó‡∏µ‡πà‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å</option>
        </select>    
-       <input type="submit" name="Submit" value="§ÈπÀ“">
-        &nbsp;<!--input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤">
+        &nbsp;<!--input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /--></td>
       </tr>
 	   <tr <?if(($_GET['sessiontab'] == 3 and $_GET['sub'] == 10) or ($_GET['sessiontab'] == 6 and ($_GET['sub'] == 146 or $_GET['sub'] == 148))){}else{echo "style='display:none'";}?> >
 		<td colspan="7" align="center">
 			<br><?//echo $_GET['sessiontab']."  ".$_GET['sub'];?>
-			§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀÀ“«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+			‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏´‡∏≤‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 		</td>
 	</tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
@@ -496,16 +510,16 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 <br/>
 		<table class="tg" style="border-color:#bebebe;" width="60%" align="center" > 
 			<tr>
-				<th align="right" nowrap>«—π∑’Ë µ—Èß·µË</th>
+				<th align="right" nowrap>‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà</th>
 				<th align="left"><input type="text" id="dateInput1" onKeyPress="return chknum(window.event.keyCode)" style="width:120px" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/></th>
 				<th align="right" >&#3606;&#3638;&#3591;</th>
 				<th align="left" ><input style="width:120px" type="text" id="dateInput2" onKeyPress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/></th>
-				<th align="right" nowrap >√À—  ¡“™‘°</th>
+				<th align="right" nowrap >‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</th>
 				<th align="left" ><input type="text" name="mpcode" id="mpcode" placeholder="TH0000001" value="<?=$mpcode?>" maxlength='9'/></th>
-				<th align="right" nowrap>ª√–‡¿∑∫‘≈</th>
+				<th align="right" nowrap>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•</th>
 				<th align="left" >
 					<select size="1" style="width:150px" name="sa_type" id="sa_type" tabindex="63">
-					  <option value="" <? if($sa_type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+					  <option value="" <? if($sa_type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 					  <?php foreach($arr_satype as $key=> $val){?>
 					  <option value="<?=$key?>" <? if($sa_type==$key)echo "selected"; ?> >
 						<?=$val?>
@@ -531,9 +545,12 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 				<th align="right" >&#3626;&#3634;&#3586;&#3634;</th>
 				<th align="left" >
 					<select size="1" style="width:150px" name="inv" id="inv" tabindex="63">
-						<option value="" <? if($inv=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
-						<?                    
-							$result1=mysql_query("select * from ali_invent ");
+						<option value="" <? if($inv=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
+                        <?     
+                            $charset = "SET NAMES 'UTF8'"; 
+                            mysql_query($charset) or die('Invalid query: ' . mysql_error());               
+                            
+                            $result1=mysql_query("select * from ali_invent ");
 							for ($i=1;$i<=mysql_num_rows($result1);$i++){
 								$row1 = mysql_fetch_object($result1);
 								//echo "<option value=\"\" ";
@@ -546,7 +563,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 						<!--option value="online" <? if($inv=='online')echo "selected"; ?> >Online</option-->
 					</select>
 				</th>
-				<th align="right" nowrap >ª√–‡¿∑</th>
+				<th align="right" nowrap >‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó</th>
 				<th align="left" >
 					<select name="sregister" style="width:150px">
 						<option   value="" <?=($sregister==""?"selected":"")?>>&#3611;&#3619;&#3632;&#3648;&#3616;&#3607;&#3607;&#3633;&#3657;&#3591;&#3627;&#3617;&#3604;</option>
@@ -580,7 +597,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 			</tr>
 			<tr>
 			<?if(($_GET['sessiontab'] == 4) and $_GET['sub'] == 8 ){?> 
-					<th align="right" nowrap >¬Õ¥¢“¬</th>
+					<th align="right" nowrap >‡∏¢‡∏≠‡∏î‡∏Ç‡∏≤‡∏¢</th>
 					<th align="left" ><input type='text' id='total_x' name='total_x' value='<?=$total_x?>' placeholder="0-100" ></th>
 					<th align="right" >PV</th>
 					<th align="left" ><input type='text' id='pv' name='pv' value='<?=$pv?>' placeholder="0-100" ></th>
@@ -592,8 +609,8 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 					<th></th>
 			<?}?> 
 					<?if(($_GET['sessiontab'] == 4) and $_GET['sub'] == 8 ){?> 
-					<th align="right" nowrap>‡≈¢∑’Ë∫‘≈</th>
-					<th colspan='1' align="left"><input type="text" style="width:150px"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“√–À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:80%;" value="<?=$bills;?>" >
+					<th align="right" nowrap>‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏•</th>
+					<th colspan='1' align="left"><input type="text" style="width:150px"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:80%;" value="<?=$bills;?>" >
 					</th>
 				<?}
 				else{?>
@@ -601,18 +618,18 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 					<th></th>
 					<th></th>
 				<?}?>
-				 <th align="right">®”π«π√“¬°“√</th>
+				 <th align="right">‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£</th>
 				  <th align="left"><select name="s_list" id="s_list" size="1" style="width:150px" >
 					<option value="500" <? if($s_list=='500'){echo 'selected';}?> >500</option>
 					<option value="1000" <? if($s_list=='1000'){echo 'selected';}?>>1000</option>
 					<option value="2000" <? if($s_list=='2000'){echo 'selected';}?>>2000</option>
 					<option value="5000" <? if($s_list=='5000'){echo 'selected';}?>>5000</option>
-					<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>∑—ÈßÀ¡¥</option>
+					<option value="99999999999999" <? if($s_list==99999999999999){echo 'selected';}?>>‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
 				  </select></th>
 			</tr>
 			<tr>
 			<th > </th>
-				<th colspan='7' align=center ><input type="Submit" name="Submit" value="§ÈπÀ“"  onClick="checkround()" /></th>
+				<th colspan='7' align=center ><input type="Submit" name="Submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤"  onClick="checkround()" /></th>
 			</tr>
 		</table>
 
@@ -630,13 +647,13 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
 <form name="rform" method="post" action="./index.php?sessiontab=<?=$_GET['sessiontab']?>&sub=<?=$sub?>"> 
         <table class="tg" width="60%" align="center" bgcolor="#FFFFFF">
           <tr>
-            <th width="23%" nowrap="nowrap" align="right" >«—π∑’Ë µ—Èß·µË</th>
+            <th width="23%" nowrap="nowrap" align="right" >‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ‡∏ï‡∏±‡πâ‡∏á‡πÅ‡∏ï‡πà</th>
             <th width="23%" nowrap="nowrap"    align="left"><input type="text" id="dateInput1" onKeyPress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 &nbsp;&nbsp;
         &#3606;&#3638;&#3591;
         &nbsp;&nbsp;
         <input type="text" id="dateInput2" onKeyPress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/></th>
-            <th width="20%" nowrap="nowrap"    align="right">™ËÕß∑“ß</th>
+            <th width="20%" nowrap="nowrap"    align="right">‡∏ä‡πà‡∏≠‡∏á‡∏ó‡∏≤‡∏á</th>
             <th width="20%" nowrap="nowrap"    align="left"><select name="sspv">
                <?php        
                     foreach($arr_sspv as $key => $value):            
@@ -647,9 +664,9 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                     ?>
                     </select>
             </th>
-            <th width="18%" nowrap="nowrap"    align="right">ª√–‡¿∑∫‘≈</th>
+            <th width="18%" nowrap="nowrap"    align="right">‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏ö‡∏¥‡∏•</th>
             <th width="20%" nowrap="nowrap"     align="left"><select size="1" name="sa_type" id="sa_type" tabindex="63">
-              <option value="" <? if($sa_type=='')echo "selected"; ?> >∑—ÈßÀ¡¥</option>
+              <option value="" <? if($sa_type=='')echo "selected"; ?> >‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</option>
               <?php foreach($arr_satype as $key=> $val){?>
               <option value="<?=$key?>" <? if($sa_type==$key)echo "selected"; ?> >
                 <?=$val?>
@@ -672,7 +689,10 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                     ?>
               </select> &#3626;&#3634;&#3586;&#3634; <select size="1" name="inv" id="inv" tabindex="63">
               <option value="" <? if($inv=='')echo "selected"; ?> >&#3585;&#3619;&#3640;&#3603;&#3634;&#3648;&#3621;&#3639;&#3629;&#3585;</option>
-              <?                    
+              <?      
+                $charset = "SET NAMES 'UTF8'"; 
+                mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -715,15 +735,15 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
             <th  nowrap="nowrap" >&nbsp;</th>
           </tr>
           <tr>
-            <th colspan='2' nowrap="nowrap"    align="right">§Èπ‡≈¢∫‘≈À≈“¬∫‘≈&nbsp;<input type="text"  name="bills" id="bills" placeholder="§ÈπÀ“À≈“¬∫‘≈„ÀÈ§—Ëπ¥È«¬ ',' §ÈπÀ“À«Ë“ß∫‘≈§—Ëπ¥È«¬ '-' " style="width:60%;" value="<?=$bills;?>" >
+            <th colspan='2' nowrap="nowrap"    align="right">‡∏Ñ‡πâ‡∏ô‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•&nbsp;<input type="text"  name="bills" id="bills" placeholder="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏•‡∏≤‡∏¢‡∏ö‡∏¥‡∏•‡πÉ‡∏´‡πâ‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ ',' ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ö‡∏¥‡∏•‡∏Ñ‡∏±‡πà‡∏ô‡∏î‡πâ‡∏ß‡∏¢ '-' " style="width:60%;" value="<?=$bills;?>" >
             </th>
             
             <th nowrap="nowrap"    align="right">
                <select size="1" name="option" id="option" tabindex="63">
                   <option value="" <? if($option=='')echo "selected"; ?> >&#3585;&#3619;&#3640;&#3603;&#3634;&#3648;&#3621;&#3639;&#3629;&#3585;</option>
-                  <option value="mcode" <? if($option=='mcode')echo "selected"; ?> >√À—  ¡“™‘°</option> 
-                  <option value="total" <? if($option=='total')echo "selected"; ?> >®”π«π‡ß‘π√«¡</option> 
-                  <option value="tot_pv" <? if($option=='tot_pv')echo "selected"; ?> >®”π«π PV</option> 
+                  <option value="mcode" <? if($option=='mcode')echo "selected"; ?> >‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å</option> 
+                  <option value="total" <? if($option=='total')echo "selected"; ?> >‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°</option> 
+                  <option value="tot_pv" <? if($option=='tot_pv')echo "selected"; ?> >‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV</option> 
                </select>
             </th>
             <th nowrap="nowrap"  align="left" >
@@ -752,7 +772,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
         &#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
         <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;
          <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>   
                
@@ -784,7 +804,10 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
         </select>
         &#3626;&#3634;&#3586;&#3634;
         <select name="inv_code" id="inv_code"  >
-          <?                 
+          <?  
+              $charset = "SET NAMES 'UTF8'"; 
+              mysql_query($charset) or die('Invalid query: ' . mysql_error());               
+                          
             $result1=mysql_query("select * from ".$dbprefix."invent where inv_code = '$inv_code' order by inv_code");
 
             for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -811,7 +834,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                         }
                         ?>
       </select>
-        <input name="submit" type="submit" value="§ÈπÀ“" />
+        <input name="submit" type="submit" value="‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤" />
       </fieldset></td>
     </tr>
   </table>
@@ -832,13 +855,16 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
             <th class="tg-v7c2" rowspan="2" nowrap>
                <input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
         &nbsp;
-        ∂÷ß
+        ‡∏ñ‡∏∂‡∏á
         &nbsp;
                <input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>    
             </th>
-            <th class="tg-v7c1"> “¢“
+            <th class="tg-v7c1">‡∏™‡∏≤‡∏Ç‡∏≤
             <select size="1" name="inv" id="inv" tabindex="63"> 
-             <?                    
+             <?     
+               $charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error());                            
+                             
                 $result1=mysql_query("select * from ali_invent WHERE inv_code = '{$_SESSION['admininvent']}' ");
                 for ($i=1;$i<=mysql_num_rows($result1);$i++){
                     $row1 = mysql_fetch_object($result1);
@@ -850,7 +876,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                 }
                 ?>
          </select></th>
-            <th class="tg-v7c1">ºŸÈ∫—π∑÷°
+            <th class="tg-v7c1">‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å
             <select size="1" name="uid" id="uid" tabindex="63"> 
                  <?                    
                     $result1=mysql_query("select * from ali_user WHERE usertype = '2' and usercode = '{$_SESSION['inv_usercode']}' ");
@@ -865,7 +891,7 @@ global $inv,$arr_satype_show_bill,$sa_type,$type,$bills,$arr_satypeh1;
                     }
                     ?>
              </select></th>
-            <th class="tg-v7c1"><input type="Submit" name="Submit" value="¥Ÿ√“¬ß“π"  onclick="checkround()" /></th>
+            <th class="tg-v7c1"><input type="Submit" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô"  onclick="checkround()" /></th>
             <th class="tg-v7c1"></th>
              <th class="tg-v7c1" > </th>
              

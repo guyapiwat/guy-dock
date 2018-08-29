@@ -81,10 +81,10 @@ require("wording".$_SESSION["lan"].".php");?>
 	 <table width="60%"  cellpadding="0" cellspacing="0"  align="center">
 	  <tr><td colspan="5" align="center">&nbsp;</td></tr> 
 	  <tr>	
-	   <td align="center">�ѹ���
+	   <td align="center">วันที่
 		<input type="text" id="dateInput1" onkeypress="return chknum(window.event.keyCode)" name="fdate" size="10" maxlength="10" value="<?=$fdate?>" placeholder="2014-01-20"/>
 		&nbsp;&nbsp;
-		�֧
+		ถึง
 		&nbsp;&nbsp;
 		<input type="text" id="dateInput2" onkeypress="return chknum(window.event.keyCode)" name="tdate" size="10" maxlength="10" value="<?=$tdate?>" placeholder="2014-01-31"/>		 
 		</td>
@@ -92,11 +92,11 @@ require("wording".$_SESSION["lan"].".php");?>
  
 	   <td align="center"> 
 		<select name="sale" id="sale">
-			<option value="" >��ŷ����� </option>     
-			<option value="0" <?if($_REQUEST['sale']=='0')echo "selected"; ?>>��ŷ�����¡��ԡ</option>
-			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>��ŷ��¡��ԡ</option>
+			<option value="" >บิลทั้งหมด </option>     
+			<option value="0" <?if($_REQUEST['sale']=='0')echo "selected"; ?>>บิลที่ไม่ยกเลิก</option>
+			<option value="1" <?if($_REQUEST['sale']=='1')echo "selected"; ?>>บิลที่ยกเลิก</option>
 	   </select>	
-	   <!-- <input type="submit" name="Submit" value="��ŧ"> -->
+	   <!-- <input type="submit" name="Submit" value="ตกลง"> -->
 		&nbsp;<button class="btn btn-info" type="button" name="Submit" onclick="checkround()"><i class="ace-icon fa fa-check bigger-110"></i><?=$wording_lan["search"];?></button></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>

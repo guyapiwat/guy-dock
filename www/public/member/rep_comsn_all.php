@@ -18,7 +18,7 @@ if ($cmc=="") {
 
 <br />
 <?
-	// รหัสของ mcode ที่ login คือ $smc
+	// เธฃเธซเธฑเธชเธเธญเธ mcode เธ—เธตเน login เธเธทเธญ $smc
 	include("connectmysql.php");
 	?>
 	<table width="95%" border="0" align="center">
@@ -28,7 +28,7 @@ if ($cmc=="") {
 		<fieldset>
 		<table width="150" border="0">
 	  <tr align="center">
-		<td bgcolor="#CCCCCC" class="border"><b>เดือน-ปี</b></td>
+		<td bgcolor="#CCCCCC" class="border"><b>เน€เธ”เธทเธญเธ-เธเธต</b></td>
 	  </tr>
 	<?
 	$rs = mysql_query("SELECT min(sadate) AS min ,max(sadate) AS max FROM ".$dbprefix."asaleh  ");
@@ -49,7 +49,7 @@ if ($cmc=="") {
 		}
 		
 	}else{
-		echo "ไม่พบข้อมูล การซื้อขายใดๆ";
+		echo "เนเธกเนเธเธเธเนเธญเธกเธนเธฅ เธเธฒเธฃเธเธทเนเธญเธเธฒเธขเนเธ”เน";
 	}
 	?></table>
 	</fieldset>
@@ -61,7 +61,7 @@ if ($cmc=="") {
 	$k=0;
 	$ucode[$k] = $smc;
 	$cond = "( ";
-	$satype_def = array('A'=>"ทำคุณสมบัติ",'Q'=>"รักษายอด");
+	$satype_def = array('A'=>"เธ—เธณเธเธธเธ“เธชเธกเธเธฑเธ•เธด",'Q'=>"เธฃเธฑเธเธฉเธฒเธขเธญเธ”");
 	$style_b = "border-bottom:dashed #000000 1;";
 	$style_l = "border-left:solid #000000 1;";
 	while($ucode[$k]!=""){
@@ -106,10 +106,10 @@ if ($cmc=="") {
 	//echo $sql;
 	$rs = mysql_query($sql);
 	?>
-	ข้อมูลคะแนนเข้าในช่วง <?=$dslc?>
+	เธเนเธญเธกเธนเธฅเธเธฐเนเธเธเน€เธเนเธฒเนเธเธเนเธงเธ <?=$dslc?>
 	<table border="0" width="95%" cellpadding="0" cellspacing="0">
 	  <tr class="border" align="center" bgcolor="#CCCCCC">
-		<td width="15%" class="border"><b>วันที่</b></td>
+		<td width="15%" class="border"><b>เธงเธฑเธเธ—เธตเน</b></td>
 		<? for($k=0;$k<$GLOBALS["numofchild"];$k++){?>
 			<td width="<?=(24/$GLOBALS["numofchild"])?>%" class="border"><b><?
 			if($GLOBALS["numofchild"]==2||$GLOBALS["numofchild"]==3) 
@@ -118,9 +118,9 @@ if ($cmc=="") {
 				echo $k;		
 			?></b></td>
 		<? }?>
-		<td width="18%" class="border"><b>ได้จาก</b></td>
-		<td width="27%" class="border"><b>ชื่อ</b></td>	
-		<td width="15%" class="border"><b>หมายเหตุ</b></td>	
+		<td width="18%" class="border"><b>เนเธ”เนเธเธฒเธ</b></td>
+		<td width="27%" class="border"><b>เธเธทเนเธญ</b></td>	
+		<td width="15%" class="border"><b>เธซเธกเธฒเธขเน€เธซเธ•เธธ</b></td>	
 	  </tr>
 <?
 	$j=0;
@@ -141,7 +141,7 @@ if ($cmc=="") {
 			}?>
 		  <td align="center" style="<?=$style_b.$style_l?>">&nbsp;</td>
 			<td style="<?=$style_b.$style_l?>">&nbsp;</td>
-			<td style="<?=$style_b.$style_l?>" align="center"><b>รวม</b></td>
+			<td style="<?=$style_b.$style_l?>" align="center"><b>เธฃเธงเธก</b></td>
 		  </tr>
 		<?		
 		}else if($odate==""){
@@ -176,7 +176,7 @@ if ($cmc=="") {
 			}?>
 		  <td align="center" style="<?=$style_b.$style_l?>">&nbsp;</td>
 			<td style="<?=$style_b.$style_l?>">&nbsp;</td>
-			<td style="<?=$style_b.$style_l?>" align="center"><b>รวม</b></td>
+			<td style="<?=$style_b.$style_l?>" align="center"><b>เธฃเธงเธก</b></td>
 		  </tr>
 		<?
 	//--------------------------

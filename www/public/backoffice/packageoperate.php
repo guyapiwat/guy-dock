@@ -37,10 +37,10 @@ if($_GET['state']==0){
 	
 	$result1=mysql_query("select * from ".$dbprefix."product_package where pcode = '$pcode'");
 		if(mysql_num_rows($result1) > 0 or empty($pcode) or $pcode == '0'){
-				echo "<script language='JavaScript'>alert('ÃËÑÊÊÔ¹¤éÒ«éÓ'); window.history.back()</script>";	
+				echo "<script language='JavaScript'>alert('à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²à¸‹à¹‰à¸³'); window.history.back()</script>";	
 				exit;
 		}
-	logtext(true,$_SESSION['adminusercode'],"à¾ÔèÁ package : $pcode",$pcode);
+	logtext(true,$_SESSION['adminusercode'],"à¹€à¸žà¸´à¹ˆà¸¡ package : $pcode",$pcode);
 	$sql="insert into ".$dbprefix."product_package (pcode,  pdesc, unit,  price,   pv, special_pv, bv,fv, qty,st ,bf,ato,weight,locationbase,barcode,bprice,sst,customer_price,vat,sa_type) values ('$pcode' ,'$pdesc' ,'$unit' ,'$price' ,'$pv' ,'$special_pv','$bv' ,'$fv' ,'$qty','$st','$bf','$ato','$weight','$locationbase','$barcode','$bprice','$sst','$customer_price','$vat','$sa_type') ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=productoperate =>$sql";
@@ -56,7 +56,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=6&sub=11'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],"á¡éä¢ package : $pcode",$pcode);
+	logtext(true,$_SESSION['adminusercode'],"à¹à¸à¹‰à¹„à¸‚ package : $pcode",$pcode);
 	$sql="update ".$dbprefix."product_package set pcode='$pcode',st = '$st',weight = '$weight' ,pdesc='$pdesc',locationbase='$locationbase', unit='$unit', price='$price', bprice='$bprice', barcode='$barcode',customer_price='$customer_price',special_pv='$special_pv', sst='$sst',vat='$vat' where pcode= '$oid' ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=packageoperate =>$sql";

@@ -82,7 +82,7 @@ function chknum(key){
 				showprice = num*parseFloat(price);
 				showpv = num*parseFloat(pv);
 			}
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' style='text-align:right;' name='qty[]' type='text' size='5' value='" + num + "'  onKeyPress='return isNumberKey(event)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0' ){alert('äÁèÊÒÁÒÃ¶ãÊè¤èÒ 0 ËÃ×Í ªèÍ§ÇèÒ§ä´é');this.value=1;cal();}\">";      
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' style='text-align:right;' name='qty[]' type='text' size='5' value='" + num + "'  onKeyPress='return isNumberKey(event)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0' ){alert('à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸ªà¹ˆà¸„à¹ˆà¸² 0 à¸«à¸£à¸·à¸­ à¸Šà¹ˆà¸­à¸‡à¸§à¹ˆà¸²à¸‡à¹„à¸”à¹‰');this.value=1;cal();}\">";      
 			step++;
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' style='"+hidden+"' name='totalprice[]' value='" + (showprice==0?tag[step].value:showprice) + "'></td>";
 			//place += "</tr>";
@@ -102,7 +102,7 @@ function chknum(key){
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='price[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='pv[]' value='" + pv + "'></td>";
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return isNumberKey(event)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('äÁèÊÒÁÒÃ¶ãÊè¤èÒ 0 ËÃ×Í ªèÍ§ÇèÒ§ä´é');this.value=1;cal();}\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return isNumberKey(event)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('à¹„à¸¡à¹ˆà¸ªà¸²à¸¡à¸²à¸£à¸–à¹ƒà¸ªà¹ˆà¸„à¹ˆà¸² 0 à¸«à¸£à¸·à¸­ à¸Šà¹ˆà¸­à¸‡à¸§à¹ˆà¸²à¸‡à¹„à¸”à¹‰');this.value=1;cal();}\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalprice[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalpv[]' value='" + pv + "'></td>";
 			place += "</tr>";
@@ -112,7 +112,7 @@ function chknum(key){
 
 
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>ÃÇÁ</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'>à¸£à¸§à¸¡</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumtotal' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' id='sumpv' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";

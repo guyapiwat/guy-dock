@@ -13,7 +13,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -51,10 +51,10 @@ $chart = new chartGenerator();
 	//var_dump($chart->isUp($cmc,$_SESSION['usercode']));
 	$cmc = gencode($cmc);
 	if($chart->isUp($cmc,$_SESSION['usercode'])){
-	//	echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>�������ö�٢�������дѺ�٧������</font></td></tr></table>";
+	//	echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>ไม่สามารถดูข้อมูลในระดับสูงกว่าได้</font></td></tr></table>";
 	//	exit;
 	}else if(!$chart->isLine($cmc,$_SESSION['usercode'])){
-	//	echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>�������ö�٢����ŵ�ҧ��§ҹ��</font></td></tr></table>";
+	//	echo "<table align='center' bgcolor='#990000'><tr><td><font color='#FFFFFF'>ไม่สามารถดูข้อมูลต่างสายงานได้</font></td></tr></table>";
 	//	exit;
 	}
 
@@ -198,7 +198,7 @@ mysql_query("delete from ".$dbprefix."report_point where mcode = '$cmc'");
 		//$rec->setFieldDesc("".$wording_lan["Date"].",".$wording_lan["mcode"].",".$wording_lan["name"].",".$wording_lan["NewLeft"].",".$wording_lan["NewRight"].",".$wording_lan["OldLeft"].",".$wording_lan["OldRight"].",".$wording_lan["TotalLeft"].",".$wording_lan["TotalRight"].",".$wording_lan["LessLeft"].",".$wording_lan["LessRight"].",".$wording_lan["jub"].",".$wording_lan["Bonus"].",".$wording_lan["adjust"]."");
 
 		$rec->setShowField("mcode,name_t,monthpv,carry_l,carry_c,ro_l,ro_c,all_l,all_c,point,allpv,pos_cur,new_sponsor,new_sup,new_ex,sup_ex,travelpoint");
-		$rec->setFieldDesc("������Ҫԡ,����-ʡ��,��͹,PV ����¡��,PV ���¡��,PV ��������,PV �������,PV �������,PV ������,Cycle,PV ��ǹ���,���˹�<br>Matching,New Sponser<br>���͹,Mem � Sup,Mem � Ex,Sup � Ex,TP");
+		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ-สกุล,เดือน,PV ซ้ายยกมา,PV ขวายกมา,PV ซ้ายใหม่,PV ขวาใหม่,PV ซ้ายรวม,PV ขวารวม,Cycle,PV ส่วนตัว,ตำแหน่ง<br>Matching,New Sponser<br>ในเดือน,Mem ไป Sup,Mem ไป Ex,Sup ไป Ex,TP");
 		$rec->setFieldAlign("center,left,center,right,right,right,right,right,right,center,right,center,center,center,center,center,center");
 		$rec->setFieldSpace("5%,12%,4%,5%,5%,5%,5%,5%,5%,3%,5%,5%,5%,5%,5%,5%,5%,5%");//10
 		//$rec->setSum(true,false,",,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true");
@@ -209,10 +209,10 @@ mysql_query("delete from ".$dbprefix."report_point where mcode = '$cmc'");
 		mysql_close($link);
 
 function subdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec-$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec-$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 ?>
 

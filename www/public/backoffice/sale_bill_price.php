@@ -48,24 +48,24 @@
 <table style="margin-left:20;" width="562" border="0">
   <tr valign="top"><td width="442" align="center" ><fieldset>
 	<input size="15" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a>  ถึง
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>  เธ–เธถเธ
 	<input size="15" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a>
-	<!--<br>แผน
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>
+	<!--<br>เนเธเธ
 	<select name="satype">
-				 <option  value="" <?=($satype==""?"selected":"")?>>ทั้งหมด</option>
-                <option  value="A" <?=($satype=="A"?"selected":"")?>>แผน A</option>
-                <option value="Q" <?=($satype=="Q"?"selected":"")?>>รักษายอด</option>
+				 <option  value="" <?=($satype==""?"selected":"")?>>เธ—เธฑเนเธเธซเธกเธ”</option>
+                <option  value="A" <?=($satype=="A"?"selected":"")?>>เนเธเธ A</option>
+                <option value="Q" <?=($satype=="Q"?"selected":"")?>>เธฃเธฑเธเธฉเธฒเธขเธญเธ”</option>
               </select>-->
-    <input type="submit" value="ค้น" />
+    <input type="submit" value="เธเนเธ" />
 </fieldset></td>
 <td align="center" width="110"><fieldset>
 	<? if(1){?>
         <a href="sale_bill_print.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a>
     <? }else if(2){?>
          <a href="sale_bill_print.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a>
    
     <? }?>
 </fieldset></td>

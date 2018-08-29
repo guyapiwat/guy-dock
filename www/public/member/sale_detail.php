@@ -44,7 +44,7 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysql_select_db('free_style',$link);
 	//$rs = mysql_query("SELECT * FROM usaaba_member");
-//	echo '<fieldset><legend><b>¢ÈÕ¡Ÿ≈°“√´◊ÈÕ</b></legend>';
+//	echo '<fieldset><legend><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠</b></legend>';
 	if($_GET['state']==1){
 		include("serv_sale_del.php");
 	}else if($_GET['state']==2){
@@ -68,13 +68,13 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 			$rec->setCurPage($page);
 		$rec->setShowField("sadate,sano,ability,tot_pv,total,uid,sendsend,sender,receive,remark,lid");
 		$rec->setFieldFloatFormat(",,,2,2,");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		$rec->setFieldDesc($wording_lan["tab4"]["2_2"].",".$wording_lan["tab4"]["2_3"].",".$wording_lan["tab4"]["2_6"].",".$wording_lan["tab4"]["2_7"].",".$wording_lan["tab4"]["2_8"].",".$wording_lan["tab4"]["2_9"].",".$wording_lan["tab4"]["2_10"].",".$wording_lan["tab4"]["2_11"].",".$wording_lan["tab4"]["2_12"].",".$wording_lan["tab4"]["2_13"].",".$wording_lan["tab4"]["2_14"]."");
 		$rec->setFieldAlign("center,center,center,right,right,right,center,center,center,center,center,center");
 		//$rec->setFieldSpace("7%,7%,5%,15%,10%,6%,6%,8%,5%,8%,8%,7%,4%,4%");
 		//$rec->setFieldLink(",index.php?sessiontab=2&sub=1&cmc=,");
 		//$rec->setSearch("sano,smcode,name_t,sadate,tot_pv,total");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
 		$rec->setSum(true,false,",,,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["print"]);     

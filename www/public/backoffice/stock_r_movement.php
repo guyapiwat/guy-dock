@@ -33,7 +33,7 @@ if($fdate != ''){
 		$rec->setCurPage($page);
 	//$rec->setShowIndex(true);
 	$rec->setShowField("sadate,inv_code,pcode,pdesc,qty_before,in_qty,out_qty,qty,remark");
-	$rec->setFieldDesc("ÇÑ¹·Õè,ÃËÑÊÊÒ¢Ò,ÃËÑÊÊÔ¹¤éÒ,ª×èÍÊÔ¹¤éÒ,ÂÍ´Â¡ÁÒ,ÃÑºà¢éÒ,àºÔ¡ÍÍ¡,¤§àËÅ×Í,ËÁÒÂàËµØ");
+	$rec->setFieldDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²,à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸Šà¸·à¹ˆà¸­à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸¢à¸­à¸”à¸¢à¸à¸¡à¸²,à¸£à¸±à¸šà¹€à¸‚à¹‰à¸²,à¹€à¸šà¸´à¸à¸­à¸­à¸,à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 	$rec->setFieldAlign("center,center,center,left,right,right,right,right,left");
 	$rec->setFieldSpace("8%,8%,8%,20%,10%,10%,10%,10%,16%");//10
 //	$rec->setSum(true,false,",,,,,,,true,true,true");
@@ -42,14 +42,14 @@ if($fdate != ''){
 	if($_GET['excel']==1){
 		$rec->exportXls("ExportXls","stock".date("Ymd").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","stock".date("Ymd").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 		$rec->getParam();
 		$rec->setSpace($str);
 	}
-			$rec->setSpecial("","","","","NUMROW","ÅÓ´Ñº");
+			$rec->setSpecial("","","","","NUMROW","à¸¥à¸³à¸”à¸±à¸š");
 
 	$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 
 	
 
@@ -58,10 +58,10 @@ if($fdate != ''){
 	else if(isset($_GET['skey']))
 		$rec->setCause($_GET['skey'],$_GET['scause']);
 	//$rec->setSearch("a.mcode,lb.cshort");
-	//$rec->setSearchDesc("ÃËÑÊ,LB");
+	//$rec->setSearchDesc("à¸£à¸«à¸±à¸ª,LB");
 	$rec->setSpace($str);
 	$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-	$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+	$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 	//$rec->setSpace($str2);
 	$rec->showRec(1,'SH_QUERY');
 	mysql_close($link);

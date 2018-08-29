@@ -5,8 +5,8 @@ require_once ("function.log.inc.php");
 		$postval=$_POST['delfield'];
 		$postkey=array_keys($_POST['delfield']);
 	}
-	// แจ้งว่ามีรายการ ลบข้อมูลสมาชิกใหม่
-	echo "<br>ข้อมูลการการส่งสรรพากร :";
+	// เนเธเนเธเธงเนเธฒเธกเธตเธฃเธฒเธขเธเธฒเธฃ เธฅเธเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธซเธกเน
+	echo "<br>เธเนเธญเธกเธนเธฅเธเธฒเธฃเธเธฒเธฃเธชเนเธเธชเธฃเธฃเธเธฒเธเธฃ :";
 	$numpost = sizeof($postkey);
 	$style_l = "border-left:1 solid #FFFFFF;";
 	$style_t = "border-top:1 solid #000000;";
@@ -16,18 +16,18 @@ require_once ("function.log.inc.php");
 	?>
 	<table width="50%" cellpadding="0" cellspacing="0">
         <tr bgcolor="#999999" align="center">
-            <td style="<?=$style_l.$style_t.$style_b?>">เลขที่ใบเสร็จ</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">วันที่ใบเสร็จ</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">รหัสสมาชิก</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">ชื่อสมาชิก</td>
-			<td style="<?=$style_l.$style_t.$style_b?>">ประเภทการซื้อ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เน€เธฅเธเธ—เธตเนเนเธเน€เธชเธฃเนเธ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธงเธฑเธเธ—เธตเนเนเธเน€เธชเธฃเนเธ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธทเนเธญเธชเธกเธฒเธเธดเธ</td>
+			<td style="<?=$style_l.$style_t.$style_b?>">เธเธฃเธฐเน€เธ เธ—เธเธฒเธฃเธเธทเนเธญ</td>
             <td style="<?=$style_l.$style_t.$style_b?>">PV</td>
-            <td style="<?=$style_l.$style_t.$style_b?>">จำนวนเงิน</td>
+            <td style="<?=$style_l.$style_t.$style_b?>">เธเธณเธเธงเธเน€เธเธดเธ</td>
         </tr>
 	<?
 	
 	for ($i=0;$i<$numpost;$i++) {
-		// อ่านข้อมูลเดิมจาก membe$sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) "; //WHERE smcode='".$_SESSION['usercode']."' 
+		// เธญเนเธฒเธเธเนเธญเธกเธนเธฅเน€เธ”เธดเธกเธเธฒเธ membe$sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) "; //WHERE smcode='".$_SESSION['usercode']."' 
 		//echo "SELECT *,".$dbprefix."asaleh.id FROM ".$dbprefix."asaleh LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) WHERE ".$dbprefix."asaleh.id='".$postval[$postkey[$i]]."'";
 		$rs=mysql_query("SELECT *,".$dbprefix."asaleh.id FROM ".$dbprefix."asaleh LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix."member.mcode) WHERE ".$dbprefix."asaleh.id='".$postval[$postkey[$i]]."'");
 		//echo "SELECT * FROM ".$dbprefix."member WHERE id='".$postval[$postkey[$i]]."' LIMIT 1";
@@ -64,7 +64,7 @@ $text="uid=".$_SESSION["adminuserid"]." action=asaleh1=>insert ".$dbprefix."asal
 writelogfile($text);
 //=================END LOG===========================
 		}
-		logtext(true,$_SESSION['adminuserid'],'ย้ายการจ่ายตัง แผน ',$row->sano);
+		logtext(true,$_SESSION['adminuserid'],'เธขเนเธฒเธขเธเธฒเธฃเธเนเธฒเธขเธ•เธฑเธ เนเธเธ ',$row->sano);
 		mysql_free_result($rs);
 		mysql_query("COMMIT");
 	}

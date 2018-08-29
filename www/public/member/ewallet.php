@@ -9,7 +9,7 @@ include("global.php");
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+        if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
             window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
         }
     }
@@ -162,7 +162,7 @@ if($strfdate !="" and $strtdate !="")$sql.=" and sadate BETWEEN '$strfdate' and 
         $rec->setFieldAlign("center,center,right,right,right,right,center,center");
        // $rec->setFieldSpace("7%,5%,8%,15%,8%,8%,8%,8%,8%,8%,8%,8%");           
         $rec->setSum(true,false,",,true,true,true,true,,");
-        //$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","¾ÔÁ¾ì");     
+        //$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");     
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");             
         $rec->showRec(1,'SH_QUERY');             
     }

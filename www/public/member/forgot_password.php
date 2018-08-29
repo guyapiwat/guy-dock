@@ -42,7 +42,7 @@ if(!empty($_POST[mcode]) and !empty($_POST["new"])){
 	$rs = mysql_query($sql);
 		if($email){
 
-			logtext(true,$mcode,'ร้องขอการเปลี่ยนรหัสผ่าน  รหัสสมาชิก : '.$mcode." อีเมลล์ : ".$email,$mcode);
+			logtext(true,$mcode,'เธฃเนเธญเธเธเธญเธเธฒเธฃเน€เธเธฅเธตเนเธขเธเธฃเธซเธฑเธชเธเนเธฒเธ  เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ : '.$mcode." เธญเธตเน€เธกเธฅเธฅเน : ".$email,$mcode);
 
 
 			$strTo = "$email";
@@ -50,29 +50,29 @@ if(!empty($_POST[mcode]) and !empty($_POST["new"])){
 			//$strHeader .= "MIME-Version: 1.0' . \r\n";
 			$strHeader = "Content-type: text/html; charset=windows-874\r\n"; 
 			$strHeader .= "From: SUCCESSMORE Information<info@successmore.com>";
-			//$strVar = "ข้อความภาษาไทย";
-			$strMessage = "รหัสสมาชิก : $mcode 
-				<br> ชื่อผู้สมัครหลัก : $name_t
-				<br> รหัสผ่าน (ใหม่) : $sv_code  
-				<br><br>ท่านสามารถเข้าสู่ระบบ SUCCESSMORE Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่
+			//$strVar = "เธเนเธญเธเธงเธฒเธกเธ เธฒเธฉเธฒเนเธ—เธข";
+			$strMessage = "เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ : $mcode 
+				<br> เธเธทเนเธญเธเธนเนเธชเธกเธฑเธเธฃเธซเธฅเธฑเธ : $name_t
+				<br> เธฃเธซเธฑเธชเธเนเธฒเธ (เนเธซเธกเน) : $sv_code  
+				<br><br>เธ—เนเธฒเธเธชเธฒเธกเธฒเธฃเธ–เน€เธเนเธฒเธชเธนเนเธฃเธฐเธเธ SUCCESSMORE Online Member Service เน€เธเธทเนเธญเธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒ,เธชเธกเธฑเธเธฃเธชเธกเธฒเธเธดเธเนเธซเธกเน,เน€เธเนเธเนเธเธเธฑเธช เธซเธฃเธทเธญเธ”เธนเนเธฅเธญเธเธเนเธเธฃเธเธญเธเธ—เนเธฒเธเนเธ”เนเธ—เธตเน
 				<br> <a href='http://www.successmore.com'>www.succesmore.com/member</a>
-				<br><br> หากมีคำถามหรือข้อสงสัยประการใด กรุณาติดต่อ
-				<br><Br> แผนกดูแลลูกค้า ( Customer Support )
-				<br> บริษัท ซัคเซสมอร์ บีอิ้งค์ จำกัด
-				<br> โทรศัพท์ 02-5415655
+				<br><br> เธซเธฒเธเธกเธตเธเธณเธ–เธฒเธกเธซเธฃเธทเธญเธเนเธญเธชเธเธชเธฑเธขเธเธฃเธฐเธเธฒเธฃเนเธ” เธเธฃเธธเธ“เธฒเธ•เธดเธ”เธ•เนเธญ
+				<br><Br> เนเธเธเธเธ”เธนเนเธฅเธฅเธนเธเธเนเธฒ ( Customer Support )
+				<br> เธเธฃเธดเธฉเธฑเธ— เธเธฑเธเน€เธเธชเธกเธญเธฃเน เธเธตเธญเธดเนเธเธเน เธเธณเธเธฑเธ”
+				<br> เนเธ—เธฃเธจเธฑเธเธ—เน 02-5415655
 				<br> Fax 02-5415653
 				<br> Email : support@successmore.com
 				<br><Br>SUCCESSMORE
-				<br>“Inspiration for your Being”
-				<br>“แรงบันดาลใจที่เปลี่ยนชีวิตคุณได้”
+				<br>โ€Inspiration for your Beingโ€
+				<br>โ€เนเธฃเธเธเธฑเธเธ”เธฒเธฅเนเธเธ—เธตเนเน€เธเธฅเธตเนเธขเธเธเธตเธงเธดเธ•เธเธธเธ“เนเธ”เนโ€
 				";
 			$flgSend = @mail($strTo,$strSubject,$strMessage,$strHeader);
-			$txttype = "<font color=#00FF00>ข้อมูลถูกต้อง ระบบได้ส่งรหัสผ่านใหม่ให้ทางอีเมลของคุณแล้ว กรุณาเช็คดูที่ Inbox , Spam email หรือ Junk email</font>";
+			$txttype = "<font color=#00FF00>เธเนเธญเธกเธนเธฅเธ–เธนเธเธ•เนเธญเธ เธฃเธฐเธเธเนเธ”เนเธชเนเธเธฃเธซเธฑเธชเธเนเธฒเธเนเธซเธกเนเนเธซเนเธ—เธฒเธเธญเธตเน€เธกเธฅเธเธญเธเธเธธเธ“เนเธฅเนเธง เธเธฃเธธเธ“เธฒเน€เธเนเธเธ”เธนเธ—เธตเน Inbox , Spam email เธซเธฃเธทเธญ Junk email</font>";
 			//	mail("$email","","From:Webmaster<webmaster@cabnetsystem.com>","webmaster@cabnetsystem.com");
 		}
 
 	}else{
-		$txttype = "<font color=#FF000>ข้อมูลไม่ตรงกับที่เคยให้ไว้กับบริษัทฯ กรุณาติดต่อเจ้าหน้าที่</font>";
+		$txttype = "<font color=#FF000>เธเนเธญเธกเธนเธฅเนเธกเนเธ•เธฃเธเธเธฑเธเธ—เธตเนเน€เธเธขเนเธซเนเนเธงเนเธเธฑเธเธเธฃเธดเธฉเธฑเธ—เธฏ เธเธฃเธธเธ“เธฒเธ•เธดเธ”เธ•เนเธญเน€เธเนเธฒเธซเธเนเธฒเธ—เธตเน</font>";
 	}
 	
 	//$type = 1;
@@ -110,8 +110,8 @@ if(lan == 'EN'){
 var months = new Array("January","Febuary","March","April","May","June","July","August","September","October","November","December")
 var thday = new Array ("Sunday","Monday","Tuesday","Wednesday","Thurday","Friday","Satuday");
 }else{
-var months = new Array("มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฏาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม")
-var thday = new Array ("อาทิตย์","จันทร์","อังคาร","พุธ","พฤหัสบดี","ศุกร์","เสาร์");
+var months = new Array("เธกเธเธฃเธฒเธเธก","เธเธธเธกเธ เธฒเธเธฑเธเธเน","เธกเธตเธเธฒเธเธก","เน€เธกเธฉเธฒเธขเธ","เธเธคเธฉเธ เธฒเธเธก","เธกเธดเธ–เธธเธเธฒเธขเธ","เธเธฃเธเธเธฒเธเธก","เธชเธดเธเธซเธฒเธเธก","เธเธฑเธเธขเธฒเธขเธ","เธ•เธธเธฅเธฒเธเธก","เธเธคเธจเธเธดเธเธฒเธขเธ","เธเธฑเธเธงเธฒเธเธก")
+var thday = new Array ("เธญเธฒเธ—เธดเธ•เธขเน","เธเธฑเธเธ—เธฃเน","เธญเธฑเธเธเธฒเธฃ","เธเธธเธ","เธเธคเธซเธฑเธชเธเธ”เธต","เธจเธธเธเธฃเน","เน€เธชเธฒเธฃเน");
 
 }
 var label1 = document.getElementById('lbltime')
@@ -147,43 +147,43 @@ $mcode=$_SESSION["usercode"];
 
 ?>
 	<script type="text/javascript" language="javascript">
-		var desc = new Array('ช่องรหัสสมาชิก','ช่องอีเมล','อีเมล','ยืนยันอีเมล');
+		var desc = new Array('เธเนเธญเธเธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ','เธเนเธญเธเธญเธตเน€เธกเธฅ','เธญเธตเน€เธกเธฅ','เธขเธทเธเธขเธฑเธเธญเธตเน€เธกเธฅ');
 		var box = new Array("mcode","new","cnew");
 		function check(){
 		//var chpass = document.getElementById("cpass");
 			for(i=0;i<2;i++)
 				if(document.getElementById(box[i]).value==""){
-					alert(	"ไม่ใส่ข้อมูลใน "+desc[i]);
+					alert(	"เนเธกเนเนเธชเนเธเนเธญเธกเธนเธฅเนเธ "+desc[i]);
 					document.getElementById(box[i]).focus();
 					return;
 				}
 			if(document.getElementById('id_card').value==""){
-					alert(	"ไม่ใส่ข้อมูลใน เลขบัตรประชาชน");
+					alert(	"เนเธกเนเนเธชเนเธเนเธญเธกเธนเธฅเนเธ เน€เธฅเธเธเธฑเธ•เธฃเธเธฃเธฐเธเธฒเธเธ");
 					document.getElementById('id_card').focus();
 					exit;
 			}
 			if(document.getElementById('mdate').value==""){
-					alert(	"ไม่ใส่ข้อมูลใน วันเกิด");
+					alert(	"เนเธกเนเนเธชเนเธเนเธญเธกเธนเธฅเนเธ เธงเธฑเธเน€เธเธดเธ”");
 					document.getElementById('mdate').focus();
 					exit;
 			}
 			if(document.getElementById('mobile').value==""){
-					alert(	"ไม่ใส่ข้อมูลใน เบอร์มือถือ");
+					alert(	"เนเธกเนเนเธชเนเธเนเธญเธกเธนเธฅเนเธ เน€เธเธญเธฃเนเธกเธทเธญเธ–เธทเธญ");
 					document.getElementById('mobile').focus();
 					exit;
 			}
 			/*if(document.getElementById(box[1]).value == document.getElementById(box[0]).value){
-				alert(	desc[1]+"ต้องไม่เท่ากับ "+desc[0]);
+				alert(	desc[1]+"เธ•เนเธญเธเนเธกเนเน€เธ—เนเธฒเธเธฑเธ "+desc[0]);
 				document.getElementById(box[1]).focus();
 				return;
 			}*/
 
 			if(document.getElementById(box[2]).value != document.getElementById(box[1]).value){
-				alert(	desc[2]+"ต้องเท่ากับ "+desc[3]);
+				alert(	desc[2]+"เธ•เนเธญเธเน€เธ—เนเธฒเธเธฑเธ "+desc[3]);
 				document.getElementById(box[2]).focus();
 				return;
 			}
-			conf = confirm("    รหัสผ่านมีความสำคัญในการเข้าใช้งานระบบ\nคุณต้องทำการเปลี่ยนแปลงรหัสผ่านตามข้อมูลนี้หรือไม่");
+			conf = confirm("    เธฃเธซเธฑเธชเธเนเธฒเธเธกเธตเธเธงเธฒเธกเธชเธณเธเธฑเธเนเธเธเธฒเธฃเน€เธเนเธฒเนเธเนเธเธฒเธเธฃเธฐเธเธ\nเธเธธเธ“เธ•เนเธญเธเธ—เธณเธเธฒเธฃเน€เธเธฅเธตเนเธขเธเนเธเธฅเธเธฃเธซเธฑเธชเธเนเธฒเธเธ•เธฒเธกเธเนเธญเธกเธนเธฅเธเธตเนเธซเธฃเธทเธญเนเธกเน");
 			if(conf){
 				document.chpass.submit();
 			}else{
@@ -245,7 +245,7 @@ $_SESSION["ewallet"]="";
 <form name="chpass" id="chpass" action="" method="post">
   <table cellpadding="0" cellspacing="0" align="center" width="300" height="150" border="0" >
     <tr bgcolor="#FFCC33">
-      <td colspan="3"><b>เปลี่ยนรหัสผ่าน</b></td>
+      <td colspan="3"><b>เน€เธเธฅเธตเนเธขเธเธฃเธซเธฑเธชเธเนเธฒเธ</b></td>
     </tr>
     <tr>
       <td width="119" align="right"><?=$wording_lan["mcode"]?>
@@ -254,28 +254,28 @@ $_SESSION["ewallet"]="";
       <td width="172"><input type="text" name="mcode" id="mcode" /></td>
     </tr>
     <tr>
-      <td align="right">เลขบัตรประชาชน :</td>
+      <td align="right">เน€เธฅเธเธเธฑเธ•เธฃเธเธฃเธฐเธเธฒเธเธ :</td>
       <td>&nbsp;</td>
       <td><input type="text" name="id_card" id="id_card"  maxlength="13" onKeyPress="return chknum(window.event.keyCode)" /></td>
     </tr>
     <tr>
-      <td align="right">วันเกิด :</td>
+      <td align="right">เธงเธฑเธเน€เธเธดเธ” :</td>
       <td>&nbsp;</td>
       <td nowrap="nowrap"><input type="text" name="mdate" id="mdate" readonly="" />
         <a href="javascript:NewCal('mdate','yyyymmdd',false,24)"><img  src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="(&#3611;&#3611;&#3611;&#3611;-&#3604;&#3604;-&#3623;&#3623;)" /></a></td>
     </tr>
     <tr>
-      <td align="right">เบอร์มือถือ :</td>
+      <td align="right">เน€เธเธญเธฃเนเธกเธทเธญเธ–เธทเธญ :</td>
       <td>&nbsp;</td>
       <td><input type="text" name="mobile" id="mobile"  maxlength="10" onKeyPress="return chknum(window.event.keyCode)" /></td>
     </tr>
     <tr>
-      <td align="right" nowrap="nowrap">อีเมล (ที่ให้ไว้กับบริษัท) : </td>
+      <td align="right" nowrap="nowrap">เธญเธตเน€เธกเธฅ (เธ—เธตเนเนเธซเนเนเธงเนเธเธฑเธเธเธฃเธดเธฉเธฑเธ—) : </td>
       <td>&nbsp;</td>
       <td><input type="text" name="new" id="new" /></td>
     </tr>
     <tr>
-      <td align="right">ยืนยันอีเมล : </td>
+      <td align="right">เธขเธทเธเธขเธฑเธเธญเธตเน€เธกเธฅ : </td>
       <td>&nbsp;</td>
       <td><input type="text" name="cnew" id="cnew" /></td>
     </tr>

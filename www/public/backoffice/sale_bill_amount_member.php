@@ -12,8 +12,8 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 ?>
 <fieldset style="background-color:#FFFFEE">
 <table border="1" width="60%" cellpadding="0" cellspacing="0"><tr bgcolor="#999999">
-    <td width="15%"><strong>รหัสสมาชิก</strong> </td><td><?=mysql_result($rs,$i,'mcode')?></td>
-    <td width="15%"><strong>ชื่อสมาชิก</strong> </td><td><?=mysql_result($rs,$i,'name_t')?></td>
+    <td width="15%"><strong>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</strong> </td><td><?=mysql_result($rs,$i,'mcode')?></td>
+    <td width="15%"><strong>เธเธทเนเธญเธชเธกเธฒเธเธดเธ</strong> </td><td><?=mysql_result($rs,$i,'name_t')?></td>
 </tr></table>
 <?
 //$sql = "SELECT pcode,pdesc,price,SUM(qty) AS qty,SUM(amt) AS amt FROM ".$dbprefix."asaled "; 
@@ -67,7 +67,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 
 			$rec->setShowField("sadate,sano,pcode,pdesc,qty,amt,pv");
 			$rec->setFieldFloatFormat(",,,,2");
-			$rec->setFieldDesc("วันที่,เลขบิล,รหัสสินค้า,ชื่อสินค้า,จำนวน,จำนวนเงินรวม,pv");
+			$rec->setFieldDesc("เธงเธฑเธเธ—เธตเน,เน€เธฅเธเธเธดเธฅ,เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธเธทเนเธญเธชเธดเธเธเนเธฒ,เธเธณเธเธงเธ,เธเธณเธเธงเธเน€เธเธดเธเธฃเธงเธก,pv");
 			$rec->setFieldAlign("center,center,center,left,right,right,right,right,right");
 			$rec->setFieldSpace("10%,7%,10%,45%,5%,10%");
 			//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -76,7 +76,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 			//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 			$rec->setSum(true,false,",,,,true,true,true,true,true");
 			//$rec->setSearch("pcode,pdesc,price,qty,amt");
-			//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
+			//$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ,เธฃเธฒเธขเธฅเธฐเน€เธญเธตเธขเธ”เธชเธดเธเธเนเธฒ,เธฃเธฒเธเธฒ,เธเธณเธเธงเธ,เน€เธเนเธเน€เธเธดเธ");
 			//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 			$rec->showRec(1,'SH_QUERY');
 			//---------------------------------

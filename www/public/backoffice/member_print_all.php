@@ -120,30 +120,30 @@ if($_GET["txtKeyword"] == "")
 	?>
 	<table width="100%" border="0">
 		<tr>
-		<td align="left" width="50%">ข้อมูลสมาชิก</td>
-		<td align="right"  width="50%">พิมพ์วันที่ <? echo date("Y-m-d")?></td>
+		<td align="left" width="50%">เธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธ</td>
+		<td align="right"  width="50%">เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน <? echo date("Y-m-d")?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	
 	<table style=' margin:0 auto;' border="1">
 	  <tr>	
-	    <th><div align="center">รหัสสมาชิก </div></th>		
-	    <th><div align="center" style="width:190px;">ชื่อ </div></th>	
-	    <th><div align="center">รหัสผ่าน </div></th>		
-	    <th ><div align="center" >รหัสประชาชน</div></th>		
-		<th><div align="center" style="width:100px;">วันที่สมัคร </div></th>			
-		<th><div align="center">ตำแหน่ง </div></th>
-		<th><div align="center">เกียรติยศ</div></th>
-		<th><div align="center">รหัสอัพไลน์ </div></th>
-		<th><div align="center">ด้าน</div></th>
-		<th><div align="center">รหัสผู้แนะนำ</div></th>
-		<th><div align="center">คะแนน pv ส่วนตัว</div></th>
-		<th><div align="center">เอกสาร</div></th>
+	    <th><div align="center">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ </div></th>		
+	    <th><div align="center" style="width:190px;">เธเธทเนเธญ </div></th>	
+	    <th><div align="center">เธฃเธซเธฑเธชเธเนเธฒเธ </div></th>		
+	    <th ><div align="center" >เธฃเธซเธฑเธชเธเธฃเธฐเธเธฒเธเธ</div></th>		
+		<th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ </div></th>			
+		<th><div align="center">เธ•เธณเนเธซเธเนเธ </div></th>
+		<th><div align="center">เน€เธเธตเธขเธฃเธ•เธดเธขเธจ</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน </div></th>
+		<th><div align="center">เธ”เนเธฒเธ</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ</div></th>
+		<th><div align="center">เธเธฐเนเธเธ pv เธชเนเธงเธเธ•เธฑเธง</div></th>
+		<th><div align="center">เน€เธญเธเธชเธฒเธฃ</div></th>
 		<th><div align="center">Suspend</div></th>
 		<th><div align="center">Terminate</div></th>
 		<th><div align="center">ewallet</div></th>
-		<th><div align="center">ผู้คีย์</div></th>
+		<th><div align="center">เธเธนเนเธเธตเธขเน</div></th>
 	  </tr>
 	<?
 	$rr = 0;
@@ -157,29 +157,29 @@ if($_GET["txtKeyword"] == "")
 	</div> 
 	<table width="100%" border="0" style="page-break-before: always">
 		<tr>
-		<td align="left" width="50%">ข้อมูลสมาชิก</td>
-		<td align="right"  width="50%">พิมพ์วันที่ <? echo date("Y-m-d")?></td>
+		<td align="left" width="50%">เธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธ</td>
+		<td align="right"  width="50%">เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน <? echo date("Y-m-d")?></td>
 		</tr>
 	</table>
 	<div class="CSSTableGenerator" >
 	<table width="" border="1">
 	<tr>	
-	    <th><div align="center">รหัสสมาชิก </div></th>		
-	    <th><div align="center" style="width:190px;">ชื่อ </div></th>	
-	    <th><div align="center">รหัสผ่าน </div></th>		
-	    <th ><div align="center">รหัสประชาชน</div></th>		
-		<th><div align="center" style="width:100px;">วันที่สมัคร </div></th>			
-		<th><div align="center">ตำแหน่ง </div></th>
-		<th><div align="center">เกียรติยศ</div></th>
-		<th><div align="center">รหัสอัพไลน์ </div></th>
-		<th><div align="center">ด้าน</div></th>
-		<th><div align="center">รหัสผู้แนะนำ</div></th>
-		<th><div align="center">คะแนน pv ส่วนตัว</div></th>
-		<th><div align="center">เอกสาร</div></th>
+	    <th><div align="center">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ </div></th>		
+	    <th><div align="center" style="width:190px;">เธเธทเนเธญ </div></th>	
+	    <th><div align="center">เธฃเธซเธฑเธชเธเนเธฒเธ </div></th>		
+	    <th ><div align="center">เธฃเธซเธฑเธชเธเธฃเธฐเธเธฒเธเธ</div></th>		
+		<th><div align="center" style="width:100px;">เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ </div></th>			
+		<th><div align="center">เธ•เธณเนเธซเธเนเธ </div></th>
+		<th><div align="center">เน€เธเธตเธขเธฃเธ•เธดเธขเธจ</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน </div></th>
+		<th><div align="center">เธ”เนเธฒเธ</div></th>
+		<th><div align="center">เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ</div></th>
+		<th><div align="center">เธเธฐเนเธเธ pv เธชเนเธงเธเธ•เธฑเธง</div></th>
+		<th><div align="center">เน€เธญเธเธชเธฒเธฃ</div></th>
 		<th><div align="center">Suspend</div></th>
 		<th><div align="center">Terminate</div></th>
 		<th><div align="center">ewallet</div></th>
-		<th><div align="center">ผู้คีย์</div></th>
+		<th><div align="center">เธเธนเนเธเธตเธขเน</div></th>
 	  </tr>
 	<?	
 		  }

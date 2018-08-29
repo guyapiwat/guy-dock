@@ -3,12 +3,12 @@
 <script language="javascript">
 function checkfield(){
 	if(document.getElementById("numOfChild").value ==""){
-		alert("��س����ӹǹ�١���");
+		alert("กรุณาใส่จำนวนลูกทีม");
 		document.focus("numOfChild");
 		return false;
 	}
 	if(document.getElementById("treeformat1").checked==false && document.getElementById("treeformat2").checked==false){
-		alert("��س����͡�ٻẺ�ͧἹ����");
+		alert("กรุณาเลือกรูปแบบของแผนภูมิ");
 		return false;
 	}else if(document.getElementById("treeformat1").checked!=false){
 		document.getElementById("treeformat1").value = "ball";
@@ -18,7 +18,7 @@ function checkfield(){
 		document.getElementById("treeformat2").value = "sqare";
 	}
 	if(document.getElementById("numofleveltoshow").value ==""){
-		alert("��سҡ�͡�ӹǹ��鹢ͧἹ���Է���ͧ�������ʴ�");
+		alert("กรุณากรอกจำนวนชั้นของแผนภูมิที่ต้องการให้แสดง");
 		return false;
 	}
 	document.form1.submit();
@@ -50,15 +50,15 @@ function checktreeformat(str){
 			//=================END LOG===========================
 			mysql_query("insert into ".$dbprefix."global values('$numOfChild','$treeformat','$numofleveltoshow','$statusformat','1')");
 			//====================LOG===========================
-			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('1','����')";
+			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('1','ซ้าย')";
 			writelogfile($text);
 			//=================END LOG===========================
-			mysql_query("insert into ".$dbprefix."lr_def values('1','����')");
+			mysql_query("insert into ".$dbprefix."lr_def values('1','ซ้าย')");
 			//====================LOG===========================
-			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('2','���')";
+			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('2','ขวา')";
 			writelogfile($text);
 			//=================END LOG===========================
-			mysql_query("insert into ".$dbprefix."lr_def values('2','���')");
+			mysql_query("insert into ".$dbprefix."lr_def values('2','ขวา')");
 		}else if($_POST["numOfChild"]==3){
 			//====================LOG===========================
 			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."global values('$numOfChild','$treeformat','$numofleveltoshow')";
@@ -66,20 +66,20 @@ function checktreeformat(str){
 			//=================END LOG===========================
 			mysql_query("insert into ".$dbprefix."global values('$numOfChild','$treeformat','$numofleveltoshow')");
 			//====================LOG===========================
-			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('1','����')";
+			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('1','ซ้าย')";
 			writelogfile($text);
 			//=================END LOG===========================
-			mysql_query("insert into ".$dbprefix."lr_def values('1','����')");
+			mysql_query("insert into ".$dbprefix."lr_def values('1','ซ้าย')");
 			//====================LOG===========================
-			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('2','��ҧ')";
+			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('2','กลาง')";
 			writelogfile($text);
 			//=================END LOG===========================
-			mysql_query("insert into ".$dbprefix."lr_def values('2','��ҧ')");
+			mysql_query("insert into ".$dbprefix."lr_def values('2','กลาง')");
 			//====================LOG===========================
-			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('3','���')";
+			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."lr_def values('3','ขวา')";
 			writelogfile($text);
 			//=================END LOG===========================
-			mysql_query("insert into ".$dbprefix."lr_def values('3','���')");
+			mysql_query("insert into ".$dbprefix."lr_def values('3','ขวา')");
 		}else{
 			//====================LOG===========================
 			$text="uid=".$_SESSION["adminuserid"]." action=config_mem_info =>insert into ".$dbprefix."global values('$numOfChild','$treeformat','$numofleveltoshow')";
@@ -116,12 +116,12 @@ function checktreeformat(str){
 <form name="form1" method="post" action="<? $PHP_SELF?>">
 <table width="81%" border="0" height="370">
   <tr>
-    <td width="35%" align="right">�ӹǹ�١���(Ẻ�Ѿ�Ź�) <font color="#FF0000">*</font>&nbsp;</td>
+    <td width="35%" align="right">จำนวนลูกทีม(แบบอัพไลน์) <font color="#FF0000">*</font>&nbsp;</td>
     <td width="65%">
       <input type="text" id="numOfChild" name="numOfChild" maxlength="2" value="<?=$GLOBALS["numofchild"]?>">    </td>
   </tr>
   <tr>
-    <td align="right" valign="middle">�ٻẺ�ͧἹ���� <font color="#FF0000">*</font>&nbsp; </td>
+    <td align="right" valign="middle">รูปแบบของแผนภูมิ <font color="#FF0000">*</font>&nbsp; </td>
     <td>
       <table width="82%" border="0">
         <tr align="center">
@@ -130,34 +130,34 @@ function checktreeformat(str){
         </tr>
         <tr align="center">
           <td><input type="radio" <?=$str1?> id="treeformat1" name="treeformat1" value="ball" onClick="checktreeformat('treeformat1');">
-Ẻǧ���</td>
+แบบวงกลม</td>
           <td>
             <input type="radio" <?=$str2?> id="treeformat2" name="treeformat2" value="sqare" onClick="checktreeformat('treeformat2');">
-Ẻ����������</td>
+แบบสี่เหลี่ยม</td>
         </tr>
       </table>      </td>
   </tr>
   	<tr>
-  	  <td align="right">�ӹǹ��鹢ͧἹ���Է���ͧ�������ʴ� <font color="#FF0000">*</font>&nbsp;</td>
+  	  <td align="right">จำนวนชั้นของแผนภูมิที่ต้องการให้แสดง <font color="#FF0000">*</font>&nbsp;</td>
   	  <td><input type="text" name="numofleveltoshow" id="numofleveltoshow" value="<?=$GLOBALS["numofleveltoshow"]?>"></td>
     </tr>
   	<tr>
-  	  <td align="right">ʶҹ� �Դ/�Դ �к� Service <font color="#FF0000">*</font></td>
+  	  <td align="right">สถานะ เปิด/ปิด ระบบ Service <font color="#FF0000">*</font></td>
   	  <td><table width="38%" border="0">
         
         <tr align="center">
           <td width="41%"><input type="radio" <?=$strType1?> id="statusformat" name="statusformat" value="open">
-            �Դ</td>
+            เปิด</td>
           <td width="59%"><input type="radio" <?=$strType2?> id="statusformat" name="statusformat" value="close">
-            �Դ</td>
+            ปิด</td>
         </tr>
       </table></td>
     </tr>
   	<tr>
 		<td>&nbsp;</td>
-		<td><input type="button" name="Submit" value="��ŧ" onClick="checkfield();">
+		<td><input type="button" name="Submit" value="ตกลง" onClick="checkfield();">
 	    &nbsp;
-	    <input type="reset" name="reset" value="¡��ԡ"></td>
+	    <input type="reset" name="reset" value="ยกเลิก"></td>
 	</tr>
 </table>
 </form>

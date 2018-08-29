@@ -18,18 +18,18 @@ if(isset($_GET['bid']))
 	$tsano = $fsano;
 }*/
 $sql = "SELECT * FROM ".$dbprefix."transfersale_h WHERE id='$sano' ";
-$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '�������' order by id desc";
-$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = '��䢺��' order by id desc";
+$sqlLog1 = "SELECT sys_id,logdate,logtime FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'เพิ่มบิล' order by id desc";
+$sqlLog2 = "SELECT sys_id,logdate,logtime  FROM ".$dbprefix."log  WHERE object ='$sano' and subject = 'แก้ไขบิล' order by id desc";
 
 //echo $sql;
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">��辺�����Ţͧ����Ţ��� <?=$sano?>
-	<br /><input type="button" value="�Դ˹�ҹ��" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">ไม่พบข้อมูลของบิลเลขที่ <?=$sano?>
+	<br /><input type="button" value="ปิดหน้านี้" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
-$typedef = array('A'=>"��Ţ�»���",'Q'=>"�ѡ���ʹ",'H'=>"��Ţ�� BMC");
+$typedef = array('A'=>"บิลขายปกติ",'Q'=>"รักษายอด",'H'=>"บิลขาย BMC");
 for($i=0;$i<mysql_num_rows($rs);$i++){
 	$obj = mysql_fetch_object($rs);
 	$bill1[$i]  = $bill[$i] = $obj->id;
@@ -49,7 +49,7 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	//if(!empty($txtoption[$i]))
 	$chkCash[$i] = $obj->chkCash;
 	$send[$i] = $obj->send;
-	//if($send[$i] == '1')$send[$i] = '�Ѵ��';else $send[$i]  = "";
+	//if($send[$i] == '1')$send[$i] = 'จัดส่ง';else $send[$i]  = "";
 	 $send[$i]  = "";
 	$chkFuture[$i] = $obj->chkFuture;
 	$chkTransfer[$i] = $obj->chkTransfer;
@@ -105,9 +105,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$rs2 = mysql_query($sql2);
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" �.".mysql_result($rs2,0,'districtName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" �.".mysql_result($rs2,0,'amphurName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" �.".mysql_result($rs2,0,'provinceName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" ต.".mysql_result($rs2,0,'districtName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" อ.".mysql_result($rs2,0,'amphurName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" จ.".mysql_result($rs2,0,'provinceName');
 	$add[$mcode[$i]] .= " ".mysql_result($rs2,0,'zip');
 	$sp_code[$mcode[$i]] = mysql_result($rs2,0,'sp_code');
 	$sp_name[$mcode[$i]] = mysql_result($rs2,0,'sp_name');
@@ -162,7 +162,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	$pdf->SetY($offsety+$offsetnline);
 	$pdf->SetX($offsetx+(2*$offsettab)+5);
-	$pdf->Cell((4*$offsettab),10,"����ѷ $employee_name",0,0,"L"); 
+	$pdf->Cell((4*$offsettab),10,"บริษัท $employee_name",0,0,"L"); 
 	$pdf->SetY($offsety+2*$offsetnline);
 	$pdf->SetX($offsetx+(2*$offsettab)+5);
 	$pdf->Cell((4*$offsettab),10,"$employee_address ",0,0,"L"); 
@@ -173,28 +173,28 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetFont('angsa','',14);  
 	$pdf->SetY($offsety+$offsetnline+15);
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"�Ң�........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"สาขา........................",0,0,"R"); 
 	//$pdf->SetY($offsety+$offsetnline);
 	//$pdf->SetX($offsetx+(9*$offsettab)+8);
-	//$pdf->Cell($offsettab,10,"���觫����Թ���",1,0,"C"); 
+	//$pdf->Cell($offsettab,10,"ใบสั่งซื้อสินค้า",1,0,"C"); 
 	//$pdf->SetY($offsety+3*$offsetnline);
 	//$pdf->SetX($offsetx+(9*$offsettab)+5);
-	//$pdf->Cell($offsettab,10,"(�͡����͡�繪ش)",0,0,"C"); 
+	//$pdf->Cell($offsettab,10,"(เอกสารออกเป็นชุด)",0,0,"C"); 
 	
 	//$pdf->SetY($offsety+(6*$offsetnline));
 	//$pdf->SetX($offsetx+$offsettab);
-	//$pdf->Cell((2*$offsettab),10,"�Ţ��Шӵ�Ǽ�����������ҡ�",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"เลขประจำตัวผู้เสียภาษีอากร",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(2*$offsetnline)-5);
 	$pdf->SetX($offsetx+(8*$offsettab)+5);
-	$pdf->Cell((2*$offsettab),10,"���觫���",1,0,"C"); 
+	$pdf->Cell((2*$offsettab),10,"ใบสั่งซื้อ",1,0,"C"); 
 	//$pdf->SetY($offsety+(6*$offsetnline));
 	//$pdf->SetX($offsetx+(4*$offsettab));
 	//$pdf->Cell((3*$offsettab),10,"RECEIPT/ TAX INVOICE/PACKING LIST",0,0,"C"); 
 	//-------------------table---------------------
 	//$pdf->SetY($offsety+(9*$offsetnline));
 	
-	//��ͺ��
+	//กรอบบน
 	$pdf->SetY($offsety+(9*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,0,"",1,0,"L"); 
@@ -202,18 +202,18 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,0,"",1,0,"L"); 
 	$offsety = 80-$offsety1;
-	//��ͺ��ҧ
+	//กรอบล่าง
 	$pdf->SetY($offsety+(21*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,0,"",1,0,"L"); 
 	$pdf->SetY($offsety+(21*$offsetnline)+6);
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,0,"",1,0,"L"); 
-	//��鹺�÷Ѵ ���� 7%
+	//เส้นบรรทัด ภาษี 7%
 /*	$pdf->SetY($offsety+(21*$offsetnline)+10);
 	$pdf->SetX($offsetx+(10*$offsettab)-3);
 	$pdf->Cell(10,0,"",1,0,"L"); 
-	//��鹺�÷Ѵ ��Ť���Թ���
+	//เส้นบรรทัด มูลค่าสินค้า
 	$pdf->SetY($offsety+(21*$offsetnline)+15);
 	$pdf->SetX($offsetx+(10*$offsettab)-3);
 	$pdf->Cell(10,0,"",1,0,"L"); 
@@ -227,7 +227,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	//$pdf->SetY($offsety+(23*$offsetnline)-2);
 	//$pdf->SetX($offsetx+(9*$offsettab)+2);
 	//$pdf->Cell(21,8,"",1,0,"L"); 
-	//-----------------------����繵�
+	//-----------------------รายเซ็นต์
 	/*$pdf->SetY($offsety+(27*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,(5*$offsetnline),"",1,0,"L"); 
@@ -250,15 +250,15 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetY($offsety+(24*$offsetnline)-2);
 	$pdf->SetX($offsetx+(5*$offsettab)-2);
 	$pdf->Cell(4,4,"",1,0,"L"); */
-		//-------------------column ��ͧ---------------
+		//-------------------column ช่อง---------------
 	/*$pdf->SetY($offsety+(9*$offsetnline));
-	$pdf->SetX($offsetx+$offsettab);//�ӴѺ
+	$pdf->SetX($offsetx+$offsettab);//ลำดับ
 	$pdf->Cell($offsettab-8,(12*$offsetnline),"",1,0,"L"); 
 	$pdf->SetY($offsety+(9*$offsetnline));
-	$pdf->SetX($offsetx+$offsettab);//�����Թ���
+	$pdf->SetX($offsetx+$offsettab);//รหัสสินค้า
 	$pdf->Cell(2*$offsettab-8,(12*$offsetnline),"",1,0,"L"); 
 	$pdf->SetY($offsety+(9*$offsetnline));
-	$pdf->SetX($offsetx+$offsettab);//��¡���Թ���
+	$pdf->SetX($offsetx+$offsettab);//รายการสินค้า
 	$pdf->Cell(5*$offsettab-8,(12*$offsetnline),"",1,0,"L"); 
 	$pdf->SetY($offsety+(9*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);//pv
@@ -278,13 +278,13 @@ for($i=0;$i<sizeof($bill);$i++){
 	//-------------------table---------------------
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,$send[$i],0,0,"R");  // �Ң�..........................
+	$pdf->Cell((3*$offsettab),10,$send[$i],0,0,"R");  // สาขา..........................
 	$pdf->SetY($offsety+(5*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"�Ţ���........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"เลขที่........................",0,0,"R"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"�ѹ���........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"วันที่........................",0,0,"R"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
 	$pdf->Cell((3*$offsettab),10,$wording_lan["company_id"],0,0,"R"); 
@@ -312,24 +312,24 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"������Ҫԡ",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"รหัสสมาชิก",0,0,"L"); 
 	$pdf->SetY($offsety+(5*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"����",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ชื่อ",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�������",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ที่อยู่",0,0,"L"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"����Ẻ",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ซื้อแบบ",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(7*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"���ͼ���й�",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"ชื่อผู้แนะนำ",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(8*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"����",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"รหัส",0,0,"L"); 
 //info---------------------------------------
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab)+5);
@@ -356,15 +356,15 @@ for($i=0;$i<sizeof($bill);$i++){
 //------------------------------------------
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab-2);
-	$pdf->Cell($offsettab,10,"�ӴѺ",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"ลำดับ",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx-14+(2*$offsettab)+5);
-	$pdf->Cell($offsettab,10,"�����Թ���",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"รหัสสินค้า",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx-8+(3*$offsettab));
-	$pdf->Cell($offsettab,10,"��¡��",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"รายการ",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+14+(6*$offsettab));
@@ -380,37 +380,37 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+6+(7*$offsettab)+7);
-	$pdf->Cell($offsettab,10,"�ӹǹ",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"จำนวน",0,0,"L"); 
 
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)+11);
-	$pdf->Cell($offsettab,10,"�Ҥ�",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"ราคา",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)+7);
-	$pdf->Cell($offsettab,10,"�ӹǹ�Թ�ط��",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"จำนวนเงินสุทธิ",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(21*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell($offsettab,10,"����Ҥ��Թ��ҷ�����������Ť������",0,0,"L"); 
+	//$pdf->Cell($offsettab,10,"รวมราคาสินค้าที่รวมภาษีมูลค่าเพิ่ม",0,0,"L"); 
 	$offsety = 85-$offsety1;
 	$pdf->SetY($offsety+(21*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)-4);
-	//$pdf->Cell($offsettab,10,"������Ť������ 7%",0,0,"L");
+	//$pdf->Cell($offsettab,10,"ภาษีมูลค่าเพิ่ม 7%",0,0,"L");
 	
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)-4);
-	//$pdf->Cell($offsettab,10,"��Ť���Թ���",0,0,"L");
+	//$pdf->Cell($offsettab,10,"มูลค่าสินค้า",0,0,"L");
 	
 	//$pdf->SetY($offsety+(20*$offsetnline));
 	//$pdf->SetX($offsetx+$offsettab);
-	//$pdf->Cell($offsettab,10,"�ӹǹ�Թ������ (",0,0,"L"); 
+	//$pdf->Cell($offsettab,10,"จำนวนเงินทั้งสิ้น (",0,0,"L"); 
 	//$pdf->SetY($offsety+(20*$offsetnline));
 	//$pdf->SetX($offsetx+(6*$offsettab)-15);
 	//$pdf->Cell($offsettab,10,")",0,0,"L"); 
 	/*$pdf->SetY($offsety+(20*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab));
-	$pdf->Cell($offsettab,10,"�ӹǹ���",0,0,"L"); */
+	$pdf->Cell($offsettab,10,"จำนวนรวม",0,0,"L"); */
 	
 	//$pdf->SetY($offsety+(26*$offsetnline)-1);
 	//$pdf->SetX($offsetx+$offsettab);
@@ -421,53 +421,53 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->Cell((2*$offsettab),10,".............................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�������Թ���",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ผู้จ่ายสินค้า",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�ѹ��� ......../......../........",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่ ......../......../........",0,0,"C");
 
 	//$pdf->SetY($offsety+(26*$offsetnline));
 	//$pdf->SetX($offsetx+(5*$offsettab)-7);
-	//$pdf->Cell((2*$offsettab),10,"���Ѻ�Թ��Ҥú��ǹ����",0,0,"C");
+	//$pdf->Cell((2*$offsettab),10,"ได้รับสินค้าครบถ้วนแล้ว",0,0,"C");
 	$pdf->SetY($offsety+(26*$offsetnline)+3);
 	$pdf->SetX($offsetx+(4*$offsettab)-12);
 	$pdf->Cell((2*$offsettab),10,".............................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+(4*$offsettab)-12);
-	$pdf->Cell((2*$offsettab),10,"����Ѻ�Թ���",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ผู้รับสินค้า",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+(4*$offsettab)-12);
-	$pdf->Cell((2*$offsettab),10,"�ѹ��� ......../......../........",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่ ......../......../........",0,0,"C");
 
 	//$pdf->SetY($offsety+(26*$offsetnline));
 	//$pdf->SetX($offsetx+(5*$offsettab)-7);
-	//$pdf->Cell((2*$offsettab),10,"���Ѻ�Թ��Ҥú��ǹ����",0,0,"C");
+	//$pdf->Cell((2*$offsettab),10,"ได้รับสินค้าครบถ้วนแล้ว",0,0,"C");
 	$pdf->SetY($offsety+(26*$offsetnline)+3);
 	$pdf->SetX($offsetx+(6*$offsettab)-5);
 	$pdf->Cell((2*$offsettab),10,".............................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-5);
-	$pdf->Cell((2*$offsettab),10,"����Ѻ�Թ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ผู้รับเงิน",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-5);
-	$pdf->Cell((2*$offsettab),10,"�ѹ��� ......../......../........",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่ ......../......../........",0,0,"C");
 	
 	$pdf->SetY($offsety+(26*$offsetnline)+3);
 	$pdf->SetX($offsetx+(9*$offsettab)-15);
 	$pdf->Cell((2*$offsettab),10,".............................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"���͹��ѵ�",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ผู้อนุมัติ",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"�ѹ��� ......../......../........",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่ ......../......../........",0,0,"C");
 	*/
 
 	$pdf->SetFont('angsa','',12);  
 	//$pdf->Cell((2*$offsettab),10,$uid[$i],0,0,"C");
 	/*$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(3*$offsettab));
-	$pdf->Cell($offsettab,10,"�ôԵ",0,0,"L");
+	$pdf->Cell($offsettab,10,"เครดิต",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(4*$offsettab));
 	$pdf->Cell($offsettab,10,"Internet",0,0,"L");
@@ -478,10 +478,10 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetFont('angsa','',12); 
 	//$pdf->SetY($offsety+(23*$offsetnline));
 	//$pdf->SetX($offsetx+($offsettab));
-	//$pdf->Cell($offsettab,10,"��Ҿ������Ѻ�Թ��ҵ����¡�÷���к�����ҧ�鹤ú��ǹ�������ó����º��������",0,0,"L");
+	//$pdf->Cell($offsettab,10,"ข้าพเจ้าได้รับสินค้าตามรายการที่ระบุไว้ข้างต้นครบถ้วนและสมบูรณ์เรียบร้อยแล้ว",0,0,"L");
 	//$pdf->SetY($offsety+(23*$offsetnline));
 	//$pdf->SetX($offsetx+(5*$offsettab));
-	//$pdf->Cell($offsettab,10,"��Ҿ������Ѻ��Ե�ѳ�����к�����ҧ�� ��е�Ǩ�ӹǹ���Ҿ�������ó����º��������",0,0,"L");
+	//$pdf->Cell($offsettab,10,"ข้าพเจ้าได้รับผลิตภัณฑ์ที่ระบุไว้ข้างต้น และตรวจจำนวนในสภาพที่สมบูรณ์เรียบร้อยแล้ว",0,0,"L");
 	$pdf->SetFont('angsa','',14); 
 	
 	$offsety = 4;
@@ -575,7 +575,7 @@ for($i=0;$i<sizeof($bill);$i++){
 		$pdf->SetY($offsety+(20*$offsetnline));
 		$pdf->SetX($offsetx+(4*$offsettab)-15);
 		$pdf->Cell($offsettab,10,'= ( '.moneytotext($sum).' )',0,0,"C"); 
-		//$pdf->Cell($offsettab,10,'= ( �����������ѹ�ͧ��������Ժ�ҷ����Ժ�ͧʵҧ�� )',0,0,"C"); 
+		//$pdf->Cell($offsettab,10,'= ( สี่หมื่นสามพันสองร้อยห้าสิบบาทห้าสิบสองสตางค์ )',0,0,"C"); 
 	}
 
 	$offsety = 180-$offsety1;
@@ -583,31 +583,31 @@ for($i=0;$i<sizeof($bill);$i++){
 	//$pdf->AddFont('angsa','B');  
 	$pdf->SetY($offsety+(2*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"��ê����Թ",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"การชำระเงิน",0,0,"L"); 
 	$pdf->SetY($offsety+(3*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"����Ѻ�١���",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"สำหรับลูกค้า",0,0,"L"); 
 	$pdf->SetFont('angsa','',14); 
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"����",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ชื่อ",0,0,"L"); 
 	$pdf->SetY($offsety+(5*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�Ţ�����Ҫԡ (Ref1)",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"เลขที่สมาชิก (Ref1)",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�Ţ������觫��� (Ref2)",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"เลขที่ใบสั่งซื้อ (Ref2)",0,0,"L"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"�ӹǹ��ͧ����",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"จำนวนต้องชำระ",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(7*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"���ͼ���й�",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"ชื่อผู้แนะนำ",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(8*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"����",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"รหัส",0,0,"L"); 
 //info---------------------------------------
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab)+15);
@@ -620,11 +620,11 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->Cell((2*$offsettab),10,$bill[$i],0,0,"L"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab)+15);
-	$pdf->Cell((2*$offsettab),10,$sum.' �ҷ = ( '.moneytotext($sum).' )',0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,$sum.' บาท = ( '.moneytotext($sum).' )',0,0,"L"); 
 
 	$pdf->SetY($offsety+(10*$offsetnline)+3);
 	$pdf->SetX($offsetx+(8*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"ŧ���ͼ���Ѻ�Թ_____________________   �ѹ���___________",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ลงชื่อผู้รับเงิน_____________________   วันที่___________",0,0,"C");
 	
 	
 	$pdf->SetY($offsety+(12*$offsetnline)+6);
@@ -637,7 +637,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	//$pdf->AddFont('angsa','B');  
 	$pdf->SetY($offsety+(2*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"����Ѻ��Ҥ��",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"สำหรับธนาคาร",0,0,"L"); 
 
 	$offsety = 260-$offsety1;
 
@@ -650,26 +650,26 @@ for($i=0;$i<sizeof($bill);$i++){
 
 	$pdf->SetY($offsety+(2*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"������Һѭ�� ".$wording_lan["company_name"],0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"เพื่อเข้าบัญชี ".$wording_lan["company_name"],0,0,"L"); 
 	$pdf->SetY($offsety+(3*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"��Ҥ�á�ا��  COM CODE : ".$wording_lan["company_comcode"],0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ธนาคารกรุงไทย  COM CODE : ".$wording_lan["company_comcode"],0,0,"L"); 
 
 	$pdf->SetY($offsety+(1*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)-1);
-	$pdf->Cell((2*$offsettab),10,"�ѹ���_____________________  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่_____________________  ",0,0,"C");
 	$pdf->SetY($offsety+(3*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"����",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"ชื่อ",0,0,"L"); 
 	$pdf->SetY($offsety+(4*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"�Ţ�����Ҫԡ ( Ref1)",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"เลขที่สมาชิก ( Ref1)",0,0,"L"); 
 	$pdf->SetY($offsety+(5*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"�Ţ������觫��� ( Ref2)",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"เลขที่ใบสั่งซื้อ ( Ref2)",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"�ӹǹ�Թ����ͧ����",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"จำนวนเงินที่ต้องชำระ",0,0,"L"); 
 
 	$pdf->SetY($offsety+(3*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+5);
@@ -682,7 +682,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->Cell((2*$offsettab),10,$bill[$i],0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+5);
-	$pdf->Cell((2*$offsettab),10,$sum.' �ҷ',0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,$sum.' บาท',0,0,"L"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+5);
 	$pdf->Cell((2*$offsettab),10,'( '.moneytotext($sum).' )',0,0,"L"); 
@@ -690,29 +690,29 @@ for($i=0;$i<sizeof($bill);$i++){
 
 	$pdf->SetY($offsety+(13*$offsetnline)+2);
 	$pdf->SetX($offsetx+(2*$offsettab)-5);
-	$pdf->Cell((2*$offsettab),10,"���д����Թʴ �繨ӹǹ  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ชำระด้วยเงินสด เป็นจำนวน  ",0,0,"C");
 
 
 	$pdf->SetY($offsety+(17*$offsetnline)-5);
 	$pdf->SetX($offsetx+(1*$offsettab));
-	$pdf->Cell((7*$offsettab),10,"�ӹǹ�Թ�繵���ѡ�� : ".moneytotext($sum),1,0,"L"); 
+	$pdf->Cell((7*$offsettab),10,"จำนวนเงินเป็นตัวอักษร : ".moneytotext($sum),1,0,"L"); 
 	$pdf->SetY($offsety+(17*$offsetnline)-5);
 	$pdf->SetX($offsetx+(8*$offsettab));
-	$pdf->Cell((2*$offsettab),10,$sum." �ҷ",1,0,"R"); 
+	$pdf->Cell((2*$offsettab),10,$sum." บาท",1,0,"R"); 
 
 
 	$pdf->SetY($offsety+(21*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"�ѹ���_____________________  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่_____________________  ",0,0,"C");
 	$pdf->SetY($offsety+(19*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"ŧ���ͼ���Ѻ�Թ_____________________  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ลงชื่อผู้รับเงิน_____________________  ",0,0,"C");
 	$pdf->SetY($offsety+(19*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab)-5);
-	$pdf->Cell((2*$offsettab),10,"ŧ���ͼ������Թ_____________________  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"ลงชื่อผู้ชำระเงิน_____________________  ",0,0,"C");
 	$pdf->SetY($offsety+(21*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab)-5);
-	$pdf->Cell((2*$offsettab),10,"�ѹ���_____________________  ",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"วันที่_____________________  ",0,0,"C");
 
 }}
 

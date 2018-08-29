@@ -3,7 +3,7 @@ require("connectmysql.php");
 //require("./cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql ="SELECT m.mcode,m.name_t,m.address,m.ewallet";
-$sql .=",CONCAT(m.address,'µ”∫≈',d.districtName,'Õ”‡¿Õ ',a.amphurName,'®—ßÀ«—¥', p.provinceName) as aad";
+$sql .=",CONCAT(m.address,'‡∏ï‡∏≥‡∏ö‡∏•',d.districtName,'‡∏≠‡∏≥‡πÄ‡∏†‡∏≠ ',a.amphurName,'‡∏à‡∏±‡∏á‡∏´‡∏ß‡∏±‡∏î', p.provinceName) as aad";
 $sql .= ",CASE m.mtype1 WHEN '0' THEN 'Member' WHEN '1' THEN 'Mobile'  WHEN '2' THEN 'Center' WHEN '3' THEN 'Hub'  END AS mtype ";
 $sql .="FROM ali_member m LEFT JOIN province p ON(m.provinceId=p.provinceId)";
 $sql .=" LEFT JOIN amphur a ON(m.amphurId=a.amphurId)";
@@ -36,21 +36,21 @@ $sql.="WHERE mtype1 <> '0'";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,mtype,aad,ewallet");
-		$rec->setFieldDesc("√À— ,™◊ËÕ,ª√–‡¿∑,∑’Ëµ—Èß,ewallet");
+		$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏ä‡∏∑‡πà‡∏≠,‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó,‡∏ó‡∏µ‡πà‡∏ï‡∏±‡πâ‡∏á,ewallet");
 		$rec->setFieldAlign("center,left,center,center,right,right");
 		$rec->setFieldSpace("10%,20%,10%,50%,10%");
 		$rec->setFieldLink("");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","invent".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","invent".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$rec->setFieldFloatFormat(",,,,2");
 		$rec->setSum(true,false,",,,,true");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

@@ -130,14 +130,14 @@ function eproductcheck(){
    var mcode = $('#mcode').val();
    checkForm();
    if (typeof mcode === 'undefined') {
-       alert('���͡ Member');
+       alert('เลือก Member');
        return false;
        checkinForm();
    } 
    var total = $('#sumtotal').val();   
   
    if($('#sumtotal').val() == ''){
-       alert('�ӹǹ�Թ');
+       alert('จำนวนเงิน');
        return false;
    }
    
@@ -149,7 +149,7 @@ function eproductcheck(){
      if(sumtxt("txt"+txt[i]) > 0){  
          if($("#select"+txt[i]).val() ==''){
              $("#select"+txt[i]).css('border','1px solid #FF0000');
-             alert('�ٻẺ��ê���');
+             alert('รูปแบบการชำระ');
              return false;
          }else{
              $("#select"+txt[i]).css('border','1px solid #41A717');
@@ -162,11 +162,11 @@ function eproductcheck(){
   
   if (parseInt(sum) == parseInt(total) ) {  
       $('#waiting-item').html("PASS");        
-      $('#ok').val("�ѹ�֡");
+      $('#ok').val("บันทึก");
       $("#ok").prop('disabled', false);
       return true;
   }else{
-     alert(" ��è��� ����  ���� �ҡ�����׹���");  
+     alert(" การจ่าย ไม่พอ  หรือ มากกว่าสืนค้า");  
      checkinForm();
      return false;
   } 
@@ -202,7 +202,7 @@ function checkinForm()
 {
     $('#waiting-item').html(''); 
     $("#ok").prop('disabled', true);
-    $('#ok').val("�ѹ�֡");
+    $('#ok').val("บันทึก");
     return true; 
 }
  
@@ -253,7 +253,11 @@ function sumtxt(namefiled){
         </td>
       </tr>  
          <td>
-           <?php $set_payment = query("*",'ali_payment_branch pb ',"pb.inv_code = '{$_SESSION["admininvent"]}' ");
+           <?php
+           	$charset = "SET NAMES 'UTF8'"; 
+               mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+           
+           $set_payment = query("*",'ali_payment_branch pb ',"pb.inv_code = '{$_SESSION["admininvent"]}' ");
            if(count($set_payment)){ 
            ?>
             <div id="payment-item" class="payment-item">
@@ -261,11 +265,11 @@ function sumtxt(namefiled){
                   <caption>Payment</caption>
                    <thead>
                     <tr>
-                      <th width="5%" align="center"><strong>���͡</strong></th>
-                      <th width="15%"><strong>������</strong></th>
-                      <th width="5%"><strong>�Թ</strong></th>
-                      <th width="40%"><strong>�ٻẺ </strong></th> 
-                      <th width="40%"><strong> �����˵�</strong></th> 
+                      <th width="5%" align="center"><strong>เลือก</strong></th>
+                      <th width="15%"><strong>ประเภท</strong></th>
+                      <th width="5%"><strong>เงิน</strong></th>
+                      <th width="40%"><strong>รูปแบบ </strong></th> 
+                      <th width="40%"><strong> หมายเหตุ</strong></th> 
                     </tr>
                   </thead> 
                   <tbody>
@@ -283,7 +287,7 @@ function sumtxt(namefiled){
                                 <?php $paymem_option =query("*",'ali_payment_type py ',"py.inv_code = '{$set_payment[0]['inv_code']}' and py.payment_id = '{$payment_id}' and py.shows ='1' ");  
                                     if(count($paymem_option)){ ?>
                                     <select size="1" name="select<?=$payment[0]['payment_column']?>" id="select<?=$payment[0]['payment_column']?>" tabindex="63">
-                                        <option value="">��س����͡�ٻẺ��ê���</option> 
+                                        <option value="">กรุณาเลือกรูปแบบการชำระ</option> 
                                         <?php foreach($paymem_option as $keyx => $valx){?>
                                             <option value="<?=$valx['id']?>"><?=$valx['pay_desc']?></option>  
                                         <?}?>
@@ -306,9 +310,9 @@ function sumtxt(namefiled){
                      <tr class="submit">
                        <th colspan="4" align=right></th>
                        <th colspan="3" align=right>
-                         <input name="button" id="button" type="button" onclick="eproductcheck()" value="��Ǩ�ͺ" />
-                             &nbsp; <!--input type="submit" value="�ѹ�֡"  onclick="checkForm()" name="ok" id="ok"  disabled="disabled" /--> 
-                         <input type="submit" value="�ѹ�֡"   name="ok" id="ok"  disabled="disabled"    /> 
+                         <input name="button" id="button" type="button" onclick="eproductcheck()" value="ตรวจสอบ" />
+                             &nbsp; <!--input type="submit" value="บันทึก"  onclick="checkForm()" name="ok" id="ok"  disabled="disabled" /--> 
+                         <input type="submit" value="บันทึก"   name="ok" id="ok"  disabled="disabled"    /> 
                        </th>
                      </tr>
                     

@@ -142,30 +142,30 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("b,sano,smcode,name_t,sadate,txtMoney,txtCash,txtCredit,txtTransfer,uid,lid,checkportal1,cshort");
-		$rec->setFieldDesc("�ӴѺ,�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ�Թ���,�Թʴ,�ôԵ,�Թ�͹,���ѹ�֡,�Ң�,��ͧ�ҧ,LB");
+		$rec->setFieldDesc("ลำดับ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนเงินรวม,เงินสด,เครดิต,เงินโอน,ผู้บันทึก,สาขา,ช่องทาง,LB");
 		$rec->setFieldFloatFormat(",,,,,2,2,2,2");
 		$rec->setFieldAlign("center,center,center,left,center,right,right,right,right,center,center,center,center");
 		$rec->setFieldSpace("3%,7%,6%,25%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,7%");
 		$rec->setFieldLink(",");
 		$rec->setSearch("sano,smcode,name_t,txtMoney,lid");
-		$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,���ѹ�֡");
+		$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,ผู้บันทึก");
 		$rec->setSum(true,false,",,,,,true,true,true,true,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_ewallet".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_ewallet".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","�����");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","พิมพ์");
 
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='../invoice/eprint_sale_backoffice.php?bid=$bills' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 	}

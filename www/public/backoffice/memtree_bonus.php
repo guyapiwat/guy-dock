@@ -4,7 +4,7 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("fmcode").value==""){
-			alert("กรุณากรอกรหัสสมาชิกที่ต้องการดู");
+			alert("เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ”เธน");
 			return false;
 	}
 	document.rform.submit();
@@ -59,7 +59,7 @@ if(!(isset($_POST["sdate"]) || isset($_GET["edate"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">วันเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ วันสิ้นสุด กรุณาใส่วันการคำนวณใหม่</FONT></td>
+    <td><FONT COLOR="#ff0000">เธงเธฑเธเน€เธฃเธดเนเธกเธ•เนเธ เธ•เนเธญเธเธเนเธญเธขเธเธงเนเธฒเธซเธฃเธทเธญเน€เธ—เนเธฒเธเธฑเธ เธงเธฑเธเธชเธดเนเธเธชเธธเธ” เธเธฃเธธเธ“เธฒเนเธชเนเธงเธฑเธเธเธฒเธฃเธเธณเธเธงเธ“เนเธซเธกเน</FONT></td>
   </tr>
 </table>
 <?
@@ -81,15 +81,15 @@ if(!(isset($_POST["sdate"]) || isset($_GET["edate"]))){
 	?>
 		<br>
 		<table width='100%' align='center'>
-			<tr height='30'><td colspan='15' align='center'><b>รายงานสายงานสมาชิกแบบต้นไม้</b></td></tr>
-			<tr height='30'><td colspan='15' align='center'><b>รหัส <?=$smc?> <?=$name_t?></b></td></tr>
-			<tr height='30'><td colspan='15' align='center'><b>ยอดโบนัส จ่ายระหว่างวันที่ <?=$ftrc[0]?> ถึง <?=$ftrc[1]?></b></td></tr>
+			<tr height='30'><td colspan='15' align='center'><b>เธฃเธฒเธขเธเธฒเธเธชเธฒเธขเธเธฒเธเธชเธกเธฒเธเธดเธเนเธเธเธ•เนเธเนเธกเน</b></td></tr>
+			<tr height='30'><td colspan='15' align='center'><b>เธฃเธซเธฑเธช <?=$smc?> <?=$name_t?></b></td></tr>
+			<tr height='30'><td colspan='15' align='center'><b>เธขเธญเธ”เนเธเธเธฑเธช เธเนเธฒเธขเธฃเธฐเธซเธงเนเธฒเธเธงเธฑเธเธ—เธตเน <?=$ftrc[0]?> เธ–เธถเธ <?=$ftrc[1]?></b></td></tr>
 		</table>
 	<?
 		//if (isset($_SESSION["usercode"])){$smc=$_SESSION["usercode"];}else{$smc="";}
 		set_time_limit(0);
 		ini_set("memory_limit","200M");
-		// ตรวจสอบว่า $cmc อยู่ในสายงานของ $smc หรือไม่
+		// เธ•เธฃเธงเธเธชเธญเธเธงเนเธฒ $cmc เธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธเธเธญเธ $smc เธซเธฃเธทเธญเนเธกเน
 		do {
 			$result=mysql_query("select * from ".$dbprefix."member where mcode='".$cur."' ");
 			//echo "select * from ".$dbprefix."member where mcode='".$cur."' <br>";
@@ -98,14 +98,14 @@ if(!(isset($_POST["sdate"]) || isset($_GET["edate"]))){
 				$cur_upa_code=$row["upa_code"];
 				if ($cur==$smc){break;}else{$cur=$cur_upa_code;}
 			}else{
-				echo "<font color=c00000><br>ไม่สามารถดูข้อมูลได้เพราะ<br>";
-				echo "รหัส $cmc ไม่อยู่ในสายงานของ $smc<br></font>";
+				echo "<font color=c00000><br>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเนเธ”เนเน€เธเธฃเธฒเธฐ<br>";
+				echo "เธฃเธซเธฑเธช $cmc เนเธกเนเธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธเธเธญเธ $smc<br></font>";
 				exit;
 			}
 			mysql_free_result($result);
 		} while(1);
 		
-		// ใส่ข้อมูลสมาชิกและสายงานใน n_mcode[] เริ่มจาก $cmc
+		// เนเธชเนเธเนเธญเธกเธนเธฅเธชเธกเธฒเธเธดเธเนเธฅเธฐเธชเธฒเธขเธเธฒเธเนเธ n_mcode[] เน€เธฃเธดเนเธกเธเธฒเธ $cmc
 		// $cmc
 		$s=0;
 		$result=mysql_query("select * from ".$dbprefix."member where mcode='".$cmc."' ");
@@ -163,16 +163,16 @@ if(!(isset($_POST["sdate"]) || isset($_GET["edate"]))){
 		</table>
 		<table border=0 cellpadding=0 cellspacing=0 width="100%">
 			<tr>
-				<td width="5%" align=left valign=top bgcolor='f0f0f0'>ลำดับ</td>
-				<td width="5%" align=left valign=top bgcolor='f0f0f0'>ชั้น</td>
-				<td width="5%" align=left valign=top bgcolor='f0f0f0'>ด้าน</td>
-				<td width="10%" align=left valign=top bgcolor='f0f0f0'>รหัส</td>
-				<td width="25%" align=left valign=top bgcolor='f0f0f0'>สมาชิก</td>
-				<td width="5%" align=left valign=top bgcolor='f0f0f0'>ซ้าย</td>
-				<td width="5%" align=left valign=top bgcolor='f0f0f0'>ขวา</td>
-				<td width="10%" align=left valign=top bgcolor='f0f0f0'>ครบวันที่</td>
-				<td width="10%" align=left valign=top bgcolor='f0f0f0'>อัพไลน์ A</td>
-				<td width="20%" align=left valign=top bgcolor='f0f0f0'>ยอดโบนัส</td>
+				<td width="5%" align=left valign=top bgcolor='f0f0f0'>เธฅเธณเธ”เธฑเธ</td>
+				<td width="5%" align=left valign=top bgcolor='f0f0f0'>เธเธฑเนเธ</td>
+				<td width="5%" align=left valign=top bgcolor='f0f0f0'>เธ”เนเธฒเธ</td>
+				<td width="10%" align=left valign=top bgcolor='f0f0f0'>เธฃเธซเธฑเธช</td>
+				<td width="25%" align=left valign=top bgcolor='f0f0f0'>เธชเธกเธฒเธเธดเธ</td>
+				<td width="5%" align=left valign=top bgcolor='f0f0f0'>เธเนเธฒเธข</td>
+				<td width="5%" align=left valign=top bgcolor='f0f0f0'>เธเธงเธฒ</td>
+				<td width="10%" align=left valign=top bgcolor='f0f0f0'>เธเธฃเธเธงเธฑเธเธ—เธตเน</td>
+				<td width="10%" align=left valign=top bgcolor='f0f0f0'>เธญเธฑเธเนเธฅเธเน A</td>
+				<td width="20%" align=left valign=top bgcolor='f0f0f0'>เธขเธญเธ”เนเธเธเธฑเธช</td>
 			</tr>
 		</table>
 		<table border=0 cellpadding=0 cellspacing=0 width="100%">
@@ -246,7 +246,7 @@ if(!(isset($_POST["sdate"]) || isset($_GET["edate"]))){
 			<td width="10%" align=left valign=top <?=$bgcolor?>><?=$r_upa_code[$i]?></td>
 			<td width="20%" align=right valign=top <?=$bgcolor?>><?=$bonus_tot?></td>
 			</tr>
-	<?		}//if($r_name_t[$i]!='ยกเลิก'){
+	<?		}//if($r_name_t[$i]!='เธขเธเน€เธฅเธดเธ'){
 		}//for($i=1;$i<=$r;$i++){
 	?>
 		</table>
@@ -260,24 +260,24 @@ function rpdialog(){?>
 	<form name="rform" method="post" action="memtree_bonus.php" target="_blank">
 		<table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center" >
  			<tr><td colspan="2" align="center">&nbsp;</td></tr>
-  			<tr><td colspan="2" align="center"><strong>เลือกวันที่ที่ต้องการดูรายงาน</strong></td></tr>
+  			<tr><td colspan="2" align="center"><strong>เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเนเธ—เธตเนเธ•เนเธญเธเธเธฒเธฃเธ”เธนเธฃเธฒเธขเธเธฒเธ</strong></td></tr>
   			<tr><td colspan="2" align="center">&nbsp;</td></tr>
 			<tr>
-				<td align="right">เริ่มดูวันที่&nbsp;&nbsp;</td>
+				<td align="right">เน€เธฃเธดเนเธกเธ”เธนเธงเธฑเธเธ—เธตเน&nbsp;&nbsp;</td>
     			<td><input type="text" id="sdate" name="sdate" size="10" maxlength="10" value="<?=($sdate==""?date("Y-m-d"):$sdate)?>" />
-&nbsp;<a href="javascript:NewCal('sdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a><font color="#808080">(ปปปป-ดด-วว)</font></td>
+&nbsp;<a href="javascript:NewCal('sdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a><font color="#808080">(เธเธเธเธ-เธ”เธ”-เธงเธง)</font></td>
   			</tr>
   			<tr> 
-				<td align="right">ถึงวันที่&nbsp;&nbsp;</td>
+				<td align="right">เธ–เธถเธเธงเธฑเธเธ—เธตเน&nbsp;&nbsp;</td>
     			<td><input type="text" id="edate" name="edate" size="10" maxlength="10" value="<?=($edate==""?date("Y-m-d"):$edate)?>" />
-&nbsp;<a href="javascript:NewCal('edate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่" /></a><font color="#808080">(ปปปป-ดด-วว)</font></td>
+&nbsp;<a href="javascript:NewCal('edate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a><font color="#808080">(เธเธเธเธ-เธ”เธ”-เธงเธง)</font></td>
   			</tr>
   			<tr>
-    			<td width="24%" align="right">รหัสสมาชิก&nbsp;&nbsp;</td>
+    			<td width="24%" align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;&nbsp;</td>
     			<td width="76%"><input type="text" name="fmcode" id="fmcode" size="10"/></td>
   			</tr>
   			<tr align="center"><td colspan="2">&nbsp;</td></tr>
-  			<tr><td colspan="2" align="center"><input  type="button" name="Submit" value="ดูรายงาน" onclick="checkround()"/></td></tr>
+  			<tr><td colspan="2" align="center"><input  type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()"/></td></tr>
   			<tr>
 				<td>&nbsp;</td>
 				<td>&nbsp;</td>

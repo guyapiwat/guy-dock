@@ -7,7 +7,7 @@ if (isset($_GET["lr"])){$lr=$_GET["lr"];} else {$lr="";}
 if(empty($_SESSION["smcode_index"]) or $lr > 2)exit;
 
 $sql="select * from (select mcode,name_t,pos_cur,mdate,pos_cur2,tot_pv,sp_code,sp_name,level-'".$_SESSION["smcode_level"]."' as level";
-$sql .= ",CASE lr WHEN '1' THEN '«éÒÂ' WHEN '2' THEN '¢ÇÒ'  END AS lr1 ";
+$sql .= ",CASE lr WHEN '1' THEN 'à¸‹à¹‰à¸²à¸¢' WHEN '2' THEN 'à¸‚à¸§à¸²'  END AS lr1 ";
 $sql .= "from ".$dbprefix."member left join ".$dbprefix."structure_sponsor as mi on (mcode = mi.mcode_ref) where mcode_index like '".$_SESSION["smcode_index"]."%' and mcode_ref != '".$_SESSION["usercode"]."') as a where 1=1  ";
 //echo $sql;
 ?>
@@ -36,7 +36,7 @@ $rec->setFieldAlign("center,left,center,center,center,center,center,center,left,
 $rec->setFieldSpace("8%,25%,8%,4%,8%,8%,8%,8%,25%,8%");
 $rec->setFieldFloatFormat(",,,,,,0,,,0");
 $rec->setSearch("b.mcode,name_t,mdate,pos_cur,pos_cur2,pvall,sp_code,sp_name,level");
-$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÇÑ¹ÊÁÑ¤Ã,µÓáË¹è§,à¡ÕÂÃµÔÂÈ,¤Ðá¹¹ÊèÇ¹µÑÇ,ÃËÑÊ¼Ùéá¹Ð¹Ó,ª×èÍ¼Ùéá¹Ð¹Ó,ªÑé¹·Õè");
+$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸§à¸±à¸™à¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¹€à¸à¸µà¸¢à¸£à¸•à¸´à¸¢à¸¨,à¸„à¸°à¹à¸™à¸™à¸ªà¹ˆà¸§à¸™à¸•à¸±à¸§,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³,à¸Šà¸±à¹‰à¸™à¸—à¸µà¹ˆ");
 $rec->setFieldLink("index.php?sessiontab=2&sub=2&cmc=,");
 
 $rec->showRec(1,'SH_QUERY');

@@ -134,11 +134,11 @@ unset($_SESSION["discount"]);
 
             //mcode
            var mcode= $('#mcode').val();
-            alert(mcode);
+            //alert(mcode);
             if(mcode){
-                alert('mcode ¡’');
+                //alert('mcode ‡∏°‡∏µ');
             }else{
-                alert('mcode ‰¡Ë¡’');
+                //alert('mcode ‡πÑ‡∏°‡πà‡∏°‡∏µ');
             }
 
             checkinForm();
@@ -212,7 +212,7 @@ unset($_SESSION["discount"]);
             var mcode = $('#mcode').val();
             checkForm();
             if (typeof mcode === 'undefined') {
-                alert('‡≈◊Õ° Member');
+                alert('‡πÄ‡∏•‡∏∑‡∏≠‡∏Å Member');
                 return false;
                 checkinForm();
             }
@@ -229,7 +229,7 @@ unset($_SESSION["discount"]);
 
                         var weightx = $('#sumweigh').val();
                         if (weightx >= 10000) {
-                            // alert(' ‘π§È“πÈ”Àπ—°‡°‘π 10Kg °√ÿ≥“µ‘¥µËÕ Õ∫∂“¡ΩË“¬ ¡“™‘°');
+                            // alert('‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ô‡πâ‡∏≥‡∏´‡∏ô‡∏±‡∏Å‡πÄ‡∏Å‡∏¥‡∏ô 10Kg ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏ï‡∏¥‡∏î‡∏ï‡πà‡∏≠‡∏™‡∏≠‡∏ö‡∏ñ‡∏≤‡∏°‡∏ù‡πà‡∏≤‡∏¢‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å');
                             // return false;
                         }
                         checkpay();
@@ -237,8 +237,8 @@ unset($_SESSION["discount"]);
                 }
             } else {
                 if ($('#cremark1').val() == '') {
-                    // alert('°√Õ°À¡“¬‡Àµÿ°“√√—∫ ‘π§È“¥È«§Ë–');
-                    //$('#ok').val("∫—π∑÷°");
+                    // alert('‡∏Å‡∏£‡∏≠‡∏Å‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏î‡πâ‡∏ß‡∏Ñ‡πà‡∏∞');
+                    //$('#ok').val("‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
                     // return false;
                 }
                 checkpay();
@@ -260,7 +260,7 @@ unset($_SESSION["discount"]);
                 if (sumtxt("txt" + txt[i]) > 0) {
                     if ($("#select" + txt[i]).val() == '') {
                         $("#select" + txt[i]).css('border', '1px solid #FF0000');
-                        alert('√Ÿª·∫∫°“√™”√–');
+                        alert('‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö‡∏Å‡∏≤‡∏£‡∏ä‡∏≥‡∏£‡∏∞');
                         return false;
                     } else {
                         $("#select" + txt[i]).css('border', '1px solid #41A717');
@@ -272,12 +272,12 @@ unset($_SESSION["discount"]);
             }
 
             if ($('#satype').val() == '') {
-                alert('√Ÿª·∫∫°“√´◊ÈÕ');
+                alert('‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö‡∏Å‡∏≤‡∏£‡∏ã‡∏∑‡πâ‡∏≠');
                 return false;
             }
 
             if ($('#radsend').val() == '') {
-                alert('°“√®—¥ Ëß');
+                alert('‡∏Å‡∏≤‡∏£‡∏à‡∏±‡∏î‡∏™‡πà‡∏á');
                 return false;
             }
 
@@ -288,11 +288,11 @@ unset($_SESSION["discount"]);
 
             if (parseInt(sum) == parseInt(total)) {
                 $('#waiting-item').html("PASS");
-                $('#ok').val("∫—π∑÷°");
+                $('#ok').val("‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
                 $("#ok").prop('disabled', false);
                 return true;
             } else {
-                alert(" °“√®Ë“¬ ‰¡ËæÕ  À√◊Õ ¡“°°«Ë“ ◊π§È“");
+                alert(" ‡∏Å‡∏≤‡∏£‡∏à‡πà‡∏≤‡∏¢ ‡πÑ‡∏°‡πà‡∏û‡∏≠  ‡∏´‡∏£‡∏∑‡∏≠ ‡∏°‡∏≤‡∏Å‡∏Å‡∏ß‡πà‡∏≤‡∏™‡∏∑‡∏ô‡∏Ñ‡πâ‡∏≤");
                 checkinForm();
                 return false;
             }
@@ -380,7 +380,7 @@ unset($_SESSION["discount"]);
         function checkinForm() {
             $('#waiting-item').html('');
             $("#ok").prop('disabled', true);
-            $('#ok').val("∫—π∑÷°");
+            $('#ok').val("‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
             return true;
         }
 
@@ -433,7 +433,7 @@ unset($_SESSION["discount"]);
                     }
                 }
                 else {
-                    alert("‡°‘¥¢ÈÕº‘¥æ≈“¥");
+                    alert("‡πÄ‡∏Å‡∏¥‡∏î‡∏Ç‡πâ‡∏≠‡∏ú‡∏¥‡∏î‡∏û‡∏•‡∏≤‡∏î");
                 }
             });
         }
@@ -467,7 +467,7 @@ unset($_SESSION["discount"]);
             var arr_chk = ["cname", "cmobile", "caddress", "cprovince", "camphur", "cdistrict", "czip"];
             for (var i = 0; i < arr_chk.length; i++) {
                 if ($('#' + arr_chk[i]).val() == "") {
-                    alert("°√ÿ≥“°√Õ°¢ÈÕ¡Ÿ≈®—¥ Ëß„ÀÈ§√∫∂È«π§Ë–");
+                    alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡πÉ‡∏´‡πâ‡∏Ñ‡∏£‡∏ö‡∏ñ‡πâ‡∏ß‡∏ô‡∏Ñ‡πà‡∏∞");
                     $('#' + arr_chk[i]).focus();
                     exit;
                 }
@@ -475,7 +475,9 @@ unset($_SESSION["discount"]);
         }
 
     </script>
-<? require("./date_picker.php"); ?>
+<? require("./date_picker.php");
+
+ ?>
     <form method="post" action="billb_operate.php?state=<?= $_GET['id'] == "" ? 0 : 1 ?>" name="frm"
           onsubmit="return checkFormsubmit(this)">
         <table border="0">
@@ -508,17 +510,24 @@ unset($_SESSION["discount"]);
                                             <caption>Payment</caption>
                                             <thead>
                                             <tr>
-                                                <th width="5%" align="center"><strong>‡≈◊Õ°</strong></th>
-                                                <th width="25%"><strong>ª√–‡¿∑</strong></th>
-                                                <th width="5%"><strong>‡ß‘π</strong></th>
-                                                <th width="10%"><strong>√Ÿª·∫∫ </strong></th>
-                                                <th width="10%"><strong> À¡“¬‡Àµÿ</strong></th>
+                                                <th width="5%" align="center"><strong>‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</strong></th>
+                                                <th width="25%"><strong>‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó</strong></th>
+                                                <th width="5%"><strong>‡πÄ‡∏á‡∏¥‡∏ô</strong></th>
+                                                <th width="10%"><strong>‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö </strong></th>
+                                                <th width="10%"><strong> ‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</strong></th>
                                             </tr>
                                             </thead>
                                             <tbody>
                                             <?php
                                             $payment_idx = explode(',', $set_payment[0]['payment_id']);
+
+
+                                            //var_dump($payment_idx);
+
                                             foreach ($payment_idx as $key => $payment_id) {
+                                                $charset = "SET NAMES 'UTF8'"; 
+                                                mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+                                
                                                 $payment = query("*", 'ali_payment pm', "pm.id = '{$payment_id}' and pm.shows ='1' ");
                                                 if (count($payment)) {
                                                     ?>
@@ -543,7 +552,7 @@ unset($_SESSION["discount"]);
                                                                         onchange='checkinForm();'
                                                                         id="select<?= $payment[0]['payment_column'] ?>"
                                                                         tabindex="63">
-                                                                    <option value="">°√ÿ≥“‡≈◊Õ°√Ÿª·∫∫°“√™”√–</option>
+                                                                    <option value="">‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏£‡∏π‡∏õ‡πÅ‡∏ö‡∏ö‡∏Å‡∏≤‡∏£‡∏ä‡∏≥‡∏£‡∏∞</option>
                                                                     <?php foreach ($paymem_option as $keyx => $valx) { ?>
                                                                         <option value="<?= $valx['id'] ?>"><?= $valx['pay_desc'] ?></option>
                                                                     <?
@@ -583,36 +592,36 @@ unset($_SESSION["discount"]);
                                         <thead>
                                         <tr>
                                             <th width="10%" align="center"></th>
-                                            <th width="60%" align="center">°√Õ°¢ÈÕ¡Ÿ≈∑’ËÕ¬ŸË ”À√—∫®—¥ Ëß„À¡Ë À√◊Õ <input
+                                            <th width="60%" align="center">‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡πÉ‡∏´‡∏°‡πà ‡∏´‡∏£‡∏∑‡∏≠ <input
                                                         type="checkbox" onchange="getAllCaddress(this.checked)">
-                                                 Ëß ‘π§È“µ“¡∑’ËÕ¬ŸË∑’Ë‰¥È·®Èß‰«È°—∫∫√‘…—∑œ
+                                                ‡∏™‡πà‡∏á‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ï‡∏≤‡∏°‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà‡∏ó‡∏µ‡πà‡πÑ‡∏î‡πâ‡πÅ‡∏à‡πâ‡∏á‡πÑ‡∏ß‡πâ‡∏Å‡∏±‡∏ö‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó‡∏Ø
                                             </th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td width="10%" align="right">™◊ËÕπ“¡- °ÿ≈<font color="#ff0000">*</font>
+                                            <td width="10%" align="right">‡∏ä‡∏∑‡πà‡∏≠‡∏ô‡∏≤‡∏°-‡∏™‡∏Å‡∏∏‡∏•<font color="#ff0000">*</font>
                                             </td>
                                             <td width="60%" style="text-align:left;"><input value="" name="cname"
                                                                                             id="cname"></td>
                                         </tr>
                                         <tr>
-                                            <td align="right">‡∫Õ√Ï‚∑√»—æ∑Ï<font color="#ff0000">*</font></td>
+                                            <td align="right">‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;"><input value="" name="cmobile" id="cmobile">
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="right">∑’ËÕ¬ŸË<font color="#ff0000">*</font></td>
+                                            <td align="right">‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;"><textarea
                                                         style="width:270px;height:60px;resize:none;" name="caddress"
                                                         id="caddress"></textarea></td>
                                         </tr>
                                         <tr>
-                                            <td align="right">®—¥À«—¥<font color="#ff0000">*</font></td>
+                                            <td align="right">‡∏à‡∏±‡∏î‡∏´‡∏ß‡∏±‡∏î<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;">
                                                 <select name="cprovince" id="cprovince"
                                                         onchange="getCaddress('camphur')">
-                                                    <option value="">°√ÿ≥“‡≈◊Õ°</option>
+                                                    <option value="">‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
                                                     <?
                                                     $cprovince = query("*", 'province', " 1=1 ");
                                                     foreach ($cprovince as $keys => $values) {
@@ -623,27 +632,27 @@ unset($_SESSION["discount"]);
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="right">Õ”‡¿Õ<font color="#ff0000">*</font></td>
+                                            <td align="right">‡∏≠‡∏≥‡πÄ‡∏†‡∏≠<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;">
                                                 <select name="camphur" id="camphur" onchange="getCaddress('cdistrict')">
-                                                    <option value="">°√ÿ≥“‡≈◊Õ°</option>
+                                                    <option value="">‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="right">µ”∫≈<font color="#ff0000">*</font></td>
+                                            <td align="right">‡∏ï‡∏≥‡∏ö‡∏•<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;">
                                                 <select name="cdistrict" id="cdistrict" onchange="getCaddress('czip')">
-                                                    <option value="">°√ÿ≥“‡≈◊Õ°</option>
+                                                    <option value="">‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>
                                                 </select>
                                             </td>
                                         </tr>
                                         <tr>
-                                            <td align="right">√À— ‰ª√…≥’¬Ï<font color="#ff0000">*</font></td>
+                                            <td align="right">‡∏£‡∏´‡∏±‡∏™‡πÑ‡∏õ‡∏£‡∏©‡∏ì‡∏µ‡∏¢‡πå<font color="#ff0000">*</font></td>
                                             <td style="text-align:left;"><input value="" name="czip" id="czip"></td>
                                         </tr>
                                         <tr>
-                                            <td align="right">À¡“¬‡Àµÿ</td>
+                                            <td align="right">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</td>
                                             <td style="text-align:left;"><textarea style="width:270px;resize:none;"
                                                                                    name="cremark"
                                                                                    id="cremark"></textarea></td>
@@ -658,12 +667,12 @@ unset($_SESSION["discount"]);
                                         <thead>
                                         <tr>
                                             <th width="10%" align="center"></th>
-                                            <th width="60%" align="center">°√Õ°¢ÈÕ¡Ÿ≈°“√√—∫ ‘π§È“</th>
+                                            <th width="60%" align="center">‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Å‡∏≤‡∏£‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤</th>
                                         </tr>
                                         </thead>
                                         <tbody>
                                         <tr>
-                                            <td align="right">À¡“¬‡Àµÿ</td>
+                                            <td align="right">‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏</td>
                                             <td style="text-align:left;"><textarea style="width:270px;resize:none;"
                                                                                    name="cremark1"
                                                                                    id="cremark1"></textarea></td>
@@ -676,7 +685,11 @@ unset($_SESSION["discount"]);
                     </table>
                 </td>
                 <td>
-                    <? include('product_tab_new.php'); ?>
+                    <? 
+                    
+                    include('product_tab_new.php'); 
+                   
+                    ?>
                 </td>
             </tr>
         </table>

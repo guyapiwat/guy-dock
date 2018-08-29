@@ -20,7 +20,7 @@ require_once("logtext.php");
 
 	if($cancel == 0){
 		$sqlUpdate = "UPDATE ".$dbprefix."rasaleh SET cancel='1',uid_cancel = '".$_SESSION["adminusercode"]."',cancel_date = '".$_SESSION["datetimezone"]."' WHERE id='$bid' ";
-		logtext(true,$_SESSION['adminusercode'],'¬°‡≈‘° ∫‘≈√—∫ Ëß ‘π§È“',$sql);
+		logtext(true,$_SESSION['adminusercode'],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏ö‡∏¥‡∏•‡∏£‡∏±‡∏ö‡∏™‡πà‡∏á‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$sql);
 		//echo $sql;
 		
 		
@@ -49,7 +49,7 @@ require_once("logtext.php");
 ["page"]."&chktype=".$_REQUEST["chktype"]."'</script>";	
 	}else{
 
-		echo "‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈´È”‰¥È";
+		echo "‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ã‡πâ‡∏≥‡πÑ‡∏î‡πâ";
 	}
 
 ?>

@@ -26,7 +26,7 @@ require_once ("function.log.inc.php");
 		//====================LOG===========================
 		$text="uid=".$_SESSION["admininvent"]." action=easale_cancel=>$sql";
 		writelogfile($text);
-			logtext(true,$_SESSION['admininvent'],'¬°‡≈‘°∫‘≈‚Õπ '.$bid,$bid);
+			logtext(true,$_SESSION['admininvent'],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡πÇ‡∏≠‡∏ô '.$bid,$bid);
 		//=================END LOG===========================
 		$sql = "select * from ".$dbprefix."import_stock_d where sano='$bid'";
 			$result = mysql_query($sql);
@@ -41,7 +41,7 @@ require_once ("function.log.inc.php");
 		
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=60'</script>";	
 	}else{
-		echo '∫‘≈π’È‰¥È¬°‡≈‘°‰ª·≈È« ‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈‰¥È ';
+		echo '‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß ‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡πÑ‡∏î‡πâ ';
 		exit;
 	}
 

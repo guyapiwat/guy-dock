@@ -6,14 +6,14 @@ require_once ("function.php");
 	$sql = "select * from ".$dbprefix."tsaleh where id='$bid' and cancel=1";
 	$result = mysql_query($sql);
 	if(mysql_num_rows($result)>0){
-		echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È ...∫‘≈π’È∂Ÿ°¬°‡≈‘°‰ª‡√’¬∫√ÈÕ¬·≈È«');window.location='index.php?sessiontab=6&sub=2323'</script>";
+		echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ ...‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡∏ñ‡∏π‡∏Å‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡πÑ‡∏õ‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=6&sub=2323'</script>";
 		exit;
 	}
 
 	$sql = "select * from ".$dbprefix."tsaleh where id='$bid' and receive=1";
 	$result = mysql_query($sql);
 	if(mysql_num_rows($result)>0){
-		echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È ...∫‘≈π’È√—∫¢Õß‰ª‡√’¬∫√ÈÕ¬·≈È«');window.location='index.php?sessiontab=6&sub=2323'</script>";
+		echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ ...‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á‡πÑ‡∏õ‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß');window.location='index.php?sessiontab=6&sub=2323'</script>";
 		exit;
 	}
 
@@ -31,7 +31,7 @@ require_once ("function.php");
 	//=================END LOG===========================
 	//echo $sql;
 	mysql_query($sql);
-	logtext(true,$_SESSION["adminusercode"],'¬°‡≈‘°§◊π∫‘≈',$bid);
+	logtext(true,$_SESSION["adminusercode"],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏Ñ‡∏∑‡∏ô‡∏ö‡∏¥‡∏•',$bid);
 
 	$sqlS = "select * from ".$dbprefix."tsaleh where id='$bid' ";
 	$sqlSS = mysql_query($sqlS);
@@ -119,7 +119,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 				mysql_query($sql);
 
 				
@@ -140,7 +140,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 				mysql_query($sql);
 
 

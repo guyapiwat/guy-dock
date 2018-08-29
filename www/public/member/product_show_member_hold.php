@@ -64,7 +64,7 @@ function chknum(key){
 			step = i*9+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='≈∫' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -81,7 +81,7 @@ function chknum(key){
                     sumpv = sumpv + parseInt(pv);
                     sumtotal = sumtotal + parseInt(price);
                 }else{
-                    alert("®”π«π ‘π§È“¡’‰¡Ë‡æ’¬ßæÕ");
+                    alert("‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏°‡∏µ‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏û‡∏≠");
                     num = qty;
                 }
 				
@@ -107,17 +107,17 @@ function chknum(key){
 		if(out){
 		//alert(tag.length)
 			if(qty<=0){
-				alert("®”π«π ‘π§È“‰¡Ë‡æ’¬«æÕ");
+				alert("‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏ß‡∏û‡∏≠");
 				return;
 			}
 			place += "<tr>";//ssaledel(pcode,pdesc,price,pv)
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='≈∫' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + pcode + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='price[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='pv[]' value='" + pv + "'></td>";
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'  onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‰¡Ë “¡“√∂„ Ë§Ë“ 0 À√◊Õ ™ËÕß«Ë“ß‰¥È');this.value=1;cal();}\">";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'  onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÉ‡∏™‡πà‡∏Ñ‡πà‡∏≤ 0 ‡∏´‡∏£‡∏∑‡∏≠ ‡∏ä‡πà‡∏≠‡∏á‡∏ß‡πà‡∏≤‡∏á‡πÑ‡∏î‡πâ');this.value=1;cal();}\">";
 			place += "<input type='hidden' name='lmqty[]' value='" + qty + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalprice[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalpv[]' value='" + pv + "'></td>";
@@ -191,13 +191,13 @@ $rec->setBackLink($PHP_SELF,"sessiontab=".$sesstab."");
 if(isset($page))
     $rec->setCurPage($page);
 $rec->setShowField("pcode,pdesc,qty");
-$rec->setFieldDesc("√À— ,√“¬≈–‡Õ’¬¥,®”π«π");
+$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô");
 $rec->setFieldAlign("center,left,center,right,right");
 $rec->setFieldSpace("20%,60%,20%");
 $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,qty","IMAGE","");
 $rec->setSearch("a.pcode,a.pdesc,a.price,a.pv");
-$rec->setSearchDesc("√À— ,√“¬≈–‡Õ’¬¥,√“§“,§–·ππ");
+$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

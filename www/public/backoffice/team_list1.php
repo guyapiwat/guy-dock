@@ -5,11 +5,11 @@
 	 <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
 	  <tr><td colspan="6" align="center">&nbsp;</td></tr> 
 	  <tr>	
-		<td align="right">รหัสสมาชิก&nbsp;</td>
+		<td align="right">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ&nbsp;</td>
 		<td><input type="text" name="fmcode" id="fmcode" placeholder="TH0000001" value="<?=$fmcode?>" maxlength='9'/>
 
-	   <input type="submit" name="Submit" value="ตกลง">
-		&nbsp;<!--input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /--></td>
+	   <input type="submit" name="Submit" value="เธ•เธเธฅเธ">
+		&nbsp;<!--input type="button" name="Submit" value="เธ”เธนเธฃเธฒเธขเธเธฒเธ" onclick="checkround()" /--></td>
 	  </tr>
 	 <tr><td colspan="6" align="center">&nbsp;</td></tr>
 	</table>
@@ -27,15 +27,15 @@ if(!empty($fmcode)) {
 		?>
 		<table width=60% align=center><tr><td align=center>
 
-		 <a href="?sessiontab=1&sub=26&lr=1&fmcode=<?=$fmcode?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>รายชื่อฝั่งซ้าย</a>
+		 <a href="?sessiontab=1&sub=26&lr=1&fmcode=<?=$fmcode?>" <?if($lr =='1'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>เธฃเธฒเธขเธเธทเนเธญเธเธฑเนเธเธเนเธฒเธข</a>
 		</td>
 		<td align=center>
 
-		<a href="?sessiontab=1&sub=26&fmcode=<?=$fmcode?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>ทั้งหมด</a>
+		<a href="?sessiontab=1&sub=26&fmcode=<?=$fmcode?>" <?if($lr ==''){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>เธ—เธฑเนเธเธซเธกเธ”</a>
 		</td>
 		<td align=center>
 
-		<a href="?sessiontab=1&sub=26&lr=2&fmcode=<?=$fmcode?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>รายชื่อฝั่งขวา</a>
+		<a href="?sessiontab=1&sub=26&lr=2&fmcode=<?=$fmcode?>" <?if($lr =='2'){?> style="background-color: #F00;padding: 5px;color: #FFF;"<?}?>>เธฃเธฒเธขเธเธทเนเธญเธเธฑเนเธเธเธงเธฒ</a>
 		</td>
 
 		</tr></table>
@@ -43,11 +43,11 @@ if(!empty($fmcode)) {
 		<?
 
 		//$sql = "SELECT * FROM ".$dbprefix."member ";
-		// JOIN เมื่อต้องการข้อมูลวันหมดอายุในโปรแกรม
+		// JOIN เน€เธกเธทเนเธญเธ•เนเธญเธเธเธฒเธฃเธเนเธญเธกเธนเธฅเธงเธฑเธเธซเธกเธ”เธญเธฒเธขเธธเนเธเนเธเธฃเนเธเธฃเธก
 		$mm = date("Y-m");
 		//$mm = date("Y");
 		$sql = "SELECT *,";
-		$sql .= "CASE lr WHEN '1' THEN 'ซ้าย' WHEN '2' THEN 'ขวา'  END AS lrxx,CASE lr1 WHEN '1' THEN 'ซ้าย' WHEN '2' THEN 'ขวา'  END AS lrxxx from ".$dbprefix."member_show where uid = '$fmcode' ";
+		$sql .= "CASE lr WHEN '1' THEN 'เธเนเธฒเธข' WHEN '2' THEN 'เธเธงเธฒ'  END AS lrxx,CASE lr1 WHEN '1' THEN 'เธเนเธฒเธข' WHEN '2' THEN 'เธเธงเธฒ'  END AS lrxxx from ".$dbprefix."member_show where uid = '$fmcode' ";
 		if($_GET["lr"]){
 		$sql .= " and lr = '".$_GET["lr"]."' ";
 		}
@@ -192,27 +192,27 @@ if(!empty($fmcode)) {
 
 		?><br>
 		<table align=center width="100%">
-		จำนวนตำแหน่งทางธุรกิจทั้งหมด  : <?=$_SESSION[All]?> รหัส <BR>
+		เธเธณเธเธงเธเธ•เธณเนเธซเธเนเธเธ—เธฒเธเธเธธเธฃเธเธดเธเธ—เธฑเนเธเธซเธกเธ”  : <?=$_SESSION[All]?> เธฃเธซเธฑเธช <BR>
 			<tr>
-				<td ><img src="images/z01.png" height="20" ><font size = 4>Member : <?=$_SESSION[countMB]?> รหัส</td>
-				<td ><img src="images/z02.png" height="20" ><font size = 4>Bronz : <?=$_SESSION[countBR]?>  รหัส</td>
-				<td ><img src="images/z03.png" height="20"><font size = 4>Silver : <?=$_SESSION[countSI]?> รหัส</td>
-				<td ><img src="images/z04.png" height="20"><font size = 4>Gold  : <?=$_SESSION[countGO]?>  รหัส</td>
+				<td ><img src="images/z01.png" height="20" ><font size = 4>Member : <?=$_SESSION[countMB]?> เธฃเธซเธฑเธช</td>
+				<td ><img src="images/z02.png" height="20" ><font size = 4>Bronz : <?=$_SESSION[countBR]?>  เธฃเธซเธฑเธช</td>
+				<td ><img src="images/z03.png" height="20"><font size = 4>Silver : <?=$_SESSION[countSI]?> เธฃเธซเธฑเธช</td>
+				<td ><img src="images/z04.png" height="20"><font size = 4>Gold  : <?=$_SESSION[countGO]?>  เธฃเธซเธฑเธช</td>
 			</td>
 			<tr>    
-				<td ><img src="images/z05.png" height="20"><font size = 4>Platinum : <?=$_SESSION[countPL]?>  รหัส</td>
+				<td ><img src="images/z05.png" height="20"><font size = 4>Platinum : <?=$_SESSION[countPL]?>  เธฃเธซเธฑเธช</td>
 				<td ></td>
 				<td ></td>
 				<td ></td>
 			</tr>
 		</table>
 		<table align=center width="100%">
-		จำนวนตำแหน่งเกียติยศทั้งหมด  : <?=$_SESSION[All_1]?> รหัส 
+		เธเธณเธเธงเธเธ•เธณเนเธซเธเนเธเน€เธเธตเธขเธ•เธดเธขเธจเธ—เธฑเนเธเธซเธกเธ”  : <?=$_SESSION[All_1]?> เธฃเธซเธฑเธช 
 			<tr>    
 				
-				<td ><img src="images/z07.png" height="20"><font size = 4>Diamond : <?=$_SESSION[countDI]?>  รหัส</td>
-				<td ><img src="images/z08.png" height="20"><font size = 4>Blue Diamond : <?=$_SESSION[countBD]?>  รหัส </td>
-				<td ><img src="images/z09.png" height="20"><font size = 4>King Diamond : <?=$_SESSION[countKD]?>  รหัส</td>
+				<td ><img src="images/z07.png" height="20"><font size = 4>Diamond : <?=$_SESSION[countDI]?>  เธฃเธซเธฑเธช</td>
+				<td ><img src="images/z08.png" height="20"><font size = 4>Blue Diamond : <?=$_SESSION[countBD]?>  เธฃเธซเธฑเธช </td>
+				<td ><img src="images/z09.png" height="20"><font size = 4>King Diamond : <?=$_SESSION[countKD]?>  เธฃเธซเธฑเธช</td>
 				<td >&nbsp;</td>
 			</tr>
 		</table>
@@ -236,9 +236,9 @@ if(!empty($fmcode)) {
 				if(isset($page))
 					$rec->setCurPage($page);
 				$rec->setShowField("mcode,name_t,mdate,lrxx,pos_cur,pos_cur2,totpv,sp_code,sp_name,lv,okok");
-				$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันสมัคร,ด้าน,ตำแหน่ง,เกีรติยศ,คะแนนส่วนตัว,รหัสผู้แนะนำ,ชื่อผู้แนะนำ,ชั้น,real");
+				$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธชเธกเธฑเธเธฃ,เธ”เนเธฒเธ,เธ•เธณเนเธซเธเนเธ,เน€เธเธตเธฃเธ•เธดเธขเธจ,เธเธฐเนเธเธเธชเนเธงเธเธ•เธฑเธง,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ,เธเธฑเนเธ,real");
 				//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-				//$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ");
+				//$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธ•เธณเนเธซเธเนเธ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ");
 				$rec->setFieldAlign("center,left,center,center,center,center,right,center,left,center,center,center");
 				$rec->setFieldSpace("8%,20%,8%,4%,8%,8%,8%,8%,15%,5%,5%");
 				$rec->setFieldLink("index.php?sessiontab=4&sub=1&cmc=,");
@@ -248,12 +248,12 @@ if(!empty($fmcode)) {
 
 				$rec->exportXls("ExportXls","Team_List".date("Ymd").".xls","SH_QUERY");
 				$str = "<fieldset><a href='".$rec->download("ExportXls","Team_List".date("Ymd").".xls")."' >";
-				$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+				$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 				//$rec->getParam();
 				$rec->setSpace($str);
 
 				$rec->setSearch("mcode");
-				$rec->setSearchDesc("รหัสสมาชิก");
+				$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ");
 				$rec->showRec(1,'SH_QUERY');
 }
 

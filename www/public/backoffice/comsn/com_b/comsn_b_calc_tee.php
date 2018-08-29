@@ -1,14 +1,14 @@
 <script language="javascript">
 function checkround(){
 	if(document.getElementById("ftrcode").value==""){
-		alert("��س�����ͺ��äӹǳ");
+		alert("กรุณาใส่รอบการคำนวณ");
 		document.getElementById("ftrcode").focus();
 		return false;
 	}else{
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ��äӹǳ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบการคำนวณให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -26,7 +26,7 @@ function chknum(key){
 <? include("global.php");?>
 <? require_once ("function.log.inc.php");?>
 <?
-//echo '�͡�õ�Ǩ�ͺ';
+//echo 'รอการตรวจสอบ';
 //exit;
 set_time_limit( 0);
 ini_set("memory_limit","1024M");
@@ -41,14 +41,14 @@ if(!isset($_REQUEST["ftrcode"])){
 		<?
 			$ftrcode = $_REQUEST["ftrcode"];
 			if (strpos($ftrcode,"-")===false){
-				//�ͺ������� == �ͺ����ش
+				//รอบเริ่มต้น == รอบสิ้นสุด
 				$ftrc[0]=$ftrcode;
 				$ftrc[1]=$ftrcode;
 			}else{
 				$ftrc = explode('-',$ftrcode);
 			}
 			if($ftrc[0]>$ftrc[1]){
-				?><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT><?
+				?><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT><?
 				showdialog();
 				exit;
 			}else{
@@ -60,11 +60,11 @@ if(!isset($_REQUEST["ftrcode"])){
 				$result = mysql_query($sql);
 				for($i=0;$i<mysql_num_rows($result);$i++){
 					$data = mysql_fetch_object($result);
-					?><font color="#ff0000">�ͺ <?=$data->rcode?> �ӹǳ����� <br /></font><?
+					?><font color="#ff0000">รอบ <?=$data->rcode?> คำนวณไปแล้ว <br /></font><?
 				}
 				mysql_free_result($result);
 				if($i>0){
-					?><font color="#ff0000">��ͧź��äӹǳ����Ԫ��� �ͺ����͹ �֧�Фӹǳ������<br /></font><?
+					?><font color="#ff0000">ต้องลบการคำนวณคอมมิชชั่น รอบนี้ก่อน จึงจะคำนวณใหม่ได้<br /></font><?
 					showdialog();
 					exit;
 				}	
@@ -80,19 +80,19 @@ if(!isset($_REQUEST["ftrcode"])){
 				}
 
 			$time_start = getmicrotime();
-			echo "�������äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-			echo "1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around<BR>";
+			echo "เริ่มการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+			echo "1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around<BR>";
 			$text="uid=".$_SESSION["adminuserid"]." action=Unilivel calc rcode=$ftrc[0]-$ftrc[1]";
 			writelogfile($text);
-			//       1.����Ѻ�����ͺ Ro �����ҧ Frcode-Trcode � around
-			//           1.1 ��ҹ Ro, FSaNo, TSaNo
-			//           1.2 ���ҧ��� BM+rcode, BC+rcode
-			//           1.3 ź������ BTOTSALE ��ͺ RO ����͡��͹
+			//       1.สำหรับแต่ละรอบ Ro ระหว่าง Frcode-Trcode ใน around
+			//           1.1 อ่าน Ro, FSaNo, TSaNo
+			//           1.2 สร้างไฟล์ BM+rcode, BC+rcode
+			//           1.3 ลบข้อมูล BTOTSALE ในรอบ RO นี้ออกก่อน
 			for($ro=$ftrc[0];$ro<=$ftrc[1];$ro++){
 
 				///////////////////////////////////////////////////////////////////////
-				//$ro �����ҧ Frcode-Trcode/////////////////////////////////////////
-				//           1.1 ��ҹ ro, FSaNo, TSaNo
+				//$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
+				//           1.1 อ่าน ro, FSaNo, TSaNo
 				//$step="1.1";
 				//echo "***ro=$ro<BR>";
 				//$bonusperpair = 500;
@@ -108,7 +108,7 @@ if(!isset($_REQUEST["ftrcode"])){
 					$tsano=$row["tsano"];
 					$tdate=$row["tdate"];
 					if($chktdate < $tdate){
-						//echo '<font color="#ff0000" size=5>��ͧ�ӹǹ�ͺ����ѹ���ú��͹��͹�֧�ӹǹ�����͹���Ѻ  <br /></font>';
+						//echo '<font color="#ff0000" size=5>ต้องคำนวนรอบรายวันให้ครบเดือนก่อนถึงคำนวนรายเดือนได้ครับ  <br /></font>';
 						//exit;
 					}
 					$fdate=$row["fdate"];
@@ -121,11 +121,11 @@ if(!isset($_REQUEST["ftrcode"])){
 					$month=explode("-",$row["tdate"]);
 					$pmonth=$month[0].$month[1];
 					///////////////////////////////////////////////////////////////////////
-					//�ӹǳ �����ͺ $ro
-					echo "<BR><BR>�ӹǳ⺹���ͺ��� RO=$ro<BR>";
-					//			 1.4 �� ambonus = �纤�ṹ����Ѻ 3 �� L-C-R
+					//คำนวณ แต่ละรอบ $ro
+					echo "<BR><BR>คำนวณโบนัสรอบที่ RO=$ro<BR>";
+					//			 1.4 ใช้ ambonus = เก็บคะแนนสำหรับ 3 ขา L-C-R
 
-					//ź������� apv ���������ͺ $ro
+					//ลบข้อมูลใน apv ที่อยู่ในรอบ $ro
 
 								
 					///////////////////////////////////////////////////////////////////
@@ -143,9 +143,9 @@ if(!isset($_REQUEST["ftrcode"])){
 					/////////////////////// Delete ////////////////////////////////////
 					///////////////////////////////////////////////////////////////////
 		
-					//    2. ���͡��Ţ�·�������ͺ���
-					//       2.1 ����Ѻ���к�Ţ�� �����㹵��ҧ Total PV
-					echo "            2. ����Ѻ��Ţͧ sMC �ء��� asaleh ��ͺ $ro ���<BR>";
+					//    2. เลือกบิลขายทั้งหมดในรอบนี้
+					//       2.1 สำหรับแต่ละบิลขาย เก็บไว้ในตาราง Total PV
+					echo "            2. สำหรับบิลของ sMC ทุกคนใน asaleh ในรอบ $ro นี้<BR>";
 					//-=- update21082008 
 					//$cnt =0;
 					//unset($mcode_chk);
@@ -182,7 +182,7 @@ if(!isset($_REQUEST["ftrcode"])){
 					//mysql_query($update_matching);
 
 			//exit;
-				//��Ѻ calc �ͧ bround ����� '1'
+				//ปรับ calc ของ bround ให้เป็น '1'
 				$sql="update ".$dbprefix."bround set calc='1',calc_date = '".date("Y-m-d H:i:s")."' where rcode='$ro' ";
 				if(mysql_query($sql)){
 					mysql_query("COMMIT");
@@ -193,14 +193,14 @@ if(!isset($_REQUEST["ftrcode"])){
 			 
 				}
 				//mysql_free_result($result);
-				//$ro �����ҧ Frcode-Trcode/////////////////////////////////////////
+				//$ro ระหว่าง Frcode-Trcode/////////////////////////////////////////
 				///////////////////////////////////////////////////////////////////////
 			}
 
 			$time_end = getmicrotime();
 			$time = $time_end - $time_start;
-			echo "����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-			echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";
+			echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+			echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
 
 		} //end else 
 		?>
@@ -219,14 +219,14 @@ function showdialog(){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center">��͡�ͺ��äӹǳ�ٹ������ ����ͧ��äӹǹ�� 1-12</td>
+    <td colspan="2" align="center">กรอกรอบการคำนวณยูนิเลเวล ที่ต้องการคำนวนเช่น 1-12</td>
     </tr>
   <tr>
     <td>&nbsp;</td>
     <td>&nbsp;</td>
   </tr>
   <tr>
-    <td width="40%" align="right">�ͺ&nbsp;&nbsp;</td>
+    <td width="40%" align="right">รอบ&nbsp;&nbsp;</td>
     <td width="60%">
       <input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" /></td>
   </tr>
@@ -235,7 +235,7 @@ function showdialog(){
     <td>&nbsp;</td>
   </tr>
   <tr align="center">
-    <td colspan="2"><input type="button" name="Submit" value="�ӹǳ�����" onClick="checkround()"></td>
+    <td colspan="2"><input type="button" name="Submit" value="คำนวณรายได้" onClick="checkround()"></td>
     </tr>
   <tr>
     <td>&nbsp;</td>
@@ -277,7 +277,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 				$cnt_c=0;
 				$flg=false;
 				$flg1 = false;
-				//-----�纵��˹觻Ѩ�غѹ
+				//-----เก็บตำแหน่งปัจจุบัน
 				$sql = "SELECT pos_cur1,pos_cur2 from ".$dbprefix."member WHERE mcode='".$mcode[$j]."'  ";
 				$rs = mysql_query($sql);
 				$pos_old = '';
@@ -292,7 +292,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 				}else {// GS   //GS
 					$pos_old =  $pos_old1;
 				}
-				//�ӹǳ���˹�
+				//คำนวณตำแหน่ง
 				$pos_new = $pos_old;
 				$weakstrong = getweakstrong($dbprefix,$mcode1[$j],$fdate,$tdate,$ro);				
 				if($weakstrong >= 350000){
@@ -307,7 +307,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 
 				if($flg1==true&&$flg==true){					                  
 					if($pos_new != $pos_old and $pos_piority[$pos_new]>$pos_piority[$pos_old] ){
-						//echo "���� ".$mcode[$j]."'���˹����='".$pos_old."'����蹧����='".$pos_new."   PV��ǹ���=".$mexp."<br>";
+						//echo "รหัส ".$mcode[$j]."'ตำแหน่งเก่า='".$pos_old."'ตำแห่นงใหม่='".$pos_new."   PVส่วนตัว=".$mexp."<br>";
 						$sql = "UPDATE ".$dbprefix."member SET pos_cur2='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
 						//====================LOG===========================
 						$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
@@ -358,7 +358,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 										$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 										$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 										mysql_query($sql);
-										//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+										//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 										$up="";
 									}else{
 										$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -494,7 +494,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 										$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 										$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 										mysql_query($sql);
-										//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+										//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 										$up="";
 									}else{
 										$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -620,7 +620,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 										$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 										$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 										mysql_query($sql);
-										//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+										//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 										$up="";
 									}else{
 										$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -737,7 +737,7 @@ function fnc_calc_set_position2($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 										$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 										$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 										mysql_query($sql);
-										//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+										//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 										$up="";
 									}else{
 										$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -913,8 +913,8 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 			//echo " $totalamt[$j] :: $mcode[$j] :: $totalpv <br> ";
 				if($totalpv>=0  or $mcode[$j] == '0000001' or $mcode[$j] == '0000002' or $mcode[$j] == '0000003'){
 					if($totalamt1[$j] > 0){
-						//if($totalpv>= 250 and $cmp[$j] == '�ú' and $cmp2[$j] == '�ú'  and  $cmp3[$j] == '�ú'  and !empty($acc_no[$j]) and $mem_cntday[$j] > -90 and $status_suspend[$j] <> '1'  ){
-						if($cmp[$j] == '�ú' and $cmp2[$j] == '�ú'  and  $cmp3[$j] == '�ú'  and !empty($acc_no[$j]) and $status_suspend[$j] <> '1'  ){
+						//if($totalpv>= 250 and $cmp[$j] == 'ครบ' and $cmp2[$j] == 'ครบ'  and  $cmp3[$j] == 'ครบ'  and !empty($acc_no[$j]) and $mem_cntday[$j] > -90 and $status_suspend[$j] <> '1'  ){
+						if($cmp[$j] == 'ครบ' and $cmp2[$j] == 'ครบ'  and  $cmp3[$j] == 'ครบ'  and !empty($acc_no[$j]) and $status_suspend[$j] <> '1'  ){
 							if($totalpv>= 0 ){
 								if($totalamt1[$j] >= 1){
 									$total12 = $total12+$totalamt1[$j];
@@ -933,13 +933,13 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 										echo $mcode[$j].' : '.$totalamt1[$j].' : '.$pos_piority[$pos_cur2[$j]].' : '.$pos_cur2[$j].' : <br>';
 										exit;
 									}*/
-									if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-									if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
-									if($cmp3[$j] == '�ú')$c_note5 = 1;else $c_note5 = "";
+									if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+									if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
+									if($cmp3[$j] == 'ครบ')$c_note5 = 1;else $c_note5 = "";
 									if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
-										//pvh �ʹ¡�
-									//pv �ʹ¡��
-									//pvb �ʹ��͹���
+										//pvh ยอดยกไป
+									//pv ยอดยกมา
+									//pvb ยอดเดือนนี้
 									$sql = "INSERT INTO ".$dbprefix."cmbonus_b (rcode,mcode,status,pv,pvb,pvh,fob,cycle,smb,matching,onetime,total,totaly,mdate,month_pv,mpos,tot_vat,tot_tax,title,paydate,status_pv,locationbase,crate,mtype,com_transfer_chagre,name_f,name_t,id_card,id_tax,vip,bankcode,acc_name,fdate,tdate) ";
 									$sql .= "VALUES('$ro','".$mcode[$j]."','1','".$moneyb[$j]."','".$totalamt[$j]."','0','".$totalfast[$j]."','".$totalbinary[$j]."','".$totalstar[$j]."','".$totalmatching[$j]."','".$totalonetime[$j]."','".$totalamt1[$j]."','".$total12."','".$strfdate."','".$month[0].$month[1]."','".$pos_cur[$j]."','".$vat[$j]."','".$tax[$j]."','".$title[$j]."','$paydate','$totalpv','".$locationbase[$j]."','".$crate[$j]."','".$mtype[$j]."','$com_transfer_chagre','".$name_f[$j]."','".$name_t[$j]."','".$id_card[$j]."','".$id_tax[$j]."','".$mtype2[$j]."','".$bankcode[$j]."','".$acc_name[$j]."','$fdate','$tdate')";
 										
@@ -948,9 +948,9 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 								}else{
 									$btotal = $total12;
 									$tax[$j] = 0;$vat[$j] = 0;
-								if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-								if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
-								if($cmp3[$j] == '�ú')$c_note5 = 1;else $c_note5 = "";
+								if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+								if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
+								if($cmp3[$j] == 'ครบ')$c_note5 = 1;else $c_note5 = "";
 								if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
 								if($mem_cntday[$j] <= -90){
 									$c_note4 = 1;
@@ -981,9 +981,9 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 										else $tax[$j] = 0;
 									}
 
-									if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-									if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
-									if($cmp3[$j] == '�ú')$c_note5 = 1;else $c_note5 = "";
+									if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+									if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
+									if($cmp3[$j] == 'ครบ')$c_note5 = 1;else $c_note5 = "";
 									if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
 
 									$total12 = backmonthpv3($dbprefix,$mcode[$j],$ro,$tdate)+$totalamt1[$j];
@@ -1003,9 +1003,9 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 
 									
 
-									//pvh �ʹ¡�
-									//pv �ʹ¡��
-									//pvb �ʹ��͹���
+									//pvh ยอดยกไป
+									//pv ยอดยกมา
+									//pvb ยอดเดือนนี้
 									$sql = "INSERT INTO ".$dbprefix."cmbonus_b (rcode,mcode,status,pv,pvb,pvh,fob,cycle,smb,matching,onetime,total,totaly,mdate,month_pv,mpos,tot_vat,tot_tax,title,paydate,status_pv,locationbase,crate,mtype,com_transfer_chagre,name_f,name_t,id_card,id_tax,vip,bankcode,acc_name,fdate,tdate) ";
 									$sql .= "VALUES('$ro','".$mcode[$j]."','1','".$moneyb[$j]."','".$totalamt[$j]."','".$btotal."','".$totalfast[$j]."','".$totalbinary[$j]."','".$totalstar[$j]."','".$totalmatching[$j]."','".$totalonetime[$j]."','".$totalamt1[$j]."','".$total12."','".$strfdate."','".$month[0].$month[1]."','".$pos_cur[$j]."','".$vat[$j]."','".$tax[$j]."','".$title[$j]."','$paydate','$totalpv','".$locationbase[$j]."','".$crate[$j]."','".$mtype[$j]."','$com_transfer_chagre','".$name_f[$j]."','".$name_t[$j]."','".$id_card[$j]."','".$id_tax[$j].",'".$mtype2[$j]."','".$bankcode[$j]."','".$acc_name[$j]."','$fdate','$tdate')";
 									mysql_query($sql);
@@ -1016,9 +1016,9 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 									$tax[$j] = 0;$vat[$j] = 0;
 									$totalamt1[$j] = $totalamt[$j]+$moneyb[$j];
 									$btotal = backmonthpv3($dbprefix,$mcode[$j],$ro,$tdate);
-								if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-								if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
-								if($cmp3[$j] == '�ú')$c_note5 = 1;else $c_note5 = "";
+								if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+								if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
+								if($cmp3[$j] == 'ครบ')$c_note5 = 1;else $c_note5 = "";
 								if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
 								
 								$c_note4 = "";
@@ -1035,9 +1035,9 @@ function fnc_calc_packfile($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate,$fmcode,$
 							mysql_query("update ".$dbprefix."smbonus set pstatus =1 , prcode ='$ro' WHERE prcode =0 and mcode='".$mcode[$j]."' $whereclass ");
 						}else{
 							$tax[$j] = 0;$vat[$j] = 0;
-							if($cmp[$j] == '�ú')$c_note1 = 1;else $c_note1 = "";
-							if($cmp2[$j] == '�ú')$c_note2 = 1;else $c_note2 = "";
-							if($cmp3[$j] == '�ú')$c_note5 = 1;else $c_note5 = "";
+							if($cmp[$j] == 'ครบ')$c_note1 = 1;else $c_note1 = "";
+							if($cmp2[$j] == 'ครบ')$c_note2 = 1;else $c_note2 = "";
+							if($cmp3[$j] == 'ครบ')$c_note5 = 1;else $c_note5 = "";
 							if(!empty($acc_no[$j]))$c_note3 = 1;else $c_note3 = "";
 							
 							$btotal = backmonthpv3($dbprefix,$mcode[$j],$ro,$tdate);
@@ -1200,7 +1200,7 @@ function fnc_calc_star_maker($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
 								$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 								$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 								mysql_query($sql);
-								//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+								//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 								$up="";
 							}else{
 								$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -1346,7 +1346,7 @@ function fnc_calc_star_maker($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
 								$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 								$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 								mysql_query($sql);
-								//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+								//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 								$up="";
 							}else{
 								$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -1542,7 +1542,7 @@ function calc_pool_bunus($dbprefix,$ro,$tdate,$fdate){
 		$total_pv = mysql_result($rs,0,'total_pv');
 	}
 	
-	//$total_pv = $total_pv*0.05;  // 5 % �ͧ�ʹ������
+	//$total_pv = $total_pv*0.05;  // 5 % ของยอดทั้งหมด
 		
 	$sql="SELECT * FROM ".$dbprefix."member where pos_cur2 = 'RB' or pos_cur2 = 'EM' or  pos_cur2 = 'D' or  pos_cur2 = 'DD' or  pos_cur2 = 'TD' ORDER BY lr DESC";
 	//echo $sql;
@@ -1754,7 +1754,7 @@ global $flag,$sum_pv;
 		$month=explode("-",$fdate);
 		$flag =1;
 		$sql1="SELECT * from ".$dbprefix."status WHERE mcode='$nmcode' and month_pv='".$month[0].$month[1]."' and status='1' ";
-		//echo "��Ǩ�ͺ����ѡ���ʹ ���� $mcode >>>> $sql1<br>";
+		//echo "ตรวจสอบบิลรักษายอด รหัส $mcode >>>> $sql1<br>";
 		$rs1=mysql_query($sql1);
 		if (mysql_num_rows($rs1)>'0') {
 			$row1= mysql_fetch_array($rs1, MYSQL_ASSOC);
@@ -1765,7 +1765,7 @@ global $flag,$sum_pv;
 		}
 }
 function get_data_sql($field,$sql){
-	//��ҹ��� �ҡ  select $field from $table where $field_and_value
+	//อ่านค่า จาก  select $field from $table where $field_and_value
 	$result=mysql_query($sql);
 	if($result){
 		if($row=mysql_fetch_object($result)){
@@ -1778,7 +1778,7 @@ function get_data_sql($field,$sql){
 }
 
 function get_data_object($field,$sql){
-	//��ҹ��� �ҡ  select $field from $table where $field_and_value
+	//อ่านค่า จาก  select $field from $table where $field_and_value
 	$result=mysql_query($sql);
 	if($result){
 		if($row=mysql_fetch_object($result)){
@@ -1797,7 +1797,7 @@ function getmicrotime() {
 } 
 
 function createTree($ro, $mcode){
-	//�ѧ��������Ѻ�ӹǳ
+	//ฟังก์ชั่นสำหรับคำนวณ
 	global $dbprefix,$ro;
 	
 	$sql = "select mcode from ".$dbprefix. " where upa_code = '$mcode' ";
@@ -1816,7 +1816,7 @@ global $cut, $tot_l, $tot_r , $strongside, $sumright, $sumleft;
 	$cut = min($lsum, $rsum);
 	
 	if($lsum == $rsum){
-		//------ 2:1 ��Ѻ 1:2 ---------//
+		//------ 2:1 สลับ 1:2 ---------//
 	 	$t1 = floor($lsum / 3);
 	 	$tot_l = $sumleft - ($t1 * 3)*1000;
 	 	$tot_r = $sumright - ($t1 * 3)*1000;
@@ -1826,7 +1826,7 @@ global $cut, $tot_l, $tot_r , $strongside, $sumright, $sumleft;
 	 	  $tot_r = 1000;
 	 	  $cut += 1;
 	 	}
-		echo "�ҡ��觫��� $lsum ��觢�� $rsum �Ѵ $cut ����ͫ��� $tot_l ����͢�� $tot_r <br>";   
+		echo "จากฝั่งซ้าย $lsum ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
 	 	$strongside = "E";
 	 	
 	}else if($lsum > $rsum){
@@ -1837,7 +1837,7 @@ global $cut, $tot_l, $tot_r , $strongside, $sumright, $sumleft;
 		$tot_r = $sumright - ($t1)*1000;
 		$cut= $t1;
 		$strongside = "L";
-		echo "�ҡ��觫��� $lsum ,��觢�� $rsum �Ѵ $cut ����ͫ��� $tot_l ����͢�� $tot_r <br>";   
+		echo "จากฝั่งซ้าย $lsum ,ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
 				
 	}else { // rsum > lsum
 		$t1  = floor($rsum / 2  );
@@ -1846,7 +1846,7 @@ global $cut, $tot_l, $tot_r , $strongside, $sumright, $sumleft;
 		$tot_l = $sumleft - ($t1)*1000;
 		$cut= $t1;
 		$strongside = "R";
-	 	echo "�ҡ��觫��� $lsum  , ��觢�� $rsum �Ѵ $cut ����ͫ��� $tot_l ����͢�� $tot_r <br>";   
+	 	echo "จากฝั่งซ้าย $lsum  , ฝั่งขวา $rsum ตัด $cut เหลือซ้าย $tot_l เหลือขวา $tot_r <br>";   
 	}
  
 }
@@ -1975,7 +1975,7 @@ $sql = " insert into ".$dbprefix."mpv  (rcode, mcode, total_pv) ";
 		}
 		mysql_free_result($rs);
 		//$max_percent = 0.1;
-		//�� PV �ͧ��Ţ����� Array ���ͤӹǳ��� sp_code
+		//เก็บ PV ของบิลขายเข้า Array เพื่อคำนวณให้ sp_code
 		$sql="select rcode,mcode,sum(total_pv) as total_pv from ".$dbprefix."mpv where rcode = '$ro' group by mcode  "; 
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
@@ -1990,11 +1990,11 @@ $sql = " insert into ".$dbprefix."mpv  (rcode, mcode, total_pv) ";
 			//echo "apv : $apv_total_pv = $i<BR> ";
 			
 			for($j=0;$j<sizeof($n_mcode);$j++){
-				//echo "������Ҫԡ : $n_mcode[$j] = $apv_mcode<BR>";
+				//echo "รหัสสมาชิก : $n_mcode[$j] = $apv_mcode<BR>";
 				if($n_mcode[$j]<>$apv_mcode){
-					//����� pv
+					//ไม่มี pv
 				}else{
-					//echo "�պ�Ţ�� : $up<BR>";
+					//echo "มีบิลขาย : $up<BR>";
 					//exit;
 					$up	= $n_mcode[$j];
 					$lv	 	= 0;
@@ -2008,7 +2008,7 @@ $sql = " insert into ".$dbprefix."mpv  (rcode, mcode, total_pv) ";
 								$flag = 0;
 								$sum_pv = 0;
 								$sum_pv = 1;
-								$pos_ncur = getpossition($dbprefix,$n_upa_code[$up]); //��Ǩ�ͺ���˹觼�������Է����Ѻ����Ԫ���
+								$pos_ncur = getpossition($dbprefix,$n_upa_code[$up]); //ตรวจสอบตำแหน่งผู้ที่มีสิทธิ์รับคอมมิชชั่น
 								//$pos_cur1 = checkpositionback($dbprefix,$n_upa_code[$up],$fpdate,$tpdate);
 								//if($pos_ncur <> $pos_cur1 and $pos_cur1 != 0)$pos_ncur = $pos_cur1;
 
@@ -2016,7 +2016,7 @@ $sql = " insert into ".$dbprefix."mpv  (rcode, mcode, total_pv) ";
 								//exit;
 								//$pvmcode=checkingdatepv($dbprefix,$n_upa_code[$up],$tdate,$fdate);
 								
-								//echo "���� ".$n_upa_code[$up]." ���˹� > $pos_ncur < ��ṹ�ѡ���ʹ > $sum_pv < ʶҹ� > $flag < <br><br><br>";
+								//echo "รหัส ".$n_upa_code[$up]." ตำแหน่ง > $pos_ncur < คะแนนรักษายอด > $sum_pv < สถานะ > $flag < <br><br><br>";
 									$chkpv=0;
 									switch ($pos_ncur) {
 										case 'B':
@@ -2103,7 +2103,7 @@ $sql = " insert into ".$dbprefix."mpv  (rcode, mcode, total_pv) ";
 			}
 		} 
 		mysql_free_result($rs);
-		//�ӹǳ⺹�� ��ػ����⺹��		
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
 		$sql = " insert into ".$dbprefix."mmbonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pmonth) ";
 		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,(sum(total)*0.05) as tax,(sum(total)-(sum(total)*0.05)) bonus,'$fdate','$tdate','$pmonth' from ".$dbprefix."mc WHERE  rcode='$ro' group by upa_code ";
 		mysql_query($sql) or die(mysql_error());
@@ -2232,7 +2232,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 			//if($mcode[$j] == '9999999'){echo $mcode[$j].' '.$pos_cur[$j].'okokokok<br>';
 			//exit;
 			//}
-			//��Ǩ�ͺ���˹觻Ѩ�غѹ
+			//ตรวจสอบตำแหน่งปัจจุบัน
 			$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE sa_type='A' and mcode='".$mcode[$j]."' and cancel=0 and sadate<='".$tdate."'";
 			$rs = mysql_query($sql);
 			$mexp = 0;
@@ -2245,15 +2245,15 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 			$mexp=($mexp+$mexph);
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]); // VIP poinrt
 
-			//��Ǩ�ͺ���˹觻Ѩ�غѹ
+			//ตรวจสอบตำแหน่งปัจจุบัน
 		
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='".$mcode[$j]."'  ";
 			$rs = mysql_query($sql);
 			$pos_old = '';
 			if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 			mysql_free_result($rs);
-			//�ӹǳ���˹�
+			//คำนวณตำแหน่ง
 			$pos_new = $pos_old;
 			foreach(array_keys($pos_exp) as $key){
 				//echo $key;
@@ -2292,7 +2292,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -2449,7 +2449,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -2597,7 +2597,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -2736,7 +2736,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -2867,7 +2867,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -2989,7 +2989,7 @@ function fnc_calc_set_position1($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$
 									$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 									$sql .= "(".$ro.",'$n_sp_code','$mcode[$j]','".$uplr."','$n_sp_pos_cur') ";
 									mysql_query($sql);
-									//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+									//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 									$up="";
 								}else{
 									$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -3094,7 +3094,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 		$mcode[$m] =$sqlObj->mcode;		
 		$mdate[$mcode[$m]] =$sqlObj->mdate;		
 		$pos_cur[$m] =$sqlObj->mpos;
-		echo '�ѡ���ʹ   mcode =  '. $mcode[$m].' // pos_cur ='.$pos_cur[$m].'<br>';
+		echo 'รักษายอด   mcode =  '. $mcode[$m].' // pos_cur ='.$pos_cur[$m].'<br>';
 	}
 	mysql_free_result($rs);
 	
@@ -3116,7 +3116,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 			$mexp=($mexp+$mexph);
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode[$j]);  
 	
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='".$mcode[$j]."'  ";
 			$rs = mysql_query($sql);
 			$pos_old = '';
@@ -3161,7 +3161,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 					//=================END LOG===========================
 					mysql_query($sql);
 		//			echo 'SQL up > SU '.$sql.'<br>';
-		echo '���� SU mcode =  '. $mcode[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
+		echo 'ขึ้่น SU mcode =  '. $mcode[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
 					$pos_cur[$j] = $pos_new;
 				}else{
 					$sql = "UPDATE ".$dbprefix."member SET pos_cur2='$pos_new' WHERE mcode='".$mcode[$j]."' LIMIT 1 ";
@@ -3177,7 +3177,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 					//writelogfile($text);
 					//=================END LOG===========================
 					mysql_query($sql);
-		echo '¡��� MG mcode =  '.$mcode[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
+		echo 'ยกไปหา MG mcode =  '.$mcode[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
 				//	echo 'SQL NOup '.$sql.'<br>';
 				}
 			}
@@ -3210,7 +3210,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode1[$j]);  
 			$mexp1=($mexp+$mexph);
 			
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sqlProcess33 = "SELECT pos_cur,sp_code,name_t,lr from ".$dbprefix."member WHERE mcode='".$mcode1[$j]."'  ";
 			$rsProcess33  = mysql_query($sqlProcess33);
 			$pos_old = '';
@@ -3253,7 +3253,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 							$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 							$sql .= "(".$ro.",'$n_sp_code','$mcode1[$j]','".$uplr."','$n_sp_pos_cur') ";
 							mysql_query($sql);
-							//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+							//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 							$up="";
 						}else{
 							$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -3342,7 +3342,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 				//writelogfile($text);
 				//=================END LOG===========================
 				mysql_query($sql);
-	echo '���� MG mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';	
+	echo 'ขึ้่น MG mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';	
 				$pos_cur[$j] = $pos_new;
 			}else{
 				$sql = "UPDATE ".$dbprefix."member SET pos_cur2='$pos_new' WHERE mcode='".$mcode1[$j]."' LIMIT 1 ";
@@ -3358,7 +3358,7 @@ function fnc_calc_set_position($dbprefix,$ro,$mcode,$name_t,$pos_cur,$sp_code,$l
 				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
 				//writelogfile($text);
 				//=================END LOG===========================
-	echo '¡��� D  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
+	echo 'ยกไปหา D  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
 				mysql_query($sql);
 			}
 		}
@@ -3395,7 +3395,7 @@ echo 'Process 4 start <br>';
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode1[$j]);  
 			$mexp1=($mexp+$mexph);
 			
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sql = "SELECT pos_cur,sp_code,name_t,lr,pos_cur2 from ".$dbprefix."member WHERE mcode='".$mcode1[$j]."'  ";
 			$rs123 = mysql_query($sql);
 			$pos_old = '';
@@ -3442,7 +3442,7 @@ echo 'Process 4 start <br>';
 							$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 							$sql .= "(".$ro.",'$n_sp_code','$mcode1[$j]','".$uplr."','$n_sp_pos_cur') ";
 							mysql_query($sql);
-							//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+							//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 							$up="";
 						}else{
 							$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -3559,7 +3559,7 @@ echo 'Process 4 start <br>';
 				//writelogfile($text);
 				//=================END LOG===========================
 				mysql_query($sql);
-		echo '��鹵��˹�  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
+		echo 'ขึ้นตำแหน่ง  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
 
 				$pos_cur[$j] = $pos_new;
 			}else{
@@ -3576,7 +3576,7 @@ echo 'Process 4 start <br>';
 				$text="uid=".$_SESSION["adminusercode"]." action=calcposition =>$sql";
 				//writelogfile($text);
 				//=================END LOG===========================
-		echo '¡�  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
+		echo 'ยกไป  mcode =  '. $mcode1[$j].' // weakstrong ='.$weakstrong.' // mpv '.$mexp.' // cnt_all '.$cnt_all.'  // pos_old '.$pos_old.'  '.$flg1. '<br>';
 
 				mysql_query($sql);
 			}
@@ -3614,7 +3614,7 @@ echo 'Process 4 start <br>';
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode1[$j]);  
 			$mexp1=($mexp+$mexph);
 			
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sql = "SELECT pos_cur,sp_code,name_t,lr,pos_cur2 from ".$dbprefix."member WHERE mcode='".$mcode1[$j]."'  ";
 			$rs123 = mysql_query($sql);
 			$pos_old = '';
@@ -3662,7 +3662,7 @@ echo 'Process 4 start <br>';
 							$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 							$sql .= "(".$ro.",'$n_sp_code','$mcode1[$j]','".$uplr."','$n_sp_pos_cur') ";
 							mysql_query($sql);
-							//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+							//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 							$up="";
 						}else{
 							$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -3848,7 +3848,7 @@ echo 'Process 4 start <br>';
 			$mexp = $mexp+gettotalpv($dbprefix,$mcode1[$j]);  
 			$mexp1=($mexp+$mexph);
 			
-			//-----�纵��˹觻Ѩ�غѹ
+			//-----เก็บตำแหน่งปัจจุบัน
 			$sql = "SELECT pos_cur,sp_code,name_t,lr,pos_cur2 from ".$dbprefix."member WHERE mcode='".$mcode1[$j]."'  ";
 			$rs123 = mysql_query($sql);
 			$pos_old = '';
@@ -3895,7 +3895,7 @@ echo 'Process 4 start <br>';
 							$sql = "INSERT INTO ".$dbprefix."cnt_spcode (rcode,mcode,sp_code,lr,pos_cur) VALUES";
 							$sql .= "(".$ro.",'$n_sp_code','$mcode1[$j]','".$uplr."','$n_sp_pos_cur') ";
 							mysql_query($sql);
-							//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+							//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 							$up="";
 						}else{
 							$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -4053,7 +4053,7 @@ echo 'Process 4 start <br>';
 }
 
 function fnc_calc_matching($dbprefix,$ro,$n_mcode,$n_name_t,$n_upa_code,$n_lr,$fdate,$tdate,$fpdate,$tpdate){
-//��ҹ�����������ҡ bmbonus
+//อ่านข้อมูลรายได้จาก bmbonus
 $month=explode("-",$fdate);
 echo  '*******************   Start  == matching  **************************   <br> <br>';
 $array_mpos =
@@ -4106,10 +4106,10 @@ $pos_explv3 = array('MB'=>0,'BR'=>0,'SI'=>0,'GO'=>0,'PL'=>0,'SA'=>0,'RU'=>0.2,'E
 			//echo "dpv : $apv_total_pv = $i<BR> ";
 			for($j=0;$j<sizeof($n_mcode);$j++){
 				if($n_mcode[$j]<>$apv_mcode){
-					//����� pv
+					//ไม่มี pv
 				}else{
 					$up	= $n_mcode[$j];
-					//echo "�պ�Ţ�� : $up<BR>";
+					//echo "มีบิลขาย : $up<BR>";
 					$lv	 	= 0;
 					$glv	=1;
 					//if($j == '5'){echo 'sssssssssss';exit;}
@@ -4167,7 +4167,7 @@ $pos_explv3 = array('MB'=>0,'BR'=>0,'SI'=>0,'GO'=>0,'PL'=>0,'SA'=>0,'RU'=>0.2,'E
 									$apv_total =0;
 									break;
 							}
-							//echo $c_spcode[$n_upa_code[$up]]." ��Ǩ�ͺ���� <1> $d_mcode ���˹� $d_pos_cur ssssssssssssssssssssssssssssssssss <br>";
+							//echo $c_spcode[$n_upa_code[$up]]." ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur ssssssssssssssssssssssssssssssssss <br>";
 							$sql2 = "SELECT * from ".$dbprefix."status WHERE mcode='".$d_mcode."' and month_pv='".$month[0].$month[1]."' and status='1' ";
 							//
 							//echo  "$sql2<br>";
@@ -4176,7 +4176,7 @@ $pos_explv3 = array('MB'=>0,'BR'=>0,'SI'=>0,'GO'=>0,'PL'=>0,'SA'=>0,'RU'=>0.2,'E
 							//or $n_upa_code[$up] == 'TH0000000'
 							if (mysql_num_rows($rs2)>0 and  $flg == 1 ) {
 
-							//echo $c_spcode[$n_upa_code[$up]]." ��Ǩ�ͺ���� <1> $d_mcode ���˹� $d_pos_cur ssssssssssssssssssssssssssssssssss <br>";
+							//echo $c_spcode[$n_upa_code[$up]]." ตรวจสอบรหัส <1> $d_mcode ตำแหน่ง $d_pos_cur ssssssssssssssssssssssssssssssssss <br>";
 								$sql = " INSERT INTO ".$dbprefix."dc (rcode, mcode, upa_code,pv,level,gen, percer, total,fdate,tdate,mposi) VALUES ('$ro','".$n_mcode[$j]."','".$n_upa_code[$up]."','".$apv_total_pv."','".$glv."','".$lv."','".$bonus."','".$apv_total."','$fdate','$tdate','$d_pos_cur') ";
 								mysql_query($sql) or die(mysql_error());
 								//echo "$sql<br>";
@@ -4200,7 +4200,7 @@ $pos_explv3 = array('MB'=>0,'BR'=>0,'SI'=>0,'GO'=>0,'PL'=>0,'SA'=>0,'RU'=>0.2,'E
 		} 
 		mysql_free_result($rs);
 
-		//�ӹǳ⺹�� ��ػ����⺹��		
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
 		$sql = " insert into ".$dbprefix."dmbonus  (rcode, mcode, total,tax,bonus,fdate,tdate,pos_cur) ";
 		$sql .= "	select '$ro', upa_code,sum(total) as totalpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',mposi from ".$dbprefix."dc WHERE  rcode='$ro' group by upa_code ";
 		mysql_query($sql) or die(mysql_error());
@@ -4213,7 +4213,7 @@ $pos_explv3 = array('MB'=>0,'BR'=>0,'SI'=>0,'GO'=>0,'PL'=>0,'SA'=>0,'RU'=>0.2,'E
 
 
 function fnc_calc_onetimebonus($dbprefix,$ro,$n_mcode,$n_name_t,$n_upa_code,$n_lr,$fdate,$tdate,$fpdate,$tpdate){
-//��ҹ�����������ҡ bmbonus
+//อ่านข้อมูลรายได้จาก bmbonus
 $month=explode("-",$fdate);
 	$pos_piority = array('RD'=>7,'PD'=>6,'ID'=>5,'CD'=>4,'BL'=>3,'BD'=>2,'DI'=>1,''=>0);
 	$pos_total = array('RD'=>10000000,'PD'=>5000000,'ID'=>2400000,'CD'=>1200000,'BL'=>600000,'BD'=>300000,'DI'=>150000,''=>0);
@@ -4241,7 +4241,7 @@ $month=explode("-",$fdate);
 				$pos_old = mysql_result($rs,0,'pos_cur3');
 				mysql_free_result($rs);
 			}
-			//�ӹǳ���˹�
+			//คำนวณตำแหน่ง
 			$pos_new = $pos_old;
 
 			$sql = "SELECT * from ".$dbprefix."calc_poschange3 WHERE mcode='".$mcode[$j]."' order by id desc ";
@@ -4288,12 +4288,12 @@ $month=explode("-",$fdate);
 			}
 		}
 
-		//�ӹǳ⺹�� ��ػ����⺹��		
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
 
 } 
 
 function fnc_calc_honorbonus($dbprefix,$ro,$n_mcode,$n_name_t,$n_upa_code,$n_lr,$fdate,$tdate,$fpdate,$tpdate){
-//��ҹ�����������ҡ bmbonus
+//อ่านข้อมูลรายได้จาก bmbonus
 $month=explode("-",$fdate);
 	$pos_piority = array('RD'=>7,'PD'=>6,'ID'=>5,'CD'=>4,'BL'=>3,'BD'=>2,'DI'=>1,''=>0);
 	$pos_total = array('RD'=>10000000,'PD'=>5000000,'ID'=>2400000,'CD'=>1200000,'BL'=>600000,'BD'=>300000,'DI'=>150000,''=>0);
@@ -4437,7 +4437,7 @@ $month=explode("-",$fdate);
 			}
 		}
 
-		//�ӹǳ⺹�� ��ػ����⺹��		
+		//คำนวณโบนัส สรุปจ่ายโบนัส		
 
 } 
 function gettotalpv($dbprefix,$mcode){

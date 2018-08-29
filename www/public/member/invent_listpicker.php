@@ -13,14 +13,14 @@ function selectitem(inv_code,inv_desc,ewallet){
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=windows-874">
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>àÅ×Í¡ÊÒ¢Ò</title>
-<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">àÅ×Í¡ÊÒ¢Ò</font></strong></legend>
+<title>à¹€à¸¥à¸·à¸­à¸à¸ªà¸²à¸‚à¸²</title>
+<table width="95%" border="0" cellspacing="0" cellpadding="0" align="center"><tr><td><fieldset><legend><strong><font color="#666666">à¹€à¸¥à¸·à¸­à¸à¸ªà¸²à¸‚à¸²</font></strong></legend>
 <?
 require("connectmysql.php");
 require("./cls/repGenerator.php");
 require("prefix.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
-$sql = "SELECT inv_code,inv_desc,ewallet,CASE inv_type WHEN '1' THEN 'ÈÙ¹Âì' WHEN '2' THEN 'âÁºÒÂ' END AS inv_type FROM ".$dbprefix."invent ";
+$sql = "SELECT inv_code,inv_desc,ewallet,CASE inv_type WHEN '1' THEN 'à¸¨à¸¹à¸™à¸¢à¹Œ' WHEN '2' THEN 'à¹‚à¸¡à¸šà¸²à¸¢' END AS inv_type FROM ".$dbprefix."invent ";
 //$wherecause = " WHERE ";
 
 	//$link = mysql_connect('localhost', 'root', '1422528');
@@ -52,12 +52,12 @@ $sql = "SELECT inv_code,inv_desc,ewallet,CASE inv_type WHEN '1' THEN 'ÈÙ¹Âì' WHE
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("inv_code,inv_desc,inv_type");
-		$rec->setFieldDesc("ÃËÑÊ,ª×èÍ,»ÃĞàÀ·");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ª,à¸Šà¸·à¹ˆà¸­,à¸›à¸£à¸°à¹€à¸ à¸—");
 		$rec->setFieldAlign("center,left,left");
 		$rec->setFieldSpace("30%,40%,30%");
 		$rec->setFieldLink("");
 		$rec->setSearch("inv_code,inv_desc");
-		$rec->setSearchDesc("ÃËÑÊÊÒ¢Ò,ª×èÍÊÒ¢Ò");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²,à¸Šà¸·à¹ˆà¸­à¸ªà¸²à¸‚à¸²");
 		//$rec->setDel("index.php","inv_code","inv_code","sessiontab=3&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 		//$rec->setEdit("index.php","inv_code","inv_code","sessiontab=3&sub=2");

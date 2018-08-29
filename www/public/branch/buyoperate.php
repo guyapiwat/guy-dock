@@ -72,7 +72,7 @@ if($_GET['state']==0){
 	$barr_invent = searchlocationbase($dbprefix,$arr_invent["locationbase"]);
 	
 	$bprice = $barr_invent["crate"]*$total;
-	logtext(true,$_SESSION['admininvent'],'‡æ‘Ë¡∫‘≈ ID '.$mid.'  “¢“ : '.$inv_code,$mid);
+	logtext(true,$_SESSION['admininvent'],'‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏• ID '.$mid.' ‡∏™‡∏≤‡∏Ç‡∏≤ : '.$inv_code,$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	 $sql="insert into ".$dbprefix."isaleh (id,  sano, sadate,  mcode, name_t, sa_type, inv_code, inv_from, total, tot_pv,tot_bv,tot_fv, uid,send,txtoption,chkCash,chkFuture,chkTransfer,chkCredit1,chkCredit2,chkCredit3,chkInternet,chkDiscount,chkOther,txtCash,txtFuture,txtTransfer,txtCredit1,txtCredit2,txtCredit3,txtInternet,txtDiscount,txtOther,
 	optionCash,optionFuture,optionTransfer,optionCredit1,optionCredit2,optionCredit3,optionInternet,optionDiscount,optionOther ,checkportal,locationbase,crate,bprice,mbase) values ('$mid' ,'$sano' ,'$sadate' ,'$mcode' ,'".$_SESSION['admininventname']."', '$satype' ,'$inv_code' ,'$inv_ref' ,'$total' ,'$tot_pv','$tot_bv','$tot_fv' ,'".$_SESSION['inv_usercode']."','$radsend','$txtoption','$chkCash','$chkFuture','$chkTransfer','$chkCredit1','$chkCredit2','$chkCredit3','$chkInternet','$chkDiscount','$chkOther','$txtCash','$txtFuture',

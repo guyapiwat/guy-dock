@@ -76,11 +76,11 @@ if($_GET["chkre"] == '1'){
 			}
 			mysql_free_result($rs);
 			for($i=0;$i<sizeof($mcode);$i++){
-				//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //����ѡ���ʹ�������
+				//if($exp_date[$mcode[$i]]=='' || $exp_date[$mcode[$i]]<=0) continue; //ไม่รักษายอดทิ้งไปเลย
 				$up = $mcode[$i];
 				while($up <> ""){
 					if($up == "") break;
-					//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //����ѡ���ʹ�������
+					//if($exp_date[$upa_code[$up]]=='' || $exp_date[$upa_code[$up]]<=0){ $up = $upa_code[$up];continue;} //ไม่รักษายอดทิ้งไปเลย
 					if($upa_code[$up] <>""){
 						$sum_pv[$upa_code[$up]][$lr[$up]] += $tot_pv[$mcode[$i]];
 						$sql3=" SELECT * from ".$dbprefix."status where mcode = '$up' and month_pv = '".date("Y-m")."' ";
@@ -168,7 +168,7 @@ if($_GET["chkre"] == '1'){
 						$sql .= "('$n_sp_code','$cmc','".$uplr."','$n_sp_pos_cur','0') ";
 						mysql_query($sql);				
 					}
-					//echo "��Ǩ�ͺ�س���ѵ� : $sql <br>";
+					//echo "ตรวจสอบคุณสมบัติ : $sql <br>";
 					$up="";
 				}else{
 					$sql3=" SELECT * from  ".$dbprefix."member where mcode = '$up' ";
@@ -209,11 +209,11 @@ if($_GET["chkre"] == '1'){
 ?>
 
 <table  border="3" bordercolor="#00FFFF" width="100%"><tr>
-    <td nowrap>�ӹǹ�� Active (����) : <a href='index.php?sessiontab=5&sub=15&lr=1&status=1' target="_blank"><?=number_format($people[$cmc]["1"],0,'.',',')?></a>/<a href='index.php?sessiontab=5&sub=15&lr=1&status=0' target="_blank"><?=number_format($lll,0,'.',',')?></a>&nbsp;&nbsp;</td>
-    <td nowrap>�ӹǹ�� Active (���) : <a href='index.php?sessiontab=5&sub=15&lr=2&status=1' target="_blank"><?=number_format($people[$cmc]["2"],0,'.',',')?></a>/<a href='index.php?sessiontab=5&sub=15&lr=2&status=0' target="_blank"><?=number_format($rrr,0,'.',',')?></a>&nbsp;&nbsp;</td>
+    <td nowrap>จำนวนคน Active (ซ้าย) : <a href='index.php?sessiontab=5&sub=15&lr=1&status=1' target="_blank"><?=number_format($people[$cmc]["1"],0,'.',',')?></a>/<a href='index.php?sessiontab=5&sub=15&lr=1&status=0' target="_blank"><?=number_format($lll,0,'.',',')?></a>&nbsp;&nbsp;</td>
+    <td nowrap>จำนวนคน Active (ขวา) : <a href='index.php?sessiontab=5&sub=15&lr=2&status=1' target="_blank"><?=number_format($people[$cmc]["2"],0,'.',',')?></a>/<a href='index.php?sessiontab=5&sub=15&lr=2&status=0' target="_blank"><?=number_format($rrr,0,'.',',')?></a>&nbsp;&nbsp;</td>
   </tr><tr>
-    <td>�ӹǹ���йӵç��� Active (����) : <a href='index.php?sessiontab=5&sub=14&lr=1&status=1' target="_blank"><?=$ll?></a></td>
-    <td>�ӹǹ���йӵç��� Active (���) : <a href='index.php?sessiontab=5&sub=14&lr=2&status=1' target="_blank"><?=$rr?></a></td>
+    <td>จำนวนคนแนะนำตรงที่ Active (ซ้าย) : <a href='index.php?sessiontab=5&sub=14&lr=1&status=1' target="_blank"><?=$ll?></a></td>
+    <td>จำนวนคนแนะนำตรงที่ Active (ขวา) : <a href='index.php?sessiontab=5&sub=14&lr=2&status=1' target="_blank"><?=$rr?></a></td>
   </tr></table>
 <?
 }	

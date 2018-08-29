@@ -24,7 +24,7 @@ if($strfdate){
 $time_start = getmicrotime();
 $set_table_a = array('ambonus','bmbonus','dmbonus','embonus'); //// SET TABLE
 $set_table_b = array(''); //// SET TABLE
-$set_val = array('ambonus'=> '����й� (Fast)',
+$set_val = array('ambonus'=> 'ค่าแนะนำ (Fast)',
                 'bmbonus'=> 'W/S',
                 'dmbonus' =>'Matching',
 				'embonus' =>'All Sale'
@@ -98,7 +98,7 @@ if(mysql_num_rows($rs) > 0)
 }  
 ////////////// A /////////////
 
-////////////// A  NOT PV ��ҨѴ��/////////////        
+////////////// A  NOT PV ค่าจัดส่ง/////////////        
 $whereah = "ah.sa_type <> 'H' and ah.cancel = 0  and ah.sadate>= '$strfdate'  and ah.sadate <= '$strtdate' and ad.pv =0 and ad.pcode LIKE '%SE%' ";    
 $whereho = "hh.sa_type <> 'H' and hh.cancel = 0 and hh.tot_pv > 0 and hh.sadate>= '$strfdate'  and hh.sadate <= '$strtdate' and hd.pv =0 and hd.pcode LIKE '%SE%' ";    
 $sql = " SELECT ifnull(SUM(total),0) as total,ifnull(SUM(tot_pv),0) as tot_pv FROM  ";
@@ -151,14 +151,14 @@ if(mysql_num_rows($rs) > 0)
         
 <center>		
 <fieldset style="width:100px;display:none;"><a href='index.php?sessiontab=5&sub=11&print_all=true&fdate=<?=$strfdate?>&tdate=<?=$strtdate?>' target='_blank'>
-<img border='0' src='./images/Amber-Printer.gif'> ����������</a></fieldset>
+<img border='0' src='./images/Amber-Printer.gif'> พิมพ์ทั้งหมด</a></fieldset>
 </center>
 <table width="100%" cellpadding="2" cellspacing="2" border="1">
   <tr>
-    <td align="center"><font color="#FF00FF" size="3">&nbsp;����� A(�� pv)&nbsp;</font></td>
-    <td align="center"><font color="#FF00FF" size="3">&nbsp;�ʹ���(����� pv)&nbsp;</font></td>
-    <td align="center"><font color="#FF00FF" size="3">&nbsp;�ʹ��¤�ҨѴ��&nbsp;</font></td>
-    <td align="center"><font  size="3" color="#00CC00">&nbsp;��ṹ(PV)&nbsp;</font></td>      
+    <td align="center"><font color="#FF00FF" size="3">&nbsp;รายได้ A(มี pv)&nbsp;</font></td>
+    <td align="center"><font color="#FF00FF" size="3">&nbsp;ยอดขาย(ไม่มี pv)&nbsp;</font></td>
+    <td align="center"><font color="#FF00FF" size="3">&nbsp;ยอดขายค่าจัดส่ง&nbsp;</font></td>
+    <td align="center"><font  size="3" color="#00CC00">&nbsp;คะแนน(PV)&nbsp;</font></td>      
   </tr>
   <tr>
     <td align="center"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($total,0);?>&nbsp;</font></td>
@@ -177,7 +177,7 @@ if(mysql_num_rows($rs) > 0)
         <?php foreach($set_table_a as $set_tablex){?>  
           <td align="center"><font  size="3" color="#0000FF">&nbsp;<?echo $set_val[$set_tablex];?>&nbsp;</font></td> 
         <?}?>  
-		<td  align="center"><font  size="3" color="#0000FF">���</font></td>
+		<td  align="center"><font  size="3" color="#0000FF">รวม</font></td>
       </tr>
       <tr>
         <?php foreach($set_table_a as $set_tablex){?>
@@ -191,7 +191,7 @@ if(mysql_num_rows($rs) > 0)
     <table width="100%" cellpadding="2"> 
       <tr>
 	  <? if($total != 0){ ?>
-        <td align="center"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($bonus['All']*100/$total,2);?>&nbsp;%(�ҷ)</font></td>
+        <td align="center"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($bonus['All']*100/$total,2);?>&nbsp;%(บาท)</font></td>
         <td align="center"><font color="#00CC00" size="5">&nbsp;<?echo number_format($bonus['All']*100/$tot_pv,2);?>&nbsp;%(PV)</font></td>     
 		<? }else{ ?>
 		 <td align="center"><font color="#FF00FF" size="5">&nbsp;<?echo number_format(0,2);?>&nbsp;%</font></td>
@@ -206,10 +206,10 @@ if(mysql_num_rows($rs) > 0)
 <br />
 <!--table width="100%" cellpadding="2" cellspacing="2" border="1" >
   <tr>
-    <td align="center" ><font color="#FF00FF" size="3">&nbsp;����� B&nbsp;</font></td>
+    <td align="center" ><font color="#FF00FF" size="3">&nbsp;รายได้ B&nbsp;</font></td>
     <td align="center"><font color="#FF00FF" size="3">&nbsp;Uni - level&nbsp;</font></td>
 	
-    <td align="center" rowspan="2"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($tot_pv_b,0);?>&nbsp;%(�ҷ)</font></td>  
+    <td align="center" rowspan="2"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($tot_pv_b,0);?>&nbsp;%(บาท)</font></td>  
   </tr>
   <tr>
     <td align="center"><font color="#FF00FF" size="5">&nbsp;<?echo number_format($total_b,0);?>&nbsp;</font></td>
@@ -250,8 +250,8 @@ if(mysql_num_rows($rs) > 0)
 $time_end = getmicrotime();
 $time = $time_end - $time_start;
 echo '<br/><center>';
-echo "����ش��äӹǳ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";
+echo "สิ้นสุดการคำนวณ ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";
 echo '</center>';
 }
 

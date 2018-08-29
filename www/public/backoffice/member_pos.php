@@ -1,7 +1,7 @@
 <script language="javascript" type="text/javascript">
 	
 	function sale_status(id){
-	//	if(confirm("µéÍ§¡ÒÃà»ÅÕèÂ¹á»Å§¡ÒÃÃÑº¢Í§")){
+	//	if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¹à¸›à¸¥à¸‡à¸à¸²à¸£à¸£à¸±à¸šà¸‚à¸­à¸‡")){
 			window.location='index.php?sessiontab=2&sub=1&state=3&id='+id;
 	//	}
 	}
@@ -36,13 +36,13 @@ $sql .= " where 1=1 ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("mcode,name_t,mdate,pos_cur,pos_cur2,upa_code,sp_code");
-		$rec->setFieldDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,à¡ÕÂÃµÔÂÈ,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¹€à¸à¸µà¸¢à¸£à¸•à¸´à¸¢à¸¨,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
 		$rec->setFieldAlign("center,left,center,center,center,center,center");
 		$rec->setFieldSpace("10%,40%,10%,10%,10%,10%,10%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("".$dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate,".$dbprefix."member.pos_cur,".$dbprefix."member.pos_cur2,".$dbprefix."member.upa_code,".$dbprefix."member.sp_code");
-		$rec->setSearchDesc("ÃËÑÊÊÁÒªÔ¡,ª×èÍ,ÇÑ¹·ÕèÊÁÑ¤Ã,µÓáË¹è§,à¡ÕÂÃµÔÂÈ,ÃËÑÊÍÑ¾äÅ¹ì,ÃËÑÊ¼Ùéá¹Ð¹Ó");
-	//	$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","à¢çÁ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸ªà¸¡à¸±à¸„à¸£,à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡,à¹€à¸à¸µà¸¢à¸£à¸•à¸´à¸¢à¸¨,à¸£à¸«à¸±à¸ªà¸­à¸±à¸žà¹„à¸¥à¸™à¹Œ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¹à¸™à¸°à¸™à¸³");
+	//	$rec->setSpecial("./images/true.gif","","sale_status","id","IMAGE","à¹€à¸‚à¹‡à¸¡");
 		$rec->setEdit("index.php","id","id","sessiontab=2&sub=1");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

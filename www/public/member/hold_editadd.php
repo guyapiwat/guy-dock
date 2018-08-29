@@ -149,15 +149,15 @@ function eproductcheck(){
    var mcode = $('#mcode').val(); 
    
    if($('#satype').val() == ''){
-       alert('�ٻẺ��ë���');
+       alert('รูปแบบการซื้อ');
        return false;
    }        
       if ( mcode != '' ) { 
           $('#waiting-item').html("PASS");         
-          $('#ok').val("�ѹ�֡");
+          $('#ok').val("บันทึก");
           $("#ok").prop('disabled', false);
       }else{
-         alert("���͡��Ҫԡ");   
+         alert("เลือกสมาชิก");   
          checkinForm();
          return false;
       }  
@@ -175,7 +175,7 @@ function checkinForm()
 {
      $('#waiting-item').html(''); 
     $("#ok").prop('disabled', true);
-    $('#ok').val("�ѹ�֡");
+    $('#ok').val("บันทึก");
     return true; 
 }
  

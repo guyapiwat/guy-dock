@@ -77,7 +77,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 									//	mysql_query($sql);
 										
 									}
-									//echo "�ҡ��Ţ�� : $sql <br>";
+									//echo "จากบิลขาย : $sql <br>";
 									//exit;
 								}
 								$up = $upa_code[$up];
@@ -107,7 +107,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 					//mysql_free_result($rs);
 					$ro = 1;
 					
-					//�ӹǹ bm ��������ǹ bmbonus
+					//คำนวน bm ไม่ใช้ในส่วน bmbonus
 					$sql = "INSERT INTO ".$dbprefix."asaleh_bm (rcode,mcode,upa_code,pv,lr,fdate,tdate,mpos,satype) VALUES ";
 					$checkcheck = 0;
 					for($i=0;$i<sizeof($cmc1234);$i++){
@@ -128,7 +128,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 											$checkcheck = 0;
 										}
 									}
-									//echo "�ҡ��Ţ�� : $sql <br>";
+									//echo "จากบิลขาย : $sql <br>";
 									//exit;
 								}
 								$up = $upa_code[$up];
@@ -143,7 +143,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 					//exit;
 				//	exit;
 		exit;
-		//========================����������´��Ҫԡ�ء��=======================================
+		//========================เก็บลายระเอียดสมาชิกทุกคน=======================================
 		$sql="SELECT * FROM ".$dbprefix."member  ";
 		$rs = mysql_query($sql);
 		for($i=0;$i<mysql_num_rows($rs);$i++){
@@ -155,7 +155,7 @@ $sql = "TRUNCATE TABLE ".$dbprefix."cnt_bmh ";
 			//$stockist[$mcode[$i]] = $sqlObj->stockist;
 			//echo $mcode[$i]."=mcode[$i]<br>";
 		}//for($i=0;$i<mysql_num_rows($rs);$i++){
-		//========================������������´��Ҫԡ�ء��====================================
+		//========================จบเก็บลายระเอียดสมาชิกทุกคน====================================
 		for($j=5001;$j<10000;$j++){
 			$smc = $mcode[$j];
 			$upa = trim($upa_code[$mcode[$j]]);

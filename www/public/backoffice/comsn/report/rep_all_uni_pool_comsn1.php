@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -32,7 +32,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -92,7 +92,7 @@ if($fdate != ''){
 		//$rec->setShowIndex(true);
 		$rec->setShowField("mcode,name_t,bankname,branch,acc_type,acc_no,acc_name,total_fast,total_team,total_matching,total_pool,total_stockiest,total");
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2,2,2,2,2,2,2,2"); 
-		$rec->setFieldDesc("รหัส,ชื่อ,ธนาคาร,สาขา,ประเภท,เลขที่บัญชี,ชื่อบัญชี,ค่าแนะนำ,จับคู่,แมชชิ่ง,กองทุน,stockiest,รายได้");
+		$rec->setFieldDesc("เธฃเธซเธฑเธช,เธเธทเนเธญ,เธเธเธฒเธเธฒเธฃ,เธชเธฒเธเธฒ,เธเธฃเธฐเน€เธ เธ—,เน€เธฅเธเธ—เธตเนเธเธฑเธเธเธต,เธเธทเนเธญเธเธฑเธเธเธต,เธเนเธฒเนเธเธฐเธเธณ,เธเธฑเธเธเธนเน,เนเธกเธเธเธดเนเธ,เธเธญเธเธ—เธธเธ,stockiest,เธฃเธฒเธขเนเธ”เน");
 		$rec->setFieldAlign("center,left,left,left,center,left,left,right,right,right,right,right,right,right,right,right,right,right");
 		//$rec->setFieldSpace("5%,12%,9%,11%,6%,7%,12%,7%,6%,6%,6%,6%,6%,6%");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true,true,true,true,true");
@@ -103,13 +103,13 @@ if($fdate != ''){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

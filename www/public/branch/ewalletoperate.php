@@ -52,7 +52,7 @@ $sadate = $_SESSION["datetimezone"];
 
  
  if($txtMoney ==0){
-   echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂‡µ‘¡ Ewallet ‡ªÁπ 0 ‰¥È§Ë–');window.location='index.php?sessiontab=6&sub=146&state=2'</script>";	
+   echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÄ‡∏ï‡∏¥‡∏° Ewallet ‡πÄ‡∏õ‡πá‡∏ô 0 ‡πÑ‡∏î‡πâ‡∏Ñ‡πà‡∏∞');window.location='index.php?sessiontab=6&sub=146&state=2'</script>";	
 	exit;
 }
 
@@ -103,7 +103,7 @@ if($_GET['state']==0){
 	//echo $sql;
 	//exit;
 	//====================LOG===========================
-	logtext(true,$_SESSION['inv_usercode'],'‡µ‘¡  Ewallet √À—  : '.$mid.' ®”π«π : '.$txtMoney.' ¬Õ¥‡¥‘¡ :'.$ewallet_before.' §ß‡À≈◊Õ : '.$ewallet_after,$mid);
+	logtext(true,$_SESSION['inv_usercode'],'‡πÄ‡∏ï‡∏¥‡∏°  Ewallet ‡∏£‡∏´‡∏±‡∏™ : '.$mid.' ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô : '.$txtMoney.' ‡∏¢‡∏≠‡∏î‡πÄ‡∏î‡∏¥‡∏° :'.$ewallet_before.' ‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ : '.$ewallet_after,$mid);
 $text="uid=".$_SESSION["inv_usercode"]." action=ewalletoperate =>$sql";
 writelogfile($text);
 if (! mysql_query($sql)) {
@@ -131,15 +131,15 @@ if($GLOBALS["status_member"] == 1){
 					$msisdn = $mobile;
 					$ewallett = $ewallet_before+$txtMoney;
 					
-					$message = "‡µ‘¡ Ewallet  ”‡√Á®
-√À—  ¡“™‘° $mcode
-‡µ‘¡ $txtMoney ∫
-§ß‡À≈◊Õ $ewallett ∫";
+					$message = "‡πÄ‡∏ï‡∏¥‡∏° Ewallet ‡∏™‡∏≥‡πÄ‡∏£‡πá‡∏à
+‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å $mcode
+‡πÄ‡∏ï‡∏¥‡∏° $txtMoney ‡∏ö
+‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ $ewallett ‡∏ö";
 					//if($arr_member["locationbase"]=='1')sendsms($dbprefix,$msisdn,$message,$ScheduledDelivery="",$mcode);
 				}
 		}
 }else if($_GET['state']==1){
-	/*logtext(true,$_SESSION['adminusercode'],'·°È‰¢ Ewallet',$mid);
+	/*logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç Ewallet',$mid);
 	$sql="update ".$dbprefix."ewallet set sano='$id', id='$id', ";
 	$sql.="mcode='$mcode' ,sa_type='$satype' ,sadate='$sadate' , inv_code='$inv_code', total='$total', txtoption='$txtoption'
 	, txtMoney='$txtMoney', chkCash='$chkCash', chkTransfer='$chkTransfer', chkCredit1='$chkCredit1', chkCredit2='$chkCredit2'

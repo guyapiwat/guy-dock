@@ -14,7 +14,7 @@ if(isset($_GET['state'])){
 	if (isset($_POST["posdate"])){$posdate=date("Y-m-d");}else{$posdate=date("Y-m-d");}
 }
 if($_GET['state']==1 && !system_code($mcode)){
-	logtext(true,$_SESSION['adminusercode'],'��䢵��˹���Ҫԡ',$id);
+	logtext(true,$_SESSION['adminusercode'],'แก้ไขตำแหน่งสมาชิก',$id);
 	$sql = "SELECT mcode FROM ".$dbprefix."member WHERE id='$id' LIMIT 1 ";
 	$rs  = mysql_query($sql);
 	$sql = "INSERT INTO ".$dbprefix."poschange (mcode,pos_before,pos_after,date_change,type) ";

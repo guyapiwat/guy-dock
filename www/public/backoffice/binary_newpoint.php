@@ -7,10 +7,10 @@
          <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
           <tr><td colspan="6" align="center">&nbsp;</td></tr> 
           <tr>    
-            <td align="right">������Ҫԡ&nbsp;</td>
+            <td align="right">รหัสสมาชิก&nbsp;</td>
             <td><input type="text" name="fmcode" id="fmcode" placeholder="0000001" readonly="" value="<?=$_SESSION["usercode"]?>" />                                                                                                            
-           <input type="submit" name="Submit" value="��ŧ">
-            &nbsp;<!--input type="button" name="Submit" value="����§ҹ" onclick="checkround()" /--></td>
+           <input type="submit" name="Submit" value="ตกลง">
+            &nbsp;<!--input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /--></td>
           </tr>
          <tr><td colspan="6" align="center">&nbsp;</td></tr>
         </table>
@@ -22,10 +22,10 @@
      <table width="40%" border="1" cellpadding="0" cellspacing="0" bordercolor="#FF7F00" align="center">
       <tr><td colspan="6" align="center">&nbsp;</td></tr> 
       <tr>    
-        <td align="right">������Ҫԡ&nbsp;</td>
+        <td align="right">รหัสสมาชิก&nbsp;</td>
         <td><input type="text" name="fmcode" id="fmcode" placeholder="0000001" value="<?=$fmcode?>" />                                                                                                            
-       <input type="submit" name="Submit" value="��ŧ">
-        &nbsp;<!--input type="button" name="Submit" value="����§ҹ" onclick="checkround()" /--></td>
+       <input type="submit" name="Submit" value="ตกลง">
+        &nbsp;<!--input type="button" name="Submit" value="ดูรายงาน" onclick="checkround()" /--></td>
       </tr>
      <tr><td colspan="6" align="center">&nbsp;</td></tr>
     </table>
@@ -106,7 +106,7 @@ if($fmcode){
     if(isset($page))
     $rec->setCurPage($page);
     $rec->setShowField("mcode,name_t,mdate,sp_code,month,point_left,point_right");
-    $rec->setFieldDesc("������Ҫԡ,����,�ѹ��Ѥ�,���ʼ���й�,��͹,��ṹ��Ѻ���˹觫���(��ṹ����),��ṹ��Ѻ���˹觢��(��ṹ����)");                 
+    $rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันสมัคร,รหัสผู้แนะนำ,เดือน,คะแนนปรับตำแหน่งซ้าย(คะแนนใหม่),คะแนนปรับตำแหน่งขวา(คะแนนใหม่)");                 
     $rec->setFieldSpace("10%,25%,10%,10%,15%,15%,15%");           
     $rec->setFieldAlign("center,left,center,center,center,right,right");
     $rec->setSum(true,false,",,,,,true,true"); 
@@ -115,11 +115,11 @@ if($fmcode){
   
     $rec->exportXls("ExportXls","Team_List".date("Ymd").".xls","SH_QUERY");
     $str = "<fieldset><a href='".$rec->download("ExportXls","Team_List".date("Ymd").".xls")."' >";
-    $str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+    $str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
     //$rec->getParam();
     $rec->setSpace($str); 
     $rec->showRec(1,'SH_QUERY');     
-    if($sale!='1')echo "��äӹǳ�����ҷ����� $time �Թҷ�<BR>";      
+    if($sale!='1')echo "การคำนวณใช้เวลาทั้งสิ้น $time วินาที<BR>";      
 }
 
 

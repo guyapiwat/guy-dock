@@ -10,28 +10,28 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 <script language="javascript" type="text/javascript">
 	function changeApproved(id,approved_status,cancel_status){
 		if(approved_status == 0 && cancel_status == 0){
-			if(confirm("�س��ͧ���͹��ѵԡ������Թ Ewallet ?")){
+			if(confirm("คุณต้องการอนุมัติการเติมเงิน Ewallet ?")){
 				window.location='index.php?sessiontab=6&sub=201&state=1&bid='+id+'&status=approved';
 			}
 		}
 		else if(approved_status == 1){
-			alert("��¡�ù����ӡ��͹��ѵ�����Ǥ��");
+			alert("รายการนี้ได้ทำการอนุมัติไปแล้วค่ะ");
 		}
 		else if(cancel_status == 1){
-			alert("��¡�ù����ӡ��¡��ԡ����Ǥ��");
+			alert("รายการนี้ได้ทำการยกเลิกไปแล้วค่ะ");
 		}
 	}
 	function changeCancel(id,approved_status,cancel_status){
 		if(cancel_status == 0 && approved_status == 0){
-			if(confirm("�س��ͧ���¡��ԡ��¡������Թ Ewallet ?")){
+			if(confirm("คุณต้องการยกเลิกรายการเติมเงิน Ewallet ?")){
 				window.location='index.php?sessiontab=6&sub=201&state=1&bid='+id+'&status=cancel';
 			}
 		}
 		else if(cancel_status == 1){
-			alert("��¡�ù����ӡ��¡��ԡ����Ǥ��");
+			alert("รายการนี้ได้ทำการยกเลิกไปแล้วค่ะ");
 		}
 		else if(approved_status == 1){
-			alert("��¡�ù����ӡ��͹��ѵ�����Ǥ��");
+			alert("รายการนี้ได้ทำการอนุมัติไปแล้วค่ะ");
 		}
 	}
 	function slipLook(img){
@@ -75,7 +75,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		if(isset($page))
 			$rec->setCurPage($page);                      
         $rec->setShowField("sano_ref,mcode,name_t,pay_desc,approved_sctime,approved_uid,total");
-		$rec->setFieldDesc("�Ţ�����ҧ�ԧ,������Ҫԡ,������Ҫԡ,���ͺѭ�ո�Ҥ��,�ѹ/��͹/��:����(͹��ѵ�),���͹��ѵ�,�ӹǹ�Թ");  
+		$rec->setFieldDesc("เลขบิลอ้างอิง,รหัสสมาชิก,ชื่อสมาชิก,ชื่อบัญชีธนาคาร,วัน/เดือน/ปี:เวลา(อนุมัติ),ผู้อนุมัติ,จำนวนเงิน");  
         $rec->setFieldFloatFormat(",,,,,,2");  
 		$rec->setSum(true,false,",,,,,,true"); 
         $rec->setFieldAlign("left,center,left,left,center,center,right");

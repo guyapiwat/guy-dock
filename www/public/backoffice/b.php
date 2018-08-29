@@ -22,7 +22,7 @@ $_SESSION["cprovince"] = $_POST["cprovince"];
 <form id=frm name=frm action='c.php' >
 </form>
 <img src="../member/images/ProgressBar.gif">
-��س��ͫѡ����
+กรุณารอซักครู่
 </body>
 </html>
 <?

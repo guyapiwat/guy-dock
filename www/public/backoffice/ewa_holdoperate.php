@@ -87,23 +87,23 @@ echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=
 ?>
 
 <?
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 	function updatePos($dbprefix,$mcode,$cur_date){
 		$pos_piority = array('G'=>2,'S'=>1,''=>0);
 		$pos_exp = array('G'=>2000,'S'=>1000,''=>0);
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."holdhead WHERE mcode='$mcode' and sa_type='A' ";
 		$rs = mysql_query($sql);
 		$mexp = 0;
 		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
 		mysql_free_result($rs);
-		//-----�纵��˹觻Ѩ�غѹ
+		//-----เก็บตำแหน่งปัจจุบัน
 		$sql = "SELECT pos_cur from ".$dbprefix."member WHERE mcode='$mcode' ";
 		$rs = mysql_query($sql);
 		$pos_old = '';
 		if(mysql_num_rows($rs)>0) $pos_old = mysql_result($rs,0,'pos_cur');
 		mysql_free_result($rs);
-		//�ӹǳ���˹�
+		//คำนวณตำแหน่ง
 		$flg=false;
 		switch ($pos_old){
 			case 'S':

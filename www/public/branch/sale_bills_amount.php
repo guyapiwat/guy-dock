@@ -106,9 +106,9 @@ if(empty($sspv))$sspv = '6';
 	<input size="14" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
 	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="<?=$wording_lan["tab2_report_2"]?>" /></a>
    <!-- <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเน€เธฅเธเธเธดเธฅ</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธดเธเธเนเธฒ</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธกเธฒเธเธดเธ</option>
     </select>-->
 	<?=$wording_lan["tab2_report_3"]?>
 	<select name="satype">

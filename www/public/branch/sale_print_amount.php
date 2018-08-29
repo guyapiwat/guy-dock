@@ -27,9 +27,9 @@ if (isset($_GET["mcode"])){$mcode=$_GET["mcode"];} else {$mcode="";}
 
 
 if($fdate!="" && $tdate!=""){
-echo '<center><font size=4>ºÔÅ ÊÒ¢Ò ÇÑ¹·Õè '.$fdate.' ¶Ö§ '.$tdate.' </font></center>';
+echo '<center><font size=4>à¸šà¸´à¸¥ à¸ªà¸²à¸‚à¸² à¸§à¸±à¸™à¸—à¸µà¹ˆ '.$fdate.' à¸–à¸¶à¸‡ '.$tdate.' </font></center>';
 }else{
-echo '<center><font size=4>ºÔÅ ÊÒ¢Ò ·Ñé§ËÁ´</font></center>';
+echo '<center><font size=4>à¸šà¸´à¸¥ à¸ªà¸²à¸‚à¸² à¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</font></center>';
 }
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT ".$dbprefix."asaled.pcode,".$dbprefix."asaled.price,";
@@ -72,7 +72,7 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,price,qty,amt");
 		$rec->setFieldFloatFormat(",,2,0,2");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		$rec->setFieldAlign("center,left,right,right,right");
 		$rec->setFieldSpace("10%,50%,15%,10%,15%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -80,10 +80,10 @@ $sql .= "GROUP BY ".$dbprefix."asaled.pcode";
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
 		$rec->setSum(true,true,",,,true,true,true");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ÃÒ¤Ò,¨Ó¹Ç¹,à»ç¹à§Ô¹");
+		//$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸„à¸²,à¸ˆà¸³à¸™à¸§à¸™,à¹€à¸›à¹‡à¸™à¹€à¸‡à¸´à¸™");
 		//$rec->setEdit("index.php","id","id","sessiontab=1&sub=2");
 		//$str2 = "<fieldset ><a href='".$rec->getParam()."&print_all=true' target='_blank'>";
-		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		//$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		//$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

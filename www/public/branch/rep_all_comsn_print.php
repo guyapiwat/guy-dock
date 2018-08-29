@@ -1,12 +1,12 @@
 <link href="./../style.css" rel="stylesheet" type="text/css">
-<title>¾ÔÁ¾ìÃÒÂ§Ò¹</title>
+<title>à¸à¸´à¸¡à¸à¹Œà¸£à¸²à¸¢à¸‡à¸²à¸™</title>
 <?
 	if(isset($_POST["ftrcode"]))
 		$ftrcode = $_POST["ftrcode"];
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//ÃÍºàÃÔèÁµé¹ == ÃÍºÊÔé¹ÊØ´
+		//à¸£à¸­à¸šà¹€à¸£à¸´à¹ˆà¸¡à¸•à¹‰à¸™ == à¸£à¸­à¸šà¸ªà¸´à¹‰à¸™à¸ªà¸¸à¸”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -45,7 +45,7 @@
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("rcode,mcode,name_t, com_a,com_b,com_c,com_d,total_all,tax,netprice");
-		$rec->setFieldDesc("ÃËÑÊÃÍº,ÃËÑÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,¤èÒá¹Ğ¹Ó,·ÕÁ¢ÒÂ,¾Ñ²¹Ò·ÕÁ¢ÒÂ,áÁªªÔè§,ÃÇÁÃÒÂä´é,ËÑ¡ÀÒÉÕ 5%,ÃÒÂä´éÊØ·¸Ô");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸£à¸­à¸š,à¸£à¸«à¸±à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸„à¹ˆà¸²à¹à¸™à¸°à¸™à¸³,à¸—à¸µà¸¡à¸‚à¸²à¸¢,à¸à¸±à¸’à¸™à¸²à¸—à¸µà¸¡à¸‚à¸²à¸¢,à¹à¸¡à¸Šà¸Šà¸´à¹ˆà¸‡,à¸£à¸§à¸¡à¸£à¸²à¸¢à¹„à¸”à¹‰,à¸«à¸±à¸à¸ à¸²à¸©à¸µ 5%,à¸£à¸²à¸¢à¹„à¸”à¹‰à¸ªà¸¸à¸—à¸˜à¸´");
 		$rec->setFieldAlign("center,center,left,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("7%,7%,16%,10%,10%,10%,10%,10%,10%,10%");
 		$rec->setSum(true,false,",,,true,true,true,true,true,true,true");

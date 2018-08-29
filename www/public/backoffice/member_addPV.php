@@ -17,7 +17,7 @@ if(isset($_POST['skey'])){
 	$key = $_GET['skey'];
 	$cause = $_GET['scause'];
 }
-// JOIN เมื่อต้องการข้อมูลวันหมดอายุในโปรแกรม
+// JOIN เน€เธกเธทเนเธญเธ•เนเธญเธเธเธฒเธฃเธเนเธญเธกเธนเธฅเธงเธฑเธเธซเธกเธ”เธญเธฒเธขเธธเนเธเนเธเธฃเนเธเธฃเธก
 
 	//$sql = "SELECT ".$dbprefix."member.*,taba.exp_date FROM ".$dbprefix."member ";
 	//$sql .= "LEFT JOIN (SELECT mid,MAX(exp_date) AS exp_date FROM ".$dbprefix."expdate GROUP BY mid) AS taba ON (".$dbprefix."member.id=taba.mid) ";
@@ -49,19 +49,19 @@ if(($key!='')||($cause!='')){
 					<form style='margin: 0px 0px 0px 0px;padding: 0px 0px 0px 0px;' name='searh' id='searh' action='./index.php?sessiontab=1&sub=2' method='post'>
 					<input type='text' name='scause'>
 					<select name='skey'>
-					<option value='mcode' >รหัสสมาชิก</option>
-					<option value='name_t' >ชื่อ</option>
-					<option value='sp_code' >รหัสผู้แนะนำ</option>
-					<option value='sp_name' >ชื่อผู้แนะนำ</option>
-					<option value='upa_code' >รหัสอัพไลน์</option>
-					<option value='upa_name' >ชื่ออัพไลน์</option>
-					<option value='mdate' >วันที่สมัคร</option>
-					<option value='stockist' >สต๊อกคีป</option>
-					<option value='mo' >โมบาย</option>
+					<option value='mcode' >เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</option>
+					<option value='name_t' >เธเธทเนเธญ</option>
+					<option value='sp_code' >เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ</option>
+					<option value='sp_name' >เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ</option>
+					<option value='upa_code' >เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน</option>
+					<option value='upa_name' >เธเธทเนเธญเธญเธฑเธเนเธฅเธเน</option>
+					<option value='mdate' >เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ</option>
+					<option value='stockist' >เธชเธ•เนเธญเธเธเธตเธ</option>
+					<option value='mo' >เนเธกเธเธฒเธข</option>
 					</select>
-					<input type='submit' value='ค้น'></form>
+					<input type='submit' value='เธเนเธ'></form>
 					</fieldset></td>
-					<td><fieldset><a href='./member_print.php' target="_blank"><img border='0' src='./images/Amber-Printer.gif'>พิมพ์รายงาน</a></fieldset></td>
+					<td><fieldset><a href='./member_print.php' target="_blank"><img border='0' src='./images/Amber-Printer.gif'>เธเธดเธกเธเนเธฃเธฒเธขเธเธฒเธ</a></fieldset></td>
 				</tr></table><br />
 				<? } ?>
 			</td>
@@ -69,27 +69,27 @@ if(($key!='')||($cause!='')){
 		
 		<tr bgcolor='#999999' align='center'><form name='maindel' id='maindel' action='./index.php?sessiontab=1&sub=2&state=1' method='post'>
 		<? if($acc->isAccess(1)) {?>
-			<td bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ดู</td>
+			<td bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธ”เธน</td>
 		<? }if($acc->isAccess(8)) {?>
 			<td bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>
-			<a href="javascript:if(confirm('กรุณายืนยันการลบข้อมูลดังกล่าว')) document.maindel.submit();">ลบ</a>
+			<a href="javascript:if(confirm('เธเธฃเธธเธ“เธฒเธขเธทเธเธขเธฑเธเธเธฒเธฃเธฅเธเธเนเธญเธกเธนเธฅเธ”เธฑเธเธเธฅเนเธฒเธง')) document.maindel.submit();">เธฅเธ</a>
 			<input name='delbutton' id='delbutton' type='checkbox' onclick='checkall()'></td>
 			<? }if($acc->isAccess(4)) {?>
-			<td bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>แก้ไข</td>
+			<td bgcolor='#99CCCC' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เนเธเนเนเธ</td>
 			<? } ?>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสสมาชิก</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่อ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสผู้แนะนำ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่อผู้แนะนำ</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>รหัสอัพไลน์</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>ชื่ออัพไลน์</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>PV สะสม</td>
-			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>วันที่สมัคร</td>
-			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>สต๊อกคีป</td>
-			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>โมบาย</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธเธทเนเธญเธญเธฑเธเนเธฅเธเน</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>PV เธชเธฐเธชเธก</td>
+			<td width='10%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ</td>
+			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เธชเธ•เนเธญเธเธเธตเธ</td>
+			<td width='5%' style='border-left:1 solid #FFFFFF;border-top:1 solid #000000;border-bottom:1 solid #000000;'>เนเธกเธเธฒเธข</td>
 		</tr>
 		<?
-		//รหัสผู้แนะนำ,ชื่อผู้แนะนำ,รหัสอัพไลน์,ชื่ออัพไลน์,PV สะสม,วันที่สมัคร,สต๊อกคีป,โมบาย
+		//เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธทเนเธญเธเธนเนเนเธเธฐเธเธณ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธเธทเนเธญเธญเธฑเธเนเธฅเธเน,PV เธชเธฐเธชเธก,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธชเธ•เนเธญเธเธเธตเธ,เนเธกเธเธฒเธข
 		//mcode,name_t,sp_code,sp_name,upa_code,upa_name,tot_pv,mdate,stockist,mo
 		$onmouseover = array("this.style.background='#FFCC99'","this.style.background='#FFCC99'");
 		$onmouseout = array("this.style.background='#EDEDED'","this.style.background='#FFFFFF'");
@@ -125,7 +125,7 @@ if(($key!='')||($cause!='')){
 		}//if(($key!='')||($cause!='')){
 		else{
 		?>
-		</form><table align='center' width='95%'  border='0' cellpadding='0' cellspacing='0'><br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr></table>
+		</form><table align='center' width='95%'  border='0' cellpadding='0' cellspacing='0'><br /><tr><td bgcolor='#990000' align='center'><font color='#FFFFFF'>เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ</font></td></tr><tr></tr><td align='center'>[<a href='javascript:history.back()'>Back</a>]</td></tr></table>
 		<?
 		}
 	?>

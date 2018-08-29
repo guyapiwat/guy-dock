@@ -33,12 +33,12 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 		}
 	}
 	function sale_status(id,page,chktype,sessiontab,sub){
-		//if(confirm("��ͧ�������¹�ŧ����Ѻ�ͧ")){
+		//if(confirm("ต้องการเปลี่ยนแปลงการรับของ")){
 			window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&state=6&sender='+id;
 		//}
 	}
 	function sale_status1(id,page,chktype,sessiontab,sub){
-		//if(confirm("��ͧ�������¹�ŧ�Ѵ��")){
+		//if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&state=7&sender='+id;
 		//}
 	}
@@ -166,15 +166,15 @@ $monthmonth = explode("-",$fdate);
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,remark,inv_code,uid_sender,uid_receive,checkportal");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-	//	$rec->setFieldDesc("P,�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,��Դ, PV,�ӹǹ�Թ,������,�Ѵ��,�ѹ�Ѵ��,�ѹ�Ѻ�ͧ,��ҧ�ԧ,�����Ң�,�Ѻ�ͧ�Ң�,user<br>�Ѵ��,user<br>�Ѻ�ͧ,��ͧ�ҧ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+	//	$rec->setFieldDesc("P,วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,ชนิด, PV,จำนวนเงิน,ผู้คีย์,จัดส่ง,วันจัดส่ง,วันรับของ,อ้างอิง,ซื้อสาขา,รับของสาขา,user<br>จัดส่ง,user<br>รับของ,ช่องทาง");
 	$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_9"].",".$wording_lan["Bill_10"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_12"].",".$wording_lan["Bill_14"].",".$wording_lan["Bill_15"].",".$wording_lan["Bill_16"].",".$wording_lan["Bill_17"]."");
 
 		$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center,left,center,center,center,center");
 		$rec->setFieldSpace("1%,6%,7%,5%,14%,3%,6%,6%,5%,3%,6%,6%,7%,4%,4%");
 	//	$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."asaleh.mcode,".$dbprefix."asaleh.name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-	//	$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�Ң�,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,��ѡ�ҹ");
+	//	$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,สาขา,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,พนักงาน");
 		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_1"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_19"].",".$wording_lan["Bill_20"]);
 		$rec->setSum(true,false,",,,,,,true,true,,");
 		$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE",$wording_lan["Bill_view"]);

@@ -71,7 +71,7 @@ include_once("wording".$_SESSION["lan"].".php");
 			step = i*12+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='≈∫' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -139,11 +139,11 @@ include_once("wording".$_SESSION["lan"].".php");
 		}
 		//$_SESSION["inv_ewallet"] = 0;
 		if(sumtotal >  <?=$_SESSION["inv_ewallet"]?>){
-			//			alert("point ¢Õß§ÿ≥‰¡Ë‡æ’¬ßæÕ");
+			//			alert("point ‡∏Ç‡∏≠‡∏á‡∏Ñ‡∏∏‡∏ì‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏û‡∏≠");
 			//			return;
 					}
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'> √«¡</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'> ‡∏£‡∏ß‡∏°</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumbv' value='" + sumbv + "'></td>";
@@ -193,7 +193,7 @@ $rec->setFieldSpace("15%,65%,20%");
 $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,bv,fv","IMAGE","");
 $rec->setSearch("pcode,pdesc,price,pv");
-$rec->setSearchDesc("√À— ,√“¬≈–‡Õ’¬¥,√“§“,§–·ππ");
+$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

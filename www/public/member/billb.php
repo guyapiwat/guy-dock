@@ -9,7 +9,7 @@
 		window.open(wlink);
 	}
 		function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=4&sub=21&state=2&bid='+id;
 		}
 	}
@@ -35,7 +35,7 @@ $sql .= "ELSE '<img src=\"./images/true.gif\">' END AS credittype, ";
 $sql .= "CASE sendtype WHEN '0' THEN '<img src=\"./images/false.gif\">' ";
 $sql .= "ELSE '<img src=\"./images/true.gif\">' END AS sendtype1 ";
 $sql .= ",CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'ONLINE' WHEN '4' THEN 'ATO' WHEN '5' THEN 'STOCKIST'  END AS checkportal";
-$sql .= ",CASE sa_type WHEN 'A' THEN '����'  WHEN 'Q' THEN '�ѡ���ʹ' WHEN 'H' THEN 'HOLD'  END AS ability";
+$sql .= ",CASE sa_type WHEN 'A' THEN 'ปกติ'  WHEN 'Q' THEN 'รักษายอด' WHEN 'H' THEN 'HOLD'  END AS ability";
 $sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
 $sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd ";
@@ -70,17 +70,17 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."transfersale_h.mcode=".$
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano1,smcode,name_t,mobile,total,paytype1,credittype,ability,sano");
-		$rec->setFieldDesc("�Ţ����Ū��Ǥ���,".$wording_lan["tab4"]["4_2"].",".$wording_lan["tab4"]["4_3"].",".$wording_lan["tab4"]["4_4"].",".$wording_lan["tab4"]["4_5"].",".$wording_lan["tab4"]["4_6"].",".$wording_lan["tab4"]["4_7"].",".$wording_lan["tab4"]["4_8"].",".$wording_lan["tab4"]["4_9"]."");
+		$rec->setFieldDesc("เลขที่บิลชั่วคราว,".$wording_lan["tab4"]["4_2"].",".$wording_lan["tab4"]["4_3"].",".$wording_lan["tab4"]["4_4"].",".$wording_lan["tab4"]["4_5"].",".$wording_lan["tab4"]["4_6"].",".$wording_lan["tab4"]["4_7"].",".$wording_lan["tab4"]["4_8"].",".$wording_lan["tab4"]["4_9"]."");
 		//$rec->setFieldFloatFormat(",,,,,,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
 		$rec->setFieldAlign("center,center,left,center,center,center,center,center,center,center,center");
 		$rec->setFieldSpace("7%,7%,22%,8%,10%,10%,10%,10%,6%,6%,6%");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setDel("index.php","id","id","sessiontab=3&sub=6");
-		$rec->setSpecial("./images/search.gif","","view","id","IMAGE","��");
-		$rec->setSpecial("./images/credit_icon.gif","","creditcard","id","IMAGE","��");
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ��¡��");
+		$rec->setSpecial("./images/search.gif","","view","id","IMAGE","ดู");
+		$rec->setSpecial("./images/credit_icon.gif","","creditcard","id","IMAGE","ดู");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิกรายการ");
 		$rec->showRec(1,'SH_QUERY');
 		//mysql_close($link);
 	}

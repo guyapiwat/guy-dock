@@ -1,7 +1,7 @@
 <script language="javascript" type="text/javascript">
 function ecom_to_ewallet(id,pay){
 	if(pay == 1){
-		alert("รายการนี้ได้ทำการโอนเรียบร้อยแล้วค่ะ");
+		alert("เธฃเธฒเธขเธเธฒเธฃเธเธตเนเนเธ”เนเธ—เธณเธเธฒเธฃเนเธญเธเน€เธฃเธตเธขเธเธฃเนเธญเธขเนเธฅเนเธงเธเนเธฐ");
 		exit;
 	}
 	else{
@@ -34,7 +34,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -51,7 +51,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -77,7 +77,7 @@ if($fmcode != '')$wwhere .= " and mcode = '".$fmcode."'  ";
 		if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";} 
 		$sql  = "select * from (SELECT '".$fdate."' as fdate,'".$tdate."' as tdate,a.mcode,m.name_t,m.pos_cur,SUM(a.ambonus) as ambonus,SUM(a.bmbonus) as bmbonus,SUM(a.dmbonus) as dmbonus,SUM(a.embonus) as embonus
 		,SUM(a.ambonus+a.bmbonus+a.dmbonus+a.embonus) as total";
-		$sql .= ",CASE WHEN (m.status_terminate = '1' and m.status_suspend = '1') THEN 'SP+TN' WHEN m.status_terminate = '1' THEN 'TN' WHEN m.status_suspend = '1' THEN 'SP' ELSE 'ปกติ'  END AS status ";
+		$sql .= ",CASE WHEN (m.status_terminate = '1' and m.status_suspend = '1') THEN 'SP+TN' WHEN m.status_terminate = '1' THEN 'TN' WHEN m.status_suspend = '1' THEN 'SP' ELSE 'เธเธเธ•เธด'  END AS status ";
 		$sql .= " FROM (";
 		$sql .= "SELECT mcode,SUM(ambonus) as ambonus,SUM(bmbonus) as bmbonus,0 as dmbonus,0 as embonus"; 
 		$sql .= " FROM ".$dbprefix."commission  ";
@@ -130,7 +130,7 @@ if($fmcode != '')$wwhere .= " and mcode = '".$fmcode."'  ";
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("fdate,tdate,mcode,name_t,ambonus,bmbonus,dmbonus,embonus,total,status");
-		$rec->setFieldDesc("วันเริ่มต้น,วันสิ้นสุด,รหัสมาชิก,ชื่อ,Fast,W/S,Matching,AllSale,Total,สถานะ");
+		$rec->setFieldDesc("เธงเธฑเธเน€เธฃเธดเนเธกเธ•เนเธ,เธงเธฑเธเธชเธดเนเธเธชเธธเธ”,เธฃเธซเธฑเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,Fast,W/S,Matching,AllSale,Total,เธชเธ–เธฒเธเธฐ");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,center,center");
 		//$rec->setFieldSpace("5%,7%,7%,26%,10%,10%,10%,10%,15%");//10
 		$rec->setSum(true,false,",,,,true,true,true,true,true");
@@ -140,19 +140,19 @@ if($fmcode != '')$wwhere .= " and mcode = '".$fmcode."'  ";
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ambonus".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","ambonus".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		if(isset($_POST['skey']))
 			$rec->setCause($_POST['skey'],$_POST['scause']);
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
-		//$rec->setSpecial("./images/hold_s.gif","","ecom_to_ewallet","id,pay","IMAGE","จ่าย");
+		//$rec->setSpecial("./images/hold_s.gif","","ecom_to_ewallet","id,pay","IMAGE","เธเนเธฒเธข");
 		//$rec->setSearch("a.mcode,lb.cshort");
-		//$rec->setSearchDesc("รหัส,LB");
+		//$rec->setSearchDesc("เธฃเธซเธฑเธช,LB");
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 		mysql_close($link);

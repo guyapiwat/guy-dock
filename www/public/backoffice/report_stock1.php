@@ -4,7 +4,7 @@
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 
 <? include("prefix.php");?>
-<table align="center"><tr>	<td align="center"><b>√“¬ß“π Stock ≥ «—π∑’Ë</b></td></tr>
+<table align="center"><tr>	<td align="center"><b>‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô Stock ‡∏ì ‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà</b></td></tr>
 
 </table>
 <?
@@ -32,18 +32,18 @@ $_GET['excel'] = '1';
 	if(isset($page))
 		$rec->setCurPage($page);
 	$rec->setShowField("pcode,pdesc,qty,inv_code");
-	$rec->setFieldDesc("√À—  ‘π§È“,√“¬≈–‡Õ’¬¥ ‘π§È“,®”π«π, “¢“");
+	$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô,‡∏™‡∏≤‡∏Ç‡∏≤");
 	$rec->setFieldFloatFormat(",,0");
 	$rec->setFieldAlign("center,left,right,center");
 	$rec->setFieldSpace("10%,70%,10%,10%");
 	$rec->setFieldLink(",");
 //	$rec->setSearch("inv_code");
-//	$rec->setSearchDesc(" “¢“");
+//	$rec->setSearchDesc("‡∏™‡∏≤‡∏Ç‡∏≤");
 	//$rec->setSum(true,false,",,true,true,true,true");
 	if($_GET['excel']==1){
 		$rec->exportXls("ExportXls","sale_bill_product".date("Ym").".xls","SH_QUERY");
 		$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill_product".date("Ym").".xls")."' >";
-		$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 		//$rec->getParam();
 //$rec->setSpace($str);
 	}
@@ -51,7 +51,7 @@ $_GET['excel'] = '1';
 
 	//$rec->setSpecial("./images/search.gif","","view","id","IMAGE","");
 	//$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-	//$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+	//$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 	//$rec->setSpace($str);
 	$rec->showRec(1,'SH_QUERY');
 ?>

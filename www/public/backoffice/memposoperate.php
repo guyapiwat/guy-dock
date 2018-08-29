@@ -17,18 +17,18 @@ if(isset($_GET['state'])){
     if (isset($_POST["posdate"])){$posdate=$_POST["posdate"];}else{$posdate=date("Y-m-d");}
 }
   	if($pos != "VIP" and $pos1!=$opos1 ){
-			echo "<script language='JavaScript'>alert('���˹��ѧ����� VIP �������ö��Ѻ���˹����õ�����'); window.history.back()</script>";	
+			echo "<script language='JavaScript'>alert('ตำแหน่งยังไม่เป็น VIP ไม่สามารถปรับตำแหน่งเกียรติยศได้'); window.history.back()</script>";	
 			exit;
 	}
 
 if($_GET['state']==1 && !system_code($mcode)){
-    logtext(true,$_SESSION['adminusercode'],'��䢵��˹���Ҫԡ',$id);
+    logtext(true,$_SESSION['adminusercode'],'แก้ไขตำแหน่งสมาชิก',$id);
     $sql = "SELECT mcode,status_terminate FROM ".$dbprefix."member WHERE id='$id' LIMIT 1 ";
     $rs  = mysql_query($sql);
     $mcode =mysql_result($rs,0,'mcode');
     $status_terminate =mysql_result($rs,0,'status_terminate');
 	if($status_terminate == '1'){
-		echo "<script language='JavaScript'>alert('������Ҫԡ ".$mcode." �Դʶҹ� Terminate'); window.history.back()</script>";	
+		echo "<script language='JavaScript'>alert('รหัสสมาชิก ".$mcode." ติดสถานะ Terminate'); window.history.back()</script>";	
 		exit;
 	}
     $sql = "INSERT INTO ".$dbprefix."calc_poschange (mcode,pos_before,pos_after,date_change,date_update,type,uid) ";
@@ -36,14 +36,14 @@ if($_GET['state']==1 && !system_code($mcode)){
     //echo $sql.'<br>';
     //====================LOG===========================
     $text="uid=".$_SESSION["adminuserid"]." action=memoperate =>$sql";
-    logtext(true,$_SESSION['adminusercode'],'���� VIP �ҡ'.$opos.' ��'.$pos,mysql_result($rs,0,'mcode'));
+    logtext(true,$_SESSION['adminusercode'],'เพิ่ม VIP จาก'.$opos.' เป็น'.$pos,mysql_result($rs,0,'mcode'));
     writelogfile($text);
 //=================END LOG===========================
     mysql_query($sql);
 
 #//======================POS cur 2 honor ================ ////
 
-    logtext(true,$_SESSION['adminusercode'],'��䢵��˹���Ҫԡ',$id);
+    logtext(true,$_SESSION['adminusercode'],'แก้ไขตำแหน่งสมาชิก',$id);
     $sql = "SELECT mcode FROM ".$dbprefix."member WHERE id='$id' LIMIT 1 ";
     $rs  = mysql_query($sql);
     $mcode =mysql_result($rs,0,'mcode');
@@ -52,7 +52,7 @@ if($_GET['state']==1 && !system_code($mcode)){
     //echo $sql.'<br>';
     //====================LOG===========================
     $text="uid=".$_SESSION["adminuserid"]." action=memoperate =>$sql";
-    logtext(true,$_SESSION['adminusercode'],'���� VIP �ҡ'.$opos1.' ��'.$pos1,mysql_result($rs,0,'mcode'));
+    logtext(true,$_SESSION['adminusercode'],'เพิ่ม VIP จาก'.$opos1.' เป็น'.$pos1,mysql_result($rs,0,'mcode'));
     writelogfile($text);
 //=================END LOG===========================
     mysql_query($sql);

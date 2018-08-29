@@ -18,7 +18,7 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
 		}
 	}
@@ -84,23 +84,23 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtCash,txtTransfer,txtCredit,lid,checkportal");
 		$rec->setFieldFloatFormat(",,,,2,2,2,2,,,,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,�Ң� ���� ��ѡ�ҹ,��ͧ�ҧ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,สาขา หรือ พนักงาน,ช่องทาง");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,center,right,right,center");
 		$rec->setFieldSpace("10%,5%,10%,22%,8%,8%,8%,8%,8%,8%,8%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."ewallet.mcode,name_t,sadate,total,".$dbprefix."ewallet.lid");
-		$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+		$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนเงินรวม,สาขาหรือพนักงาน");
 		$rec->setSum(true,false,",,,,true,true,true,true");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","�����");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","พิมพ์");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		//$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		/*if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=23");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=23&state=1","post","delfield");
 		}*/
-		$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","��");
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE","ดู");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//var_dump($acc->isAccess(2));
 		//exit;
@@ -109,15 +109,15 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","ewallet".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��ǹ���Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>ดาวน์โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='http://203.146.170.60/~bunny/backoffice/invoice_aprintw.php?bid=$bills' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>����������</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>พิมพ์ทั้งหมด</a></fieldset>";
 		$rec->setSpace($str2);
 		$rec->showRec(1,'SH_QUERY');
 /*$sql = "SELECT cancel,".$dbprefix."asaleh.id,sano,sadate,tot_pv,total,name_t,".$dbprefix."asaleh.mcode AS smcode";

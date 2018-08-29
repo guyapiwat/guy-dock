@@ -9,7 +9,7 @@ if(isset($_GET['state'])){
 	$sano = gencodesale("");
 
 
-logtext(true,$_SESSION['usercode'],'�������',$mid);
+logtext(true,$_SESSION['usercode'],'เพิ่มบิล',$mid);
 		$hdate = $_SESSION["datetimezone_last"];
 
 if($_SESSION["m_locationbase"] == '0'){
@@ -76,10 +76,10 @@ writelogfile($text);
 
 			// Sum Vat ////////
 			if($vat == '0'){
-				$total_exvat+=($qty[$i]*$price[$i]); //��Ҥ� ������ vat
+				$total_exvat+=($qty[$i]*$price[$i]); //รราคา ไม่รวม vat
 			}else{
 				$vat_sum = ($qty[$i]*$price[$i]*$vat/(100+$vat));
-				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//��Ҥҡ�͹ vat
+				//$total_invat+= ($qty[$i]*$price[$i]) - $vat; 	//รราคาก่อน vat
 				$total_vat+=($qty[$i]*$price[$i]*$vat/(100+$vat));
 				//$total_vat+=($qty[$i]*$price[$i]*100/(100+$vat[$i]));
 				$total_invat_sum+= ($qty[$i]*$price[$i])-$vat_sum;
@@ -162,7 +162,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before-$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+				  values('$sano','$invent','Head Office','$pcode2','$qty_before','-$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 				mysql_query($sql);
 
 
@@ -176,7 +176,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano,$uid){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before-$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','��Ţ��','$uid')";
+			  values('$sano','$invent','Head Office','$pcode','$qty_before','-$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','บิลขาย','$uid')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty-$qty WHERE pcode='$pcode' ";
@@ -228,7 +228,7 @@ function updateEwallet1($dbprefix,$mcode,$oldInternet,$id){
 	}
 	$rs3=mysql_query($sql3);
 } 
-//update ���˹� Ẻ���������ṹ
+//update ตำแหน่ง แบบไม่สะสมคะแนน
 ?>
 <?
 
@@ -246,8 +246,8 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }

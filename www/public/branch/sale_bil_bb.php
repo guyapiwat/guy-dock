@@ -121,12 +121,12 @@ if(empty($tdate))$tdate = date("Y-m-d");
   <tr valign="top"><td width="900" align="left" >
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 	<input size="14" type="text" name="fdate" id="dateInput1" value="<?=$fdate?>" />
-  ถึง
+  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="dateInput2" value="<?=$tdate?>" />
 
    &#3626;&#3634;&#3586;&#3634; 
 <select name="inv_code" id="inv_code" disabled >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by inv_code");
 
@@ -139,9 +139,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	ระหว่าง
+	เธฃเธฐเธซเธงเนเธฒเธ
 	<select name="inv_code1" id="inv_code1" disabled >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by inv_code");
 
@@ -157,9 +157,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 </tr>
 <tr>
 <td>
-	หน่วยงาน
+	เธซเธเนเธงเธขเธเธฒเธ
 	<select name="mapping_code" id="mapping_code">
-             <option  value="" <?=($mapping_code==""?"selected":"")?>>เลือกสาเหตุการเบิกสินค้า</option>
+             <option  value="" <?=($mapping_code==""?"selected":"")?>>เน€เธฅเธทเธญเธเธชเธฒเน€เธซเธ•เธธเธเธฒเธฃเน€เธเธดเธเธชเธดเธเธเนเธฒ</option>
 <?					
 					$result1=mysql_query("select * from ".$dbprefix."inventory_order where Mapping_type = 'BSALE' ");
 						for ($i=1;$i<=mysql_num_rows($result1);$i++){
@@ -173,17 +173,17 @@ if(empty($tdate))$tdate = date("Y-m-d");
     </select> 
 <input type="text" name="selectsano" value="<?=$selectsano?>" style="width:100px">
 	<select name="strtype">
-				 <option  value="sano" <?=($strtype=="sano"?"selected":"")?>>เลขบิล</option>
+				 <option  value="sano" <?=($strtype=="sano"?"selected":"")?>>เน€เธฅเธเธเธดเธฅ</option>
         </select>
 	<input type="text" name="txtpcode" value="<?=$txtpcode?>" style="width:100px">
 	<select name="typcode">
-				 <option  value="pcode" <?=($typcode=="pcode"?"selected":"")?>>รหัสสินค้า</option>
+				 <option  value="pcode" <?=($typcode=="pcode"?"selected":"")?>>เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ</option>
         </select>
-    <input type="submit" value="ค้น" />
+    <input type="submit" value="เธเนเธ" />
 </td>
 <!--<td align="center" width="110" ><fieldset>
 	        <a href="sell_print_taxs.php?fdate=<?=$fdate?>&inv_code=<?=$inv_code?>&tdate=<?=$tdate?>&satype=<?=$satype?>&logistic=<?=$logistic?>&strpv=<?=$strpv?>&strtotal=<?=$strtotal?>&struid=<?=$struid?>&sspv=<?=$sspv?>&inv_code=<?=$inv_code?>&inv_code1=<?=$inv_code1?>&strSearch=<?=$strSearch?>&strtype=<?=$strtype?>&sregister=<?=$sregister?>&selectsano=<?=$selectsano?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a>
 
 </fieldset></td>-->
 </tr></table></fieldset>

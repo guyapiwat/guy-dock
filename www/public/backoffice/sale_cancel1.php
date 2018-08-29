@@ -28,14 +28,14 @@ require_once ("function.log.inc.php");
 	 $sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and receive='1' ";
 	 $sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�Ѻ�ͧ�����');window.location='index.php?sessiontab=3&sub=6'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากรับของไปแล้ว');window.location='index.php?sessiontab=3&sub=6'</script>";	
 			exit;
 	}	
 	
 $sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and sa_type = 'H' and hpv <> tot_pv ";
 	 $sqlSS = mysql_query($sqlS);
 	if(mysql_num_rows($sqlSS) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź���� ���ͧ�ҡ�ա��ᨧ�ʹ�����');window.location='index.php?sessiontab=3&sub=6'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้ เนื่องจากมีการแจงยอดไปแล้ว');window.location='index.php?sessiontab=3&sub=6'</script>";	
 			exit;
 	}	
 	 
@@ -46,7 +46,7 @@ $sqlS = "select * from ".$dbprefix."asaleh where id='$bid' and sa_type = 'H' and
 //	echo $sqlC;
 //	exit;
 	if(mysql_num_rows($sqlSS) > 0 or mysql_num_rows($sqlSC) > 0){
-			echo "<script language='JavaScript'>alert('�������ö¡��ԡ��Ź����');window.location='index.php?sessiontab=3&sub=6'</script>";	
+			echo "<script language='JavaScript'>alert('ไม่สามารถยกเลิกบิลนี้ได้');window.location='index.php?sessiontab=3&sub=6'</script>";	
 			exit;
 	}	
 	$selectmember = "select * from ".$dbprefix."member where mcode = '$uid' ";
@@ -66,7 +66,7 @@ writelogfile($text);
 //=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION['adminuserid'],'¡��ԡ���',$bid);
+	logtext(true,$_SESSION['adminuserid'],'ยกเลิกบิล',$bid);
 	$sql = "select * from ".$dbprefix."asaled where sano='$bid'";
 			$result = mysql_query($sql);
 			for($i=0;$i<mysql_num_rows($result);$i++){
@@ -103,7 +103,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 				
 
@@ -126,7 +126,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -160,7 +160,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 				mysql_query($sql);
 
 
@@ -174,7 +174,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty+$qty WHERE pcode='$pcode' ";
@@ -197,7 +197,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 	//$ewallet_after = $ewallet_before-$total;
 	
 	$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$uid')";
+	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$uid')";
 	$rs = mysql_query($sql);
 
 		 $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode'";
@@ -276,7 +276,7 @@ function updatePos1($dbprefix,$mcode,$cur_date,$tot_pv){
 	}
 
 	if($cnt_date1 <= $cnt_date){
-		//-----�纤�ṹ�٧�ش����ա�ë���
+		//-----เก็บคะแนนสูงสุดที่มีการซื้อ
 		if($pos_new != $pos_old and $pos_piority[$pos_new]<$pos_piority[$pos_old]){
 			/*$sql = "select * from ".$dbprefix."calc_poschange where date_change <= '".$cnt_date."' order by id desc ";
 			$rs = mysql_query($sql);
@@ -365,9 +365,9 @@ function updatePos1($dbprefix,$mcode,$cur_date,$tot_pv){
 		}	
 	}
 
-	//-----�纵��˹觻Ѩ�غѹ
+	//-----เก็บตำแหน่งปัจจุบัน
 	//mysql_free_result($rs);
-	//�ӹǳ���˹�
+	//คำนวณตำแหน่ง
 	/*$pos_new = $pos_old;
 	foreach(array_keys($pos_exp) as $key){
 		//echo $key;
@@ -406,10 +406,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 
 ?>

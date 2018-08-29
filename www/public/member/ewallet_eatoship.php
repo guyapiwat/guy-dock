@@ -8,7 +8,7 @@ include("global.php");
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+        if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
             window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
         }
     }
@@ -83,8 +83,8 @@ $fdate=$_SESSION['fdate'];
 $tdate=$_SESSION['tdate'];
 ?>
 
-  <!--a class="btn2" href="index.php?sessiontab=4&sub=21&state=1" target="_blank"><center><img id="img4" border="0" src="./images/add.gif" width="12" height="12">«×éÍ</center></a>
-  <a class="btn1" href="index.php?sessiontab=4&sub=212" target="_blank"><center><img id="img4" border="0" src="./images/Animp.gif" width="12" height="12">âÍ¹</center></a-->
+  <!--a class="btn2" href="index.php?sessiontab=4&sub=21&state=1" target="_blank"><center><img id="img4" border="0" src="./images/add.gif" width="12" height="12">à¸‹à¸·à¹‰à¸­</center></a>
+  <a class="btn1" href="index.php?sessiontab=4&sub=212" target="_blank"><center><img id="img4" border="0" src="./images/Animp.gif" width="12" height="12">à¹‚à¸­à¸™</center></a-->
   <br>                                                                                                        
 <?
    
@@ -98,7 +98,7 @@ $sql .= "LEFT JOIN ".$dbprefix."member m ON (e.mcode=m.mcode) ";
 $sql .= "LEFT JOIN ".$dbprefix."invent i ON (e.inv_code=i.inv_code) where e.mcode = '".$_SESSION["usercode"]."' and cancel = 0 ";  
 if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'";
      echo '<br>'; 
-     echo "»ÃÐÇÑµÔ¡ÒÃàµÔÁ Eautoship";
+     echo "à¸›à¸£à¸°à¸§à¸±à¸•à¸´à¸à¸²à¸£à¹€à¸•à¸´à¸¡ Eautoship";
  
                                            
     if($_GET['state']==1){
@@ -130,12 +130,12 @@ if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'"
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,center");
         //$rec->setFieldSpace("7%,5%,8%,15%,8%,8%,8%,8%,8%,8%,8%,8%");           
         $rec->setSum(true,false,",,,,true,true,true,true,,");
-       // $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","¾ÔÁ¾ì");     
+       // $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");     
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");             
         $rec->showRec(1,'SH_QUERY');             
     }
     
-    echo "ÃÒÂ§Ò¹à¢éÒ-ÍÍ¡ Eautoship";
+    echo "à¸£à¸²à¸¢à¸‡à¸²à¸™à¹€à¸‚à¹‰à¸²-à¸­à¸­à¸ Eautoship";
         /////////// LOG //////////////
         $sql = "SELECT l.mcode as smcode,m.name_t,l.sadate,l.sano,l._in as txtMoney,l._out as txtCash,l.total,l._option as uid 
                  FROM ali_log_eatoship l "; 
@@ -153,7 +153,7 @@ if($fdate !="" and $tdate !="")$sql.=" and sadate BETWEEN '$fdate' and '$tdate'"
         $rec->setPageLinkAlign("right");                       
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtCash,total,uid");
         $rec->setFieldFloatFormat(",,,,3,3,3,");  
-        $rec->setFieldDesc("ÇÑ¹/à´×Í¹/»Õ,àÅ¢ºÔÅ,ÃËÑÊÁÒªÔ¡,ª×èÍÊÁÒªÔ¡,ÃÒÂ¡ÒÃà¢éÒ,ÃÒÂ¡ÒÃÍÍ¡,ÂÍ´¤§àËÅ×Í,ËÁÒÂàËµØ");  
+        $rec->setFieldDesc("à¸§à¸±à¸™/à¹€à¸”à¸·à¸­à¸™/à¸›à¸µ,à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸Šà¸·à¹ˆà¸­à¸ªà¸¡à¸²à¸Šà¸´à¸,à¸£à¸²à¸¢à¸à¸²à¸£à¹€à¸‚à¹‰à¸²,à¸£à¸²à¸¢à¸à¸²à¸£à¸­à¸­à¸,à¸¢à¸­à¸”à¸„à¸‡à¹€à¸«à¸¥à¸·à¸­,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");  
         $rec->setFieldAlign("center,center,center,left,right,right,right,left");
        // $rec->setFieldSpace("5%,10%,5%,30%,10%,10%,10%,20%");           
         $rec->setSum(true,false,",,,,true,true,,");  

@@ -30,7 +30,7 @@ writelogfile($text);
 //=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION['adminusercode'],'¡��ԡ Ewallet Online ���� : '.$id.' ������Ҫԡ : '.$mcode,$bid);
+	logtext(true,$_SESSION['adminusercode'],'ยกเลิก Ewallet Online รหัส : '.$id.' รหัสสมาชิก : '.$mcode,$bid);
 
  echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET['sessiontab']."&sub=".$_GET['sub']."'</script>";
 

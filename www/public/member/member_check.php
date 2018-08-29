@@ -15,7 +15,7 @@ require("connectmysql.php");
 require("./cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 //$sql = "SELECT * FROM ".$dbprefix."member ";
-// JOIN เมื่อต้องการข้อมูลวันหมดอายุในโปรแกรม
+// JOIN เน€เธกเธทเนเธญเธ•เนเธญเธเธเธฒเธฃเธเนเธญเธกเธนเธฅเธงเธฑเธเธซเธกเธ”เธญเธฒเธขเธธเนเธเนเธเธฃเนเธเธฃเธก
 $mm = date("Y-m");
 //$mm = date("Y");
 $sql = "SELECT ".$dbprefix."member.*,asa.all_pv,DATE_FORMAT(".$dbprefix."member.mdate, '%Y-%m-%d') as mdate FROM ".$dbprefix."member ";
@@ -52,11 +52,11 @@ $sql .= "LEFT JOIN (SELECT sum(tot_pv) AS all_pv,mcode  FROM ".$dbprefix."asaleh
 		if(isset($page))
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
-		//$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,วันหมดอายุ,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ,กระเป๋าเงิน,คะแนนส่วนตัว");
+		//$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธงเธฑเธเธซเธกเธ”เธญเธฒเธขเธธ,เธ•เธณเนเธซเธเนเธ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธฃเธฐเน€เธเนเธฒเน€เธเธดเธ,เธเธฐเนเธเธเธชเนเธงเธเธ•เธฑเธง");
 		$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code,all_pv");
-		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ,คะแนนแนะนำ");
+		$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธ•เธณเนเธซเธเนเธ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ,เธเธฐเนเธเธเนเธเธฐเธเธณ");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
-		//$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ");
+		//$rec->setFieldDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ,เธ•เธณเนเธซเธเนเธ,เธฃเธซเธฑเธชเธญเธฑเธเนเธฅเธเน,เธฃเธซเธฑเธชเธเธนเนเนเธเธฐเธเธณ");
 		$rec->setFieldAlign("center,left,center,center,center,center,center,right,right");
 		$rec->setFieldSpace("8%,35%,8%,8%,8%,8%,8%,8%,8%");
 	//	$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
@@ -64,7 +64,7 @@ $sql .= "LEFT JOIN (SELECT sum(tot_pv) AS all_pv,mcode  FROM ".$dbprefix."asaleh
 		$rec->setFieldFloatFormat(",,,,,,0,,0");
 	
 		$rec->setSearch("".$dbprefix."member.mcode,".$dbprefix."member.name_t,".$dbprefix."member.mdate");
-		$rec->setSearchDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร");
+		$rec->setSearchDesc("เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ");
 			
 	
 		

@@ -13,7 +13,7 @@ require_once ("function.log.inc.php");
 		mysql_query($del);
 		 
 	}else {
-		echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂¬°‡≈‘°∫‘≈π’È‰¥È ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
+		echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏î‡πâ ');window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
 		exit;
 	}
   
@@ -23,7 +23,7 @@ require_once ("function.log.inc.php");
 	//=================END LOG===========================
 	//echo $sql;
 	
-	logtext(true,$_SESSION["usercode"],'¬°‡≈‘°∫‘≈',$bid);
+	logtext(true,$_SESSION["usercode"],'‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•',$bid);
 	echo "<script language='JavaScript'>window.location='index.php?sessiontab=".$_GET["sessiontab"]."&sub=".$_GET["sub"]."'</script>";	
  
 ?>

@@ -7,7 +7,7 @@
 
 <script type="text/javascript">
 function  check() {
-        if(confirm("µÈÕß°“√≈È“ß¢ÈÕ¡Ÿ≈")){
+        if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏•‡πâ‡∏≤‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•")){
             document.getElementById("frm").action = "test_del.php";
         }else{
             exit;
@@ -44,25 +44,25 @@ function  check() {
 <form action="#" method="POST" name="frm" id="frm">
 <table>
     <tr> 
-        <td><p> ≈È“ß ¡“™‘°·≈– √È“ß ¡“™‘°„À¡Ë </p></td><td><input type="radio" onchange="document.getElementById('member').disabled=false;"  /></td>
+        <td><p> ‡∏•‡πâ‡∏≤‡∏á‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÅ‡∏•‡∏∞‡∏™‡∏£‡πâ‡∏≤‡∏á‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡πÉ‡∏´‡∏°‡πà </p></td><td><input type="radio" onchange="document.getElementById('member').disabled=false;"  /></td>
     </tr>
     <tr> 
-        <td><p> ‡æ‘Ë¡®”π«π√À—  ¡“™‘° </p></td><td><input type="text" name="member" id="member" OnKeyPress="return chkNumber(this)" disabled /><font color="red" >* ®–≈È“ß¢ÈÕ¡Ÿ≈ ¡“™‘°∑—ÈßÀ¡¥ ·≈– ‡æ‘Ë¡„À¡Ëµ“¡®”π«π∑’Ë°√Õ°  </font></td>
+        <td><p> ‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å </p></td><td><input type="text" name="member" id="member" OnKeyPress="return chkNumber(this)" disabled /><font color="red" >* ‡∏à‡∏∞‡∏•‡πâ‡∏≤‡∏á‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÅ‡∏•‡∏∞ ‡πÄ‡∏û‡∏¥‡πà‡∏°‡πÉ‡∏´‡∏°‡πà‡∏ï‡∏≤‡∏°‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏ó‡∏µ‡πà‡∏Å‡∏£‡∏≠‡∏Å  </font></td>
     </tr>
     <tr> 
-        <td colspan="2"><p>/////////////////////////// ¢ÈÕ¡Ÿ≈∑’ËµÈÕß°“√≈È“ß ///////////////////////////</p></td>
+        <td colspan="2"><p>/////////////////////////// ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏•‡πâ‡∏≤‡∏á ///////////////////////////</p></td>
     </tr>
 
     
     <tr> 
-        <td><p> ∑—ÈßÀ¡¥ </p></td><td><input type="checkbox" onchange="checkAll(this)" name="chk[]" /></td>
+        <td><p> ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î </p></td><td><input type="checkbox" onchange="checkAll(this)" name="chk[]" /></td>
     </tr>
 
     <tr> 
-        <td><p>  ‘π§È“ </p></td><td><input type="checkbox" name="del[]" value="product" /></td>
+        <td><p> ‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ </p></td><td><input type="checkbox" name="del[]" value="product" /></td>
     </tr>
     <tr> 
-        <td><p> ·æÁ§‡°® </p></td><td><input type="checkbox" name="del[]" value="product_package" /></td>             
+        <td><p> ‡πÅ‡∏û‡πá‡∏Ñ‡πÄ‡∏Å‡∏à </p></td><td><input type="checkbox" name="del[]" value="product_package" /></td>             
     </tr>
     <tr> 
         <td><p> Ewallet </p></td><td><input type="checkbox" name="del[]" value="ewallet" /></td>
@@ -83,43 +83,43 @@ function  check() {
         <td><p>Log Eautoship </p></td><td><input type="checkbox" name="del[]" value="log_eatoship" /></td>
     </tr>
     <tr> 
-        <td><p> √“¬ß“π °“√ª√—∫µ”·ÀπËß¢Õß ¡“™‘° </p></td><td><input type="checkbox" name="del[]" value="calc_poschange"/></td>
+        <td><p> ‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô ‡∏Å‡∏≤‡∏£‡∏õ‡∏£‡∏±‡∏ö‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡∏Ç‡∏≠‡∏á‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å </p></td><td><input type="checkbox" name="del[]" value="calc_poschange"/></td>
     </tr>
     <tr> 
-        <td><p> ∫‘≈¢“¬ </p></td><td><input type="checkbox" name="del[]" value="asaleh"/></td>
+        <td><p> ‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢ </p></td><td><input type="checkbox" name="del[]" value="asaleh"/></td>
     </tr>
     <tr> 
-        <td><p> ∫‘≈·®ß¬Õ¥ </p></td><td><input type="checkbox" name="del[]" value="holdhead"/></td>
+        <td><p> ‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î </p></td><td><input type="checkbox" name="del[]" value="holdhead"/></td>
     </tr>
     <tr> 
-        <td><p> √Õ∫§”π«≥·ºπ A  </p></td><td><input type="checkbox" name="del[]" value="around"/></td>
+        <td><p> ‡∏£‡∏≠‡∏ö‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÅ‡∏ú‡∏ô A  </p></td><td><input type="checkbox" name="del[]" value="around"/></td>
     </tr>
     <tr> 
-        <td><p> √Õ∫§”π«≥·ºπ B  </p></td><td><input type="checkbox" name="del[]" value="bround"/></td>
+        <td><p> ‡∏£‡∏≠‡∏ö‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡πÅ‡∏ú‡∏ô B  </p></td><td><input type="checkbox" name="del[]" value="bround"/></td>
     </tr>
     <tr> 
-        <td><p> √Õ∫§”π«≥√«¡®Ë“¬  </p></td><td><input type="checkbox" name="del[]" value="bround"/></td>
+        <td><p> ‡∏£‡∏≠‡∏ö‡∏Ñ‡∏≥‡∏ô‡∏ß‡∏ì‡∏£‡∏ß‡∏°‡∏à‡πà‡∏≤‡∏¢  </p></td><td><input type="checkbox" name="del[]" value="bround"/></td>
     </tr>
     <tr> 
-        <td colspan="2"><p>/////////////////////////// §Ë“·π–π” //////////////////////////</p></td>
+        <td colspan="2"><p>/////////////////////////// ‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥ //////////////////////////</p></td>
     </tr>
     <tr> 
-        <td><p> ·ºπ§Ë“·π–π”  </p></td><td><input type="checkbox" name="del[]" value="ambonus"/></td>
+        <td><p> ‡πÅ‡∏ú‡∏ô‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥  </p></td><td><input type="checkbox" name="del[]" value="ambonus"/></td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="ac"/>√“¬≈–‡Õ’¬¥§Ë“·π–π”  1(ac) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="ac"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥  1(ac) </td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="apv"/> √“¬≈–‡Õ’¬¥§Ë“·π–π”  2(apv) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="apv"/> ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏Ñ‡πà‡∏≤‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥  2(apv) </td>
     </tr>
     <tr> 
         <td colspan="2"><p>/////////////////////////// W/S //////////////////////////</p></td>
     </tr>
     <tr> 
-        <td><p> ·ºπ∫√‘À“√∑’¡ (W/S)  </p></td><td><input type="checkbox" name="del[]" value="bmbonus"/></td>
+        <td><p> ‡πÅ‡∏ú‡∏ô‡∏ö‡∏£‡∏¥‡∏´‡∏≤‡∏£‡∏ó‡∏µ‡∏° (W/S)  </p></td><td><input type="checkbox" name="del[]" value="bmbonus"/></td>
     </tr>
         <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="bm"/>√“¬≈–‡Õ’¬¥ W/S  (bm) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="bm"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î W/S  (bm) </td>
     </tr>
     <tr> 
         <td colspan="2"><p>/////////////////////////// Matching  //////////////////////////</p></td>
@@ -128,10 +128,10 @@ function  check() {
         <td><p> Matching  </p></td><td><input type="checkbox" name="del[]" value="dmbonus"/></td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="dpv"/>√“¬≈–‡Õ’¬¥ Matching 1(dpv) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="dpv"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î Matching 1(dpv) </td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="dc"/> √“¬≈–‡Õ’¬¥ Matching 2(dc) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="dc"/> ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î Matching 2(dc) </td>
     </tr>
     <tr> 
         <td colspan="2"><p>/////////////////////////// Unilevel  //////////////////////////</p></td>
@@ -140,52 +140,52 @@ function  check() {
         <td><p> Unilevel  </p></td><td><input type="checkbox" name="del[]" value="mmbonus"/></td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="mpv"/>√“¬≈–‡Õ’¬¥Unilevel 1(mpv) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="mpv"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏îUnilevel 1(mpv) </td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="mc"/> √“¬≈–‡Õ’¬¥Unilevel 2(mc) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="mc"/> ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏îUnilevel 2(mc) </td>
     </tr>
     <tr> 
-        <td colspan="2"><p>/////////////////////////// §Ë“§’¬Ï  //////////////////////////</p></td>
+        <td colspan="2"><p>/////////////////////////// ‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå  //////////////////////////</p></td>
     </tr>
     <tr> 
-        <td><p> ·ºπ §Ë“§’¬Ï  </p></td><td><input type="checkbox" name="del[]" value="fmbonus"/></td>
+        <td><p> ‡πÅ‡∏ú‡∏ô ‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå  </p></td><td><input type="checkbox" name="del[]" value="fmbonus"/></td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="fpv"/>√“¬≈–‡Õ’¬¥§Ë“§’¬Ï  1(fpv) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="fpv"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå  1(fpv) </td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="fc"/> √“¬≈–‡Õ’¬¥§Ë“§’¬Ï 2(fc) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="fc"/> ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå 2(fc) </td>
     </tr>
     <tr> 
         <td colspan="2"><p>/////////////////////////// All sale  //////////////////////////</p></td>
     </tr>
     <tr> 
-        <td><p> ·ºπ ALL Sale  </p></td><td><input type="checkbox" name="del[]" value="embonus"/></td>
+        <td><p> ‡πÅ‡∏ú‡∏ô ALL Sale  </p></td><td><input type="checkbox" name="del[]" value="embonus"/></td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="epv"/>√“¬≈–‡Õ’¬¥ All sale 1(epv) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="epv"/>‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î All sale 1(epv) </td>
     </tr>
     <tr> 
-        <td></td><td><input type="checkbox" name="del[]" value="em"/> √“¬≈–‡Õ’¬¥ All sale 2(em) </td>
+        <td></td><td><input type="checkbox" name="del[]" value="em"/> ‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î All sale 2(em) </td>
     </tr>
     <tr> 
-        <td colspan="2"><p>/////////////////////////// ¢ÈÕ¡Ÿ≈∑’ËµÈÕß°“√Õ—æ‡¥∑ //////////////////////////</p></td>
+        <td colspan="2"><p>/////////////////////////// ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏≠‡∏±‡∏û‡πÄ‡∏î‡∏ó //////////////////////////</p></td>
     </tr>
     <tr> 
-        <td><p> stock  ‘π§È“ Backoffice ∑—ÈßÀ¡¥ ‡ªÁπ  </p></td><td><input type="text" name="updat_product" OnKeyPress="return chkNumber(this)" /></td>
+        <td><p> stock ‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ Backoffice ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÄ‡∏õ‡πá‡∏ô  </p></td><td><input type="text" name="updat_product" OnKeyPress="return chkNumber(this)" /></td>
     </tr>
     <tr> 
-        <td><p> stock  ‘π§È“ Branch ∑—ÈßÀ¡¥ ‡ªÁπ  </p></td><td><input type="text" name="updat_product_inv" OnKeyPress="return chkNumber(this)" /></td>
+        <td><p> stock ‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ Branch ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÄ‡∏õ‡πá‡∏ô  </p></td><td><input type="text" name="updat_product_inv" OnKeyPress="return chkNumber(this)" /></td>
     </tr>
     <tr> 
-        <td><p> Ewallet ∑—ÈßÀ¡¥ ‡ªÁπ  </p></td><td><input type="text" name="update_ewallet" OnKeyPress="return chkNumber(this)" /></td>
+        <td><p> Ewallet ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÄ‡∏õ‡πá‡∏ô  </p></td><td><input type="text" name="update_ewallet" OnKeyPress="return chkNumber(this)" /></td>
     </tr>
     <tr> 
-        <td><p> Evoucher ∑—ÈßÀ¡¥ ‡ªÁπ  </p></td><td><input type="text" name="update_voucher" OnKeyPress="return chkNumber(this)" /></td>
+        <td><p> Evoucher ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÄ‡∏õ‡πá‡∏ô  </p></td><td><input type="text" name="update_voucher" OnKeyPress="return chkNumber(this)" /></td>
     </tr>
     <tr> 
-        <td><p> Eautoship ∑—ÈßÀ¡¥ ‡ªÁπ  </p></td><td><input type="text" name="update_eatoship" OnKeyPress="return chkNumber(this)" /></td>
+        <td><p> Eautoship ‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î ‡πÄ‡∏õ‡πá‡∏ô  </p></td><td><input type="text" name="update_eatoship" OnKeyPress="return chkNumber(this)" /></td>
     </tr> 
     <tr> 
         <td></td><td><input type="submit" name="submit" onclick="check()" value="Sumit"/></td>

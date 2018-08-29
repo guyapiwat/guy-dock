@@ -1,9 +1,17 @@
 <?php
+<<<<<<< HEAD
 $pos_piority = array('VIP' => 3, 'PRO' => 2, 'DIS' => 1, 'MB' => 0);
 $pos_exp = array('VIP' => 2800, 'PRO' => 800, 'DIS' => 400, 'MB' => 0);
 $array_mpos_cls = array('VIP' => 300, 'PRO' => 300, 'DIS' => 300, 'MB' => 0);
 $montharry = array('01' => '�.�.', '02' => '�.�.', '03' => '�.�', '04' => '��.�', '05' => '�.�.', '06' => '��.�.', '07' => '�.�.', '08' => '�.�.', '09' => '�.�.', '10' => '�.�.', '11' => '�.�.', '12' => '�.�.');
 $montharry_EN = array('01' => 'January', '02' => 'February', '03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December');
+=======
+$pos_piority = array('VIP'=>3,'PRO'=>2,'DIS'=>1,'MB'=>0);
+$pos_exp = array('VIP'=>2800,'PRO'=>800,'DIS'=>400,'MB'=>0);
+$array_mpos_cls = array('VIP'=>300,'PRO'=>300,'DIS'=>300,'MB'=>0);
+$montharry = array('01'=>'ม.ค.','02'=> 'ก.พ.','03' => 'ม.ค', '04' => 'เม.ย', '05' => 'พ.ค.', '06' => 'มิ.ย.', '07' => 'ก.ค.', '08' => 'ส.ค.', '09' => 'ก.ย.', '10' => 'ต.ค.', '11' => 'พ.ย.', '12' => 'ธ.ค.' );
+$montharry_EN = array('01'=>'January','02'=> 'February','03' => 'March', '04' => 'April', '05' => 'May', '06' => 'June', '07' => 'July', '08' => 'August', '09' => 'September', '10' => 'October', '11' => 'November', '12' => 'December' );
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 $member_qualify = array('TH0000001');
 /*$host = explode('www.',$_SERVER['SERVER_NAME']);
 $URL = explode('/',$_SERVER['REQUEST_URI']);
@@ -276,6 +284,7 @@ function query($string, $tabel, $where, $join = '')
     while ($obResult = mysql_fetch_array($objQuery)) {
         $arrCol = array();
         for ($i = 0; $i < $intNumField; $i++) {
+<<<<<<< HEAD
             $data[mysql_field_name($objQuery, $i)] = $obResult[$i];
         }
         array_push($resultArray, $data);
@@ -377,6 +386,105 @@ function check_last_member()
     $sql33 = "select t1.mcode,t1.name_t
           from " . $dbprefix . "member t1
           left join ali_member t2 on (t1.mcode = t2." . $upa_code . ")     
+=======
+            $data[mysql_field_name($objQuery, $i)] = $obResult[$i];    
+        }
+        array_push($resultArray, $data);    
+     }  
+    return  $resultArray;
+}
+
+
+function searchForId($pcode,$array) {
+   foreach ($array as $key => $val) {
+       if ($val['pcode'] === $pcode) {
+           return $key;
+       }
+   }
+   return -1;
+}
+
+function send_email_register2($strTo,$name_f,$name_t,$mcode){	
+	
+	$subject = "ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
+	$strHeader = "From: info@cci2016.net";
+
+	$body = " ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
+	$body .= "<br><br> รหัสสมาชิกของคุณคือ : $mcode ";
+	$body .= "<br> ชื่อผู้สมัครหลัก : $name_f $name_t";
+	$body .= "<br> รหัสผ่านสำหรับเข้าระบบ Online : คือ 4 ตัวท้ายของหมายเลขบัตรประชาชนของผู้สมัครหลัก  ";
+	$body .= "<br><br> ท่านสามารถเข้าสู่ระบบ Champ of Champ Innovation Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่ ";
+	$body .= "<br> <a href='http://203.146.170.60/~cci/member'>Champ of Champ Innovation System</a>";
+
+	$from='info@cci2016.net';      
+	$headersfrom='';
+	$headersfrom .= 'MIME-Version: 1.0' . "\r\n";
+	$headersfrom .= 'Content-type: text/html; charset=iso-8859-1' . "\r\n";
+	$headersfrom .= 'From: '.$from.' '. "\r\n";
+	$send = @mail($strTo,$subject,$body,$headersfrom);
+
+	if(!$send) {
+		echo "Mailer Error ";
+		return false;
+	} else {
+		//echo "Message sent!";
+		return true;
+	}
+	
+}
+
+function send_email_register($strTo,$name_f,$name_t,$mcode){	
+	
+	error_reporting(0);
+
+	require("mail/class.phpmailer.php");
+	require_once 'mail/PHPMailerAutoload.php';
+
+	$mail = new PHPMailer();
+
+	$body = " ยินดีต้อนรับสู่ Champ of Champ Innovation จำกัด";
+	$body .= "<br><br> รหัสสมาชิกของคุณคือ : $mcode ";
+	$body .= "<br> ชื่อผู้สมัครหลัก : $name_f $name_t";
+	$body .= "<br> รหัสผ่านสำหรับเข้าระบบ Online : คือ 4 ตัวท้ายของหมายเลขบัตรประชาชนของผู้สมัครหลัก  ";
+	$body .= "<br><br> ท่านสามารถเข้าสู่ระบบ Champ of Champ Innovation Online Member Service เพื่อสั่งซื้อสินค้า,สมัครสมาชิกใหม่,เช็คโบนัส หรือดูแลองค์กรของท่านได้ที่ ";
+	$body .= "<br> <a href='http://203.146.170.60/~cci/member'>Champ of Champ Innovation System</a>";
+
+	$mail->CharSet = "tis-620";
+	$mail->IsSMTP();
+	$mail->SMTPDebug = 0;
+	$mail->SMTPAuth = true;
+	$mail->Host = "mail.omc.co.th"; 
+	$mail->Port = 25; 
+	$mail->Username = "smtp@omc.co.th"; 
+	$mail->Password = "smtp123"; 
+
+	$mail->SetFrom("info@cci2016.net", "Champ of Champ Innovation");
+	$mail->AddReplyTo("info@cci2016.net", "Champ of Champ Innovation");
+	$mail->Subject = "Welcome to Champ of Champ Innovation Co.,Ltd";
+
+	$mail->MsgHTML($body);
+	$mail->AddAddress("smtp@omc.co.th", "no-reply");
+	$mail->AddAddress($strTo, $name_t); 
+	$mail->AddAddress("smtp@omc.co.th", "no-reply");
+	if(!$mail->Send()) {
+		echo "Mailer Error: " . $mail->ErrorInfo;
+	} else {
+		//echo "Message sent!";
+	}
+	return true;
+}
+
+function check_last_member(){      
+    ////////////////////////////////////////////////////////////////////  
+     $dbprefix='ali_';
+     $upa_code = 'sp_code2';
+     $priority = 'id';
+     $lr = 'lr';    
+     //////////////////////  find last member //////////////////////////
+     $sql33="select t1.mcode,t1.name_t
+          from ".$dbprefix."member t1
+          left join ali_member t2 on (t1.mcode = t2.".$upa_code.")     
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
           group by t1.mcode having count(*) <=1
           order by t1." . $priority . " 
           limit 0,1 ";
@@ -391,6 +499,7 @@ function check_last_member()
 
 }
 
+<<<<<<< HEAD
 function func_check_sale($dbprefix, $mcode, $tot_pv, $satype, $pos_cur, $sadate, $mtype)
 {
     global $array_mpos_cls;
@@ -438,6 +547,46 @@ function gen_mcode()
     }
     $gencode = gencode($mcode);
     /*	do{
+=======
+			echo "<script language='JavaScript'>alert('กรุณาซื้อรักษายอดขั้นต่ำ 500 pv'); window.history.back()</script>";	
+			exit;
+		} 
+	
+	 if ($satype == 'H' and $mtype1 == '0')
+	 {
+		echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold ไม่ได้');history.back();</script>";    
+		exit;
+	 }    
+		 //echo $satype.' : '.$mtype;
+		 //exit;
+}
+
+
+function fun_check_hold($dbprefix,$mcode,$satype,$mtype,$tot_pv){
+	$max = 1500;
+	if($mtype == 0){
+	//	echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold ไม่ได้');history.back();</script>";	
+	//	exit;
+	}else{
+	//$sql = "SELECT sano from ".$dbprefix."asaleh WHERE mcode='$mcode' and sa_type='H'";
+	//$rs = mysql_query($sql);
+	//if(mysql_num_rows($rs)<1 and $tot_pv < $max) {
+		if($tot_pv < $max) {
+	//	echo "<script language='JavaScript'>alert('สมาชิกรหัส  ".$mcode." สั่งซื้อ Hold จะต้องมี ".$max."PV ขึ้นไปเท่านั้น');history.back();</script>";	
+	//	exit;
+		}
+	}
+	
+}
+function gen_mcode(){
+	$sql="SELECT LPAD(FLOOR(RAND() * 9999998)+1,7,'0') as new_mcode FROM ali_member WHERE 'mcode' NOT IN (SELECT mcode FROM ali_member WHERE mcode IS NOT NULL) LIMIT 1";
+	$rs=mysql_query($sql);
+	if(mysql_num_rows($rs)>0){
+		$mcode = mysql_result($rs,0,'new_mcode');
+	}
+			$gencode=gencode($mcode);
+		/*	do{
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 				$sql = "SELECT LPAD(FLOOR(RAND() * 1000000)+1,7,'0') as gcode ";
 				$rs = mysql_query($sql);
 				$mcode = mysql_result($rs,0,'gcode');
@@ -482,7 +631,11 @@ function fun_check_sale($dbprefix, $mcode, $tot_pv, $satype, $pos_cur, $sadate, 
     /*if ($satype == 'Q'){
 			$max = 1200;
 			if($tot_pv > $max){
+<<<<<<< HEAD
 			//echo "<script language='JavaScript'>alert('�ѡ���ʹ��ǧ˹����  6 ��͹��ҹ��  (".$max."PV)'); window.history.back()</script>";
+=======
+			//echo "<script language='JavaScript'>alert('รักษายอดล่วงหน้าได้  6 เดือนเท่านั้น  (".$max."PV)'); window.history.back()</script>";	
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 			//exit;
 			}
 			$mdate = explode("-",$sadate);
@@ -490,7 +643,11 @@ function fun_check_sale($dbprefix, $mcode, $tot_pv, $satype, $pos_cur, $sadate, 
 			$rs = mysql_query($sql);
 
 			if(mysql_num_rows($rs) >= 6 ) {
+<<<<<<< HEAD
 			//	echo "<script language='JavaScript'>alert('�ѡ���ʹ��ǧ˹����  6 ��͹��ҹ��'); window.history.back()</script>";
+=======
+			//	echo "<script language='JavaScript'>alert('รักษายอดล่วงหน้าได้  6 เดือนเท่านั้น'); window.history.back()</script>";	
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 			//	exit;
 			}
 			//////// UPDATE status //////////////////
@@ -510,8 +667,13 @@ function func_status($dbprefix, $mcode, $tot_pv, $sadate, $pos_cur, $sano_x = ""
     //if($sanox != '' and $recursive == false)$sano = $sanox; // sanox fix bug cal_b
     /// setting ///
     $useRecursive = true; /// true or false
+<<<<<<< HEAD
     $usePvb = false; /// true or false
     $remain = check_count_status($mdate, $mcode, 3);//// check �ѡ���ʹ�٧�ٴ 6 ��͹  return �������
+=======
+    $usePvb = false; /// true or false 
+    $remain = check_count_status($mdate,$mcode,3) ;//// check รักษายอดสูงสูด 6 เดือน  return คงเหลือ
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
     /// setting ///
     $mdate = $sadate; // day of sale
     $nextmonth = nextmonth($sadate);
@@ -1256,6 +1418,7 @@ function genmcode($source)
 
 }
 
+<<<<<<< HEAD
 function insert($table, $data)
 {
     $fields = "";
@@ -1272,6 +1435,118 @@ function insert($table, $data)
     }
     $sql = "INSERT INTO $table ($fields) VALUES ($values)";
     // echo $sql.'<br><br>';
+=======
+	    return $data;
+	}
+
+
+
+	 function get_newPoint_show($dbprefix,$cmc,$lr){
+		$where = $this->maxCals();
+		$tdate = $where['tdate'];
+ 		$sql="SELECT mcode,sum(pv) as total_pv FROM ".$dbprefix."bm1 WHERE upa_code = '".$cmc."' and fdate > '".$tdate."' and lr ='".$lr."' group by mcode order by mcode ASC ";
+		// $sql="SELECT mcode,pv as total_pv FROM ".$dbprefix."bm1 WHERE upa_code = '".$cmc."' and fdate > '".$tdate."' and lr ='".$lr."' order by mcode ASC ";
+
+		$rs = mysql_query($sql);
+		 if(mysql_num_rows($rs) > 0)
+			{	
+				$table = "<table> ";
+					for($i=0;$i<mysql_num_rows($rs);$i++)
+					{
+						$sqlObj = mysql_fetch_object($rs);	
+						$table .= "<tr>";
+						$table .= "<td>".$sqlObj->mcode."</td>";
+						$table .= "<td>  :  </td>";
+						$table .= "<td align=right>".number_format($sqlObj->total_pv,0,'.',',')."</td>";
+						$table .= "</tr>";
+					}
+				$table .= "<tr><td colspan ='3'><hr/></td><tr>";
+				$table .= "<tr><td></td><td></td><td>".number_format($this->get_newPoint($dbprefix,$cmc,$lr),0,'.',',')."</td><tr>";		
+				$table .= "</table> ";			
+			}else{	
+				$table = 'ไม่พบข้อมูล';
+			}	
+		//	echo $table;
+	    return $table;
+	}
+	 function get_allPoint($dbprefix,$cmc){
+		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE (sa_type='A') and mcode='$cmc' and cancel=0  ";
+		$rs = mysql_query($sql);
+		$mexp = 0;
+		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+
+		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."holdhead WHERE mcode='".$cmc."' and (sa_type='A')   and cancel=0  ";
+		$rs = mysql_query($sql);
+		$mexph = 0;
+		if(mysql_num_rows($rs)>0) $mexph = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+
+		$sql = "select mcode, SUM(tot_pv) AS pv from ".$dbprefix."special_point WHERE  sa_type='VA' AND mcode='".$cmc."'  group by mcode ";
+		$rs = mysql_query($sql);
+		$mexpv = 0;
+		if(mysql_num_rows($rs)>0) $mexpv = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+		$data=($mexp+$mexph+$mexpv);	
+		return $data;
+	 }
+	 function get_allPointThisMonth($dbprefix,$cmc,$month=''){
+		if(empty($month))$thisMonth = date("Y-m");
+		else $thisMonth = $month;
+		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."asaleh WHERE (sa_type='A') and mcode='$cmc' and cancel=0 and sadate LIKE '".$thisMonth."%' ";
+		$rs = mysql_query($sql);
+		$mexp = 0;
+		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+		
+		$sql = "SELECT SUM(tot_pv) as pv from ".$dbprefix."holdhead WHERE mcode='".$cmc."' and (sa_type='A')   and cancel=0  and sadate LIKE '".$thisMonth."%' ";
+		$rs = mysql_query($sql);
+		$mexph = 0;
+		if(mysql_num_rows($rs)>0) $mexph = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+		$sql = "select mcode, SUM(tot_pv) AS pv from ".$dbprefix."special_point WHERE  sa_type='VA' AND mcode='".$cmc."' and sadate LIKE '".$thisMonth."%'  group by mcode ";
+		$rs = mysql_query($sql);
+		$mexpv = 0;
+		if(mysql_num_rows($rs)>0) $mexpv = mysql_result($rs,0,'pv');
+		mysql_free_result($rs);
+		$data=($mexp+$mexph+$mexpv);	
+		return $data;
+
+	 }
+
+	 function get_allUnit($dbprefix,$cmc){
+		$sql = "SELECT SUM(cycle_b) as pv from ".$dbprefix."bmbonus WHERE mcode='$cmc' group by mcode  ";
+		$rs = mysql_query($sql);
+		$mexp = 0;
+		if(mysql_num_rows($rs)>0) $mexp = mysql_result($rs,0,'pv');
+	
+
+		$data=($mexp+$mexph+$mexpv);	
+		return $data;
+	 }
+
+	 function position($dbprefix,$table,$field,$cmc){
+	
+			$result11=mysql_query("select pos_after,date_change from ".$dbprefix.$table." where mcode='".$cmc."' order by id desc limit 0,1 ");
+			if (mysql_num_rows($result11)>0)
+			{
+					$sqlObj1 = mysql_fetch_object($result11);
+					$data['pos_cur'] = $sqlObj1->pos_after;
+					$data['date'] = $sqlObj1->date_change;			
+			}
+			else
+			{
+					$sql="SELECT $field as pos_cur FROM ".$dbprefix."member where mcode='".$cmc."' ";
+					$rs = mysql_query($sql);
+					if(mysql_num_rows($rs) > 0)
+					{	
+						$sqlObj = mysql_fetch_object($rs);	
+						$data['pos_cur'] = $sqlObj->pos_cur;	
+					}
+			}
+ 		$data['pos_cur'] = $this->posname($data['pos_cur']);
+ 		return $data;
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 
     if (@mysql_query($sql)) {
         return true;
@@ -1284,6 +1559,7 @@ function insert($table, $data)
 
 function muti_insert($table, $data)
 {
+<<<<<<< HEAD
     $fields = "";
     $values = "";
     $i = 0;
@@ -1320,6 +1596,16 @@ function muti_insert($table, $data)
     }
     $text = "uid=" . $_SESSION["adminusercode"] . " action=$table =>$sql";
     writelogfile($text);
+=======
+    $arr_ewallet_type=array(
+        'I'=>"เตืม",  //   Cash IN
+        'O'=>"ถอน",  //  Withdrow OUT
+        'TI'=>"โอนเข้า",  //  Withdrow OUT
+        'TO'=>"โอนออก",  //  Withdrow OUT
+        'CI'=>"คอมมิชชั่นเข้า", //  Commision IN
+        'CO'=>"คอมมิชชั่นออก" // Commision OUT  
+    );
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 }
 
 function getDataForm($prefix = '')
@@ -2018,6 +2304,7 @@ function Status_all($mcd, $pos_cur, $month)
         //echo $sql;
         //exit;
         $rs = mysql_query($sql);
+<<<<<<< HEAD
         $num = mysql_num_rows($rs);
         $arr = array();
         if (mysql_num_rows($rs) > 0) {
@@ -2194,6 +2481,97 @@ function check_status($mcd, $pos_cur, $fdate)
             $status1['tot_pv'] = 0;
             $status = 0;
         }
+=======
+        if(mysql_num_rows($rs)>0) { 
+			$row = mysql_fetch_object($rs);
+                $pv = $row->pv;
+                $first_regis = $row->first_regis;
+             $status = 1; 
+			 if($first_regis == 1)$status1['tot_pv'] = "ฟรีเดือนสมัคร"; 
+			 else $status1['tot_pv'] = $pv; 
+        }else{          
+            $where = "sadate LIKE '%".$lastMonth."%'  and sa_type = 'Q' and cancel = 0 and tot_pv > 0  and mcode = '".$mcd."' ";
+            $sql  = " SELECT mcode,SUM(tot_pv) as tot_pv FROM  ";
+            $sql .= " ( ";
+            $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_asaleh ";
+            $sql .= "    WHERE ".$where." GROUP BY mcode ";
+            $sql .= " UNION ALL ";
+            $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_holdhead ";
+            $sql .= "    WHERE ".$where." GROUP BY mcode ";
+            $sql .= " ) as tb ";
+            $sql .= " GROUP BY mcode ";
+			//echo $sql;
+			//exit;
+            $rs = mysql_query($sql);
+            $num =  mysql_num_rows($rs);
+            $arr = array();
+            if(mysql_num_rows($rs) > 0)
+            {    
+                $row = mysql_fetch_object($rs);
+                $mcode = $row->mcode;
+                $tot_pv = $row->tot_pv; 
+                $status1['tot_pv'] = $tot_pv; 
+                $status1['stauts'] = '';  
+                $status_pv =  $array_mpos[$pos_cur];   
+                if($status1['tot_pv'] >=($status_pv)){
+                     $status = 1;
+                }else{
+                   $status1['tot_pv'] = 0;
+                   $status = 0;       
+                }       
+            }
+        }
+        
+		if($status1['tot_pv'] != 'ฟรีเดือนสมัคร')$status1['tot_pv'] = number_format($status1['tot_pv'],0,'.',',');
+        $status1['status'] = $status;     
+        if($status == '0')$status1['text'] = '<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>';
+        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)</b></font>';
+        
+		//var_dump($status1);
+        return $status1;
+}
+
+function getStatus($mcd,$pos_cur,$sadate){    
+        global  $array_mpos_cls;
+		$data=array();
+        $thisMonthxx =  date("Y-m",strtotime("first day of $sadate "));  
+        $thismonth =  date("Ym",strtotime("first day of $sadate "));  
+		$status1['tot_pv'] = 0;
+     
+		$where = "sadate LIKE '%".$thisMonthxx."%'  and (sa_type = 'B' or sa_type = 'Q') and cancel = 0 and tot_pv > 0  and mcode = '".$mcd."' ";
+		$sql  = " SELECT mcode,ifnull(SUM(tot_pv),0) as tot_pv FROM  ";
+		$sql .= " ( ";
+		$sql .= " SELECT mcode,SUM(total) as tot_pv  FROM ali_asaleh ";
+		$sql .= "    WHERE ".$where." GROUP BY mcode ";
+		$sql .= " UNION ALL ";
+		$sql .= " SELECT mcode,SUM(total) as tot_pv  FROM ali_holdhead ";
+		$sql .= "    WHERE ".$where." GROUP BY mcode ";
+		$sql .= " ) as tb ";
+		$sql .= " GROUP BY mcode ";
+		//echo $sql.'<br>';
+		$rs = mysql_query($sql);
+		$num =  mysql_num_rows($rs);
+		$arr = array();
+		if(mysql_num_rows($rs) > 0)
+		{    
+			 $row = mysql_fetch_object($rs);
+			$mcode = $row->mcode;
+			$tot_pv = $row->tot_pv; 
+			
+			if($tot_pv >=$array_mpos_cls[$pos_cur]){
+				 $data['text']="<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)($tot_pv)</b></font>"; 
+				 $data['status']=true;
+			}else{
+				$data['text']="<font color=#c00000><b>(ยังไม่รักษายอด)(".$tot_pv." )</b></font>";  
+				$data['status']=false;
+			}  
+
+		}else{
+			$tot_pv=0;
+			 $data['text']="<font color=#c00000><b>(ยังไม่รักษายอด)(".$tot_pv." )</b></font>"; 
+			 $data['status']=false;
+		}
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 
     }
 
@@ -2202,12 +2580,90 @@ function check_status($mcd, $pos_cur, $fdate)
         $status = 1;
         $status1['tot_pv'] = 2200;
     }
+<<<<<<< HEAD
 
     $status1['status'] = $status;
     if ($status == '0') $status1['text'] = '<font color=#c00000><b>(�ѧ����ѡ���ʹ)</b></font>';
     if ($status == '1') $status1['text'] = '<font color=#0000FF><b>(�ѡ���ʹ����ó�����)</b></font>';
     return $status1;
 }
+=======
+function get_status($mcode,$sadate,$pos_cur){
+	global $array_mpos_cls;
+	$d=explode('-',$sadate);
+	$thismonth=$d[0]."".$d[1];
+	$sql = "SELECT status from ali_status WHERE  mcode='$mcode' and month_pv LIKE '%".$thismonth."%'  and status = '1'  order by id DESC LIMIT 0,1 "; 
+
+    $rs = mysql_query($sql); 
+    if(mysql_num_rows($rs)>0) {  
+         $status = mysql_result($rs,0,'status');         
+    }else{ 
+     $status =0;
+    }   
+        
+	if($status == 1){
+		$data['status']="1";
+		$data['ch_status']="<font color=#0000FF><b>(รักษายอดแล้ว)</b></font>";
+	}else{
+		$data['status']="0";
+		$data['ch_status']="<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>";
+	}
+
+	return $data;
+}
+function getAutoship($mcd,$state){ 
+	
+	  $mm = date("Y-m", strtotime("first day of +$state Month")) ;
+            $sql = "SELECT ifnull(sum(total),0) as tot_autoship FROM ali_eatoship WHERE mcode='$mcd' and sadate LIKE'%$mm%' AND CANCEL= 0 ";
+        //    echo $sql;
+            $rs = mysql_query($sql);
+            if(mysql_num_rows($rs) > 0){            
+              $total = mysql_result($rs,0,'tot_autoship');                      
+            }
+    return $total;
+}
+	
+  
+function check_status($mcd,$pos_cur,$fdate){     
+        global $array_mpos_cls,$member_qualify;   
+       $status1['tot_pv'] = $status= 0;  
+        $thisMonth = date("Y-m",strtotime("first day of $fdate ")); 
+        $thisMonthxx = date("Ym",strtotime("first day of $fdate "));  
+        $lastMonth =  lastMonth(date("Y-m-01",strtotime("first day of $fdate ")));  
+      
+        $sql = "SELECT status from ali_status WHERE  mcode='$mcd' and first_regis = '1' and month_pv LIKE '%".$thisMonthxx."%'   order by id DESC LIMIT 0,1 "; 
+        $rs = mysql_query($sql); 
+       
+        if(mysql_num_rows($rs)>0) { 
+             $status = 1; 
+             $status1['tot_pv'] = 'ฟรีเดือนสมัคร'; 
+        }
+		
+		if($status == '0'){
+			$sqlx = " SELECT SUM(c.total) as tot_pv ,c.mcode ";
+			$sqlx .= " FROM ali_eatoship c "; 
+			$sqlx.=" WHERE c.cancel='0' and c.sadate LIKE  '%".$thisMonth."%' and c.mcode = '$mcd' ";
+			$sqlx.=" GROUP BY c.mcode";
+			//echo $sqlx;
+            $rsx = mysql_query($sqlx);
+            $numx =  mysql_num_rows($rsx);
+            if(mysql_num_rows($rsx) > 0)
+            {
+                $rowx = mysql_fetch_object($rsx);
+                $mcode = $rowx->mcode;
+                $tot_pv = $rowx->tot_pv;    
+                $status1['tot_pv'] = $tot_pv;    
+                if($status1['tot_pv'] >= 2200){
+                     $status = 1;
+					 $status1['stype'] = 'B';
+                }else{
+                     $status = 0;                
+                } 
+            }else{
+                $status1['tot_pv'] = 0;
+                $status = 0;       
+            } 
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 
 function check_status_1($mcd, $pos_cur, $fdate)
 {
@@ -2283,6 +2739,93 @@ function log_ewallet($table, $mcode, $sano, $total, $sa_type, $sadate, $option =
 }
 
 
+<<<<<<< HEAD
+=======
+        $status1['status'] = $status;
+        if($status == '0')$status1['text'] = '<font color=#c00000><b>(ยังไม่รักษายอด)</b></font>';
+        if($status == '1')$status1['text'] = '<font color=#0000FF><b>(รักษายอดสมบูรณ์แล้ว)</b></font>';
+    return $status1;
+}  
+  
+  function check_status_1($mcd,$pos_cur,$fdate){ 
+	global $member_qualify;
+		$thisMonth = date("Y-m",strtotime("first day of $fdate ")); 
+        $thisMonthxx = date("Ym",strtotime("first day of $fdate "));  
+        $firstMonth =  lastMonth(date("Y-m-10",strtotime("first day of $fdate ")));  
+        global $array_mpos_cls,$member_qualify;   
+			$wherex = "sadate LIKE '%".$thisMonth."%' and sadate <= '{$firstMonth}'and v and (sa_type = 'B' or  sa_type = 'A') and cancel = 0 and tot_pv > 0  and mcode = '".$mcd."' "; 
+            $sqlx = " SELECT mcode,SUM(tot_pv) as tot_pv,sadate FROM  ";
+            $sqlx .= " ( ";
+            $sqlx .= " SELECT mcode,SUM(tot_pv) as tot_pv,sadate  FROM ali_asaleh ";
+            $sqlx .= "    WHERE ".$wherex."  ";
+            $sqlx .= " UNION ALL ";
+            $sqlx .= " SELECT mcode,SUM(tot_pv) as tot_pv,sadate  FROM ali_holdhead ";
+            $sqlx .= "    WHERE ".$wherex." ";
+            $sqlx .= " ) as tb "; 
+            $sqlx .= " ORDER BY tot_pv DESC limit 0,1 ";                              
+            $rsx = mysql_query($sqlx);
+			echo $sqlx;
+            $numx =  mysql_num_rows($rsx);
+            if(mysql_num_rows($rsx) > 0)
+            {
+                $rowx = mysql_fetch_object($rsx);
+                $mcode = $rowx->mcode;
+                $tot_pv = $rowx->tot_pv;    
+                $sadate = $rowx->sadate;    
+                $status1['tot_pv'] = $tot_pv;     
+            }else{
+                $status1['tot_pv'] = 0;
+                $status = 0;       
+            } 
+			
+			$find = in_array($mcd,$member_qualify );
+			if($find){
+				$status1['tot_pv'] = 200;
+			}
+			
+    return $status1;
+}  
+  
+ 
+function log_ewallet($table,$mcode,$sano,$total,$sa_type,$sadate,$option='',$recal=''){     
+   global $arr_ewallet_type;      
+
+   
+    if($sa_type =='I' or $sa_type =='CI' or $sa_type =='TI' ){
+       $IN = $total;
+       $OUT = 0; 
+    }else if($sa_type =='O'  or $sa_type =='CO' or $sa_type =='TO' or $sa_type =='W'){
+       $IN = 0;
+       $OUT = $total;          
+    }else{
+       $IN = 0;
+       $OUT = 0;          
+    }
+   
+    if(($IN+$OUT) != 0 ){
+       $data = get_detail_meber($mcode,$sadate);
+       $insert = array(
+                    "mcode"     => $mcode,                  
+                    "sadate"    => $sadate,
+                    "sano"      => $sano,
+                    "_in"       => $IN,
+                    "_out"      => $OUT,
+                    "total"     => $data[$table],    
+                    "sa_type"   => $sa_type,    
+                    "_option"   => $option,    
+                );
+		//if($mcode == 'TH0000001')print_r($insert);
+       insert('ali_log_'.$table,$insert);       
+    }  
+} 
+  
+  
+  
+  
+  
+    
+    
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 //////////////////////////////////////////////
 function get_part_upa($val, $data, $level = 0)
 {
@@ -2352,6 +2895,7 @@ function gencodexx($source, $num)
 }
 
 
+<<<<<<< HEAD
 class stocks
 {
     /* Set_data
@@ -2365,6 +2909,20 @@ class stocks
 	- 1 ��ҡѺ Backoffice
 	- 2 ��ҡѺ Branch
 	- 3 ��ҡѺ Memeber
+=======
+class stocks {
+/* Set_data
+1.id ของบิล 
+2.บิลขายหรือบิลเบิก[asale, isale, tsale]
+3.สถานะ [sender, receive, cancel]
+	- จัดส่ง
+	- รับของ
+	- ยกเลิก 
+4.ช่องทาง checkportal[1, 2, 3]
+	- 1 เท่ากับ Backoffice
+	- 2 เท่ากับ Branch
+	- 3 เท่ากับ Memeber
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 */
     var $date = "";
     var $table_stock = "";
@@ -2478,6 +3036,7 @@ class stocks
 			echo $this->cancel ."<BR>";
 			exit;
 			*/
+<<<<<<< HEAD
             if ($billb == "import") {
                 if ($this->status == "receive") {
                     $this->cal_stocks_sale(1, "1");
@@ -2557,6 +3116,97 @@ class stocks
             }
             if ($billb == "istock") {
                 /*
+=======
+			if($billb == "import"){
+				if($this->status == "receive"){
+					$this->cal_stocks_sale(1,"1");
+				}
+				else if($this->status == "cancel"){
+					$this->cal_stocks_sale(-1,"0");
+					$this->calc_stock_cancel();
+				}
+			}
+			
+			if($billb == "isale" or $billb == "tsale"){
+				if($this->status == "sender"){
+					if($this->receive == '0'){
+						if($this->send == '1'){			// กรณีเปิดบิลจาก backoffice หรือ branch แบบจัดส่ง
+							if($this->sender == '1'){
+								// function คืนของแล้วปรับสถานะ sender = 0
+								$this->cal_stocks_sale(1,"0");
+							}
+							else if($this->sender == '0'){
+								// function ส่งของแล้วปรับสถานะ sender = 1
+								$this->cal_stocks_sale(-1,"1");
+							}
+						}
+						else if($this->send == '2'){	// กรณีเปิดบิลจาก backoffice หรือ branch แบบไม่จัดส่งให้ตัดสต๊อกเลย
+							// function ส่งของแล้วไม่ปรับสถานะ  
+							$this->cal_stocks_sale(-1,"0");
+						}
+					}
+				}
+				if($this->status == "receive"){
+					if($this->send == '2'){
+						if($this->receive == '1'){
+							// function คืนของแล้วปรับสถานะ receive = 0
+							$this->cal_stocks_sale(-1,"0");
+						}
+						else if($this->receive == '0'){
+							// function รับของแล้วปรับสถานะ receive = 1
+							$this->cal_stocks_sale(1,"1");
+						}
+					}
+					else if($this->send == '1'){
+						if($this->sender == '1'){
+							if($this->receive == '1'){
+								// function คืนของแล้วปรับสถานะ receive = 0
+								$this->cal_stocks_sale(-1,"0");
+							}
+							else if($this->receive == '0'){
+								// function รับของแล้วปรับสถานะ receive = 1
+								$this->cal_stocks_sale(1,"1");
+							}
+						}
+					}
+				}
+				if($this->status == "cancel"){
+					if($this->receive == '0'){
+						if($this->send == '1'){
+							if($this->sender == '1'){
+								$this->cal_stocks_sale(1,"0");
+								$this->calc_stock_cancel();
+							}
+							else{
+								$this->calc_stock_cancel();
+							} 
+						}
+						else if($this->send == '2'){
+								$this->cal_stocks_sale(1,"0");	
+								$this->calc_stock_cancel();
+						}
+					}
+				}
+			}
+			if($billb == "ostock"){
+				if($this->checkportal == "2"){
+					if(($this->sa_type == "BBHO" or $this->sa_type == "BB") and $this->status == 'sender'){
+						$this->cal_stocks_sale(-1,"0");
+					}
+					else if($this->status == 'receive' and $this->receive == '0'){
+						$this->calc_stock_sale_qtyr(-1,"1");
+					}
+				}
+				else if($this->checkportal == "1"){
+					if($this->sa_type == "BBHO" or $this->sa_type == "BB"){
+						$this->cal_stocks_sale(-1,"0");
+						//$this->calc_stock_sale_qtyr(-1,"1");
+					}
+				}
+			}
+			if($billb == "istock"){
+				/*
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 				if(($this->sa_type == "BRHO" or $this->sa_type == "BR") and $this->status == 'sender'){
 					$this->cal_stocks_sale(1,"0");
 				}
@@ -2564,6 +3214,7 @@ class stocks
 					$this->calc_stock_sale_qtyr(1,"1");
 				}
 				*/
+<<<<<<< HEAD
                 if ($this->checkportal == "2") {
                     if ($this->sa_type == "BRHO" or $this->sa_type == "BR") {
                         $this->cal_stocks_sale(1, "0");
@@ -2925,6 +3576,319 @@ class stocks
         }
 
         /*
+=======
+				if($this->checkportal == "2"){
+					if($this->sa_type == "BRHO" or $this->sa_type == "BR"){
+						$this->cal_stocks_sale(1,"0");
+						$this->calc_stock_sale_qtyr(1,"1");
+					}
+				}
+				else if($this->checkportal == "1"){
+					if($this->sa_type == "BRHO" or $this->sa_type == "BR"){
+						$this->cal_stocks_sale(1,"0");
+						//$this->calc_stock_sale_qtyr(1,"1");
+					}
+				}
+			}
+			if($billb == "asale"){
+				if($this->status == 'sender'){
+					if($this->send == '1'){
+						$this->cal_stocks_sale(-1,"0");
+					}
+					else if($this->send == '2'){
+						$this->cal_stocks_sale(-1,"0");
+					}
+				}
+				if($this->status == 'cancel'){
+					if($this->receive == '0'){
+						$this->cal_stocks_sale(1,"0");
+						if($this->send == '1'){
+							if($this->sender == '1'){
+								$this->calc_stock_sale_qtyr(1,"0");
+							}
+						}
+						else if($this->send == '2'){
+							if($this->receive == '1'){
+								$this->calc_stock_sale_qtyr(1,"0");
+							}
+						}
+						$this->calc_stock_cancel(); 
+					}
+					
+				}
+			}
+			if($billb == "asale_qtyr"){ 
+				if($this->status == "sender"){ 
+					if($this->receive == '0'){
+						if($this->send == '1'){	
+							if($this->sender == '1'){
+								$this->calc_stock_sale_qtyr(1,"0");
+							}
+							else if($this->sender == '0'){
+								$this->calc_stock_sale_qtyr(-1,"1");
+							}
+						}
+						else if($this->send == '2'){	
+							$this->calc_stock_sale_qtyr(0,"0");
+						}
+					}
+				}
+				if($this->status == "receive"){
+					if($this->send == '2'){
+						if($this->receive == '1'){
+							$this->calc_stock_sale_qtyr(1,"0");
+						}
+						else if($this->receive == '0'){
+							$this->calc_stock_sale_qtyr(-1,"1");
+						}
+					}
+					else if($this->send == '1'){
+						if($this->sender == '1'){
+							if($this->receive == '1'){
+								$this->calc_stock_sale_qtyr(0,"0");
+							}
+							else if($this->receive == '0'){
+								$this->calc_stock_sale_qtyr(0,"1");
+							}
+						}
+					}
+				}
+			}
+		}
+	} 
+	function cal_stocks_sale($calc,$change){
+		if(!empty($this->table_stock) and !empty($this->id) and $this->cancel == '0'){
+			$sql = "SELECT * FROM ". $this->table_saled ." WHERE sano = '". $this->id ."' ";
+			$rs = mysql_query($sql);
+			if(mysql_num_rows($rs) > 0){
+				for($i=0;$i<mysql_num_rows($rs);$i++){
+					$object 	= mysql_fetch_object($rs);
+					$pcode		= $object->pcode;
+					$pdesc		= $object->pdesc;
+					$price		= $object->price;
+					$pv			= $object->pv;
+					$qty		= $object->qty;
+					$qty		= $qty*$calc;
+					$amt		= $object->amt;
+					
+					$sql_pp = "SELECT * FROM ali_product_package1 where package = '".$pcode."' ";
+					$rs_pp  = mysql_query($sql_pp);
+					if(mysql_num_rows($rs_pp) > 0){
+						for($m=0;$m<mysql_num_rows($rs_pp);$m++){
+							$obj_pp   = mysql_fetch_object($rs_pp);
+							$pp_pcode = $obj_pp->pcode;	//รหัสสินค้าใน  package
+							$pp_pdesc = $obj_pp->pdesc;	//รหัสสินค้าใน  package
+							$pp_qty   = $obj_pp->qty;	//จำนวนสินค้าใน  package
+							$pp_qty	  = $pp_qty*$qty;	//จำสินค้าใน  package คูณ จำนวน  package ที่ซื้อมา
+							
+							$sql_qty  = "SELECT qty, ifnull(qtyr,0) as qtyr FROM ".$this->table_stock ." ";
+							$sql_qty .= "WHERE pcode = '".$pp_pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_qty .= "and inv_code = '".$this->inv_code ."'";}
+							$rs_qty   = mysql_query($sql_qty);
+							$qty_before = 0;
+							if(@mysql_num_rows($rs_qty) > 0){
+								$qty_before = mysql_result($rs_qty,0,'qty');	//จำนวนเก่า
+								$qty_before_r = mysql_result($rs_qty,0,'qtyr');	//จำนวนเก่า
+							}
+							$qty_after  = $qty_before+$pp_qty;					//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+							$qty_after_r  = $qty_before_r+$pp_qty;					//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+							
+							$sql_chr  = "SELECT * FROM ".$this->table_stock ." ";
+							$sql_chr .= "WHERE pcode = '".$pp_pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_chr .= "and inv_code = '".$this->inv_code ."'";}
+							$rs_chr   = mysql_query($sql_chr);
+							if(mysql_num_rows($rs_chr) > 0){
+								$sql_update  = "UPDATE ".$this->table_stock ." SET qty = qty+'".$pp_qty."' ";
+								if($this->billb == "isale" or $this->billb == "tsale" or ($this->billb == "ostock" and $this->sa_type == "BB") or ($this->billb == "istock" and $this->sa_type == "BR")){$sql_update .= ",qtyr = qtyr+'".$qty."' ";}
+								$sql_update .= "WHERE pcode = '".$pp_pcode."' ";
+								if($this->checkportal == "2" or $this->checkportal == "3"){$sql_update .= "and inv_code = '".$this->inv_code ."' ";}
+							}
+							else{
+								$sql_update  = "INSERT INTO ".$this->table_stock ."(pcode,qty,qtyr,inv_code) ";
+								$sql_update .= "VALUES ('".$pp_pcode."','".$pp_qty."',";
+								if($this->billb == "isale" or $this->billb == "tsale" or ($this->billb == "ostock" and $this->sa_type == "BB")){$sql_update .= "'".$pp_qty."',";}else{$sql_update .= "'',";}
+								$sql_update .= "'".$this->inv_code ."')";
+							} 
+							mysql_query($sql_update);
+							$this->log_stockcard_s($pp_pcode,$pp_pdesc,$qty_after,$pp_qty,$qty_before,"ali_stockcard_s");
+							if(($this->billb == "isale" and $this->status == "receive") or ($this->billb == "tsale" and $this->status == "sender") or ($this->billb == "ostock" and $this->sa_type == "BB")){$this->log_stockcard_s($pp_pcode,$pp_pdesc,$qty_after_r,$pp_qty,$qty_before_r,"ali_stockcard_r");} 
+						}
+					}
+					else{
+						$sql_p  = "SELECT qty,ifnull(qtyr,0) as qtyr FROM ".$this->table_stock ." ";
+						$sql_p .= "WHERE pcode = '".$pcode."' ";
+						if($this->checkportal == "2" or $this->checkportal == "3"){$sql_p .= "and inv_code = '".$this->inv_code ."' ";}
+						$rs_p   = mysql_query($sql_p);
+						$qty_before = 0;
+						if(@mysql_num_rows($rs_p) > 0){
+							$qty_before = mysql_result($rs_p,0,'qty');			//จำนวนเก่า			
+							$qty_before_r = mysql_result($rs_p,0,'qtyr');			//จำนวนเก่า			
+						}
+						$qty_after = $qty_before+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+						$qty_after_r = $qty_before_r+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+
+						$sql_chr  = "SELECT * FROM ".$this->table_stock ."  ";
+						$sql_chr .= "WHERE pcode = '".$pcode."' ";
+						if($this->checkportal == "2" or $this->checkportal == "3"){$sql_chr .= "and inv_code = '".$this->inv_code ."'";}
+						$rs_chr   = mysql_query($sql_chr);
+						if(mysql_num_rows($rs_chr) > 0){
+							$sql_update  = "UPDATE ".$this->table_stock ." SET qty = qty+'".$qty."' ";
+							if($this->billb == "isale" or $this->billb == "tsale"){$sql_update .= ",qtyr = qtyr+'".$qty."' ";}
+							$sql_update .= "WHERE pcode='".$pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_update .= "and inv_code = '".$this->inv_code ."' ";}
+						} 
+						else{
+							$sql_update  = "INSERT INTO ".$this->table_stock ."(pcode,qty,qtyr,inv_code) ";
+							$sql_update .= "VALUES ('".$pcode."','".$qty."',";
+							if($this->billb == "isale" or $this->billb == "tsale"){$sql_update .= "'".$qty."',";}else{$sql_update .= "'',";}
+							$sql_update .= "'".$this->inv_code ."')";  
+						} 
+						mysql_query($sql_update);
+						$this->log_stockcard_s($pcode,$pdesc,$qty_after,$qty,$qty_before,"ali_stockcard_s");
+						if(($this->billb == "isale" and $this->status == "receive") or ($this->billb == "tsale" and $this->status == "sender") or ($this->billb == "tsale" and $this->status == "cancel")){$this->log_stockcard_s($pcode,$pdesc,$qty_after_r,$qty,$qty_before_r,"ali_stockcard_r");}
+					}
+				}
+					$sqlUpdate  = "UPDATE ".$this->table_saleh ." SET ";
+					$sqlUpdate .= $this->status ." = '".$change."' ";
+					$sqlUpdate .= ",".$this->status ."_date = '".$this->date."' ";
+					$sqlUpdate .= ",".$this->status ."_date = '".$this->date."' ";
+					if($change == '1'){$sqlUpdate .= ",uid_".$this->status ." = '".$this->action_name."' ";}
+					else{$sqlUpdate .= ",uid_".$this->status ." = '' ";}
+					$sqlUpdate .= "WHERE id = '".$this->id ."' ";
+					$rsUpdate   = mysql_query($sqlUpdate);
+			}
+		}
+	}
+	function calc_stock_sale_qtyr($calc,$change){
+		if(!empty($this->table_stock) and !empty($this->id) and $this->cancel == '0'){
+			$sql = "SELECT * FROM ". $this->table_saled ." WHERE sano = '". $this->id ."' ";
+			$rs = mysql_query($sql);
+			if(mysql_num_rows($rs) > 0){
+				for($i=0;$i<mysql_num_rows($rs);$i++){
+					$object 	= mysql_fetch_object($rs);
+					$pcode		= $object->pcode;
+					$pdesc		= $object->pdesc;
+					$price		= $object->price;
+					$pv			= $object->pv;
+					$qty		= $object->qty;
+					$qty		= $qty*$calc;
+					$amt		= $object->amt;
+					
+						
+					
+					$sql_pp = "SELECT * FROM ali_product_package1 where package = '".$pcode."' ";
+					$rs_pp  = mysql_query($sql_pp);
+					if(mysql_num_rows($rs_pp) > 0){
+						for($m=0;$m<mysql_num_rows($rs_pp);$m++){
+							$obj_pp   = mysql_fetch_object($rs_pp);
+							$pp_pcode = $obj_pp->pcode;	//รหัสสินค้าใน  package
+							$pp_qty   = $obj_pp->qty;	//จำนวนสินค้าใน  package
+							$pp_qty	  = $pp_qty*$qty;	//จำสินค้าใน  package คูณ จำนวน  package ที่ซื้อมา
+							
+							$sql_qty  = "SELECT qtyr as qty FROM ".$this->table_stock ." ";
+							$sql_qty .= "WHERE pcode = '".$pp_pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_qty .= "and inv_code = '".$this->inv_code ."'";}
+							$rs_qty   = mysql_query($sql_qty);
+							$qty_before = 0;
+							if(@mysql_num_rows($rs_qty) > 0){
+								$qty_before = mysql_result($rs_qty,0,'qty');	//จำนวนเก่า
+							}
+							$qty_after  = $qty_before+$pp_qty;	
+							
+							$sql_chr  = "SELECT * FROM ".$this->table_stock ." ";
+							$sql_chr .= "WHERE pcode = '".$pp_pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_chr .= "and inv_code = '".$this->inv_code ."'";}
+							$rs_chr   = mysql_query($sql_chr);
+							if(mysql_num_rows($rs_chr) > 0){
+								$sql_update  = "UPDATE ".$this->table_stock ." SET qtyr = qtyr+'".$pp_qty."' ";
+								$sql_update .= "WHERE pcode = '".$pp_pcode."' ";
+								if($this->checkportal == "2" or $this->checkportal == "3"){$sql_update .= "and inv_code = '".$this->inv_code ."' ";}
+							}
+							else{
+								$sql_update  = "INSERT INTO ".$this->table_stock ."(pcode,qty,qtyr,inv_code) ";
+								$sql_update .= "VALUES ('".$pp_pcode."','".$pp_qty."',";
+								if($this->billb == "isale" or $this->billb == "asale_qtyr" or $this->billb == "istock" or $this->billb == "ostock"){$sql_update .= "'".$pp_qty."',";}else{$sql_update .= "'',";}
+								$sql_update .= "'".$this->inv_code ."')";  
+							}
+							mysql_query($sql_update);
+							if($calc != 0){$this->log_stockcard_s($pp_pcode,$pdesc,$qty_after,$pp_qty,$qty_before,"ali_stockcard_r");}
+						}
+					}
+					else{
+						$sql_p  = "SELECT qtyr as qty FROM ".$this->table_stock ." ";
+						$sql_p .= "WHERE pcode = '".$pcode."' ";
+						if($this->checkportal == "2" or $this->checkportal == "3"){$sql_p .= "and inv_code = '".$this->inv_code ."' ";}
+						$rs_p   = mysql_query($sql_p);
+						$qty_before = 0;
+						if(@mysql_num_rows($rs_p) > 0){
+							$qty_before = mysql_result($rs_p,0,'qty');			//จำนวนเก่า			
+						}
+						$qty_after = $qty_before+$qty;							//จำนวนเก่า บวก หรือ ลบ จำนวนใหม่
+						
+						$sql_chr  = "SELECT * FROM ".$this->table_stock ."  ";
+						$sql_chr .= "WHERE pcode = '".$pcode."' ";
+						if($this->checkportal == "2" or $this->checkportal == "3"){$sql_chr .= "and inv_code = '".$this->inv_code ."'";}
+						$rs_chr   = mysql_query($sql_chr);
+						if(mysql_num_rows($rs_chr) > 0){
+							$sql_update  = "UPDATE ".$this->table_stock ." SET qtyr = qtyr+'".$qty."' ";
+							$sql_update .= "WHERE pcode='".$pcode."' ";
+							if($this->checkportal == "2" or $this->checkportal == "3"){$sql_update .= "and inv_code = '".$this->inv_code ."' ";}
+						}
+						else{
+							$sql_update  = "INSERT INTO ".$this->table_stock ."(pcode,qty,qtyr,inv_code) ";
+							$sql_update .= "VALUES ('".$pcode."','".$qty."',";
+							if($this->billb == "isale" or $this->billb == "asale_qtyr" or $this->billb == "istock" or $this->billb == "ostock"){$sql_update .= "'".$qty."',";}else{$sql_update .= "'',";}
+							$sql_update .= "'".$this->inv_code ."')";  
+						} 
+						mysql_query($sql_update);
+						if($calc != 0){$this->log_stockcard_s($pcode,$pdesc,$qty_after,$qty,$qty_before,"ali_stockcard_r");} 
+					}
+				}
+					$sqlUpdate  = "UPDATE ".$this->table_saleh ." SET ";
+					$sqlUpdate .= $this->status ." = '".$change."', ".$this->status ."_date = '".$this->date."', ";
+					if($change == '1'){$sqlUpdate .= "uid_".$this->status ." = '".$this->action_name."' ";}
+					else{$sqlUpdate .= "uid_".$this->status ." = '' ";}
+					$sqlUpdate .= "WHERE id = '".$this->id ."' ";
+					$rsUpdate   = mysql_query($sqlUpdate);
+					//echo $sqlUpdate;
+			}
+		}
+	}
+	function calc_stock_cancel(){
+		if($this->cancel == '0'){
+			$sqlCancel  = "UPDATE ".$this->table_saleh ." SET ";
+			$sqlCancel .= $this->status ." = '1', ".$this->status ."_date = '".$this->date."', ";
+			$sqlCancel .= "uid_".$this->status ." = '".$this->action_name."' ";
+			$sqlCancel .= "WHERE id = '".$this->id ."' ";
+			$rsCancel   = mysql_query($sqlCancel);
+		}
+	}
+	function log_stockcard_s($pcode,$pdesc,$qty_after,$qty,$qty_before,$table_stock){
+		$inv_code   = $this->inv_code;
+		$inv_ref    = "";
+		$inv_action = "";
+		$qty		= abs($qty);
+		$in_qty = $in_price = $in_total = $out_qty = $out_price = $out_total = $price = $total = 0;
+		$sql = "SELECT price FROM ali_product WHERE pcode = '".$pcode."' ";
+		$rs  = mysql_query($sql);
+		if(mysql_num_rows($rs) > 0){
+			$price = mysql_result($rs,0,'price');
+		}
+		
+		$total = $qty * $price;
+		if($qty_before > $qty_after){
+			$out_qty   = $qty; 
+			$out_price = $price;
+			$out_total = $total;
+		}
+		else{
+			$in_qty   = $qty;
+			$in_price = $price;
+			$in_total = $total;
+		}
+		
+		/*
+>>>>>>> ba1efb8a14cda8f847f280b9a693b6f4188a3fbe
 		if($this->status == "sender"){
 			$out_qty   = $qty;
 			$out_price = $price;

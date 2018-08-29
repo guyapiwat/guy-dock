@@ -168,25 +168,25 @@ $rec->setBackLink($PHP_SELF,"sessiontab=5");
 if(isset($page))
 	$rec->setCurPage($page);
 $rec->setShowField("mcode,name_t,upa_code,lr,lv,total,fast,weakstrong,matching,star,onetime,alltotal");
-$rec->setFieldDesc("√À—  ¡“™‘°,™◊ËÕ ¡“™‘°,Õ—æ‰≈πÏ,´È“¬¢«“,™—Èπ,¬Õ¥´◊ÈÕ Ë«πµ—«,FOB,Cycle,Matching,Star,Onetime,Total");
+$rec->setFieldDesc("‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏ä‡∏∑‡πà‡∏≠‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏≠‡∏±‡∏û‡πÑ‡∏•‡∏ô‡πå,‡∏ã‡πâ‡∏≤‡∏¢‡∏Ç‡∏ß‡∏≤,‡∏ä‡∏±‡πâ‡∏ô,‡∏¢‡∏≠‡∏î‡∏ã‡∏∑‡πâ‡∏≠‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß,FOB,Cycle,Matching,Star,Onetime,Total");
 $rec->setFieldAlign("center,left,center,center,center,right,right,right,right,right,right,right");
 $rec->setFieldSpace("10%,20%,10%,3%,3%,8%,8%,8%,8%,8%,8%,8%");
 $rec->setFieldLink(",");
 $rec->setFieldFloatFormat(",,,,,2,2,2,2,2,2");
 $rec->setSearch("mcode");
-$rec->setSearchDesc("√À— ºŸÈ´◊ÈÕ");
+$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠");
 $rec->setSum(true,true,",,,,,true,true,true,true,true,true,true");
 
 if($_GET['excel']==1){
 	$rec->exportXls("ExportXls","checkdownline".date("Ymd").".xls","SH_QUERY");
 	$str = "<fieldset><a href='".$rec->download("ExportXls","checkdownline".date("Ymd").".xls")."' >";
-	$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+	$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 	//$rec->getParam();
 	$rec->setSpace($str);
 }
 //$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 $str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 $rec->setSpace($str);
 
 $rec->showRec(1,'SH_QUERY');

@@ -23,14 +23,14 @@ writelogfile($text);
 		echo "<font color='#FF0000'>error</font><br>";
 		//echo  "$sql";		
 	}else {
-		logtext(true,$_SESSION['adminuserid'],'à¾ÔèÁª×èÍàÇçºä«µì',mysql_insert_id());
+		logtext(true,$_SESSION['adminuserid'],'à¹€à¸žà¸´à¹ˆà¸¡à¸Šà¸·à¹ˆà¸­à¹€à¸§à¹‡à¸šà¹„à¸‹à¸•à¹Œ',mysql_insert_id());
 		mysql_query("COMMIT");
 		ob_end_clean();
 		//include "mem_main.php";
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=5&sub=7'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminuserid'],'á¡éä¢ª×èÍàÇçºä«µì',$oid);
+	logtext(true,$_SESSION['adminuserid'],'à¹à¸à¹‰à¹„à¸‚à¸Šà¸·à¹ˆà¸­à¹€à¸§à¹‡à¸šà¹„à¸‹à¸•à¹Œ',$oid);
 	$sql="update ".$dbprefix."webcfg set web_cfg='$web_cfg' where cid = '$cid'";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=web_cfg =>$sql";

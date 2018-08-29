@@ -75,8 +75,8 @@ session_start();
 	$inv_code = $_SESSION["admininvent"];
 	
 ?>
-<table align="center"><tr>	<td align="center"><b>¢ÈÕ¡Ÿ≈ Stockcard√–À«Ë“ß«—π∑’Ë <?=$fdate?> ∂÷ß <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">æ‘¡æÏ«—π∑’Ë <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏• Stockcard‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=$fdate?> ‡∏ñ‡∏∂‡∏á <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 require("connectmysql.php");
@@ -137,7 +137,7 @@ $sql = "SELECT * FROM ".$dbprefix."stockcard where 1=1 $sqlwhere ";
 		$rec->setShowField("sadate,mcode,inv_code,inv_ref,sano,pcode,in_qty,in_price,in_amount,out_qty,out_price,out_amount,balance,price,amount");
 
 		$rec->setFieldFloatFormat(",,,,,,0,2,2,0,2,2,0,2,2");
-		$rec->setFieldDesc("«—π‡¥◊Õπª’,√À—  ¡“™‘°,√À—  “¢“√—∫,√À—  “¢“§’¬Ï,‡≈¢∑’Ë„∫ ”§—≠,√À—  ‘π§È“,√—∫,√“§“µËÕÀπË«¬,¡Ÿ≈§Ë“,®Ë“¬,√“§“µËÕÀπË«¬,¡Ÿ≈§Ë“,®”π«π§ß‡À≈◊Õ,√“§“µËÕÀπË«¬,¡Ÿ≈§Ë“§ß‡À≈◊Õ");
+		$rec->setFieldDesc("‡∏ß‡∏±‡∏ô‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡∏õ‡∏µ,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤‡∏£‡∏±‡∏ö,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏≤‡∏Ç‡∏≤‡∏Ñ‡∏µ‡∏¢‡πå,‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡πÉ‡∏ö‡∏™‡∏≥‡∏Ñ‡∏±‡∏ç,‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤,‡∏£‡∏±‡∏ö,‡∏£‡∏≤‡∏Ñ‡∏≤‡∏ï‡πà‡∏≠‡∏´‡∏ô‡πà‡∏ß‡∏¢,‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤,‡∏à‡πà‡∏≤‡∏¢,‡∏£‡∏≤‡∏Ñ‡∏≤‡∏ï‡πà‡∏≠‡∏´‡∏ô‡πà‡∏ß‡∏¢,‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠,‡∏£‡∏≤‡∏Ñ‡∏≤‡∏ï‡πà‡∏≠‡∏´‡∏ô‡πà‡∏ß‡∏¢,‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠");
 		$rec->setFieldAlign("center,center,center,center,center,center,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("7%,7%,6%,6%,10%,9%,5%,7%,5%,5%,7%,5%,7%,7%,7%");
 		$rec->setSum(true,false,",,,,,,true,true,true,true,true,true,true,true,true,true");

@@ -85,8 +85,8 @@ if(empty($tdate))$tdate = date("Y-m-d");
 	$inv_code = $_SESSION["admininvent"];
 	$sspv = 2;
 ?>
-<table align="center"><tr>	<td align="center"><b>¢ÈÕ¡Ÿ≈∫‘≈√–À«Ë“ß«—π∑’Ë <?=$fdate?> ∂÷ß <?=$tdate?></b></td></tr>
-    <tr>	<td align="center">æ‘¡æÏ«—π∑’Ë <?=date("d-m-Y")?></td></tr>
+<table align="center"><tr>	<td align="center"><b>‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏ö‡∏¥‡∏•‡∏£‡∏∞‡∏´‡∏ß‡πà‡∏≤‡∏á‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=$fdate?> ‡∏ñ‡∏∂‡∏á <?=$tdate?></b></td></tr>
+    <tr>	<td align="center">‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà <?=date("d-m-Y")?></td></tr>
 </table>
 <?
 	if($_SESSION["lan"] != $_GET["lan"] and !empty($_GET["lan"])){
@@ -133,12 +133,12 @@ CASE '".$sspv."' WHEN '' THEN '*'  WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHE
 from 
 (select number1,mcode,cid, total,typee,txtCash,txtCredit,txtEwallet,txtFuture,txtTransfer,txtDiscount,'0' as txtUser,'0' as txtd,CASE inv_ref WHEN '' THEN '*' ELSE inv_ref END AS code_ref1,IFNULL(txtOther, 0) as txtOther from 
 (
-select '2' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'∫‘≈¢“¬'  as typee, '0' as txtOther  from ali_asaleh where (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
+select '2' as number1,mcode,count(id) as cid,sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,sum(txtDiscount) as txtDiscount,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢'  as typee, '0' as txtOther  from ali_asaleh where (sa_type <> 'L' and sa_type <> 'Z')  $sqlwhere
 
-union select '4' as number1,mcode,count(id) as cid, sum(txtMoney) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'∫‘≈‡µ‘¡‡ß‘π Ewallet' as typee, '0' as txtOther  from ali_ewallet where 1=1 $sqlwhere
+union select '4' as number1,mcode,count(id) as cid, sum(txtMoney) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,'0' as txtEwallet,sum(txtTransfer) as txtTransfer,'0' as txtFuture,'0' as txtDiscount,'‡∏ö‡∏¥‡∏•‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏á‡∏¥‡∏ô Ewallet' as typee, '0' as txtOther  from ali_ewallet where 1=1 $sqlwhere
 
 
-union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'∫‘≈‡µ‘¡‡ß‘π Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
+union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtCash) as txtCash,sum(txtCredit1+txtCredit2+txtCredit3) as txtCredit,sum(txtInternet) as txtEwallet,sum(txtTransfer) as txtTransfer,sum(txtFuture) as txtFuture,0 as txtDiscount,'‡∏ö‡∏¥‡∏•‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏á‡∏¥‡∏ô Eautoship' as typee, '0' as txtOther from ali_eatoship where 1=1 and sa_type ='I' $sqlwhere
 
 
 ) as a LEFT JOIN ".$dbprefix."user ON (".$dbprefix."user.usercode like '%$struid%') where 1=1 group by a.typee) as a  " ;
@@ -171,7 +171,7 @@ union select '5' as number1,mcode,count(id) as cid, sum(total) as total,sum(txtC
 		$rec->setFieldSpace("7%,7%,7%,7%,7%,7%,7%,7%,7%,7%,6%,6%,6%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°,®”π«π PV");
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô PV");
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,true,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');

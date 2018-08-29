@@ -46,7 +46,7 @@ if($member == "on")require("../backoffice/cls/repGenerator.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
 	$sql  = "SELECT tb.sano, tb.sadate, tb.sctime, tb.mcode, tb.total, tb.tot_pv, m.name_t, tb.uid ";
-	$sql .= ",CASE tb.sa_type WHEN 'A' THEN 'ºÔÅ»¡µÔ'  WHEN 'B' THEN 'ÃÑ¡ÉÒÂÍ´' WHEN 'VA' THEN 'special point' WHEN 'D' THEN 'Dis.' WHEN 'H' THEN 'Hold' END AS ability ";
+	$sql .= ",CASE tb.sa_type WHEN 'A' THEN 'à¸šà¸´à¸¥à¸›à¸à¸•à¸´'  WHEN 'B' THEN 'à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”' WHEN 'VA' THEN 'special point' WHEN 'D' THEN 'Dis.' WHEN 'H' THEN 'Hold' END AS ability ";
 	$sql .= ",CASE tb.sa_type WHEN 'A' THEN tb.tot_pv WHEN 'D' THEN 0 WHEN 'H' THEN 0 END AS tot_pvxxx ";
 	$sql .= "FROM ( ";
 	$sql .= "SELECT sano, sadate, sctime, mcode, total, tot_pv, sa_type, uid FROM ali_asaleh WHERE 1=1 $where1 $w_mcode ";
@@ -85,7 +85,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 		
 	if(isset($page))$rec->setCurPage($page);
 		$rec->setShowField("sano,mcode,name_t,sadate,ability,tot_pvxxx,total,uid");
-	$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,ª¹Ô´,PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡");
+	$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸Šà¸™à¸´à¸”,PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		
 	$rec->setFieldFloatFormat(",,,,,2,2,");
 		$rec->setFieldAlign("left,center,left,center,center,right,right,center");
@@ -94,7 +94,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
  		
 	//$rec->setSearch("sano,sadate,mcode");
 		
-	//$rec->setSearchDesc("àÅ¢ºÔÅ,ÇÑ¹·Õè,ÃËÑÊ¼Ùé«×éÍ");
+	//$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­");
 		
 	$rec->setSum(true,false,",,,,,true,true,");
 		

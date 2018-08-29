@@ -29,7 +29,7 @@ $theme=array(
 );  
 $jquery_ui_theme=$theme[15];  
 ?>  
-<meta http-equiv="Content-Type" content="text/html; charset=tis-620">
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <link type="text/css" rel="stylesheet" href="http://ajax.googleapis.com/ajax/libs/jqueryui/<?=$jquery_ui_v?>/themes/<?=$jquery_ui_theme?>/jquery-ui.css" />  
 <style type="text/css">  
 .ui-tabs{  
@@ -68,8 +68,8 @@ cursor: pointer;
 		var month_1 = ['January','February','March','April','May','June','July','August','September','October','November','December'];
 	}
 	else{
-		var date_1 = ['��', '�', '�', '�', '��', '�', '�'];
-		var month_1 = ['���Ҥ�','����Ҿѹ��','�չҤ�','����¹','����Ҥ�','�Զع�¹','�á�Ҥ�','�ԧ�Ҥ�','�ѹ��¹','���Ҥ�','��Ȩԡ�¹','�ѹ�Ҥ�'];
+		var date_1 = ["อาทิต","จันท","อังคาร","พุธ","พฤ","ศุก","เสา"];
+		var month_1 = ["มกราคม","กุมภาพันธ์","มีนาคม","เมษายน","พฤษภาคม","มิถุนายน","กรกฎาคม","สิงหาคม","กันยายน","ตุลาคม","พฤศจิกายน","ธันวาคม"];
 	}
 
 

@@ -77,7 +77,7 @@ if (isset($_POST["id"])){$id=$_POST["id"];}else{$id="";}
 			}
 		}
 		if($qty[$i]>$proobj->qty or $qqty1>=$qqty){
-			echo "<script language='JavaScript'>alert('�׹�Թ����Թ�ӹǹ �Թ������� ".$pcode[$i]." �׹������Թ ".$qqty." ���  �Թ����Ƿ����� ".$qqty1." ���');window.history.back();</script>";
+			echo "<script language='JavaScript'>alert('คืนสินค้าเกินจำนวน สินค้ารหัส ".$pcode[$i]." คืนได้ไม่เกิน ".$qqty." ชิ้น  คินไปแล้วทั้งหมด ".$qqty1." ชิ้น');window.history.back();</script>";
 			exit;
 		}
 	}
@@ -120,7 +120,7 @@ if (isset($_POST["id"])){$id=$_POST["id"];}else{$id="";}
  
 	mysql_free_result($rs);
 
-	logtext(true,$_SESSION['inv_usercode'],'�������Ŵ˹��',$mid);
+	logtext(true,$_SESSION['inv_usercode'],'เพิ่มบิลลดหนี้',$mid);
 
 	$chdate  = explode('-',date("Y-m-15", strtotime("+1 months")));
  	$d = new DateTime($_SESSION["datetimezone"]);
@@ -177,7 +177,7 @@ if (isset($_POST["id"])){$id=$_POST["id"];}else{$id="";}
 		mysql_query($sql);
 	}
  
- echo "<script language='JavaScript'>alert('���Թ����Դ���Ŵ˹�����º��������');window.location='index.php?sessiontab=3&sub=179';</script>";
+ echo "<script language='JavaScript'>alert('ดำเนินการเปิดบิลลดหนี้เรียบร้อยแล้ว');window.location='index.php?sessiontab=3&sub=179';</script>";
  exit;
 	
 //////////////////////// FUNCTION //////////////////////////////
@@ -201,7 +201,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 				
@@ -224,7 +224,7 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty,$sano,$uid,$receive){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ �����Ѻ����Ң�','$uid')";
+				  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก คีย์รับที่สาขา','$uid')";
 				mysql_query($sql);
 
 
@@ -252,7 +252,7 @@ function minusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 	//$ewallet_after = $ewallet_before-$total;
 	
 	$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$uid')";
+	  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$uid')";
 	$rs = mysql_query($sql);
 
 		 $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode'";
@@ -294,7 +294,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+				  values('$sano','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 				mysql_query($sql);
 
 
@@ -308,7 +308,7 @@ function plusProduct($dbprefix,$pcode,$invent,$qty,$sano){
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¡��ԡ ��Ţ��','$invent')";
+			  values('$sano','Head Office','Head Office','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','ยกเลิก บิลขาย','$invent')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty+$qty WHERE pcode='$pcode' ";
@@ -333,10 +333,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ������ͤ������Թҷ�
- $tod=$datenum*86400; // �Ѻ�ӹǹ�ѹ�Ҥٳ�Ѻ�Թҷյ���ѹ
- $ndate=$startdatec+$tod; // �Ѻ�ǡ��ա����ӹǹ�ѹ����Ѻ��
- return $ndate; // �觤�ҡ�Ѻ
+ $startdatec=strtotime($startdate); // ทำให้ข้อความเป็นวินาที
+ $tod=$datenum*86400; // รับจำนวนวันมาคูณกับวินาทีต่อวัน
+ $ndate=$startdatec+$tod; // นับบวกไปอีกตามจำนวนวันที่รับมา
+ return $ndate; // ส่งค่ากลับ
 }
 
 ?>

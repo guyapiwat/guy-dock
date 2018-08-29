@@ -16,7 +16,7 @@ if(isset($_GET['state'])){
 	if (isset($_POST["remark"])){$remark=$_POST["remark"];}else{$remark="";}
 }
 if($_GET['state']==0){
-	logtext(true,$_SESSION['adminusercode'],'�����ͺ',$rcode);
+	logtext(true,$_SESSION['adminusercode'],'เพิ่มรอบ',$rcode);
 	$sql="insert into ".$dbprefix."moround (rcode,  rdate, fdate,  tdate,paydate,  calc,remark ) values ('$rcode' ,'$rdate' ,'$fdate' ,'$tdate' ,'$paydate' ,'$calc' ,'$remark') ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=moroundoperate=>$sql";
@@ -32,7 +32,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=4&sub=21'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'����ͺ',$rcode);
+	logtext(true,$_SESSION['adminusercode'],'แก้ไขรอบ',$rcode);
 	$sql="update ".$dbprefix."moround set rcode='$rcode', rdate='$rdate', fdate='$fdate', tdate='$tdate' where rid= '$oid' ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=moroundoperate=>$sql";

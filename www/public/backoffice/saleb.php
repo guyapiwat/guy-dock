@@ -5,7 +5,7 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("��ͧ���¡��ԡ��Ź��")){
+		if(confirm("ต้องการยกเลิกบิลนี้")){
 			window.location='index.php?sessiontab=3&sub=22&state=3&bid='+id;
 		}
 	}
@@ -55,16 +55,16 @@ $sql .= "LEFT JOIN ".$dbprefix."member ON (".$dbprefix."asaleh.mcode=".$dbprefix
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sadate,sano,smcode,name_t,preserve,ability,invent,tot_pv,total,uid");
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,���ٹ��, PV,�ӹǹ�Թ���,�Ң� ���� ��ѡ�ҹ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,ส่งศูนย์, PV,จำนวนเงินรวม,สาขา หรือ พนักงาน");
 		$rec->setFieldAlign("center,center,center,left,center,center,center,right,right,right,right,right,center");
 		$rec->setFieldSpace("10%,5%,7%,15%,7%,7%,7%,7%,7%,7%,7%,10%,15%,15%,8%");
 		$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("sano,".$dbprefix."asaleh.mcode,name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		$rec->setSearchDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���,�Ң����;�ѡ�ҹ");
+		$rec->setSearchDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม,สาขาหรือพนักงาน");
 		$rec->setSum(true,false,",,,,,,,true,true,true,true");
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=22");

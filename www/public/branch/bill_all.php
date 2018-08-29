@@ -26,9 +26,9 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 	}
 	function sale_cancel(id){
 		if(confirm("<?=$wording_lan['Bill_21']?>")){ 
-			var remark = prompt("°√ÿ≥“°√Õ°À¡“¬‡Àµÿ §Ë–","");
+			var remark = prompt("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ ‡∏Ñ‡πà‡∏∞","");
 			if(remark == ""){
-				alert("§ÿ≥‰¡Ë‰¥È°√Õ°À¡“¬‡Àµÿ §Ë–");
+				alert("‡∏Ñ‡∏∏‡∏ì‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏Å‡∏£‡∏≠‡∏Å‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ ‡∏Ñ‡πà‡∏∞");
 			}
 			if(remark !== null && remark !== ""){
 				window.location='index.php?sessiontab=3&sub=147&state=3&bid='+id+'&remark='+remark;
@@ -50,7 +50,7 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 						window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&state=6&sender='+id+'&status=receive';
 					}
 					else{
-						alert("µÈÕß°¥®—¥ Ëß°ËÕπ§Ë–");
+						alert("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏î‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡∏Å‡πà‡∏≠‡∏ô‡∏Ñ‡πà‡∏∞");
 					}
 				}
 				else if(send == '2'){
@@ -59,11 +59,11 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 			}
 			else{
 				window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&state=6&sender='+id+'&status=receive';
-				//alert("∫‘≈π’È√—∫¢Õß‰ª·≈È«§Ë–");
+				//alert("‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß‡∏Ñ‡πà‡∏∞");
 			}
 		}
 		else{
-			alert("¬°‡≈‘°∫‘≈‰ª·≈È«§Ë–");
+			alert("‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß‡∏Ñ‡πà‡∏∞");
 		}
 	}
 	function sale_status1(id,page,chktype,sessiontab,sub,send,sender,receive,cancel){
@@ -77,19 +77,19 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 					}
 					else{
 						window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&state=7&sender='+id+'&status=sender';
-						//alert("∫‘≈π’È®—¥ Ëß‰ª·≈È«§Ë–");
+						//alert("‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß‡∏Ñ‡πà‡∏∞");
 					}
 				}
 				else if(send == '2'){
-					alert("∫‘≈π’È‰¡Ë‰¥È —Ëß´◊ÈÕ·∫∫®—¥ Ëß§Ë–");
+					alert("‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠‡πÅ‡∏ö‡∏ö‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡∏Ñ‡πà‡∏∞");
 				}
 			}
 			else{
-				alert("∫‘≈π’È√—∫¢Õß‰ª·≈È«§Ë–");
+				alert("‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ‡∏£‡∏±‡∏ö‡∏Ç‡∏≠‡∏á‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß‡∏Ñ‡πà‡∏∞");
 			}
 		}
 		else{
-			alert("¬°‡≈‘°∫‘≈‰ª·≈È«§Ë–");
+			alert("‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡πÑ‡∏õ‡πÅ‡∏•‡πâ‡∏ß‡∏Ñ‡πà‡∏∞");
 		}
 	}
 </script>
@@ -109,7 +109,7 @@ require("connectmysql.php");
 $sadate = '2016-10-04';
 $inv_code = 'BKK01';
 $pcode = 'PV0001';
-$pdesc = '¢“¬ 1 PV';
+$pdesc = '‡∏Ç‡∏≤‡∏¢ 1 PV';
 
 $sql = "select mcode,name_t,tot_pv from memberpv where 1=1 ";
 $rs = mysql_query($sql);
@@ -250,7 +250,7 @@ $monthmonth = explode("-",$fdate);
 		$rec->setShowField("print,sadate,sano,smcode,name_t,ability,tot_pv,total,uid,sendsend,sender,receive,txtoption,lid1,inv_code,uid_sender,uid_receive,checkportal,remark");
 		$rec->setFieldFloatFormat(",,,,,,2,2,");
 
-		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_9"].",".$wording_lan["Bill_10"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_12"].",".$wording_lan["Bill_13"].",".$wording_lan["Bill_14"].",".$wording_lan["Bill_15"].",".$wording_lan["Bill_16"].",".$wording_lan["Bill_17"].",À¡“¬‡Àµÿ");
+		$rec->setFieldDesc("P,".$wording_lan["Bill_1"].",".$wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_5"].",".$wording_lan["Bill_6"].",".$wording_lan["Bill_7"].",".$wording_lan["Bill_8"].",".$wording_lan["Bill_9"].",".$wording_lan["Bill_10"].",".$wording_lan["Bill_11"].",".$wording_lan["Bill_12"].",".$wording_lan["Bill_13"].",".$wording_lan["Bill_14"].",".$wording_lan["Bill_15"].",".$wording_lan["Bill_16"].",".$wording_lan["Bill_17"].",‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏");
 
 		$rec->setFieldAlign("center,left,left,left,left,center,right,right,center,center,center,center,left,center,center,center,center");
 		$rec->setFieldSpace("1%,6%,7%,5%,14%,6%,6%,6%,5%,3%,6%,6%,7%,4%,4%");
@@ -273,22 +273,22 @@ $monthmonth = explode("-",$fdate);
 			$rec->setSpecial("./images/true.gif","","sale_status","id,page,chktype,sessiontab,sub,send1,sender1,receive1,cancel","IMAGE",$wording_lan["send_1"]);
 		}
 		if($_GET['excel']==1){
-			logtext(true,$_SESSION["adminusercode"],'Export Excel : ¢ÈÕ¡Ÿ≈ ¡“™‘°','');
+			logtext(true,$_SESSION["adminusercode"],'Export Excel : ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);
 			$rec->exportXls("ExportXls","member".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","member".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 	 
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		$rec->setSpace($str);		
 
 		if($_GET['sessiontab'] == 3){
 			$str2 = "<fieldset ><a href='".$actual_link."invoice/aprint_sale_branch.php?bid=$bills&fdate=$fdate&tdate=$tdate&sale=$sale&inv=$inv&type=$type' target='_blank'>"; 
-			$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>æ‘¡æÏ∑—ÈßÀ¡¥</a></fieldset>";
+			$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a></fieldset>";
 			$rec->setSpace($str2);
 		}
 		$rec->showRec(1,'SH_QUERY');

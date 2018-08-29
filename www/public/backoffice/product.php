@@ -29,11 +29,11 @@ $sql .= " left join ".$dbprefix."productgroup on (".$dbprefix."product.group_id 
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("pcode,pdesc,groupname,unit,qty,customer_price,price,pv,vat");
-		$rec->setFieldDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´,ËÁÇ´ÊÔ¹¤éÒ,Ë¹èÇÂ,¨Ó¹Ç¹,ÃÒ¤Ò¢ÒÂ»ÅÕ¡,ÃÒ¤ÒÊÁÒªÔ¡,pv,Vat");
+		$rec->setFieldDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”,à¸«à¸¡à¸§à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸«à¸™à¹ˆà¸§à¸¢,à¸ˆà¸³à¸™à¸§à¸™,à¸£à¸²à¸„à¸²à¸‚à¸²à¸¢à¸›à¸¥à¸µà¸,à¸£à¸²à¸„à¸²à¸ªà¸¡à¸²à¸Šà¸´à¸,pv,Vat");
 		$rec->setFieldAlign("center,left,center,center,center,right,right,right,right,right,center,center,center");
 	//	$rec->setFieldSpace("8%,40%,9%,5%,9%,9%,9%,9%,9%,9%,9%");
 		$rec->setSearch("pcode,pdesc,groupname");
-		$rec->setSearchDesc("ÃËÑÊÊÔ¹¤éÒ,ÃÒÂÅÐàÍÕÂ´ÊÔ¹¤éÒ,ËÁÇ´ÊÔ¹¤éÒ");
+		$rec->setSearchDesc("à¸£à¸«à¸±à¸ªà¸ªà¸´à¸™à¸„à¹‰à¸²,à¸£à¸²à¸¢à¸¥à¸°à¹€à¸­à¸µà¸¢à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²,à¸«à¸¡à¸§à¸”à¸ªà¸´à¸™à¸„à¹‰à¸²");
 		$rec->setFieldFloatFormat(",,,,0,2,2,2,0,");
 
 		$rec->setFieldLink(",");

@@ -5,12 +5,12 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=36&state=3&bid='+id;
 		}
 	}
 </script>
-<a href="./print_held.php" target="_blank"><img border="0" src="./images/Amber-Printer.gif">æ‘¡æÏ</a>
+<a href="./print_held.php" target="_blank"><img border="0" src="./images/Amber-Printer.gif">‡∏û‡∏¥‡∏°‡∏û‡πå</a>
 <?
 require("connectmysql.php");
 mysql_query("delete from ".$dbprefix."cnt_held ");
@@ -195,25 +195,25 @@ $sql .= " FROM ".$dbprefix."cnt_held ";
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("sano,p1,p2,p3,p4,p5,p6,p7,p8,p9,p10,p11,p12,p13,p14,p15,p16,p17,p18,p19,p20,p21");
 		$rec->setFieldFloatFormat(",,,,,,,,,,,,,,,,,,,,,,,,");
-		//$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
-		$rec->setFieldDesc("‡≈¢∑’Ë„∫‡ √Á®,Night S.<Br>2000,White C.<Br>1200,Crystal S.<Br>1200,Change<Br>1250,Geisha<Br>1250,Lepair<Br>950
-		,Fiber<Br>980,Biggolo<Br>490,C. Coffee<Br>240,R. Coffee<Br>220,A Ginseng<Br>2500,A Ginseng<Br>2500,G Drink<Br>2500,G Drink<Br>2500,Garnoderma<Br>4500,Garnoderma<Br>4500,Goji B.<Br>4500,Goji B.<Br>4500,Sabu<Br>150,Gin P.<br>,¢Õß·∂¡ + ‚ª√‚¡™—ËπµË“ßÊ + ‡ª≈’Ë¬π ‘π§È“");
+		//$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡πÉ‡∏ö‡πÄ‡∏™‡∏£‡πá‡∏à,Night S.<Br>2000,White C.<Br>1200,Crystal S.<Br>1200,Change<Br>1250,Geisha<Br>1250,Lepair<Br>950
+		,Fiber<Br>980,Biggolo<Br>490,C. Coffee<Br>240,R. Coffee<Br>220,A Ginseng<Br>2500,A Ginseng<Br>2500,G Drink<Br>2500,G Drink<Br>2500,Garnoderma<Br>4500,Garnoderma<Br>4500,Goji B.<Br>4500,Goji B.<Br>4500,Sabu<Br>150,Gin P.<br>,‡∏Ç‡∏≠‡∏á‡πÅ‡∏ñ‡∏° + ‡πÇ‡∏õ‡∏£‡πÇ‡∏°‡∏ä‡∏±‡πà‡∏ô‡∏ï‡πà‡∏≤‡∏á‡πÜ + ‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤");
 		$rec->setFieldAlign("center,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("8%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,4%,14%,10%");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setSearch("sano,".$dbprefix."asaleh.mcode,name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-		//$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡, “¢“À√◊Õæπ—°ß“π")
+		//$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô")
 	//	$rec->setSearch("sano1,".$dbprefix."asaleh.mcode,name_t,sadate,tot_pv,total,".$dbprefix."asaleh.uid");
-	//	$rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡, “¢“À√◊Õæπ—°ß“π");
+	//	$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
 		/*if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale11".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale11".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>‚À≈¥ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>‡πÇ‡∏´‡∏•‡∏î Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'> √È“ß Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>‡∏™‡∏£‡πâ‡∏≤‡∏á Excel</a></fieldset>";
 		
 		$rec->setSpace($str);*/
 		$rec->setSum(true,false,",true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true,true");

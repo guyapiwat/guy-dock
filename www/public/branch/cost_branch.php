@@ -60,14 +60,14 @@ $sql .= " where ".$dbprefix."cost_branch.inv_code  = '{$_SESSION["admininvent"]}
 		//$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
 		$rec->setShowField("date,id,title,cost_1,cost_2,cost_3,cost_4,total,uid");
 		$rec->setFieldFloatFormat(",,,2,2,2,2,2,");
-		//$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
-		//$rec->setFieldDesc("�ѹ������,�Ţ���,���ʼ�����,���ͼ�����,�ӹǹ�Թ���,�Թʴ,�Թ�͹,�ѵ��ôԵ,�Ң� ���� ��ѡ�ҹ");
+		//$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
+		//$rec->setFieldDesc("วันที่ซื้อ,เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,จำนวนเงินรวม,เงินสด,เงินโอน,บัตรเครดิต,สาขา หรือ พนักงาน");
 		$rec->setFieldDesc($wording_lan["cost_branch_3"].",".$wording_lan["cost_branch_4"].",".$wording_lan["cost_branch_5"].",".$wording_lan["cost_branch_6"].",".$wording_lan["cost_branch_7"].",".$wording_lan["cost_branch_8"].",".$wording_lan["cost_branch_9"].",".$wording_lan["cost_branch_11"].",".$wording_lan["cost_branch_10"]);
 		$rec->setFieldAlign("center,center,left,right,right,right,right,right,center,center,center,center,center");
 		$rec->setFieldSpace("10%,8%,26%,8%,8%,8%,8%,8% ");
 		//$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
 		$rec->setSearch("id");
-		$rec->setSearchDesc("�Ţ���");
+		$rec->setSearchDesc("เลขบิล");
 		//$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_1"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_24"].",".$wording_lan["Bill_19"].",".$wording_lan["Bill_20"]);
 		$rec->setSum(true,false,",,,,true,true,true,true,true,true,true");
 		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["Bill_print"]);
@@ -80,7 +80,7 @@ $sql .= " where ".$dbprefix."cost_branch.inv_code  = '{$_SESSION["admininvent"]}
 			$rec->setDel("index.php","id","id","sessiontab=3&sub=148");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=148&state=1","post","delfield");
 		}*/
-		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+		//$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		//var_dump($acc->isAccess(2));
 		//exit;

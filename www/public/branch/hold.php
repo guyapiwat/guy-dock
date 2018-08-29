@@ -20,10 +20,10 @@ rpdialog_sale_hold($_GET['sub'],$fdate,$tdate,$sale);
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
-			var remark = prompt("¡ÃØ³Ò¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ","");
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
+			var remark = prompt("à¸à¸£à¸¸à¸“à¸²à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°","");
 			if(remark == ""){
-				alert("¤Ø³äÁèä´é¡ÃÍ¡ËÁÒÂàËµØ ¤èÐ");
+				alert("à¸„à¸¸à¸“à¹„à¸¡à¹ˆà¹„à¸”à¹‰à¸à¸£à¸­à¸à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸ à¸„à¹ˆà¸°");
 			}
 			if(remark !== null && remark !== ""){
 				window.location='index.php?sessiontab=3&sub=10&state=3&bid='+id+'&remark='+remark;
@@ -77,16 +77,16 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 			$rec->setCurPage($page);
 		$rec->setShowField("hono,preserve,smcode,name_t,sadate,tot_pv,total,uid,remark");
 		$rec->setFieldFloatFormat(",,,,,2,2");
-		$rec->setFieldDesc("àÅ¢ºÔÅ,»ÃÐàÀ·,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡,ËÁÒÂàËµØ");
+		$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸›à¸£à¸°à¹€à¸ à¸—,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸,à¸«à¸¡à¸²à¸¢à¹€à¸«à¸•à¸¸");
 		$rec->setFieldAlign("center,center,center,left,center,right,right,center");
 		//$rec->setFieldSpace("5%,5%,8%,20%,7%,7%,7%,7%,10%,10%,20%");
 		$rec->setFieldLink(",,index.php?sessiontab=1&sub=4&cmc=,");
 		$rec->setSearch("h.hono,h.mcode,m.name_t,h.sadate,h.tot_pv,h.total,h.uid");
-		$rec->setSearchDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,¨Ó¹Ç¹ÃÇÁ  PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡");
+		$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸ˆà¸³à¸™à¸§à¸™à¸£à¸§à¸¡  PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		$rec->setSum(true,false,",,,,,true,true");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","hono","IMAGE","¾ÔÁ¾ì");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","hono","IMAGE","à¸žà¸´à¸¡à¸žà¹Œ");
 		if($acc->isAccess(4)){
-		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","Â¡àÅÔ¡");
+		$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","à¸¢à¸à¹€à¸¥à¸´à¸");
 		}
 		
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
@@ -100,15 +100,15 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 
 			$rec->exportXls("ExportXls","hold".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","hold".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>âËÅ´ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>à¹‚à¸«à¸¥à¸” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>ÊÃéÒ§ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>à¸ªà¸£à¹‰à¸²à¸‡ Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$str2 = "<fieldset ><a href='../invoice/hprint_sale_branch.php?bid=$bills' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>¾ÔÁ¾ì·Ñé§ËÁ´</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>à¸žà¸´à¸¡à¸žà¹Œà¸—à¸±à¹‰à¸‡à¸«à¸¡à¸”</a></fieldset>";
 		$rec->setSpace($str2);
 		
 		$rec->showRec(1,'SH_QUERY');

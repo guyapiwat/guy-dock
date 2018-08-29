@@ -17,7 +17,7 @@ if(isset($_GET['state'])){
 
 }
 if($_GET['state']==0){
-	logtext(true,$_SESSION['adminusercode'],'������ê����Թ',$usercode);
+	logtext(true,$_SESSION['adminusercode'],'เพิ่มการชำระเงิน',$usercode);
 	$sql="insert into ".$dbprefix."payment_type (pay_name, pay_type,  pay_desc,  mapping_code,  inv_ref, status,uid) values ('$pay_name' ,'$pay_type' ,'$pay_desc' ,'$mapping_code' ,'$inv_ref' ,'$status' ,'".$_SESSION["adminusercode"]."' ) ";
 	//====================LOG===========================
 
@@ -34,7 +34,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=5&sub=66'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'��䢡�ê����Թ',$usercode);
+	logtext(true,$_SESSION['adminusercode'],'แก่ไขการชำระเงิน',$usercode);
 	$sql="update ".$dbprefix."payment_type set  pay_name ='$pay_name',pay_type ='$pay_type',pay_desc ='$pay_desc',mapping_code ='$mapping_code',inv_ref ='$inv_ref',status ='$status',uid ='".$_SESSION["adminusercode"]."' where id = '$oid' ";
 	
 	//====================LOG===========================

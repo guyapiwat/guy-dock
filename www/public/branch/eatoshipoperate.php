@@ -76,7 +76,7 @@ $tott=0;
 
 
 	if($total > 2200){
-         echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂‡µ‘¡‡°‘π 2200 µËÕ‡¥◊Õπ‰¥È§Ë–');history.back();</script>";
+         echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÄ‡∏ï‡∏¥‡∏°‡πÄ‡∏Å‡∏¥‡∏ô 2200 ‡∏ï‡πà‡∏≠‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡πÑ‡∏î‡πâ‡∏Ñ‡πà‡∏∞');history.back();</script>";
         exit;
 
 	}
@@ -114,7 +114,7 @@ $tott=0;
     //echo $sql;
     //exit;
     //====================LOG===========================
-    logtext(true,$_SESSION['inv_usercode'],'‡µ‘¡  Eatusohip √À—  : '.$mid.' ®”π«π : '.$txtMoney.' ¬Õ¥‡¥‘¡ :'.$ewallet_before.' §ß‡À≈◊Õ : '.$ewallet_after,$mid);
+    logtext(true,$_SESSION['inv_usercode'],'‡πÄ‡∏ï‡∏¥‡∏°  Eatusohip ‡∏£‡∏´‡∏±‡∏™ : '.$mid.' ‡∏à‡∏≥‡∏ô‡∏ß‡∏ô : '.$txtMoney.' ‡∏¢‡∏≠‡∏î‡πÄ‡∏î‡∏¥‡∏° :'.$ewallet_before.' ‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ : '.$ewallet_after,$mid);
 $text="uid=".$_SESSION["inv_usercode"]." action=ewalletoperate =>$sql";
 writelogfile($text);
 if (! mysql_query($sql)) {
@@ -143,15 +143,15 @@ if($GLOBALS["status_member"] == 1){
                     $msisdn = $mobile;
                     $ewallett = $ewallet_before+$txtMoney;
                     
-                    $message = "‡µ‘¡ Ewallet  ”‡√Á®
-√À—  ¡“™‘° $mcode
-‡µ‘¡ $txtMoney ∫
-§ß‡À≈◊Õ $ewallett ∫";
+                    $message = "‡πÄ‡∏ï‡∏¥‡∏° Ewallet ‡∏™‡∏≥‡πÄ‡∏£‡πá‡∏à
+‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å $mcode
+‡πÄ‡∏ï‡∏¥‡∏° $txtMoney ‡∏ö
+‡∏Ñ‡∏á‡πÄ‡∏´‡∏•‡∏∑‡∏≠ $ewallett ‡∏ö";
                    // if($arr_member["locationbase"]=='1')sendsms($dbprefix,$msisdn,$message,$ScheduledDelivery="",$mcode);
                 }
         }
 }else if($_GET['state']==1){
-    /*logtext(true,$_SESSION['adminusercode'],'·°È‰¢ Ewallet',$mid);
+    /*logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç Ewallet',$mid);
     $sql="update ".$dbprefix."ewallet set sano='$id', id='$id', ";
     $sql.="mcode='$mcode' ,sa_type='$satype' ,sadate='$sadate' , inv_code='$inv_code', total='$total', txtoption='$txtoption'
     , txtMoney='$txtMoney', chkCash='$chkCash', chkTransfer='$chkTransfer', chkCredit1='$chkCredit1', chkCredit2='$chkCredit2'

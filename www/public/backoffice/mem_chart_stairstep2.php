@@ -29,10 +29,10 @@ if(isset($_POST["key"])){
                 ?>
                 <table width="100%" border="0">
                   <tr align="center">
-                    <td><font color="#c00000"><br>ไม่สามารถดูข้อมูลได้เพราะไม่พบชื่อสมาชิก <?=$_POST["cause"]?></font></td>
+                    <td><font color="#c00000"><br>เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเนเธ”เนเน€เธเธฃเธฒเธฐเนเธกเนเธเธเธเธทเนเธญเธชเธกเธฒเธเธดเธ <?=$_POST["cause"]?></font></td>
                   </tr>
                   <tr align="center">
-                    <td><br><img src="./images/sp_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=55">กลับไปยังแผนภูมิสายงานผู้แนะนำ</a>]</td>
+                    <td><br><img src="./images/sp_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=55">เธเธฅเธฑเธเนเธเธขเธฑเธเนเธเธเธ เธนเธกเธดเธชเธฒเธขเธเธฒเธเธเธนเนเนเธเธฐเธเธณ</a>]</td>
                   </tr>
                 </table>
                 <?
@@ -41,10 +41,10 @@ if(isset($_POST["key"])){
         }
     }
 }
-// ตรวจสอบว่า $cmc อยู่ในสายงานของ $smc หรือไม่
+// เธ•เธฃเธงเธเธชเธญเธเธงเนเธฒ $cmc เธญเธขเธนเนเนเธเธชเธฒเธขเธเธฒเธเธเธญเธ $smc เธซเธฃเธทเธญเนเธกเน
 $cmc = gencode($cmc);
 $cur=$cmc;
-$abs_lev=0;                // level จาก $smc ถึง $cmc; ถ้า $smc=$cmc, abs_lev=0
+$abs_lev=0;                // level เธเธฒเธ $smc เธ–เธถเธ $cmc; เธ–เนเธฒ $smc=$cmc, abs_lev=0
 
 
 
@@ -69,10 +69,10 @@ if (mysql_num_rows($result)>0) {
     ?>
     <table width="100%" border="0">
       <tr align="center">
-        <td><br><font color="#c00000">ไม่สามารถดูข้อมูลได้เพราะไม่พบรหัส <?=$cmc?></font></td>
+        <td><br><font color="#c00000">เนเธกเนเธชเธฒเธกเธฒเธฃเธ–เธ”เธนเธเนเธญเธกเธนเธฅเนเธ”เนเน€เธเธฃเธฒเธฐเนเธกเนเธเธเธฃเธซเธฑเธช <?=$cmc?></font></td>
       </tr>
       <tr align="center">
-        <td><br><img src="./images/sp_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=55">กลับไปยังแผนภูมิสายงานผู้แนะนำของ <?=$GLOBALS["defmcode"]?></a>]</td>
+        <td><br><img src="./images/sp_s.gif" width="24" height="24" align="absmiddle" />[<a href="./index.php?sessiontab=1&sub=55">เธเธฅเธฑเธเนเธเธขเธฑเธเนเธเธเธ เธนเธกเธดเธชเธฒเธขเธเธฒเธเธเธนเนเนเธเธฐเธเธณเธเธญเธ <?=$GLOBALS["defmcode"]?></a>]</td>
       </tr>
     </table>
     <?
@@ -89,10 +89,10 @@ mysql_free_result($result);
 		<form method="post" action="./index.php?sessiontab=1&sub=55">
 			<input type="text" name="cause">
 			<select name="key">
-				<option value="code">รหัสสมาชิก</option>
-				<option value="name">ชื่อ</option>
+				<option value="code">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</option>
+				<option value="name">เธเธทเนเธญ</option>
 			</select>
-			<input type="submit" value="ค้น">
+			<input type="submit" value="เธเนเธ">
 		</form></td></tr></table>
 	</td>
   </tr>
@@ -111,7 +111,7 @@ mysql_free_result($result);
     $imgPosDef[$posid[$i]] = "./images/balls_11.gif";
     $tabUPosDef[$posid[$i]] = "#EEEEEE";
     //$tabDPosDef[$posid[$i]] = mysql_result($rs,$i,'posdtab');
-    $namePosDef[$posid[$i]] = "ไม่มีสมาชิก";
+    $namePosDef[$posid[$i]] = "เนเธกเนเธกเธตเธชเธกเธฒเธเธดเธ";
     mysql_free_result($rs);
     ?>
         <?php include_once("../backoffice/redialog_member.php"); ?>
@@ -166,13 +166,13 @@ function getpositionname($p){
     include_once "connectmysql.php";
     $sql="select * from ".$dbprefix."position where posid=".$p." ";
     //echo "$sql<BR>";
-    if ($p==""){return "ไม่มีตำแหน่ง";}
+    if ($p==""){return "เนเธกเนเธกเธตเธ•เธณเนเธซเธเนเธ";}
     $result=mysql_query($sql);
     if (mysql_num_rows($result)>0) {
         $row = mysql_fetch_object($result);
         return $row->posname;
     }else{
-        return "ไม่มีตำแหน่ง";
+        return "เนเธกเนเธกเธตเธ•เธณเนเธซเธเนเธ";
     }
 }
 

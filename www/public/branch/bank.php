@@ -26,12 +26,12 @@ $sql = "SELECT * FROM ".$dbprefix."bank";
 			$rec->setCurPage($page);
 		$rec->setShowField("bankname");
 		//$rec->setFieldFloatFormat(",,,,,,0,2");
-		$rec->setFieldDesc("ª×èÍ¸¹Ò¤ÒÃ");
+		$rec->setFieldDesc("à¸Šà¸·à¹ˆà¸­à¸˜à¸™à¸²à¸„à¸²à¸£");
 		$rec->setFieldAlign("center");
 		$rec->setFieldSpace("100%");
 		$rec->setFieldLink(",index.php?sessiontab=5&sub=3&cmc=,");
 		$rec->setSearch("bankname");
-		$rec->setSearchDesc("ª×èÍ");
+		$rec->setSearchDesc("à¸Šà¸·à¹ˆà¸­");
 		//$rec->setSum(true,false,",,,,,,true,true");
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE");
 		if($acc->isAccess(4)){

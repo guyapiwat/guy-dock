@@ -43,7 +43,7 @@ $sadate = $_SESSION["datetimezone"];
 			
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -98,7 +98,7 @@ $sadate = $_SESSION["datetimezone"];
 			$qty_after=$qty_before+$qty;
 			//echo $sqlewallet.':'.$qty_before.'<br>';
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -171,7 +171,7 @@ $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode1'";
 			}		
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -226,7 +226,7 @@ $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode1'";
 			}
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -298,7 +298,7 @@ $sadate = $_SESSION["datetimezone"];
 			
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -353,7 +353,7 @@ $sadate = $_SESSION["datetimezone"];
 			$qty_after=$qty_before+$qty;
 			//echo $sqlewallet.':'.$qty_before.'<br>';
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -425,7 +425,7 @@ $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode1'";
 			}		
 			$qty_after=$qty_before+$qty2;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -478,7 +478,7 @@ $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$pcode1'";
 			}
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','¬°‡≈‘° §’¬Ï√—∫∑’Ë “¢“','$uid')";
+			  values('$sano','Head Office','$invent','$pcode','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å ‡∏Ñ‡∏µ‡∏¢‡πå‡∏£‡∏±‡∏ö‡∏ó‡∏µ‡πà‡∏™‡∏≤‡∏Ç‡∏≤','$uid')";
 			mysql_query($sql);
 			$yokma = $qty_before;
 
@@ -861,12 +861,12 @@ function searchsending($dbprefix,$locationbase,$stype,$tot_pv,$weight){
 	return $arr_sending;
 }
 function isvaliddate($ymd){
-	//function  ”À√—∫µ√«® Õ∫ string $ymd «Ë“‡ªÁπ«—π∑’Ë∑’Ë∂Ÿ°µÈÕßÀ√◊Õ‰¡Ë
-	//∂È“‡ªÁπ str «Ë“ß return false
+	//function ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö string $ymd ‡∏ß‡πà‡∏≤‡πÄ‡∏õ‡πá‡∏ô‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ó‡∏µ‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á‡∏´‡∏£‡∏∑‡∏≠‡πÑ‡∏°‡πà
+	//‡∏ñ‡πâ‡∏≤‡πÄ‡∏õ‡πá‡∏ô str ‡∏ß‡πà‡∏≤‡∏á return false
 	if($ymd==''){
 		return false;
 	}
-	//∂È“format ‰¡Ë‡∑Ë“°—∫ '0000-00-00' return false
+	//‡∏ñ‡πâ‡∏≤format ‡πÑ‡∏°‡πà‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö '0000-00-00' return false
 	list($y, $m, $d) = explode("-", $ymd);
 	if(!(strlen($y)==4 and (strlen($m)==2 or strlen($m)==1) and (strlen($d)==2 or strlen($d)==1))){
 		return false;
@@ -878,12 +878,12 @@ function isvaliddate($ymd){
 }
 
 function isvaliddatetime($ymd){
-	//function  ”À√—∫µ√«® Õ∫ string $ymd «Ë“‡ªÁπ«—π∑’Ë∑’Ë∂Ÿ°µÈÕßÀ√◊Õ‰¡Ë
-	//∂È“‡ªÁπ str «Ë“ß return false
+	//function ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö string $ymd ‡∏ß‡πà‡∏≤‡πÄ‡∏õ‡πá‡∏ô‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ó‡∏µ‡πà‡∏ñ‡∏π‡∏Å‡∏ï‡πâ‡∏≠‡∏á‡∏´‡∏£‡∏∑‡∏≠‡πÑ‡∏°‡πà
+	//‡∏ñ‡πâ‡∏≤‡πÄ‡∏õ‡πá‡∏ô str ‡∏ß‡πà‡∏≤‡∏á return false
 	if($ymd==''){
 		return false;
 	}
-	//∂È“format ‰¡Ë‡∑Ë“°—∫ '0000-00-00 00:00:00' return false
+	//‡∏ñ‡πâ‡∏≤format ‡πÑ‡∏°‡πà‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö '0000-00-00 00:00:00' return false
 	list($ymd_date,$ymd_time)= explode(" ", $ymd);
 	if(! isvaliddate($ymd_date)){
 		return false;
@@ -1035,7 +1035,7 @@ function mydate($d)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√¬ËÕ‡¥◊Õπ Õ—ß°ƒ…
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡∏¢‡πà‡∏≠‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏©
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthEAbb($M)
 {
@@ -1089,7 +1089,7 @@ function MonthEAbb($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√ Õ—ß°ƒ…
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£ ‡∏≠‡∏±‡∏á‡∏Å‡∏§‡∏©
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthE($M)
 {
@@ -1143,7 +1143,7 @@ function MonthE($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√¬ËÕ‡¥◊Õπ ‰∑¬
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡∏¢‡πà‡∏≠‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÑ‡∏ó‡∏¢
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthTAbb($M)
 {
@@ -1151,40 +1151,40 @@ function MonthTAbb($M)
 	{	$mm=0+$M;
         switch ($M) {
         Case 1:
-            return("¡.§.");
+            return("‡∏°.‡∏Ñ.");
 			break;
         Case 2:
-            return("°.æ.");
+            return("‡∏Å.‡∏û.");
 			break;
         Case 3:
-            return("¡’.§.");
+            return("‡∏°‡∏µ.‡∏Ñ.");
 			break;
         Case 4:
-            return("‡¡.¬.");
+            return("‡πÄ‡∏°.‡∏¢.");
 			break;
         Case 5:
-            return("æ.§.");
+            return("‡∏û.‡∏Ñ.");
 			break;
         Case 6:
-            return("¡‘.¬.");
+            return("‡∏°‡∏¥.‡∏¢.");
 			break;
         Case 7:
-            return("°.§.");
+            return("‡∏Å.‡∏Ñ.");
 			break;
         Case 8:
-            return(" .§.");
+            return("‡∏™.‡∏Ñ.");
 			break;
         Case 9:
-            return("°.¬.");
+            return("‡∏Å.‡∏¢.");
 			break;
         Case 10:
-            return("µ.§.");
+            return("‡∏ï.‡∏Ñ.");
 			break;
         Case 11:
-            return("æ.¬.");
+            return("‡∏û.‡∏¢.");
 			break;
         Case 12:
-            return("∏.§.");
+            return("‡∏ò.‡∏Ñ.");
 			break;
         default:
             return("");
@@ -1197,7 +1197,7 @@ function MonthTAbb($M)
 } //End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// ø—ß°Ï™—π  ”À√—∫‡ª≈’Ë¬π ‡≈¢‡¥◊Õπ „ÀÈ‡ªÁπ Õ—°…√‰∑¬
+// ‡∏ü‡∏±‡∏á‡∏Å‡πå‡∏ä‡∏±‡∏ô ‡∏™‡∏≥‡∏´‡∏£‡∏±‡∏ö‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô ‡πÄ‡∏•‡∏Ç‡πÄ‡∏î‡∏∑‡∏≠‡∏ô ‡πÉ‡∏´‡πâ‡πÄ‡∏õ‡πá‡∏ô ‡∏≠‡∏±‡∏Å‡∏©‡∏£‡πÑ‡∏ó‡∏¢
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function MonthT($M)
 {
@@ -1205,40 +1205,40 @@ function MonthT($M)
 	{	$mm=0+$M;
         switch ($M) {
         Case 1:
-            return("¡°√“§¡");
+            return("‡∏°‡∏Å‡∏£‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 2:
-            return("°ÿ¡¿“æ—π∏Ï");
+            return("‡∏Å‡∏∏‡∏°‡∏†‡∏≤‡∏û‡∏±‡∏ô‡∏ò‡πå");
 			break;
         Case 3:
-            return("¡’π“§¡");
+            return("‡∏°‡∏µ‡∏ô‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 4:
-            return("‡¡…“¬π");
+            return("‡πÄ‡∏°‡∏©‡∏≤‡∏¢‡∏ô");
 			break;
         Case 5:
-            return("æƒ…¿“§¡");
+            return("‡∏û‡∏§‡∏©‡∏†‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 6:
-            return("¡‘∂ÿπ“¬π");
+            return("‡∏°‡∏¥‡∏ñ‡∏∏‡∏ô‡∏≤‡∏¢‡∏ô");
 			break;
         Case 7:
-            return("°√°Æ“§¡");
+            return("‡∏Å‡∏£‡∏Å‡∏é‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 8:
-            return(" ‘ßÀ“§¡");
+            return("‡∏™‡∏¥‡∏á‡∏´‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 9:
-            return("°—π¬“¬π");
+            return("‡∏Å‡∏±‡∏ô‡∏¢‡∏≤‡∏¢‡∏ô");
 			break;
         Case 10:
-            return("µÿ≈“§¡");
+            return("‡∏ï‡∏∏‡∏•‡∏≤‡∏Ñ‡∏°");
 			break;
         Case 11:
-            return("æƒ»®‘°“¬π");
+            return("‡∏û‡∏§‡∏®‡∏à‡∏¥‡∏Å‡∏≤‡∏¢‡∏ô");
 			break;
         Case 12:
-            return("∏—π«“§¡");
+            return("‡∏ò‡∏±‡∏ô‡∏ß‡∏≤‡∏Ñ‡∏°");
 			break;
         default:
             return("");
@@ -1275,7 +1275,7 @@ function MoneyNoDec($mon)
 }	//End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È‡¢È“√À—  password °ËÕπ°“√‡°Á∫
+// ‡πÉ‡∏ä‡πâ‡πÄ‡∏Ç‡πâ‡∏≤‡∏£‡∏´‡∏±‡∏™ password ‡∏Å‡πà‡∏≠‡∏ô‡∏Å‡∏≤‡∏£‡πÄ‡∏Å‡πá‡∏ö
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function EncodePwd($X)
 {    
@@ -1294,7 +1294,7 @@ function EncodePwd($X)
 }	//End Function
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È∂Õ¥√À—  password °ËÕπ°“√„™È
+// ‡πÉ‡∏ä‡πâ‡∏ñ‡∏≠‡∏î‡∏£‡∏´‡∏±‡∏™ password ‡∏Å‡πà‡∏≠‡∏ô‡∏Å‡∏≤‡∏£‡πÉ‡∏ä‡πâ
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function DecodePwd($X)
 {
@@ -1315,13 +1315,13 @@ function DecodePwd($X)
 // DecodePwd('160173197084126057041076101045')=102186
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™Èª√—∫ step „π°“√ update ¢ÈÕ¡Ÿ≈
+// ‡πÉ‡∏ä‡πâ‡∏õ‡∏£‡∏±‡∏ö step ‡πÉ‡∏ô‡∏Å‡∏≤‡∏£ update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function UpDateStep($p,$s){
 	// connect to database 
 	include_once "connectmysql.php";
 	require_once ("function.log.inc.php");
-	// À“°¬—ß‰¡Ë¡’ insert
+	// ‡∏´‡∏≤‡∏Å‡∏¢‡∏±‡∏á‡πÑ‡∏°‡πà‡∏°‡∏µ insert
 	$result=mysql_query("select * from UDSTEP where PROC='$p' and STEP='$s'");
 	if (mysql_num_rows($result)==0) {
 		//====================LOG===========================
@@ -1331,7 +1331,7 @@ writelogfile($text);
 		mysql_query("insert IGNORE into UDSTEP (PROC,STEP) values ('$p','$s');");
 	}
 	mysql_free_result($result);
-	// update ¢ÈÕ¡Ÿ≈
+	// update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 	$sql="update UDSTEP set UDDATE='".date("Y-m-d")."', UD='1' where PROC='$p' and STEP='$s'";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action= UpDateStep =>$sql";
@@ -1347,7 +1347,7 @@ writelogfile($text);
 }
 
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
-// „™È· ¥ß step „π°“√ update ¢ÈÕ¡Ÿ≈
+// ‡πÉ‡∏ä‡πâ‡πÅ‡∏™‡∏î‡∏á step ‡πÉ‡∏ô‡∏Å‡∏≤‡∏£ update ‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 function ShowStep($p,$s){
 	// connect to database 
@@ -1406,98 +1406,98 @@ function moneytotext($m){
     $mtext = number_format($m, 2, '.', '');
     $totdigit = strlen($mtext) - 3;
     $outtext = "";
-    //ÀπÈ“∑»π‘¬¡
+    //‡∏´‡∏ô‡πâ‡∏≤‡∏ó‡∏®‡∏ô‡∏¥‡∏¢‡∏°
     for ($i=$totdigit;$i>=1;$i--){
         $c = substr($mtext, $i-1, 1);
         $cdigit = $totdigit + 1 - $i;
-        //µ—«‡≈¢
+        //‡∏ï‡∏±‡∏ß‡πÄ‡∏•‡∏Ç
         switch ($c){
         case "0":
             if ($cdigit == 7 and $totdigit > 7 ){
-                $t = "»Ÿπ¬Ï";
+                $t = "‡∏®‡∏π‡∏ô‡∏¢‡πå";
 			}else{
                 $t = "";
 			}
 			break;
         case "1":
             if ($cdigit == 1 and $totdigit > 1 or $cdigit == 7 and $totdigit > 7 ){
-                $t = "‡ÕÁ¥";
+                $t = "‡πÄ‡∏≠‡πá‡∏î";
 			}else{
-                $t = "Àπ÷Ëß";
+                $t = "‡∏´‡∏ô‡∏∂‡πà‡∏á";
             }
 			break;
         case "2":
             if ($cdigit == 2 or $cdigit == 8){
-                $t = "¬’Ë";
+                $t = "‡∏¢‡∏µ‡πà";
 			}else{
-                $t = " Õß";
+                $t = "‡∏™‡∏≠‡∏á";
 			}
 			break;
 		case "3":
-            $t = " “¡";
+            $t = "‡∏™‡∏≤‡∏°";
 			break;
         case "4":
-            $t = " ’Ë";
+            $t = "‡∏™‡∏µ‡πà";
 			break;
         case "5":
-            $t = "ÀÈ“";
+            $t = "‡∏´‡πâ‡∏≤";
 			break;
         case "6":
-            $t = "À°";
+            $t = "‡∏´‡∏Å";
 			break;
         case "7":
-            $t = "‡®Á¥";
+            $t = "‡πÄ‡∏à‡πá‡∏î";
 			break;
         case "8":
-            $t = "·ª¥";
+            $t = "‡πÅ‡∏õ‡∏î";
 			break;
         case "9":
-            $t = "‡°È“";
+            $t = "‡πÄ‡∏Å‡πâ‡∏≤";
 			break;
         default :
             $t = "";
         }
-        //À≈—°
+        //‡∏´‡∏•‡∏±‡∏Å
         if ($t <> ""){
             switch ($cdigit){
-            case 1:  //ÀπË«¬
+            case 1:  //‡∏´‡∏ô‡πà‡∏ß‡∏¢
                 $d = "";
 				break;
-            case 2:  // ‘∫
-                if ($t == "Àπ÷Ëß"){
+            case 2:  //‡∏™‡∏¥‡∏ö
+                if ($t == "‡∏´‡∏ô‡∏∂‡πà‡∏á"){
                     $t = "";
 				}
-                $d = " ‘∫";
+                $d = "‡∏™‡∏¥‡∏ö";
 				break;
-            case 3:  //√ÈÕ¬
-                $d = "√ÈÕ¬";
+            case 3:  //‡∏£‡πâ‡∏≠‡∏¢
+                $d = "‡∏£‡πâ‡∏≠‡∏¢";
 				break;
-            case 4:  //æ—π
-                $d = "æ—π";
+            case 4:  //‡∏û‡∏±‡∏ô
+                $d = "‡∏û‡∏±‡∏ô";
 				break;
-            case 5:  //À¡◊Ëπ
-                $d = "À¡◊Ëπ";
+            case 5:  //‡∏´‡∏°‡∏∑‡πà‡∏ô
+                $d = "‡∏´‡∏°‡∏∑‡πà‡∏ô";
 				break;
-            case 6:  //· π
-                $d = "· π";
+            case 6:  //‡πÅ‡∏™‡∏ô
+                $d = "‡πÅ‡∏™‡∏ô";
 				break;
-            case 7:  //≈È“π
-                if ($t == "»Ÿπ¬Ï"){
+            case 7:  //‡∏•‡πâ‡∏≤‡∏ô
+                if ($t == "‡∏®‡∏π‡∏ô‡∏¢‡πå"){
                     $t = "";
 				}
-                $d = "≈È“π";
+                $d = "‡∏•‡πâ‡∏≤‡∏ô";
 				break;
-            case 8:  // ‘∫≈È“π
-                if ($t == "Àπ÷Ëß"){
+            case 8:  //‡∏™‡∏¥‡∏ö‡∏•‡πâ‡∏≤‡∏ô
+                if ($t == "‡∏´‡∏ô‡∏∂‡πà‡∏á"){
                     $t = "";
 				}
-                $d = " ‘∫";
+                $d = "‡∏™‡∏¥‡∏ö";
 				break;
-            case 9: //√ÈÕ¬≈È“π
-                $d = "√ÈÕ¬";
+            case 9: //‡∏£‡πâ‡∏≠‡∏¢‡∏•‡πâ‡∏≤‡∏ô
+                $d = "‡∏£‡πâ‡∏≠‡∏¢";
 				break;
-            case 10: //æ—π≈È“π
-                $d = "æ—π";
+            case 10: //‡∏û‡∏±‡∏ô‡∏•‡πâ‡∏≤‡∏ô
+                $d = "‡∏û‡∏±‡∏ô";
 				break;
             default :
                 $d = "";
@@ -1509,86 +1509,86 @@ function moneytotext($m){
         $outtext = $t.$d.$outtext;
 	}
     if ($outtext <> ""){
-        $outtext = $outtext ."∫“∑";
+        $outtext = $outtext ."‡∏ö‡∏≤‡∏ó";
 	}
     
-    //À≈—ß ∑»π‘¬¡ µ”·ÀπËß∑’Ë 1
+    //‡∏´‡∏•‡∏±‡∏á ‡∏ó‡∏®‡∏ô‡∏¥‡∏¢‡∏° ‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡∏ó‡∏µ‡πà 1
     switch (substr($mtext, strlen($mtext) - 2, 1)){
         case "1":
-            $d01 = " ‘∫";
+            $d01 = "‡∏™‡∏¥‡∏ö";
 			break;
         case "2":
-            $d01 = "¬’Ë ‘∫";
+            $d01 = "‡∏¢‡∏µ‡πà‡∏™‡∏¥‡∏ö";
 			break;
         case "3":
-            $d01 = " “¡ ‘∫";
+            $d01 = "‡∏™‡∏≤‡∏°‡∏™‡∏¥‡∏ö";
 			break;
         case "4":
-            $d01 = " ’Ë ‘∫";
+            $d01 = "‡∏™‡∏µ‡πà‡∏™‡∏¥‡∏ö";
 			break;
         case "5";
-            $d01 = "ÀÈ“ ‘∫";
+            $d01 = "‡∏´‡πâ‡∏≤‡∏™‡∏¥‡∏ö";
 			break;
         case "6":
-            $d01 = "À° ‘∫";
+            $d01 = "‡∏´‡∏Å‡∏™‡∏¥‡∏ö";
 			break;
         case "7":
-            $d01 = "‡®Á¥ ‘∫";
+            $d01 = "‡πÄ‡∏à‡πá‡∏î‡∏™‡∏¥‡∏ö";
 			break;
         case "8":
-            $d01 = "·ª¥ ‘∫";
+            $d01 = "‡πÅ‡∏õ‡∏î‡∏™‡∏¥‡∏ö";
 			break;
         case "9":
-            $d01 = "‡°È“ ‘∫";
+            $d01 = "‡πÄ‡∏Å‡πâ‡∏≤‡∏™‡∏¥‡∏ö";
 			break;
         default:
             $d01 = "";
     }
-    //∑»π‘¬¡ µ”·ÀπËß∑’Ë 2
+    //‡∏ó‡∏®‡∏ô‡∏¥‡∏¢‡∏° ‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á‡∏ó‡∏µ‡πà 2
     switch (substr($mtext, strlen($mtext)-1, 1)){
         case "1":
             if ($d01 <> ""){
-                $d02 = "‡ÕÁ¥";
+                $d02 = "‡πÄ‡∏≠‡πá‡∏î";
 			}else{
-                $d02 = "Àπ÷Ëß";
+                $d02 = "‡∏´‡∏ô‡∏∂‡πà‡∏á";
             }
 			break;
         case "2":
-            $d02 = " Õß";
+            $d02 = "‡∏™‡∏≠‡∏á";
 			break;
         case "3":
-            $d02 = " “¡";
+            $d02 = "‡∏™‡∏≤‡∏°";
 			break;
         case "4":
-            $d02 = " ’Ë";
+            $d02 = "‡∏™‡∏µ‡πà";
 			break;
         case "5":
-            $d02 = "ÀÈ“";
+            $d02 = "‡∏´‡πâ‡∏≤";
 			break;
         case "6":
-            $d02 = "À°";
+            $d02 = "‡∏´‡∏Å";
 			break;
         case "7":
-            $d02 = "‡®Á¥";
+            $d02 = "‡πÄ‡∏à‡πá‡∏î";
 			break;
         case "8":
-            $d02 = "·ª¥";
+            $d02 = "‡πÅ‡∏õ‡∏î";
 			break;
         case "9":
-            $d02 = "‡°È“";
+            $d02 = "‡πÄ‡∏Å‡πâ‡∏≤";
 			break;
         default:
             $d02 = "";
     }
     if ($d01.$d02 <> ""){
-        $d02 = $d02 ." µ“ß§Ï";
+        $d02 = $d02 ."‡∏™‡∏ï‡∏≤‡∏á‡∏Ñ‡πå";
     }
     
     if ($d01.$d02 <> ""){
         $outtext = $outtext.$d01.$d02;
 	}
     else{
-        $outtext = $outtext."∂È«π";
+        $outtext = $outtext."‡∏ñ‡πâ‡∏ß‡∏ô";
     }
     return $outtext;
 }

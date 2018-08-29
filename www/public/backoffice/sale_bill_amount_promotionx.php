@@ -127,12 +127,12 @@ if(empty($strpv))$strpv = ' >= 2000';
   <tr valign="top"><td width="100%" align="left" ><fieldset>
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 	<input size="14" type="text" name="fdate" id="dateInput1" value="<?=$fdate?>" />
-	  ถึง
+	  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="dateInput2" value="<?=$tdate?>" />
 	<input type='hidden' id='stype' name = 'stype' value= '<?=$stype?>'>
 
 	<!--<select name="satype" >		
-		<option  value="" <?=($satype==""?"selected":"")?>> ซื้อแบบทั้งหมด</option>
+		<option  value="" <?=($satype==""?"selected":"")?>> เธเธทเนเธญเนเธเธเธ—เธฑเนเธเธซเธกเธ”</option>
 		<?php		
 		foreach($arr_satype as $key => $value):			
 		echo '<option value="'.$key.'"';
@@ -144,9 +144,9 @@ if(empty($strpv))$strpv = ' >= 2000';
 	<input type="text" name="strpv" value="<?=$strpv?>" placeholder="PV" style="width:100px">
 
 
-เกรียติยศ
+เน€เธเธฃเธตเธขเธ•เธดเธขเธจ
 	<select name="sp_pos">
-				 <option  value="" <?=($sp_pos==""?"selected":"")?>>ทั้งหมด</option>
+				 <option  value="" <?=($sp_pos==""?"selected":"")?>>เธ—เธฑเนเธเธซเธกเธ”</option>
 				<?					
 						$result1=mysql_query("select * from ".$dbprefix."position1 order by posid");
 
@@ -159,7 +159,7 @@ if(empty($strpv))$strpv = ' >= 2000';
 						}
 						?>
 					</select>
-    <input type="submit" value="  ค้น  " />
+    <input type="submit" value="  เธเนเธ  " />
 
 </fieldset></td>
 </tr></table>

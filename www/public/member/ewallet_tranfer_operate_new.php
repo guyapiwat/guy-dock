@@ -92,16 +92,16 @@ if($_SESSION["sv_code"] != $sv_code or empty($sv_code) or mysql_num_rows($rsch) 
 }
 
 if($_SESSION["usercode"] == $mcode and $spayment=='1'){
-    echo "<script language='JavaScript'>alert('‰¡Ë “¡“√∂‚Õπ„ÀÈµ—«‡Õß‰¥È'); window.history.back()</script>";     
+    echo "<script language='JavaScript'>alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÇ‡∏≠‡∏ô‡πÉ‡∏´‡πâ‡∏ï‡∏±‡∏ß‡πÄ‡∏≠‡∏á‡πÑ‡∏î‡πâ'); window.history.back()</script>";     
     exit;
 }
 if($_SESSION["usercode"] != $mcode and $spayment=='2'){
-    echo "<script language='JavaScript'>alert('‡ªÁπ√À— µ—«‡Õß‡∑Ë“π—Èπ'); window.history.back()</script>";     
+    echo "<script language='JavaScript'>alert('‡πÄ‡∏õ‡πá‡∏ô‡∏£‡∏´‡∏±‡∏™‡∏ï‡∏±‡∏ß‡πÄ‡∏≠‡∏á‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô'); window.history.back()</script>";     
     exit;
 }
 
 if($_SESSION["usercode"] != $mcode and $spayment=='3'){
-	echo "<script language='JavaScript'>alert('∂Õπ„ÀÈ√À—  ¡“™‘°µ—«‡Õß‰¥È‡∑Ë“π—Èπ'); window.history.back()</script>";     
+	echo "<script language='JavaScript'>alert('‡∏ñ‡∏≠‡∏ô‡πÉ‡∏´‡πâ‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ï‡∏±‡∏ß‡πÄ‡∏≠‡∏á‡πÑ‡∏î‡πâ‡πÄ‡∏ó‡πà‡∏≤‡∏ô‡∏±‡πâ‡∏ô'); window.history.back()</script>";     
 	exit;
 }
 $sadate = $_SESSION["datetimezone"];

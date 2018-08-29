@@ -11,14 +11,14 @@ include("connectmysql.php");
 	echo "</PRE>";
 	exit;
 */	
-	checkValues($_POST["mcode"],"�س������͡������Ҫԡ��� !!!");
-	checkValues($_POST["payType"],"�س��������͡�ѭ�ո�Ҥ�ä�� !!!");
-	checkValues($_POST["sadate"],"�س��������͡(�ѹ/��͹/��)��� !!!");
-	checkValues($_POST["sctime"],"�س��������͡(����)��� !!!");
-	checkValues($_POST["total"],"�س������͡�ӹǹ�Թ��� !!!");
-	if(intval($_POST["total"]) <= 0){checkValues("","��سҡ�͡�ӹǹ�Թ�ҡ���� 0 �ҷ��� !!!");}
+	checkValues($_POST["mcode"],"คุณไม่ได้กรอกรหัสสมาชิกค่ะ !!!");
+	checkValues($_POST["payType"],"คุณไม่ได้เลือกบัญชีธนาคารค่ะ !!!");
+	checkValues($_POST["sadate"],"คุณไม่ได้เลือก(วัน/เดือน/ปี)ค่ะ !!!");
+	checkValues($_POST["sctime"],"คุณไม่ได้เลือก(เวลา)ค่ะ !!!");
+	checkValues($_POST["total"],"คุณไม่ได้กรอกจำนวนเงินค่ะ !!!");
+	if(intval($_POST["total"]) <= 0){checkValues("","กรุณากรอกจำนวนเงินมากกว่า 0 บาทค่ะ !!!");}
 	if($_FILES["imgPay"]["name"] > 200000){
-		echo "<script language='JavaScript'>alert('��Ҵ����˭��Թ� ����ͧ��Ҵ����Թ 200KB ��� !!!'); window.history.back()</script>";
+		echo "<script language='JavaScript'>alert('ขนาดไฟล์ใหญ่เกินไป ไฟล์ต้องขนาดไม่เกิน 200KB ค่ะ !!!'); window.history.back()</script>";
 		exit;
 	}
 
@@ -31,7 +31,7 @@ include("connectmysql.php");
 	if ($f_type== "image/gif" OR $f_type== "image/png" OR $f_type== "image/jpeg" OR $f_type== "image/JPEG" OR $f_type== "image/PNG" OR $f_type== "image/GIF"){
 	}
 	else{
-		echo "<script language='JavaScript'>alert('�ٻẺ������١��ͧ ��� !!!'); window.history.back()</script>";
+		echo "<script language='JavaScript'>alert('รูปแบบไฟล์ไม่ถูกต้อง ค่ะ !!!'); window.history.back()</script>";
 		exit;
 	}
 	
@@ -50,15 +50,15 @@ include("connectmysql.php");
 			if($files){}
 			else{
 				mysql_query("DELETE FROM ali_transfer_ewallet_confirm WHERE mcode='".$_POST["mcode"]."' and pay_type='".$_POST["payType"]."' and sadate='".$sadate1."' and sctime='".$_POST["sctime"]."' and total='".$_POST["total"]."' and img_pay='".$file_name."'");
-				returnLinks(4,213,"�Ѿ��Ŵ����ٻ�Ҿ�������稤�� !!!");
+				returnLinks(4,213,"อัพโหลดไฟล์รูปภาพไม่สำเร็จค่ะ !!!");
 			}
 		}
 	}
 	else{
-		returnLinks(4,213,"�Դ��ͼԴ��Ҵ��� !!!");
+		returnLinks(4,213,"เกิดข้อผิดพลาดค่ะ !!!");
 	}
 	
-	returnLinks(4,23,"���º���¤�� �ͷҧ����ѷ͹��ѵԤ��");
+	returnLinks(4,23,"เรียบร้อยค่ะ รอทางบริษัทอนุมัติค่ะ");
 	 
 function checkValues($value,$remark){
 	if(empty($value)){

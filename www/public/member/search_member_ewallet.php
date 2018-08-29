@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //‰¡Ë‰ª‡Õ“®“° cache
+  //‡πÑ‡∏°‡πà‡πÑ‡∏õ‡πÄ‡∏≠‡∏≤‡∏à‡∏≤‡∏Å cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //°”Àπ¥ header µÕπ√—∫
+  //‡∏Å‡∏≥‡∏´‡∏ô‡∏î header ‡∏ï‡∏≠‡∏ô‡∏£‡∏±‡∏ö
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -20,7 +20,7 @@ if(!empty($value) and (isLine($dbprefix,$_SESSION["usercode"],$value) or isLine(
   $sql = "SELECT locationbase,ewallet,pos_cur,pos_cur1,name_t,name_f,mcode,caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId ";
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  where mcode like '%$value%' limit 0,1";
-		$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+		$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
@@ -61,13 +61,13 @@ if(!empty($value) and (isLine($dbprefix,$_SESSION["usercode"],$value) or isLine(
 		$rs = mysql_query($sql);
 		$all_pv = ($all_pv+mysql_result($rs,0,'all_pv')); 
 		mysql_free_result($rs);
-		//$chkshow .= 'PV  Ë«πµ—«‡¥◊Õππ’È : '.$all_pv.' <br>';
+		//$chkshow .= 'PV ‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡∏ô‡∏µ‡πâ : '.$all_pv.' <br>';
 		
 	$array_mpos = array(''=>"-",'MB'=>"Member",'BR'=>"Bronz",'SI'=>"Silver",'GO'=>"Gold",'VIP'=>"VIP",'DI'=>"Diamond",'BD'=>"Blue Diamond",'BL'=>"Black Diamond");
 	
 	
-		//$chkshow .= '√–¥—∫°“√ ¡—§√ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>À¡¥Õ“¬ÿ – ¡Õ—æ‡°√µ('.date('Y-m-d',expdate($mdate,'60')).')<br>';
-		$chkshow .= '√–¥—∫°“√ ¡—§√ : '.$pos_cur.'<br>';
+		//$chkshow .= '‡∏£‡∏∞‡∏î‡∏±‡∏ö‡∏Å‡∏≤‡∏£‡∏™‡∏°‡∏±‡∏Ñ‡∏£ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡∏™‡∏∞‡∏™‡∏°‡∏≠‡∏±‡∏û‡πÄ‡∏Å‡∏£‡∏ï('.date('Y-m-d',expdate($mdate,'60')).')<br>';
+		$chkshow .= '‡∏£‡∏∞‡∏î‡∏±‡∏ö‡∏Å‡∏≤‡∏£‡∏™‡∏°‡∏±‡∏Ñ‡∏£ : '.$pos_cur.'<br>';
 		//$chkshow .= 'Ewallet : '.$ewallet.'<br>';
 		/*$all_pvQ = 0;
 		$sql = "SELECT sum(tot_pv) AS all_pv FROM ".$dbprefix."asaleh WHERE mcode='$cmc' and  (sa_type='Q') and cancel = 0 ";
@@ -87,7 +87,7 @@ if(!empty($value) and (isLine($dbprefix,$_SESSION["usercode"],$value) or isLine(
 		$csoi = $data->csoi;
 		$cstreet = $data->cstreet;
 
-		$chkshow .= 'PV √—°…“¬Õ¥ : '.$all_pvQ.' <br>';
+		$chkshow .= 'PV ‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î : '.$all_pvQ.' <br>';
 		echo $data->name_t.' ';
 		*/
 		if($locationbase != $_SESSION["m_locationbase"]){

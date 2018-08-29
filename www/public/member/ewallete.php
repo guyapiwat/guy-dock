@@ -5,7 +5,7 @@
         window.open(wlink);
     }
     function sale_cancel(id){
-        if(confirm("��ͧ���¡��ԡ��Ź��")){
+        if(confirm("ต้องการยกเลิกบิลนี้")){
             window.location='index.php?sessiontab=3&sub=23&state=3&bid='+id;
         }
     }
@@ -74,7 +74,7 @@ $sql .= "LEFT JOIN ".$dbprefix."invent ON (".$dbprefix."ewallet.inv_code=".$dbpr
         //$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total");
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney,txtInternet,txtCommission,txtWithdraw,sa_type,uid,checkportal");
         $rec->setFieldFloatFormat(",,,,2,2,2,2,,,");
-        //$rec->setFieldDesc("�Ţ���,���ʼ�����,���ͼ�����,�ѡ���ʹ,�Ӥس���ѵ�,hold�ʹ,�ѹ������,�ӹǹ���  PV,�ӹǹ�Թ���");
+        //$rec->setFieldDesc("เลขบิล,รหัสผู้ซื้อ,ชื่อผู้ซื้อ,รักษายอด,ทำคุณสมบัติ,holdยอด,วันที่ซื้อ,จำนวนรวม  PV,จำนวนเงินรวม");
         $rec->setFieldDesc($wording_lan["tab4"]["7_1"].",".$wording_lan["tab4"]["7_2"].",".$wording_lan["tab4"]["7_3"].",".$wording_lan["tab4"]["7_4"].",".$wording_lan["tab4"]["7_5"].",EwalletE,Commission,".$wording_lan["tab4"]["5_41"].",type,".$wording_lan["tab4"]["7_9"].",".$wording_lan["tab4"]["7_10"]."");
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,center");
         $rec->setFieldSpace("7%,13%,6%,10%,10%,10%,10%,10%,10%");
@@ -83,8 +83,8 @@ $sql .= "LEFT JOIN ".$dbprefix."invent ON (".$dbprefix."ewallet.inv_code=".$dbpr
         $rec->setSearchDesc($wording_lan["member"]["ewallet_1"].",".$wording_lan["member"]["ewallet_2"].",".$wording_lan["member"]["ewallet_3"].",".$wording_lan["member"]["ewallet_4"].",".$wording_lan["member"]["ewallet_5"].",".$wording_lan["member"]["ewallet_6"].",".$wording_lan["member"]["ewallet_7"].",");
 
         $rec->setSum(true,false,",,,,true,true,true,true");
-    //    $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
-        //$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","¡��ԡ");
+    //    $rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
+        //$rec->setSpecial("./images/cancel.gif","","sale_cancel","id","IMAGE","ยกเลิก");
         //$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
         /*if($acc->isAccess(4)){
             $rec->setDel("index.php","id","id","sessiontab=3&sub=23");

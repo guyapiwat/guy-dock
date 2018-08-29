@@ -24,7 +24,7 @@
 				readURL(this);
 			}
 			else{
-				alert("����ͧ��Ҵ����� 200KB");
+				alert("ไฟล์ต้องขนาดไม่ได้ 200KB");
 				$('#imgShow').attr('src', '');
 			}
 		});
@@ -38,19 +38,19 @@ $paymem_option =query("*",'ali_payment_type py ',"py.inv_code = 'ONLINE' and py.
 ?>
 <div class="container">
   <div class="jumbotron">
-    <h3>��������´�������Թ</h3>
+    <h3>รายละเอียดการเติมเงิน</h3>
 	  <form class="form-horizontal" action="ewallet_temp_operate.php" method="post" enctype="multipart/form-data">	
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="mcode">������Ҫԡ</label>
+			<label class="col-sm-2 control-label" for="mcode">รหัสสมาชิก</label>
 			<div class="col-sm-3">
-			  <input class="form-control" type="text" name="mcode" id="mcode" placeholder="������Ҫԡ" readonly value="<?=$_SESSION["usercode"]?>" >
+			  <input class="form-control" type="text" name="mcode" id="mcode" placeholder="รหัสสมาชิก" readonly value="<?=$_SESSION["usercode"]?>" >
 			</div>
 		</div>
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="sadate">�ѭ�ո�Ҥ��</label>
+			<label class="col-sm-2 control-label" for="sadate">บัญชีธนาคาร</label>
 			<div class="col-sm-3">
 			  <select class="form-control" name="payType" id="payType">
-			    <option value="">��س����͡�ٻẺ��ê���</option> 
+			    <option value="">กรุณาเลือกรูปแบบการชำระ</option> 
 				<?php foreach($paymem_option as $keyx => $valx){?>
 					<option value="<?=$valx['id']?>"><?=$valx['pay_desc']?></option>  
 				<?}?>
@@ -58,25 +58,25 @@ $paymem_option =query("*",'ali_payment_type py ',"py.inv_code = 'ONLINE' and py.
 			</div>
 		</div>
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="sadate">�͹ �ѹ/��͹/��</label>
+			<label class="col-sm-2 control-label" for="sadate">โอน วัน/เดือน/ปี</label>
 			<div class="col-sm-3">
 			  <input type="text" name="sadate" id="sadate" class="form-control date" style="width:100px;">
 			</div>
 		</div>
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="sctime">�͹ ����</label>
+			<label class="col-sm-2 control-label" for="sctime">โอน เวลา</label>
 			<div class="col-sm-3">
 			  <input type="text" name="sctime" id="sctime" class="form-control time" style="width:100px;">
 			</div>
 		</div>
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="total">�ӹǹ�Թ</label>
+			<label class="col-sm-2 control-label" for="total">จำนวนเงิน</label>
 			<div class="col-sm-3">
 			  <input class="form-control" type="number" name="total" id="total">
 			</div>
 		</div>
 		<div class="form-group form-group-sm">
-			<label class="col-sm-2 control-label" for="imgPay">�ٻ�Ҿ<br><font color=red>(.gif .jpeg .png)</font></label>
+			<label class="col-sm-2 control-label" for="imgPay">รูปภาพ<br><font color=red>(.gif .jpeg .png)</font></label>
 			<div class="col-sm-3">
 			  <input type="file" name="imgPay" name="imgPay" id="imgPay" accept="image/gif, image/jpeg, image/png">
 			</div>
@@ -90,7 +90,7 @@ $paymem_option =query("*",'ali_payment_type py ',"py.inv_code = 'ONLINE' and py.
 		<div class="form-group form-group-sm">
 			<label class="col-sm-2 control-label"></label>
 			<div class="col-sm-3">
-			  <button type="submit" class="btn btn-default">�ѹ�֡</button>
+			  <button type="submit" class="btn btn-default">บันทึก</button>
 			</div>
 		</div>		 
 	  <form>

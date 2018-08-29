@@ -5,12 +5,12 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µéÍ§¡ÒÃÂ¡àÅÔ¡ºÔÅ¹Õé")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¸¢à¸à¹€à¸¥à¸´à¸à¸šà¸´à¸¥à¸™à¸µà¹‰")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id){
-		if(confirm("µéÍ§¡ÒÃà»ÅÕèÂ¹á»Å§¨Ñ´Êè§")){
+		if(confirm("à¸•à¹‰à¸­à¸‡à¸à¸²à¸£à¹€à¸›à¸¥à¸µà¹ˆà¸¢à¸™à¹à¸›à¸¥à¸‡à¸ˆà¸±à¸”à¸ªà¹ˆà¸‡")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
 		}
 	}
@@ -38,7 +38,7 @@ if (isset($_GET["sub"])){$sub=$_GET["sub"];} else {$sub="";}
 require("connectmysql.php");
 if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 
-$sql="SELECT sano,mcode,name_t,sadate,CASE sa_type WHEN 'A' THEN 'ºÔÅ»¡µÔ'  WHEN 'B' THEN 'ÃÑ¡ÉÒÂÍ´' WHEN 'VA' THEN 'special point' END AS ability,tot_pv,total,uid FROM
+$sql="SELECT sano,mcode,name_t,sadate,CASE sa_type WHEN 'A' THEN 'à¸šà¸´à¸¥à¸›à¸à¸•à¸´'  WHEN 'B' THEN 'à¸£à¸±à¸à¸©à¸²à¸¢à¸­à¸”' WHEN 'VA' THEN 'special point' END AS ability,tot_pv,total,uid FROM
 (SELECT ah.sano as sano,ah.mcode as mcode,m.name_t as name_t,ah.sadate as sadate,ah.sa_type as sa_type,ah.tot_pv as tot_pv,ah.total as total,ah.uid as uid FROM ali_asaleh ah LEFT JOIN ali_member m ON(ah.mcode=m.mcode) WHERE (ah.sa_type='A' OR ah.sa_type='B') AND ah.cancel=0";
 if($mcode!="") $sql.=" AND ah.mcode='$mcode'";
 $sql.="
@@ -80,7 +80,7 @@ $sql.=") as a ";
 		
 	if(isset($page))$rec->setCurPage($page);
 		$rec->setShowField("sano,mcode,name_t,sadate,ability,tot_pv,total,uid");
-	$rec->setFieldDesc("àÅ¢ºÔÅ,ÃËÑÊ¼Ùé«×éÍ,ª×èÍ¼Ùé«×éÍ,ÇÑ¹·Õè«×éÍ,ª¹Ô´,PV,¨Ó¹Ç¹à§Ô¹ÃÇÁ,¼ÙéºÑ¹·Ö¡");
+	$rec->setFieldDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸‹à¸·à¹‰à¸­,à¸Šà¸™à¸´à¸”,PV,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™à¸£à¸§à¸¡,à¸œà¸¹à¹‰à¸šà¸±à¸™à¸—à¸¶à¸");
 		
 	$rec->setFieldFloatFormat(",,,,,2,2,");
 		$rec->setFieldAlign("center,center,left,center,center,right,right,right");
@@ -89,7 +89,7 @@ $sql.=") as a ";
  		
 	//$rec->setSearch("sano,sadate,mcode");
 		
-	//$rec->setSearchDesc("àÅ¢ºÔÅ,ÇÑ¹·Õè,ÃËÑÊ¼Ùé«×éÍ");
+	//$rec->setSearchDesc("à¹€à¸¥à¸‚à¸šà¸´à¸¥,à¸§à¸±à¸™à¸—à¸µà¹ˆ,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸‹à¸·à¹‰à¸­");
 		
 	$rec->setSum(true,false,",,,,,true,true,");
 		

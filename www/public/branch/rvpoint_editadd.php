@@ -30,15 +30,15 @@ input = pad_string + input;
 return input; 
 } 
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_rvpoint.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_rvpoint.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcode').value="";
@@ -47,15 +47,15 @@ function sendget_sponsor(value) {
 
 					var data = data.split("||");
 					document.getElementById('mcode').value=value;
-                    document.getElementById("mname").innerHTML=data[0]; //�ʴ��
+                    document.getElementById("mname").innerHTML=data[0]; //แสดงผ
 					document.getElementById("rvpoint").value=data[1]; 
 
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
   </script>
 <script language="javascript">
@@ -72,16 +72,16 @@ function checkbalance(val1,val2){
 		var v1=parseInt(val1);
 		var v2=parseInt(val2);
 		if( v1 > v2 ){
-			alert("�ӹǹ����");
+			alert("จำนวนไม่พอ");
 			return false;
 		}else if(v1 < 1 ){
-			alert("�ӹǹ���١��ͧ");
+			alert("จำนวนไม่ถูกต้อง");
 			return false;
 		}else{
 			return true;
 		}
 	}else{
-		alert("�ӹǹ���١��ͧ");
+		alert("จำนวนไม่ถูกต้อง");
 		return false;
 	}
 }
@@ -90,12 +90,12 @@ function ibillcheck(){
 	var val = document.getElementById('sadate').value;
 	var field = "sadate";
 	var flag = "1-0-0-0-0";
-	var errDesc = "�ѹ���";
+	var errDesc = "วันที่";
 	
 	val = val + ","+document.getElementById('mcode').value;
 	field = field +",mcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������Ҫԡ";
+	errDesc = errDesc + ",รหัสสมาชิก";
 
 	var txtMoney = document.getElementById('txtMoney').value;
 	var rvpoint = document.getElementById('rvpoint').value;
@@ -116,19 +116,19 @@ function ebillcheck(){
 	var skipval = "";
 	var field = "sadate";
 	var flag = "1-0-0-0-0";
-	var errDesc = "�ѹ���";
+	var errDesc = "วันที่";
 	
 /*		val = val + ","+document.getElementById('mcode').value;
 	skipval = skipval+",";
 	field = field +",mcode";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",������Ҫԡ";
+	errDesc = errDesc + ",รหัสสมาชิก";
 */
 	val = val + ","+document.getElementById('inv_code').value;
 	skipval = skipval+",";
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 
 	document.getElementById('checkstate').innerHTML= "<img align='center' src='./images/loading.gif' />";
 	//alert(skipval);
@@ -163,8 +163,8 @@ if(isset($_GET['id'])){
 		$sql = "SELECT * FROM ".$dbprefix."rvpoint WHERE id='".$_GET['id']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">�˹����Ҫԡ</a>]";
-			dialogbox("50%","#990000","��辺�����ŵ�����͹�",$redirect);
+			$redirect = "[<a href=\"javascript:window.location='index.php?sessiontab=1';\">ไปหน้าสมาชิก</a>]";
+			dialogbox("50%","#990000","ไม่พบข้อมูลตามเงื่อนไข",$redirect);
 			exit;
 		}else{
 			$sadate = mysql_result($rs,0,'sadate');
@@ -188,7 +188,7 @@ if(isset($_GET['id'])){
         <td>
             <table border="1" width="100%" align="center">
             <tr>
-              <td width="16%" align="right">�Ţ���</td>
+              <td width="16%" align="right">เลขบิล</td>
             <td width="38%">
 			<? 
 				$sql = "SELECT MAX(id) AS id FROM ".$dbprefix."rvpoint ";
@@ -196,15 +196,15 @@ if(isset($_GET['id'])){
 				echo ($_GET['id']==""?mysql_result($rs,0,'id')+1:$_GET['id']);
 				mysql_free_result($rs);
 			?> <input type="hidden" value="<?=$_GET['id']?>" name="id"/></td>
-            <td width="6%" align="right">�ѹ���</td>
+            <td width="6%" align="right">วันที่</td>
             <td width="40%"><input type="text" id="sadate" name="sadate" value="<?=$sadate==""?date("Y-m-d"):$sadate?>">
-              <a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="���͡�ѹ���"></a>            </td>
+              <a href="javascript:NewCal('sadate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="เลือกวันที่"></a>            </td>
             </tr>
             <tr valign="top">
               <td width="16%" align="right" >&#3626;&#3617;&#3634;&#3594;&#3636;&#3585; </td>
               <td  > 
                <input style="background-color:#FFFF99;" size="15" type="text" id="mcode" name="mcode" value="<?=$mcode?>">
-                <!--<input type="button" onClick="get_mem_listpicker_mcode()" value="���͡">-->
+                <!--<input type="button" onClick="get_mem_listpicker_mcode()" value="เลือก">-->
                 <input name="button2" type="button" onClick="sendget_sponsor(document.getElementById('mcode').value)" value="<?=$wording_lan["check"]?>" />
 				<div id="mname"></div> </td>
 				 <input name="rvpoint" id="rvpoint"  type="hidden"  />
@@ -215,9 +215,9 @@ if(isset($_GET['id'])){
             <tr valign="top">
               <td align="right"> &#3649;&#3621;&#3585; RV POINT </td>
               <td><!--<select name="satype">
-                <option  value="A" <?=($satype=="A"?"selected":"")?>>Ἱ A</option>
-                <option value="Q" <?=($satype=="Q"?"selected":"")?>>�ѡ���ʹ</option>
-              <option value="I" <?=($satype=="I"?"selected":"")?>>���ٹ��</option>
+                <option  value="A" <?=($satype=="A"?"selected":"")?>>แผน A</option>
+                <option value="Q" <?=($satype=="Q"?"selected":"")?>>รักษายอด</option>
+              <option value="I" <?=($satype=="I"?"selected":"")?>>ส่งศูนย์</option>
               </select>--><input type="text" name="txtMoney" id="txtMoney" value="<?=$txtMoney?>" onkeypress="disBotton()"></td>
               <td>&nbsp;</td>
                <td>&nbsp;</td>
@@ -225,7 +225,7 @@ if(isset($_GET['id'])){
               </table>
               <table border="0" cellpadding="0" cellspacing="0">
               <tr>
-                <td colspan="4" align="left">�����˵� : <br>
+                <td colspan="4" align="left">หมายเหตุ : <br>
                   <textarea name="txtoption" cols="100" rows="5"><?=$txtoption?></textarea></td>
               </tr>
             </table>
@@ -246,18 +246,18 @@ if(isset($_GET['id'])){
 				?><table  border="0" width="500" cellpadding="0" cellspacing="0">
 					<tr align="center" bgcolor="#999999">
                     	<td bgcolor="#99CCCC" style="<?=$style_l.$style_t.$style_b?>">&nbsp;</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�ӴѺ</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">����</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">��������´</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�Ҥ�</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">ลำดับ</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รหัส</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รายละเอียด</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">ราคา</td>
                         <td style="<?=$style_l.$style_t.$style_b?>">PV</td>
 						 <td style="<?=$style_l.$style_t.$style_b?>">BV</td>
 						  <td style="<?=$style_l.$style_t.$style_b?>">FV</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">�ӹǹ</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">����Ҥ�</td>
-                        <td style="<?=$style_l.$style_t.$style_b?>">���PV</td>
-						 <td style="<?=$style_l.$style_t.$style_b?>">���BV</td>
-						  <td style="<?=$style_l.$style_t.$style_b?>">���FV</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">จำนวน</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รวมราคา</td>
+                        <td style="<?=$style_l.$style_t.$style_b?>">รามPV</td>
+						 <td style="<?=$style_l.$style_t.$style_b?>">รามBV</td>
+						  <td style="<?=$style_l.$style_t.$style_b?>">รามFV</td>
                     </tr>
   				<?
 				$sumtotal = 0;
@@ -266,7 +266,7 @@ if(isset($_GET['id'])){
 					$proobj = mysql_fetch_object($rs);
 					?>
 					<tr>
-                        <td style="<?=$style_l.$style_bd?>"><input type="button" value="ź" onClick="saledel('<?=$proobj->pcode?>','<?=$proobj->pdesc ?>','<?=$proobj->price?>','<?=$proobj->pv?>','<?=$proobj->bv?>','<?=$proobj->fv?>')"></td>
+                        <td style="<?=$style_l.$style_bd?>"><input type="button" value="ลบ" onClick="saledel('<?=$proobj->pcode?>','<?=$proobj->pdesc ?>','<?=$proobj->price?>','<?=$proobj->pv?>','<?=$proobj->bv?>','<?=$proobj->fv?>')"></td>
                     	<td style="<?=$style_l.$style_bd?>"><?=($i+1)?></td>
                         <td style="<?=$style_l.$style_bd?>" align="center"><input readonly style="text-align:center;<?=$hidden?>" size="7" type="text" name="pcode[]" value="<?=$proobj->pcode?>"></td>
                         <td style="<?=$style_l.$style_bd?>"><input size="13" readonly style="<?=$hidden?>" type="text" name="pdesc[]" value="<?=$proobj->pdesc?>"></td>
@@ -288,20 +288,20 @@ if(isset($_GET['id'])){
 				}
 				?>
 					<tr bgcolor='#999999'>
-					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='9'>���</td>
+					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='9'>รวม</td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumtotal' value="<?=$sumtotal?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumpv' value="<?=$sumpv?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumbv' value="<?=$sumbv?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumfv' value="<?=$sumfv?>"></td>
 					</tr>
-					<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=3&sub=6'" value='¡��ԡ' /></td></tr>
+					<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=3&sub=6'" value='ยกเลิก' /></td></tr>
                 </table>
 				<?
 			}else
-				dialogbox("100%","#990000","��辺��¡���Թ��Ңͧ����Ţ��� ".$_GET['id'],"");
+				dialogbox("100%","#990000","ไม่พบรายการสินค้าของบิลเลขที่ ".$_GET['id'],"");
         }else{
-			//dialogbox("100%","#009900","���͡�����Ũҡ��¡���Թ��� �����䢨ӹǹ�����ͧ���","");
-			?> <input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='��Ǩ�ͺ' />&nbsp;<input type='submit' value='�ѹ�֡' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=6&sub=88'" value='¡��ԡ' /><?
+			//dialogbox("100%","#009900","เลือกข้อมูลจากรายการสินค้า และแก้ไขจำนวนตามต้องการ","");
+			?> <input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='ตรวจสอบ' />&nbsp;<input type='submit' value='บันทึก' name='ok'  id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick="window.location='index.php?sessiontab=6&sub=88'" value='ยกเลิก' /><?
 		}
 		?>
     	</td>

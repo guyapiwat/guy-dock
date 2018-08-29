@@ -40,24 +40,24 @@
 <table style="margin-left:20;" width="650" border="0">
   <tr valign="top"><td width="1000" align="center" ><fieldset>
 	<input size="14" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>  ถึง
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>
    <!-- <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเน€เธฅเธเธเธดเธฅ</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธดเธเธเนเธฒ</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธกเธฒเธเธดเธ</option>
     </select>-->
 	<input type="text" name="strSearch" value="<?=$strSearch?>">
 	<select name="strtype">
-				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>รหัสสมาชิก</option>
+				<option value="mcode" <?=($strtype=="mcode"?"selected":"")?>>เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</option>
               </select>
-    <input type="submit" value="ค้น" />
+    <input type="submit" value="เธเนเธ" />
 </fieldset></td>
 <td align="center" width="110"><!--<fieldset>
 	<? if($stype == 1){?>
         <a href="sell_print.php?fdate=<?=$fdate?>&tdate=<?=$tdate?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a>
     <? }?>
         
 </fieldset>--></td>

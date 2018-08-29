@@ -19,7 +19,7 @@ if(isset($_GET['state'])){
 	$mid = mysql_result($rs,0,'id')+1;
 
 if($_GET['state']==0){
-	logtext(true,$_SESSION['adminusercode'],' —Ëß´◊ÈÕ ‘π§È“',$pcode);
+	logtext(true,$_SESSION['adminusercode'],'‡∏™‡∏±‡πà‡∏á‡∏ã‡∏∑‡πâ‡∏≠‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$pcode);
 $qty = $txtBuy;
 		 $sql="SELECT * FROM ".$dbprefix."product_package1 where package = '$p_code'";
 		//exit;
@@ -38,7 +38,7 @@ $qty = $txtBuy;
 				if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 				$qty_after=$qty_before+$qty2;
 				$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-				  values('$mid','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."',' ‘π§È“π”‡¢È“','".$_SESSION["adminusercode"]."')";
+				  values('$mid','Head Office','Head Office','$pcode2','$qty_before','$qty2','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ô‡∏≥‡πÄ‡∏Ç‡πâ‡∏≤','".$_SESSION["adminusercode"]."')";
 				mysql_query($sql);
 
 
@@ -52,7 +52,7 @@ $qty = $txtBuy;
 			if(mysql_num_rows($rsewallet) > 0)$qty_before=mysql_result($rsewallet,0,'qty');else $qty_before=0;
 			$qty_after=$qty_before+$qty;
 			$sql = "insert into ".$dbprefix."stocks(sano,inv_code,inv_code1,pcode,yokma,qty,amt,sdate,stime,status,uid)
-			  values('$mid','Head Office','Head Office','$p_code','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."',' ‘π§È“π”‡¢È“','".$_SESSION["adminusercode"]."')";
+			  values('$mid','Head Office','Head Office','$p_code','$qty_before','$qty','$qty_after','".date('Y-m-d')."','".date('H:i:s')."','‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ô‡∏≥‡πÄ‡∏Ç‡πâ‡∏≤','".$_SESSION["adminusercode"]."')";
 			mysql_query($sql);
 
 			$sql = "update ".$dbprefix."product set qty = qty+$qty WHERE pcode='$p_code' ";
@@ -67,7 +67,7 @@ $text="uid=".$_SESSION["adminuserid"]." action=bproductoperate =>$sql";
 writelogfile($text);
 //=================END LOG===========================
 // update product
-	logtext(true,$_SESSION['adminusercode'],'·°È‰¢ ‘π§È“',$p_code);
+	logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$p_code);
 
 
 	//====================LOG===========================
@@ -85,7 +85,7 @@ writelogfile($text);
 		echo "<script language='JavaScript'>window.location='index.php?sessiontab=3&sub=30'</script>";	
 	}
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['adminusercode'],'·°È‰¢ ‘π§È“',$pcode);
+	logtext(true,$_SESSION['adminusercode'],'‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤',$pcode);
 	$sql="update ".$dbprefix."product set pcode='$pcode', pdesc='$pdesc', unit='$unit', price='$price',txtoption='$txtoption' where pcode= '$oid' ";
 	//====================LOG===========================
 $text="uid=".$_SESSION["adminuserid"]." action=productoperate =>$sql";

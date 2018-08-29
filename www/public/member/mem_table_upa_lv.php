@@ -16,24 +16,24 @@ set_time_limit(0);
 	show_rep_dialogbox();
 }
 else{*/
-	//ตรวจสอบความถูกต้อง  
+	//เธ•เธฃเธงเธเธชเธญเธเธเธงเธฒเธกเธ–เธนเธเธ•เนเธญเธ  
 	$oktoshow=true;
 	if ($mcode=="") {
 		//require 'header.php';
-		$errormsg.="กรุณาล็อกอิน<br>";
+		$errormsg.="เธเธฃเธธเธ“เธฒเธฅเนเธญเธเธญเธดเธ<br>";
 		$oktoshow=false;
 	}
 
-	// หากข้อมูลไม่ถูกต้อง ไม่แสดง
+	// เธซเธฒเธเธเนเธญเธกเธนเธฅเนเธกเนเธ–เธนเธเธ•เนเธญเธ เนเธกเนเนเธชเธ”เธ
 	if(! $oktoshow){
 		echo "<font color=red>$errormsg</font>";
 		echo "<br>";
-		echo "<a href=\"".$prefix."index.php\">ไปหน้า ล็อกอิน</a>";
+		echo "<a href=\"".$prefix."index.php\">เนเธเธซเธเนเธฒ เธฅเนเธญเธเธญเธดเธ</a>";
 		exit;
 	}
 	
 	for ($i=strlen($mcode);$i<7;$i++) {$mcode="0".$mcode;}
-	//หาข้อมูลหัวรายงาน
+	//เธซเธฒเธเนเธญเธกเธนเธฅเธซเธฑเธงเธฃเธฒเธขเธเธฒเธ
 	$sql = " SELECT mcode,name_t,posid FROM ".$dbprefix."member WHERE mcode='$mcode' ";
 	$dbquery = mysql_query($sql);
 	//echo "--->  ".$sql;
@@ -49,23 +49,23 @@ if (mysql_num_rows($result)>0) {
 }
 mysql_free_result($result);
 
-// อ่านข้อมูล
+// เธญเนเธฒเธเธเนเธญเธกเธนเธฅ
 	
 
 ?>	<html>
 	<head>
 	<meta http-equiv='Content-Type' content='text/html; charset=windows-874'>
 	<meta http-equiv='Content-Language' content='th'>
-	<title>รายงาน ข้อมูลทีมงาน ไตรนารี่ แต่ละชั้น</title>
+	<title>เธฃเธฒเธขเธเธฒเธ เธเนเธญเธกเธนเธฅเธ—เธตเธกเธเธฒเธ เนเธ•เธฃเธเธฒเธฃเธตเน เนเธ•เนเธฅเธฐเธเธฑเนเธ</title>
 	</head>
 	<body>
 
 	<div align='center'>
-	  <p><font size='+1'><B> ข้อมูลทีมงาน  แต่ละชั้นของ<br>
-      รหัส 
+	  <p><font size='+1'><B> เธเนเธญเธกเธนเธฅเธ—เธตเธกเธเธฒเธ  เนเธ•เนเธฅเธฐเธเธฑเนเธเธเธญเธ<br>
+      เธฃเธซเธฑเธช 
       <?=$row->mcode?> 
       <?=$row->name_t?> 
-      ตำแหน่ง 
+      เธ•เธณเนเธซเธเนเธ 
       <?=$row->pos_cur?>
 	  </B></font></p>
 	</div>
@@ -74,7 +74,7 @@ mysql_free_result($result);
 	<table width='90%'>
 	<tr align="right">
 	<td bgcolor='#FFFFFF'>
-	พิมพ์วันที่
+	เธเธดเธกเธเนเธงเธฑเธเธ—เธตเน
 	  <?=date("Y-m-d h:i:s")?>
 	  <?
 	if(isset($_GET['lv'])) $lv=$_GET['lv'];
@@ -83,31 +83,31 @@ mysql_free_result($result);
 </td></tr><tr><td>
 	<table width='100%'>
 	<tr>
-	<td  bgcolor='#999999' align="center" colspan="6"><strong>ทีมงานตามลำดับการแนะนำ</strong></td>
+	<td  bgcolor='#999999' align="center" colspan="6"><strong>เธ—เธตเธกเธเธฒเธเธ•เธฒเธกเธฅเธณเธ”เธฑเธเธเธฒเธฃเนเธเธฐเธเธณ</strong></td>
 	</tr>
 	<?
-		$team_def = array("ทีมงานชั้นลูก","ทีมงานชั้นหลาน","ทีมงานชั้นเหลน");
+		$team_def = array("เธ—เธตเธกเธเธฒเธเธเธฑเนเธเธฅเธนเธ","เธ—เธตเธกเธเธฒเธเธเธฑเนเธเธซเธฅเธฒเธ","เธ—เธตเธกเธเธฒเธเธเธฑเนเธเน€เธซเธฅเธ");
 	?>
 	<tr>
 	<td colspan="6" bgcolor="DDDDDD">
 [<a href="<?=$PHP_SELF?>?lv=1"><?=$team_def[0]?></a>]
 	[<a href="<?=$PHP_SELF?>?lv=2"><?=$team_def[1]?></a>]
 	[<a href="<?=$PHP_SELF?>?lv=3"><?=$team_def[2]?></a>]
-	<br>ข้อมูล<?=$team_def[$lv-1]?> :
+	<br>เธเนเธญเธกเธนเธฅ<?=$team_def[$lv-1]?> :
 	</tr>
 
 	<tr align="center" bgcolor="DEDEDE">
-		<td width="12%">ลำดับที่</td>
-		<td width="13%">วันที่สมัคร</td>
-		<td width="18%">รหัสสมาชิก</td>
-		<td width="42%">ชื่อ-นามสกุล </td>
-	    <td width="15%">ตำแหน่ง</td>
+		<td width="12%">เธฅเธณเธ”เธฑเธเธ—เธตเน</td>
+		<td width="13%">เธงเธฑเธเธ—เธตเนเธชเธกเธฑเธเธฃ</td>
+		<td width="18%">เธฃเธซเธฑเธชเธชเธกเธฒเธเธดเธ</td>
+		<td width="42%">เธเธทเนเธญ-เธเธฒเธกเธชเธเธธเธฅ </td>
+	    <td width="15%">เธ•เธณเนเธซเธเนเธ</td>
 	</tr>
 	<?
 	$k=0;
 	$stk[$k] = $mcode;
 	$stklv[$k] = 0;
-	$pos_desc = array('P'=>"P Platinum", 'S'=>"S Silver", 'A'=>"A Agent", 'G'=>"G Gold", ''=>"ไม่มีตำแหน่ง");
+	$pos_desc = array('P'=>"P Platinum", 'S'=>"S Silver", 'A'=>"A Agent", 'G'=>"G Gold", ''=>"เนเธกเนเธกเธตเธ•เธณเนเธซเธเนเธ");
 		//for($i=0;$i<$lim;$i++){
 	//$i=0;
 	$ind = 0;

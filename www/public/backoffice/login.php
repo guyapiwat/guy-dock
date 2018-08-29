@@ -65,7 +65,7 @@ $img = new Securimage();
 			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 			//session_destroy();
 			$usercode = $row["usercode"];
-			logtext(true,$usercode,'����к� : '.$usercode,'');
+			logtext(true,$usercode,'เข้าระบบ : '.$usercode,'');
 			$username = $row["username"];
 			$userid= $row["uid"];
 			$obj1 = $row["object1"];
@@ -97,7 +97,7 @@ $img = new Securimage();
 
 
 
-// ��Ǩ�ͺ�Է��
+// ตรวจสอบสิทธิ
 if	(  
  ($_SESSION["adminusercode"]==$usercode) and ($_SESSION["adminpassword"]==$DePdw) and (!($DePdw=="")) and (!($_SESSION["adminusercode"]=="")) and (!($_SESSION["adminpassword"]==""))
 	) {

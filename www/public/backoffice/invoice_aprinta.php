@@ -18,8 +18,8 @@ $sql = "SELECT * FROM ".$dbprefix."asaleh WHERE id='$sano' ";
 $rs=mysql_query($sql);
 if(mysql_num_rows($rs)<=0){
 	
-	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‰¡Ëæ∫¢ÈÕ¡Ÿ≈¢Õß∫‘≈‡≈¢∑’Ë <?=$sano?>
-	<br /><input type="button" value="ª‘¥ÀπÈ“π’È" onClick="window.close()" /></td></tr></table><?
+	?><table width="300" align="center" bgcolor="#990000"><tr><td align="center">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà <?=$sano?>
+	<br /><input type="button" value="‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ" onClick="window.close()" /></td></tr></table><?
 	exit;
 }
 $typedef = array('A'=>"".$word_lan["invoice_A"]."",'Q'=>"".$word_lan["invoice_Q"]."",'H'=>"".$word_lan["invoice_H"]."",'B'=>"".$word_lan["invoice_B"]."");
@@ -38,9 +38,9 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 	$rs2 = mysql_query($sql2);
 	$name[$mcode[$i]] = mysql_result($rs2,0,'name_t');
 	$add[$mcode[$i]] = mysql_result($rs2,0,'address');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" µ.".mysql_result($rs2,0,'districtName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" Õ.".mysql_result($rs2,0,'amphurName');
-	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" ®.".mysql_result($rs2,0,'provinceName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'districtName')==""?"":" ‡∏ï.".mysql_result($rs2,0,'districtName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'amphurName')==""?"":" ‡∏≠.".mysql_result($rs2,0,'amphurName');
+	$add[$mcode[$i]] .= mysql_result($rs2,0,'provinceName')==""?"":" ‡∏à.".mysql_result($rs2,0,'provinceName');
 	$add[$mcode[$i]] .= " ".mysql_result($rs2,0,'zip');
 	$sp_code[$mcode[$i]] = mysql_result($rs2,0,'sp_code');
 	$sp_name[$mcode[$i]] = mysql_result($rs2,0,'sp_name');
@@ -92,7 +92,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	$pdf->SetY($offsety+$offsetnline);
 	$pdf->SetX($offsetx+(2*$offsettab));
-	$pdf->Cell((4*$offsettab),10,"∫√‘…—∑ $employee_name",0,0,"L"); 
+	$pdf->Cell((4*$offsettab),10,"‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó $employee_name",0,0,"L"); 
 	$pdf->SetY($offsety+2*$offsetnline);
 	$pdf->SetX($offsetx+(2*$offsettab));
 	$pdf->Cell((4*$offsettab),10,$wording_lan["company_address"],0,0,"L"); 
@@ -104,18 +104,18 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	//$pdf->SetY($offsety+$offsetnline);
 	//$pdf->SetX($offsetx+(9*$offsettab)+5);
-	//$pdf->Cell($offsettab,10,"„∫√—∫‡ß‘π",1,0,"C"); 
+	//$pdf->Cell($offsettab,10,"‡πÉ‡∏ö‡∏£‡∏±‡∏ö‡πÄ‡∏á‡∏¥‡∏ô",1,0,"C"); 
 	//$pdf->SetY($offsety+3*$offsetnline);
 	//$pdf->SetX($offsetx+(9*$offsettab)+5);
-	//$pdf->Cell($offsettab,10,"(‡Õ° “√ÕÕ°‡ªÁπ™ÿ¥)",0,0,"C"); 
+	//$pdf->Cell($offsettab,10,"(‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£‡∏≠‡∏≠‡∏Å‡πÄ‡∏õ‡πá‡∏ô‡∏ä‡∏∏‡∏î)",0,0,"C"); 
 	
 	//$pdf->SetY($offsety+(6*$offsetnline));
 	//$pdf->SetX($offsetx+$offsettab);
-	//$pdf->Cell((2*$offsettab),10,"‡≈¢ª√–®”µ—«ºŸÈ‡ ’¬¿“…’Õ“°√",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"‡πÄ‡∏•‡∏Ç‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ï‡∏±‡∏ß‡∏ú‡∏π‡πâ‡πÄ‡∏™‡∏µ‡∏¢‡∏†‡∏≤‡∏©‡∏µ‡∏≠‡∏≤‡∏Å‡∏£",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(5*$offsetnline)-2);
 	$pdf->SetX($offsetx+(4*$offsettab));
-	$pdf->Cell((4*$offsettab),10,"„∫‡ √Á®√—∫‡ß‘π / „∫°”°—∫¿“…’",0,0,"C"); 
+	$pdf->Cell((4*$offsettab),10,"‡πÉ‡∏ö‡πÄ‡∏™‡∏£‡πá‡∏à‡∏£‡∏±‡∏ö‡πÄ‡∏á‡∏¥‡∏ô / ‡πÉ‡∏ö‡∏Å‡∏≥‡∏Å‡∏±‡∏ö‡∏†‡∏≤‡∏©‡∏µ",0,0,"C"); 
 
 
 
@@ -133,7 +133,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetY($offsety+(23*$offsetnline)-1);
 	$pdf->SetX($offsetx+(9*$offsettab)+2);
 	$pdf->Cell(21,8,"",1,0,"L"); 
-	//-----------------------√“¬‡´ÁπµÏ
+	//-----------------------‡∏£‡∏≤‡∏¢‡πÄ‡∏ã‡πá‡∏ô‡∏ï‡πå
 	$pdf->SetY($offsety+(27*$offsetnline)+1);
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell(10*$offsettab-7,(5*$offsetnline),"",1,0,"L"); 
@@ -186,13 +186,13 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	/*$pdf->SetY($offsety+(5*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"‡≈¢∑’Ë........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà........................",0,0,"R"); 
 	$pdf->SetY($offsety+(6*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"√À—  ¡“™‘°...............................«—π∑’Ë........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å...............................‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà........................",0,0,"R"); 
 	$pdf->SetY($offsety+(7*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab)+10);
-	$pdf->Cell((3*$offsettab),10,"´◊ÈÕ‡æ◊ËÕ........................",0,0,"R"); 
+	$pdf->Cell((3*$offsettab),10,"‡∏ã‡∏∑‡πâ‡∏≠‡πÄ‡∏û‡∏∑‡πà‡∏≠........................",0,0,"R"); 
 //info---------------------------------------
 	$pdf->SetY($offsety+(5*$offsetnline)-1);
 	$pdf->SetX($offsetx+(9*$offsettab)+10);
@@ -210,18 +210,18 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"™◊ËÕ- °ÿ≈ºŸÈ®”ÀπË“¬Õ‘ √–",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"‡∏ä‡∏∑‡πà‡∏≠-‡∏™‡∏Å‡∏∏‡∏•‡∏ú‡∏π‡πâ‡∏à‡∏≥‡∏´‡∏ô‡πà‡∏≤‡∏¢‡∏≠‡∏¥‡∏™‡∏£‡∏∞",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline)+2);
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"®—¥ Ëßµ“¡∑’ËÕ¬ŸË",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡∏ï‡∏≤‡∏°‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(7*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"™◊ËÕºŸÈ·π–π”",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(8*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell((2*$offsettab),10,"√À— ",0,0,"L"); 
+	//$pdf->Cell((2*$offsettab),10,"‡∏£‡∏´‡∏±‡∏™",0,0,"L"); 
 //info---------------------------------------
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+(2*$offsettab)+10);
@@ -232,10 +232,10 @@ for($i=0;$i<sizeof($bill);$i++){
 
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+(5*$offsettab)+20);
-	$pdf->Cell((2*$offsettab),10,"√À—  ¡“™‘°",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline)+2);
 	$pdf->SetX($offsetx+(5*$offsettab)+20);
-	$pdf->Cell((2*$offsettab),10,"‚∑√»—æ∑Ï",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"‡πÇ‡∏ó‡∏£‡∏®‡∏±‡∏û‡∏ó‡πå",0,0,"L"); 
 
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+(6*$offsettab)+20);
@@ -246,10 +246,10 @@ for($i=0;$i<sizeof($bill);$i++){
 
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+(8*$offsettab)+10);
-	$pdf->Cell((2*$offsettab),10,"‡≈¢∑’Ë∫‘≈",0,0,"L"); 
+	$pdf->Cell((2*$offsettab),10,"‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏•",0,0,"L"); 
 	$pdf->SetY($offsety+(6*$offsetnline)+2);
 	$pdf->SetX($offsetx+(8*$offsettab)+10);
-	$pdf->Cell((2*$offsettab),10,"«—π∑’Ë",0,0,"L");
+	$pdf->Cell((2*$offsettab),10,"‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà",0,0,"L");
 
 	$pdf->SetY($offsety+(5*$offsetnline)+2);
 	$pdf->SetX($offsetx+(9*$offsettab)+10);
@@ -260,10 +260,10 @@ for($i=0;$i<sizeof($bill);$i++){
 	
 /*	$pdf->SetY($offsety+(7*$offsetnline)+2);
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"ºŸÈ®”ÀπË“¬Õ‘ √–∫√‘…—∑ ‰™π’Ë Õ‘π‡µÕ√Ï§Õ√ÏªÕ‡√™—Ëπ ®”°—¥	",0,0,"L");
+	$pdf->Cell((2*$offsettab),10,"‡∏ú‡∏π‡πâ‡∏à‡∏≥‡∏´‡∏ô‡πà‡∏≤‡∏¢‡∏≠‡∏¥‡∏™‡∏£‡∏∞‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó ‡πÑ‡∏ä‡∏ô‡∏µ‡πà ‡∏≠‡∏¥‡∏ô‡πÄ‡∏ï‡∏≠‡∏£‡πå‡∏Ñ‡∏≠‡∏£‡πå‡∏õ‡∏≠‡πÄ‡∏£‡∏ä‡∏±‡πà‡∏ô ‡∏à‡∏≥‡∏Å‡∏±‡∏î	",0,0,"L");
 	$pdf->SetY($offsety+(7*$offsetnline)+2);
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"ºŸÈ®”ÀπË“¬Õ‘ √–∫√‘…—∑ ‰™π’Ë Õ‘π‡µÕ√Ï§Õ√ÏªÕ‡√™—Ëπ ®”°—¥	",0,0,"L"); */
+	$pdf->Cell((2*$offsettab),10,"‡∏ú‡∏π‡πâ‡∏à‡∏≥‡∏´‡∏ô‡πà‡∏≤‡∏¢‡∏≠‡∏¥‡∏™‡∏£‡∏∞‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó ‡πÑ‡∏ä‡∏ô‡∏µ‡πà ‡∏≠‡∏¥‡∏ô‡πÄ‡∏ï‡∏≠‡∏£‡πå‡∏Ñ‡∏≠‡∏£‡πå‡∏õ‡∏≠‡πÄ‡∏£‡∏ä‡∏±‡πà‡∏ô ‡∏à‡∏≥‡∏Å‡∏±‡∏î	",0,0,"L"); */
 
 	$offsetx=-3;
 	$offsety=3;
@@ -277,117 +277,117 @@ for($i=0;$i<sizeof($bill);$i++){
 //------------------------------------------
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell($offsettab,10,"≈”¥—∫",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏•‡∏≥‡∏î‡∏±‡∏ö",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx-10+(2*$offsettab)+5);
-	$pdf->Cell($offsettab,10,"√À—  ‘π§È“",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(3*$offsettab));
-	$pdf->Cell($offsettab,10,"√“¬°“√",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab));
-	$pdf->Cell($offsettab,10,"®”π«π/ÀπË«¬",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏à‡∏≥‡∏ô‡∏ß‡∏ô/‡∏´‡∏ô‡πà‡∏ß‡∏¢",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab));
-	$pdf->Cell($offsettab,10,"√“§“µËÕ/ÀπË«¬",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏£‡∏≤‡∏Ñ‡∏≤‡∏ï‡πà‡∏≠/‡∏´‡∏ô‡πà‡∏ß‡∏¢",0,0,"L"); 
 
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(8*$offsettab)+5);
-	$pdf->Cell($offsettab,10,"§–·ππ",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(8*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)+2);
-	$pdf->Cell($offsettab,10,"®”π«π‡ß‘π ÿ∑∏‘",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏™‡∏∏‡∏ó‡∏ò‡∏¥",0,0,"L"); 
 	
 	//$pdf->SetY($offsety+(21*$offsetnline));
 	//$pdf->SetX($offsetx+(7*$offsettab));
-	//$pdf->Cell($offsettab,10,"√«¡√“§“ ‘π§È“∑’Ë√«¡¿“…’¡Ÿ≈§Ë“‡æ‘Ë¡",0,0,"L"); 
+	//$pdf->Cell($offsettab,10,"‡∏£‡∏ß‡∏°‡∏£‡∏≤‡∏Ñ‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ó‡∏µ‡πà‡∏£‡∏ß‡∏°‡∏†‡∏≤‡∏©‡∏µ‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏°",0,0,"L"); 
 	
 	$pdf->SetY($offsety+(21*$offsetnline)+1);
 	$pdf->SetX($offsetx+(8*$offsettab)-4);
-	$pdf->Cell($offsettab,10,"¿“…’¡Ÿ≈§Ë“‡æ‘Ë¡",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏†‡∏≤‡∏©‡∏µ‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏°",0,0,"L");
 	
 	$pdf->SetY($offsety+(22*$offsetnline)+1);
 	$pdf->SetX($offsetx+(8*$offsettab)-4);
-	$pdf->Cell($offsettab,10,"√«¡‡ªÁπ‡ß‘π∑—Èß ‘Èπ",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏£‡∏ß‡∏°‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô",0,0,"L");
 	
 	$pdf->SetY($offsety+(20*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell($offsettab,10,"®”π«π‡ß‘π∑—Èß ‘Èπ (",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô (",0,0,"L"); 
 	$pdf->SetY($offsety+(20*$offsetnline));
 	$pdf->SetX($offsetx+(6*$offsettab));
 	$pdf->Cell($offsettab,10,")",0,0,"L"); 
 	$pdf->SetY($offsety+(20*$offsetnline));
 	$pdf->SetX($offsetx+(7*$offsettab));
-	$pdf->Cell($offsettab,10,"√«¡‡ªÁπ‡ß‘π",0,0,"L"); 
+	$pdf->Cell($offsettab,10,"‡∏£‡∏ß‡∏°‡πÄ‡∏õ‡πá‡∏ô‡πÄ‡∏á‡∏¥‡∏ô",0,0,"L"); 
 
 	$pdf->SetY($offsety+(26*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab+2);
-	$pdf->Cell((2*$offsettab),10,"≈ß™◊ËÕ....................................................",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏•‡∏á‡∏ä‡∏∑‡πà‡∏≠....................................................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
-	$pdf->Cell((2*$offsettab),10,"ºŸÈ√—∫‡ß‘π",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡πÄ‡∏á‡∏¥‡∏ô",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell((2*$offsettab),10,"......../......../........",0,0,"C");
 	
 	$pdf->SetY($offsety+(26*$offsetnline));
 	$pdf->SetX($offsetx+(5*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"≈ß™◊ËÕ....................................................",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏•‡∏á‡∏ä‡∏∑‡πà‡∏≠....................................................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+(5*$offsettab)-7);
-	$pdf->Cell((2*$offsettab),10,"ºŸÈ®—¥ Ëß ‘π§È“",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏ú‡∏π‡πâ‡∏à‡∏±‡∏î‡∏™‡πà‡∏á‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+(5*$offsettab)-7);
 	$pdf->Cell((2*$offsettab),10,"......../......../........",0,0,"C");
 	
 	$pdf->SetY($offsety+(26*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)-16.5);
-	$pdf->Cell((2*$offsettab),10,"≈ß™◊ËÕ....................................................",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏•‡∏á‡∏ä‡∏∑‡πà‡∏≠....................................................",0,0,"C");
 	$pdf->SetY($offsety+(28*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)-15);
-	$pdf->Cell((2*$offsettab),10,"ºŸÈ√—∫ ‘π§È“",0,0,"C");
+	$pdf->Cell((2*$offsettab),10,"‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤",0,0,"C");
 	$pdf->SetY($offsety+(29*$offsetnline));
 	$pdf->SetX($offsetx+(9*$offsettab)-15);
 	$pdf->Cell((2*$offsettab),10,"......../......../........",0,0,"C");
 	
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+($offsettab));
-	$pdf->Cell($offsettab,10,"™”√–‚¥¬",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏ä‡∏≥‡∏£‡∏∞‡πÇ‡∏î‡∏¢",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(2*$offsettab));
-	$pdf->Cell($offsettab,10,"‡ß‘π ¥",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡πÄ‡∏á‡∏¥‡∏ô‡∏™‡∏î",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(3*$offsettab));
-	$pdf->Cell($offsettab,10,"‡§√¥‘µ",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline));
 	$pdf->SetX($offsetx+(4*$offsettab));
-	$pdf->Cell($offsettab,10,"‚Õπ∏π“§“√..........................................................",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡πÇ‡∏≠‡∏ô‡∏ò‡∏ô‡∏≤‡∏Ñ‡∏≤‡∏£..........................................................",0,0,"L");
 	
 	$pdf->SetY($offsety+(22*$offsetnline)+5);
 	$pdf->SetX($offsetx+($offsettab));
-	$pdf->Cell($offsettab,10,"´◊ÈÕ‡æ◊ËÕ",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏ã‡∏∑‡πâ‡∏≠‡πÄ‡∏û‡∏∑‡πà‡∏≠",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline)+5);
 	$pdf->SetX($offsetx+(2*$offsettab));
-	$pdf->Cell($offsettab,10,"‚Œ≈¥Ï¬Õ¥",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡πÇ‡∏Æ‡∏•‡∏î‡πå‡∏¢‡∏≠‡∏î",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline)+5);
 	$pdf->SetX($offsetx+(3*$offsettab));
-	$pdf->Cell($offsettab,10,"√—°…“¬Õ¥",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î",0,0,"L");
 	$pdf->SetY($offsety+(22*$offsetnline)+5);
 	$pdf->SetX($offsetx+(4*$offsettab));
-	$pdf->Cell($offsettab,10,"‡≈¢∑’Ë∫‘≈≈Ÿ°§È“............................................«/¥/ª.................................................",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà‡∏ö‡∏¥‡∏•‡∏•‡∏π‡∏Å‡∏Ñ‡πâ‡∏≤............................................‡∏ß/‡∏î/‡∏õ.................................................",0,0,"L");
 
 	$pdf->SetFont('angsa','',8); 
 	$pdf->SetY($offsety+(23*$offsetnline)+6);
 	$pdf->SetX($offsetx+($offsettab));
-	$pdf->Cell($offsettab,10,"¢È“æ‡®È“‰¥È√—∫º≈‘µ¿—≥±Ï∑’Ë√–∫ÿ‰«È¢È“ßµÈπæ√ÈÕ¡µ√«®π—∫®”π«π„π ¿“æ∑’Ë ¡∫Ÿ√≥Ï‡√’¬∫√ÈÕ¬·≈È«",0,0,"L");
+	$pdf->Cell($offsettab,10,"‡∏Ç‡πâ‡∏≤‡∏û‡πÄ‡∏à‡πâ‡∏≤‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡∏ú‡∏•‡∏¥‡∏ï‡∏†‡∏±‡∏ì‡∏ë‡πå‡∏ó‡∏µ‡πà‡∏£‡∏∞‡∏ö‡∏∏‡πÑ‡∏ß‡πâ‡∏Ç‡πâ‡∏≤‡∏á‡∏ï‡πâ‡∏ô‡∏û‡∏£‡πâ‡∏≠‡∏°‡∏ï‡∏£‡∏ß‡∏à‡∏ô‡∏±‡∏ö‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÉ‡∏ô‡∏™‡∏†‡∏≤‡∏û‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏ö‡∏π‡∏£‡∏ì‡πå‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß",0,0,"L");
 	//$pdf->SetY($offsety+(23*$offsetnline)+1);
 	//$pdf->SetX($offsetx+(5*$offsettab));
-	//$pdf->Cell($offsettab,10,"¢È“æ‡®È“‰¥È√—∫º≈‘µ¿—≥±Ï∑’Ë√–∫ÿ‰«È¢È“ßµÈπ ·≈–µ√«®®”π«π„π ¿“æ∑’Ë ¡∫Ÿ√≥Ï‡√’¬∫√ÈÕ¬·≈È«",0,0,"L");
+	//$pdf->Cell($offsettab,10,"‡∏Ç‡πâ‡∏≤‡∏û‡πÄ‡∏à‡πâ‡∏≤‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡∏ú‡∏•‡∏¥‡∏ï‡∏†‡∏±‡∏ì‡∏ë‡πå‡∏ó‡∏µ‡πà‡∏£‡∏∞‡∏ö‡∏∏‡πÑ‡∏ß‡πâ‡∏Ç‡πâ‡∏≤‡∏á‡∏ï‡πâ‡∏ô ‡πÅ‡∏•‡∏∞‡∏ï‡∏£‡∏ß‡∏à‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÉ‡∏ô‡∏™‡∏†‡∏≤‡∏û‡∏ó‡∏µ‡πà‡∏™‡∏°‡∏ö‡∏π‡∏£‡∏ì‡πå‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß",0,0,"L");
 	$pdf->SetFont('angsa','',10);
  
 	$offsety = 4;

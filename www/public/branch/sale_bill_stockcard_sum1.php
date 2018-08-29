@@ -45,17 +45,17 @@ from
 (select number1,cid, typee,'0' as txtUser,'0' as txtd,CASE inv_ref WHEN '' THEN '*' ELSE inv_ref END AS code_ref1 from 
 (
 
-select '1' as number1,count(id) as cid,'����觢ͧ(�ش��Ѥ�)' as typee  from ali_asaleh where send = '1' and sender = '1' and scheck = 'register' $sqlwhere
+select '1' as number1,count(id) as cid,'บิลส่งของ(ชุดสมัคร)' as typee  from ali_asaleh where send = '1' and sender = '1' and scheck = 'register' $sqlwhere
 
-union all select '2' as number1,count(id) as cid,'����Ѻ�ͧ(�ش��Ѥ�)' as typee  from ali_asaleh where send != '1' and scheck = 'register'  and receive = '1' $sqlwhere1
+union all select '2' as number1,count(id) as cid,'บิลรับของ(ชุดสมัคร)' as typee  from ali_asaleh where send != '1' and scheck = 'register'  and receive = '1' $sqlwhere1
 
-union all select '3' as number1,count(id) as cid,'����觢ͧ(�Թ���)' as typee  from ali_asaleh where  send = '1' and scheck != 'register'  and sender = '1' $sqlwhere1
+union all select '3' as number1,count(id) as cid,'บิลส่งของ(สินค้า)' as typee  from ali_asaleh where  send = '1' and scheck != 'register'  and sender = '1' $sqlwhere1
 
-union all select '4' as number1,count(id) as cid,'����Ѻ�ͧ(�Թ���)' as typee  from ali_asaleh where send != '1' and scheck != 'register'  and receive = '1' $sqlwhere1
+union all select '4' as number1,count(id) as cid,'บิลรับของ(สินค้า)' as typee  from ali_asaleh where send != '1' and scheck != 'register'  and receive = '1' $sqlwhere1
 
-union all select '5' as number1,count(id) as cid,'��ԡ�ͧ' as typee  from ali_ostockh where 1=1 $sqlwhere2
+union all select '5' as number1,count(id) as cid,'ใบเบิกของ' as typee  from ali_ostockh where 1=1 $sqlwhere2
 
-union all select '6' as number1,count(id) as cid,'��Ѻ�ͧ' as typee  from ali_istockh where 1=1  $sqlwhere2
+union all select '6' as number1,count(id) as cid,'ใบรับของ' as typee  from ali_istockh where 1=1  $sqlwhere2
 
  
 ) as a LEFT JOIN ".$dbprefix."user ON (".$dbprefix."user.usercode like '%$struid%') where 1=1 group by a.typee) as a  " ;
@@ -103,19 +103,19 @@ union all select '6' as number1,count(id) as cid,'��Ѻ�ͧ' as typee  from ali_i
 		//$rec->setFieldSpace("12%,7%,7%,7%,7%,7%,7%,7%,7%,7%,6%,6%,6%,5%");
 		$rec->setFieldLink(",");
 		//$rec->setSearch("sano,hono,sadate,smcode,inv_code,tot_pv");
-		//$rec->setSearchDesc("�Ţ���,�Ţ���ᨧ,�ѹ���,���ʼ�����,���ѹ�֡,�ӹǹ PV");
+		//$rec->setSearchDesc("เลขบิล,เลขบิลแจง,วันที่,รหัสผู้ซื้อ,ผู้บันทึก,จำนวน PV");
 		$rec->setSum(true,false,",,,true");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","sale_bill".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","sale_bill".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>��Ŵ Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
 		//$rec->setSpecial("./images/search.gif","","view","mcode","IMAGE","");
 		$str = "<fieldset ><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>���ҧ Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');
 	}

@@ -2,7 +2,7 @@
 		<div class="panel-heading" role="tab" id="headingPlanA" style="background-color:#3399ff;padding:4px;">
 			<h4 class="panel-title">
 				<a class="collapsed" role="button" data-toggle="collapse" data-parent="#accordion" href="#planA" aria-expanded="false" aria-controls="planA">
-					<font size='3' style='font-weight:bold' >ข้อมูลคะแนน</font>
+					<font size='3' style='font-weight:bold' >เธเนเธญเธกเธนเธฅเธเธฐเนเธเธ</font>
 				</a>
 			</h4>
 		</div>
@@ -16,14 +16,13 @@
 	$pos_cur2 = $point->position($dbprefix,'calc_poschange2','pos_cur2',$cmc);
 	$da = get_detail_meber($cmc);
 	$mtype1 = $arr_mtype1[$da["mtype"]];
- 
-		$weak_month=	$bmbonusx['balance'];
+  $weak_month=	$bmbonusx['balance'];
  
 ?>
   
 <table width="100%"  >
   <tr align="left">
-    <td >PV สะสมส่วนตัว</td>
+    <td >PV เธชเธฐเธชเธกเธชเนเธงเธเธ•เธฑเธง</td>
 	<?php if($member_main == 1){?>
 	  <td colspan="2"><a href='./index.php?sessiontab=4&sub=38&cmc=<?php echo $cmc;?>' target = '_bank' ><?php echo number_format($point->get_allPoint($dbprefix,$cmc),0,'',',')?></td>
 	<? } else {?>
@@ -31,7 +30,7 @@
 	<? } ?>
   </tr>
   <tr align="left">
-	<td>PV สะสมส่วนตัว(ภายในเดือน)</td> 
+	<td>PV เธชเธฐเธชเธกเธชเนเธงเธเธ•เธฑเธง(เธ เธฒเธขเนเธเน€เธ”เธทเธญเธ)</td> 
 	<?php if($member_main == 1){?>
 	  <td colspan="2"><?php echo number_format($point->get_allPointThisMonth($dbprefix,$cmc),0,'',',')?></td>
 	<? } else {?>
@@ -39,7 +38,7 @@
 	<? } ?>
   </tr>
 	<tr align="left">
-		 <td>คะแนนขาอ่อน(ภายในเดือน)</td> 
+		 <td>เธเธฐเนเธเธเธเธฒเธญเนเธญเธ(เธ เธฒเธขเนเธเน€เธ”เธทเธญเธ)</td> 
 	     <td colspan="3"><?=number_format($weak_month,0,'',',')?></td>
    </tr>
 	<tr align="left">
@@ -55,19 +54,19 @@
   </tr>
 <tr align="center">
     <td width="100" bgcolor="#99ccff">&nbsp;</td>
-    <td width="100" bgcolor="#99ccff">ซ้าย</td>
-    <td width="100" bgcolor="#99ccff">ขวา</td> 
+    <td width="100" bgcolor="#99ccff">เธเนเธฒเธข</td>
+    <td width="100" bgcolor="#99ccff">เธเธงเธฒ</td> 
  
   </tr>
 
   <tr align="right">
-		<td bgcolor="#99ccff">เก่า</td>
+		<td bgcolor="#99ccff">เน€เธเนเธฒ</td>
 		<td><?php echo number_format($bmbonus['pcarry'][1],0,'.',',');?></td> 
 		<td><?php echo number_format($bmbonus['pcarry'][2],0,'.',',');?></td> 
 		
    </tr>
   <tr align="right">
-		<td bgcolor="#99ccff">ใหม่</td>
+		<td bgcolor="#99ccff">เนเธซเธกเน</td>
 		<td>
 			<div id="hover"><u><?echo number_format($point->get_newPoint($dbprefix,$cmc,1),0,'.',',');?></u></div>
 			<div id="show"><?=$point->get_newPoint_show($dbprefix,$cmc,1);?></div>
@@ -81,13 +80,13 @@
 	
   </tr>
   <tr align="right">
-		<td bgcolor="#99ccff">รวม</td>
+		<td bgcolor="#99ccff">เธฃเธงเธก</td>
 		<td><?php echo number_format($bmbonus['pcarry'][1]+$point->get_newPoint($dbprefix,$cmc,1),0,'.',',');?></td> 
 		<td><?php echo number_format($bmbonus['pcarry'][2]+$point->get_newPoint($dbprefix,$cmc,2),0,'.',',');?></td> 
 		
     </tr>
    <tr style='display:none' align="right">
-		<td bgcolor="#99ccff">สะสม</td>
+		<td bgcolor="#99ccff">เธชเธฐเธชเธก</td>
 		<td><?php echo number_format($bmbonus['sum_pv'][1]+$point->get_newPoint($dbprefix,$cmc,1),0,'.',',');?></td> 
 		<td><?php echo number_format($bmbonus['sum_pv'][2]+$point->get_newPoint($dbprefix,$cmc,2),0,'.',',');?></td> 
 		
@@ -98,7 +97,7 @@
 	     <td colspan="3">&nbsp;</td>
    </tr>
 	<tr align="left">
-		 <td>ประเภทสมาชิก</td> 
+		 <td>เธเธฃเธฐเน€เธ เธ—เธชเธกเธฒเธเธดเธ</td> 
 	     <td colspan="3">								
 		 <?php 
 			if($data['mtype'] == 0){
@@ -113,12 +112,12 @@
    </tr>
 
      <tr align="left">
-		 <td>ตำแหน่ง</td>
+		 <td>เธ•เธณเนเธซเธเนเธ</td>
 	     <td colspan="3"><?php echo $pos_cur['pos_cur']; ?>&nbsp;<? if($pos_cur['date']!=""){echo '('.$pos_cur['date'].')';}else{echo '('.date('Y-m-d',strtotime($data['mdate'])).')';}?></td>
 
    </tr>
      <tr align="left">
-		 <td>เกียรติยศ</td>
+		 <td>เน€เธเธตเธขเธฃเธ•เธดเธขเธจ</td>
 	     <td colspan="3"><?php echo $pos_cur2['pos_cur'];?>&nbsp;<?  if($pos_cur2['date'] != '')echo '('.$pos_cur2['date'].')' ;?> </td>
    <tr height="0px">
    		 <td>&nbsp;</td>

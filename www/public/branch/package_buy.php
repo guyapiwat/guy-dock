@@ -48,7 +48,7 @@ function chknum(key){
 		}*/
 		tag = window.parent.document.frm.getElementsByTagName('input');
 		
-		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;§≈‘°µ√«® Õ∫‡æ◊ËÕ∑”°“√µ√«® Õ∫¢ÈÕ¡Ÿ≈&nbsp; </font>";
+		window.parent.document.getElementById('checkstate').innerHTML = "<font color='#FFFFFF' style='background:#990000'> &nbsp;‡∏Ñ‡∏•‡∏¥‡∏Å‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡πÄ‡∏û‡∏∑‡πà‡∏≠‡∏ó‡∏≥‡∏Å‡∏≤‡∏£‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•&nbsp; </font>";
 		//alert(tag.length);
 		place = "<table border='0' width='500' cellpading='0' cellspacing='0'>";
 		place += "<tr align='center' bgcolor='#999999'>";
@@ -74,7 +74,7 @@ function chknum(key){
 			step = i*12+bgskip;
 			place += "<tr>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>"
-			place += "<input type='button' value='≈∫' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -98,7 +98,7 @@ function chknum(key){
 				showbv = num*parseFloat(bv);
 				showfv = num*parseFloat(fv);
 			}
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' style='text-align:right;' name='qty[]' type='text' size='5' value='" + num + "'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‰¡Ë “¡“√∂„ Ë§Ë“ 0 À√◊Õ ™ËÕß«Ë“ß‰¥È');this.value=1;cal();}\" ></td>";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' style='text-align:right;' name='qty[]' type='text' size='5' value='" + num + "'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÉ‡∏™‡πà‡∏Ñ‡πà‡∏≤ 0 ‡∏´‡∏£‡∏∑‡∏≠ ‡∏ä‡πà‡∏≠‡∏á‡∏ß‡πà‡∏≤‡∏á‡πÑ‡∏î‡πâ');this.value=1;cal();}\" ></td>";
 			step++;
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' style='"+hidden+"' name='totalprice[]' value='" + (showprice==0?tag[step].value:showprice) + "'></td>";
 			//place += "</tr>";
@@ -118,7 +118,7 @@ function chknum(key){
 		if(out){
 		//alert(tag.length)
 			place += "<tr>";//ssaledel(pcode,pdesc,price,pv)
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='≈∫' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='‡∏•‡∏ö' onclick=\"saledel('" + pcode + "','" + pdesc + "','" + price + "','" + pv + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (i+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly type='text' style='text-align:center;"+hidden+ "' name='pcode[]' value='" + pcode + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly type='text' style='"+hidden+ "' name='pdesc[]' value='" + pdesc + "'></td>";
@@ -126,7 +126,7 @@ function chknum(key){
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='pv[]' value='" + pv + "'></td>";
 			place += "<td style='"+style_l+style_bd+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='bv[]' value='" + bv + "'></td>";
 			place += "<td style='"+style_l+style_bd+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='fv[]' value='" + fv + "'></td>";
-			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‰¡Ë “¡“√∂„ Ë§Ë“ 0 À√◊Õ ™ËÕß«Ë“ß‰¥È');this.value=1;cal();}\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='right'><input onkeyup='cal()' name='qty[]' style='text-align:right;' type='text' size='5' value='1'   onKeyPress='return chknum(window.event.keyCode)' onChange=\"if(this.value == '' || this.value.substring(0,1) == '0'){alert('‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÉ‡∏™‡πà‡∏Ñ‡πà‡∏≤ 0 ‡∏´‡∏£‡∏∑‡∏≠ ‡∏ä‡πà‡∏≠‡∏á‡∏ß‡πà‡∏≤‡∏á‡πÑ‡∏î‡πâ');this.value=1;cal();}\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalprice[]' value='" + price + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalpv[]' value='" + pv + "'></td>";
 			place += "<td style='"+style_l+style_bd+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;"+hidden+ "' name='totalbv[]' value='" + bv + "'></td>";
@@ -142,17 +142,17 @@ function chknum(key){
 		}
 		//$_SESSION["inv_ewallet"] = 0;
 		if(sumtotal >  <?=$_SESSION["inv_ewallet"]?>){
-						alert("point ¢Õß§ÿ≥‰¡Ë‡æ’¬ßæÕ");
+						alert("point ‡∏Ç‡∏≠‡∏á‡∏Ñ‡∏∏‡∏ì‡πÑ‡∏°‡πà‡πÄ‡∏û‡∏µ‡∏¢‡∏á‡∏û‡∏≠");
 						return;
 					}
 		place += "<tr bgcolor='#999999'>";
-		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'> √«¡</td>";
+		place += "<td style='"+style_l+style_t+style_b+"' align='right' colspan='7'> ‡∏£‡∏ß‡∏°</td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumbv' value='" + sumbv + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+style_none+"' align='right'><input size='8' readonly type='text' style='text-align:right;' name='sumfv' value='" + sumfv + "'></td>";
 		place += "</tr>";
-		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='µ√«® Õ∫' />&nbsp;<input type='submit' value='∫—π∑÷°' name='ok' id='ok'  disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='¬°‡≈‘°' /></td></tr>";
+		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='‡∏ï‡∏£‡∏ß‡∏à‡∏™‡∏≠‡∏ö' />&nbsp;<input type='submit' value='‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å' name='ok' id='ok'  disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å' /></td></tr>";
 		place += "</table>";
 		window.parent.document.getElementById('sale').innerHTML = place;
 		//fcus.focus();
@@ -196,7 +196,7 @@ $rec->setFieldLink(",");
 $rec->setSpecial("./images/add_pic.gif","","saleadd","pcode,pdesc,price,pv,bv,fv","IMAGE","");
 $rec->setFieldFloatFormat(",,2,0");
 $rec->setSearch("pcode,pdesc,price,pv");
-$rec->setSearchDesc("√À— ,√“¬≈–‡Õ’¬¥,√“§“,§–·ππ");
+$rec->setSearchDesc("‡∏£‡∏´‡∏±‡∏™,‡∏£‡∏≤‡∏¢‡∏•‡∏∞‡πÄ‡∏≠‡∏µ‡∏¢‡∏î,‡∏£‡∏≤‡∏Ñ‡∏≤,‡∏Ñ‡∏∞‡πÅ‡∏ô‡∏ô");
 //$rec->setFromDelAttr("maindel","./index.php?sessiontab=3&sub=2&state=1","post","delfield");
 $rec->showRec(1,'SH_QUERY');
 mysql_close($link);

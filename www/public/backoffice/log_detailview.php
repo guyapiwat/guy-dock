@@ -9,7 +9,7 @@ include("global.php");
 		//echo $sql;
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-			$txtdetail = "��辺�����ŵ�����͹�";
+			$txtdetail = "ไม่พบข้อมูลตามเงื่อนไข";
 			//exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -21,7 +21,7 @@ include("global.php");
 <head>
 <meta http-equiv="Content-Language" content="th">
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
-<title>�Թ�յ�͹�Ѻ��������蹤��ͧ��áԨ </title>
+<title>ยินดีต้อนรับสู่ความมั่นคงของธุรกิจ </title>
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 </head>
 

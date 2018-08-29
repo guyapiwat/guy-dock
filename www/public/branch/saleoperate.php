@@ -105,7 +105,7 @@ if($_GET['state']==0){
 		}
 
 	
-	logtext(true,$_SESSION['adminuserid'],'à¾ÔèÁºÔÅ',$mid);
+	logtext(true,$_SESSION['adminuserid'],'à¹€à¸žà¸´à¹ˆà¸¡à¸šà¸´à¸¥',$mid);
 	if(empty($chkInternet))$txtInternet = 0;
 	$sql="insert into ".$dbprefix."holdhead (id, hono, sano, sadate,  mcode,  sa_type, inv_code,  total, tot_pv,tot_bv, uid ) values ('$mid' ,'$hono' ,'".$_POST['hid']."' ,'$sadate' ,'$mcode', '$satype' ,'$inv_code' ,'$total' ,'$tot_pv' ,'$tot_bv' ,'".$_SESSION['inv_usercode']."') ";
 
@@ -157,7 +157,7 @@ writelogfile($text);
 	}
 	if($satype != 'H')updatePos($dbprefix,$mcode,$sadate,$tot_pv);
 }else if($_GET['state']==1){
-	logtext(true,$_SESSION['inv_usercode'],'á¡éä¢ºÔÅ',$mid);
+	logtext(true,$_SESSION['inv_usercode'],'à¹à¸à¹‰à¹„à¸‚à¸šà¸´à¸¥',$mid);
 	$sql="update ".$dbprefix."holdhead set sano='$id', id='$id', ";
 	$sql.="mcode='$mcode' ,sa_type='$satype' ,sadate='$sadate' , inv_code='$inv_code', total='$total', tot_pv='$tot_pv', tot_bv='$tot_bv', tot_fv='$tot_fv' ,send='$radsend', txtoption='$txtoption'
 	, chkCash='$chkCash', txtCash='$txtCash', optionCash='$optionCash'
@@ -288,5 +288,5 @@ function plusProduct1($dbprefix,$pcode,$invent,$qty){
 		}
 }
 
-//update µÓáË¹è§ áººäÁèÊÐÊÁ¤Ðá¹
+//update à¸•à¸³à¹à¸«à¸™à¹ˆà¸‡ à¹à¸šà¸šà¹„à¸¡à¹ˆà¸ªà¸°à¸ªà¸¡à¸„à¸°à¹à¸™
 ?>

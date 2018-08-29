@@ -88,7 +88,7 @@ for($ddddd=0;$ddddd<mysql_num_rows($rs);$ddddd++){
 	<tr height=70>
 		<td align=left colspan=4 valign=bottom><table width="100%"><tr>
 		  <td width="78%">SUK <?=$meminfo['inv_code'].' '.$meminfo['inv_desc']?> </td>
-		  <td width="22%">��Ǩ�ͺ PG <?=date("d-M-Y")?></td>
+		  <td width="22%">ตรวจสอบ PG <?=date("d-M-Y")?></td>
 		</tr></table></td>
 	</tr>
 	

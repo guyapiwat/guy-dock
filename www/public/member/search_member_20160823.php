@@ -1,12 +1,12 @@
 <? session_start();?>
 <?
-  //‰¡Ë‰ª‡Õ“®“° cache
+  //‡πÑ‡∏°‡πà‡πÑ‡∏õ‡πÄ‡∏≠‡∏≤‡∏à‡∏≤‡∏Å cache
   header("Expires: Sat, 1 Jan 2005 00:00:00 GMT");
   header("Last-Modified: ".gmdate( "D, d M Y H:i:s")."GMT");
   header("Cache-Control: no-cache, must-revalidate");
   header("Pragma: no-cache");
   
-  //°”Àπ¥ header µÕπ√—∫
+  //‡∏Å‡∏≥‡∏´‡∏ô‡∏î header ‡∏ï‡∏≠‡∏ô‡∏£‡∏±‡∏ö
   header("content-type: application/x-javascript; charset=TIS-620");
 
 include("prefix.php");
@@ -20,7 +20,7 @@ include("connectmysql.php");
 $sql = "SELECT mtype1 ";
 $sql .= " FROM ".$dbprefix."member  where mcode = '$mcode1' ";
 $sql .= " limit 0,1";
-$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 $data = mysql_fetch_object($result);
 $mtype1 = $data->mtype1;      
 
@@ -31,7 +31,7 @@ if($mtype1 != "0"){
 
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  where mcode like binary '%$value%' limit 0,1";
-		$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+		$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
@@ -73,14 +73,14 @@ if($mtype1 != "0"){
 		$rs = mysql_query($sql);
 		$all_pv = ($all_pv+mysql_result($rs,0,'all_pv')); 
 		mysql_free_result($rs);
-		//$chkshow .= 'PV  Ë«πµ—«‡¥◊Õππ’È : '.$all_pv.' <br>';
+		//$chkshow .= 'PV ‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡∏ô‡∏µ‡πâ : '.$all_pv.' <br>';
 		
 	$array_mpos = array(''=>"-",'MB'=>"Member",'BR'=>"Bronz",'SI'=>"Silver",'GO'=>"Gold",'VIP'=>"VIP",'DI'=>"Diamond",'BD'=>"Blue Diamond",'BL'=>"Black Diamond");
 	
 	
-		//$chkshow .= '√–¥—∫°“√ ¡—§√ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>À¡¥Õ“¬ÿ – ¡Õ—æ‡°√µ('.date('Y-m-d',expdate($mdate,'60')).')<br>';
-		$chkshow .= 'µ”·ÀπËß : '.$pos_cur.'<br>';
-		$chkshow .= 'ª√–‡¿∑ ¡“™‘° : '.$mtype1.'<br>';
+		//$chkshow .= '‡∏£‡∏∞‡∏î‡∏±‡∏ö‡∏Å‡∏≤‡∏£‡∏™‡∏°‡∏±‡∏Ñ‡∏£ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡∏™‡∏∞‡∏™‡∏°‡∏≠‡∏±‡∏û‡πÄ‡∏Å‡∏£‡∏ï('.date('Y-m-d',expdate($mdate,'60')).')<br>';
+		$chkshow .= '‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á : '.$pos_cur.'<br>';
+		$chkshow .= '‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å : '.$mtype1.'<br>';
 
 		//$chkshow .= 'Ewallet : '.$ewallet.'<br>';
 		/*$all_pvQ = 0;
@@ -101,7 +101,7 @@ if($mtype1 != "0"){
 		$csoi = $data->csoi;
 		$cstreet = $data->cstreet;
 
-		$chkshow .= 'PV √—°…“¬Õ¥ : '.$all_pvQ.' <br>';
+		$chkshow .= 'PV ‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î : '.$all_pvQ.' <br>';
 		echo $data->name_t.' ';
 		*/
 		if($locationbase != $_SESSION["m_locationbase"]){
@@ -121,7 +121,7 @@ if($mtype1 != "0"){
 
 //  $sql .= " FROM ".$dbprefix."member  where mcode = '%$value%' limit 0,1";
 		$sql .= " FROM ".$dbprefix."member  where mcode like binary '%$value%' limit 0,1";
-		$result = mysql_query($sql) or die("√–∫∫‰¡Ë “¡“√∂§ÈπÀ“‰¥È") ;
+		$result = mysql_query($sql) or die("‡∏£‡∏∞‡∏ö‡∏ö‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡∏Ñ‡πâ‡∏ô‡∏´‡∏≤‡πÑ‡∏î‡πâ") ;
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
 		$cmc = $data->mcode;
@@ -163,14 +163,14 @@ if($mtype1 != "0"){
 		$rs = mysql_query($sql);
 		$all_pv = ($all_pv+mysql_result($rs,0,'all_pv')); 
 		mysql_free_result($rs);
-		//$chkshow .= 'PV  Ë«πµ—«‡¥◊Õππ’È : '.$all_pv.' <br>';
+		//$chkshow .= 'PV ‡∏™‡πà‡∏ß‡∏ô‡∏ï‡∏±‡∏ß‡πÄ‡∏î‡∏∑‡∏≠‡∏ô‡∏ô‡∏µ‡πâ : '.$all_pv.' <br>';
 		
 	$array_mpos = array(''=>"-",'MB'=>"Member",'BR'=>"Bronz",'SI'=>"Silver",'GO'=>"Gold",'VIP'=>"VIP",'DI'=>"Diamond",'BD'=>"Blue Diamond",'BL'=>"Black Diamond");
 	
 	
-		//$chkshow .= '√–¥—∫°“√ ¡—§√ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>À¡¥Õ“¬ÿ – ¡Õ—æ‡°√µ('.date('Y-m-d',expdate($mdate,'60')).')<br>';
-		$chkshow .= 'µ”·ÀπËß : '.$pos_cur.'<br>';
-		$chkshow .= 'ª√–‡¿∑ ¡“™‘° : '.$mtype1.'<br>';
+		//$chkshow .= '‡∏£‡∏∞‡∏î‡∏±‡∏ö‡∏Å‡∏≤‡∏£‡∏™‡∏°‡∏±‡∏Ñ‡∏£ : '.$array_mpos[$pos_cur].' ('.$date_change.')<br>‡∏´‡∏°‡∏î‡∏≠‡∏≤‡∏¢‡∏∏‡∏™‡∏∞‡∏™‡∏°‡∏≠‡∏±‡∏û‡πÄ‡∏Å‡∏£‡∏ï('.date('Y-m-d',expdate($mdate,'60')).')<br>';
+		$chkshow .= '‡∏ï‡∏≥‡πÅ‡∏´‡∏ô‡πà‡∏á : '.$pos_cur.'<br>';
+		$chkshow .= '‡∏õ‡∏£‡∏∞‡πÄ‡∏†‡∏ó‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å : '.$mtype1.'<br>';
 
 		//$chkshow .= 'Ewallet : '.$ewallet.'<br>';
 		/*$all_pvQ = 0;
@@ -191,7 +191,7 @@ if($mtype1 != "0"){
 		$csoi = $data->csoi;
 		$cstreet = $data->cstreet;
 
-		$chkshow .= 'PV √—°…“¬Õ¥ : '.$all_pvQ.' <br>';
+		$chkshow .= 'PV ‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î : '.$all_pvQ.' <br>';
 		echo $data->name_t.' ';
 		*/
 		if($locationbase != $_SESSION["m_locationbase"]){

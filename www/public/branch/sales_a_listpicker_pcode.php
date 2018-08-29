@@ -25,7 +25,7 @@ function selectitem(pcode,pdesc,price,pv){
 }
 </script>
 
-<CENTER>เลือกสินค้า</CENTER>
+<CENTER>เน€เธฅเธทเธญเธเธชเธดเธเธเนเธฒ</CENTER>
 <form name="listform" method="post" action="<?=$_SERVER['PHP_SELF']?>">
 	<input type="hidden" name="idx" value="<?=$idx?>">
 	<table width="100%" border="0" cellspacing="1" cellpadding="1">

@@ -1,6 +1,6 @@
 <center>
-  <p><font size=8>รายงานการสั่งซื้อ สำเร็จ</font></p>
+  <p><font size=8>เธฃเธฒเธขเธเธฒเธเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญ เธชเธณเน€เธฃเนเธ</font></p>
  <table align=center width=60%><tr>
- <td width= 20%  align=center><a href="index.php?sessiontab=4&sub=1">กลับสู่หน้า ประวัติการซื้อ </a></td>
- <td width= 20% align=center><a href="index.php?sessiontab=4&sub=7">กลับสู่หน้า ประวัติการสั่งซื้อสินค้าให้กับสมาชิกอื่น</a></td></tr></table>
+ <td width= 20%  align=center><a href="index.php?sessiontab=4&sub=1">เธเธฅเธฑเธเธชเธนเนเธซเธเนเธฒ เธเธฃเธฐเธงเธฑเธ•เธดเธเธฒเธฃเธเธทเนเธญ </a></td>
+ <td width= 20% align=center><a href="index.php?sessiontab=4&sub=7">เธเธฅเธฑเธเธชเธนเนเธซเธเนเธฒ เธเธฃเธฐเธงเธฑเธ•เธดเธเธฒเธฃเธชเธฑเนเธเธเธทเนเธญเธชเธดเธเธเนเธฒเนเธซเนเธเธฑเธเธชเธกเธฒเธเธดเธเธญเธทเนเธ</a></td></tr></table>
 </center>

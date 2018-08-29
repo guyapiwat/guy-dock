@@ -86,13 +86,13 @@ if(isset($_POST["fdate"]))
 		if(isset($page))
 			$rec->setCurPage($page); 
 		$rec->setShowField("sadate,sano,inv_code,inv_refn,inv_ref,inv_coden,total,tot_pv,receive1,receive_date,uid_receive");
-		$rec->setFieldDesc("ÇÑ¹·Õèà»Ô´ºÔÅ,àÅ¢·ÕèºÔÅ,ÃËÑÊÊÒ¢ÒÃÑº,ª×èÍÊÒ¢ÒÃÑº,ÃËÑÊ¼Ùé¤ÕÂì,ª×èÍ¼Ùé¤ÕÂì,¨Ó¹Ç¹à§Ô¹,PV,Ê¶Ò¹ÐÃÑº¢Í§,ÇÑ¹·ÕèÃÑº¢Í§,¼Ùé¤ÕÂìÃÑº");
+		$rec->setFieldDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆà¹€à¸›à¸´à¸”à¸šà¸´à¸¥,à¹€à¸¥à¸‚à¸—à¸µà¹ˆà¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²à¸£à¸±à¸š,à¸Šà¸·à¹ˆà¸­à¸ªà¸²à¸‚à¸²à¸£à¸±à¸š,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œ,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œ,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™,PV,à¸ªà¸–à¸²à¸™à¸°à¸£à¸±à¸šà¸‚à¸­à¸‡,à¸§à¸±à¸™à¸—à¸µà¹ˆà¸£à¸±à¸šà¸‚à¸­à¸‡,à¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œà¸£à¸±à¸š");
 		$rec->setFieldAlign("center,left,center,left,center,left,right,right,center,center,center");
 		$rec->setFieldSpace("7%,8%,8%,12%,8%,12%,10%,10%,8%,10%,8%");
 		$rec->setFieldFloatFormat(",,,,,,2,2,,,");
 		$rec->setSum(true,false,",,,,,,true,true,,,");
 		$rec->setSearch("sadate,sano,inv_code,inv_refn,inv_ref,inv_coden,total,tot_pv");
-		$rec->setSearchDesc("ÇÑ¹·Õèà»Ô´ºÔÅ,àÅ¢·ÕèºÔÅ,ÃËÑÊÊÒ¢ÒÃÑº,ª×èÍÊÒ¢ÒÃÑº,ÃËÑÊ¼Ùé¤ÕÂì,ª×èÍ¼Ùé¤ÕÂì,¨Ó¹Ç¹à§Ô¹,PV");
+		$rec->setSearchDesc("à¸§à¸±à¸™à¸—à¸µà¹ˆà¹€à¸›à¸´à¸”à¸šà¸´à¸¥,à¹€à¸¥à¸‚à¸—à¸µà¹ˆà¸šà¸´à¸¥,à¸£à¸«à¸±à¸ªà¸ªà¸²à¸‚à¸²à¸£à¸±à¸š,à¸Šà¸·à¹ˆà¸­à¸ªà¸²à¸‚à¸²à¸£à¸±à¸š,à¸£à¸«à¸±à¸ªà¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œ,à¸Šà¸·à¹ˆà¸­à¸œà¸¹à¹‰à¸„à¸µà¸¢à¹Œ,à¸ˆà¸³à¸™à¸§à¸™à¹€à¸‡à¸´à¸™,PV");
 		
 		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE",$wording_lan["Bill_print"]);
 		//$rec->setSpecial("./images/search.gif","","sale_look","id","IMAGE",$wording_lan["Bill_view"]);

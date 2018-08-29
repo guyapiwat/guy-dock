@@ -129,17 +129,17 @@ if(empty($tdate))$tdate = date("Y-m-d");
   <tr valign="top"><td width="1000" align="left" ><fieldset>
 	&#3623;&#3633;&#3609;&#3607;&#3637;&#3656;
 	<input size="14" type="text" name="fdate" id="fdate" value="<?=$fdate?>" />
-	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>  ถึง
+	<a href="javascript:NewCal('fdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>  เธ–เธถเธ
 	<input size="14" type="text" name="tdate" id="tdate" value="<?=$tdate?>" />
-	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เลือกวันที่" /></a>
+	<a href="javascript:NewCal('tdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="14" height="16" border="0" alt="เน€เธฅเธทเธญเธเธงเธฑเธเธ—เธตเน" /></a>
    <!-- <select name="stype" id="stype">
-    	<option value="1" <?=($stype=="1"?"selected":"")?>>เรียงตามเลขบิล</option>
-    	<option value="2" <?=($stype=="2"?"selected":"")?>>เรียงตามสินค้า</option>
-		<option value="3" <?=($stype=="3"?"selected":"")?>>เรียงตามสมาชิก</option>
+    	<option value="1" <?=($stype=="1"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเน€เธฅเธเธเธดเธฅ</option>
+    	<option value="2" <?=($stype=="2"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธดเธเธเนเธฒ</option>
+		<option value="3" <?=($stype=="3"?"selected":"")?>>เน€เธฃเธตเธขเธเธ•เธฒเธกเธชเธกเธฒเธเธดเธ</option>
     </select>-->
 	&#3626;&#3634;&#3586;&#3634; 
 <select name="inv_code" id="inv_code"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
       <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by id");
 
@@ -152,9 +152,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	ระหว่าง
+	เธฃเธฐเธซเธงเนเธฒเธ
 	<select name="inv_code1" id="inv_code1"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent  where inv_type = '1' order by id");
 
@@ -167,9 +167,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	<!--<br>ระหว่างกลุ่มสินค้า
+	<!--<br>เธฃเธฐเธซเธงเนเธฒเธเธเธฅเธธเนเธกเธชเธดเธเธเนเธฒ
 <select name="group_id" id="group_id"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
       <?					
 						$result1=mysql_query("select * from ".$dbprefix."productgroup  order by idi");
 
@@ -182,9 +182,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	ระหว่าง
+	เธฃเธฐเธซเธงเนเธฒเธ
 <select name="group_id1" id="group_id1"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
       <?					
 						$result1=mysql_query("select * from ".$dbprefix."productgroup  order by idi");
 
@@ -197,9 +197,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	<br>ระหว่างสินค้า
+	<br>เธฃเธฐเธซเธงเนเธฒเธเธชเธดเธเธเนเธฒ
 <select name="pcode" id="pcode"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
       <?					
 						$result1=mysql_query("select * from ".$dbprefix."product order by pcode");
 
@@ -212,9 +212,9 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>
-	<br>ถึงสินค้า
+	<br>เธ–เธถเธเธชเธดเธเธเนเธฒ
 	<select name="pcode1" id="pcode1"  >
-			  <option value="">ทั้งหมด</option>
+			  <option value="">เธ—เธฑเนเธเธซเธกเธ”</option>
         <?					
 						$result1=mysql_query("select * from ".$dbprefix."product order by pcode");
 
@@ -227,14 +227,14 @@ if(empty($tdate))$tdate = date("Y-m-d");
 						}
 						?>
     </select>--><br>
-รหัสสินค้า <input type="text" name="strSearch1" value="<?=$strSearch1?>" style="width:100px">
-เลขบิล <input type="text" name="strSearch2" value="<?=$strSearch2?>" style="width:100px">
+เธฃเธซเธฑเธชเธชเธดเธเธเนเธฒ <input type="text" name="strSearch1" value="<?=$strSearch1?>" style="width:100px">
+เน€เธฅเธเธเธดเธฅ <input type="text" name="strSearch2" value="<?=$strSearch2?>" style="width:100px">
 
-	<input type="submit" value="ค้น" />
+	<input type="submit" value="เธเนเธ" />
 </fieldset></td>
 <!--<td align="center" width="110"><fieldset>
 	        <a href="sell_print_stockcard.php?fdate=<?=$fdate?>&inv_code=<?=$inv_code?>&inv_code1=<?=$inv_code1?>&pcode=<?=$pcode?>&pcode1=<?=$pcode1?>&group_id=<?=$group_id?>&group_id1=<?=$group_id1?>&tdate=<?=$tdate?>&satype=<?=$satype?>&logistic=<?=$logistic?>&strpv=<?=$strpv?>&strtotal=<?=$strtotal?>&struid=<?=$struid?>&sspv=<?=$sspv?>&strSearch=<?=$strSearch?>&strSearch1=<?=$strSearch1?>&strSearch2=<?=$strSearch2?>&strtype=<?=$strtype?>&sregister=<?=$sregister?>" target="_blank">
-        <img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a>
+        <img border="0" src="./images/Amber-Printer.gif">เธเธดเธกเธเนเธ—เธฑเนเธเธซเธกเธ”</a>
 
 </fieldset></td>-->
 </tr></table>

@@ -15,7 +15,7 @@ if (strpos($bonus,"-")===false){
 }
 
 if($arr_bonus[0] > $arr_bonus[1]){ 
-  echo "<center><FONT COLOR=#ff0000>กรุณากรอกช่วงร่ายได้ให้ถูก เช่น 0-500</FONT></center>";
+  echo "<center><FONT COLOR=#ff0000>เธเธฃเธธเธ“เธฒเธเธฃเธญเธเธเนเธงเธเธฃเนเธฒเธขเนเธ”เนเนเธซเนเธ–เธนเธ เน€เธเนเธ 0-500</FONT></center>";
 }
 
 if($fdate!=""){
@@ -35,7 +35,7 @@ $ftrcode = $_POST['ftrcode']==""?$_GET['ftrcode']:$_POST['ftrcode'];
 $ftrcode2 = $_POST['ftrcode2']==""?$_GET['ftrcode2']:$_POST['ftrcode2'];
 $vip = $_POST['vip']==""?$_GET['vip']:$_POST['vip'];
 if (strpos($ftrcode,"-")===false){
-		//รอบเริ่มต้น == รอบสิ้นสุด
+		//เธฃเธญเธเน€เธฃเธดเนเธกเธ•เนเธ == เธฃเธญเธเธชเธดเนเธเธชเธธเธ”
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 }else{
@@ -77,7 +77,7 @@ if($fdate != ''){
 			$rec->setCurPage($page);
 		//$rec->setShowIndex(true);
 		$rec->setShowField("fdate,tdate,mcode,name_t,total,total2,allsumpv_cd,allsumpv_sd,sumpv_cd,sumpv_sd");
-		$rec->setFieldDesc("ตั้งแต่วันที่,ถึงวันที่,รหัสมาชิก,ชื่อ,โบนัส(CD),โบนัส(SD),Sumpv(CD),Sumpv(SD),Getpv(CD),Getpv(SD)");
+		$rec->setFieldDesc("เธ•เธฑเนเธเนเธ•เนเธงเธฑเธเธ—เธตเน,เธ–เธถเธเธงเธฑเธเธ—เธตเน,เธฃเธซเธฑเธชเธกเธฒเธเธดเธ,เธเธทเนเธญ,เนเธเธเธฑเธช(CD),เนเธเธเธฑเธช(SD),Sumpv(CD),Sumpv(SD),Getpv(CD),Getpv(SD)");
 		$rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right");
 	//	$rec->setFieldSpace("10%,10%,10%,50%,10%,10");//10
 		$rec->setSum(true,false,",,,,true,true,,,true,true");
@@ -86,7 +86,7 @@ if($fdate != ''){
 		if($_GET['excel']==1){
 			$rec->exportXls("ExportXls","embonus".date("Ymd").".xls","SH_QUERY");
 			$str = "<fieldset><a href='".$rec->download("ExportXls","embonus".date("Ymd").".xls")."' >";
-			$str .= "<img border='0' src='./images/download.gif'>โหลด Excel</a></fieldset>";
+			$str .= "<img border='0' src='./images/download.gif'>เนเธซเธฅเธ” Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
 		}
@@ -95,9 +95,9 @@ if($fdate != ''){
 		else if(isset($_GET['skey']))
 			$rec->setCause($_GET['skey'],$_GET['scause']);
 		$rec->setSearch("a.mcode,lb.cshort");
-		$rec->setSearchDesc("รหัส,LB");
+		$rec->setSearchDesc("เธฃเธซเธฑเธช,LB");
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
-		$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
+		$str .= "<img border='0' src='./images/excel.gif'>เธชเธฃเนเธฒเธ Excel</a></fieldset>";
 		
 		$rec->setSpace($str);
 		$rec->showRec(1,'SH_QUERY');

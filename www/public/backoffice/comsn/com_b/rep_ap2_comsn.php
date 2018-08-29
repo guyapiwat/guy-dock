@@ -10,12 +10,12 @@ function view(ro,code){
 }
 function checkround(){
 	if(document.getElementById("strfdate").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë‡√‘Ë¡µÈπ");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô");
 		document.getElementById("strfdate").focus();
 		return false;
 	}
 	if(document.getElementById("strtdate").value==""){
-		alert("°√ÿ≥“‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥");
+		alert("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î");
 		document.getElementById("strtdate").focus();
 		return false;
 	}
@@ -45,7 +45,7 @@ if($fdate=="" || $fdate==""){
 	if($strfdate>$strtdate){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">«—π∑’Ë‡√‘Ë¡µÈπ µÈÕßπÈÕ¬°«Ë“À√◊Õ‡∑Ë“°—∫ «—π∑’Ë ‘Èπ ÿ¥ °√ÿ≥“√–∫ÿ«—π∑’Ë„À¡Ë</FONT></td>
+    <td><FONT COLOR="#ff0000">‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô ‡∏ï‡πâ‡∏≠‡∏á‡∏ô‡πâ‡∏≠‡∏¢‡∏Å‡∏ß‡πà‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡πÄ‡∏ó‡πà‡∏≤‡∏Å‡∏±‡∏ö ‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î ‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏£‡∏∞‡∏ö‡∏∏‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÉ‡∏´‡∏°‡πà</FONT></td>
   </tr>
 </table>
 <?
@@ -53,7 +53,7 @@ if($fdate=="" || $fdate==""){
 		exit;
 	}else{
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">æ‘¡æÏ∑—ÈßÀ¡¥</a-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_a/rep_ac_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a-->
 <?
 		require("connectmysql.php");
 		//require("./cls/repGenerator.php");
@@ -67,7 +67,7 @@ $sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'Q' THEN '<img src=./images/true
 $sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '∫‘≈·®ßºË“π∫√‘…—∑' ELSE '∫‘≈¢“¬ª°µ‘' END AS type ";
+$sql .= ",CASE ".$dbprefix."asaleh.sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á‡∏ú‡πà‡∏≤‡∏ô‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE '‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥' END AS type ";
 $sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 $sql .= "FROM ".$dbprefix."asaleh ";
@@ -92,7 +92,7 @@ $sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'Q' THEN '<img src=./images/tr
 $sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 $sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 $sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-$sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'∫‘≈¢“¬·®ß¬Õ¥' as type ";
+$sql .= ",CASE ".$dbprefix."holdhead.sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type ";
 $sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 $sql .= "FROM ".$dbprefix."holdhead ";
@@ -143,12 +143,12 @@ $sql .= " ) as a where 1=1 and tot_sppv >0 ";
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,preserve,ability,hold,sadate,tot_pv,total,tot_sppv");
-		$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,HOLD,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,".$wording_lan["com"]["1"]."");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,HOLD,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,".$wording_lan["com"]["1"]."");
 		$rec->setFieldFloatFormat(",,,,,,,2,2,2");
 		$rec->setFieldAlign("left,center,left,center,center,center,center,right,right,right,right");
 		$rec->setFieldSpace("15%,7%,20%,7%,7%,7%,7%,8%,8%,8%,6%,10%");
  		$rec->setSearch("sano,sadate,smcode");
-		$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ");
+		$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠");
 		$rec->setSum(true,false,",,,,,,,true,true,true,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		$rec->showRec(1,'SH_QUERY');
@@ -166,26 +166,26 @@ function rpdialog(){?>
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr>
-    <td colspan="2" align="center"><strong>√–∫ÿ«—π∑’Ë ·≈– √À—  ¡“™‘°∑’ËµÈÕß°“√∑√“∫¢ÈÕ¡Ÿ≈</strong></td>
+    <td colspan="2" align="center"><strong>‡∏£‡∏∞‡∏ö‡∏∏‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ‡πÅ‡∏•‡∏∞ ‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å‡∏ó‡∏µ‡πà‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏ó‡∏£‡∏≤‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>
     </tr>
   <!--tr>
-    <td align="right">√Õ∫&nbsp;&nbsp;</td>
+    <td align="right">‡∏£‡∏≠‡∏ö&nbsp;&nbsp;</td>
     <td><input type="text" name="ftrcode" id="ftrcode" onkeypress="return chknum(window.event.keyCode)" />
-      &nbsp;( °√Õ°¢ÈÕ¡Ÿ≈‡ªÁπ 1-9 )</td>
+      &nbsp;( ‡∏Å‡∏£‡∏≠‡∏Å‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡πÄ‡∏õ‡πá‡∏ô 1-9 )</td>
   </tr-->
   <tr>
-  <td align="right" >«—π∑’Ë&nbsp;&nbsp;</td>
+  <td align="right" >‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà&nbsp;&nbsp;</td>
   <td colspan="2">
       <input type="text" id="strfdate" onkeypress="return chknum(window.event.keyCode)" name="strfdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>"/>
-&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë‡‘’√‘Ë¡µÈπ" /></a>&nbsp; ∂÷ß &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
-&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡≈◊Õ°«—π∑’Ë ‘Èπ ÿ¥" /></a>
+&nbsp;<a href="javascript:NewCal('strfdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡πÄ‡∏¥‡∏µ‡∏£‡∏¥‡πà‡∏°‡∏ï‡πâ‡∏ô" /></a>&nbsp; ‡∏ñ‡∏∂‡∏á &nbsp;<input type="text" id="strtdate" onkeypress="return chknum(window.event.keyCode)" name="strtdate" size="10" maxlength="10" value="<?=date("Y-m-d")?>" />
+&nbsp;<a href="javascript:NewCal('strtdate','yyyymmdd',false,24)"><img src="./datetimepick/images/cal.gif" width="16" height="16" border="0" alt="‡πÄ‡∏•‡∏∑‡∏≠‡∏Å‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏™‡∏¥‡πâ‡∏ô‡∏™‡∏∏‡∏î" /></a>
 </td>
   </tr>
   <tr>
-    <td width="24%" align="right">√À—  ¡“™‘°&nbsp;&nbsp;</td>
+    <td width="24%" align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;&nbsp;</td>
     <td width="76%">
       <input type="text" name="fmcode" id="fmcode" /></td>
   </tr>
@@ -193,7 +193,7 @@ function rpdialog(){?>
     <td colspan="2">&nbsp;</td>
     </tr>
   <tr>
-    <td colspan="2" align="center"><input type="button" name="Submit" value="¥Ÿ√“¬ß“π" onclick="checkround()" /></td>
+    <td colspan="2" align="center"><input type="button" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô" onclick="checkround()" /></td>
     </tr>
   <tr>
     <td>&nbsp;</td>

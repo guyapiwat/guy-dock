@@ -64,7 +64,7 @@ if($radsend == '1' and $GLOBALS["sending"] == '1' ){
 	$arr_sending = searchsending($dbprefix,$_SESSION["inv_locationbase"],$stype,$sumtotal,$weight);
 	//echo $tot_pv.':'.$arr_sending["minpv"];
 	
-		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == '¡ÃØ§à·¾ÁËÒ¹¤Ã' or $cprovinceId == 'ÊÁØ·Ã»ÃÒ¡ÒÃ' or $cprovinceId == '¹¹·ºØÃÕ' or $cprovinceId == '»·ØÁ¸Ò¹Õ')$shipping = $arr_sending["inbound-pcode"]["price"];
+		if($cprovinceId == '1' or $cprovinceId == '2' or $cprovinceId == '3' or $cprovinceId == '4' or $cprovinceId == 'à¸à¸£à¸¸à¸‡à¹€à¸—à¸žà¸¡à¸«à¸²à¸™à¸„à¸£' or $cprovinceId == 'à¸ªà¸¡à¸¸à¸—à¸£à¸›à¸£à¸²à¸à¸²à¸£' or $cprovinceId == 'à¸™à¸™à¸—à¸šà¸¸à¸£à¸µ' or $cprovinceId == 'à¸›à¸—à¸¸à¸¡à¸˜à¸²à¸™à¸µ')$shipping = $arr_sending["inbound-pcode"]["price"];
 		else $shipping = $arr_sending["outbound-pcode"]["price"];
 		$tot_weight = $tot_weight-$arr_sending["maxweight"];
 		if($tot_weight >0)$shipping = $shipping+$arr_sending["overweight-pcode"]["price"]*ceil($tot_weight);

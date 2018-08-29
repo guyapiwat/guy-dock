@@ -42,8 +42,8 @@ function setUpload($type,$prefix_name){
 			
 			if($_SESSION['usercode']<>''){
 				$active_date = '';
-				/* if($prefix_name=='id_card')$active_date = ",cmp='�ú',bmdate1='".date("Y-m-d")."'"; 
-				if($prefix_name=='acc_no')$active_date = ",cmp2='�ú',bmdate2='".date("Y-m-d")."'"; */
+				/* if($prefix_name=='id_card')$active_date = ",cmp='ครบ',bmdate1='".date("Y-m-d")."'"; 
+				if($prefix_name=='acc_no')$active_date = ",cmp2='ครบ',bmdate2='".date("Y-m-d")."'"; */
 				if($prefix_name=='id_card')$active_date = ",id_card_img_date='".date("Y-m-d H:i:s")."'"; 
 				if($prefix_name=='acc_no')$active_date = ",acc_no_img_date='".date("Y-m-d H:i:s")."'";
 				mysql_query("UPDATE ali_member SET ".$prefix_name."_img = '".$photo_file."' $active_date WHERE mcode = '".$_SESSION['usercode']."' ");		

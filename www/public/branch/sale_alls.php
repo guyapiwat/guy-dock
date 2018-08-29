@@ -5,12 +5,12 @@
 		window.open(wlink);
 	}
 	function sale_cancel(id){
-		if(confirm("µÈÕß°“√¬°‡≈‘°∫‘≈π’È")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡∏¢‡∏Å‡πÄ‡∏•‡∏¥‡∏Å‡∏ö‡∏¥‡∏•‡∏ô‡∏µ‡πâ")){
 			window.location='index.php?sessiontab=3&sub=6&state=3&bid='+id;
 		}
 	}
 	function sale_status(id){
-		if(confirm("µÈÕß°“√‡ª≈’Ë¬π·ª≈ß®—¥ Ëß")){
+		if(confirm("‡∏ï‡πâ‡∏≠‡∏á‡∏Å‡∏≤‡∏£‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡πÅ‡∏õ‡∏•‡∏á‡∏à‡∏±‡∏î‡∏™‡πà‡∏á")){
 			window.location='index.php?sessiontab=3&sub=6&state=6&sender='+id;
 		}
 	}
@@ -45,7 +45,7 @@ if(!empty($mcode)){
 			$sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 			$sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 			$sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-			$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '∫‘≈·®ßºË“π∫√‘…—∑' ELSE '∫‘≈¢“¬ª°µ‘' END AS type ";
+			$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."asaleh.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."asaleh.inv_code END AS inv_code,CASE ".$dbprefix."asaleh.send WHEN '1' THEN '‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á‡∏ú‡πà‡∏≤‡∏ô‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE '‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡∏õ‡∏Å‡∏ï‡∏¥' END AS type ";
 			$sql .= ",CASE ".$dbprefix."asaleh.asend WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 			$sql .= "FROM ".$dbprefix."asaleh ";
@@ -64,7 +64,7 @@ if(!empty($mcode)){
 			$sql .= ",CASE sa_type WHEN 'A' THEN '<img src=./images/true.gif>' ELSE '' END AS ability ";
 			$sql .= ",CASE sa_type WHEN 'H' THEN '<img src=./images/true.gif>' ELSE '' END AS hold ";
 			$sql .= ",CASE sa_type WHEN 'I' THEN '<img src=./images/true.gif>' ELSE '' END AS invent ";
-			$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '∫√‘…—∑' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'∫‘≈¢“¬·®ß¬Õ¥' as type ";
+			$sql .= ",CASE sa_type WHEN 'C' THEN '<img src=./images/true.gif>' ELSE '' END AS imd,CASE ".$dbprefix."holdhead.inv_code WHEN '' THEN '‡∏ö‡∏£‡∏¥‡∏©‡∏±‡∏ó' ELSE ".$dbprefix."holdhead.inv_code END AS inv_code,'‡∏ö‡∏¥‡∏•‡∏Ç‡∏≤‡∏¢‡πÅ‡∏à‡∏á‡∏¢‡∏≠‡∏î' as type ";
 			$sql .= ",'<img src=./images/false.gif>' AS asend ,".$dbprefix."member.pos_cur as por_cur ";
 
 			$sql .= "FROM ".$dbprefix."holdhead ";
@@ -93,15 +93,15 @@ if(!empty($mcode)){
 		if(isset($page))
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,smcode,name_t,ability,hold,sadate,tot_pv,total,inv_code");
-		$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,ª°µ‘,HOLD,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡,ºŸÈ∫—π∑÷°");
+		$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏õ‡∏Å‡∏ï‡∏¥,HOLD,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
 		$rec->setFieldFloatFormat(",,,,,,0,2");
 		$rec->setFieldAlign("center,center,left,center,center,center,right,right,center,center");
 		$rec->setFieldSpace("15%,7%,30%,7%,7%,7%,7%,8%,8%,8%,6%,10%");
  	//	$rec->setSearch("sano,sadate,smcode,inv_code");
-	//	$rec->setSearchDesc("‡≈¢∫‘≈,‡≈¢∫‘≈·®ß,«—π∑’Ë,√À— ºŸÈ´◊ÈÕ,ºŸÈ∫—π∑÷°");
+	//	$rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•‡πÅ‡∏à‡∏á,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ú‡∏π‡πâ‡∏ö‡∏±‡∏ô‡∏ó‡∏∂‡∏Å");
 		$rec->setSum(true,false,",,,,,,true,true,,");
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
-	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","æ‘¡æÏ");
+	//	$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 		$rec->showRec(1,'SH_QUERY');
 }
 
@@ -116,11 +116,11 @@ function rpdialog(){?>
   </tr>
   
   <tr>
-    <td width="24%" align="right">√À—  ¡“™‘°&nbsp;&nbsp;</td>
+    <td width="24%" align="right">‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å&nbsp;&nbsp;</td>
     <td width="">
 		<input type="text" name="fmcode" id="fmcode"  value="<?=$_POST['fmcode']?>"  />
 		
-		<input type="Submit" name="Submit" value="¥Ÿ√“¬ß“π"  />
+		<input type="Submit" name="Submit" value="‡∏î‡∏π‡∏£‡∏≤‡∏¢‡∏á‡∏≤‡∏ô"  />
 	</td>
 
   </tr>

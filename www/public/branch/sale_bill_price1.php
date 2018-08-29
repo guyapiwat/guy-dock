@@ -80,16 +80,16 @@ if($satype !=""){
 			$rec->setCurPage($page);
 		$rec->setShowField("sano,txtAll,txtCash,txtFuture,AllCredit,txtTransfer,txtInternet,txtDiscount,txtOther,optionAll");
 		$rec->setFieldFloatFormat(",0,0,0,0,0,0,0,0,,,,");
-		$rec->setFieldDesc("�Ţ���,�ӹǹ���,�Թʴ,�Ѻ��ǧ˹��,�ѵ��ôԵ,�Թ�͹,Ewallet,��ǹŴ,����,�����˵�");
+		$rec->setFieldDesc("เลขบิล,จำนวนรวม,เงินสด,รับล่วงหน้า,บัตรเครดิต,เงินโอน,Ewallet,ส่วนลด,อื่นๆ,หมายเหตุ");
 		$rec->setFieldAlign("center,right,right,right,right,right,right,right,right,right,right,right");
 		$rec->setFieldSpace("5%,8%,8%,8%,8%,8%,8%,8%,8%,50%");
 		//$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,");
 		//$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 		//$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");
-		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","�����");
+		//$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","id","IMAGE","พิมพ์");
 		$rec->setSum(true,false,",true,true,true,true,true,true,true,true,");
 		//$rec->setSearch("pcode,pdesc,price,qty,amt");
-		//$rec->setSearchDesc("�����Թ���,��������´�Թ���,�Ҥ�,�ӹǹ,���Թ");
+		//$rec->setSearchDesc("รหัสสินค้า,รายละเอียดสินค้า,ราคา,จำนวน,เป็นเงิน");
 		//$rec->setEdit("index.php","id","id","sessiontab=3&sub=6");
 		$rec->showRec(1,'SH_QUERY');
 		//---------------------------------

@@ -25,7 +25,7 @@ require("./cls/piority.php");
 		}
 		
 		$obj = array($sysinfo['object1'],$sysinfo['object2'],$sysinfo['object3'],$sysinfo['object4'],$sysinfo['object5'],$sysinfo['object6'],$sysinfo['object7'],$sysinfo['object8'],$sysinfo['object9'],$sysinfo['object10']);
-		$objdef = array("สมาชิก","vip","ขาย","คอมมิชชั่น","บริหารระบบ","Stock","บัญชี","แผนการตลาด","Supervisor","การเงิน");
+		$objdef = array("เธชเธกเธฒเธเธดเธ","vip","เธเธฒเธข","เธเธญเธกเธกเธดเธเธเธฑเนเธ","เธเธฃเธดเธซเธฒเธฃเธฃเธฐเธเธ","Stock","เธเธฑเธเธเธต","เนเธเธเธเธฒเธฃเธ•เธฅเธฒเธ”","Supervisor","เธเธฒเธฃเน€เธเธดเธ");
 		$acc = new piority();
 	}
 ?>
@@ -39,18 +39,18 @@ require("./cls/piority.php");
 </head>
 <table border="0" cellspacing="0" cellpadding="0" width="100%">
  <tr bgcolor="#FFCC33">
-   <td height="20" colspan="2">&nbsp;&nbsp;<b>ข้อมูลผู้ใช้</b></td>
+   <td height="20" colspan="2">&nbsp;&nbsp;<b>เธเนเธญเธกเธนเธฅเธเธนเนเนเธเน</b></td>
  </tr>
  <tr>
- 	<td width="30%" height="20" align="right" class="texh"><b>รหัสผู้ใช้ :</b></td>
+ 	<td width="30%" height="20" align="right" class="texh"><b>เธฃเธซเธฑเธชเธเธนเนเนเธเน :</b></td>
 	<td width="70%" class="texd">&nbsp;<? echo ($sysinfo['usercode']!="")?$sysinfo['usercode']:$sysinfo['nodata']; ?></td>
  </tr>
  <tr>
- 	<td height="20" align="right" class="texh"><b>ชื่อผู้ใช้ :</b></td>
+ 	<td height="20" align="right" class="texh"><b>เธเธทเนเธญเธเธนเนเนเธเน :</b></td>
 	<td class="texd">&nbsp;<? echo ($sysinfo['username']!="")?$sysinfo['username']:$sysinfo['nodata']; ?></td>
  </tr>
  <tr bgcolor="#FFCC33">
-   <td height="20" colspan="2">&nbsp;&nbsp;<b>สิทธิการใช้งานโปรแกรม</b></td>
+   <td height="20" colspan="2">&nbsp;&nbsp;<b>เธชเธดเธ—เธเธดเธเธฒเธฃเนเธเนเธเธฒเธเนเธเธฃเนเธเธฃเธก</b></td>
  </tr>
  <tr>
    <td colspan="2" height="10"></td>
@@ -60,11 +60,11 @@ require("./cls/piority.php");
    <fieldset>
       <table border="0" cellspacing="0" cellpadding="0" width="100%">
 	    <tr bgcolor="#FFCCCC">
-		  <td width="26%" height="20" align="center" class="texh"><b>เมนู</b></td>
+		  <td width="26%" height="20" align="center" class="texh"><b>เน€เธกเธเธน</b></td>
 		  
-		  <td width="16%" align="center" class="texh"><b>เพิ่ม</b></td>
-		  <td width="16%" align="center" class="texh"><b>แก้ไข</b></td>
-		  <td width="16%" align="center" class="texh"><b>ลบ</b></td>
+		  <td width="16%" align="center" class="texh"><b>เน€เธเธดเนเธก</b></td>
+		  <td width="16%" align="center" class="texh"><b>เนเธเนเนเธ</b></td>
+		  <td width="16%" align="center" class="texh"><b>เธฅเธ</b></td>
 		</tr>
 
 		<?  

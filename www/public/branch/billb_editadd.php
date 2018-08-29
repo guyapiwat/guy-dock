@@ -90,119 +90,119 @@ input = pad_string + input;
 return input; 
 } 
 function check_zipcode1(value,value1,value2) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(value);
 	//alert(value);alert(value1);alert(value2);
-     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_zipcode.php?value='+encodeURIComponent(value)+'&value1='+encodeURIComponent(value1)+'&value2='+encodeURIComponent(value2), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 				//	alert(req.responseText);
 					//alert(data);
 					if(data == 1234){
-						 document.getElementById("czip").value=''; //�ʴ���
+						 document.getElementById("czip").value=''; //แสดงผล
 					}else{
 					//	alert(data);
-						 document.getElementById("czip").value=data.trim(); //�ʴ��� 
+						 document.getElementById("czip").value=data.trim(); //แสดงผล 
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function checkaddress(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(value);
-     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_address.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
-					//document.getElementById("mname").innerHTML="������������§ҹ";
+					//document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					//	alert(data);
-                    document.getElementById("idchksaddress").innerHTML=data; //�ʴ���
+                    document.getElementById("idchksaddress").innerHTML=data; //แสดงผล
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 }
 function sendget_sponsor(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	sendget_sponsorc(value);
 
 	//alert(test);
-     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcode').value="";
-					document.getElementById("mname").innerHTML="������������§ҹ";
+					document.getElementById("mname").innerHTML="ไม่ได้อยู่ในสายงาน";
 					}else{
 					document.getElementById('mcode').value=value;
-                    document.getElementById("mname").innerHTML=data; //�ʴ���
+                    document.getElementById("mname").innerHTML=data; //แสดงผล
 					sendget_position(value);
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_mtype(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	sendget_sponsorc(value);
 
 	//alert(test);
-     req.open('GET', 'search_mkey.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_mkey.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('mcodekey').value="";
 					//document.getElementById('ok').disabled= true;
-					document.getElementById("error_mtype").innerHTML="������� Mobile Center";
+					document.getElementById("error_mtype").innerHTML="ไม่ได้เป็น Mobile Center";
 					}else{
 					document.getElementById('mcodekey').value=value;
-                    document.getElementById("error_mtype").innerHTML=data; //�ʴ���
+                    document.getElementById("error_mtype").innerHTML=data; //แสดงผล
 					sendget_position(value);
 					}
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_position(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	sendget_sponsorc(value);
 	//alert(test);
-     req.open('GET', 'search_member_position.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member_position.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					}else{
@@ -217,21 +217,21 @@ function sendget_position(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 
 function sendget_position1(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 //value = str_pad(value,7,0,false);
 //	sendget_sponsorc(value);
 	//alert(test);
-     req.open('GET', 'search_member_position1.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member_position1.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					}else{
@@ -246,21 +246,21 @@ function sendget_position1(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_sponsorc(value) {
 	
 	
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_member_lb.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_member_lb.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(data);
 					if(data != 1234){
 							document.getElementById('lb').value=data;
@@ -289,19 +289,19 @@ function sendget_sponsorc(value) {
      };
 
 	 
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatus(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1){
 						if(strUser == 'C'){
@@ -322,19 +322,19 @@ function checkStatus(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function checkStatusNew(value,strUser,total) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_status_new.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					if(data == 1){
 						if(strUser == 'Q'){
 							alert("<?=$wording_lan['tab2_billedit']['1_44']?>");
@@ -347,7 +347,7 @@ function checkStatusNew(value,strUser,total) {
 							if(total >  parseFloat(data)+100 ){
 							//if(total <  parseFloat(data) || total >  parseFloat(data)+100 ){
 								alert(" <?=$wording_lan['tab2_billedit']['1_45']?> "+(parseFloat(data)+500)+" PV");
-								//alert("�س��ͧ�ѡ���ʹ�繨ӹǹ "+data+"PV ��� �ѡ���ʹ������Թ "+(parseFloat(data)+100)+" PV");
+								//alert("คุณต้องรักษายอดเป็นจำนวน "+data+"PV และ รักษายอดได้ไม่เกิน "+(parseFloat(data)+100)+" PV");
 								document.getElementById('ok').disabled = true;
 								exit;
 							}
@@ -356,26 +356,26 @@ function checkStatusNew(value,strUser,total) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 function sendget_invent(value) {
-     var req = Inint_AJAX(); //���ҧ Object
+     var req = Inint_AJAX(); //สร้าง Object
 	// alert(value)
 	//value = str_pad(value,7,0,false);
 	//alert(test);
-     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //��˹� ʶҹС�÷ӧҹ�ͧ AJAX Ẻ GET ����觢����ż�ҹ�ҧ URL
-     req.onreadystatechange = function() { //�˵ء�ó�������ա�õͺ��Ѻ
+     req.open('GET', 'search_invent.php?value='+encodeURIComponent(value), true); //กำหนด สถานะการทำงานของ AJAX แบบ GET และส่งข้อมูลผ่านทาง URL
+     req.onreadystatechange = function() { //เหตุการณ์เมื่อมีการตอบกลับ
           if (req.readyState==4) {
-               if (req.status==200) { //���Ѻ��õͺ��Ѻ���º����
-                    var data=req.responseText; //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
+               if (req.status==200) { //ได้รับการตอบกลับเรียบร้อย
+                    var data=req.responseText; //ข้อความที่ได้มาจากการทำงานของ test3.php
 					//alert(req.responseText);
 					if(data == 1234){
 					document.getElementById('inv_code').value="";
 					document.getElementById("inv_desc").innerHTML="<?=$wording_lan['tab2_billedit']['1_46']?>";
 					}else{
 					document.getElementById('inv_code').value=value;
-                    document.getElementById("inv_desc").innerHTML=data; //�ʴ���
+                    document.getElementById("inv_desc").innerHTML=data; //แสดงผล
 					}
 					//alert(data);
 					//if(data == "No Data"){
@@ -385,8 +385,8 @@ function sendget_invent(value) {
                }
           }
      };
-     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ������
-     req.send(null); //�ӡ����
+     req.setRequestHeader("Content-Type", "application/x-www-form-urlencoded"); //Header ที่ส่งไป
+     req.send(null); //ทำการส่ง
 };
 </script>
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.3.2/jquery.min.js"></script>
@@ -469,7 +469,7 @@ var taxdiscount = 1;
 		//alert(<?=$_SESSION["chkfree"]?>);
 		//		var chkfree = '<?=$_SESSION["chkfree"]?>';
 		//	if( chkfree != '1'){
-				//alert('��س����͡�Թ��ҿ��');
+				//alert('กรุณาเลือกสินค้าฟรี');
 			//	document.getElementById("ok").disabled = true;
 			//	clicktab(3);
 		//	}
@@ -532,7 +532,7 @@ function ibillcheck(){
 //	if(){
 	//alert(document.getElementById("ajaxcharge").value);
 		if(document.getElementById("ajaxcharge").value > 0){
-			document.getElementById('showsend1').innerHTML  = "<font color=#FF0000><b> �ա�� Charge : "+parseFloat(document.getElementById('sumtotal').value*(document.getElementById("ajaxcharge").value-1))+" </b></font>";
+			document.getElementById('showsend1').innerHTML  = "<font color=#FF0000><b> มีการ Charge : "+parseFloat(document.getElementById('sumtotal').value*(document.getElementById("ajaxcharge").value-1))+" </b></font>";
 		}
 //	}
 
@@ -586,12 +586,12 @@ document.getElementById('frm').action='billb_operate.php?state=0';
 		errDesc = errDesc + ",<?=$wording_lan['tab2_billedit']['1_59']?>";
 	}
       if(document.getElementById('chkFuture').checked == true && document.getElementById('satype').value != 'L'){
-			alert('Voucher ����š�ͧ��ҹ��');
+			alert('Voucher ไว้แลกของเท่านั้น');
 			exit;
 	}
 
 	 if(document.getElementById('chkOther').checked == true && document.getElementById('satype').value != 'B'){
-			alert('Autoship �����ѡ���ʹ��ҹ��');
+			alert('Autoship ซื้อรักษายอดเท่านั้น');
 			exit;
 	}
 /*		if(document.getElementById('chkInternet').checked == true){
@@ -606,7 +606,7 @@ document.getElementById('frm').action='billb_operate.php?state=0';
 	val = val + ","+document.getElementById('inv_code').value;
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */		
 //loop check
 document.getElementById('frm').target = '_self';
@@ -624,7 +624,7 @@ function ebillcheck(){
 	var skipval = "";
 	var field = "dateInput1";
 	var flag = "1-0-0-0-0";
-	var errDesc = "�ѹ���";
+	var errDesc = "วันที่";
 	
 	val = val + ","+document.getElementById('mcode').value;
 	skipval = skipval+",";
@@ -644,7 +644,7 @@ function ebillcheck(){
 	skipval = skipval+",";
 	field = field +",inv_code";
 	flag = flag+",1-0-0-0-0";
-	errDesc = errDesc + ",�����Ң�";
+	errDesc = errDesc + ",รหัสสาขา";
 */
 document.getElementById('frm').target = '_blank';
 document.getElementById('frm').action='billb_operate.php?state=1';
@@ -761,7 +761,7 @@ var wi=null;
 			}
 
 			place += "<tr>";
-			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ź' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
+			place += "<td style='"+style_l+style_bd+"' align='center'><input type='button' value='ลบ' onclick=\"saledel('" + tag[step].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "','" + tag[step+1].value + "')\"></td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'>" + (l+1) + "</td>";
 			place += "<td style='"+style_l+style_bd+"' align='center'><input size='7' readonly style='"+hidden+ "text-align:center;' type='text' name='pcode[]' value='" + tag[step].value + "'></td>";
 			place += "<td style='"+style_l+style_bd+"' align='left'><input size='13' readonly style='"+hidden+ "' type='text' name='pdesc[]' value='" + tag[++step].value + "'></td>";
@@ -787,7 +787,7 @@ var wi=null;
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' name='sumtotal' id='sumtotal' value='" + sumtotal + "'></td>";
 		place += "<td style='"+style_l+style_t+style_b+"' align='right'><input size='8' readonly style='text-align:right;' type='text' name='sumpv' id='sumpv' value='" + sumpv + "'></td>";
 		place += "</tr>";
-		//place += "<tr><td colspan='9' align='right'><input type='submit' value='�ѹ�֡'></td></tr>";
+		//place += "<tr><td colspan='9' align='right'><input type='submit' value='บันทึก'></td></tr>";
 		place += "<tr><td colspan='9' align='right'><input name='button' type='button' onclick='<?=(isset($_GET['id'])?"ebillcheck()":"ibillcheck()")?>' value='<?=$wording_lan['tab2_billedit']['1_37']?>' />&nbsp;<input type='submit' value='<?=$wording_lan['tab2_billedit']['1_38']?>' name='ok' id='ok' disabled='disabled' />&nbsp;<input name='reset' type='reset'  onclick=\"window.location='index.php?sessiontab=3&sub=6'\" value='<?=$wording_lan['tab2_billedit']['1_39']?>' /></td></tr>";
 		place += "</table>";
 		//alert(place);
@@ -896,7 +896,7 @@ if(isset($_GET['id'])){
 <input  style="display:none" onClick="checkfreecharge()" type="checkbox" name="freecharge" id="freecharge"> 
                 <br>
             <select name="satype" id="satype">
-                <option  value="" >���͡�ٻẺ��ë���  </option>     
+                <option  value="" >เลือกรูปแบบการซื้อ  </option>     
 				<?php		
 					foreach($arr_satype_b as $key => $value):			
 					echo '<option value="'.$key.'"';
@@ -905,6 +905,11 @@ if(isset($_GET['id'])){
 					endforeach;
 				?>
               </select>
+
+
+			  <?
+			 
+			  ?>
 			  <input type="hidden" value="<?=$_GET['id']?>" name="id"/></td>
             <td width="6%" align="right"><?=$wording_lan["tab2_billedit"]["1_4"]?></td>
             <td width="40%"><input type="text" id="dateInput1" readonly name="sadate" value="<?=$sadate==""?$_SESSION["datetimezone"]:$sadate?>">
@@ -934,7 +939,7 @@ if(isset($_GET['id'])){
           <tr valign="top">
             <td align="right" valign="top" nowrap="nowrap"><?=$wording_lan["tab2_billedit"]["1_6"]?></td>
             <td nowrap="nowrap"><select name="inv_code" id="inv_code"  disabled="disabled">
-              <option value="">��س����͡�Ң�</option>		
+              <option value="">กรุณาเลือกสาขา</option>		
               <?					
 						$result1=mysql_query("select * from ".$dbprefix."invent where locationbase = '".$_SESSION["inv_locationbase"]."' order by inv_code");
 
@@ -1012,7 +1017,7 @@ if(isset($_GET['id'])){
 				}
 				?>
 					<tr bgcolor='#999999'>
-					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='7'>���</td>
+					<td style="<?=style_l.style_t.style_b?>" align='right' colspan='7'>รวม</td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" name='sumtotal' id='sumtotal' value="<?=$sumtotal?>"></td>
 					<td style="<?=style_l.style_t.style_b?>" align='right'><input size='8' readonly type='text' style="text-align:right;" id='sumpv' name='sumpv' value="<?=$sumpv?>"></td>
 					</tr>

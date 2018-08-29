@@ -1,7 +1,7 @@
 <SCRIPT language=Javascript1.2>
 function Validate(form) {
 	 	if (form.web_cfg.value == "")
-		{ alert("กรุณาใส่ชื่อธนาคาร!"); form.web_cfg.focus(); return; }
+		{ alert("เธเธฃเธธเธ“เธฒเนเธชเนเธเธทเนเธญเธเธเธฒเธเธฒเธฃ!"); form.web_cfg.focus(); return; }
 	form.submit()
 } 
 </SCRIPT>
@@ -11,8 +11,8 @@ function Validate(form) {
 		$sql = "SELECT * FROM ".$dbprefix."webcfg WHERE cid='".$_GET['cid']."' LIMIT 1";
 		$rs = mysql_query($sql);
 		if(mysql_num_rows($rs)<=0){
-		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">ไม่พบข้อมูลตามเงื่อนไข</font></td></tr><tr>
-		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=5&sub=7';">ไปหน้าข้อมูลผู้ใช้ระบบ</a>]</td></tr></table><?
+		?><table width="50%" align="center"><tr><td bgcolor="#990000" align="center"><font color="#FFFFFF">เนเธกเนเธเธเธเนเธญเธกเธนเธฅเธ•เธฒเธกเน€เธเธทเนเธญเธเนเธ</font></td></tr><tr>
+		</tr><td align="center">[<a href="javascript:window.location='index.php?sessiontab=5&sub=7';">เนเธเธซเธเนเธฒเธเนเธญเธกเธนเธฅเธเธนเนเนเธเนเธฃเธฐเธเธ</a>]</td></tr></table><?
 			exit;
 		}else{
 			$row = mysql_fetch_object($rs);
@@ -37,12 +37,12 @@ function Validate(form) {
     <table align="center" border="0" cellpadding="0" cellspacing="0" width="50%">
       <tr>
         <td colspan="2" align="center"><fieldset>
-        <legend><b>ข้อมูลเว็บไซต์</b></legend>
+        <legend><b>เธเนเธญเธกเธนเธฅเน€เธงเนเธเนเธเธ•เน</b></legend>
         <table align="center"><tr>
-              <td width="34%" align="right" valign="top" >ชื่อเว็บไซต์ <font color="#ff0000">* Ex.  www.alisio.com</font></td>
+              <td width="34%" align="right" valign="top" >เธเธทเนเธญเน€เธงเนเธเนเธเธ•เน <font color="#ff0000">* Ex.  www.alisio.com</font></td>
               <td colspan="2">&nbsp;<input type="text" name="web_cfg" value="<?=$web_cfg?>" /></td>
           </tr></table>
-        	<hr width="50%" /><font color="#808080"><u>หมายเหตุ</u></font> <font color="#ff0000">*</font><font color="#808080">=จำเป็นต้องกรอกข้อมูล</font> 
+        	<hr width="50%" /><font color="#808080"><u>เธซเธกเธฒเธขเน€เธซเธ•เธธ</u></font> <font color="#ff0000">*</font><font color="#808080">=เธเธณเน€เธเนเธเธ•เนเธญเธเธเธฃเธญเธเธเนเธญเธกเธนเธฅ</font> 
         </fieldset></td>
       </tr>
       <tr><td>&nbsp;</td></tr>
@@ -53,9 +53,9 @@ function Validate(form) {
       <tr>
         <td width="34%" align="right" valign="top" >&nbsp;</td>
         <td colspan="2">&nbsp;
-            <input onclick=Validate(form) type=button value="บันทึก" name="B1" />
+            <input onclick=Validate(form) type=button value="เธเธฑเธเธ—เธถเธ" name="B1" />
           &nbsp;
-            <input type="reset" value="ยกเลิก" name="B2" /></td>
+            <input type="reset" value="เธขเธเน€เธฅเธดเธ" name="B2" /></td>
       </tr>
     </table>
 </form>

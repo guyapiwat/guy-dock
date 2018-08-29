@@ -4,7 +4,7 @@ function checkround(){
 		var numCheck = document.getElementById("ftrcode").value;
 		var numVal = numCheck.split("-");
 		if(numVal.length>2){
-			alert("��سҡ�͡�ٻẺ�ͺ���١��ͧ");
+			alert("กรุณากรอกรูปแบบรอบให้ถูกต้อง");
 			return false;
 		}
 	}
@@ -26,7 +26,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	else if(isset($_GET["ftrcode"]))
 		$ftrcode = $_GET["ftrcode"];
 	if (strpos($ftrcode,"-")===false){
-		//�ͺ������� == �ͺ����ش
+		//รอบเริ่มต้น == รอบสิ้นสุด
 		$ftrc[0]=$ftrcode;
 		$ftrc[1]=$ftrcode;
 	}else{
@@ -38,7 +38,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 	if($ftrc[0]>$ftrc[1]){
 		?><table width="100%" border="1">
   <tr align="center">
-    <td><FONT COLOR="#ff0000">�ͺ������� ��ͧ���¡���������ҡѺ �ͺ����ش ��س�����ͺ��äӹǳ����</FONT></td>
+    <td><FONT COLOR="#ff0000">รอบเริ่มต้น ต้องน้อยกว่าหรือเท่ากับ รอบสิ้นสุด กรุณาใส่รอบการคำนวณใหม่</FONT></td>
   </tr>
 </table>
 <?
@@ -63,7 +63,7 @@ if(!(isset($_POST["ftrcode"]) || isset($_GET["ftrcode"]))){
 		$tdate = $data->tdate;
 		$paydate = $data->paydate;
 ?>
-&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">����������</a><br/-->
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<!--a href="./comsn/com_c/rep_cmbonus_comsn_print.php?ftrcode=<?=$ftrcode?>&fmcode=<?=$fmcode?>" target="_blank"><img border="0" src="./images/Amber-Printer.gif">พิมพ์ทั้งหมด</a><br/-->
 <?  echo $fdate .' '.$wording_lan["word"]["to"].' '.$tdate.'  '.$wording_lan["word"]["paydate"].' : '.$paydate;?>
 <?
 		require("connectmysql.php");
@@ -140,7 +140,7 @@ function rpdialog($wording_lan){
     <td colspan="2" align="center">&nbsp;</td>
   </tr>
   <tr style="display:none">
-    <td colspan="2" align="center"><strong>��͡�ͺ ���������Ҫԡ����ͧ��ô���§ҹ</strong></td>
+    <td colspan="2" align="center"><strong>กรอกรอบ และรหัสสมาชิกที่ต้องการดูรายงาน</strong></td>
   </tr>
   <tr>
     <td colspan="2" align="center">&nbsp;</td>

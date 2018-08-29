@@ -21,9 +21,9 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
     }
     function sale_cancel(id){
         if(confirm("<?=$wording_lan['Bill_21']?>")){
-            var remark = prompt("°√ÿ≥“°√Õ°À¡“¬‡Àµÿ §Ë–","");
+            var remark = prompt("‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡∏Å‡∏£‡∏≠‡∏Å‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ ‡∏Ñ‡πà‡∏∞","");
             if(remark == ""){
-                alert("§ÿ≥‰¡Ë‰¥È°√Õ°À¡“¬‡Àµÿ §Ë–");
+                alert("‡∏Ñ‡∏∏‡∏ì‡πÑ‡∏°‡πà‡πÑ‡∏î‡πâ‡∏Å‡∏£‡∏≠‡∏Å‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏ ‡∏Ñ‡πà‡∏∞");
             }
             else{
                 window.location='index.php?sessiontab=3&sub=148&state=3&bid='+id+'&remark='+remark;
@@ -42,7 +42,9 @@ rpdialog_sale($_GET['sub'],$fdate,$tdate,$sale);
 <?
 require("connectmysql.php");
 
-
+$charset = "SET NAMES 'UTF8'"; 
+mysql_query($charset) or die('Invalid query: ' . mysql_error());               
+                           
  $set_payment = query("*",'ali_payment pm '," 1=1 and pm.shows_ewallet = 1 ORDER BY pm.id"); 
  foreach($set_payment as $key => $val):
        $text = 'txt'.$val['payment_column']; 
@@ -109,18 +111,18 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
         $rec->setShowField("sadate,sano,smcode,name_t,txtMoney".$colome.",lid,remark");
         $rec->setFieldFloatFormat(",,,,2".$Format.",,,");
         $rec->setSum(true,false,",,,,true".$Sum.",");
-        //$rec->setFieldDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,√—°…“¬Õ¥,∑”§ÿ≥ ¡∫—µ‘,hold¬Õ¥,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡");
-        //$rec->setFieldDesc("«—π∑’Ë´◊ÈÕ,‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,®”π«π‡ß‘π√«¡,‡ß‘π ¥,‡ß‘π‚Õπ,∫—µ√‡§√¥‘µ, “¢“ À√◊Õ æπ—°ß“π");
-        $rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_17"].",À¡“¬‡Àµÿ");
+        //$rec->setFieldDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏£‡∏±‡∏Å‡∏©‡∏≤‡∏¢‡∏≠‡∏î,‡∏ó‡∏≥‡∏Ñ‡∏∏‡∏ì‡∏™‡∏°‡∏ö‡∏±‡∏ï‡∏¥,hold‡∏¢‡∏≠‡∏î,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°");
+        //$rec->setFieldDesc("‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡πÄ‡∏á‡∏¥‡∏ô‡∏™‡∏î,‡πÄ‡∏á‡∏¥‡∏ô‡πÇ‡∏≠‡∏ô,‡∏ö‡∏±‡∏ï‡∏£‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï,‡∏™‡∏≤‡∏Ç‡∏≤ ‡∏´‡∏£‡∏∑‡∏≠ ‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
+        $rec->setFieldDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"]."".$colome_text.",".$wording_lan["Billjang_17"].",‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏");
         $rec->setFieldAlign("center,center,center,left,right,right,right,right,right,right,right,right,center");
         //$rec->setFieldSpace("10%,12%,10%,26%,8%,8%,8%,8%,8%,8%");
         //$rec->setFieldLink(",,index.php?sessiontab=1&sub=5&cmc=,");
         $rec->setSearch("sadate,sano,ewa.mcode,name_t,txtMoney,lid");
-    //    $rec->setSearchDesc("‡≈¢∫‘≈,√À— ºŸÈ´◊ÈÕ,™◊ËÕºŸÈ´◊ÈÕ,«—π∑’Ë´◊ÈÕ,®”π«π√«¡  PV,®”π«π‡ß‘π√«¡, “¢“À√◊Õæπ—°ß“π");
+    //    $rec->setSearchDesc("‡πÄ‡∏•‡∏Ç‡∏ö‡∏¥‡∏•,‡∏£‡∏´‡∏±‡∏™‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏ã‡∏∑‡πâ‡∏≠,‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà‡∏ã‡∏∑‡πâ‡∏≠,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°  PV,‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏£‡∏ß‡∏°,‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏£‡∏∑‡∏≠‡∏û‡∏ô‡∏±‡∏Å‡∏á‡∏≤‡∏ô");
         $rec->setSearchDesc($wording_lan["Billjang_4"].",".$wording_lan["Billjang_1"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Billjang_6"].",".$wording_lan["Billjang_17"]);
         
        	
-		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","æ‘¡æÏ");
+		$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE","‡∏û‡∏¥‡∏°‡∏û‡πå");
 
         $rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE"); 
         if($_GET['excel']==1){
@@ -138,7 +140,7 @@ if(!empty($where_bills))$sql .= " and ".$where_bills." ";
 		if($inv_code!=""){$t_inv_code = "&inv=".$inv_code;}
 		
 		$str2 = "<fieldset ><a href='invoice_aprintw.php?bid=$bills".$t_inv_code."' target='_blank'>";
-		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>æ‘¡æÏ∑—ÈßÀ¡¥</a></fieldset>";
+		$str2 .= "<img border='0' src='./images/Amber-Printer.gif'>‡∏û‡∏¥‡∏°‡∏û‡πå‡∏ó‡∏±‡πâ‡∏á‡∏´‡∏°‡∏î</a></fieldset>";
 		$rec->setSpace($str2);
         $rec->showRec(1,'SH_QUERY');
  
