@@ -30,7 +30,6 @@ $dbname = "cci_db";
 //    print ('It\'s work');
 //}
 print('test connect...<br/>');
-//phpinfo();
 
 //$link = mysqli_connect($servername, $username, $password);
 $conn = @mysql_connect("p-enterprise.com:9100", "dev", "dev@cci");
@@ -44,5 +43,5 @@ if (mysqli_connect_errno()) {
 else {
     print('connect work');
 }
-
+phpinfo();
 ?>

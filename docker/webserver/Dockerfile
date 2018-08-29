@@ -8,11 +8,7 @@ RUN apt-get update -y \
     libmcrypt-dev \
     libreadline-dev \
     libmemcached-dev \
-    zlib1g-dev \
-    libfreetype6-dev \
-    libpng-dev \
-    libjpeg-dev \
-    libpng-dev
+    zlib1g-dev
 
 RUN apt-get install -y git zip unzip && \
         php -r "readfile('http://getcomposer.org/installer');" | php -- --install-dir=/usr/bin/ --filename=composer && \
@@ -25,14 +21,7 @@ RUN pecl install \
     xdebug-2.5.0 \
     memcached-3.0.4
 
-RUN docker-php-ext-configure gd \
-            --enable-gd-native-ttf \
-            --with-freetype-dir=/usr/include/freetype2 \
-            --with-png-dir=/usr/include \
-            --with-jpeg-dir=/usr/include \
-        && docker-php-ext-install gd
-
-RUN docker-php-ext-install pdo pdo_mysql curl mysqli mcrypt mysql
+RUN docker-php-ext-install pdo pdo_mysql gd curl mysqli mcrypt
 RUN docker-php-ext-enable \
     xdebug
 
