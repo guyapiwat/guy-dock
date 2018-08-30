@@ -59,6 +59,7 @@ global $wording_lan;
     <td align="right" valign="bottom"><br><br><? if(!empty($_SESSION["inv_username"])){?><img src="images/user.gif" width="18" height="18" align="bottom" />&nbsp;<? echo  "<strong>".$wording_lan["word"]["usercode"]."&nbsp;:&nbsp;</strong>".$_SESSION["inv_usercode"]."&nbsp;&nbsp;<strong>".$wording_lan["word"]["username"]."&nbsp;:&nbsp;</strong>".$_SESSION["inv_username"]."";?>
 	<? echo  "<br /><strong>".$wording_lan["inv_code"]."&nbsp;:&nbsp;</strong> ".$_SESSION["admininvent"]."&nbsp;&nbsp;<strong>".$wording_lan["inv_name"]."&nbsp;:&nbsp;</strong>".$_SESSION["admininventname"]."<br /><br />"; }?>
 <!--		  <span id="lbltime" style="color:Red;"></span> -->
+ 
 	</td>
 	<td align="right" >&nbsp; &nbsp; </td>
   </tr>

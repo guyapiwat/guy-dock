@@ -5,7 +5,7 @@
 	
 	//$link = mysql_connect("localhost", "root", "root") or die("Could not connect: " . mysql_error());
 
-	$charset = "SET NAMES 'tis620'"; 
+	$charset = "SET NAMES 'UTF8'"; 
     mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 
 	mysql_select_db("$connectmysql_dbname") or die("�������ö��ҹ�ҹ������� ��س���ҹ�Ը�ŧ������ install file");
