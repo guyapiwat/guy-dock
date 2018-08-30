@@ -476,8 +476,8 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
 
         val = val + "," + document.getElementById('id_card_img').value;
         field = field + ",id_card_img";
-        flag = flag + ",1-0-0-0-0-0";
-        errDesc = errDesc + ",<?="กรุณาตรวจสอบเอกสารที่ต้องการส่งด้วยค่ะ";?>";
+        flag = flag + ",1-0-2-0-0-0";
+        errDesc = errDesc + ",<?="กรุณาอัพโหลดเอกสารสำเนาบัตรประชาชน";?>";
 
 
         val = val + "," + document.getElementById('name_f').value;
@@ -495,10 +495,21 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
         flag = flag + ",1-0-0-1-0";
         errDesc = errDesc + ",<?=$wording_lan["tab1_mem_26"]?>";
 
+if($('#chkcmem').prop("checked")){
+        val = val + "," + document.getElementById('cid_card').value;
+        field = field + ",cid_card";
+        flag = flag + ",1-0-0-1-0";
+        errDesc = errDesc + ",<?=$wording_lan["tab1_mem_26"]?>ผู้สมัครร่วม";
+}
+
+      
+
+
+
         if (document.getElementById('national').value == 'Thailand') {
             var a = document.getElementById('id_card').value;
             var id_card = "";
-            var t = a.split("-");  //�������äᵡ��ŧ array t
+            var t = a.split("-");   
             for (var i = 0; i < t.length; i++) {
                 id_card = id_card + t[i];
             }
@@ -852,7 +863,7 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                             <div class="profile-user-info profile-user-info-striped"  >
 
                              <div class="profile-info-row table-header" >
-                                    <div class="profile-info-value" >Upload File เอกสร</div>
+                                    <div class="profile-info-value" >อัพโหลดเอกสาร</div>
 
                                     <div class="profile-info-value">
                                     </div>
@@ -871,10 +882,12 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                                         <br>
   
   
-                                      <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">UPload file </a>
-                                        
-                                        <br><br>
-                                        <br><br>
+                                      <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
+                                        <br>
+                                        <div id="showimage">
+                                         <br><br><br>
+                                        </div>                                        
+                                       
                                         </div>
                                    </div>     
                                    <div class="space-6"></div>

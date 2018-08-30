@@ -24,7 +24,12 @@ for ($i = 0; $i < sizeof($flist); $i++) {
         // echo $fdesc[$i];
         // exit;
         //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_74']) . "1</br>";
-        $errmsg .=  $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_74'] . "1</br>";
+        if($flist[$i]=='id_card_img'){
+            $errmsg .=    " " . $fdesc[$i] . ' ' . ''   . "</br>";
+        }else{
+        $errmsg .=  $wording_lan['tab4']['1_70']  . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_74'] . "</br>";
+        }
+
     }
     if ($arglist[1] > 0 && strlen($fval[$i]) != $arglist[1] && $fval[$i] != "") { //size
         //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_75']) . ' ' . $arglist[1] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_76']) . "</br>";
@@ -37,6 +42,7 @@ for ($i = 0; $i < sizeof($flist); $i++) {
         //echo $fval[$i]."=".$fskip[$i]."<br />";
         $exlist = explode('#', $flist[$i]);
         $exval = explode('#', $fval[$i]);
+        //var_dump($fval[$i]);
         if (sizeof($exlist) >= 2) {
             mysql_query("SET NAMES 'utf8'");
             $sql = "SELECT * FROM " . $dbprefix . $table . " WHERE ";
@@ -54,11 +60,19 @@ for ($i = 0; $i < sizeof($flist); $i++) {
             mysql_free_result($rs);
         } else {
             mysql_query("SET NAMES 'utf8'");
-            $rs = mysql_query("SELECT * FROM " . $dbprefix . $table . " WHERE " . $flist[$i] . "='" . $fval[$i] . "' LIMIT 1");
+            if($flist[$i]=='cid_card'){
+            $sql="SELECT * FROM " . $dbprefix . $table . " WHERE id_card='" . $fval[$i] . "' LIMIT 1";
+            $msgext='ผู้สมัครร่วม';
+            }else{
+            $sql="SELECT * FROM " . $dbprefix . $table . " WHERE " . $flist[$i] . "='" . $fval[$i] . "' LIMIT 1";   
+            $msgext=''; 
+            }
+            //echo $sql;
+            $rs = mysql_query($sql);
             //echo "SELECT * FROM ".$dbprefix.$table." WHERE ".$flist[$i]."='".$fval[$i]."' LIMIT 1";
             if (mysql_num_rows($rs) > 0)
                // $errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_71']) . "</br>";
-               $errmsg .=  $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_71'] . "</br>";
+               $errmsg .= $msgext.'เลขบัตรประชาชนนี้ มีอยู่ในระบบแล้ว ไม่สามารถบันทึกซ้ำได้<br>';// $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_71'] . "</br>";
             mysql_free_result($rs);
         }
     }

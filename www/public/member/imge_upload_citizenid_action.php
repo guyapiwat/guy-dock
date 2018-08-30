@@ -13,7 +13,7 @@ $fileimagename= $_POST["mcid_img"];
 //var_dump($_SERVER['HTTP_X_FILE_NAME']);
 //$erp_product_image = new erp_product_image();
 if($fileimagename."x"=="x"){
-   echo "1234";
+    echo "กรุณาสุ่มหรัสมาชิกก่อนค่ะ";
     exit;
 } 
 //if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
@@ -68,7 +68,7 @@ if(isset($_POST)){
             echo ' <img src="'.$dir_dest. $handle->file_dst_name . '" border=0><br>' . $handle->file_dst_name . '';
             echo ' <input type="hidden" id="id_card_img2" name="id_card_img2"  value="'. $handle->file_dst_name . '">';
 			echo '   (' . round(filesize($handle->file_dst_pathname)/256)/4 . 'KB)';
-            echo '</p><script>$("#id_card_img").val(\''. $handle->file_dst_name .'\');</script>';
+            echo '</p><script>$("#id_card_img").val(\''. $handle->file_dst_name .'\');$("#showimage").html(\'<img src="../uploads/member/'. $handle->file_dst_name .'" alt="บัตรประชาชน" height="60" width="60">\');</script>';
 
             // $url= $dir_dest. $handle->file_dst_name;
             // $filename = $handle->file_dst_name;
