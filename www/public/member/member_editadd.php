@@ -422,7 +422,7 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
             if (data.trim() != '') {
                 //$('.chekMemberAlert').html('<img src="./images/false.gif"/>');
                 document.getElementById("mcode").value = value = str_pad(data.trim(), 7, 0, false);
-                document.getElementById("mcid_img").value =  document.getElementById("fmcode").value + document.getElementById("mcode").value;
+                document.getElementById("mcid_img").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
                 checkMemberExit();
             } else {
                 //$('.chekMemberAlert').html('<img src="./images/true.gif"/>');
@@ -495,21 +495,18 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
         flag = flag + ",1-0-0-1-0";
         errDesc = errDesc + ",<?=$wording_lan["tab1_mem_26"]?>";
 
-if($('#chkcmem').prop("checked")){
-        val = val + "," + document.getElementById('cid_card').value;
-        field = field + ",cid_card";
-        flag = flag + ",1-0-0-1-0";
-        errDesc = errDesc + ",<?=$wording_lan["tab1_mem_26"]?>ผู้สมัครร่วม";
-}
-
-      
-
+        if ($('#chkcmem').prop("checked")) {
+            val = val + "," + document.getElementById('cid_card').value;
+            field = field + ",cid_card";
+            flag = flag + ",1-0-0-1-0";
+            errDesc = errDesc + ",<?=$wording_lan["tab1_mem_26"]?>ผู้สมัครร่วม";
+        }
 
 
         if (document.getElementById('national').value == 'Thailand') {
             var a = document.getElementById('id_card').value;
             var id_card = "";
-            var t = a.split("-");   
+            var t = a.split("-");
             for (var i = 0; i < t.length; i++) {
                 id_card = id_card + t[i];
             }
@@ -568,47 +565,47 @@ if($('#chkcmem').prop("checked")){
         field = field + ",birthday3";
         flag = flag + ",1-0-0-0-0";
         errDesc = errDesc + ",<?=$wording_lan["tab1_mem_84"] ?>";
-        if(document.getElementById('national').value == 'Thailand'){
-		val = val + ","+document.getElementById('address').value;
-		field = field +",address";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",เลขที่/ห้อง";
+        if (document.getElementById('national').value == 'Thailand') {
+            val = val + "," + document.getElementById('address').value;
+            field = field + ",address";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",เลขที่/ห้อง";
 
-		val = val + ","+document.getElementById('province').value;
-		field = field +",province";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",จังหวัด ";
+            val = val + "," + document.getElementById('province').value;
+            field = field + ",province";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",จังหวัด ";
 
-		val = val + ","+document.getElementById('amphur').value;
-		field = field +",amphur";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",อำเภอ ";
+            val = val + "," + document.getElementById('amphur').value;
+            field = field + ",amphur";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",อำเภอ ";
 
-		val = val + ","+document.getElementById('district').value;
-		field = field +",district";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",ตำบล ";
+            val = val + "," + document.getElementById('district').value;
+            field = field + ",district";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",ตำบล ";
 
-		val = val + ","+document.getElementById('caddress').value;
-		field = field +",caddress";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(เลขที่/ห้อง)";
+            val = val + "," + document.getElementById('caddress').value;
+            field = field + ",caddress";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(เลขที่/ห้อง)";
 
-		val = val + ","+document.getElementById('cprovince').value;
-		field = field +",cprovince";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(จังหวัด) ";
+            val = val + "," + document.getElementById('cprovince').value;
+            field = field + ",cprovince";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(จังหวัด) ";
 
-		val = val + ","+document.getElementById('camphur').value;
-		field = field +",camphur";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(อำเภอ) ";
+            val = val + "," + document.getElementById('camphur').value;
+            field = field + ",camphur";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(อำเภอ) ";
 
-		val = val + ","+document.getElementById('cdistrict').value;
-		field = field +",cdistrict";
-		flag = flag+",1-0-0-0-0";
-		errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(ตำบล) ";
-	}
+            val = val + "," + document.getElementById('cdistrict').value;
+            field = field + ",cdistrict";
+            flag = flag + ",1-0-0-0-0";
+            errDesc = errDesc + ",ที่อยู่สำหรับจัดส่ง / ส่งเอกสาร(ตำบล) ";
+        }
         /*
         if(document.getElementById('national').value == 'Thailand'){
             var a = document.getElementById('id_card').value;
@@ -654,7 +651,7 @@ if($('#chkcmem').prop("checked")){
             //exit;
         }
 
-       
+
         document.getElementById('checkstate').innerHTML = "<img align='center' src='./images/loading.gif' />";
         startRQ(field, val, "", flag, errDesc, "member", "checkstate");
     }
@@ -683,9 +680,6 @@ if($('#chkcmem').prop("checked")){
 
 
 </script>
-
-
-
 
 
 <?
@@ -859,56 +853,54 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                             </div>
 
                         </div>
-                        <div class="col-xs-12 col-sm-6"   >
-                            <div class="profile-user-info profile-user-info-striped"  >
+                        <div class="col-xs-12 col-sm-6">
+                            <div class="profile-user-info profile-user-info-striped">
 
-                             <div class="profile-info-row table-header" >
-                                    <div class="profile-info-value" >อัพโหลดเอกสาร</div>
+                                <div class="profile-info-row table-header">
+                                    <div class="profile-info-value">อัพโหลดเอกสาร</div>
 
                                     <div class="profile-info-value">
                                     </div>
-                            </div>
+                                </div>
 
-                            <div class="profile-info-row">
+                                <div class="profile-info-row">
                                     <div class="profile-info-name"> บัตรประชาชน&nbsp;<font
                                                 color="#ff0000">*</font></div>
 
                                     <div class="input-group col-sm-9 col-xs-9">
                                         <div class="space-6"></div>
                                         <div class="space-6"></div>
-                                        
+
                                         <div style="clear:both">
-                                     
-                                        <br>
-  
-  
-                                      <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
-                                        <br>
-                                        <div id="showimage">
-                                         <br><br><br>
-                                        </div>                                        
-                                       
+
+                                            <br>
+
+
+                                            <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
+                                            <br>
+                                            <div id="showimage">
+                                                <br><br><br>
+                                            </div>
+
                                         </div>
-                                   </div>     
-                                   <div class="space-6"></div>
+                                    </div>
                                     <div class="space-6"></div>
                                     <div class="space-6"></div>
                                     <div class="space-6"></div>
-                            </div>
-                           
-                            
-                           
+                                    <div class="space-6"></div>
+                                </div>
+
 
                             </div>
                         </div>
 
-                         
-                        <div class="col-xs-12 col-sm-6" style="display:none;" >
-                            <!-- #section:pages/profile.info -->
-                            <div class="profile-user-info profile-user-info-striped"  >
 
-                                <div class="profile-info-row table-header" >
-                                    <div class="profile-info-value" ><?= $wording_lan["tab1_mem_2"] ?></div>
+                        <div class="col-xs-12 col-sm-6" style="display:none;">
+                            <!-- #section:pages/profile.info -->
+                            <div class="profile-user-info profile-user-info-striped">
+
+                                <div class="profile-info-row table-header">
+                                    <div class="profile-info-value"><?= $wording_lan["tab1_mem_2"] ?></div>
 
                                     <div class="profile-info-value">
                                     </div>
@@ -1059,8 +1051,8 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                                 <div class="profile-info-row">
                                     <div class="profile-info-name"> <?= $wording_lan["tab1_mem_23"] ?> <font
                                                 color="#ff0000">*</font>
-                                               <?=$datax["sex"];?> 
-                                                </div>
+                                        <?= $datax["sex"]; ?>
+                                    </div>
 
                                     <div class="control-group">
 
@@ -1992,42 +1984,40 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                 <?= $wording_lan["tab4"]["5_19"] ?>
             </button>
         </center>
-<input type="hidden" id="id_card_img" name="id_card_img" value="">
+        <input type="hidden" id="id_card_img" name="id_card_img" value="">
 </form>
 
 <div id="uploadcitizenid" class="modal fade" role="dialog" style="display: none;">
-		<div class="modal-dialog">
-		  <div class="modal-content">
-			<div class="modal-body">
-
-				
-
-		<div id="upload-wrapper">
-		<div align="center">
-        
-		<form action="imge_upload_citizenid_action.php" method="post" enctype="multipart/form-data" id="MyUploadForm">
-		<input name="image_file" id="imageInput" type="file" class="btn btn-default">
-		<input name="mcid_img" id="mcid_img" type="hidden" value=""><br>
-		<input type="submit" id="submit-btn" value="Upload" class="btn btn-default">
-		<a class="btn btn-danger" href="javascript:$('#uploadcitizenid').modal('toggle');">ปิด</a>
-
-		<img src="images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait">
-		</form>
-        <div id="output">
-		<img src="">
-		</div>
-         
-		
-		</div>
-		</div>
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-body">
 
 
+                <div id="upload-wrapper">
+                    <div align="center">
 
+                        <form action="imge_upload_citizenid_action.php" method="post" enctype="multipart/form-data"
+                              id="MyUploadForm">
+                            <input name="image_file" id="imageInput" type="file" class="btn btn-default">
+                            <input name="mcid_img" id="mcid_img" type="hidden" value=""><br>
+                            <input type="submit" id="submit-btn" value="อัพโหลด" class="btn btn-default">
+                            <a class="btn btn-danger" href="javascript:$('#uploadcitizenid').modal('toggle');">ปิด</a>
+
+                            <img src="images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait">
+                        </form>
+                        <div id="output">
+                            <img src="">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
 </div>
-</div>
-</div>	
-</div>
-
 
 
 <div class="space-6"></div>
@@ -2052,92 +2042,89 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
 
 
 <script
-  src="https://code.jquery.com/jquery-3.3.1.min.js"
-  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
-  crossorigin="anonymous"></script>
+        src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous"></script>
 <script type="text/javascript" src="js/jquery.form.min.js"></script>
 <script type="text/javascript">
-		
-
-		
-		function afterSuccess()
-		{
-			$('#submit-btn').show(); //hide submit button
-			$('#loading-img').hide(); //hide submit button
-		    $('.pull-right').css("display", "block");
-			//list_image();
-		
-		}
-		
-		//function to check file size before uploading.
-		function beforeSubmit(){
-			//check whether browser fully supports all File API
-		   if (window.File && window.FileReader && window.FileList && window.Blob)
-			{
-				
-				if( !$('#imageInput').val()) //check empty input filed
-				{
-					$("#output").html("file not found try one more ?");
-					return false
-				}
-				
-				var fsize = $('#imageInput')[0].files[0].size; //get file size
-				var ftype = $('#imageInput')[0].files[0].type; // get file type
-				
-		
-				//allow only valid image file types 
-				switch(ftype)
-				{
-					case 'image/png': case 'image/gif': case 'image/jpeg': case 'image/pjpeg':
-						break;
-					default:
-						$("#output").html("<b>"+ftype+"</b> Unsupported file type!");
-						return false
-				}
-				
-				//Allowed file size is less than 1 MB (1048576)
-				if(fsize>1048576) 
-				{
-					$("#output").html("<b>"+bytesToSize(fsize) +"</b> Too big Image file! <br />Please reduce the size of your photo using an image editor.");
-					return false
-				}
-						
-				$('#submit-btn').hide(); //hide submit button
-				$('#loading-img').show(); //hide submit button
-				//$("#output").html("");  
-				 
-			}
-			else
-			{
-				//Output error to older browsers that do not support HTML5 File API
-				$("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
-				return false;
-			}
-		}
-		
-		//function to format bites bit.ly/19yoIPO
-		function bytesToSize(bytes) {
-		   var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
-		   if (bytes == 0) return '0 Bytes';
-		   var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
-		   return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
-		}
-		 
- 
-		$(document).ready(function() { 
-			var options = { 
-					target: '#output',   // target element(s) to be updated with server response 
-					beforeSubmit: beforeSubmit,  // pre-submit callback 
-					success: afterSuccess,  // post-submit callback 
-					resetForm: true        // reset the form after successful submit 
-				}; 
-				
-			 $('#MyUploadForm').submit(function() { 
-					$(this).ajaxSubmit(options);  			
-					// always return false to prevent standard browser submit and page navigation 
-					return false; 
-				}); 
-		}); 
 
 
-		 </script>
+    function afterSuccess() {
+        $('#submit-btn').show(); //hide submit button
+        $('#loading-img').hide(); //hide submit button
+        $('.pull-right').css("display", "block");
+        //list_image();
+
+    }
+
+    //function to check file size before uploading.
+    function beforeSubmit() {
+        //check whether browser fully supports all File API
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+            if (!$('#imageInput').val()) //check empty input filed
+            {
+                $("#output").html("กรุณาเลือกไฟล์ภาพ");
+                return false
+            }
+
+            var fsize = $('#imageInput')[0].files[0].size; //get file size
+            var ftype = $('#imageInput')[0].files[0].type; // get file type
+
+
+            //allow only valid image file types
+            switch (ftype) {
+                case 'image/png':
+                case 'image/gif':
+                case 'image/jpeg':
+                case 'image/pjpeg':
+                    break;
+                default:
+                    $("#output").html("<b>" + ftype + "</b> ไม่สามารถใช้ไฟล์นี้ได้!");
+                    return false
+            }
+
+            //Allowed file size is less than 1 MB (1048576)
+            if (fsize > 5120000) {
+                $("#output").html("ขนาดไฟล์ภาพใหญ่เกินไป" + "<b>" + "กรุณาเลือกไฟล์ที่มีขนาดน้อยกว่า " + bytesToSize(fsize) + "</b>");
+                return false
+            }
+
+            $('#submit-btn').hide(); //hide submit button
+            $('#loading-img').show(); //hide submit button
+            //$("#output").html("");
+
+        }
+        else {
+            //Output error to older browsers that do not support HTML5 File API
+            $("#output").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+            return false;
+        }
+    }
+
+    //function to format bites bit.ly/19yoIPO
+    function bytesToSize(bytes) {
+        var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
+        if (bytes == 0) return '0 Bytes';
+        var i = parseInt(Math.floor(Math.log(bytes) / Math.log(1024)));
+        return Math.round(bytes / Math.pow(1024, i), 2) + ' ' + sizes[i];
+    }
+
+
+    $(document).ready(function () {
+        var options = {
+            target: '#output',   // target element(s) to be updated with server response
+            beforeSubmit: beforeSubmit,  // pre-submit callback
+            success: afterSuccess,  // post-submit callback
+            resetForm: true        // reset the form after successful submit
+        };
+
+        $('#MyUploadForm').submit(function () {
+            $(this).ajaxSubmit(options);
+            // always return false to prevent standard browser submit and page navigation
+            return false;
+        });
+    });
+
+
+</script>

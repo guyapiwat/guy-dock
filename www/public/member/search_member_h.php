@@ -17,7 +17,7 @@ header("content-type: application/x-javascript; charset=utf8");
 
 include("prefix.php");
 include("connectmysql.php");
-include("../api/settings.php");
+include("../share/settings.php");
 
 $value = (isset($_POST["value"])) ? $_POST["value"] : $_GET["value"];
 $mcode1 = $_SESSION["usercode"];
