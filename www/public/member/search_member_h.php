@@ -77,7 +77,7 @@ if (!empty($value)) {
             echo "memterminate";
             exit;
         }
-        if ($cmp == "" and ) {
+        if ($cmp == "") {
             if ($data->id_card_img != "") {
                 echo $chkshow;
             } else {
