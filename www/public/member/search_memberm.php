@@ -33,8 +33,10 @@ if($mtype1 == "0"){
 		//if($value != $_SESSION["usercode"])$sql .= "and id > 127 ";
 		$sql .= " limit 0,1";
 		$result = mysql_query($sql) or die("ระบบไม่สามารถค้นหาได้") ;
+
 		if(mysql_num_rows($result) > 0){
 		$data = mysql_fetch_object($result);
+	//var_dump($data);
 		$cmc = $data->mcode;      
 		$caddress = $data->caddress;
 		$cbuilding = $data->cbuilding;
@@ -52,16 +54,20 @@ if($mtype1 == "0"){
 			echo "1234";
 			exit;
 		}
-		echo $data->name_t;
+		
+		
 		$l1 = lrMost($dbprefix,$cmc,'1');
 		$namel = getMember($dbprefix,$l1);
 		$l2 = lrMost($dbprefix,$cmc,'2');
 		$namer = getMember($dbprefix,$l2);
 		$l3 = lrMost($dbprefix,$cmc,'3');
 		$namec = getMember($dbprefix,$l3);
+		if(strpos($l1,$cmc)."x"=="x"){
+		echo $data->name_t;
 		echo '|'.$l1.' '.$namel;
 		echo '|'.$l2.' '.$namer;
 		echo '|'.$l3.' '.$namec;
+		}
 
 		}else{
 			echo "1234";

@@ -4,7 +4,7 @@ ini_set("memory_limit", "1024M");
 ob_start();
 session_start();
 if ($_SESSION["usercode"] != '') {
-    header('Content-type: application/pdf');
+    header('Content-type: application/pdf;charset=utf-8');
     ?>
     <? include("../backoffice/connectmysql.php"); ?>
     <? include("../function/function_pos.php"); ?>
@@ -89,8 +89,8 @@ if ($_SESSION["usercode"] != '') {
         $sql .= " and total >= '$total1'  and total <= '$total2'  ";
     }
 
-    $sqlLog1 = "SELECT sys_id,logdate,logtime FROM " . $dbprefix . "log  WHERE object ='$sano' and subject = '‡æ‘Ë¡∫‘≈' order by id desc";
-    $sqlLog2 = "SELECT sys_id,logdate,logtime  FROM " . $dbprefix . "log  WHERE object ='$sano' and subject = '·°È‰¢∫‘≈' order by id desc";
+    $sqlLog1 = "SELECT sys_id,logdate,logtime FROM " . $dbprefix . "log  WHERE object ='$sano' and subject = '‡πÄ‡∏û‡∏¥‡πà‡∏°‡∏ö‡∏¥‡∏•' order by id desc";
+    $sqlLog2 = "SELECT sys_id,logdate,logtime  FROM " . $dbprefix . "log  WHERE object ='$sano' and subject = '‡πÅ‡∏Å‡πâ‡πÑ‡∏Ç‡∏ö‡∏¥‡∏•' order by id desc";
 
 
     $rs = mysql_query($sql);
@@ -98,8 +98,8 @@ if ($_SESSION["usercode"] != '') {
         ?>
         <table width="300" align="center" bgcolor="#990000">
         <tr>
-            <td align="center">‰¡Ëæ∫¢ÈÕ¡Ÿ≈¢Õß∫‘≈‡≈¢∑’Ë <?= $sano ?>
-                <br/><input type="button" value="ª‘¥ÀπÈ“π’È" onClick="window.close()"/></td>
+            <td align="center">‡πÑ‡∏°‡πà‡∏û‡∏ö‡∏Ç‡πâ‡∏≠‡∏°‡∏π‡∏•‡∏Ç‡∏≠‡∏á‡∏ö‡∏¥‡∏•‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà <?= $sano ?>
+                <br/><input type="button" value="‡∏õ‡∏¥‡∏î‡∏´‡∏ô‡πâ‡∏≤‡∏ô‡∏µ‡πâ" onClick="window.close()"/></td>
         </tr></table><?
         exit;
     }
@@ -116,7 +116,7 @@ if ($_SESSION["usercode"] != '') {
         $name_t[$i] = $obj->name_t;
         $name_all[$i] = $name_f[$i] . $name_t[$i];
         if ($obj->cname != '' and $obj->cname != $name_all[$i]) {
-            $cmobile[$i] = $obj->cmobile . " ( ™◊ËÕºŸÈ√—∫ : " . $obj->cname . " )";
+            $cmobile[$i] = $obj->cmobile . " ( ‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö : " . $obj->cname . " )";
         } else {
             $cmobile[$i] = $obj->cmobile;
         }
@@ -150,9 +150,9 @@ if ($_SESSION["usercode"] != '') {
         if (empty($inv_code[$i])) $inv_code[$i] = 'Head Office';
         /*
             $add[$mcode[$i]] = $obj->caddress;
-            $add[$mcode[$i]] .= $obj->cdistrictId==""?"":" µ.".$obj->cdistrictId;
-            $add[$mcode[$i]] .= $obj->camphurId==""?"":" Õ.".$obj->camphurId;
-            $add[$mcode[$i]] .= $obj->cprovinceId==""?"":" ®.".$obj->cprovinceId;
+            $add[$mcode[$i]] .= $obj->cdistrictId==""?"":" ‡∏ï.".$obj->cdistrictId;
+            $add[$mcode[$i]] .= $obj->camphurId==""?"":" ‡∏≠.".$obj->camphurId;
+            $add[$mcode[$i]] .= $obj->cprovinceId==""?"":" ‡∏à.".$obj->cprovinceId;
             $add[$mcode[$i]] .= " ".$obj->czip;
         */
 
@@ -264,9 +264,9 @@ if ($_SESSION["usercode"] != '') {
                         $provinceName=mysql_result($rs2,0,'provinceName'); */
 
             $add[$mcode[$i]] = mysql_result($rs2, 0, 'address');
-            $add[$mcode[$i]] .= $districtId == "" ? "" : " µ." . $districtId;
-            $add[$mcode[$i]] .= $amphurId == "" ? "" : " Õ." . $amphurId;
-            $add[$mcode[$i]] .= $provinceId == "" ? "" : " ®." . $provinceId;
+            $add[$mcode[$i]] .= $districtId == "" ? "" : " ‡∏ï." . $districtId;
+            $add[$mcode[$i]] .= $amphurId == "" ? "" : " ‡∏≠." . $amphurId;
+            $add[$mcode[$i]] .= $provinceId == "" ? "" : " ‡∏à." . $provinceId;
             $add[$mcode[$i]] .= mysql_result($rs2, 0, 'zip');
 
             //}
@@ -356,27 +356,27 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
             switch ($inv_code[$i]) {
                 case 'BKK01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " ( π≠.)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (‡∏™‡∏ô‡∏ç.)", 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address"];
                     $c_address_2 = $wording_lan["company_address2"];
                     break;
                 case 'HY01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " ( “¢“À“¥„À≠Ë)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (‡∏™‡∏≤‡∏Ç‡∏≤‡∏´‡∏≤‡∏î‡πÉ‡∏´‡∏ç‡πà)", 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_hdy"];
                     $c_address_2 = $wording_lan["company_address2_hdy"];
                     break;
                 case 'KL01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " ( “¢“‚§√“™)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (‡∏™‡∏≤‡∏Ç‡∏≤‡πÇ‡∏Ñ‡∏£‡∏≤‡∏ä)", 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_kl"];
                     $c_address_2 = $wording_lan["company_address2_kl"];
                     break;
                 case 'CRI01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " ( “¢“‡™’¬ß√“¬)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (‡∏™‡∏≤‡∏Ç‡∏≤‡πÄ‡∏ä‡∏µ‡∏¢‡∏á‡∏£‡∏≤‡∏¢)", 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_cri"];
                     $c_address_2 = $wording_lan["company_address2_cri"];
                     break;
                 default:
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " ( π≠.)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (‡∏™‡∏ô‡∏ç.)", 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address"];
                     $c_address_2 = $wording_lan["company_address2"];
                     break;
@@ -396,39 +396,39 @@ if ($_SESSION["usercode"] != '') {
 
             $pdf->SetY($offsety + 3 * $offsetnline + 5.5);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
-            $pdf->Cell((4 * $offsettab), 10, "‡≈¢ª√–®”µ—«ºŸÈ‡ ’¬¿“…’ 0-1055-59080-08-9", 0, 0, "L");
+            $pdf->Cell((4 * $offsettab), 10, "‡πÄ‡∏•‡∏Ç‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ï‡∏±‡∏ß‡∏ú‡∏π‡πâ‡πÄ‡∏™‡∏µ‡∏¢‡∏†‡∏≤‡∏©‡∏µ 0-1055-59080-08-9", 0, 0, "L");
 
             $pdf->SetFont('angsa', '', 17);
 
             $pdf->SetY($offsety + $offsetnline);
             $pdf->SetX($offsetx + (9 * $offsettab) - 10);
-            $pdf->Cell($offsettab, 10, "„∫ Ëß¢Õß", 0, 0, "C");
+            $pdf->Cell($offsettab, 10, "‡πÉ‡∏ö‡∏™‡πà‡∏á‡∏Ç‡∏≠‡∏á", 0, 0, "C");
 
 
             //$pdf->SetY($offsety+3*$offsetnline);
             //$pdf->SetX($offsetx+(9*$offsettab)+5);
-            //$pdf->Cell($offsettab,10,"(‡Õ° “√ÕÕ°‡ªÁπ™ÿ¥)",0,0,"C");
+            //$pdf->Cell($offsettab,10,"(‡πÄ‡∏≠‡∏Å‡∏™‡∏≤‡∏£‡∏≠‡∏≠‡∏Å‡πÄ‡∏õ‡πá‡∏ô‡∏ä‡∏∏‡∏î)",0,0,"C");
 
             //$pdf->SetY($offsety+(6*$offsetnline));
             //$pdf->SetX($offsetx+$offsettab);
-            //$pdf->Cell((2*$offsettab),10,"‡≈¢ª√–®”µ—«ºŸÈ‡ ’¬¿“…’Õ“°√",0,0,"L");
+            //$pdf->Cell((2*$offsettab),10,"‡πÄ‡∏•‡∏Ç‡∏õ‡∏£‡∏∞‡∏à‡∏≥‡∏ï‡∏±‡∏ß‡∏ú‡∏π‡πâ‡πÄ‡∏™‡∏µ‡∏¢‡∏†‡∏≤‡∏©‡∏µ‡∏≠‡∏≤‡∏Å‡∏£",0,0,"L");
 
             //$pdf->SetY($offsety+(5*$offsetnline));
             //$pdf->SetX($offsetx+(4*$offsettab));
-            //$pdf->Cell((3*$offsettab),10,"„∫√—∫‡ß‘π/„∫√—∫ ‘π§È“",0,0,"C");
+            //$pdf->Cell((3*$offsettab),10,"‡πÉ‡∏ö‡∏£‡∏±‡∏ö‡πÄ‡∏á‡∏¥‡∏ô/‡πÉ‡∏ö‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤",0,0,"C");
             //$pdf->SetY($offsety+(6*$offsetnline)-20);
             //$pdf->SetX($offsetx+(4*$offsettab)+30);
             //$pdf->Cell((3*$offsettab),10,"RECEIPT/ TAX INVOICE/PACKING LIST",0,0,"C");
             //-------------------table---------------------
             //$pdf->SetY($offsety+(9*$offsetnline));
-            //°√Õ∫∫π
+            //‡∏Å‡∏£‡∏≠‡∏ö‡∏ö‡∏ô
             $pdf->SetY($offsety + (15 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab - 10);
             $pdf->Cell(10 * $offsettab - 7, 0, "", 1, 0, "L");
             $pdf->SetY($offsety + (15 * $offsetnline) + 6);
             $pdf->SetX($offsetx + $offsettab - 10);
             $pdf->Cell(10 * $offsettab - 7, 0, "", 1, 0, "L");
-            //°√Õ∫≈Ë“ß
+            //‡∏Å‡∏£‡∏≠‡∏ö‡∏•‡πà‡∏≤‡∏á
 
             $pdf->SetY($offsety + (44 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab - 10);
@@ -436,11 +436,11 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetY($offsety + (44 * $offsetnline) + 7);
             $pdf->SetX($offsetx + $offsettab - 10);
             $pdf->Cell(10 * $offsettab - 7, 0, "", 1, 0, "L");
-            //‡ Èπ∫√√∑—¥ ¿“…’ 7%
+            //‡πÄ‡∏™‡πâ‡∏ô‡∏ö‡∏£‡∏£‡∏ó‡∏±‡∏î ‡∏†‡∏≤‡∏©‡∏µ 7%
             //$pdf->SetY($offsety+(21*$offsetnline)+10);
             //$pdf->SetX($offsetx+(9*$offsettab)+6-10);
             //$pdf->Cell(10,0,"",1,0,"L");
-            //‡ Èπ∫√√∑—¥ ¡Ÿ≈§Ë“ ‘π§È“
+            //‡πÄ‡∏™‡πâ‡∏ô‡∏ö‡∏£‡∏£‡∏ó‡∏±‡∏î ‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤
             /*$pdf->SetY($offsety+(44*$offsetnline)+14);
             $pdf->SetX($offsetx+(9*$offsettab)+4);
             $pdf->Cell(15,0,"",1,0,"L");
@@ -461,7 +461,7 @@ if ($_SESSION["usercode"] != '') {
             //$pdf->SetY($offsety+(23*$offsetnline)-2);
             //$pdf->SetX($offsetx+(9*$offsettab)+2);
             //$pdf->Cell(21,8,"",1,0,"L");
-            //-----------------------√“¬‡´ÁπµÏ
+            //-----------------------‡∏£‡∏≤‡∏¢‡πÄ‡∏ã‡πá‡∏ô‡∏ï‡πå
             /*$pdf->SetY($offsety+(27*$offsetnline));
             $pdf->SetX($offsetx+$offsettab);
             $pdf->Cell(10*$offsettab-7,(5*$offsetnline),"",1,0,"L");
@@ -484,15 +484,15 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetY($offsety+(24*$offsetnline)-2);
             $pdf->SetX($offsetx+(5*$offsettab)-2);
             $pdf->Cell(4,4,"",1,0,"L"); */
-            //-------------------column ™ËÕß---------------
+            //-------------------column ‡∏ä‡πà‡∏≠‡∏á---------------
             /*$pdf->SetY($offsety+(9*$offsetnline));
-            $pdf->SetX($offsetx+$offsettab-10);//≈”¥—∫
+            $pdf->SetX($offsetx+$offsettab-10);//‡∏•‡∏≥‡∏î‡∏±‡∏ö
             $pdf->Cell($offsettab-8,(12*$offsetnline),"",1,0,"L");
             $pdf->SetY($offsety+(9*$offsetnline));
-            $pdf->SetX($offsetx+$offsettab);//√À—  ‘π§È“
+            $pdf->SetX($offsetx+$offsettab);//‡∏£‡∏´‡∏±‡∏™‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤
             $pdf->Cell(2*$offsettab-8,(12*$offsetnline),"",1,0,"L");
             $pdf->SetY($offsety+(9*$offsetnline));
-            $pdf->SetX($offsetx+$offsettab+5);//√“¬°“√ ‘π§È“
+            $pdf->SetX($offsetx+$offsettab+5);//‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤
             $pdf->Cell(5*$offsettab-8,(12*$offsetnline),"",1,0,"L");
             $pdf->SetY($offsety+(9*$offsetnline));
             $pdf->SetX($offsetx+$offsettab-8);//pv
@@ -509,7 +509,7 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetY($offsety+(9*$offsetnline));
             $pdf->SetX($offsetx+$offsettab+19);
             $pdf->Cell(8*$offsettab+2,(13*$offsetnline)+3,"",1,0,"L");*/
-            // °√Õ∫§«“¡ Ÿß
+            // ‡∏Å‡∏£‡∏≠‡∏ö‡∏Ñ‡∏ß‡∏≤‡∏°‡∏™‡∏π‡∏á
             $pdf->SetY($offsety + (15 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab - 10);
             $pdf->Cell($offsettab - 9, (30.8 * $offsetnline), "", 1, 0, "L");
@@ -539,16 +539,16 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 14);
             $pdf->SetY($offsety + (5 * $offsetnline) - 5);
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, " “¢“.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, "‡∏™‡∏≤‡∏Ç‡∏≤.............................................", 0, 0, "R");
             $pdf->SetY($offsety + (5 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "‡≈¢∑’Ë.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, "‡πÄ‡∏•‡∏Ç‡∏ó‡∏µ‡πà.............................................", 0, 0, "R");
             $pdf->SetY($offsety + (6 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "«—π∑’Ë.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, "‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà.............................................", 0, 0, "R");
             $pdf->SetY($offsety + (7 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "´◊ÈÕ‡æ◊ËÕ.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, "‡∏ã‡∏∑‡πâ‡∏≠‡πÄ‡∏û‡∏∑‡πà‡∏≠.............................................", 0, 0, "R");
 //info---------------------------------------
 
             /*$pdf->SetY($offsety+(5*$offsetnline)-1);
@@ -575,27 +575,27 @@ if ($_SESSION["usercode"] != '') {
 
             $pdf->SetY($offsety + (4 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 10, "√À—  ¡“™‘°", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 10, "‡∏£‡∏´‡∏±‡∏™‡∏™‡∏°‡∏≤‡∏ä‡∏¥‡∏Å", 0, 0, "L");
             $pdf->SetY($offsety + (5 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 12, "™◊ËÕ- °ÿ≈ ", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 12, "‡∏ä‡∏∑‡πà‡∏≠-‡∏™‡∏Å‡∏∏‡∏• ", 0, 0, "L");
             $pdf->SetY($offsety + (6 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 15, "‡∫Õ√Ï‚∑√", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 15, "‡πÄ‡∏ö‡∏≠‡∏£‡πå‡πÇ‡∏ó‡∏£", 0, 0, "L");
             $pdf->SetY($offsety + (7 * $offsetnline) + 1);
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 15, "∑’ËÕ¬ŸË", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 15, "‡∏ó‡∏µ‡πà‡∏≠‡∏¢‡∏π‡πà", 0, 0, "L");
             /*$pdf->SetY($offsety+(7*$offsetnline));
             $pdf->SetX($offsetx+$offsettab);
-            $pdf->Cell((2*$offsettab),10,"À¡“¬‡Àµÿ",0,0,"L"); */
+            $pdf->Cell((2*$offsettab),10,"‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏",0,0,"L"); */
 
             //$pdf->SetY($offsety+(7*$offsetnline));
             //$pdf->SetX($offsetx+(7*$offsettab));
-            //$pdf->Cell((2*$offsettab),10,"™◊ËÕºŸÈ·π–π”",0,0,"L");
+            //$pdf->Cell((2*$offsettab),10,"‡∏ä‡∏∑‡πà‡∏≠‡∏ú‡∏π‡πâ‡πÅ‡∏ô‡∏∞‡∏ô‡∏≥",0,0,"L");
 
             //$pdf->SetY($offsety+(8*$offsetnline));
             //$pdf->SetX($offsetx+(7*$offsettab));
-            //$pdf->Cell((2*$offsettab),10,"√À— ",0,0,"L");
+            //$pdf->Cell((2*$offsettab),10,"‡∏£‡∏´‡∏±‡∏™",0,0,"L");
 //info---------------------------------------
             $pdf->SetY($offsety + (4 * $offsetnline));
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
@@ -609,12 +609,12 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetY($offsety + (7 * $offsetnline) + 6);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
 //function MultiCell($w,$h,$txt,$border=0,$align='J',$fill=0)
-            //$pdf->MultiCell((5*$offsettab),3,$add[$mcode[$i]]." ¡◊Õ∂◊Õ : ".$mobile,0,"L");
+            //$pdf->MultiCell((5*$offsettab),3,$add[$mcode[$i]]." ‡∏°‡∏∑‡∏≠‡∏ñ‡∏∑‡∏≠ : ".$mobile,0,"L");
             $pdf->MultiCell((5 * $offsettab), 4, $add[$mcode[$i]], 0, "L");
 
             $pdf->SetY($offsety + (7 * $offsetnline) + 14);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 10, "À¡“¬‡Àµÿ.", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, "‡∏´‡∏°‡∏≤‡∏¢‡πÄ‡∏´‡∏ï‡∏∏.", 0, 0, "L");
 
             $pdf->SetY($offsety + (8 * $offsetnline) + 10);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
@@ -669,33 +669,33 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 10);
             $pdf->SetY($offsety + (41 * $offsetnline));
             $pdf->SetX($offsetx + (4 * $offsettab) - 3);
-            $pdf->Cell($offsettab, 11, "º‘¥µ°¬°‡«Èπ E.& O.E.", 0, 0, "C");
+            $pdf->Cell($offsettab, 11, "‡∏ú‡∏¥‡∏î‡∏ï‡∏Å‡∏¢‡∏Å‡πÄ‡∏ß‡πâ‡∏ô E.& O.E.", 0, 0, "C");
 
             $pdf->SetFont('angsa', '', 14);
 
-            $offsety = 94; //  Ë«π≈Ë“ß
+            $offsety = 94; // ‡∏™‡πà‡∏ß‡∏ô‡∏•‡πà‡∏≤‡∏á
             $pdf->SetY($offsety + (22 * $offsetnline));
             $pdf->SetX($offsetx + (6.7 * $offsettab));
-            $pdf->Cell($offsettab, 10, "¡Ÿ≈§Ë“ ‘π§È“", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, "‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤", 0, 0, "L");
 
             /*     $pdf->SetY($offsety+(22*$offsetnline)+7);
                 $pdf->SetX($offsetx+(6.7*$offsettab));
-                $pdf->Cell($offsettab,10,"¿“…’¡Ÿ≈§Ë“‡æ‘Ë¡ 7%",0,0,"L");
+                $pdf->Cell($offsettab,10,"‡∏†‡∏≤‡∏©‡∏µ‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏° 7%",0,0,"L");
 
                 $pdf->SetY($offsety+(22*$offsetnline)+14);
                 $pdf->SetX($offsetx+(6.7*$offsettab));
-                $pdf->Cell($offsettab,10,"¡Ÿ≈§Ë“ ‘π§È“ ‰¡Ë√«¡¿“…’¡Ÿ≈§Ë“‡æ‘Ë¡",0,0,"L"); */
-            $offsety = 110; //  Ë«π≈Ë“ß
+                $pdf->Cell($offsettab,10,"‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤ ‡πÑ‡∏°‡πà‡∏£‡∏ß‡∏°‡∏†‡∏≤‡∏©‡∏µ‡∏°‡∏π‡∏•‡∏Ñ‡πà‡∏≤‡πÄ‡∏û‡∏¥‡πà‡∏°",0,0,"L"); */
+            $offsety = 110; // ‡∏™‡πà‡∏ß‡∏ô‡∏•‡πà‡∏≤‡∏á
 
             //$pdf->SetY($offsety+(20*$offsetnline));
             //$pdf->SetX($offsetx+$offsettab);
-            //$pdf->Cell($offsettab,10,"®”π«π‡ß‘π∑—Èß ‘Èπ (",0,0,"L");
+            //$pdf->Cell($offsettab,10,"‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡πÄ‡∏á‡∏¥‡∏ô‡∏ó‡∏±‡πâ‡∏á‡∏™‡∏¥‡πâ‡∏ô (",0,0,"L");
             //$pdf->SetY($offsety+(20*$offsetnline));
             //$pdf->SetX($offsetx+(6*$offsettab)-15);
             //$pdf->Cell($offsettab,10,")",0,0,"L");
             /*$pdf->SetY($offsety+(20*$offsetnline));
             $pdf->SetX($offsetx+(7*$offsettab));
-            $pdf->Cell($offsettab,10,"®”π«π√«¡",0,0,"L"); */
+            $pdf->Cell($offsettab,10,"‡∏à‡∏≥‡∏ô‡∏ß‡∏ô‡∏£‡∏ß‡∏°",0,0,"L"); */
 
             //$pdf->SetY($offsety+(26*$offsetnline)-1);
             //$pdf->SetX($offsetx+$offsettab);
@@ -705,10 +705,10 @@ if ($_SESSION["usercode"] != '') {
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 40, "ºŸÈ√—∫ ‘π§È“", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤", 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 40, "«—π∑’Ë ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ......../......../........", 0, 0, "C");
             $pdf->SetY($offsety + (30 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
             $pdf->Cell((2 * $offsettab), 40, "Operator : " . $uid[$i], 0, 0, "C");
@@ -718,42 +718,42 @@ if ($_SESSION["usercode"] != '') {
 
             //$pdf->SetY($offsety+(26*$offsetnline));
             //$pdf->SetX($offsetx+(5*$offsettab)-7);
-            //$pdf->Cell((2*$offsettab),10,"‰¥È√—∫ ‘π§È“§√∫∂È«π·≈È«",0,0,"C");
+            //$pdf->Cell((2*$offsettab),10,"‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏Ñ‡∏£‡∏ö‡∏ñ‡πâ‡∏ß‡∏ô‡πÅ‡∏•‡πâ‡∏ß",0,0,"C");
             $pdf->SetY($offsety + (26 * $offsetnline) + 3);
             $pdf->SetX($offsetx + (3 * $offsettab) + 10);
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (3 * $offsettab) + 10);
-            $pdf->Cell((2 * $offsettab), 40, "ºŸÈ®Ë“¬ ‘π§È“", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ú‡∏π‡πâ‡∏à‡πà‡∏≤‡∏¢‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤", 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (3 * $offsettab) + 10);
-            $pdf->Cell((2 * $offsettab), 40, "«—π∑’Ë ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ......../......../........", 0, 0, "C");
 
             $pdf->SetY($offsety + (26 * $offsetnline) + 3);
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
-            $pdf->Cell((2 * $offsettab), 40, "ºŸÈ√—∫‡ß‘π", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ú‡∏π‡πâ‡∏£‡∏±‡∏ö‡πÄ‡∏á‡∏¥‡∏ô", 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
-            $pdf->Cell((2 * $offsettab), 40, "«—π∑’Ë ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ......../......../........", 0, 0, "C");
 
             $pdf->SetY($offsety + (26 * $offsetnline) + 3);
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
-            $pdf->Cell((2 * $offsettab), 40, "ºŸÈ¡’Õ”π“®≈ßπ“¡", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ú‡∏π‡πâ‡∏°‡∏µ‡∏≠‡∏≥‡∏ô‡∏≤‡∏à‡∏•‡∏á‡∏ô‡∏≤‡∏°", 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
-            $pdf->Cell((2 * $offsettab), 40, "«—π∑’Ë ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, "‡∏ß‡∏±‡∏ô‡∏ó‡∏µ‡πà ......../......../........", 0, 0, "C");
 
 
             $pdf->SetY($offsety + (18 * $offsetnline));
             $pdf->SetX($offsetx + ($offsettab));
             if (!empty($uid_name[$i])) $username1 = '   ' . $uid[$i] . ' ' . $uid_name[$i];
-            $pdf->Cell($offsettab, 10, "™”√–‚¥¬", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, "‡∏ä‡∏≥‡∏£‡∏∞‡πÇ‡∏î‡∏¢", 0, 0, "L");
             $tab = 0;
             if (!empty($textshows[$sano[$i]])) {
                 if (count($textshows[$sano[$i]])) {
@@ -790,7 +790,7 @@ if ($_SESSION["usercode"] != '') {
             //$pdf->Cell((2*$offsettab),10,$uid[$i],0,0,"C");
             /*$pdf->SetY($offsety+(22*$offsetnline));
             $pdf->SetX($offsetx+(3*$offsettab));
-            $pdf->Cell($offsettab,10,"‡§√¥‘µ",0,0,"L");
+            $pdf->Cell($offsettab,10,"‡πÄ‡∏Ñ‡∏£‡∏î‡∏¥‡∏ï",0,0,"L");
             $pdf->SetY($offsety+(22*$offsetnline));
             $pdf->SetX($offsetx+(4*$offsettab));
             $pdf->Cell($offsettab,10,"Internet",0,0,"L");
@@ -801,10 +801,10 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 10);
             $pdf->SetY($offsety + (23 * $offsetnline) + 1);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 35, "¢È“æ‡®È“‰¥È√—∫ ‘π§È“µ“¡√“¬°“√∑’Ë√–∫ÿ‰«È¢È“ßµÈπ§√∫∂È«π·≈– ¡∫Ÿ√≥Ï‡√’¬∫√ÈÕ¬·≈È«", 0, 0, "L");
+            $pdf->Cell($offsettab, 35, "‡∏Ç‡πâ‡∏≤‡∏û‡πÄ‡∏à‡πâ‡∏≤‡πÑ‡∏î‡πâ‡∏£‡∏±‡∏ö‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡∏ï‡∏≤‡∏°‡∏£‡∏≤‡∏¢‡∏Å‡∏≤‡∏£‡∏ó‡∏µ‡πà‡∏£‡∏∞‡∏ö‡∏∏‡πÑ‡∏ß‡πâ‡∏Ç‡πâ‡∏≤‡∏á‡∏ï‡πâ‡∏ô‡∏Ñ‡∏£‡∏ö‡∏ñ‡πâ‡∏ß‡∏ô‡πÅ‡∏•‡∏∞‡∏™‡∏°‡∏ö‡∏π‡∏£‡∏ì‡πå‡πÄ‡∏£‡∏µ‡∏¢‡∏ö‡∏£‡πâ‡∏≠‡∏¢‡πÅ‡∏•‡πâ‡∏ß", 0, 0, "L");
             $pdf->SetY($offsety + (23 * $offsetnline) + 5);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 35, " ‘π§È“‚ª√‚¡™—Ëπ ‰¡Ë “¡“√∂‡ª≈’Ë¬πÀ√◊Õ§◊π‰¥È", 0, 0, "L");
+            $pdf->Cell($offsettab, 35, "‡∏™‡∏¥‡∏ô‡∏Ñ‡πâ‡∏≤‡πÇ‡∏õ‡∏£‡πÇ‡∏°‡∏ä‡∏±‡πà‡∏ô ‡πÑ‡∏°‡πà‡∏™‡∏≤‡∏°‡∏≤‡∏£‡∏ñ‡πÄ‡∏õ‡∏•‡∏µ‡πà‡∏¢‡∏ô‡∏´‡∏£‡∏∑‡∏≠‡∏Ñ‡∏∑‡∏ô‡πÑ‡∏î‡πâ", 0, 0, "L");
             $pdf->SetFont('angsa', '', 14);
 
             $offsety = 28;

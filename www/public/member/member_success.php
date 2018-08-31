@@ -1,4 +1,5 @@
 <?
+session_start();
 if($_GET["cmc"])$cmc = $_GET["cmc"];
 else $cmc = $_SESSION['usercode'];
 if($_GET["bid"])$id = $_GET["bid"];
@@ -11,6 +12,9 @@ if($_GET["bid"])$id = $_GET["bid"];
 			$cname_t = $row["cname_t"];
 			$email = $row["email"];
 			$mdate = $row["mdate"];
+			 
+
+			$cardid=substr($row["id_card"],9,4);
 			$mdate = strtotime($mdate);
 			$cmc_upa_code = $row["upa_code"];
 			$cmc_upa_code = $row["upa_code"];
@@ -54,6 +58,25 @@ if($_GET["bid"])$id = $_GET["bid"];
 								<span class="editable" id="username"><?=$cmc?></span>
 							</div>
 						</div>
+
+<?if($cname_f."x"!="x"){?>
+	<div class="profile-info-row">
+							<div class="profile-info-name">ผู้สมัครร่วม</div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="username"><?=$cname_f?> <?=$cname_t?></span>
+							</div>
+						</div>
+
+<?}?>
+						<div class="profile-info-row">
+							<div class="profile-info-name">หรัสผ่าน</div>
+
+							<div class="profile-info-value">
+								<span class="editable" id="username"><?=$cardid?></span>
+							</div>
+						</div>
+
 
 						<div class="profile-info-row">
 							<div class="profile-info-name"><?=$wording_lan["membern"]?></div>

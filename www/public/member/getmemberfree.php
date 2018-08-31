@@ -40,6 +40,6 @@ $mcode1 = $_SESSION["usercode"];
 </select>
 <?
     }else{
-        echo('ไม่พบผู้ถูกแนะนำ');
+        echo('1234');
     }
 ?>

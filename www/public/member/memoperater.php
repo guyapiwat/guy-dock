@@ -145,7 +145,7 @@ if(isset($_GET['state'])){
 	if (isset($_POST["cid_mobile"])){$cid_mobile=$_POST["cid_mobile"];}else{$cid_mobile="";}
 	if (isset($_POST["locationbase"])){$locationbase=$_POST["locationbase"];}else{$locationbase="";}
 }	   
-
+ 
 $result1=mysql_query("select * from ".$dbprefix."member where id_card = '$id_card'");
 if(mysql_num_rows($result1) > 0){
 	echo "<script language='JavaScript'>alert('".$wording_lan["operate"]["12"]."');window.location='index.php?sessiontab=1'</script>";	
@@ -186,9 +186,9 @@ if($_GET['state']==0){
 		echo "<script language='JavaScript'>alert('".$wording_lan["info_main_1"]["40"]."');window.history.back();</script>";	
 		exit;
 	}
-	$upa_code = strtoupper($upa_code);
+	$upa_code = '';//strtoupper($upa_code);
 	$sp_code = strtoupper($sp_code);
-	$upa_name = getMember($dbprefix,$upa_code);
+	$upa_name = '';//getMember($dbprefix,$upa_code);
 	$sp_name =  getMember($dbprefix,$sp_code);
 	$sv_code =  substr($id_card, -4, 4); 
 

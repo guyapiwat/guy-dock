@@ -100,6 +100,14 @@ function sendget_sponsor1(value) {
 
                     //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
                     //aalert(req.responseText);
+                     
+                    if(data==''){
+                        document.getElementById('sp_code').value = "";
+                        document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
+                        document.getElementById("l1").innerHTML = "";//�ʴ���
+                        document.getElementById("l2").innerHTML = "";
+                    }
+                    
                     if (data == 1234) {
                         document.getElementById('sp_code').value = "";
                         document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
@@ -469,7 +477,7 @@ if (mysql_num_rows($rs) > 0) {
 
 
                                 <div class="profile-info-row">
-                                    <div class="profile-info-name"> <?= $wording_lan["tab5"]['1_4'] ?> </div>
+                                    <div class="profile-info-name"> รหัสผู้แนะนำ<?//= $wording_lan["tab5"]['1_4'] ?> </div>
                                     <div class="profile-info-value">
                                         <div class="input-group col-sm-9 col-xs-9">
                                             <input type="text" id="mcode" name="mcode" class="form-control"
