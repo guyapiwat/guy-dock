@@ -583,7 +583,7 @@ if ($_SESSION["inv_usercode"] != '') {
             $pdf->Cell((3 * $offsettab), 10, $sadate[$i], 0, 0, "L");
             $pdf->SetY($offsety + (7 * $offsetnline) - 1);
             $pdf->SetX($offsetx + (9 * $offsettab) - 12);
-            $pdf->Cell((3 * $offsettab), 10, $typedef[$sa_type[$i]], 0, 0, "L");
+            $pdf->Cell((3 * $offsettab), 10, iconv( 'UTF-8','TIS-620',$typedef[$sa_type[$i]]), 0, 0, "L");
             $pdf->SetFont('angsa', '', 14);
 //---------------------------------------------
 
