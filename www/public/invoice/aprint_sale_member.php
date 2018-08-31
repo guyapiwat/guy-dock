@@ -6,7 +6,7 @@ session_start();
 if ($_SESSION["usercode"] != '') {
     header('Content-type: application/pdf;charset=utf-8');
     ?>
-    <? include("../backoffice/connectmysql.php"); ?>
+    <? include("../backoffice/connectmysql_tis.php"); ?>
     <? include("../function/function_pos.php"); ?>
     <? include("money2text.php"); ?>
     <? include("inc.wording.php"); ?>
@@ -348,7 +348,8 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetY($offsety + $offsetnline + 5);
             $pdf->SetX($offsetx + $offsettab);
             $pdf->Cell($offsettab, 10, $logo, 0, 0, "L");
-            $pdf->Image('../logo.jpg', $offsetx + $offsettab - 10, $offsety + $offsetnline, 20); //file,x,y,w=0,h=0
+           // $pdf->Image('../logo.jpg', $offsetx + $offsettab - 10, $offsety + $offsetnline, 20); //file,x,y,w=0,h=0
+           $pdf->Image('../logo.jpg', $offsetx + $offsettab - 10, $offsety + $offsetnline, 20); //file,x,y,w=0,h=0
 
             $pdf->SetFont('angsa', '', 14);
 
@@ -356,27 +357,27 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
             switch ($inv_code[$i]) {
                 case 'BKK01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สนญ.)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . iconv( 'UTF-8','TIS-620'," (สนญ.)"), 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address"];
                     $c_address_2 = $wording_lan["company_address2"];
                     break;
                 case 'HY01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาหาดใหญ่)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . iconv( 'UTF-8','TIS-620'," (สาขาหาดใหญ่)"), 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_hdy"];
                     $c_address_2 = $wording_lan["company_address2_hdy"];
                     break;
                 case 'KL01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาโคราช)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . iconv( 'UTF-8','TIS-620'," (สาขาโคราช)"), 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_kl"];
                     $c_address_2 = $wording_lan["company_address2_kl"];
                     break;
                 case 'CRI01':
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาเชียงราย)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . iconv( 'UTF-8','TIS-620'," (สาขาเชียงราย)"), 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address_cri"];
                     $c_address_2 = $wording_lan["company_address2_cri"];
                     break;
                 default:
-                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สนญ.)", 0, 0, "L");
+                    $pdf->Cell((4 * $offsettab), 10, "$employee_name" . iconv( 'UTF-8','TIS-620'," (สนญ.)"), 0, 0, "L");
                     $c_address_1 = $wording_lan["company_address"];
                     $c_address_2 = $wording_lan["company_address2"];
                     break;
@@ -396,13 +397,13 @@ if ($_SESSION["usercode"] != '') {
 
             $pdf->SetY($offsety + 3 * $offsetnline + 5.5);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
-            $pdf->Cell((4 * $offsettab), 10, "เลขประจำตัวผู้เสียภาษี 0-1055-59080-08-9", 0, 0, "L");
+            $pdf->Cell((4 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"เลขประจำตัวผู้เสียภาษี 0-1055-59080-08-9"), 0, 0, "L");
 
             $pdf->SetFont('angsa', '', 17);
 
             $pdf->SetY($offsety + $offsetnline);
             $pdf->SetX($offsetx + (9 * $offsettab) - 10);
-            $pdf->Cell($offsettab, 10, "ใบส่งของ", 0, 0, "C");
+            $pdf->Cell($offsettab, 10, iconv( 'UTF-8','TIS-620',"ใบส่งของ"), 0, 0, "C");
 
 
             //$pdf->SetY($offsety+3*$offsetnline);
@@ -539,16 +540,16 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 14);
             $pdf->SetY($offsety + (5 * $offsetnline) - 5);
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "สาขา.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"สาขา............................................."), 0, 0, "R");
             $pdf->SetY($offsety + (5 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "เลขที่.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"เลขที่............................................."), 0, 0, "R");
             $pdf->SetY($offsety + (6 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "วันที่.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"วันที่............................................."), 0, 0, "R");
             $pdf->SetY($offsety + (7 * $offsetnline));
             $pdf->SetX($offsetx + (7 * $offsettab) + 1);
-            $pdf->Cell((3 * $offsettab), 10, "ซื้อเพื่อ.............................................", 0, 0, "R");
+            $pdf->Cell((3 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"ซื้อเพื่อ............................................."), 0, 0, "R");
 //info---------------------------------------
 
             /*$pdf->SetY($offsety+(5*$offsetnline)-1);
@@ -575,16 +576,16 @@ if ($_SESSION["usercode"] != '') {
 
             $pdf->SetY($offsety + (4 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 10, "รหัสสมาชิก", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 10, iconv( 'UTF-8','TIS-620',"รหัสสมาชิก"), 0, 0, "L");
             $pdf->SetY($offsety + (5 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 12, "ชื่อ-สกุล ", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 12, iconv( 'UTF-8','TIS-620',"ชื่อ-สกุล "), 0, 0, "L");
             $pdf->SetY($offsety + (6 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 15, "เบอร์โทร", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 15, iconv( 'UTF-8','TIS-620',"เบอร์โทร"), 0, 0, "L");
             $pdf->SetY($offsety + (7 * $offsetnline) + 1);
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 15, "ที่อยู่", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 15, iconv( 'UTF-8','TIS-620',"ที่อยู่"), 0, 0, "L");
             /*$pdf->SetY($offsety+(7*$offsetnline));
             $pdf->SetX($offsetx+$offsettab);
             $pdf->Cell((2*$offsettab),10,"หมายเหตุ",0,0,"L"); */
@@ -608,13 +609,13 @@ if ($_SESSION["usercode"] != '') {
             $pdf->Cell((2 * $offsettab), 12, $cmobile[$i], 0, 0, "L");
             $pdf->SetY($offsety + (7 * $offsetnline) + 6);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
-//function MultiCell($w,$h,$txt,$border=0,$align='J',$fill=0)
+            //function MultiCell($w,$h,$txt,$border=0,$align='J',$fill=0)
             //$pdf->MultiCell((5*$offsettab),3,$add[$mcode[$i]]." มือถือ : ".$mobile,0,"L");
             $pdf->MultiCell((5 * $offsettab), 4, $add[$mcode[$i]], 0, "L");
 
             $pdf->SetY($offsety + (7 * $offsetnline) + 14);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 10, "หมายเหตุ.", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, iconv( 'UTF-8','TIS-620',"หมายเหตุ."), 0, 0, "L");
 
             $pdf->SetY($offsety + (8 * $offsetnline) + 10);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
@@ -669,14 +670,14 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 10);
             $pdf->SetY($offsety + (41 * $offsetnline));
             $pdf->SetX($offsetx + (4 * $offsettab) - 3);
-            $pdf->Cell($offsettab, 11, "ผิดตกยกเว้น E.& O.E.", 0, 0, "C");
+            $pdf->Cell($offsettab, 11, iconv( 'UTF-8','TIS-620',"ผิดตกยกเว้น E.& O.E."), 0, 0, "C");
 
             $pdf->SetFont('angsa', '', 14);
 
             $offsety = 94; // ส่วนล่าง
             $pdf->SetY($offsety + (22 * $offsetnline));
             $pdf->SetX($offsetx + (6.7 * $offsettab));
-            $pdf->Cell($offsettab, 10, "มูลค่าสินค้า", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, iconv( 'UTF-8','TIS-620',"มูลค่าสินค้า"), 0, 0, "L");
 
             /*     $pdf->SetY($offsety+(22*$offsetnline)+7);
                 $pdf->SetX($offsetx+(6.7*$offsettab));
@@ -705,10 +706,10 @@ if ($_SESSION["usercode"] != '') {
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 40, "ผู้รับสินค้า", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"ผู้รับสินค้า"), 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
-            $pdf->Cell((2 * $offsettab), 40, "วันที่ ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"วันที่ ......../......../........"), 0, 0, "C");
             $pdf->SetY($offsety + (30 * $offsetnline));
             $pdf->SetX($offsetx + $offsettab);
             $pdf->Cell((2 * $offsettab), 40, "Operator : " . $uid[$i], 0, 0, "C");
@@ -724,36 +725,36 @@ if ($_SESSION["usercode"] != '') {
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (3 * $offsettab) + 10);
-            $pdf->Cell((2 * $offsettab), 40, "ผู้จ่ายสินค้า", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"ผู้จ่ายสินค้า"), 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (3 * $offsettab) + 10);
-            $pdf->Cell((2 * $offsettab), 40, "วันที่ ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"วันที่ ......../......../........"), 0, 0, "C");
 
             $pdf->SetY($offsety + (26 * $offsetnline) + 3);
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
-            $pdf->Cell((2 * $offsettab), 40, "ผู้รับเงิน", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"ผู้รับเงิน"), 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 15 - 40);
-            $pdf->Cell((2 * $offsettab), 40, "วันที่ ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"วันที่ ......../......../........"), 0, 0, "C");
 
             $pdf->SetY($offsety + (26 * $offsetnline) + 3);
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
             $pdf->Cell((2 * $offsettab), 40, ".............................", 0, 0, "C");
             $pdf->SetY($offsety + (28 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
-            $pdf->Cell((2 * $offsettab), 40, "ผู้มีอำนาจลงนาม", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"ผู้มีอำนาจลงนาม"), 0, 0, "C");
             $pdf->SetY($offsety + (29 * $offsetnline));
             $pdf->SetX($offsetx + (9 * $offsettab) - 8);
-            $pdf->Cell((2 * $offsettab), 40, "วันที่ ......../......../........", 0, 0, "C");
+            $pdf->Cell((2 * $offsettab), 40, iconv( 'UTF-8','TIS-620',"วันที่ ......../......../........"), 0, 0, "C");
 
 
             $pdf->SetY($offsety + (18 * $offsetnline));
             $pdf->SetX($offsetx + ($offsettab));
             if (!empty($uid_name[$i])) $username1 = '   ' . $uid[$i] . ' ' . $uid_name[$i];
-            $pdf->Cell($offsettab, 10, "ชำระโดย", 0, 0, "L");
+            $pdf->Cell($offsettab, 10, iconv( 'UTF-8','TIS-620',"ชำระโดย"), 0, 0, "L");
             $tab = 0;
             if (!empty($textshows[$sano[$i]])) {
                 if (count($textshows[$sano[$i]])) {
@@ -801,10 +802,10 @@ if ($_SESSION["usercode"] != '') {
             $pdf->SetFont('angsa', '', 10);
             $pdf->SetY($offsety + (23 * $offsetnline) + 1);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 35, "ข้าพเจ้าได้รับสินค้าตามรายการที่ระบุไว้ข้างต้นครบถ้วนและสมบูรณ์เรียบร้อยแล้ว", 0, 0, "L");
+            $pdf->Cell($offsettab, 35, iconv( 'UTF-8','TIS-620',"ข้าพเจ้าได้รับสินค้าตามรายการที่ระบุไว้ข้างต้นครบถ้วนและสมบูรณ์เรียบร้อยแล้ว"), 0, 0, "L");
             $pdf->SetY($offsety + (23 * $offsetnline) + 5);
             $pdf->SetX($offsetx + ($offsettab));
-            $pdf->Cell($offsettab, 35, "สินค้าโปรโมชั่น ไม่สามารถเปลี่ยนหรือคืนได้", 0, 0, "L");
+            $pdf->Cell($offsettab, 35, iconv( 'UTF-8','TIS-620',"สินค้าโปรโมชั่น ไม่สามารถเปลี่ยนหรือคืนได้"), 0, 0, "L");
             $pdf->SetFont('angsa', '', 14);
 
             $offsety = 28;
