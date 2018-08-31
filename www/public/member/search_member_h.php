@@ -17,6 +17,8 @@ header("content-type: application/x-javascript; charset=utf8");
 
 include("prefix.php");
 include("connectmysql.php");
+include("../api/settings.php");
+
 $value = (isset($_POST["value"])) ? $_POST["value"] : $_GET["value"];
 $mcode1 = $_SESSION["usercode"];
 
@@ -26,7 +28,7 @@ $mcode1 = $_SESSION["usercode"];
 $sql = "SELECT mtype1 ";
 $sql .= " FROM " . $dbprefix . "member  where mcode = '$mcode1' ";
 $sql .= " limit 0,1";
-$result = mysql_query($sql) or die("�к��������ö������");
+$result = mysql_query($sql) or die("ระบบไม่สามารถค้นหาได้");
 $data = mysql_fetch_object($result);
 $mtype1 = $data->mtype1;
 
@@ -36,13 +38,14 @@ else $chkline = true;
 
 if (!empty($value)) {
     $sql = "SELECT locationbase,ewallet,pos_cur,pos_cur1,name_t,name_f,mcode,
-    caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId,status_terminate,cmp ";
+    caddress,cbuilding,cvillage,csoi,cstreet,czip,cprovinceId,cdistrictId,camphurId,
+    status_terminate, cmp, mdate, id_card_img ";
     $sql .= $sqlmtype;
 
     $sql .= " FROM " . $dbprefix . "member  where mcode = '$value'  limit 0,1";
 
-    $result = mysql_query($sql) or die("�к��������ö������");
-    if (mysql_num_rows($result) > 0 and $chkline == true ) {
+    $result = mysql_query($sql) or die("ระบบไม่สามารถค้นหาได้");
+    if (mysql_num_rows($result) > 0 and $chkline == true) {
         $data = mysql_fetch_object($result);
         $cmc = $data->mcode;
         $caddress = $data->caddress;
@@ -74,9 +77,19 @@ if (!empty($value)) {
             echo "memterminate";
             exit;
         }
-        if ($cmp == "") {
-            echo "idCard";
-            exit;
+        if ($cmp == "" and ) {
+            if ($data->id_card_img != "") {
+                echo $chkshow;
+            } else {
+                $currentDate = date_create(date('Y-m-d'));
+                $regDate = date_create($data->mdate);
+                $diff = date_diff($currentDate, $regDate);
+                if ($diff->days > $REG_DATE_GAP) {
+                    echo "idCard";
+                    exit;
+                }
+                echo $chkshow;
+            }
         }
         if ($locationbase != $_SESSION["m_locationbase"]) {
             echo "1234";

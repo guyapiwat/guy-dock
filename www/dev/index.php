@@ -8,7 +8,9 @@
 
 error_reporting(E_ALL);
 ini_set('display_errors', 1);
-
+$date = date_create(date('Y-m-d'));
+$date2=date_create("2018-08-01");
+$diff=date_diff($date,$date2);
 echo('It\'s work2');
 $test = '555666655';
 echo('<br/>');
