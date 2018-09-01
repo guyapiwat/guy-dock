@@ -1,5 +1,6 @@
 <?
 	if(!isset($_GET['sub'])){
+	
 ?>
 <table border="0" cellspacing="0" cellpadding="0" width="100%" height="395">
 <tr>
@@ -86,6 +87,7 @@
 
 <?
 	}else{
+		 
 ?>
 <table border="0" height="395" width="99%"><tr valign="top">
 <td width="50">
