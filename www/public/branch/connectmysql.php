@@ -1,7 +1,7 @@
 <?php
 	$connectmysql_dbname="cci_db";
-//	$link = @mysql_connect("localhost", "cci_db", "?okokok@omc12345") or die("Could not connect: " . mysql_error());
-	$link = @mysql_connect("p-enterprise.com:9100", "dev", "dev@cci") or die("Could not connect: " . mysql_error());
+	$link = @mysql_connect("localhost", "cci_db", "?okokok@omc12345") or die("Could not connect: " . mysql_error());
+//	$link = @mysql_connect("p-enterprise.com:9100", "dev", "dev@cci") or die("Could not connect: " . mysql_error());
 	
 	//$link = mysql_connect("localhost", "root", "root") or die("Could not connect: " . mysql_error());
 
