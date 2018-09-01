@@ -79,7 +79,7 @@ function chk_view(){
 		<td width="84%"><img src="./images/sp_s.gif" align="absmiddle" />&nbsp;<a href="index.php?sessiontab=1&sub=5"><?=$wording_lan["mem_mainmenu_21"]?>
 		</a></td>
 	  </tr>
-	      <tr  style="display:none" >
+	  <tr  style="display:none" >
     <td width="16%" align="right">&nbsp;</td>
     <td width="84%"><img src="./images/treeupsmall.gif" align="absmiddle" />&nbsp;<A HREF="./index.php?sessiontab=<?=$sesstab?>&sub=8">รายงานแสดงทีมงานแบบต้นไม้</a></td>
   </tr>

@@ -874,3 +874,7 @@
 2018-08-30 12:42:47 ip=::1 uid=559 action=login
 2018-08-30 07:50:38 ip=::1 uid=558 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','����к� : punya  �Ң� :  BKK01','','::1','2018-08-30','19:50:38')
 2018-08-30 07:50:38 ip=::1 uid=559 action=login
+2018-09-01 01:22:58 ip=::1 uid=558 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','����к� : punya  �Ң� :  BKK01','','::1','2018-09-01','13:22:58')
+2018-09-01 01:22:58 ip=::1 uid=559 action=login
+2018-09-01 01:26:47 ip=::1 uid=558 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','����к� : punya  �Ң� :  BKK01','','::1','2018-09-01','13:26:47')
+2018-09-01 01:26:47 ip=::1 uid=559 action=login

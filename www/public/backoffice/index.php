@@ -85,6 +85,7 @@ fieldset {
 				include("mem_mainmenu.php");
 				break;
 			case 2 :
+			 
 				include("vip_mainmenu.php");
 				break;
 			case 3 :

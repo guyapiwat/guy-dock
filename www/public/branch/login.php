@@ -55,8 +55,8 @@ $img = new Securimage();
 				$sql .= "AND a.password='".EncodePwd($_POST["password"])."' ";
 				// echo $sql;
 				// exit;
-				$charset = "SET NAMES 'UTF8'"; 
-    			mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+				// $charset = "SET NAMES 'UTF8'"; 
+    			// mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 
 				$result=mysql_query($sql);
 
