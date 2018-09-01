@@ -254,6 +254,7 @@
 			case 8:
 				?><legend><strong><font color="#666666">ระบบตรวจสอบการทำงาน
                 </font></strong></legend><?
+							 
 				include("report_log.php");
 				break;
 			case 9:
