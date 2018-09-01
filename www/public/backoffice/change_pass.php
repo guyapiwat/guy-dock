@@ -89,7 +89,7 @@ require_once ("function.log.inc.php");
     <tr>
       <td width="119" align="right">ชื่อ-นามสกุล</td>
       <td width="9">&nbsp;</td>
-      <td width="172"><?=$_SESSION["adminusername"]?></td>
+      <td width="172"><?=TisToUtf($_SESSION["adminusername"])?></td>
     </tr>
     <tr>
       <td align="right">รหัสผ่านเดิม</td>

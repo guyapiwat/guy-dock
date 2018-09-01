@@ -22,6 +22,7 @@ ini_set("memory_limit","200M");
 <? require("./cls/piority.php");
    require("./date_picker.php"); 
    require("global.php");
+   require ('../share/textConverter.php');
  //  include_once("../member/safetySQL.php");	
    //include("../function/global_center.php");
 

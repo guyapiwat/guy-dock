@@ -1,4 +1,5 @@
 <?
+    require_once ('../share/textConverter.php');
 	if(!isset($_GET['sub'])){
 
 		$result=mysql_query("select * from ".$dbprefix."log where sys_id='".$_SESSION["adminusercode"]."'");
@@ -13,7 +14,7 @@ if (mysql_num_rows($result)>0) {
 	<blockquote>
 	
 		<br>
-	รหัส&nbsp;<?=$usercode?>&nbsp;ชื่อ&nbsp;<?=$username?><br>
+	รหัส&nbsp;<?=TisToUtf($usercode)?>&nbsp;ชื่อ&nbsp;<?=TisToUtf($username)?><br>
 	<br>
 	Last Login  :  <?=$logdatetime?>
 	<br>
