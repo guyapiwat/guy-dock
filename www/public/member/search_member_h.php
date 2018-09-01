@@ -78,9 +78,7 @@ if (!empty($value)) {
             exit;
         }
         if ($cmp == "") {
-            if ($data->id_card_img != "") {
-                echo $chkshow;
-            } else {
+            if ($data->id_card_img == "") {
                 $currentDate = date_create(date('Y-m-d'));
                 $regDate = date_create($data->mdate);
                 $diff = date_diff($currentDate, $regDate);
@@ -88,7 +86,6 @@ if (!empty($value)) {
                     echo "idCard";
                     exit;
                 }
-                echo $chkshow;
             }
         }
         if ($locationbase != $_SESSION["m_locationbase"]) {
