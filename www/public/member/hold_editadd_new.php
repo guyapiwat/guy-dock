@@ -59,8 +59,8 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
              $('#divlr').show();
              $('#type-display').text("รหัสผู้แนะนำ");
         }else{
-            $('#divmemberfreemain').toggle();
-             $('#divlr').toggle();
+            $('#divmemberfreemain').hide();
+             $('#divlr').hide();
             $('#type-display').text("รหัสสมาชิก");
         }
      
