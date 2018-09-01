@@ -70,6 +70,12 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 	}else{
 		echo '<font color="#ff0000"><b>ตัวอย่างการใส่ วันที่ 2010-12-04</b></font>';
 		$rec = new repGenerator();
+		$charset = "SET NAMES 'UTF8'"; 
+        mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
+		// echo $sql;
+		// exit;
+		
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);
 		$rec->setOrder($_GET['ord']==""?" a.id ":$_GET['ord']);
