@@ -56,10 +56,12 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
     function checktype(id){
         if(id=='R'){
              $('#divmemberfreemain').show();
-             $('#divlr').show();  
+             $('#divlr').show();
+             $('#type-display').text("รหัสผู้แนะนำ");
         }else{
             $('#divmemberfreemain').toggle();
              $('#divlr').toggle();
+            $('#type-display').text("รหัสสมาชิก");
         }
      
     }
@@ -477,7 +479,7 @@ if (mysql_num_rows($rs) > 0) {
 
 
                                 <div class="profile-info-row">
-                                    <div class="profile-info-name"> รหัสผู้แนะนำ<?//= $wording_lan["tab5"]['1_4'] ?> </div>
+                                    <div id="type-display" class="profile-info-name"> รหัสสมาชิก<?//= $wording_lan["tab5"]['1_4'] ?> </div>
                                     <div class="profile-info-value">
                                         <div class="input-group col-sm-9 col-xs-9">
                                             <input type="text" id="mcode" name="mcode" class="form-control"
