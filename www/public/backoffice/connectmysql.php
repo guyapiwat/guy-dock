@@ -6,8 +6,11 @@
 	
 	//$link = mysql_connect("localhost", "root", "root") or die("Could not connect: " . mysql_error());
 
-	$charset = "SET NAMES 'tis620'"; 
+	// $charset = "SET NAMES 'tis620'"; 
+	// mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+	$charset = "SET NAMES 'UTF8'"; 
     mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+
 	// $charset = "SET NAMES 'UTF8'"; 
 	// mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 		
