@@ -50,9 +50,9 @@
 			<td width="84%"><a href="./index.php?sessiontab=<?=$sesstab?>&sub=5">ส่งสินค้าระหว่างสาขา</a></td>
 		  </tr-->
 		  <tr style="display:none">
-		     <td align="right">&nbsp;</td>
-		     <td><img src="./images/add.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=1&sub=910"><?=$wording_lan["tab1_3"]?></a></td>
-		     </tr>
+<!--		     <td align="right">&nbsp;</td>-->
+<!--		     <td><img src="./images/add.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=1&sub=910">--><?//=$wording_lan["tab1_3"]?><!--</a></td>-->
+<!--		     </tr>-->
 			 <tr>
 		     <td align="right">&nbsp;</td>
 		     <td><img src="./images/Animp.gif" align="absmiddle" />&nbsp;&nbsp;<a href="index.php?sessiontab=1&sub=2"><?=$wording_lan["mem_mainmenu_4"]?></a></td>
@@ -132,9 +132,9 @@ function chk_view(){
 				<legend>
 		           <strong><font color="#666666"><?=$wording_lan["mem_mainmenu_7"]?></font></strong>
 				   <? if($acc->isAccess(1)){?>
-                   
-                   &nbsp;&nbsp;<a href='./index.php?sessiontab=1&sub=910'><?=$wording_lan["mem_mainmenu_8"]?></a>  
-                   <? }?>              
+
+<!--                   &nbsp;&nbsp;<a href='./index.php?sessiontab=1&sub=910'>--><?//=$wording_lan["mem_mainmenu_8"]?><!--</a>-->
+                   <? }?>
                 </legend>
 				<?
 				include("./member.php");
