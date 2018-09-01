@@ -1122,3 +1122,5 @@
 2018-09-01 01:38:13 ip=::1 uid=558 action=login
 2018-09-01 01:40:11 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-09-01','13:40:11')
 2018-09-01 01:40:11 ip=::1 uid=558 action=login
+2018-09-01 04:17:37 ip=::1 uid= action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','เข้าระบบ : punya','','::1','2018-09-01','16:17:37')
+2018-09-01 04:17:37 ip=::1 uid=558 action=login
