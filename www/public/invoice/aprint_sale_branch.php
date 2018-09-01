@@ -25,6 +25,8 @@ if ($_SESSION["inv_usercode"] != '') {
     <? include("inc.wording.php"); ?>
     <? ob_start(); ?>
     <?
+     $charset = "SET NAMES 'tis620'";
+     mysql_query($charset) or die('Invalid query: ' . mysql_error());
     if (isset($_GET['bid']))
         $id = $_GET['bid'];
     $mcode = $_GET['mcode'];
@@ -621,7 +623,7 @@ if ($_SESSION["inv_usercode"] != '') {
             $pdf->Cell((2 * $offsettab), 10, $mcode[$i], 0, 0, "L");
             $pdf->SetY($offsety + (5 * $offsetnline));
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
-            $pdf->Cell((2 * $offsettab), 12, $name[$mcode[$i]] . " (" . $id_card[$mcode[$i]] . ")", 0, 0, "L");
+            $pdf->Cell((2 * $offsettab), 12, $name[$mcode[$i]]. " (" . $id_card[$mcode[$i]] . ")", 0, 0, "L");
             $pdf->SetY($offsety + (6 * $offsetnline) + 1);
             $pdf->SetX($offsetx + (2 * $offsettab) + 5);
             $pdf->Cell((2 * $offsettab), 12, $cmobile[$i], 0, 0, "L");

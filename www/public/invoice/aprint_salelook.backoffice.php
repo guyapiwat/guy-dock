@@ -6,12 +6,17 @@ session_start();
 if ($_SESSION["adminusercode"] != '') {
     header('Content-type: application/pdf');
     ?>
-    <? include("../backoffice/connectmysql.php"); ?>
+    <?
+    include("../backoffice/connectmysql.php");
+    require_once("../share/textConverter.php");
+    ?>
     <? include("../function/function_pos.php"); ?>
     <? include("money2text.php"); ?>
     <? include("inc.wording.php"); ?>
     <? ob_start(); ?>
     <?
+    $charset = "SET NAMES 'tis620'";
+    mysql_query($charset) or die('Invalid query: ' . mysql_error());
     if (isset($_GET['bid']))
         $id = $_GET['bid'];
     $mcode = $_GET['mcode'];
@@ -35,7 +40,7 @@ if ($_SESSION["adminusercode"] != '') {
     $total2 = $tttt[1];
 
     $dbprefix = "ali_";
-    $employee_name = $wording_lan["company_name"];
+    $employee_name = UtfToTis($wording_lan["company_name"]);
     $wherexx = findBills("sano", "ali_asaleh", $id);
     if (!empty($wherexx)) $andxx = 'and';
     ?>
@@ -346,7 +351,7 @@ if ($_SESSION["adminusercode"] != '') {
             $pdf->SetY($offsety + $offsetnline + 5);
             $pdf->SetX($offsetx + $offsettab);
             $pdf->Cell($offsettab, 10, $logo, 0, 0, "L");
-            $pdf->Image('../logo.jpg', $offsetx + $offsettab - 10, $offsety + $offsetnline, 20);
+            $pdf->Image('../logo.JPG', $offsetx + $offsettab - 10, $offsety + $offsetnline + 2, 30);
 
             $pdf->SetFont('angsa', '', 14);
             $pdf->SetY($offsety + $offsetnline - 1);
@@ -354,28 +359,28 @@ if ($_SESSION["adminusercode"] != '') {
             switch ($inv_code[$i]) {
                 case 'BKK01':
                     $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สนญ.)", 0, 0, "L");
-                    $c_address_1 = $wording_lan["company_address"];
-                    $c_address_2 = $wording_lan["company_address2"];
+                    $c_address_1 = UtfToTis($wording_lan["company_address"]);
+                    $c_address_2 = UtfToTis($wording_lan["company_address2"]);
                     break;
                 case 'HY01':
                     $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาหาดใหญ่)", 0, 0, "L");
-                    $c_address_1 = $wording_lan["company_address_hdy"];
-                    $c_address_2 = $wording_lan["company_address2_hdy"];
+                    $c_address_1 = UtfToTis($wording_lan["company_address_hdy"]);
+                    $c_address_2 = UtfToTis($wording_lan["company_address2_hdy"]);
                     break;
                 case 'KL01':
                     $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาโคราช)", 0, 0, "L");
-                    $c_address_1 = $wording_lan["company_address_kl"];
-                    $c_address_2 = $wording_lan["company_address2_kl"];
+                    $c_address_1 = UtfToTis($wording_lan["company_address_kl"]);
+                    $c_address_2 = UtfToTis($wording_lan["company_address2_kl"]);
                     break;
                 case 'CRI01':
                     $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สาขาเชียงราย)", 0, 0, "L");
-                    $c_address_1 = $wording_lan["company_address_cri"];
-                    $c_address_2 = $wording_lan["company_address2_cri"];
+                    $c_address_1 = UtfToTis($wording_lan["company_address_cri"]);
+                    $c_address_2 = UtfToTis($wording_lan["company_address2_cri"]);
                     break;
                 default:
                     $pdf->Cell((4 * $offsettab), 10, "$employee_name" . " (สนญ.)", 0, 0, "L");
-                    $c_address_1 = $wording_lan["company_address"];
-                    $c_address_2 = $wording_lan["company_address2"];
+                    $c_address_1 = UtfToTis($wording_lan["company_address"]);
+                    $c_address_2 = UtfToTis($wording_lan["company_address2"]);
                     break;
             }
 
@@ -461,7 +466,7 @@ if ($_SESSION["adminusercode"] != '') {
             $pdf->Cell((3 * $offsettab), 10, $sadate[$i], 0, 0, "L");
             $pdf->SetY($offsety + (7 * $offsetnline) - 1);
             $pdf->SetX($offsetx + (9 * $offsettab) - 12);
-            $pdf->Cell((3 * $offsettab), 10, $typedef[$sa_type[$i]], 0, 0, "L");
+            $pdf->Cell((3 * $offsettab), 10, UtfToTis($typedef[$sa_type[$i]]), 0, 0, "L");
             $pdf->SetFont('angsa', '', 14);
 
             $pdf->SetY($offsety + (4 * $offsetnline));

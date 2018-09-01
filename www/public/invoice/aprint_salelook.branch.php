@@ -15,6 +15,8 @@ if ($_SESSION["inv_usercode"] != '') {
     <? include("inc.wording.php"); ?>
     <? ob_start(); ?>
     <?
+    $charset = "SET NAMES 'tis620'";
+    mysql_query($charset) or die('Invalid query: ' . mysql_error());
     if (isset($_GET['bid']))
         $id = $_GET['bid'];
     $mcode = $_GET['mcode'];

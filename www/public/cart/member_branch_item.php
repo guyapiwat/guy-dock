@@ -143,7 +143,7 @@ if (count($member) >= 0) {
 
             <br>
             <label>ชื่อ-นามสกุล</label>
-            <input disabled="" value="<?= TisToUtf($member['name_t']) ?>"><br>
+            <input disabled="" value="<?= $member['name_t'] ?>"><br>
             <label>ตำแหน่ง</label>
             <input disabled="" value="<?= $member['pos_cur'] ?>"><br>
             <label>ประเภท</label>
