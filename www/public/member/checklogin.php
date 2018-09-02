@@ -7,7 +7,7 @@ if (isset($_SESSION["password"])) {$password=$_SESSION["password"];}
 else {$password="";$_SESSION["password"]=$password;};
 //$usercode = strtoupper($usercode);
 //echo $usercode;
-//exit;
+//
 
 require_once 'connectmysql.php';
 
@@ -45,6 +45,7 @@ if(empty($_SESSION["m_locationbase"])){
 	include "footer.php";
 	exit;
 }
+ 
 //include("securimage.php");
 //คำนวณรอบ
 	$sql = "select  DATE_FORMAT(max(calc_date)- INTERVAL 1
@@ -52,10 +53,12 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 	$rs = mysql_query($sql);
 	$_SESSION["fdate_show"]= mysql_result($rs,0,'fdate'); 
 	mysql_free_result($rs);
+ 
   if($_SESSION["usercode"]) {
 		$sql = "SELECT sv_code,id,mcode,ewallet,voucher,locationbase,name_t,mtype1 FROM ".$dbprefix."member " ;
 		$sql.= "where  mcode = '".$usercode."'  and status_suspend = '0'";
 		$result=mysql_query($sql);
+		 
 		if (mysql_num_rows($result)>0) {
 			$row = mysql_fetch_array($result, MYSQL_ASSOC);
 			$cl_sv_code=$row["sv_code"];
@@ -82,6 +85,7 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 				$_SESSION["smcode_level"] =mysql_result($rs123,0,'level');
 			}
 			
+			 
 			
 			///////////////////////////////
 
@@ -105,6 +109,7 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 			mysql_free_result($rs);
 
 
+			
 			$sql = "SELECT sadate from ".$dbprefix."holdhead WHERE mcode='".$cl_mcode."'  and sadate between '$cfdate1' and '$fdate' and ( sa_type='A' or sa_type='Q' or sa_type='B' or sa_type='C') and cancel=0 order by id DESC limit 0,1";
 			$rs = mysql_query($sql);
 
@@ -121,7 +126,7 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 			$dff=date_difff($member_active,date("Y-m-d")); 
 			$member_active = 365-$dff;
 			
-
+ 
 
 			if($_SESSION["m_locationbase"]){
 			
@@ -180,6 +185,7 @@ DAY, '%d-%m-%Y') as fdate from ali_around where calc = 1";
 				exit;
 		}
   }else {
+	  //exit;
 				include "login.php";
 				include "footer.php";
 				exit;
