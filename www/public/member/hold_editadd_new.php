@@ -53,24 +53,26 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
         else
             return false;
     }
-    function checktype(id){
-        if(id=='R'){
-             $('#divmemberfreemain').show();
-             $('#divlr').show();
-             $('#type-display').text("รหัสผู้แนะนำ");
-        }else{
+
+    function checktype(id) {
+        if (id == 'R') {
+            $('#divmemberfreemain').show();
+            $('#divlr').show();
+            $('#type-display').text("รหัสผู้แนะนำ");
+        } else {
             $('#divmemberfreemain').hide();
-             $('#divlr').hide();
+            $('#divlr').hide();
             $('#type-display').text("รหัสสมาชิก");
         }
-     
+
     }
+
     function checkForm(frm) {
         //
         // check form input values
         //
         //alert($( "#satype" ).val(););
-         
+
         frm.ok.disabled = true;
         frm.ok.value = "Please wait...";
         return true;
@@ -85,9 +87,10 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
         }
         return input;
     }
-//sendget_sponsor1('<?echo($_SESSION['usercode']);?>');
 
-function sendget_sponsor1(value) {
+    //sendget_sponsor1('<?echo($_SESSION['usercode']);?>');
+
+    function sendget_sponsor1(value) {
         var req = Inint_AJAX(); //���ҧ Object
         // aalert(value)
         value = str_pad(value, 7, 0, false);
@@ -102,14 +105,14 @@ function sendget_sponsor1(value) {
 
                     //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
                     //aalert(req.responseText);
-                     
-                    if(data==''){
+
+                    if (data == '') {
                         document.getElementById('sp_code').value = "";
                         document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
                         document.getElementById("l1").innerHTML = "";//�ʴ���
                         document.getElementById("l2").innerHTML = "";
                     }
-                    
+
                     if (data == 1234) {
                         document.getElementById('sp_code').value = "";
                         document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
@@ -122,22 +125,24 @@ function sendget_sponsor1(value) {
                         //document.getElementById("sp_name").value = myarr[0].trim();
                         document.getElementById("l1").innerHTML = "รหัสอัพไลน์    " + myarr[1];//�ʴ���
                         document.getElementById("l2").innerHTML = "รหัสอัพไลน์    " + myarr[2];
-                        
-                        var data1=myarr[1];
-                        var data1=data1.split(' ');
-                        var data1mcode=data1[0];
-                        var data1name=data1[1]+' ' +data1[3];
+
+                        var data1 = myarr[1];
+                        var data1 = data1.split(' ');
+                        var data1mcode = data1[0];
+                        var data1name = data1[1] + ' ' + data1[3];
                         console.log(data1mcode);
                         $('#lr1code').val(data1mcode);
-                        
-                        var data2=myarr[2];
-                        var data2=data2.split(' ');
-                        var data2mcode=data2[0];
-                        var data2name=data2[1]+' ' +data2[3];
+
+                        var data2 = myarr[2];
+                        var data2 = data2.split(' ');
+                        var data2mcode = data2[0];
+                        var data2name = data2[1] + ' ' + data2[3];
                         console.log(data2mcode);
                         $('#lr2code').val(data2mcode);
                         //document.getElementById("l3").innerHTML="���� "+myarr[3];
-                        get_memberfree(value);
+                        if ($('#satype')[0].value == 'R') {
+                            get_memberfree(value);
+                        }
                     }
                     //aalert(data);
                     //if(data == "No Data"){
@@ -152,8 +157,7 @@ function sendget_sponsor1(value) {
     };
 
 
-
-function get_memberfree(value) {
+    function get_memberfree(value) {
         var req = Inint_AJAX(); //���ҧ Object
         // aalert(value)
         value = str_pad(value, 7, 0, false);
@@ -179,9 +183,9 @@ function get_memberfree(value) {
                         //document.getElementById('sp_code').value = value;
                         //document.getElementById("sp_name").value = myarr[0].trim();
                         //document.getElementById("l1").innerHTML = "รหัสอัพไลน์    " + myarr[1];//�ʴ���
-                       //document.getElementById("l2").innerHTML = "รหัสอัพไลน์    " + myarr[2];
+                        //document.getElementById("l2").innerHTML = "รหัสอัพไลน์    " + myarr[2];
                         //document.getElementById("l3").innerHTML="���� "+myarr[3];
-                        document.getElementById("divmemberfree").innerHTML=data;
+                        document.getElementById("divmemberfree").innerHTML = data;
                         //console.log(data);
 
                     }
@@ -239,7 +243,7 @@ function get_memberfree(value) {
 
     function ibillcheck() {
 
-      
+
 //check(nullCheck, sizeCheck, formatCheck, dupCheck, realCheck, idName, errmsg)
         var val = document.getElementById('sadate').value;
         var field = "sadate";
@@ -257,20 +261,20 @@ function get_memberfree(value) {
         errDesc = errDesc + ",รูปแบบการซื้อ";
 
         document.getElementById('checkstate').innerHTML = "<img align='center' src='./images/loading.gif' />";
-       
-        if($("#satype").val()=='R'){
-            if($("#sumpv").val()<400){
-                pPanel='checkstate';
-                document.getElementById('ok').disabled=true;
+
+        if ($("#satype").val() == 'R') {
+            if ($("#sumpv").val() < 400) {
+                pPanel = 'checkstate';
+                document.getElementById('ok').disabled = true;
                 saveResult("" + '<div class=\'alert alert-danger center\'> คะแนนต้อง 400 ขึ้นไป</br> </div>');
-            }else{
+            } else {
                 startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
-    
+
             }
-         }else{
+        } else {
             startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
-    
-         }  
+
+        }
     }
 
     function calfinal() {
@@ -306,7 +310,7 @@ function get_memberfree(value) {
 function dialogbox($width, $color, $msg, $link)
 {
     ?>
-    <table width=<?= $width ?> bgcolor="<?= $color ?>">
+<table width=<?= $width ?> bgcolor="<?= $color ?>">
     <tr valign="top">
         <td align="center"><font color="#FFFFFF"><?= $msg ?></font></td>
     </tr>
@@ -438,10 +442,10 @@ if (mysql_num_rows($rs) > 0) {
                                     <div class="profile-info-value">
                                         <div class="controls">
 
-<? 
-//var_dump($_SESSION['usercode']);
-//var_dump($arr_satypeh2);?>
-                                       
+                                            <?
+                                            //var_dump($_SESSION['usercode']);
+                                            //var_dump($arr_satypeh2);?>
+
                                             <select name="satype" id="satype"
                                                     onChange="document.getElementById('ok').disabled=true;checktype(this.options[this.selectedIndex].value);">
                                                 <?
@@ -460,11 +464,6 @@ if (mysql_num_rows($rs) > 0) {
                                     </div>
                                 </div>
 
-            
-
-
-
-
 
                                 <div class="profile-info-row">
                                     <div class="profile-info-name"><?= $wording_lan["productshow"]["4"] ?> </div>
@@ -479,7 +478,8 @@ if (mysql_num_rows($rs) > 0) {
 
 
                                 <div class="profile-info-row">
-                                    <div id="type-display" class="profile-info-name"> รหัสสมาชิก<?//= $wording_lan["tab5"]['1_4'] ?> </div>
+                                    <div id="type-display" class="profile-info-name">
+                                        รหัสสมาชิก<? //= $wording_lan["tab5"]['1_4'] ?> </div>
                                     <div class="profile-info-value">
                                         <div class="input-group col-sm-9 col-xs-9">
                                             <input type="text" id="mcode" name="mcode" class="form-control"
@@ -488,7 +488,7 @@ if (mysql_num_rows($rs) > 0) {
 									<button class="btn btn-sm btn-default" type="button"
                                             onClick="sendget_sponsor(document.getElementById('mcode').value);sendget_sponsor1(document.getElementById('mcode').value);">
 										<i class="ace-icon fa fa-search bigger-110"></i>
-										Search
+										ค้นหา
 									</button>
 									</span>
                                         </div>
@@ -505,51 +505,50 @@ if (mysql_num_rows($rs) > 0) {
                                     </div>
                                 </div>
 
-
-
-                            <div class="profile-info-row" id="divmemberfreemain" style="display:none;">
+                                <div class="profile-info-row" id="divmemberfreemain" style="display:none;">
                                     <div class="profile-info-name"> สมาชิกที่ยังไม่ลงผัง</div>
                                     <div class="profile-info-value" id="divmemberfree">
                                         <div class="input-group col-sm-9 col-xs-9">
- 
+
                                         </div>
                                     </div>
                                 </div>
 
-
-
-
                                 <div class="profile-info-row" id="divlr" style="display:none;">
-                                    <div class="profile-info-name"> ด้าน&nbsp; 
-                                    <input type="hidden" name="lrmcode" id="lrmcode" value="" >
+                                    <div class="profile-info-name"> ด้าน&nbsp;
+                                        <input type="hidden" name="lrmcode" id="lrmcode" value="">
                                     </div>
 
                                     <div class="input-group col-sm-9 col-xs-9">
                                         <div class="space-6"></div>
                                         <div class="space-6"></div>
 
-                                            <div style="clear:both">
-                                                <div class="lr" style=" width: 100px;   float: left;">
-                                                    &nbsp;&nbsp;<input tabindex="6" onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr2code').val())" type="radio" name="lr" id="lr" value="2">&nbsp;&nbsp;ขวา                                                    <br><br>
-                                                    <input type="hidden" name="lr2code" id="lr2code" value="">
-                                                </div>
-                                                <div id="l2"></div>
+                                        <div style="clear:both">
+                                            <div class="lr" style=" width: 100px;   float: left;">
+                                                &nbsp;&nbsp;<input tabindex="6"
+                                                                   onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr2code').val())"
+                                                                   type="radio" name="lr" id="lr" value="2">&nbsp;&nbsp;ขวา
+                                                <br><br>
+                                                <input type="hidden" name="lr2code" id="lr2code" value="">
                                             </div>
-                                            <div style="clear:both">
-                                                <div class="lr" style=" width: 100px;   float: left;">
+                                            <div id="l2"></div>
+                                        </div>
+                                        <div style="clear:both">
+                                            <div class="lr" style=" width: 100px;   float: left;">
                                                 <input type="hidden" name="lr1code" id="lr1code" value="">
-                                                    &nbsp;&nbsp;<input tabindex="6" onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr1code').val())" type="radio" name="lr" id="lr" value="1">&nbsp;&nbsp;ซ้าย                                                    <br><br>
-                                                </div>
-                                                <div id="l1"></div>
+                                                &nbsp;&nbsp;<input tabindex="6"
+                                                                   onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr1code').val())"
+                                                                   type="radio" name="lr" id="lr" value="1">&nbsp;&nbsp;ซ้าย
+                                                <br><br>
                                             </div>
-                                            <input type="hidden" name="olr" id="olr" value="">
-                                        
+                                            <div id="l1"></div>
+                                        </div>
+                                        <input type="hidden" name="olr" id="olr" value="">
+
                                     </div>
                                     <div class="space-6"></div>
                                     <div class="space-6"></div>
                                 </div>
-
-
 
                             </div>
                             <div class="space-6"></div>

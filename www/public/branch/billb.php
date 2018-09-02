@@ -196,7 +196,8 @@ $monthmonth = explode("-",$fdate);
 		$rec->setSearchDesc($wording_lan["Bill_2"].",".$wording_lan["Bill_3"].",".$wording_lan["Bill_4"].",".$wording_lan["Bill_18"].",".$wording_lan["Bill_19"].",".$wording_lan["Bill_25"]."");
 
 		$rec->setSum(true,false,",,,,,,true,true,,");
-		if($_SESSION["admininvent"] == $GLOBALS["main_inv_code"])$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE",$wording_lan["Bill_print"]);
+        if ($_GET['sessiontab'] == 3) $rec->setSpecial("./images/Amber-Printer.gif", "", "sale_print", "sano", "IMAGE", $wording_lan["Bill_print"]);
+//        if($_SESSION["admininvent"] == $GLOBALS["main_inv_code"])$rec->setSpecial("./images/Amber-Printer.gif","","sale_print","sano","IMAGE",$wording_lan["Bill_print"]);
 		$rec->setSpecial("./images/search.gif","","sale_look","sano","IMAGE",$wording_lan["Bill_view"]);
 		$rec->setHLight("cancel",1,array("#FF7777","#FF9999"),"HIDE");
 		 

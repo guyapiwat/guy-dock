@@ -2077,7 +2077,7 @@ function getAutoship($mcd,$state){
 
 function check_status($mcd,$pos_cur,$fdate){
         global $array_mpos_cls,$member_qualify;
-       $status1['tot_pv'] = $status= 0;
+        $status1['tot_pv'] = $status= 0;
         $thisMonth = date("Y-m",strtotime("first day of $fdate "));
         $thisMonthxx = date("Ym",strtotime("first day of $fdate "));
         $lastMonth =  lastMonth(date("Y-m-01",strtotime("first day of $fdate ")));

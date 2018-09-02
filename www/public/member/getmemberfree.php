@@ -20,26 +20,28 @@ include("connectmysql.php");
 $value = (isset($_POST["value"])) ? $_POST["value"] : $_GET["value"];
 $mcode1 = $_SESSION["usercode"];
 
-  $sql="SELECT * FROM  `ali_member`   WHERE lr='' AND sp_code='$value'";
-                //echo $sql;
-                $rs1 = mysql_query($sql);
-                if(mysql_num_rows($rs1)>0){
-?>
-  <select name="memberfreeid" required>
-  <option value="">เลือก</option>
+$sql = "SELECT * FROM  `ali_member`   WHERE lr='' AND sp_code='$value'";
+//echo $sql;
+$rs1 = mysql_query($sql);
+if (mysql_num_rows($rs1) > 0) {
+    ?>
+    <select name="memberfreeid" required>
+        <option value="">เลือก</option>
         <?
-              
-                 while ($sqlObj = mysql_fetch_object($rs1)) {
-        ?>                            
-                <option value="<?echo($sqlObj->mcode);?>"><?echo($sqlObj->name_f." ".$sqlObj->name_t);?></option>
-        <?
-                    } 
-           
-        
+
+        while ($sqlObj = mysql_fetch_object($rs1)) {
+            ?>
+            <option value="<?
+            echo($sqlObj->mcode); ?>"><?
+                echo($sqlObj->name_f . " " . $sqlObj->name_t); ?></option>
+            <?
+        }
+
+
         ?>
-</select>
-<?
-    }else{
-        echo('1234');
-    }
+    </select>
+    <?
+} else {
+    echo('1234');
+}
 ?>
