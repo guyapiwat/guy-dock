@@ -1,7 +1,7 @@
 <?
 session_start();
-?><meta http-equiv="Content-Language" content="th">
-<meta http-equiv="Content-Type" content="text/html; charset=tis-620">
+?> 
+<meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 <?
 require("connectmysql.php");

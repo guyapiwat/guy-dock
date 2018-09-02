@@ -67,7 +67,7 @@ if ($valid == true) {
     }
 } else {
     if (!empty($_POST)) {
-        echo "<script language='javascript' type='text/javascript'>alert('���ʻ�ͧ�ѹ���١��ͧ');</script>";
+        echo "<script language='javascript' type='text/javascript'>alert('กรุณาตรวจสอบข้อมูลอีกครั้งค่ะ');</script>";
     }
 
     //  echo "<script language='javascript' type='text/javascript'>window.location='./login2.php'</script>";

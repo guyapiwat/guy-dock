@@ -5,6 +5,7 @@ ini_set("memory_limit","100M");
 //include("safetySQL.php");
 
 $_SESSION["chkewallet"] = 0;
+
 $_SESSION["checkclick"] = 0;
 $_SESSION["chkdouble"] = 1;
 	include("gencode.php");
@@ -16,7 +17,9 @@ $_SESSION["chkdouble"] = 1;
 	}
 	include_once("wording".$_SESSION["lan"].".php"); 
 ?>
-<? require("checklogin.php");?>
+<? 
+
+require("checklogin.php");?>
 <? include("header.php");?>  
 <? include("prefix.php");
 include("function.php");

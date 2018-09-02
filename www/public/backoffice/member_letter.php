@@ -73,8 +73,10 @@
 	$str .= "<img border='0' src='./images/excel.gif'>สร้าง Excel</a></fieldset>";
 	$rec->setSpace($str);*/
     //$rec->setSum(true,false,",,,,,,true,true");
-    //$rec->setDel("index.php","id","id","sessiontab=3&sub=6");
+	//$rec->setDel("index.php","id","id","sessiontab=3&sub=6");
+	
 	if($_GET['excel']==1){
+		
 			logtext(true,$_SESSION["adminusercode"],'Export Excel : ที่อยู่สมาชิก','');
 			$text="uid=".$_SESSION["adminusercode"]." action=member_export_excel =>$sql";
 			writelogfile($text);

@@ -169,15 +169,17 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
                 if (req.status == 200) { //���Ѻ��õͺ��Ѻ���º����
                     var data = req.responseText;
                     var myarr = data.split("|");
-
+                    
+                    data = data.trim();
+                    console.log(data);
                     //��ͤ���������Ҩҡ��÷ӧҹ�ͧ test3.php
                     //aalert(req.responseText);
-                    if (data == 1234) {
-                        document.getElementById('sp_code').value = "";
-                        document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
-                        document.getElementById("l1").innerHTML = "";//�ʴ���
-                        document.getElementById("l2").innerHTML = "";
-                        //document.getElementById("l3").innerHTML="";
+                    if (data== '1234') {
+                        // document.getElementById('sp_code').value = "";
+                        // document.getElementById("sp_name").value = "ไม่ได้อยู่ในสายงาน";
+                        // document.getElementById("l1").innerHTML = "";//�ʴ���
+                        // document.getElementById("l2").innerHTML = "";
+                        document.getElementById("divmemberfree").innerHTML="ไม่พบข้อมูลลงทะเบียน";
 
                     } else {
                         //document.getElementById('sp_code').value = value;
@@ -260,14 +262,45 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
         flag = flag + ",1-0-0-0-0";
         errDesc = errDesc + ",รูปแบบการซื้อ";
 
+
+        //  val = val + "," + document.getElementById('memberfreeid').value;
+        // field = field + ",memberfreeid";
+        // flag = flag + ",1-0-0-0-0";
+        // errDesc = errDesc + ",กรุณาเลือกสมาชิกที่ต้องการก่อนค่ะ";
+
+        
+
         document.getElementById('checkstate').innerHTML = "<img align='center' src='./images/loading.gif' />";
 
         if ($("#satype").val() == 'R') {
-            if ($("#sumpv").val() < 400) {
-                pPanel = 'checkstate';
-                document.getElementById('ok').disabled = true;
-                saveResult("" + '<div class=\'alert alert-danger center\'> คะแนนต้อง 400 ขึ้นไป</br> </div>');
-            } else {
+            if($("#sumpv").val()<400){
+
+            if(document.getElementById('memberfreeid').value){
+            }else{
+                pPanel='checkstate';
+            saveResult("" + '<div class=\'alert alert-danger center\'> ไม่พบสมาชิกที่สมัครเข้ามาค่ะ</br> </div>');
+            status1=false; 
+            document.getElementById('ok').disabled=true;   
+            }
+
+
+           
+            if(document.getElementById('memberfreeid').value+"x"=="x" && status1){
+            pPanel='checkstate';
+            document.getElementById('ok').disabled=true;
+            saveResult("" + '<div class=\'alert alert-danger center\'> คะแนนต้อง 400 ขึ้นไป</br> </div>');
+            status1=false;   
+                }
+
+
+            if($("#sumpv").val()<400 && status1){
+            pPanel='checkstate';
+            document.getElementById('ok').disabled=true;
+            saveResult("" + '<div class=\'alert alert-danger center\'> คะแนนต้อง 400 ขึ้นไป</br> </div>');
+            status1=false;   
+            }
+
+            if(status1){
                 startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
 
             }
