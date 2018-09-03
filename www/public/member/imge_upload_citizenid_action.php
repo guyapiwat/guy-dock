@@ -13,7 +13,7 @@ $fileimagename= $_POST["mcid_img"];
 //var_dump($_SERVER['HTTP_X_FILE_NAME']);
 //$erp_product_image = new erp_product_image();
 if($fileimagename."x"=="x"){
-    echo "กรุณาสุ่มหรัสมาชิกก่อนค่ะ";
+    echo "กรุณาสุ่มรหัสมาชิกก่อนค่ะ";
     exit;
 } 
 //if(isset($_POST) && isset($_SERVER['HTTP_X_REQUESTED_WITH']) && strtolower($_SERVER['HTTP_X_REQUESTED_WITH']) == 'xmlhttprequest'){
