@@ -130,11 +130,16 @@ for($i=0;$i<mysql_num_rows($rs);$i++){
 list($y,$m,$d) = explode('-',date("Y-m-d"));
 mysql_free_result($rs);
 //$pdf->AddFont('tahoma','','tahoma.php'); 
-define('FPDF_FONTPATH','../backoffice/fpdf/font/'); 
-require('../backoffice/fpdf/fpdf.php'); 
+//define('FPDF_FONTPATH','../backoffice/fpdf/font/');
+//require('../backoffice/fpdf/fpdf.php');
 //require('table1.php');
 $pgsize=array(200,160);
-$pdf=new FPDF('P','mm',$pgsize);
+define('FPDF_FONTPATH', '../backoffice/fpdf/font/');
+//    require('../backoffice/fpdf/fpdf.php');
+//    $pdf = new FPDF('P', 'mm', 'A4');
+require('../backoffice/fpdf/FpdfBarcode.php');
+$pdf = new FpdfBarcode('P', 'mm', $pgsize);
+//$pdf=new FPDF('P','mm',$pgsize);
 //$pdf=new FPDF('P','mm','Letter');
 //$pgsize=array(200,210);
 //$pgsize=array(200,160);
@@ -172,7 +177,7 @@ for($i=0;$i<sizeof($bill);$i++){
 	$pdf->SetY($offsety+$offsetnline);
 	$pdf->SetX($offsetx+$offsettab);
 	$pdf->Cell($offsettab,10,$logo,0,0,"L"); 
-	$pdf->Image('../logo.jpg',$offsetx+$offsettab,$offsety+$offsetnline+2,14); //file,x,y,w=0,h=0
+	$pdf->Image('../logo.JPG',$offsetx+$offsettab,$offsety+$offsetnline+2,14); //file,x,y,w=0,h=0
 
 	$pdf->SetFont('angsa','',14); 
 	

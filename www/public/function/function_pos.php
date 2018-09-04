@@ -69,7 +69,7 @@ class product
             $sqlObj = mysql_fetch_object($rs);
           //  $data['id'] = $sqlObj->id;
             $data['pcode'] = $sqlObj->pcode;
-			$data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+			$data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
 
 			if($statusm=="1"){
 				$data['price'] = $sqlObj->customer_price;
@@ -92,7 +92,7 @@ class product
                 $sqlObj = mysql_fetch_object($rs);
               //  $data['id'] = $sqlObj->id;
                 $data['pcode'] = $sqlObj->pcode;
-                $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+                $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
 				//$data['price'] = $sqlObj->price;
 
 				if($statusm=="1"){
@@ -124,7 +124,7 @@ class product
             $sqlObj = mysql_fetch_object($rs);
           //  $data['id'] = $sqlObj->id;
             $data['pcode'] = $sqlObj->pcode;
-            $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+            $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
             $data['price'] = $sqlObj->price;
             $data['bprice'] = $sqlObj->bprice;
             $data['weight'] = $sqlObj->weight;
@@ -140,7 +140,7 @@ class product
                 $sqlObj = mysql_fetch_object($rs);
               //  $data['id'] = $sqlObj->id;
                 $data['pcode'] = $sqlObj->pcode;
-                $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+                $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
                 $data['price'] = $sqlObj->price;
                 $data['bprice'] = $sqlObj->bprice;
                 $data['weight'] = $sqlObj->weight;
@@ -2077,7 +2077,7 @@ function getAutoship($mcd,$state){
 
 function check_status($mcd,$pos_cur,$fdate){
         global $array_mpos_cls,$member_qualify;
-       $status1['tot_pv'] = $status= 0;
+        $status1['tot_pv'] = $status= 0;
         $thisMonth = date("Y-m",strtotime("first day of $fdate "));
         $thisMonthxx = date("Ym",strtotime("first day of $fdate "));
         $lastMonth =  lastMonth(date("Y-m-01",strtotime("first day of $fdate ")));

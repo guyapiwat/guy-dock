@@ -79,6 +79,7 @@ if(!empty($_POST["action"])) {
                 $mcode=$_POST["mcode"];             
                //$pd = product::get_product($_POST["pcode"],$_POST["qty"]);  
                $pd = product::get_productbymcode($_POST["pcode"],$_POST["qty"],$mcode);  
+               //var_dump($pd);
                if($_SESSION['discount'] == true){
                    $pd['pv']=0;
                    $pd['price'] = $pd['price']*0.70;
@@ -330,6 +331,8 @@ if(isset($_SESSION["cart_item"])){
       </thead>
       <tbody>
       <?php        
+
+   
         foreach ($_SESSION["cart_item"] as $key => $item){ 
         ?> 
             <tr>

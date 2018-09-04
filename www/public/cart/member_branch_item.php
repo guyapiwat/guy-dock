@@ -208,7 +208,7 @@ if (count($member) >= 0) {
                     } else {
                         $row1->inv_desc = $row1->inv_desc;
                     }
-                    $row1->inv_desc = iconv("TIS-620", "UTF-8", $row1->inv_desc);
+                    $row1->inv_desc = $row1->inv_desc;
                     echo "<option value=\"" . $row1->inv_code . "\" ";
                     if ($_SESSION["admininvent"] == $row1->inv_code) {
                         echo "selected";

@@ -206,7 +206,7 @@ if(mysql_num_rows($rs)>0){
 
 				<div class="col-xs-12 col-sm-9" >
 					<div class="space-12"></div>
-					<div class="profile-user-info profile-user-info-striped">
+					<div class="profile-user-info profile-user-info-striped" style="display: none">
 
 						<div class="profile-info-row">
 							<div class="profile-info-name"> LINK URL </div>

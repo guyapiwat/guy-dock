@@ -3061,9 +3061,14 @@ class repGenerator_b{
 				if(mysql_num_rows($this->rs)<=0){
 				}else{
 					//หัวข้อที่ต้องการแสดง
+					// for($i=0;$i<sizeof($showList);$i++){
+					// 	fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
+					// }
+
 					for($i=0;$i<sizeof($showList);$i++){
-						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
-					}
+						fprintf($fp,"%s\t",iconv("utf-8","tis-620",($showDesc[$i]==""?$showList[$i]:$showDesc[$i])));
+						}
+
 					fprintf($fp,"\n");
 					//ข้อมูลที่แสดง
 					//$sumVal="";
@@ -3072,11 +3077,14 @@ class repGenerator_b{
 						if(is_int($this->lPage) && $i>=$this->lPage) break;
 						if($info = mysql_fetch_array($this->rs)){ 
 							for($j=0;$j<sizeof($showList);$j++){
+
+								$info[$showList[$j]] = strip_tags(str_replace(array("\r\n","\r","\n")," ",iconv("utf-8","tis-620",$info[$showList[$j]]) ));
+
 								if(isset($formatList[$j]) && $formatList[$j]!="") {
 									fprintf($fp,number_format($info[$showList[$j]],$formatList[$j],'.',','));	
 								}
 								else{ 						
-									if (ctype_digit($info[$showList[$j]]))$info[$showList[$j]] = '="'.$info[$showList[$j]].'"'; 
+									if (ctype_digit($info[$showList[$j]]))$info[$showList[$j]] = '="'. $info[$showList[$j]].'"'; 
 									fprintf($fp,$info[$showList[$j]]);
 									
 								}

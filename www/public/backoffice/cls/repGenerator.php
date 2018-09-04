@@ -628,6 +628,9 @@ class repGenerator{
 		$fp = fopen($dir."/".$fileName,"w");
 		switch($type){
 			case 'SH_QUERY':
+			// $charset = "SET NAMES 'UTF8'"; 
+			// mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
+		
 				$this->rs = mysql_query($this->getSQL("CALC"));
 				//echo $this->getSQL("CALC");
 				$this->rowCalc();
@@ -655,7 +658,7 @@ class repGenerator{
 				}else{
 					//หัวข้อที่ต้องการแสดง
 					for($i=0;$i<sizeof($showList);$i++){
-						fprintf($fp,"%s\t",($showDesc[$i]==""?$showList[$i]:$showDesc[$i]));
+						fprintf($fp,"%s\t",iconv("utf-8","tis-620",($showDesc[$i]==""?$showList[$i]:$showDesc[$i])));
 					}
 					fprintf($fp,"\n");
 					//ข้อมูลที่แสดง
@@ -664,8 +667,10 @@ class repGenerator{
 					for($i=0;$i<mysql_num_rows($this->rs);$i++){
 						if(is_int($this->lPage) && $i>=$this->lPage) break;
 						if($info = mysql_fetch_array($this->rs)){
+
+
 							for($j=0;$j<sizeof($showList);$j++){
-								$info[$showList[$j]] = strip_tags(str_replace(array("\r\n","\r","\n")," ",$info[$showList[$j]] ));
+								$info[$showList[$j]] = strip_tags(str_replace(array("\r\n","\r","\n")," ",iconv("utf-8","tis-620",$info[$showList[$j]]) ));
 								//$info[$showList[$j]] = 'ss';
 								if(isset($formatList[$j]) && $formatList[$j]!="") {
 									fprintf($fp,number_format($info[$showList[$j]],$formatList[$j],'.',','));	
@@ -736,7 +741,7 @@ class repGenerator{
 		fprintf($fp,"header('Content-Type: application/octet-stream');");
 		fprintf($fp,"header('Content-Type: application/download');");
 		fprintf($fp,"header('Content-Disposition: attachment;filename=$fileName');");
-		fprintf($fp,"header('Content-Transfer-Encoding: binary');");
+		fprintf($fp,"header('Content-Transfer-Encoding:UTF8');");
 		fprintf($fp,"readfile('$fileName'); ?>");
 		//fprintf($fp,$buff);
 		

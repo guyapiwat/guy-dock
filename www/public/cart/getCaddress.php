@@ -1,6 +1,7 @@
 <? 
 include("../backoffice/connectmysql.php");
 include("../function/function_pos.php");
+require_once ("../share/textConverter.php");
 /*
 echo $_POST["action"]." ".$_POST["cprovince"]." ".$_POST["camphur"]." ".$_POST["cdistrict"];
 if($_POST["action"] == "camphur"){echo getCamphur($_POST["cprovince"]);}
@@ -8,18 +9,18 @@ else if($_POST["action"] == "cdistrict"){echo getCdistrict($_POST["cprovince"],$
 else if($_POST["action"] == "czip"){echo getCzip($_POST["cprovince"],$_POST["camphur"],$_POST["cdistrict"]);}
 */
 //$_POST["action"] = "";
-switch($_POST["action"]){ 
+switch($_POST["action"]){
 	case "camphur":
-		echo iconv('TIS-620','UTF-8',getCamphur($_POST["cprovince"]));
+		echo getCamphur($_POST["cprovince"]);
 		break;
 	case "cdistrict":
-		echo iconv('TIS-620','UTF-8',getCdistrict($_POST["cprovince"],$_POST["camphur"]));
+		echo getCdistrict($_POST["cprovince"],$_POST["camphur"]);
 		break;
 	case "czip":
-		echo iconv('TIS-620','UTF-8',getCzip($_POST["cprovince"],$_POST["camphur"],$_POST["cdistrict"]));
+		echo getCzip($_POST["cprovince"],$_POST["camphur"],$_POST["cdistrict"]);
 		break;
 	case "all":
-		echo iconv('TIS-620','UTF-8',getAll($_POST["mcode"]));
+		echo getAll($_POST["mcode"]);
 		break;
 	default :
 		echo "";	
@@ -41,7 +42,7 @@ function getCamphur($provinceId,$where=""){
 		}
 	}
 	else{
-		$data .= "<option value=''>°√ÿ≥“‡≈◊Õ°</option>";
+		$data .= "<option value=''>‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>";
 	}
 	return $data;
 }
@@ -56,7 +57,7 @@ function getCdistrict($provinceId,$amphurId,$where=""){
 		}
 	}
 	else{
-		$data .= "<option value=''>°√ÿ≥“‡≈◊Õ°</option>";
+		$data .= "<option value=''>‡∏Å‡∏£‡∏∏‡∏ì‡∏≤‡πÄ‡∏•‡∏∑‡∏≠‡∏Å</option>";
 	}
 	return $data;
 }
@@ -69,7 +70,7 @@ function getCzip($provinceId,$amphurId,$districtId){
 	else{ 
 		$data .= "";
 	}
-	$data = iconv('TIS-620','UTF-8',$data);
+	$data = $data;
 	return $data;
 }
 function getAll($mcode){
@@ -81,10 +82,10 @@ function getAll($mcode){
 	$data .= "cname:".$member[0]["name_f"].$member[0]["name_t"];
 	$data .= "|cmobile:".$member[0]["mobile"];
 	$data .= "|caddress:".$member[0]["caddress"];
-	if(!empty($member[0]["cbuilding"]))$data .= " Õ“§“√ ".$member[0]["cbuilding"];
-	if(!empty($member[0]["cvillage"]))$data .= " À¡ŸË∫È“π ".$member[0]["cvillage"];
-	if(!empty($member[0]["cstreet"]))$data .= " ∂ππ ".$member[0]["cstreet"];
-	if(!empty($member[0]["csoi"]))$data .= " ´Õ¬ ".$member[0]["csoi"];
+	if(!empty($member[0]["cbuilding"]))$data .= " ‡∏≠‡∏≤‡∏Ñ‡∏≤‡∏£ ".$member[0]["cbuilding"];
+	if(!empty($member[0]["cvillage"]))$data .= " ‡∏´‡∏°‡∏π‡πà‡∏ö‡πâ‡∏≤‡∏ô ".$member[0]["cvillage"];
+	if(!empty($member[0]["cstreet"]))$data .= " ‡∏ñ‡∏ô‡∏ô ".$member[0]["cstreet"];
+	if(!empty($member[0]["csoi"]))$data .= " ‡∏ã‡∏≠‡∏¢ ".$member[0]["csoi"];
 	$data .= "|cprovince:".$province[0]["provinceId"];
 	$data .= "|camphur:".getCamphur($province[0]["provinceId"],$where="and amphurId='".$amphur[0]["amphurId"]."'");
 	$data .= "|cdistrict:".getCdistrict($province[0]["provinceId"],$amphur[0]["amphurId"],$where="and districtId='".$district[0]["districtId"]."'");
