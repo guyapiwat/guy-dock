@@ -21,9 +21,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
     $arglist = explode('-', $farglist[$i]);
     //echo  $flist[$i]."-".$farglist[$i]."--".$fval[$i]."<br />";
     if ($arglist[0] == 1 && $fval[$i] == "") { //null
-        // echo $fdesc[$i];
-        // exit;
-        //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_74']) . "1</br>";
         if($flist[$i]=='id_card_img'){
             $errmsg .=    " " . $fdesc[$i] . ' ' . ''   . "</br>";
         }else{
@@ -32,7 +29,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
 
     }
     if ($arglist[1] > 0 && strlen($fval[$i]) != $arglist[1] && $fval[$i] != "") { //size
-        //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_75']) . ' ' . $arglist[1] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_76']) . "</br>";
         $errmsg .= $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_75']. ' ' . $arglist[1] . ' ' . $wording_lan['tab4']['1_76'] . "</br>";
     }
     /*if($arglist[2]==1 && $fval[0]==""){ //format
@@ -87,7 +83,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
 
     if ($arglist[5] == 1) { //loop
         if ($fval[$i] == $fval[0])
-            //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_73']) . "</br>";
             $errmsg .= $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' . $wording_lan['tab4']['1_73']. "</br>";
         else {
             $up = $fval[$i];
@@ -99,7 +94,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
                 $up = mysql_result($rs, 0, $flist[$i]);
                 //echo $up."--".$fval[0];
                 if ($up == $fval[0]) {
-                    //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_72']) . "</br>";
                     $errmsg .=  $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' .  $wording_lan['tab4']['1_72'] . "</br>";
                     
                     break;
@@ -108,7 +102,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
             }
             $rs = mysql_query("SELECT * FROM " . $dbprefix . $table . " WHERE " . $flist[$i] . "='" . $up . "' LIMIT 1");
             if (mysql_num_rows($rs) <= 0)
-                //$errmsg .= iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_70']) . " " . $fdesc[$i] . ' ' . iconv('TIS-620', 'UTF-8', $wording_lan['tab4']['1_81_1']) . "</br>";
                 $errmsg .=  $wording_lan['tab4']['1_70'] . " " . $fdesc[$i] . ' ' . $wording_lan['tab4']['1_81_1'] . "</br>";
                 mysql_free_result($rs);
         }
@@ -118,6 +111,21 @@ for ($i = 0; $i < sizeof($flist); $i++) {
     //echo $fdesc[$i];
     //print_r($arglist);
     //echo "ทดสอบครั<br />";
+
+}
+if ($fval[2] == 'A' || $fval[2] == 'Y') {
+    echo 'Test';
+    $rs = mysql_query("SELECT lr, upa_code FROM " . $dbprefix . "member WHERE  mcode ='" . $fval[1] . "' LIMIT 1");
+
+    if (mysql_num_rows($rs) <= 0) {
+        $errmsg = 'ไม่พบข้อมูลสมาชิก';
+    } else {
+        $up = mysql_fetch_object($rs);
+//        echo $up->upa_code;
+        if ($up->lr == '' || $up->upa_code == '') {
+            $errmsg = 'ไม่สามารถทำรายการเนื่องจากสมาชิกยังไม่ได้สมัครลงผังสายงาน';
+        }
+    }
 
 }
 if ($errmsg != "")
