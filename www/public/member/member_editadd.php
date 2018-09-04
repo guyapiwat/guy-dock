@@ -408,6 +408,7 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
                 $('.chekMemberAlert').html('<img src="./images/false.gif"/>');
             } else {
                 $('.chekMemberAlert').html('<img src="./images/true.gif"/>');
+                document.getElementById("mcid_img").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
             }
         });
     }

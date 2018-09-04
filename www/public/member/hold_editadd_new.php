@@ -267,14 +267,13 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
         // field = field + ",memberfreeid";
         // flag = flag + ",1-0-0-0-0";
         // errDesc = errDesc + ",กรุณาเลือกสมาชิกที่ต้องการก่อนค่ะ";
-
-        
+   
 
         document.getElementById('checkstate').innerHTML = "<img align='center' src='./images/loading.gif' />";
 
         if ($("#satype").val() == 'R') {
             if($("#sumpv").val()<400){
-
+               
             if(document.getElementById('memberfreeid').value){
             }else{
                 pPanel='checkstate';
@@ -292,6 +291,8 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
             status1=false;   
                 }
 
+          
+
 
             if($("#sumpv").val()<400 && status1){
             pPanel='checkstate';
@@ -304,8 +305,20 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
                 startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
 
             }
-        } else {
-            startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
+
+         }else{
+
+
+     var hpv =<?=$_SESSION["hpv"];?>;
+        if($("#sumpv").val()>hpv){
+            pPanel='checkstate';
+            document.getElementById('ok').disabled=true;
+            saveResult("" + '<div class=\'alert alert-danger center\'> คะแนน Hold PV ในระบบไม่เพียงพอ</br> </div>');
+             
+        }else{
+             startRQ(field, val, "", flag, errDesc, "asaleh", "checkstate");
+        }
+           
 
         }
     }
@@ -425,6 +438,7 @@ $rs = mysql_query($sql);
 if (mysql_num_rows($rs) > 0) {
     $hpv = mysql_result($rs, 0, 'hpv');
 } else $hpv = 0;
+
 
 ?>
 <!--

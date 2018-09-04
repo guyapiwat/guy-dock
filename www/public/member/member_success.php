@@ -52,7 +52,9 @@ if($_GET["bid"])$id = $_GET["bid"];
 					<!-- #section:pages/profile.info -->
 					<div class="profile-user-info profile-user-info-striped">
 						<div class="profile-info-row">
-							<div class="profile-info-name"><?=$wording_lan["newmember"]?></div>
+							<div class="profile-info-name">
+							รหัสสมาชิก และ Username ในการ login เข้าสู่ระบบ
+							<?//=$wording_lan["newmember"]?></div>
 
 							<div class="profile-info-value">
 								<span class="editable" id="username"><?=$cmc?></span>
@@ -70,7 +72,7 @@ if($_GET["bid"])$id = $_GET["bid"];
 
 <?}?>
 						<div class="profile-info-row">
-							<div class="profile-info-name">หรัสผ่าน</div>
+							<div class="profile-info-name">รหัสผ่าน คือ 4 ตัวท้ายบัตรประชาชน</div>
 
 							<div class="profile-info-value">
 								<span class="editable" id="username"><?=$cardid?></span>
@@ -87,19 +89,28 @@ if($_GET["bid"])$id = $_GET["bid"];
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"><?=$wording_lan["systemmail"]?></div>
+							<div class="profile-info-name">
+							
+							<?//=$wording_lan["systemmail"]?></div>
 
 							<div class="profile-info-value">
-								<span class="editable" id="age"><?=$email?></span>
+								<span class="editable" id="age">
+								บริษัทจะทำการตรวจสอบบัตรประชาชนของท่าน เพื่อความถูกต้องภายใน 2 สัปดาห์ และกรุณาส่งสำเนาหน้าแรกสมุดบัญชีไปที่	
+								<?//=$email?></span>
 							</div>
 						</div>
 
 						<div class="profile-info-row">
-							<div class="profile-info-name"><?=$wording_lan["report"]?></div>
+							<div class="profile-info-name">
+							
+							<?//=$wording_lan["report"]?></div>
 
 							<div class="profile-info-value">
-								<span class="editable" id="username"><?=date("Y-m-d",strtotime("+1 Month",$mdate));?></span>
+								<span class="editable" id="username">
+								ท่านสามารถเข้าสู่ระบบได้ที่ www.cciofficial.com
+								<?//=date("Y-m-d",strtotime("+1 Month",$mdate));?></span>
 							</div>
+
 						</div>
 					</div>
 					<div class="space-12"></div>
