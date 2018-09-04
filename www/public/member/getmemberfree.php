@@ -30,7 +30,7 @@ $sql = "SELECT * FROM  `ali_member`   WHERE lr='' AND sp_code='$value'";
             ?>
             <option value="<?
             echo($sqlObj->mcode); ?>"><?
-                echo($sqlObj->name_f . " " . $sqlObj->name_t); ?></option>
+                echo( $sqlObj->mcode . ":" . $sqlObj->name_f . " " . $sqlObj->name_t); ?></option>
             <?
         }
 
