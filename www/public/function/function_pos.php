@@ -69,7 +69,7 @@ class product
             $sqlObj = mysql_fetch_object($rs);
           //  $data['id'] = $sqlObj->id;
             $data['pcode'] = $sqlObj->pcode;
-			$data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+			$data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
 
 			if($statusm=="1"){
 				$data['price'] = $sqlObj->customer_price;
@@ -92,7 +92,7 @@ class product
                 $sqlObj = mysql_fetch_object($rs);
               //  $data['id'] = $sqlObj->id;
                 $data['pcode'] = $sqlObj->pcode;
-                $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+                $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
 				//$data['price'] = $sqlObj->price;
 
 				if($statusm=="1"){
@@ -124,7 +124,7 @@ class product
             $sqlObj = mysql_fetch_object($rs);
           //  $data['id'] = $sqlObj->id;
             $data['pcode'] = $sqlObj->pcode;
-            $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+            $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
             $data['price'] = $sqlObj->price;
             $data['bprice'] = $sqlObj->bprice;
             $data['weight'] = $sqlObj->weight;
@@ -140,7 +140,7 @@ class product
                 $sqlObj = mysql_fetch_object($rs);
               //  $data['id'] = $sqlObj->id;
                 $data['pcode'] = $sqlObj->pcode;
-                $data['pdesc'] = iconv( 'TIS-620', 'UTF-8',$sqlObj->pdesc);
+                $data['pdesc'] = $sqlObj->pdesc;//iconv( 'TIS-620', 'UTF-8',);
                 $data['price'] = $sqlObj->price;
                 $data['bprice'] = $sqlObj->bprice;
                 $data['weight'] = $sqlObj->weight;
