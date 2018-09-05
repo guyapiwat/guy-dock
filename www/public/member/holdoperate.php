@@ -60,19 +60,26 @@ if (isset($_GET['state'])) {
     } else {
         $sv_code = "";
     }
+
+    if($satype=="R"){
+        $satype = "A";
+    }
+
     if (isset($_POST["memberfreeid"])) {
+
     $memberfreeid=$_POST['memberfreeid'];
     $mcode=$memberfreeid;
     $satype = "A";
     $remark = "แจงสมัคร";
+
     }else{
     $memberfreeid="";
     $remark ="";
     }
 
 }
-//var_dump($_POST);
-
+var_dump($_POST);
+exit;
 
  
 
