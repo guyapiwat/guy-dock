@@ -247,7 +247,7 @@ class chartGenerator{
         //---------text information
         echo "<tr align='center'><td colspan=".mysql_num_rows($rs).">";
         echo "<table width='40' $alt style='border:#FFFFFF solid 1;' border='0' cellpadding='0' cellspacing='0'><tr><td align='center' style='cursor:pointer;'  onClick='parent.location=\"".$this->redctlink."$mcode\"' bgcolor='".$this->tabUDef[$pos_cur]."'><font color='".$this->txtUDef[$pos_cur]."'>$mcode</font></td></tr>";
-        echo "<tr><td align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode\"' bgcolor='".$this->tabDDef[$pos_cur]."'><font color='".$this->txtDDef[$pos_cur]."'>".substr($name_show,0,strlen($mcode)-1)."</font></td></tr></table>";
+        echo "<tr><td align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode\"' bgcolor='".$this->tabDDef[$pos_cur]."'><font color='".$this->txtDDef[$pos_cur]."'>".$name_show."</font></td></tr></table>"; //substr($name_show,0,strlen($mcode)-1)
         echo "</td></tr>";
         //--------------------------
 
