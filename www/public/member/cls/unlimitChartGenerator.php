@@ -190,6 +190,7 @@ class chartGenerator{
 		//else if($lr == '2'){$lr = "ขวา";}
       
         $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>".$wording_lan["tab4"]["8_5"]."<td> : </td></td><td>".$name_show."</td></tr><tr><td>".$wording_lan["allpv"]."</td><td> : </td><td>".number_format($scr->getAPV($mcode),0,'.',',')."</td></tr><tr><td>HPV</td><td> : </td><td>".number_format($sqlObj2->hpv,0,'.',',')."</td></tr><tr><td>".$wording_lan["tab3_6"]."<td> : </td></td><td>".$sqlObj2->sss."</td></tr><tr><td>".$wording_lan["tab1_mem_6"]."<td> : </td></td><td>".$name_show1."</td></tr><tr><td>".$wording_lan["tab3_5"]."<td> : </td></td><td>".$sqlObj2->upa."</td></tr><tr><td>".$wording_lan["tab1_mem_7"]."<td> : </td></td><td>".$sqlObj2->upan."</td></tr><tr><td>".$wording_lan["tab1_1_8"]."</td><td> : </td><td>".$lr."</td></tr></table>')\"";
+        
         if(mysql_num_rows($rs)<=0){
             $pos_cur = $sqlObj2->pos_cur; 
             if(empty($pos_cur1))$pos_cur1 = $sqlObj2->pos_cur2;
