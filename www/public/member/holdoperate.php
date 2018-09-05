@@ -63,6 +63,7 @@ if (isset($_GET['state'])) {
 
     if($satype=="R"){
         $satype = "A";
+        $remark = "แจงสมัคร";
     }
 
     if (isset($_POST["memberfreeid"])) {
@@ -78,6 +79,7 @@ if (isset($_GET['state'])) {
     }
 
 }
+
 // var_dump($_POST);
 // exit;
 
