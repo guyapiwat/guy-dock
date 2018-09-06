@@ -1212,8 +1212,6 @@ function DecodePwd($X)
     return(trim($XX));
 }	//End Function
 // DecodePwd('160173197084126057041076101045')=102186
-echo "////////////////////////////////////////";
-echo DecodePwd('160175198087192123108162');
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // ใช้ปรับ step ในการ update ข้อมูล
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
@@ -1282,6 +1280,13 @@ function connect_db($database)
 if(!mysql_select_db($database))
 	return false;
 
+}
+
+function hpv_ad(){
+
+}
+function hpv_de(){
+	
 }
 
 ?>
