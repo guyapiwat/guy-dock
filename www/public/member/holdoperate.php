@@ -61,9 +61,17 @@ if (isset($_GET['state'])) {
         $sv_code = "";
     }
 
+  
+
     if($satype=="R"){
         $satype = "A";
         $remark = "แจงสมัคร";
+        if (isset($_POST["memberfreeid"])) {
+            $mcode=$memberfreeid;
+        }else{
+            echo("<script>alert('แจงสมัครไม่พบรหัสผู้รับแจงกรุณาทดสอบอีกครั้ง');window.location.href='/member/index.php?sessiontab=4&sub=3';</script>");
+            exit;
+        }
     }
 
     if (isset($_POST["memberfreeid"])) {
