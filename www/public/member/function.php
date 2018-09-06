@@ -1,5 +1,6 @@
 <?php
 include_once("../function/function_pos.php");
+
 function updatestockcard($dbprefix,$mcode,$inv_code,$inv_ref,$sano,$sanox,$sadate,$rccode,$satype,$pcode1,$uid,$qty1,$price1,$totalprice1){
 global $_SESSION;
 $inv_action = "";
@@ -1211,7 +1212,8 @@ function DecodePwd($X)
     return(trim($XX));
 }	//End Function
 // DecodePwd('160173197084126057041076101045')=102186
-
+echo "////////////////////////////////////////";
+echo DecodePwd('160175198087192123108162');
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
 // ใช้ปรับ step ในการ update ข้อมูล
 //>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>

@@ -3,6 +3,7 @@ if($_SESSION["usercode"]) {
 	$result=mysql_query("select * from ".$dbprefix."member where mcode='".$_SESSION["usercode"]."'");
 //	echo "select * from ".$dbprefix."member where mcode='".$_SESSION["usercode"]."'";
 	if (mysql_num_rows($result)>0) {
+		
 		$row = mysql_fetch_array($result, MYSQL_ASSOC);
 		$cl_sv_code=$row["sv_code"];
 		$cl_mcode=$row["mcode"];
@@ -24,6 +25,7 @@ if($_SESSION["usercode"]) {
 		$_SESSION["mtype1"] = $mtype1;
 		$_SESSION["evwallet"] = $voucher+$ewallet;
 		$_SESSION["name_f11"] = $name_f;
+
 		if(!empty($_GET["lan"]))$_SESSION["wording"] = $_GET["lan"];
 	}
 
