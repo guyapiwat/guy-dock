@@ -7,7 +7,7 @@
   header("Pragma: no-cache");
   
   //กำหนด header ตอนรับ
-  header("content-type: application/x-javascript; charset=TIS-620");
+  header("content-type: application/x-javascript;");
 
 include("prefix.php");
 include("connectmysql.php");
