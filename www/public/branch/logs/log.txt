@@ -878,3 +878,12 @@
 2018-09-01 01:22:58 ip=::1 uid=559 action=login
 2018-09-01 01:26:47 ip=::1 uid=558 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','����к� : punya  �Ң� :  BKK01','','::1','2018-09-01','13:26:47')
 2018-09-01 01:26:47 ip=::1 uid=559 action=login
+2018-09-05 11:14:20 ip=::1 uid=564 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('punya','����к� : punya  �Ң� :  BKK01','','::1','2018-09-05','23:14:20')
+2018-09-05 11:14:20 ip=::1 uid=566 action=login
+2018-09-05 11:23:32 ip=::1 uid=564 action=logtext =>INSERT INTO ali_log (sys_id,subject,object,ip,logdate,logtime) VALUES('dev','Export Excel : ข้อมูลสมาชิก','','::1','2018-09-05','23:23:32')
+2018-09-05 11:23:32 ip=::1 uid=dev action=member_export_excel =>SELECT ali_asaleh.txtoption,ali_asaleh.ref,'5' as sessiontab,'147' as sub,'' as chktype,ali_asaleh.inv_code,ali_asaleh.ref,uid_receive,uid_sender,cancel,print,ali_asaleh.id,ali_asaleh.lid,sano,DATE_FORMAT(sadate, '%Y-%m-%d') as sadate 
+,tot_pv,tot_bv,tot_fv,remark,total,CONCAT(ali_asaleh.name_f,' ',ali_asaleh.name_t) as name_t,ali_asaleh.mcode AS smcode,CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS sendsend ,CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ,CASE ali_asaleh.uid WHEN '' THEN ali_asaleh.inv_code ELSE ali_asaleh.uid END AS uid ,CASE checkportal WHEN '1' THEN 'HQ' WHEN '2' THEN 'Branch' WHEN '3' THEN 'Online'  WHEN '4' THEN 'ATO'  WHEN '5' THEN 'Stockist' END AS checkportal,CASE checkportal WHEN '2' THEN ali_asaleh.lid ELSE '' END AS lid1,CASE ali_asaleh.sa_type WHEN 'A' THEN 'บิลปกติ' WHEN 'B' THEN 'รักษายอดภายในเดือน' WHEN 'C' THEN 'รักษายอดทันที' WHEN 'Q' THEN 'รักษายอดล่วงหน้า' WHEN 'H' THEN 'บิล HOLD' WHEN 'D' THEN 'DIS' WHEN 'Z' THEN 'บิล Autoship' WHEN 'L' THEN 'บิลแลกของ'
+ WHEN 'Y' THEN 'โอนคะแนน' 
+
+END AS ability,CASE ali_asaleh.receive WHEN '1' THEN concat('',ali_asaleh.receive_date) ELSE '<img src=./images/false.gif>' END AS receive ,
+CASE ali_asaleh.sender WHEN '1' THEN concat('',ali_asaleh.sender_date) ELSE '<img src=./images/false.gif>' END AS sender  ,ali_asaleh.remark as remark,ali_asaleh.send as send1,ali_asaleh.sender as sender1,ali_asaleh.receive as receive1 FROM ali_asaleh where ali_asaleh.locationbase = '1' 

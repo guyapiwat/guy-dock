@@ -1,6 +1,6 @@
 <? session_start();?>
 <meta http-equiv="Content-Language" content="th">
-<meta http-equiv="Content-Type" content="text/html; charset=tis-620">
+<meta http-equiv="Content-Type" content="text/html; charset=tis-UTF8">
 <link rel="stylesheet" type="text/css" href="./../style.css" />
 <?
 require("connectmysql.php");
