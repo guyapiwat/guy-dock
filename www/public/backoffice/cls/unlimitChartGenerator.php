@@ -216,9 +216,9 @@ class chartGenerator
 
         $lrxx = getlrxxx($this->dbPrefix, $mcode, $csp_code, $lr);
         if ($lrxx == '1') {
-            $lr = "����";
+            $lr = "ซ้าย";
         } else if ($lrxx == '2') {
-            $lr = "���";
+            $lr = "ขวา";
         } else {
             $lr = "";
         }
@@ -226,7 +226,11 @@ class chartGenerator
         //if($lr == '1'){$lr = "����";}
         //else if($lr == '2'){$lr = "���";}
 
-        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>����<td> : </td></td><td>" . $name_show . "</td></tr><tr><td>PV ����</td><td> : </td><td>" . number_format($scr->getAPV($mcode), 0, '.', ',') . "</td></tr><tr><td>HPV</td><td> : </td><td>" . number_format($sqlObj2->hpv, 0, '.', ',') . "</td></tr><tr><td>����й�<td> : </td></td><td>" . $sqlObj2->sss . "</td></tr><tr><td>���ͼ���й�<td> : </td></td><td>" . $name_show1 . "</td></tr><tr><td>�Ѿ�Ź�<td> : </td></td><td>" . $sqlObj2->upa . "</td></tr><tr><td>�����Ѿ�Ź�<td> : </td></td><td>" . $sqlObj2->upan . "</td></tr><tr><td>��ҹ(�Ѿ�Ź�)</td><td> : </td><td>" . $lr . "</td></tr></table>')\"";
+        $alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>ชื่อ<td> : </td></td><td>" . $name_show . "</td></tr><tr><td>PV สะสม</td><td> : </td><td>" . number_format($scr->getAPV($mcode), 0, '.', ',') . "</td></tr><tr><td>HPV</td><td> : </td><td>" . number_format($sqlObj2->hpv, 0, '.', ',') . "</td></tr><tr><td>ผู้แนะนำ<td> : </td></td><td>" . $sqlObj2->sss . "</td></tr><tr><td>ชื่อ<td> : </td></td><td>" . $name_show1 . "</td></tr><tr><td>อัพไลน์<td> : </td></td><td>" . $sqlObj2->upa . "</td></tr><tr><td>ชื่ออัพไลน์<td> : </td></td><td>" . $sqlObj2->upan . "</td></tr><tr><td>ด้าน(อัพไลน์)</td><td> : </td><td>" . $lr . "</td></tr></table>')\"";
+        //$alt = "onmouseout=\"alt('')\" onmouseover=\"alt('<table><tr><td>".$wording_lan["tab4"]["8_5"]."<td> : </td></td><td>".$name_show."</td></tr><tr><td>".$wording_lan["allpv"]."</td><td> : </td><td>".number_format($scr->getAPV($mcode),0,'.',',')."</td></tr><tr><td>HPV</td><td> : </td><td>".number_format($sqlObj2->hpv,0,'.',',')."</td></tr><tr><td>".$wording_lan["tab3_6"]."<td> : </td></td><td>".$sqlObj2->sss."</td></tr><tr><td>".$wording_lan["tab1_mem_6"]."<td> : </td></td><td>".$name_show1."</td></tr><tr><td>".$wording_lan["tab3_5"]."<td> : </td></td><td>".$sqlObj2->upa."</td></tr><tr><td>".$wording_lan["tab1_mem_7"]."<td> : </td></td><td>".$sqlObj2->upan."</td></tr><tr><td>".$wording_lan["tab1_1_8"]."</td><td> : </td><td>".$lr."</td></tr></table>')\"";
+        
+       
+       
         if (mysql_num_rows($rs) <= 0) {
             $pos_cur = $sqlObj2->pos_cur;
             if (empty($pos_cur1)) $pos_cur1 = $sqlObj2->pos_cur2;
@@ -289,7 +293,7 @@ class chartGenerator
         //---------text information
         echo "<tr align='center'><td colspan=" . mysql_num_rows($rs) . ">";
         echo "<table width='40' $alt style='border:#FFFFFF solid 1;' border='0' cellpadding='0' cellspacing='0'><tr><td align='center' style='cursor:pointer;'  onClick='parent.location=\"" . $this->redctlink . "$mcode\"' bgcolor='" . $this->tabUDef[$pos_cur] . "'><font color='" . $this->txtUDef[$pos_cur] . "'>$mcode</font></td></tr>";
-        echo "<tr><td align='center' style='cursor:pointer;' onClick='parent.location=\"" . $this->redctlink . "$mcode\"' bgcolor='" . $this->tabDDef[$pos_cur] . "'><font color='" . $this->txtDDef[$pos_cur] . "'>" . substr($name_show, 0, strlen($mcode) - 1) . "</font></td></tr></table>";
+        echo "<tr><td align='center' style='cursor:pointer;' onClick='parent.location=\"" . $this->redctlink . "$mcode\"' bgcolor='" . $this->tabDDef[$pos_cur] . "'><font color='" . $this->txtDDef[$pos_cur] . "'>" .$name_show  . "</font></td></tr></table>"; //substr($name_show, 0, strlen($mcode) - 1)
         echo "</td></tr>";
         //--------------------------
 

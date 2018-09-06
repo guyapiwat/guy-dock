@@ -260,13 +260,13 @@ function fnc_calc_data($dbprefix="ali_",$ro,$fdate,$tdate,$where="1=1"){
 
 function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
 
-    $maxlv=5; //----¡ÓË¹´¨Ó¹Ç¹ªÑé¹·Õè¨èÒÂ
-	//----à¡çº¢ÍÁÙÅ apv áÅÐ à¡çº¢éÍÁÙÅÊÁÒªÔ¡ array
+    $maxlv=5; //----ï¿½ï¿½Ë¹ï¿½ï¿½Ó¹Ç¹ï¿½ï¿½é¹·ï¿½ï¿½ï¿½ï¿½ï¿½
+	//----ï¿½çº¢ï¿½ï¿½ï¿½ï¿½ apv ï¿½ï¿½ï¿½ ï¿½çº¢ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ÒªÔ¡ array
     $where = "sadate >= '".$fdate."' and sadate <= '".$tdate."' and (sa_type='A') and cancel=0";
     $sql = " SELECT mcode,SUM(tot_pv) as tot_pv FROM  ";
     $sql .= " ( ";
     $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_asaleh ";
-    $sql .= "    WHERE ".$where." GROUP BY mcode ";
+    $sql .= "    WHERE sadate >= '".$fdate."' and sadate <= '".$tdate."' and (sa_type IN 'A', 'Z') and cancel=0 GROUP BY mcode ";
     $sql .= " UNION ALL ";
     $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_holdhead ";
     $sql .= "    WHERE ".$where." GROUP BY mcode ";
@@ -290,7 +290,7 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
                         "mcode"        => $mcode,
                         "total_pv"    => $tot_pv
                 );            
-                insert('ali_apv',$arr); //----à¾ÔèÁ¢éÍÁÙÅÅ§ apv   
+                insert('ali_apv',$arr); //----ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Å§ apv   
             }
         }
     }
@@ -303,12 +303,12 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
         $data[$sqlObj->mcode]['name_t']= $sqlObj->name_t;
         $data[$sqlObj->mcode]['upa_code']= $sqlObj->upa_code;
         $data[$sqlObj->mcode]['sp_code']= $sqlObj->sp_code;
-        $dataxx =  get_detail_meber($sqlObj->mcode,$tdate);  //---¿Ñ§ªÑè¹à¡çº¢éÍÁÙÅ member 
+        $dataxx =  get_detail_meber($sqlObj->mcode,$tdate);  //---ï¿½Ñ§ï¿½ï¿½ï¿½ï¿½çº¢ï¿½ï¿½ï¿½ï¿½ï¿½ member 
         $data[$sqlObj->mcode]['pos_cur']= $dataxx['pos_cur'];
         $data[$sqlObj->mcode]['lr']= $sqlObj->lr;      
     }
   
-	//----------´Ö§¢éÍÁÙÅ apv ÍÍ¡ÁÒ¡
+	//----------ï¿½Ö§ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ apv ï¿½Í¡ï¿½Ò¡
     $sql="select rcode,mcode,total_pv from ".$dbprefix."apv where rcode = '$ro' ";  
     $rs = mysql_query($sql);
     for($i=0;$i<mysql_num_rows($rs);$i++){
@@ -317,12 +317,12 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
         $apv_mcode     = $sqlObj->mcode;
         $apv_total_pv  = $sqlObj->total_pv; 
         $path = array();  
-        $path = get_part_sp($data[$apv_mcode],$data); //----à¡çº¢éÍÁØÅ¼Ùéá¹Ð¹Ó
-        $glv = 1; //----gen àÃÔèÁµé¹
-		$datao =  get_detail_meber($apv_mcode,$tdate); //----¢éÍÁÙÅ¤¹·ÕèÊÒ´¤Ðá¹¹
+        $path = get_part_sp($data[$apv_mcode],$data); //----ï¿½çº¢ï¿½ï¿½ï¿½ï¿½Å¼ï¿½ï¿½ï¿½Ð¹ï¿½
+        $glv = 1; //----gen ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
+		$datao =  get_detail_meber($apv_mcode,$tdate); //----ï¿½ï¿½ï¿½ï¿½ï¿½Å¤ï¿½ï¿½ï¿½ï¿½ï¿½Ò´ï¿½ï¿½á¹¹
         
            foreach($path as $sp_code => $val){ 
-			   $datax =  get_detail_meber($val['sp_code'],$tdate); //----¢éÍÁÙÅ¤¹·Õè¶Ù¡ÊÒ´¤Ðá¹¹
+			   $datax =  get_detail_meber($val['sp_code'],$tdate); //----ï¿½ï¿½ï¿½ï¿½ï¿½Å¤ï¿½ï¿½ï¿½ï¿½Ù¡ï¿½Ò´ï¿½ï¿½á¹¹
                $flg=false;    
                if($glv <= $maxlv){ 
                  switch ($glv){        
@@ -370,7 +370,7 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
                      
                     if($flg==true and $datax["terminate"] != "1") {    
                         $insert = array(
-							"rcode"        => $ro,					//ÃÍº	
+							"rcode"        => $ro,					//ï¿½Íº	
 							"mcode"        => $apv_mcode,
 							"name_t"       => $datao['name_t'],
 							"upa_code"     => $val['sp_code'],
@@ -384,14 +384,14 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
 							"tdate"        => $tdate,    
 							"pos_cur"      => $val['pos_cur'],
                           );                                          
-                        insert('ali_ac',$insert);   //---- à¡çº¢éÍÁÙÅ Å§ ac
+                        insert('ali_ac',$insert);   //---- ï¿½çº¢ï¿½ï¿½ï¿½ï¿½ï¿½ Å§ ac
                     }
                     $glv=($glv+1);    
                 }  
               }  
     }
     
-	//----- ÃÇÁ bonus fast
+	//----- ï¿½ï¿½ï¿½ bonus fast
     $sql = " insert into ".$dbprefix."ambonus  (rcode, mcode,name_t, total,tot_pv,tax,bonus,fdate,tdate,pos_cur) ";
     $sql .= "    select '$ro', upa_code,upa_name,sum(total) as totalpv,sum(pv) as pvpv,sum(total)*5/100 as tax,sum(total)-sum(total)*5/100 as bonus,'$fdate','$tdate',pos_cur from ".$dbprefix."ac WHERE  rcode='$ro' and upa_code<>'' and pos_cur <> 'TN' group by upa_code ";
     if (! mysql_query($sql)) {
@@ -691,9 +691,9 @@ function fnc_calc_invent($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
 
 
 function fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
-	$percen = array('MB'=>0,'DIS'=>0.50,'PRO'=>0.60,'VIP'=>0.70);			//----à»Íà«ç¹¨èÒÂ
+	$percen = array('MB'=>0,'DIS'=>0.50,'PRO'=>0.60,'VIP'=>0.70);			//----ï¿½ï¿½ï¿½ç¹¨ï¿½ï¿½ï¿½
     $max_quota = array('MB'=>0,'DIS'=>25000,'PRO'=>100000,'VIP'=>350000);		
-    $start_balance = 200;													//----balance àÃÔèÁµé¹
+    $start_balance = 200;													//----balance ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½
 	
     $month = explode("-",$fdate); // 2013-12-01       
     
@@ -724,11 +724,11 @@ function fnc_calc_b_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
         $sqlObj 	= mysql_fetch_object($rs);
         $mcode 		= $sqlObj->mcode;        
 
-        //////////// ¤Ðá¹¹ãËÁè //////////////////
+        //////////// ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ï¿½ //////////////////
         $new_pvL 	= $sqlObj->new_pvL;     
         $new_pvR 	= $sqlObj->new_pvR;    
 
-        //////////// ¤Ðá¹¹à¡èÒ //////////////////
+        //////////// ï¿½ï¿½á¹¹ï¿½ï¿½ï¿½ //////////////////
         $point = new point_member;
         $old = $point->get_bmbonus($dbprefix,$mcode);
 		
@@ -858,10 +858,10 @@ function dateDiff($startDate, $endDate) {
 
 } 
 function expdate($startdate,$datenum){
- $startdatec=strtotime($startdate); // ·ÓãËé¢éÍ¤ÇÒÁà»ç¹ÇÔ¹Ò·Õ
- $tod=$datenum*86400; // ÃÑº¨Ó¹Ç¹ÇÑ¹ÁÒ¤Ù³¡ÑºÇÔ¹Ò·ÕµèÍÇÑ¹
- $ndate=$startdatec+$tod; // ¹ÑººÇ¡ä»ÍÕ¡µÒÁ¨Ó¹Ç¹ÇÑ¹·ÕèÃÑºÁÒ
- return $ndate; // Êè§¤èÒ¡ÅÑº
+ $startdatec=strtotime($startdate); // ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Í¤ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½Ô¹Ò·ï¿½
+ $tod=$datenum*86400; // ï¿½Ñºï¿½Ó¹Ç¹ï¿½Ñ¹ï¿½Ò¤Ù³ï¿½Ñºï¿½Ô¹Ò·Õµï¿½ï¿½ï¿½Ñ¹
+ $ndate=$startdatec+$tod; // ï¿½Ñºï¿½Ç¡ï¿½ï¿½Õ¡ï¿½ï¿½ï¿½ï¿½Ó¹Ç¹ï¿½Ñ¹ï¿½ï¿½ï¿½ï¿½Ñºï¿½ï¿½
+ return $ndate; // ï¿½è§¤ï¿½Ò¡ï¿½Ñº
 }
 
 function getmicrotime() { 
@@ -898,8 +898,8 @@ function del_cals($dbprefix,$ro,$name=array()) {
 function alert_time($time_start,$txtoption){
 	$time_end = getmicrotime();
 	$time = $time_end - $time_start;
-	echo "<BR>ÊÔé¹ÊØ´¡ÒÃ¤Ó¹Ç³ <font color=red><b>$txtoption</b></font> ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
-	echo "¡ÒÃ¤Ó¹Ç³ãªéàÇÅÒ·Ñé§ÊÔé¹ $time ÇÔ¹Ò·Õ<BR>";
+	echo "<BR>ï¿½ï¿½ï¿½ï¿½Ø´ï¿½ï¿½Ã¤Ó¹Ç³ <font color=red><b>$txtoption</b></font> ".date("Y-m-d H:i:s")." ".strtotime("now"),"<BR>";
+	echo "ï¿½ï¿½Ã¤Ó¹Ç³ï¿½ï¿½ï¿½ï¿½ï¿½Ò·ï¿½ï¿½ï¿½ï¿½ï¿½ $time ï¿½Ô¹Ò·ï¿½<BR>";
 }
 function check_time($fuc_name = "1. ",$time_start){ 
     $time = getmicrotime()-$time_start;

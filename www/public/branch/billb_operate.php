@@ -235,7 +235,7 @@ if ($_GET['state'] == 0) {
         }
         if ($data['satype'] == "H" and $data['sumpv'] != 0) {
             updatehpv1($dbprefix, $data['mcode'], $data['sumpv']);
-        } elseif (data['satype'] == "B" and $data['sumpv'] != 0) {
+        } else if ($data['satype'] == "B" and $data['sumpv'] != 0) {
             // Update Hold pv for Sponsor
             updatehpv1($dbprefix, $detail_member['sp_code'], $data['sumpv']);
         }

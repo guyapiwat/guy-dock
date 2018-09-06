@@ -3,7 +3,6 @@ require_once("logtext.php");
 require_once("global.php");
 require_once("function.php");
 require_once("function.log.inc.php");
-require_once('../function/function_pos.php');
 $bid = $_GET['bid'];
 $remark = $_GET['remark'];
 
@@ -162,10 +161,11 @@ forget_point($dbprefix, $sano);
 if ($sa_type == 'A') downdatePos($dbprefix, $mcode, $sadate, $tot_pv);
 if ($sa_type == 'H' and $tot_pv != 0) {
     updatehpv2($dbprefix, $mcode, $tot_pv);
-} elseif (data['satype'] == "B" and $data['sumpv'] != 0) {
+} else if ($sa_type == "B" and $tot_pv != 0) {
     // Update Hold pv for Sponsor
-    $detail_member = get_detail_meber($mcode, date("Y-m-d"));
-    updatehpv2($dbprefix, $detail_member['sp_code'], $data['sumpv']);
+    require_once('../function/function_pos.php');
+    $detail_member = get_detail_meber($mcode, '');
+    updatehpv2($dbprefix, $detail_member['sp_code'], $tot_pv);
 }
 
 echo "<script language='JavaScript'>window.location='index.php?sessiontab=" . $_GET["sessiontab"] . "&sub=" . $_GET["sub"] . "'</script>";

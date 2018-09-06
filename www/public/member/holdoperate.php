@@ -60,19 +60,37 @@ if (isset($_GET['state'])) {
     } else {
         $sv_code = "";
     }
+
+  
+
+    if($satype=="R"){
+        $satype = "A";
+        $remark = "แจงสมัคร";
+        if (isset($_POST["memberfreeid"])) {
+            //code ที่จะทำการแจงสมัคร
+            $mcode=$memberfreeid;
+        }else{
+            //ไม่พบ code ที่จะทำการแจง hpv
+            echo("<script>alert('แจงสมัครไม่พบรหัสผู้รับแจงกรุณาทดสอบอีกครั้ง');window.location.href='/member/index.php?sessiontab=4&sub=3';</script>");
+            exit;
+        }
+    }
+
     if (isset($_POST["memberfreeid"])) {
+
     $memberfreeid=$_POST['memberfreeid'];
     $mcode=$memberfreeid;
     $satype = "A";
     $remark = "แจงสมัคร";
+
     }else{
     $memberfreeid="";
     $remark ="";
     }
 
 }
-//var_dump($_POST);
 
+ 
 
  
 

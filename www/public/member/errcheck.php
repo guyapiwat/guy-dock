@@ -114,7 +114,6 @@ for ($i = 0; $i < sizeof($flist); $i++) {
 
 }
 if ($fval[2] == 'A' || $fval[2] == 'Y') {
-    echo 'Test';
     $rs = mysql_query("SELECT lr, upa_code FROM " . $dbprefix . "member WHERE  mcode ='" . $fval[1] . "' LIMIT 1");
 
     if (mysql_num_rows($rs) <= 0) {

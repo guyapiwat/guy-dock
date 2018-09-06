@@ -41,10 +41,10 @@ mysql_free_result($rs);
 
 define('FPDF_FONTPATH','fpdf/font/');
 require('./fpdf/fpdf.php');
-//$pdf=new FPDF('P','mm','Letter');
+$pdf=new FPDF('P','mm','Letter');
 
-$pgsize = array(235,108);
-$pdf = new FPDF('P','mm',$pgsize);
+// $pgsize = array(235,108);
+// $pdf = new FPDF('P','mm',$pgsize);
 $pdf -> AddFont('angsa','','angsa.php');
 $rem = 0;
 $nitem = 10;
@@ -64,23 +64,23 @@ $pdf -> SetFont('angsa','',12);
 
 $pdf -> SetY($offsety+$offsetnline);
 $pdf -> SetX($offsetx+(13*$offsettab));
-$pdf -> Cell(2*$offsettab,20,"สแตมป์",1,0,"C");
+$pdf -> Cell(2*$offsettab,20,iconv( 'UTF-8', 'TIS-620',"สแตมป์"),1,0,"C");
 
 $pdf -> SetY($offsety+(11*$offsetnline));
 $pdf -> SetX($offsetx+(7*$offsettab));
-$pdf -> Cell(4*$offsettab,10,$name[$mcode[$i]],0,0,"L");
+$pdf -> Cell(4*$offsettab,10,iconv( 'UTF-8', 'TIS-620',$name[$mcode[$i]]),0,0,"L");
 
 $pdf -> SetY($offsety+(13*$offsetnline));
 $pdf -> SetX($offsetx+(7*$offsettab));
-$pdf -> Cell(4*$offsettab,10,$add[$mcode[$i]],0,0,"L");
+$pdf -> Cell(4*$offsettab,10,iconv( 'UTF-8', 'TIS-620',$add[$mcode[$i]]),0,0,"L");
 
 $pdf -> SetY($offsety+(15*$offsetnline));
 $pdf ->	SetX($offsetx+(7*$offsettab));
-$pdf -> Cell(4*$offsettab,10,$add1[$mcode[$i]],0,0,"L");
+$pdf -> Cell(4*$offsettab,10,iconv( 'UTF-8', 'TIS-620',$add1[$mcode[$i]]),0,0,"L");
 
 $pdf -> SetY($offsety+(17*$offsetnline));
 $pdf -> SetX($offsetx+(7*$offsettab));
-$pdf -> Cell(4*$offsettab,10,$add2[$mcode[$i]],0,0,"L");
+$pdf -> Cell(4*$offsettab,10,iconv( 'UTF-8', 'TIS-620',$add2[$mcode[$i]]),0,0,"L");
 }
 
 $pdf->Output("./pdf/letter.pdf");
