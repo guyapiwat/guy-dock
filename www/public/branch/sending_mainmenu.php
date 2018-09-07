@@ -346,6 +346,7 @@
 		           	<strong><font color="#666666"><?=$wording_lan["send_44"]?>&nbsp;&nbsp;</font></strong>          
 				 </legend>
 				<?
+				 
 				include("sssale.php");
 				break;
 			case 21:
