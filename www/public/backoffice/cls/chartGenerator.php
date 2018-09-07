@@ -283,6 +283,9 @@ class chartGenerator{
                     }
                     break;
                 }
+
+                $charset = "SET NAMES 'UTF8'";
+                mysql_query($charset) or die('Invalid query: ' . mysql_error());
                 $rs=mysql_query("select * from ".$this->dbPrefix."member where upa_code='$mcode[$k]' and lr='".($j+1)."' ");
                 //echo "select * from ".$this->dbPrefix."member where upa_code='$stk[$k]' and lr='$lr_def[$j]' ";
                 if(mysql_num_rows($rs)>0){
@@ -517,7 +520,7 @@ class chartGenerator{
                             echo "</td></tr>";
                         }
                         echo "<tr><td $clspan align='center' style='cursor:pointer;'  onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabUDef[$pos[$mcode[$k]]]."'><font color='".$this->txtUDef[$pos[$mcode[$k]]]."'>$mcode[$k](".$lb[$mcode[$k]].")</font></td></tr>";
-                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>".substr($name_b[$mcode[$k]],0,15)."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
+                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>".$name_b[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
                         echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>ตำแหน่ง  : ".$pos[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
                     //    echo $pos[$mcode[$k]];
                         echo "</table>";

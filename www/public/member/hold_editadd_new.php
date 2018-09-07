@@ -93,7 +93,11 @@ if ($GLOBALS["status_hold_mb"] <> '1') {
     //sendget_sponsor1('<?echo($_SESSION['usercode']);?>');
 
     function sendget_sponsor1(value) {
-        var req = Inint_AJAX(); //���ҧ Object
+
+        $("#lr2").attr('checked', false);
+        $("#lr1").attr('checked', false);
+        $("#lrmcode").val('');
+        var req = Inint_AJAX();  
         // aalert(value)
         value = str_pad(value, 7, 0, false);
         value = value.toUpperCase();
@@ -594,7 +598,7 @@ if (mysql_num_rows($rs) > 0) {
                                             <div class="lr" style=" width: 100px;   float: left;">
                                                 &nbsp;&nbsp;<input tabindex="6"
                                                                    onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr2code').val())"
-                                                                   type="radio" name="lr" id="lr" value="2">&nbsp;&nbsp;ขวา
+                                                                   type="radio" name="lr" id="lr2" value="2">&nbsp;&nbsp;ขวา
                                                 <br><br>
                                                 <input type="hidden" name="lr2code" id="lr2code" value="">
                                             </div>
@@ -605,7 +609,7 @@ if (mysql_num_rows($rs) > 0) {
                                                 <input type="hidden" name="lr1code" id="lr1code" value="">
                                                 &nbsp;&nbsp;<input tabindex="6"
                                                                    onclick="document.getElementById('ok').disabled=true;$('#lrmcode').val($('#lr1code').val())"
-                                                                   type="radio" name="lr" id="lr" value="1">&nbsp;&nbsp;ซ้าย
+                                                                   type="radio" name="lr" id="lr1" value="1">&nbsp;&nbsp;ซ้าย
                                                 <br><br>
                                             </div>
                                             <div id="l1"></div>

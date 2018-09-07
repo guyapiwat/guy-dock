@@ -19,13 +19,14 @@
 			window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&chktype='+chktype+'&page='+page+'&state=6&sender='+id+'&status=receive';
 		//}
 	}
-		function sale_status1(id,page,chktype,sessiontab,sub){
+	function sale_status1(id,page,chktype,sessiontab,sub){
 		//if(confirm("ต้องการเปลี่ยนแปลงจัดส่ง")){
 			window.location='index.php?sessiontab='+sessiontab+'&sub='+sub+'&chktype='+chktype+'&page='+page+'&state=7&sender='+id+'&status=sender';
 		//}
 	}
 </script>
 <?
+ 
 require("connectmysql.php");
 //var_dump($_SESSION);
 if(!empty($_GET["sano"]))$sano = $_GET["sano"];
@@ -89,12 +90,13 @@ if(!empty($fdate))
 $sql .= " and sadate like '%$fdate%'  ";
 
 
-//echo $sql;
+	//echo $sql;
 	//$link = mysql_connect('localhost', 'root', '1422528');
 	//$charset = "SET NAMES 'tis620'"; 
     //mysql_query($charset) or die('Invalid query: ' . mysql_error()); 
 	//mysql_select_db('free_style',$link);
 	//$rs = mysql_query("SELECT * FROM usaaba_member");
+
 	if($_GET['state']==1){
 		include("ssale_del.php");
 	}else if($_GET['state']==2){
@@ -113,7 +115,12 @@ $sql .= " and sadate like '%$fdate%'  ";
 	else if($_GET['state']==7){
 		include("change_held1.php");
 	}
+	
 	else{
+
+	
+
+
 		$rec = new repGenerator();
 		$rec->setQuery($sql);
 		$rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);
@@ -157,11 +164,13 @@ $sql .= " and sadate like '%$fdate%'  ";
 		$rec->setSpecial("./images/true.gif","","sale_status","id,page,chktype,sessiontab,sub","IMAGE",$wording_lan["send_1"]);
 		}
 		if($_GET['excel']==1){
-			$rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");
+			 
+			$rec->exportXls("ExportXls","ewallet".date("Ymd").".xls","SH_QUERY");			 
 			$str = "<fieldset><a href='".$rec->download("ExportXls","ewallet".date("Ymd").".xls")."' >";
 			$str .= "<img border='0' src='./images/download.gif'>".$wording_lan["Billjang_loding"]." Excel</a></fieldset>";
 			//$rec->getParam();
 			$rec->setSpace($str);
+
 		}
 		$str = "<fieldset><a href='".$rec->getParam()."&excel=1' target='_self'>";
 		$str .= "<img border='0' src='./images/excel.gif'>".$wording_lan["Billjang_cre"]." Excel</a></fieldset>";

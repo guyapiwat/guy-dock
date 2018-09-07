@@ -152,6 +152,7 @@ include("header.php");
 	else{
 		$sesstab = $_GET['sessiontab'];
 		$acc->calc($_SESSION['inventobj'.$sesstab]);
+		//var_dump($_SESSION['inventobj'.$sesstab]);
 		switch($sesstab){
 			case 0 :
 				include("change_pass.php");
