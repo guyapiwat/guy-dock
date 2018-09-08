@@ -34,7 +34,7 @@ if ($_SESSION["lan"] == "EN") {
     $wording_lan["satype"]["H"] = 'บิล HOLD';
     $wording_lan["satype"]["Z"] = 'บิล Autoship';
     $wording_lan["satype"]["L"] = 'บิลแลกของ';
-    $wording_lan["satype"]["B"] = "รักษายอดภายในเดือน";
+    $wording_lan["satype"]["B"] = "บิลรหัส M";
     $wording_lan["satype"]["D"] = "DIS";
     $wording_lan["logistic"]["1"] = 'จัดส่ง';
     $wording_lan["logistic"]["2"] = 'ไม่จัดส่ง';
@@ -97,7 +97,7 @@ $arr_payment_type = array(
 
 $arr_satype = array(
     'A' => $wording_lan["satype"]["A"],
-    'B' => 'แจงสมัคร',//$wording_lan["satype"]["B"],
+    'B' => 'บิลรหัส M',//$wording_lan["satype"]["B"],
     //'Q'=>$wording_lan["satype"]["Q"],
     'H' => $wording_lan["satype"]["H"],
     'Z' => $wording_lan["satype"]["Z"],

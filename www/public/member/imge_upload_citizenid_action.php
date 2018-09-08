@@ -64,7 +64,7 @@ if(isset($_POST)){
            
             //everything was fine !
             echo '<p class="result">';
-            echo '  <b>File uploaded with success</b><br />';
+            echo '  <b>การอัพโหลดภาพเสร็จสมบูรณ์</b><br />';
             echo ' <img src="'.$dir_dest. $handle->file_dst_name . '" border=0><br>' . $handle->file_dst_name . '';
             echo ' <input type="hidden" id="id_card_img2" name="id_card_img2"  value="'. $handle->file_dst_name . '">';
 			echo '   (' . round(filesize($handle->file_dst_pathname)/256)/4 . 'KB)';

@@ -772,11 +772,7 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
 
     <div class="row">
 
-        <div class="col-xs-12">
-            <!-- PAGE CONTENT BEGINS -->
-            <div class="clearfix">
-                <div>
-                    <div id="user-profile-1" class="user-profile row">
+        
                         <div class="col-xs-12 col-sm-6 ">
                             <!-- #section:pages/profile.info -->
                             <div class="profile-user-info profile-user-info-striped ">
@@ -854,47 +850,66 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                             </div>
 
                         </div>
-                        <div class="col-xs-12 col-sm-6">
-                            <div class="profile-user-info profile-user-info-striped">
+
+            <div class="col-xs-12 col-sm-6">
+                <div class="profile-user-info profile-user-info-striped">
 
                                 <div class="profile-info-row table-header">
                                     <div class="profile-info-value">อัพโหลดเอกสาร</div>
 
                                     <div class="profile-info-value">
+                                   
                                     </div>
                                 </div>
 
-                                <div class="profile-info-row">
-                                    <div class="profile-info-name"> บัตรประชาชน&nbsp;<font
-                                                color="#ff0000">*</font></div>
+            <div class="profile-info-row">
+                    
+                    <div class="profile-info-name"> บัตรประชาชน&nbsp;<font color="#ff0000">*</font>
+                    </div>
 
-                                    <div class="input-group col-sm-9 col-xs-9">
-                                        <div class="space-6"></div>
-                                        <div class="space-6"></div>
+                    <div class="profile-info-value">
+                    <div class="btn-group">
+                        <table>
+                        <tr>
+                        <td>
+                        <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
+                        </td>
+                        <td>
+                        <div  id="showimage"></div>
+                        </td>
+                        </tr>
+                        </table>
+                    </div>
+                    </div>
 
-                                        <div style="clear:both">
+                    </div>
 
-                                            <br>
-
-
-                                            <a onclick="$('#uploadcitizenid').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
-                                            <br>
-                                            <div id="showimage">
-                                                <br><br><br>
-                                            </div>
-
-                                        </div>
-                                    </div>
-                                    <div class="space-6"></div>
-                                    <div class="space-6"></div>
-                                    <div class="space-6"></div>
-                                    <div class="space-6"></div>
-                                </div>
-
-
-                            </div>
-                        </div>
-
+                    <div class="profile-info-row">
+                    <div class="profile-info-name"> หน้าบัญชี&nbsp; 
+                    </div>
+                    <div class="profile-info-value">
+                        <table>
+                        <tr>
+                        <td>
+                        <a onclick="$('#uploadbookbank').modal('toggle');" class="btn btn-primary">กดเพื่ออัพโหลดเอกสาร </a>
+                        </td>
+                        <td>
+                        <div  id="showimage2"></div>
+                        </td>
+                        </tr>
+                        </table>
+                    </div>
+                                    
+                                 
+                </div>
+            </div>
+        </div>
+   </div>
+   </div>
+   
+ 
+   <div class="clearfix">
+                <div>
 
                         <div class="col-xs-12 col-sm-6" style="display:none;">
                             <!-- #section:pages/profile.info -->
@@ -1991,6 +2006,12 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
 <div id="uploadcitizenid" class="modal fade" role="dialog" style="display: none;">
     <div class="modal-dialog">
         <div class="modal-content">
+
+<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">บัตรประชาชน </h4>
+      </div>
+
             <div class="modal-body">
 
 
@@ -2004,7 +2025,7 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                             <input type="submit" id="submit-btn" value="อัพโหลด" class="btn btn-default">
                             <a class="btn btn-danger" href="javascript:$('#uploadcitizenid').modal('toggle');">ปิด</a>
 
-                            <img src="images/ajax-loader.gif" id="loading-img" style="display:none;" alt="Please Wait">
+                            <img src="images/ProgressBar.gif" id="loading-img" style="display:none;" alt="กรุณารอสักครู่">
                         </form>
                         <div id="output">
                             <img src="">
@@ -2019,6 +2040,49 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
         </div>
     </div>
 </div>
+
+
+
+<div id="uploadbookbank" class="modal fade" role="dialog" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+<div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <h4 class="modal-title">หน้าบัญชี </h4>
+      </div>
+
+            <div class="modal-body">
+
+    
+
+                <div id="upload-wrapper">
+                    <div align="center">
+
+                        <form action="imge_upload_citizenid_action.php" method="post" enctype="multipart/form-data"
+                              id="MyUploadForm">
+                            <input name="image_file" id="imageInput" type="file" class="btn btn-default">
+                            <input name="mcid_img" id="mcid_img" type="hidden" value=""><br>
+                            <input type="submit" id="submit-btn" value="อัพโหลด" class="btn btn-default">
+                            <a class="btn btn-danger" href="javascript:$('#uploadbookbank').modal('toggle');">ปิด</a>
+
+                            <img src="images/ProgressBar.gif" id="loading-img" style="display:none;" alt="กรุณารอสักครู่">
+                        </form>
+                        <div id="output">
+                            <img src="">
+                        </div>
+
+
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
 
 
 <div class="space-6"></div>
