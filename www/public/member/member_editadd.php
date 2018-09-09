@@ -409,6 +409,7 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
             } else {
                 $('.chekMemberAlert').html('<img src="./images/true.gif"/>');
                 document.getElementById("mcid_img").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
+                document.getElementById("mcid_img2").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
             }
         });
     }
@@ -424,6 +425,7 @@ if (!empty($_GET["lr"])) $lr = $_GET["lr"];
                 //$('.chekMemberAlert').html('<img src="./images/false.gif"/>');
                 document.getElementById("mcode").value = value = str_pad(data.trim(), 7, 0, false);
                 document.getElementById("mcid_img").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
+                document.getElementById("mcid_img2").value = document.getElementById("fmcode").value + document.getElementById("mcode").value;
                 checkMemberExit();
             } else {
                 //$('.chekMemberAlert').html('<img src="./images/true.gif"/>');
@@ -2001,6 +2003,7 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
             </button>
         </center>
         <input type="hidden" id="id_card_img" name="id_card_img" value="">
+        <input type="hidden" id="id_bookbank_img2" name="id_bookbank_img2" value="">
 </form>
 
 <div id="uploadcitizenid" class="modal fade" role="dialog" style="display: none;">
@@ -2058,16 +2061,16 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
                 <div id="upload-wrapper">
                     <div align="center">
 
-                        <form action="imge_upload_citizenid_action.php" method="post" enctype="multipart/form-data"
-                              id="MyUploadForm">
-                            <input name="image_file" id="imageInput" type="file" class="btn btn-default">
-                            <input name="mcid_img" id="mcid_img" type="hidden" value=""><br>
-                            <input type="submit" id="submit-btn" value="อัพโหลด" class="btn btn-default">
+                        <form action="imge_upload_bookbank_action.php" method="post" enctype="multipart/form-data"
+                              id="MyUploadForm2">
+                            <input name="image_file" id="imageInput2" type="file" class="btn btn-default">
+                            <input name="mcid_img" id="mcid_img2" type="hidden" value=""><br>
+                            <input type="submit" id="submit-btn2" value="อัพโหลด" class="btn btn-default">
                             <a class="btn btn-danger" href="javascript:$('#uploadbookbank').modal('toggle');">ปิด</a>
 
-                            <img src="images/ProgressBar.gif" id="loading-img" style="display:none;" alt="กรุณารอสักครู่">
+                            <img src="images/ProgressBar.gif" id="loading-img2" style="display:none;" alt="กรุณารอสักครู่">
                         </form>
-                        <div id="output">
+                        <div id="output2">
                             <img src="">
                         </div>
 
@@ -2117,7 +2120,15 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
     function afterSuccess() {
         $('#submit-btn').show(); //hide submit button
         $('#loading-img').hide(); //hide submit button
-        $('.pull-right').css("display", "block");
+       // $('.pull-right').css("display", "block");
+        //list_image();
+
+    }
+
+        function afterSuccess2() {
+        $('#submit-btn2').show(); //hide submit button
+        $('#loading-img2').hide(); //hide submit button
+        //$('.pull-right2').css("display", "block");
         //list_image();
 
     }
@@ -2167,6 +2178,56 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
         }
     }
 
+
+ //function to check file size before uploading.
+ function beforeSubmit2() {
+        //check whether browser fully supports all File API
+        if (window.File && window.FileReader && window.FileList && window.Blob) {
+
+            if (!$('#imageInput2').val()) //check empty input filed
+            {
+                $("#output2").html("กรุณาเลือกไฟล์ภาพ");
+                return false
+            }
+
+            var fsize = $('#imageInput2')[0].files[0].size; //get file size
+            var ftype = $('#imageInput2')[0].files[0].type; // get file type
+
+
+            //allow only valid image file types
+            switch (ftype) {
+                case 'image/png':
+                case 'image/gif':
+                case 'image/jpeg':
+                case 'image/pjpeg':
+                    break;
+                default:
+                    $("#output2").html("<b>" + ftype + "</b> ไม่สามารถใช้ไฟล์นี้ได้!");
+                    return false
+            }
+
+            //Allowed file size is less than 1 MB (1048576)
+            if (fsize > 5120000) {
+                $("#output2").html("ขนาดไฟล์ภาพใหญ่เกินไป" + "<b>" + "กรุณาเลือกไฟล์ที่มีขนาดน้อยกว่า " + bytesToSize(fsize) + "</b>");
+                return false
+            }
+
+            $('#submit-btn2').hide(); //hide submit button
+            $('#loading-img2').show(); //hide submit button
+            //$("#output").html("");
+
+        }
+        else {
+            //Output error to older browsers that do not support HTML5 File API
+            $("#output2").html("Please upgrade your browser, because your current browser lacks some new features we need!");
+            return false;
+        }
+    }
+
+
+
+
+
     //function to format bites bit.ly/19yoIPO
     function bytesToSize(bytes) {
         var sizes = ['Bytes', 'KB', 'MB', 'GB', 'TB'];
@@ -2184,8 +2245,22 @@ $mtype1 = $arr_mtype1[$data["mtype"]];
             resetForm: true        // reset the form after successful submit
         };
 
+   var options2 = {
+            target: '#output2',   // target element(s) to be updated with server response
+            beforeSubmit: beforeSubmit2,  // pre-submit callback
+            success: afterSuccess2,  // post-submit callback
+            resetForm: true        // reset the form after successful submit
+        };
+
+
         $('#MyUploadForm').submit(function () {
             $(this).ajaxSubmit(options);
+            // always return false to prevent standard browser submit and page navigation
+            return false;
+        });
+
+          $('#MyUploadForm2').submit(function () {
+            $(this).ajaxSubmit(options2);
             // always return false to prevent standard browser submit and page navigation
             return false;
         });

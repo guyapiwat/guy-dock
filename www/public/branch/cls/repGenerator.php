@@ -162,7 +162,7 @@ class repGenerator{
 		$this->fieldLink = $fieldLinkList;
 	}
 	public function setQuery($str){
-		
+		 
 		$this->qry = $str;
 	}
 	public function setResult($rs){
