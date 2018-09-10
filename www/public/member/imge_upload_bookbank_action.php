@@ -53,7 +53,7 @@ if(isset($_POST)){
 			$handle->image_ratio_y        = true; // ให้คำณวนความสูงอัตโนมัติ
 			//$dir_dest ="upload_images/".$_SESSION["companyid"]."/image/";
 			$dir_pics = $dir_dest;
-			$handle->file_new_name_body = "acc_no_".$fileimagename;
+			$handle->file_new_name_body = "book_no_".$fileimagename;
 			$handle->Process($dir_dest);
 
       
@@ -66,9 +66,9 @@ if(isset($_POST)){
             echo '<p class="result">';
             echo '  <b>การอัพโหลดภาพเสร็จสมบูรณ์</b><br />';
             echo ' <img src="'.$dir_dest. $handle->file_dst_name . '" border=0><br>' . $handle->file_dst_name . '';
-            echo ' <input type="hidden" id="id_card_img2" name="id_card_img2"  value="'. $handle->file_dst_name . '">';
+            echo ' <input type="hidden" id="id_bookbank_img3" name="id_bookbank_img3"  value="'. $handle->file_dst_name . '">';
 			echo '   (' . round(filesize($handle->file_dst_pathname)/256)/4 . 'KB)';
-            echo '</p><script>$("#id_card_img").val(\''. $handle->file_dst_name .'\');$("#showimage").html(\'<img src="../uploads/member/'. $handle->file_dst_name .'" alt="บัตรประชาชน" height="60" width="60">\');</script>';
+            echo '</p><script>$("#id_bookbank_img2").val(\''. $handle->file_dst_name .'\');$("#showimage2").html(\'<img src="../uploads/member/'. $handle->file_dst_name .'" alt="บัตรประชาชน" height="60" width="60">\');</script>';
 
             // $url= $dir_dest. $handle->file_dst_name;
             // $filename = $handle->file_dst_name;

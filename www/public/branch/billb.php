@@ -1,5 +1,9 @@
 <?
+//  echo $sqlWhere_satype1;
+// exit;
 include_once("global.php");
+
+
 $sale = $_POST['sale']==""?$_GET['sale']:$_POST['sale'];
 $fdate = $_POST['fdate']==""?$_GET['fdate']:$_POST['fdate'];
 $tdate = $_POST['tdate']==""?$_GET['tdate']:$_POST['tdate'];
@@ -47,7 +51,9 @@ $where_bills = findBills("sano","ali_asaleh",$bills);
 	}
 </script>
 <?
+
 require("connectmysql.php");
+
 
 
 //var_dump($_SESSION);
@@ -97,7 +103,9 @@ $sql = "SELECT ".$dbprefix."asaleh.ref,".$dbprefix."asaleh.inv_code,cancel,print
 $sql .= ",CASE send WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS sendsend ";
 $sql .= ",CASE sa_type WHEN 'Q' THEN '<img src=./images/true.gif>' ELSE '' END AS preserve ";
 $sql .= ",CASE ".$dbprefix."asaleh.uid WHEN '' THEN ".$dbprefix."asaleh.inv_code ELSE ".$dbprefix."asaleh.uid END AS uid ";
+
 $sql .= $sqlWhere_satype1;
+
 
 $sql .= ",".$dbprefix."asaleh.remark as remark ";
 $sql .= ",CASE ".$dbprefix."asaleh.receive WHEN '1' THEN concat('',".$dbprefix."asaleh.receive_date) ELSE '<img src=./images/false.gif>' END AS receive ,
@@ -131,7 +139,7 @@ $sql .= " and sadate >= '$fdate'  and sadate <= '$tdate'  ";
 
 
 if(!empty($where_bills))$sql .= " and ".$where_bills." ";
-//echo $sql;
+
 $monthmonth = explode("-",$fdate);
 //$fdate = $monthmonth[0].'-'.$monthmonth[1];
 //echo $sql;
@@ -164,7 +172,8 @@ $monthmonth = explode("-",$fdate);
 	}
 	else{
 //echo $sql;
- 
+//  echo $sql;
+// exit;
 		rpdialog_sale_branch1($_GET['sub'],$fdate,$tdate,$sale,$type,$xinv_code);
 		
 		 
