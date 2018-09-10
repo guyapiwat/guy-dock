@@ -266,7 +266,7 @@ function fnc_calc_fast_bonus($dbprefix,$ro,$fdate,$tdate,$fpdate,$tpdate){
     $sql = " SELECT mcode,SUM(tot_pv) as tot_pv FROM  ";
     $sql .= " ( ";
     $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_asaleh ";
-    $sql .= "    WHERE sadate >= '".$fdate."' and sadate <= '".$tdate."' and (sa_type IN 'A', 'Z') and cancel=0 GROUP BY mcode ";
+    $sql .= "    WHERE sadate >= '".$fdate."' and sadate <= '".$tdate."' and sa_type IN ('A', 'Z') and cancel=0 GROUP BY mcode ";
     $sql .= " UNION ALL ";
     $sql .= " SELECT mcode,SUM(tot_pv) as tot_pv  FROM ali_holdhead ";
     $sql .= "    WHERE ".$where." GROUP BY mcode ";

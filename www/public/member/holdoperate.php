@@ -61,41 +61,41 @@ if (isset($_GET['state'])) {
         $sv_code = "";
     }
 
-  
 
-    if($satype=="R"){
+
+
+    if ($satype == "R") {
         $satype = "A";
         $remark = "แจงสมัคร";
+        $memberfreeid = "";
         if (isset($_POST["memberfreeid"])) {
             //code ที่จะทำการแจงสมัคร
-            $mcode=$memberfreeid;
-        }else{
+            $memberfreeid = $_POST["memberfreeid"];
+            $mcode = $memberfreeid;
+        } else {
             //ไม่พบ code ที่จะทำการแจง hpv
             echo("<script>alert('แจงสมัครไม่พบรหัสผู้รับแจงกรุณาทดสอบอีกครั้ง');window.location.href='/member/index.php?sessiontab=4&sub=3';</script>");
             exit;
         }
+
+        if ($mcode == $_POST["lrmcode"]) {
+            echo("<script>alert('ไม่สามารถทำรายการได้เนื่องจากระบุรหัสอัพไลน์ผิด');window.location.href='/member/index.php?sessiontab=4&sub=3';</script>");
+            exit;
+        }
+    } else {
+        $memberfreeid = "";
+        $remark = "";
     }
 
-    if (isset($_POST["memberfreeid"])) {
-
-    $memberfreeid=$_POST['memberfreeid'];
-    $mcode=$memberfreeid;
-    $satype = "A";
-    $remark = "แจงสมัคร";
-
-    }else{
-    $memberfreeid="";
-    $remark ="";
-    }
 
 }
 
- 
-
- 
 
 if ($_GET['state'] == 0) {
+
+
     $mcode = trim($mcode);
+
     if (empty($tot_pv) or $tot_pv <= 0) {
         echo "<script language='JavaScript'>alert('" . $wording_lan["tab1_mem_110"] . "');window.location='index.php?sessiontab=4&sub=3'</script>";
         exit;
@@ -120,20 +120,20 @@ if ($_GET['state'] == 0) {
         echo "<script language='JavaScript'>alert('" . $wording_lan["tab1_mem_113"] . "');window.location='index.php?sessiontab=4&sub=3'</script>";
         exit;
     }
-    
-    if(isset($memberfreeid)){
+
+    if (isset($memberfreeid)) {
         $sql = "SELECT mcode from " . $dbprefix . "member WHERE mcode='" . $memberfreeid . "' and lr='' ";
         $rs = mysql_query($sql);
         if (mysql_num_rows($rs) > 0) {
-            $lr=$_POST["lr"];
-            $lrmcode=$_POST["lrmcode"];
-            if(isset($lr)){
+            $lr = $_POST["lr"];
+            $lrmcode = $_POST["lrmcode"];
+            if (isset($lr)) {
                 $memberfreeid = trim($memberfreeid);
-                update_member_lr($dbprefix,$memberfreeid,$lrmcode,$lr); 
+                update_member_lr($dbprefix, $memberfreeid, $lrmcode, $lr);
             }
         }
     }
-  
+
 
     /*$sql = "SELECT mcode from ".$dbprefix."member WHERE mcode='".$_SESSION["usercode"]."' and sv_code = '$sv_code' ";
     $rs = mysql_query($sql);
