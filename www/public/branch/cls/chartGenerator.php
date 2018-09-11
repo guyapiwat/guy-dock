@@ -499,7 +499,7 @@ class chartGenerator{
                          if($this->imgShow) //เมื่อมีการเซ็ตค่าให้มีการแสดงรูป
                            echo "<tr><td align='center' ><a href='".$this->redctlink."$mcode[$k]' target='_parent' >";
 							if($pos_cur[$mcode[$k]] != 'TN' and $pos_cur2[$mcode[$k]] <> ''){
-							echo "<img src='".$this->imgDef[$pos_cur2[$mcode[$k]]]."' >";
+							echo "<img src='".$this->imgDef[$pos_cur2[$mcode[$k]]]."' width='50'>";
 							}else{
 								echo "<img src='".$this->imgDef[$pos[$mcode[$k]]]."' border='0' width='45px'";
 							}
