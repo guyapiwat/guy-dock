@@ -12,3 +12,5 @@ www/public/member/pay_images_temp/
 www/public/branch/ExportXls/
 www/public/backoffice/ExportXls/
 www/public/backoffice/news/MyResize
+www/public/backoffice/pdf/
+www/public/invoice/pdf/
