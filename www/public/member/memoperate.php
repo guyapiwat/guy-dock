@@ -5,6 +5,7 @@ include_once("wording" . $_SESSION["lan"] . ".php");
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
 <?
 include("connectmysql.php");
+include("../api/line_notify.php");
 include("prefix.php");
 include("gencode.php");
 require_once("function.php");
@@ -921,6 +922,8 @@ if ($_GET['state'] == 0) {
 
         $client = new HttpClient("/members/main/ticker/");
         $client->push($tickData);
+
+        LineNotify::notify_message('สมัครสมาชิก' . $mcode . 'กรุณาเข้าไปทำการตรวจเอกสาร');
 
         //====================LOG===========================
         $text = "uid=" . $_SESSION["usercode"] . " action=memoperate =>$sql";
