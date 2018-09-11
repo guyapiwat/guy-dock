@@ -17,7 +17,7 @@ include("connectmysql.php");
 $value = (isset($_POST["value"])) ? $_POST["value"] : $_GET["value"];
 $mcode1 = $_SESSION["usercode"];
 
-$sql = "SELECT * FROM  `ali_member`   WHERE lr='' AND sp_code='$value'";
+$sql = "SELECT * FROM  `ali_member`   WHERE upa_code='' AND sp_code='$value'";
 //echo $sql;
                 $rs1 = mysql_query($sql);
                 if(mysql_num_rows($rs1)>0){

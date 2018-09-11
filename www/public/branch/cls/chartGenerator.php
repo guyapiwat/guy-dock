@@ -499,7 +499,7 @@ class chartGenerator{
                          if($this->imgShow) //เมื่อมีการเซ็ตค่าให้มีการแสดงรูป
                            echo "<tr><td align='center' ><a href='".$this->redctlink."$mcode[$k]' target='_parent' >";
 							if($pos_cur[$mcode[$k]] != 'TN' and $pos_cur2[$mcode[$k]] <> ''){
-							echo "<img src='".$this->imgDef[$pos_cur2[$mcode[$k]]]."' >";
+							echo "<img src='".$this->imgDef[$pos_cur2[$mcode[$k]]]."' width='50'>";
 							}else{
 								echo "<img src='".$this->imgDef[$pos[$mcode[$k]]]."' border='0' width='45px'";
 							}
@@ -517,7 +517,7 @@ class chartGenerator{
                             echo "</td></tr>";
                         }
                         echo "<tr><td $clspan align='center' style='cursor:pointer;'  onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabUDef[$pos[$mcode[$k]]]."'><font color='".$this->txtUDef[$pos[$mcode[$k]]]."'>$mcode[$k](".$lb[$mcode[$k]].")</font></td></tr>";
-                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>".substr($name_b[$mcode[$k]],0,15)."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
+                        echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>".$name_b[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
                         echo "<tr><td nowrap $clspan align='center' style='cursor:pointer;' onClick='parent.location=\"".$this->redctlink."$mcode[$k]\"' bgcolor='".$this->tabDDef[$pos[$mcode[$k]]]."'><font color='".$this->txtDDef[$pos[$mcode[$k]]]."'>ตำแหน่ง  : ".$pos[$mcode[$k]]."</font><br>".$scr->getQuota($mcode[$k])."</td></tr>";
                     //    echo $pos[$mcode[$k]];
                         echo "</table>";

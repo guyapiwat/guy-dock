@@ -1159,6 +1159,7 @@ if(empty($national))$national = 'Thailand';
 					<td align="right"><?=$wording_lan["tab1_mem_9"]?><font color="#ff0000">*</font></td>
 					<td>
 						<?
+
 							$rs = mysql_query("SELECT * FROM ".$dbprefix."lr_def");
 							for($i=0;$i<mysql_num_rows($rs);$i++){
 						?>

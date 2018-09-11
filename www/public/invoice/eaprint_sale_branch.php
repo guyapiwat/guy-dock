@@ -147,15 +147,9 @@ if ($_SESSION["admininvent"] != '') {
     define('FPDF_FONTPATH', '../backoffice/fpdf/font/');
 require('../backoffice/fpdf/Fpdf.php');
 //require('table1.php');
-<<<<<<< HEAD
 $pgsize=array(200,160);
 $pdf=new FPDF('P','mm',$pgsize);
 //$pdf=new FPDF('P','mm','Letter');
-=======
-//$pgsize=array(200,160);
-//$pdf=new FPDF('P','mm',$pgsize);
-//$pdf=new Fpdf('P','mm','Letter');
->>>>>>> f5e7f17619246337b6dba9542d1a84aa2e17c44e
 //$pgsize=array(200,210);
 //$pgsize=array(200,160);
 //$pdf=new FPDF('P','mm',$pgsize);

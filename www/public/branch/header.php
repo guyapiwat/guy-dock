@@ -130,4 +130,3 @@ global $wording_lan;
 </td>
  </tr>
 </table>
-             

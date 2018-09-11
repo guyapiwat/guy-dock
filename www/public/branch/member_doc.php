@@ -79,7 +79,8 @@ endforeach;
 
 //if($typereport == '1')box_member_search($data,$typereport);
 //else if($typereport == '2')rpdialog_mem_loaddoc($data);
-
+// echo "//".$s_list;
+// exit;
 $rec = new repGenerator();
 $rec->setQuery($sql);
 $rec->setSort($_GET['srt']==""?"UP":$_GET['srt']);

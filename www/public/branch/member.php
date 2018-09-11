@@ -72,6 +72,7 @@ if (isset($_GET["pg"])){$page=$_GET["pg"];} else {$page="1";}
 $sql = "SELECT pos_cur2,mtype1,hpv,voucher,id,mcode,name_t,bunit,mobile,sv_code,id_card,mdate,pos_cur,pos_cur2,sp_code2 as upa_code,sp_code,ewallet,eatoship,ecom,CONCAT(".$dbprefix."member.name_f,' ',".$dbprefix."member.name_t) as name_t ";
 $sql .= ",CASE mtype1 WHEN '0' THEN 'Member' WHEN '1' THEN 'Franchise'  WHEN '2' THEN 'Agency'  END AS mtype ";
 $sql .= ",CASE status_doc WHEN '1' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS status_doc ";
+$sql .= ",CASE cmp WHEN 'ครบ' THEN '<img src=./images/true.gif>' ELSE '<img src=./images/false.gif>' END AS cmp ";
 $sql .= ",CASE lr WHEN '1' THEN 'ซ้าย' WHEN '2' THEN 'ขวา'  WHEN '3' THEN 'ขวา'  END AS statur_lr ";
 $sql .= $sqlmtype;
 /*
@@ -184,17 +185,17 @@ if($mtype1!=""  ){
 			$rec->setCurPage($page);
 		//$rec->setShowField("mcode,name_t,mcode,mdate,exp_date,pos_cur,upa_code,sp_code,ewallet,all_pv");
 		//$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,วันหมดอายุ,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ,กระเป๋าเงิน,คะแนนส่วนตัว");
-		$rec->setShowField("mcode,name_t,mobile,id_card,mdate,pos_cur,pos_cur2,sp_code,status_doc,status_suspend,status_terminate1,ewallet,eatoship,voucher,hpv,mtype");
+		$rec->setShowField("mcode,name_t,mobile,id_card,mdate,pos_cur,pos_cur2,sp_code,status_doc,cmp,status_suspend,status_terminate1,ewallet,eatoship,voucher,hpv,mtype");
 		$rec->setHLight("status_terminate",1,array("#FF7777","#FF9999"),"HIDE");
 
-		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,เบอร์โทร,รหัสประชาชน,วันที่สมัคร,ตำแหน่ง,ตำแหน่งเกียรติยศ,รหัสผู้แนะนำ,เอกสาร,Suspend,Terminate,EW,EA,EV,HPV,ประเภท");
+		$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,เบอร์โทร,รหัสประชาชน,วันที่สมัคร,ตำแหน่ง,ตำแหน่งเกียรติยศ,รหัสผู้แนะนำ,เอกสาร,บัตรประชาชน,Suspend,Terminate,EW,EA,EV,HPV,ประเภท");
 		//$rec->setShowField("mcode,name_t,mdate,pos_cur,upa_code,sp_code");
 		//$rec->setFieldDesc("รหัสสมาชิก,ชื่อ,วันที่สมัคร,ตำแหน่ง,รหัสอัพไลน์,รหัสผู้แนะนำ");
-		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,right,right,right,right");
+		$rec->setFieldAlign("center,left,center,center,center,center,center,center,center,center,center,center,right,right,right,right");
 		//$rec->setFieldSpace("7%,11%,8%,7%,10%,7%,5%,5%,7%,5%,5%,5%,8%");
 		$rec->setFieldLink("index.php?sessiontab=1&sub=4&cmc=,,,,,");
-		$rec->setFieldFloatFormat(",,,,,,,,,,,2,2,2,2");
-		$rec->setSum(true,false,",,,,,,,,,,,true,true,true,true");
+		$rec->setFieldFloatFormat(",,,,,,,,,,,,2,2,2,2");
+		$rec->setSum(true,false,",,,,,,,,,,,,true,true,true,true");
 		if($acc->isAccess(4)){
 			$rec->setDel("index.php","id","id","sessiontab=1&sub=2");
 			$rec->setFromDelAttr("maindel","./index.php?sessiontab=1&sub=2&state=1","post","delfield");

@@ -5,6 +5,7 @@ include_once("wording" . $_SESSION["lan"] . ".php");
 <meta http-equiv="Content-Type" content="text/html; charset=tis-620">
 <?
 include("connectmysql.php");
+include("../api/line_notify.php");
 include("prefix.php");
 include("gencode.php");
 require_once("function.php");
@@ -22,6 +23,14 @@ if (isset($_GET['state'])) {
     } else {
         $id_card_img = "";
     }
+
+    //id_bookbank_img2
+    if (isset($_POST["id_bookbank_img2"])) {
+        $id_bookbank_img2 = $_POST["id_bookbank_img2"];
+    } else {
+        $id_bookbank_img2 = "";
+    }
+
 
     if (isset($_POST["txtoption"])) {
         $txtoption = $_POST["txtoption"];
@@ -856,15 +865,15 @@ if ($_GET['state'] == 0) {
     
     $sql = "insert into " . $dbprefix . "member (id,mcode ,name_f ,name_t ,name_e ,name_b ,sex ,mdate ,birthday ,age ,occupation ,status ,mar_name ,mar_age ,email ,beneficiaries ,relation ,national ,id_tax ,id_card ,address ,provinceId,amphurId,districtId ,zip ,home_t ,fax,mobile ,cid_mobile,mcode_acc, bonusrec ,bankcode ,branch ,acc_type ,acc_no ,acc_name ,acc_prov ,sv_code ,sp_code ,sp_name ,upa_code ,upa_name ,inv_code ,uid ,uidbase,posid,pos_cur,memdesc,lr,cmp,cmp2,cmp3,bmdate1,bmdate2,bmdate3,ccmp,ccmp2,ccmp3,cbmdate1,cbmdate2,cbmdate3,iname_f,iname_t,irelation,iphone,iid_card,sletter,sinv_code
 		,cname_f,cname_t,cname_e,cname_b,cbirthday,cnational,cid_tax,cid_card,caddress,czip,chome_t,coffice_t,cmobile,csex,cemail,cdistrictId,camphurId,cprovinceId,cfax
-		,street,building,village,soi,cstreet,cbuilding,cvillage,csoi,locationbase,line_id,facebook_name,cline_id,cfacebook_name,id_card_img
+		,street,building,village,soi,cstreet,cbuilding,cvillage,csoi,locationbase,line_id,facebook_name,cline_id,cfacebook_name,id_card_img,acc_no_img
 		) values ('','$mcode' ,'$name_f' ,'$name_t' ,'$name_e','$name_b' ,'$sex' ,'$mdate' ,'$birthday' ,'$age' ,'$occupation' ,'$status' ,'$mar_name' ,'$mar_age' ,'$email' ,'$beneficiaries' ,'$relation' ,'$national' ,'$id_tax' ,'$id_card' ,'$address'  ,'$province','$amphur','$district' ,'$zip' ,'$home_t' ,'$fax','$mobile' ,'$cid_mobile' , '$mcode_acc' ,'$bonusrec' ,'$bankcode' ,'$branch' ,'$acc_type' ,'$acc_no' ,'$acc_name' ,'$acc_prov' ,'$sv_code' ,'$sp_code' ,'$sp_name' ,'' ,'' ,'" . $_SESSION["usercode"] . "' ,'" . $_SESSION["usercode"] . "' ,'" . $_SESSION["m_locationbase"] . "','$posid','$pos_cur','$memdesc','$lr','$cmp','$cmp2','$cmp3','$bmdate1','$bmdate2','$bmdate3','$ccmp','$ccmp2','$ccmp3','$cbmdate1','$cbmdate2','$cbmdate3','$iname_f','$iname_t','$irelation','$iphone','$iid_card','$sletter','$sinv_code'
 		
 		,'$cname_f','$cname_t','$cname_e','$cname_b','$cbirthday','$cnational','$cid_tax','$cid_card','$caddress','$czip','$chome_t','$coffice_t','$cmobile','$csex','$cemail','$cdistrict','$camphur','$cprovince','$cfax'
 
-		,'$street','$building','$village','$soi','$cstreet','$cbuilding','$cvillage','$csoi','" . $_SESSION["m_locationbase"] . "','$line_id','$facebook_name','$cline_id','$cfacebook_name','$id_card_img'
+		,'$street','$building','$village','$soi','$cstreet','$cbuilding','$cvillage','$csoi','" . $_SESSION["m_locationbase"] . "','$line_id','$facebook_name','$cline_id','$cfacebook_name','$id_card_img','$id_bookbank_img2'
 		) ";
-
-
+// echo $sql;
+// exit;
     //====================LOG===========================
     $text = "uid=" . $_SESSION["usercode"] . " action=memoperate =>$sql";
     writelogfile($text);
@@ -913,6 +922,8 @@ if ($_GET['state'] == 0) {
 
         $client = new HttpClient("/members/main/ticker/");
         $client->push($tickData);
+
+        LineNotify::notify_message('สมัครสมาชิก' . $mcode . 'กรุณาเข้าไปทำการตรวจเอกสาร');
 
         //====================LOG===========================
         $text = "uid=" . $_SESSION["usercode"] . " action=memoperate =>$sql";
